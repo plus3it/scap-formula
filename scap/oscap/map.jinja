@@ -1,0 +1,26 @@
+{%- set osrel = salt.grains.get('osmajorrelease') %}
+
+{%- set os = salt.grains.filter_by({
+    'RedHat': 'rhel',
+    'CentOS': 'rhel' if osrel == '6' else salt.grains.get('os')|lower
+}, grain='os') %}
+
+{%- set contentdir = '/usr/share/xml/scap/ssg/content' %}
+
+{#- Initialize oscap dictionary with defaults and pillar data #}
+{%- set oscap = salt.pillar.get(
+    'scap:lookup:oscap',
+    default = {
+        'profile': 'common',
+        'outputdir': '/root/oscap'
+    },
+    merge = True
+) %}
+
+{#- Update oscap dictionary with static values #}
+{%- do oscap.update({
+    'cpe': contentdir ~ '/ssg-rhel' ~ osrel ~ '-cpe-dictionary.xml',
+    'xccdf': contentdir ~ '/ssg-' ~ os ~ osrel ~ '-xccdf.xml',
+    'report': oscap.outputdir ~ '/oscap-report_$(date "+%Y%m%d%H%M").html',
+    'results': oscap.outputdir ~ '/oscap-results_$(date "+%Y%m%d%H%M").xml'
+}) %}
