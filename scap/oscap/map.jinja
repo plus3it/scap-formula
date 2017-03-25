@@ -2,25 +2,25 @@
 
 {%- set os = salt.grains.filter_by({
     'RedHat': 'rhel',
-    'CentOS': 'rhel' if osrel == '6' else salt.grains.get('os')|lower
+    'CentOS': 'centos'
 }, grain='os') %}
-
-{%- set contentdir = '/usr/share/xml/scap/ssg/content' %}
 
 {#- Initialize oscap dictionary with defaults and pillar data #}
 {%- set oscap = salt.pillar.get(
     'scap:lookup:oscap',
     default = {
         'profile': 'common',
-        'outputdir': '/root/oscap'
+        'outputdir': '/root/scap/output',
+        'contentdir': '/root/scap/content'
     },
     merge = True
 ) %}
 
 {#- Update oscap dictionary with static values #}
 {%- do oscap.update({
-    'cpe': contentdir ~ '/ssg-rhel' ~ osrel ~ '-cpe-dictionary.xml',
-    'xccdf': contentdir ~ '/ssg-' ~ os ~ osrel ~ '-xccdf.xml',
-    'report': oscap.outputdir ~ '/oscap-report_$(date "+%Y%m%d%H%M").html',
-    'results': oscap.outputdir ~ '/oscap-results_$(date "+%Y%m%d%H%M").xml'
+    'content_source': 'salt://scap/content',
+    'cpe': oscap.contentdir ~ '/ssg/ssg-rhel' ~ osrel ~ '-cpe-dictionary.xml',
+    'xccdf': oscap.contentdir ~ '/ssg/ssg-' ~ os ~ osrel ~ '-xccdf.xml',
+    'report': oscap.outputdir ~ '/oscap-report.$(date "+%Y%m%d%H%M").html',
+    'results': oscap.outputdir ~ '/oscap-results.$(date "+%Y%m%d%H%M").xml'
 }) %}

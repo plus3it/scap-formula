@@ -6,7 +6,8 @@ scap:
     # Configuration dictionary used by the `oscap` driver.
     oscap:
       profile: common
-      outputdir: /root/oscap
+      outputdir: /root/scap/output
+      contentdir: /root/scap/content
 
     # Configuration dictionary used by the `scc` driver.
     scc:
