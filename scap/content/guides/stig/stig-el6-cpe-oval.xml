@@ -3,7 +3,7 @@
   <generator>
     <oval:product_name>repotool</oval:product_name>
     <oval:schema_version>5.8</oval:schema_version>
-    <oval:timestamp>2016-09-21T09:58:40</oval:timestamp>
+    <oval:timestamp>2016-12-22T10:13:22</oval:timestamp>
   </generator>
   <definitions>
     <definition class="inventory" id="oval:mil.disa.fso.redhat.rhel6:def:100" version="3">
@@ -22,7 +22,7 @@
           <criterion comment="Red Hat Enterprise Linux 6 Workstation is installed" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:102" />
           <criterion comment="Red Hat Enterprise Linux 6 Server is installed" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:103" />
           <criterion comment="Red Hat Enterprise Linux 6 Client is installed" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:104" />
-          <criterion comment="Community ENTerprise Operating System 6 is installed" test_ref="oval:mil.disa.fso.centos.centos6:tst:210" />
+          <criterion comment="CentOS Enterprise Linux 6 Client is installed" test_ref="oval:mil.disa.fso.centos.centos6:tst:210" />
         </criteria>
       </criteria>
     </definition>
@@ -82,4 +82,3 @@
     </linux:rpminfo_state>
   </states>
 </oval_definitions>
-
