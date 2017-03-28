@@ -2,18 +2,11 @@
 
 include:
   - scap.oscap
+  - scap.content
 
 create oscap output directory:
   file.directory:
     - name: '{{ oscap.outputdir }}'
-    - makedirs: True
-    - require_in:
-      - cmd: install oscap packages
-
-manage scap content:
-  file.recurse:
-    - name: '{{ oscap.contentdir }}'
-    - source: {{ oscap.content_source }}
     - makedirs: True
     - require_in:
       - cmd: install oscap packages

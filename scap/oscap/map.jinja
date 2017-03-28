@@ -1,3 +1,5 @@
+{%- from 'scap/map.jinja' import scap with context %}
+
 {%- set osrel = salt.grains.get('osmajorrelease') %}
 
 {%- set os = salt.grains.filter_by({
@@ -10,17 +12,15 @@
     'scap:lookup:oscap',
     default = {
         'profile': 'common',
-        'outputdir': '/root/scap/output',
-        'contentdir': '/root/scap/content'
+        'outputdir': '/root/scap/output'
     },
     merge = True
 ) %}
 
 {#- Update oscap dictionary with static values #}
 {%- do oscap.update({
-    'content_source': 'salt://scap/content',
-    'cpe': oscap.contentdir ~ '/ssg/ssg-rhel' ~ osrel ~ '-cpe-dictionary.xml',
-    'xccdf': oscap.contentdir ~ '/ssg/ssg-' ~ os ~ osrel ~ '-xccdf.xml',
+    'cpe': scap.content.local_dir ~ '/ssg/ssg-rhel' ~ osrel ~ '-cpe-dictionary.xml',
+    'xccdf': scap.content.local_dir ~ '/ssg/ssg-' ~ os ~ osrel ~ '-xccdf.xml',
     'report': oscap.outputdir ~ '/oscap-report.$(date "+%Y%m%d%H%M").html',
     'results': oscap.outputdir ~ '/oscap-results.$(date "+%Y%m%d%H%M").xml'
 }) %}
