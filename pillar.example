@@ -3,6 +3,9 @@ scap:
     # Set the SCAP driver. Must be one of 'oscap' or 'scc'.
     driver:
 
+    # Set the filesystem path where scan results will be stored.
+    output_dir:
+
     # Configuration dictionary used to sync content to a system
     content:
       local_dir:  # Local directory to sync scap guides
@@ -13,16 +16,14 @@ scap:
       xccdf: ''  # Path to xccdf.xml, relative to content.local_dir
       cpe: ''    # Path to cpe.xml, relative to content.local_dir
       profile: common
-      outputdir: /root/scap/output
 
     # Configuration dictionary used by the `scc` driver.
     scc:
-      version: '4.0.1'
-      outputdir: ''
+      version: '4.1.1'
       pkg:
         source: https://url/to/scc.rpm
-      content:
-        - source: https://url/to/scap-benchmark1.zip
-          source_hash: https://url/to/scap-benchmark1.zip.HASH
-        - source: https://url/to/scap-benchmark2.zip
-          source_hash: https://url/to/scap-benchmark2.zip.HASH
+      guide_patterns:
+        # List of path-patterns relative to content.source. These patterns will
+        # be matched by globbing '*' to the end, and every match will result in
+        # a scap scan using scc.
+        - stig/stig-el6

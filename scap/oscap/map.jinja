@@ -14,15 +14,15 @@
         'cpe': 'ssg/ssg-rhel' ~ osrel ~ '-cpe-dictionary.xml',
         'xccdf': 'ssg/ssg-' ~ os ~ osrel ~ '-xccdf.xml',
         'profile': 'common',
-        'outputdir': '/root/scap/output'
     },
     merge = True
 ) %}
 
 {#- Update oscap dictionary with static values #}
 {%- do oscap.update({
+    'output_dir': scap.output_dir,
     'cpe': scap.content.local_dir ~ '/' ~ oscap.cpe,
     'xccdf': scap.content.local_dir ~ '/' ~ oscap.xccdf,
-    'report': oscap.outputdir ~ '/oscap-report.' ~ oscap.xccdf|replace('/','.') ~ '.$(date "+%Y%m%d%H%M").html',
-    'results': oscap.outputdir ~ '/oscap-results.' ~ oscap.xccdf|replace('/','.') ~ '.$(date "+%Y%m%d%H%M").xml'
+    'report': scap.output_dir ~ '/oscap-report.' ~ oscap.xccdf|replace('/','.') ~ '.$(date "+%Y%m%d%H%M").html',
+    'results': scap.output_dir ~ '/oscap-results.' ~ oscap.xccdf|replace('/','.') ~ '.$(date "+%Y%m%d%H%M").xml'
 }) %}

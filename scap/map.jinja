@@ -5,20 +5,25 @@
         'source' : 'salt://scap/content/guides',
     },
     'Windows' : {
-        'local_dir' : 'C:\\SCAP\\Content'
+        'local_dir': 'C:\\SCAP\\Content'
     },
     'RedHat' : {
-        'local_dir' : '/root/scap/content'
+        'local_dir': '/root/scap/content'
     } },
     grain='os_family',
     merge=salt.pillar.get('scap:lookup:content', {}),
     base='base')
 %}
 
-
 {% set scap = {
+    'content': content,
     'driver': salt.grains.get(
         'scap:driver',
         default = salt.pillar.get('scap:lookup:driver')),
-    'content': content
+    'output_dir': salt.grains.filter_by({
+        'Windows' : 'C:\\SCAP\\Output',
+        'RedHat' : '/root/scap/output',
+        },
+        grain='os_family',
+        merge=salt.pillar.get('scap:lookup:output_dir'))
 } %}

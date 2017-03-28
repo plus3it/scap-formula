@@ -1,3 +1,5 @@
+{%- from 'scap/map.jinja' import scap with context %}
+
 {#-
     Establish 'scc' dictionary. Cross-platform defaults are in the 'base' key.
     Platform-specific defaults are selected by the 'os_family' grain, combined
@@ -8,26 +10,26 @@
 
 {%- set scc = salt.grains.filter_by({
     'base': {
-        'outputdir' : '',
-        'content' : [],
-        'pkg' : {},
+        'content_source' : scap.content.source,
+        'guide_patterns' : [],
+        'output_dir': scap.output_dir,
+        'pkg' : {}
     },
     'Windows' : {
         'name' : 'scc',
         'cmd' : 'C:\\Program Files (x86)\\SCAP Compliance Checker ' ~ version ~ '\\cscc.bat',
-        'cachedir' : opts['cachedir'] ~ '\\files\\base\\scap\\scc\\files',
-        'ossep' : '\\',
+        'content_cache' : opts['cachedir'] ~ '\\files\\base\\' ~ scap.content.source | replace('salt://', '') | replace('/', '\\'),
         'retry_script' : 'salt://' ~ tpldir ~ '/files/retry.bat',
         'version' : version,
     },
     'RedHat' : {
         'name' : 'spawarscc',
         'cmd' : '/opt/scc/cscc',
-        'cachedir' : opts['cachedir'] ~ '/files/base/scap/scc/files',
-        'ossep' : '/',
+        'content_cache' : opts['cachedir'] ~ '/files/base/' ~ scap.content.source | replace('salt://', ''),
         'retry_script' : 'salt://' ~ tpldir ~ '/files/retry.sh',
         'version' : '',
     } },
     grain='os_family',
     merge=salt.pillar.get('scap:lookup:scc', {}),
-    base='base') %}
+    base='base'
+) %}

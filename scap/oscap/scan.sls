@@ -6,7 +6,7 @@ include:
 
 create oscap output directory:
   file.directory:
-    - name: '{{ oscap.outputdir }}'
+    - name: '{{ oscap.output_dir }}'
     - makedirs: True
     - require_in:
       - cmd: install oscap packages
