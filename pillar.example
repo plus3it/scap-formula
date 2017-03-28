@@ -10,6 +10,8 @@ scap:
 
     # Configuration dictionary used by the `oscap` driver.
     oscap:
+      xccdf: ''  # Path to xccdf.xml, relative to content.local_dir
+      cpe: ''    # Path to cpe.xml, relative to content.local_dir
       profile: common
       outputdir: /root/scap/output
 

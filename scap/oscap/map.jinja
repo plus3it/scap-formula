@@ -11,6 +11,8 @@
 {%- set oscap = salt.pillar.get(
     'scap:lookup:oscap',
     default = {
+        'cpe': 'ssg/ssg-rhel' ~ osrel ~ '-cpe-dictionary.xml',
+        'xccdf': 'ssg/ssg-' ~ os ~ osrel ~ '-xccdf.xml',
         'profile': 'common',
         'outputdir': '/root/scap/output'
     },
@@ -19,8 +21,8 @@
 
 {#- Update oscap dictionary with static values #}
 {%- do oscap.update({
-    'cpe': scap.content.local_dir ~ '/ssg/ssg-rhel' ~ osrel ~ '-cpe-dictionary.xml',
-    'xccdf': scap.content.local_dir ~ '/ssg/ssg-' ~ os ~ osrel ~ '-xccdf.xml',
-    'report': oscap.outputdir ~ '/oscap-report.$(date "+%Y%m%d%H%M").html',
-    'results': oscap.outputdir ~ '/oscap-results.$(date "+%Y%m%d%H%M").xml'
+    'cpe': scap.content.local_dir ~ '/' ~ oscap.cpe,
+    'xccdf': scap.content.local_dir ~ '/' ~ oscap.xccdf,
+    'report': oscap.outputdir ~ '/oscap-report.' ~ oscap.xccdf|replace('/','.') ~ '.$(date "+%Y%m%d%H%M").html',
+    'results': oscap.outputdir ~ '/oscap-results.' ~ oscap.xccdf|replace('/','.') ~ '.$(date "+%Y%m%d%H%M").xml'
 }) %}
