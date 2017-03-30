@@ -1,19 +1,14 @@
 {# Set the scap dictionary #}
 
-{%- set content = salt['grains.filter_by']({
-    'base': {
-        'source' : 'salt://scap/content/guides',
-    },
-    'Windows' : {
-        'local_dir': 'C:\\SCAP\\Content'
-    },
-    'RedHat' : {
-        'local_dir': '/root/scap/content'
-    } },
-    grain='os_family',
-    merge=salt.pillar.get('scap:lookup:content', {}),
-    base='base')
-%}
+{%- set content = {
+    'source' : salt.pillar.get('scap:lookup:content:source') | default('salt://scap/content/guides', true),
+    'local_dir' : salt['grains.filter_by']({
+        'Windows' : 'C:\\SCAP\\Content',
+        'RedHat' : '/root/scap/content',
+        },
+        grain='os_family',
+        merge=salt.pillar.get('scap:lookup:content:local_dir'))
+} %}
 
 {% set scap = {
     'content': content,
