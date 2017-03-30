@@ -10886,6 +10886,7 @@ age, and 7 day warning period with the following command:
             <ns0:value selector="10">10</ns0:value>
             <ns0:value selector="12">12</ns0:value>
             <ns0:value selector="14">14</ns0:value>
+            <ns0:value selector="15">15</ns0:value>
           </ns0:Value>
           <ns0:Value id="var_accounts_maximum_age_login_defs" type="number">
             <ns0:title xml:lang="en-US">maximum password age</ns0:title>
