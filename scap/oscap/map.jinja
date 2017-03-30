@@ -11,8 +11,8 @@
 {%- set oscap = salt.pillar.get(
     'scap:lookup:oscap',
     default = {
-        'cpe': 'ssg/ssg-rhel' ~ osrel ~ '-cpe-dictionary.xml',
-        'xccdf': 'ssg/ssg-' ~ os ~ osrel ~ '-xccdf.xml',
+        'cpe': 'openscap/ssg-rhel' ~ osrel ~ '-cpe-dictionary.xml',
+        'xccdf': 'openscap/ssg-' ~ os ~ osrel ~ '-xccdf.xml',
         'profile': 'common',
     },
     merge = True
