@@ -2,7 +2,7 @@
 
 {%- set content = {
     'source': salt.pillar.get('scap:lookup:content:source') | default('salt://scap/content/guides', true),
-    'local_dir': salt.pillar.get('scap:lookup:content:output_dir') | default(
+    'local_dir': salt.pillar.get('scap:lookup:content:local_dir') | default(
         salt.grains.filter_by({
             'Windows': 'C:\\SCAP\\Content',
             'RedHat': '/root/scap/content',
