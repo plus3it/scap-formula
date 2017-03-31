@@ -1,13 +1,13 @@
 {# Set the scap dictionary #}
 
 {%- set content = {
-    'source' : salt.pillar.get('scap:lookup:content:source') | default('salt://scap/content/guides', true),
-    'local_dir' : salt['grains.filter_by']({
-        'Windows' : 'C:\\SCAP\\Content',
-        'RedHat' : '/root/scap/content',
-        },
-        grain='os_family',
-        merge=salt.pillar.get('scap:lookup:content:local_dir'))
+    'source': salt.pillar.get('scap:lookup:content:source') | default('salt://scap/content/guides', true),
+    'local_dir': salt.pillar.get('scap:lookup:content:output_dir') | default(
+        salt.grains.filter_by({
+            'Windows': 'C:\\SCAP\\Content',
+            'RedHat': '/root/scap/content',
+        }, grain='os_family'),
+        true)
 } %}
 
 {% set scap = {
@@ -15,10 +15,10 @@
     'driver': salt.grains.get(
         'scap:driver',
         default = salt.pillar.get('scap:lookup:driver')),
-    'output_dir': salt.grains.filter_by({
-        'Windows' : 'C:\\SCAP\\Output',
-        'RedHat' : '/root/scap/output',
-        },
-        grain='os_family',
-        merge=salt.pillar.get('scap:lookup:output_dir'))
+    'output_dir': salt.pillar.get('scap:lookup:output_dir') | default(
+        salt.grains.filter_by({
+            'Windows': 'C:\\SCAP\\Output',
+            'RedHat': '/root/scap/output',
+        }, grain='os_family'),
+        true)
 } %}
