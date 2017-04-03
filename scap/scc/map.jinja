@@ -17,7 +17,7 @@
     },
     'Windows' : {
         'name' : 'scc',
-        'cmd' : 'C:\\Program Files (x86)\\SCAP Compliance Checker ' ~ version ~ '\\cscc.bat',
+        'cmd' : 'C:\\Program Files\\SCAP Compliance Checker ' ~ version ~ '\\cscc.exe',
         'content_cache' : opts['cachedir'] ~ '\\files\\base\\' ~ scap.content.source | replace('salt://', '') | replace('/', '\\'),
         'retry_script' : 'salt://' ~ tpldir ~ '/files/retry.bat',
         'version' : version,
