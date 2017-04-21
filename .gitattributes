@@ -22,3 +22,4 @@
 *.RTF	 diff=astextplain
 
 *.bat text eol=crlf
+*.xml -text diff=astextplain
