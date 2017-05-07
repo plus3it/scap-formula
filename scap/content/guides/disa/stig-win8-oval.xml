@@ -3,7 +3,7 @@
   <generator>
     <oval:product_name>repotool</oval:product_name>
     <oval:schema_version>5.8</oval:schema_version>
-    <oval:timestamp>2016-12-27T15:56:29</oval:timestamp>
+    <oval:timestamp>2017-04-03T12:14:48</oval:timestamp>
   </generator>
   <definitions>
     <definition id="oval:mil.disa.fso.windows:def:3931" version="6" class="compliance">
@@ -6297,6 +6297,70 @@
         <criterion test_ref="oval:mil.disa.fso.windows:tst:515800" comment="Verifies command line data is included in process creation events is endabled" />
       </criteria>
     </definition>
+    <definition id="oval:mil.disa.fso.windows:def:5160" version="1" class="compliance">
+      <metadata>
+        <title>The HBSS McAfee Agent must be installed.</title>
+        <affected family="windows">
+          <platform>Microsoft Windows Server 2012</platform>
+          <platform>Microsoft Windows Server 2008 R2</platform>
+          <platform>Microsoft Windows Server 2008</platform>
+          <platform>Microsoft Windows 7</platform>
+          <platform>Microsoft Windows 8</platform>
+        </affected>
+        <description>The HBSS McAfee Agent must be installed.</description>
+      </metadata>
+      <criteria operator="OR">
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:516000" comment="McAfee Framework Service is running" />
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:516001" comment="McAfee Agent Service is running" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.fso.windows:def:5161" version="1" class="compliance">
+      <metadata>
+        <title>This system is running Windows 8.1 or Windows Server 2012 R2</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 8</platform>
+          <platform>Microsoft Windows 8.1</platform>
+          <platform>Microsoft Windows Server 2012</platform>
+          <platform>Microsoft Windows Server 2012 R2</platform>
+        </affected>
+        <description>This system is running Windows 8.1 or Windows Server 2012 R2</description>
+      </metadata>
+      <criteria comment="Determine the value stored in HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\CurrentVersion is 6.3" operator="AND">
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:516100" comment="Check if the CurrentVersion value equals 6.3" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.fso.windows:def:5162" version="1" class="compliance">
+      <metadata>
+        <title>The SMB1Protocol Win32_OptionalFeature must be at InstallState 2</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 8.1</platform>
+          <platform>Microsoft Windows Server 2012 R2</platform>
+        </affected>
+        <description>The SMB1Protocol Win32_OptionalFeature must be at InstallState 2 to disable the Windows optional feature SMB 1.0/CIFS File Sharing Support.</description>
+      </metadata>
+      <criteria comment="Determine if SMB v1 protocol is disabled for the version of Windows" operator="AND">
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:516200" comment="Check the WMI Objects to see if the SMB1Protocol Win32_OptionalFeature is at InstallState 2" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.fso.windows:def:5170" version="1" class="compliance">
+      <metadata>
+        <title>WN08-00-000160</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 8.1</platform>
+        </affected>
+        <description>The Server Message Block (SMB) v1 protocol must be disabled on the system.</description>
+      </metadata>
+      <criteria comment="Determine if SMB v1 protocol is disabled for the version of Windows" operator="AND">
+        <criteria operator="OR">
+          <extend_definition definition_ref="oval:mil.disa.fso.windows:def:5162" comment="Check the WMI Objects to see if the SMB1Protocol Win32_OptionalFeature is at InstallState 2" />
+          <extend_definition definition_ref="oval:mil.disa.fso.windows:def:5161" negate="true" comment="Check if the CurrentVersion value equals 6.3" />
+        </criteria>
+        <criteria operator="OR">
+          <criterion test_ref="oval:mil.disa.stig.unknown:tst:100" comment="Unknown" />
+          <extend_definition definition_ref="oval:mil.disa.fso.windows:def:5161" comment="Check if the CurrentVersion value equals 6.3" />
+        </criteria>
+      </criteria>
+    </definition>
     <definition id="oval:mil.disa.stig.windows:def:30" version="1" class="compliance">
       <metadata>
         <title>Local volumes must be formatted using NTFS.</title>
@@ -8027,6 +8091,23 @@
       <object object_ref="oval:mil.disa.fso.windows:obj:515800" />
       <state state_ref="oval:mil.disa.fso.windows:ste:515800" />
     </registry_test>
+    <wmi57_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:516000" version="1" comment="McAfee Framework Service is running" check_existence="all_exist" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:516000" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:516000" />
+    </wmi57_test>
+    <wmi57_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:516001" version="1" comment="McAfee Agent Service is running" check_existence="all_exist" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:516001" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:516000" />
+    </wmi57_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:516100" version="1" comment="Check HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\CurrentVersion for the value 6.3" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:516100" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:516100" />
+    </registry_test>
+    <wmi57_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:516200" version="1" comment="SMB v1 Protocol is disabled" check_existence="all_exist" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:516200" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:516200" />
+    </wmi57_test>
+    <unknown_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.unknown:tst:100" version="1" comment="Unknown" check="all" />
     <wmi_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:3000" version="1" check="all" check_existence="none_exist" comment="Local volumes use NTFS">
       <object object_ref="oval:mil.disa.stig.windows:obj:3000" />
     </wmi_test>
@@ -9678,6 +9759,23 @@
       <key datatype="string" operation="equals">SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit</key>
       <name datatype="string" operation="pattern match">ProcessCreationIncludeCmdLine_Enabled</name>
     </registry_object>
+    <wmi57_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:516000" version="1" comment="McAfeeFramework State">
+      <namespace>root\cimv2</namespace>
+      <wql>SELECT state FROM Win32_Service WHERE Name="McAfeeFramework"</wql>
+    </wmi57_object>
+    <wmi57_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:516001" version="1" comment="McAfee Agent Service (masvc) State">
+      <namespace>root\cimv2</namespace>
+      <wql>SELECT state FROM Win32_Service WHERE Name="masvc"</wql>
+    </wmi57_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:516100" version="1" comment="Check HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\CurrentVersion">
+      <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string">SOFTWARE\Microsoft\Windows NT\CurrentVersion</key>
+      <name datatype="string">CurrentVersion</name>
+    </registry_object>
+    <wmi57_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:516200" version="1" comment="SMB v1 Protocol Win32_OptionalFeature object">
+      <namespace datatype="string">root\cimv2</namespace>
+      <wql datatype="string" operation="equals">SELECT installstate FROM win32_optionalfeature WHERE name = 'SMB1Protocol'</wql>
+    </wmi57_object>
     <wmi_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:3000" version="1" comment="All 'Local Disk' File systems not using NTFS">
       <namespace datatype="string">root\cimv2</namespace>
       <wql datatype="string">SELECT deviceid FROM win32_logicaldisk WHERE drivetype=3 AND filesystem!="NTFS"</wql>
@@ -10712,6 +10810,20 @@
     <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:515800" version="1" comment="Does the value equal 1">
       <value datatype="int" operation="equals">1</value>
     </registry_state>
+    <wmi57_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:516000" version="1" comment="Is the McAfee Agent Service or McAfee Framework Service running">
+      <result datatype="record" operation="equals">
+        <field xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" name="state">Running</field>
+      </result>
+    </wmi57_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:516100" version="1" comment="Reg_Sz type and value equals 6.3">
+      <type>reg_sz</type>
+      <value datatype="string" operation="equals">6.3</value>
+    </registry_state>
+    <wmi57_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:516200" version="1" comment="Check SMB v1 Protocol Win32_OptionalFeature object InstallState is equal to 2">
+      <result datatype="record" operation="equals">
+        <field xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" name="installstate" entity_check="at least one" datatype="string">2</field>
+      </result>
+    </wmi57_state>
     <wmi57_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:12000" version="1" comment="Is DEP set to 'Opt Out'">
       <result datatype="record" operation="equals">
         <field xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" name="dataexecutionprevention_supportpolicy" entity_check="at least one" datatype="string">3</field>

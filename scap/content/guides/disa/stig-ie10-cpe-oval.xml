@@ -3,7 +3,7 @@
   <generator>
     <oval:product_name>repotool</oval:product_name>
     <oval:schema_version>5.8</oval:schema_version>
-    <oval:timestamp>2016-06-22T09:32:11</oval:timestamp>
+    <oval:timestamp>2017-03-31T12:57:39</oval:timestamp>
   </generator>
   <definitions>
     <definition id="oval:mil.disa.fso.ie:def:409" version="3" class="inventory">

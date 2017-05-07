@@ -3,7 +3,7 @@
   <generator>
     <oval:product_name>repotool</oval:product_name>
     <oval:schema_version>5.8</oval:schema_version>
-    <oval:timestamp>2016-12-28T15:32:08</oval:timestamp>
+    <oval:timestamp>2017-03-30T10:43:24</oval:timestamp>
   </generator>
   <definitions>
     <definition id="oval:mil.disa.fso.windows:def:2908" version="5" class="compliance">
@@ -8378,6 +8378,81 @@
         <criterion test_ref="oval:mil.disa.fso.windows:tst:514801" comment="If the Telnet service is uninstalled, it does not apply." />
       </criteria>
     </definition>
+    <definition id="oval:mil.disa.fso.windows:def:5160" version="1" class="compliance">
+      <metadata>
+        <title>The HBSS McAfee Agent must be installed.</title>
+        <affected family="windows">
+          <platform>Microsoft Windows Server 2012</platform>
+          <platform>Microsoft Windows Server 2008 R2</platform>
+          <platform>Microsoft Windows Server 2008</platform>
+          <platform>Microsoft Windows 7</platform>
+          <platform>Microsoft Windows 8</platform>
+        </affected>
+        <description>The HBSS McAfee Agent must be installed.</description>
+      </metadata>
+      <criteria operator="OR">
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:516000" comment="McAfee Framework Service is running" />
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:516001" comment="McAfee Agent Service is running" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.fso.windows:def:5164" version="1" class="compliance">
+      <metadata>
+        <title>The Server Message Block (SMB) v1 protocol must be disabled on the SMB server.</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 7</platform>
+          <platform>Microsoft Windows Server 2008</platform>
+          <platform>Microsoft Windows Server 2008 R2</platform>
+          <platform>Microsoft Windows Server 2012</platform>
+        </affected>
+        <description>The Server Message Block (SMB) v1 protocol must be disabled on the SMB server.</description>
+      </metadata>
+      <criteria comment="Determine if SMB v1 protocol is disabled for the SMB Server" operator="AND">
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:516400" comment="Check the registry to see if HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\SMB1 is set to 0" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.fso.windows:def:5166" version="1" class="compliance">
+      <metadata>
+        <title>The Server Message Block (SMB) v1 protocol must be disabled on the SMB client.</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 7</platform>
+          <platform>Microsoft Windows Server 2008</platform>
+          <platform>Microsoft Windows Server 2008 R2</platform>
+          <platform>Microsoft Windows Server 2012</platform>
+        </affected>
+        <description>The Server Message Block (SMB) v1 protocol must be disabled on the SMB client.</description>
+      </metadata>
+      <criteria comment="Determine if SMB v1 protocol is disabled for the SMB client" operator="AND">
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:516600" comment="Check the registry to see if HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\DependOnService contains only the values 'Bowser MRxSmb20 NSI'" />
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:516601" comment="Check the registry to see if HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\DependOnService contains 'Bowser'" />
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:516602" comment="Check the registry to see if HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\DependOnService contains 'MRxSmb20'" />
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:516603" comment="Check the registry to see if HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\DependOnService contains 'NSI'" />
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:516604" comment="Check the registry to see if HKLM\SYSTEM\CurrentControlSet\Services\mrxsmb10\Start is set to 4" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.fso.windows:def:5173" version="1" class="compliance">
+      <metadata>
+        <title>WIN00-000170</title>
+        <affected family="windows">
+          <platform>Microsoft Windows Server 2008 R2</platform>
+        </affected>
+        <description>The Server Message Block (SMB) v1 protocol must be disabled on the Windows 2008 R2 SMB server.</description>
+      </metadata>
+      <criteria comment="Determine if SMB v1 protocol is disabled for the Windows 2008 R2 SMB Server" operator="AND">
+        <extend_definition definition_ref="oval:mil.disa.fso.windows:def:5164" comment="Determine if SMB v1 protocol is disabled for the Windows 2008 R2 SMB Server" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.fso.windows:def:5174" version="1" class="compliance">
+      <metadata>
+        <title>WIN00-000180</title>
+        <affected family="windows">
+          <platform>Microsoft Windows Server 2008 R2</platform>
+        </affected>
+        <description>The Server Message Block (SMB) v1 protocol must be disabled on the Windows 2008 SMB Client.</description>
+      </metadata>
+      <criteria comment="Determine if SMB v1 protocol is disabled for the Windows 2008 R2 SMB Client" operator="AND">
+        <extend_definition definition_ref="oval:mil.disa.fso.windows:def:5166" comment="Determine if SMB v1 protocol is disabled for the Windows 2008 R2 SMB Client" />
+      </criteria>
+    </definition>
   </definitions>
   <tests>
     <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:290800" version="5" comment="The OS Build is equal to or greater than 7601" check_existence="at_least_one_exists" check="all">
@@ -10786,6 +10861,38 @@
     <wmi57_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:514801" version="1" comment="If the Telnet service is uninstalled, it does not apply." check_existence="none_exist" check="all">
       <object object_ref="oval:mil.disa.fso.windows:obj:514800" />
     </wmi57_test>
+    <wmi57_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:516000" version="1" comment="McAfee Framework Service is running" check_existence="all_exist" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:516000" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:516000" />
+    </wmi57_test>
+    <wmi57_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:516001" version="1" comment="McAfee Agent Service is running" check_existence="all_exist" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:516001" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:516000" />
+    </wmi57_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:516400" version="1" comment="Check HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\SMB1 for the value 0" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:516400" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:516400" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:516600" version="1" comment="Check HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\DependOnService has no values other than 'Bowser MRxSmb20 NSI'" check_existence="all_exist" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:516600" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:516600" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:516601" version="1" comment="Check HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\DependOnService for the value 'Bowser'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:516600" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:516601" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:516602" version="1" comment="Check HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\DependOnService for the value 'MRxSmb20'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:516600" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:516602" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:516603" version="1" comment="Check HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\DependOnService for the value 'NSI'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:516600" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:516603" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:516604" version="1" comment="Check HKLM\SYSTEM\CurrentControlSet\Services\mrxsmb10\Start for the value 4" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:516601" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:516604" />
+    </registry_test>
   </tests>
   <objects>
     <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:290800" version="3">
@@ -11953,6 +12060,29 @@
       <namespace datatype="string">root\cimv2</namespace>
       <wql datatype="string">SELECT startmode FROM Win32_Service WHERE name='TlntSvr'</wql>
     </wmi57_object>
+    <wmi57_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:516000" version="1" comment="McAfeeFramework State">
+      <namespace>root\cimv2</namespace>
+      <wql>SELECT state FROM Win32_Service WHERE Name="McAfeeFramework"</wql>
+    </wmi57_object>
+    <wmi57_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:516001" version="1" comment="McAfee Agent Service (masvc) State">
+      <namespace>root\cimv2</namespace>
+      <wql>SELECT state FROM Win32_Service WHERE Name="masvc"</wql>
+    </wmi57_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:516400" version="1" comment="Check HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\SMB1">
+      <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string">SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters</key>
+      <name datatype="string">SMB1</name>
+    </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:516600" version="1" comment="Check HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\DependOnService">
+      <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string">SYSTEM\CurrentControlSet\Services\LanmanWorkstation</key>
+      <name datatype="string">DependOnService</name>
+    </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:516601" version="1" comment="Check HKLM\SYSTEM\CurrentControlSet\Services\mrxsmb10\Start">
+      <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string">SYSTEM\CurrentControlSet\Services\mrxsmb10</key>
+      <name datatype="string">Start</name>
+    </registry_object>
   </objects>
   <states>
     <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:290800" version="3" comment="Reg_Sz type and value equals 7601 or greater">
@@ -12484,6 +12614,35 @@
         <field xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" name="startmode" datatype="string" operation="case insensitive equals">disabled</field>
       </result>
     </wmi57_state>
+    <wmi57_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:516000" version="1" comment="Is the McAfee Agent Service or McAfee Framework Service running">
+      <result datatype="record" operation="equals">
+        <field xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" name="state">Running</field>
+      </result>
+    </wmi57_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:516400" version="1" comment="REG_DWORD type and value equals 0">
+      <type>reg_dword</type>
+      <value datatype="int" operation="equals">0</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:516600" version="1" comment="REG_MULTI_SZ type and value equals 'Bowser MRxSmb20 NSI'">
+      <type>reg_multi_sz</type>
+      <value datatype="string" operation="pattern match" entity_check="all">^[Bb][Oo][Ww][Ss][Ee][Rr]$|^[Mm][Rr][Xx][Ss][Mm][Bb]20$|^[Nn][Ss][Ii]$</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:516601" version="1" comment="REG_MULTI_SZ type and the value contains a 'Bowser'">
+      <type>reg_multi_sz</type>
+      <value datatype="string" operation="pattern match" entity_check="only one">^[Bb][Oo][Ww][Ss][Ee][Rr]$</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:516602" version="1" comment="REG_MULTI_SZ type and the value contains a 'MRxSmb20'">
+      <type>reg_multi_sz</type>
+      <value datatype="string" operation="pattern match" entity_check="only one">^[Mm][Rr][Xx][Ss][Mm][Bb]20$</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:516603" version="1" comment="REG_MULTI_SZ type and the value contains a 'NSI'">
+      <type>reg_multi_sz</type>
+      <value datatype="string" operation="pattern match" entity_check="only one">^[Nn][Ss][Ii]$</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:516604" version="1" comment="REG_DWORD type and value equals 4">
+      <type>reg_dword</type>
+      <value datatype="int" operation="equals">4</value>
+    </registry_state>
   </states>
   <variables>
     <local_variable id="oval:mil.disa.fso.windows:var:292200" version="1" datatype="string" comment="Guest">

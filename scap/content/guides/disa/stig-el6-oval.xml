@@ -3,7 +3,7 @@
   <generator>
     <oval:product_name>repotool</oval:product_name>
     <oval:schema_version>5.8</oval:schema_version>
-    <oval:timestamp>2016-12-22T10:13:22</oval:timestamp>
+    <oval:timestamp>2017-03-31T10:48:47</oval:timestamp>
   </generator>
   <definitions>
     <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:1" version="1">
@@ -415,7 +415,7 @@
           <platform>Red Hat Enterprise Linux 6</platform>
         </affected>
         <reference ref_id="CCE-27181-7" source="http://cce.mitre.org" />
-        <description>The changing of file permissions and attributes should be
+        <description>The changing of file permissions and attributes should be 
       audited.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="audit_rules_dac_modification_lchown" />
       </metadata>
@@ -613,7 +613,7 @@
           <platform>Red Hat Enterprise Linux 6</platform>
         </affected>
         <reference ref_id="CCE-27173-4" source="http://cce.mitre.org" />
-        <description>The changing of file permissions and attributes should be
+        <description>The changing of file permissions and attributes should be 
       audited.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="audit_rules_dac_modification_chown" />
       </metadata>
@@ -704,7 +704,7 @@
           <platform>Red Hat Enterprise Linux 6</platform>
         </affected>
         <reference ref_id="CCE-27185-8" source="http://cce.mitre.org" />
-        <description>The changing of file permissions and attributes should be
+        <description>The changing of file permissions and attributes should be 
       audited.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="audit_rules_dac_modification_setxattr" />
       </metadata>
@@ -760,7 +760,7 @@
           <platform>Red Hat Enterprise Linux 6</platform>
         </affected>
         <reference ref_id="CCE-27182-5" source="http://cce.mitre.org" />
-        <description>The changing of file permissions and attributes should be
+        <description>The changing of file permissions and attributes should be 
       audited.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="audit_rules_dac_modification_lremovexattr" />
       </metadata>
@@ -890,7 +890,7 @@
           <platform>Red Hat Enterprise Linux 6</platform>
         </affected>
         <reference ref_id="CCE-27183-3" source="http://cce.mitre.org" />
-        <description>The changing of file permissions and attributes should be
+        <description>The changing of file permissions and attributes should be 
       audited.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="audit_rules_dac_modification_lsetxattr" />
       </metadata>
@@ -925,7 +925,7 @@
           <platform>Red Hat Enterprise Linux 6</platform>
         </affected>
         <reference ref_id="CCE-27177-5" source="http://cce.mitre.org" />
-        <description>The changing of file permissions and attributes should be
+        <description>The changing of file permissions and attributes should be 
       audited.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="audit_rules_dac_modification_fchown" />
       </metadata>
@@ -1047,7 +1047,7 @@
         <criterion comment="gnome screensaver set to blank screen" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:3662" />
       </criteria>
     </definition>
-    <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:488" version="6">
+    <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:488" version="7">
       <metadata>
         <title>The system must use a FIPS 140-2 approved cryptographic hashing algorithm for generating account password hashes (system-auth).</title>
         <affected family="unix">
@@ -1089,7 +1089,7 @@
           <platform>Red Hat Enterprise Linux 6</platform>
         </affected>
         <reference ref_id="CCE-27174-2" source="http://cce.mitre.org" />
-        <description>The changing of file permissions and attributes should be
+        <description>The changing of file permissions and attributes should be 
       audited.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="audit_rules_dac_modification_fchmod" />
       </metadata>
@@ -1605,7 +1605,7 @@
           <platform>Red Hat Enterprise Linux 6</platform>
         </affected>
         <reference ref_id="CCE-27179-1" source="http://cce.mitre.org" />
-        <description>The changing of file permissions and attributes should be
+        <description>The changing of file permissions and attributes should be 
       audited.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="audit_rules_dac_modification_fremovexattr" />
       </metadata>
@@ -1704,7 +1704,7 @@
           <platform>Red Hat Enterprise Linux 6</platform>
         </affected>
         <reference ref_id="CCE-27178-3" source="http://cce.mitre.org" />
-        <description>The changing of file permissions and attributes should be
+        <description>The changing of file permissions and attributes should be 
       audited.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="audit_rules_dac_modification_fchownat" />
       </metadata>
@@ -1725,7 +1725,7 @@
           <platform>Red Hat Enterprise Linux 6</platform>
         </affected>
         <reference ref_id="CCE-27180-9" source="http://cce.mitre.org" />
-        <description>The changing of file permissions and attributes should be
+        <description>The changing of file permissions and attributes should be 
       audited.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="audit_rules_dac_modification_fsetxattr" />
       </metadata>
@@ -1923,7 +1923,7 @@
           <platform>Red Hat Enterprise Linux 6</platform>
         </affected>
         <reference ref_id="CCE-26280-8" source="http://cce.mitre.org" />
-        <description>The changing of file permissions and attributes should be
+        <description>The changing of file permissions and attributes should be 
       audited.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="audit_rules_dac_modification_chmod" />
       </metadata>
@@ -2046,7 +2046,7 @@
           <platform>Red Hat Enterprise Linux 6</platform>
         </affected>
         <reference ref_id="CCE-27175-9" source="http://cce.mitre.org" />
-        <description>The changing of file permissions and attributes should be
+        <description>The changing of file permissions and attributes should be 
       audited.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="audit_rules_dac_modification_fchmodat" />
       </metadata>
@@ -2569,7 +2569,7 @@
           <platform>Red Hat Enterprise Linux 6</platform>
         </affected>
         <reference ref_id="CCE-27184-1" source="http://cce.mitre.org" />
-        <description>The changing of file permissions and attributes should be
+        <description>The changing of file permissions and attributes should be 
       audited.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="audit_rules_dac_modification_removexattr" />
       </metadata>
@@ -2735,6 +2735,21 @@
       <criteria comment="SSH is not being used or conditions are met" operator="OR">
         <extend_definition comment="sshd service is disabled" definition_ref="oval:mil.disa.fso.redhat.rhel6:def:115" />
         <criterion comment="Check HostbasedAuthentication in /etc/ssh/sshd_config" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:237" />
+      </criteria>
+    </definition>
+    <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:3031" version="3">
+      <metadata>
+        <title>Red Hat Release and Auxiliary gpg-pubkey Packages Installed</title>
+        <affected family="unix">
+          <platform>Red Hat Enterprise Linux 6</platform>
+        </affected>
+        <description>The Red Hat release and auxiliary key packages are required to be installed.</description>
+        <reference ref_id="CCE-26506-6" source="http://cce.mitre.org" />
+        <reference source="mil.disa.fso.redhat.rhel6" ref_id="ensure_redhat_gpgkey_installed" />
+      </metadata>
+      <criteria comment="packages gpg-pubkey-fd431d51-4ae0493b and gpg-pubkey-2fa658e0-45700c69 are installed" operator="AND">
+        <criterion comment="package gpg-pubkey-fd431d51-4ae0493b is installed" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:777" />
+        <criterion comment="package gpg-pubkey-2fa658e0-45700c69 is installed" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:778" />
       </criteria>
     </definition>
     <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:3032" version="3">
@@ -3744,6 +3759,14 @@
       <unix:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1739" />
       <unix:state state_ref="oval:mil.disa.fso.redhat.rhel6:ste:1740" />
     </unix:file_test>
+    <linux:rpminfo_test xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="at least one" check_existence="at_least_one_exists" id="oval:mil.disa.fso.redhat.rhel6:tst:777" version="1" comment="Red Hat release key package is installed">
+      <linux:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1742" />
+      <linux:state state_ref="oval:mil.disa.fso.redhat.rhel6:ste:1743" />
+    </linux:rpminfo_test>
+    <linux:rpminfo_test xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="at least one" check_existence="at_least_one_exists" id="oval:mil.disa.fso.redhat.rhel6:tst:778" version="1" comment="Red Hat auxiliary key package is installed">
+      <linux:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1742" />
+      <linux:state state_ref="oval:mil.disa.fso.redhat.rhel6:ste:1744" />
+    </linux:rpminfo_test>
     <unix:file_test xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="/etc/shadow mode and ownership" id="oval:mil.disa.fso.redhat.rhel6:tst:782" version="1">
       <unix:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1746" />
       <unix:state state_ref="oval:mil.disa.fso.redhat.rhel6:ste:1747" />
@@ -4445,29 +4468,29 @@
     <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="audit renameat syscall root" id="oval:mil.disa.fso.redhat.rhel6:tst:3976" version="3">
       <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:3981" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="check the files in /etc/pam.d/ for files that use password sufficient pam_unix.so but without sha512" id="oval:mil.disa.fso.redhat.rhel6:tst:4890" version="5">
+    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="check the files in /etc/pam.d/ for files that use password sufficient pam_unix.so but without sha512" id="oval:mil.disa.fso.redhat.rhel6:tst:4890" version="6">
       <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:149001" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="check /etc/pam.d for files that use: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:tst:4891" version="4">
+    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="check /etc/pam.d for files that use: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:tst:4891" version="5">
       <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:149002" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="only one" check_existence="only_one_exists" comment="check /etc/pam.d/password-auth for use: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:tst:4892" version="1">
+    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="only one" check_existence="only_one_exists" comment="check /etc/pam.d/password-auth for use: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:tst:4892" version="2">
       <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:149003" />
       <ind:state state_ref="oval:mil.disa.fso.redhat.rhel6:ste:1490" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="only one" check_existence="only_one_exists" comment="check /etc/pam.d/password-auth-ac for use: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:tst:4893" version="1">
+    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="only one" check_existence="only_one_exists" comment="check /etc/pam.d/password-auth-ac for use: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:tst:4893" version="2">
       <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:149004" />
       <ind:state state_ref="oval:mil.disa.fso.redhat.rhel6:ste:1490" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="only one" check_existence="only_one_exists" comment="check /etc/pam.d/system-auth for use: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:tst:4894" version="1">
+    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="only one" check_existence="only_one_exists" comment="check /etc/pam.d/system-auth for use: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:tst:4894" version="2">
       <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:149005" />
       <ind:state state_ref="oval:mil.disa.fso.redhat.rhel6:ste:1490" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="only one" check_existence="only_one_exists" comment="check /etc/pam.d/system-auth-ac for use: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:tst:4895" version="1">
+    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="only one" check_existence="only_one_exists" comment="check /etc/pam.d/system-auth-ac for use: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:tst:4895" version="2">
       <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:149006" />
       <ind:state state_ref="oval:mil.disa.fso.redhat.rhel6:ste:1490" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="at least one" check_existence="at_least_one_exists" comment="check /etc/pam.d for files that use md5, sha256, blowfish, or big_crypt in their password sufficient pam_unix.so lines" id="oval:mil.disa.fso.redhat.rhel6:tst:4896" version="1">
+    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="at least one" check_existence="at_least_one_exists" comment="check /etc/pam.d for files that use md5, sha256, blowfish, or big_crypt in their password sufficient pam_unix.so lines" id="oval:mil.disa.fso.redhat.rhel6:tst:4896" version="2">
       <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:149007" />
       <ind:state state_ref="oval:mil.disa.fso.redhat.rhel6:ste:149002" />
     </ind:textfilecontent54_test>
@@ -4779,16 +4802,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
+         Syscall numbers between x64/x32 dont always line up so split them by 
            arch.  Remember that we can still have x32 libs on x64
-         Watch for the lchown syscall.
+         Watch for the lchown syscall.  
          Assume user id's start above 500 and watch for lchowns by them
          Watch for lchowns by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b32 -S lchown -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b32[\s]+)(?:.*-S[\s]+lchown[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -4798,16 +4821,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
-           arch. Remember that we can still have x32 libs on x64
-         Watch for the lchown syscall.
+         Syscall numbers between x64/x32 dont always line up so split them by 
+           arch. Remember that we can still have x32 libs on x64 
+         Watch for the lchown syscall.  
          Assume user id's start above 500 and watch for lchowns by them
          Watch for lchowns by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b64 -S lchown -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b64[\s]+)(?:.*-S[\s]+lchown[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -4883,16 +4906,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
+         Syscall numbers between x64/x32 dont always line up so split them by 
            arch.  Remember that we can still have x32 libs on x64
-         Watch for the chown syscall.
+         Watch for the chown syscall.  
          Assume user id's start above 500 and watch for chowns by them
          Watch for chowns by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b32 -S chown -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b32[\s]+)(?:.*-S[\s]+chown[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -4902,16 +4925,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
-           arch. Remember that we can still have x32 libs on x64
-         Watch for the chown syscall.
+         Syscall numbers between x64/x32 dont always line up so split them by 
+           arch. Remember that we can still have x32 libs on x64 
+         Watch for the chown syscall.  
          Assume user id's start above 500 and watch for chowns by them
          Watch for chowns by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b64 -S chown -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b64[\s]+)(?:.*-S[\s]+chown[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -4987,16 +5010,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
+         Syscall numbers between x64/x32 dont always line up so split them by 
            arch.  Remember that we can still have x32 libs on x64
-         Watch for the setxattr syscall.
+         Watch for the setxattr syscall.  
          Assume user id's start above 500 and watch for setxattrs by them
          Watch for setxattrs by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b32 -S setxattr -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b32[\s]+)(?:.*-S[\s]+setxattr[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5006,16 +5029,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
-           arch. Remember that we can still have x32 libs on x64
-         Watch for the setxattr syscall.
+         Syscall numbers between x64/x32 dont always line up so split them by 
+           arch. Remember that we can still have x32 libs on x64 
+         Watch for the setxattr syscall.  
          Assume user id's start above 500 and watch for setxattrs by them
          Watch for setxattrs by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b64 -S setxattr -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b64[\s]+)(?:.*-S[\s]+setxattr[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5042,16 +5065,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
+         Syscall numbers between x64/x32 dont always line up so split them by 
            arch.  Remember that we can still have x32 libs on x64
-         Watch for the lremovexattr syscall.
+         Watch for the lremovexattr syscall.  
          Assume user id's start above 500 and watch for any lremovexattr by them
          Watch for lremovexattrs by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b32 -S lremovexattr -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b32[\s]+)(?:.*-S[\s]+lremovexattr[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5061,16 +5084,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
-           arch. Remember that we can still have x32 libs on x64
-         Watch for the lremovexattr syscall.
+         Syscall numbers between x64/x32 dont always line up so split them by 
+           arch. Remember that we can still have x32 libs on x64 
+         Watch for the lremovexattr syscall.  
          Assume user id's start above 500 and watch for any lremovexattr by them
          Watch for lremovexattrs by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b64 -S lremovexattr -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b64[\s]+)(?:.*-S[\s]+lremovexattr[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5175,16 +5198,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
+         Syscall numbers between x64/x32 dont always line up so split them by 
            arch.  Remember that we can still have x32 libs on x64
-         Watch for the lsetxattr syscall.
+         Watch for the lsetxattr syscall.  
          Assume user id's start above 500 and watch for lsetxattr by them
          Watch for lsetxattrs by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b32 -S lsetxattr -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b32[\s]+)(?:.*-S[\s]+lsetxattr[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5194,16 +5217,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
-           arch. Remember that we can still have x32 libs on x64
-         Watch for the lsetxattr syscall.
+         Syscall numbers between x64/x32 dont always line up so split them by 
+           arch. Remember that we can still have x32 libs on x64 
+         Watch for the lsetxattr syscall.  
          Assume user id's start above 500 and watch for lsetxattr by them
          Watch for lsetxattrs by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b64 -S lsetxattr -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b64[\s]+)(?:.*-S[\s]+lsetxattr[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5218,16 +5241,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
+         Syscall numbers between x64/x32 dont always line up so split them by 
            arch.  Remember that we can still have x32 libs on x64
-         Watch for the fchown syscall.
+         Watch for the fchown syscall.  
          Assume user id's start above 500 and watch for fchowns by them
          Watch for fchowns by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b32 -S fchown -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b32[\s]+)(?:.*-S[\s]+fchown[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5237,16 +5260,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
-           arch. Remember that we can still have x32 libs on x64
-         Watch for the fchown syscall.
+         Syscall numbers between x64/x32 dont always line up so split them by 
+           arch. Remember that we can still have x32 libs on x64 
+         Watch for the fchown syscall.  
          Assume user id's start above 500 and watch for fchowns by them
          Watch for fchowns by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b64 -S fchown -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b64[\s]+)(?:.*-S[\s]+fchown[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5298,16 +5321,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
+         Syscall numbers between x64/x32 dont always line up so split them by 
            arch.  Remember that we can still have x32 libs on x64
-         Watch for the fchmod syscall.
+         Watch for the fchmod syscall.  
          Assume user id's start above 500 and watch for fchmods by them
          Watch for fchmods by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b32 -S fchmod -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b32[\s]+)(?:.*-S[\s]+fchmod[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5317,16 +5340,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
-           arch. Remember that we can still have x32 libs on x64
-         Watch for the fchmod syscall.
+         Syscall numbers between x64/x32 dont always line up so split them by 
+           arch. Remember that we can still have x32 libs on x64 
+         Watch for the fchmod syscall.  
          Assume user id's start above 500 and watch for fchmods by them
          Watch for fchmods by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b64 -S fchmod -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b64[\s]+)(?:.*-S[\s]+fchmod[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5512,16 +5535,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
+         Syscall numbers between x64/x32 dont always line up so split them by 
            arch.  Remember that we can still have x32 libs on x64
-         Watch for the fremovexattr syscall.
+         Watch for the fremovexattr syscall.  
          Assume user id's start above 500 and watch for any fremovexattr by them
          Watch for fremovexattrs by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b32 -S fremovexattr -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b32[\s]+)(?:.*-S[\s]+fremovexattr[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5531,16 +5554,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
-           arch. Remember that we can still have x32 libs on x64
-         Watch for the fremovexattr syscall.
+         Syscall numbers between x64/x32 dont always line up so split them by 
+           arch. Remember that we can still have x32 libs on x64 
+         Watch for the fremovexattr syscall.  
          Assume user id's start above 500 and watch for any fremovexattr by them
          Watch for fremovexattrs by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b64 -S fremovexattr -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b64[\s]+)(?:.*-S[\s]+fremovexattr[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5576,16 +5599,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
+         Syscall numbers between x64/x32 dont always line up so split them by 
            arch.  Remember that we can still have x32 libs on x64
-         Watch for the fchownat syscall.
+         Watch for the fchownat syscall.  
          Assume user id's start above 500 and watch for fchownats by them
          Watch for fchownats by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b32 -S fchownat -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b32[\s]+)(?:.*-S[\s]+fchownat[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5595,16 +5618,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
-           arch. Remember that we can still have x32 libs on x64
-         Watch for the fchownat syscall.
+         Syscall numbers between x64/x32 dont always line up so split them by 
+           arch. Remember that we can still have x32 libs on x64 
+         Watch for the fchownat syscall.  
          Assume user id's start above 500 and watch for fchownats by them
          Watch for fchownats by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b64 -S fchownat -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b64[\s]+)(?:.*-S[\s]+fchownat[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5614,16 +5637,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
+         Syscall numbers between x64/x32 dont always line up so split them by 
            arch.  Remember that we can still have x32 libs on x64
-         Watch for the fsetxattr syscall.
+         Watch for the fsetxattr syscall.  
          Assume user id's start above 500 and watch for any fsetxattr by them
          Watch for fsetxattrs by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b32 -S fsetxattr -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b32[\s]+)(?:.*-S[\s]+fsetxattr[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5633,16 +5656,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
-           arch. Remember that we can still have x32 libs on x64
-         Watch for the fsetxattr syscall.
+         Syscall numbers between x64/x32 dont always line up so split them by 
+           arch. Remember that we can still have x32 libs on x64 
+         Watch for the fsetxattr syscall.  
          Assume user id's start above 500 and watch for any fsetxattr by them
          Watch for fsetxattrs by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b64 -S fsetxattr -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b64[\s]+)(?:.*-S[\s]+fsetxattr[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5686,6 +5709,9 @@
       <unix:path operation="equals" datatype="string">/var/log/audit</unix:path>
       <unix:filename operation="pattern match" datatype="string">^.*$</unix:filename>
     </unix:file_object>
+    <linux:rpminfo_object xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.fso.redhat.rhel6:obj:1742" version="1">
+      <linux:name datatype="string">gpg-pubkey</linux:name>
+    </linux:rpminfo_object>
     <unix:file_object xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="/etc/shadow" id="oval:mil.disa.fso.redhat.rhel6:obj:1746" version="1">
       <unix:filepath datatype="string">/etc/shadow</unix:filepath>
     </unix:file_object>
@@ -5772,16 +5798,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
+         Syscall numbers between x64/x32 dont always line up so split them by 
            arch.  Remember that we can still have x32 libs on x64
-         Watch for the chmod syscall.
+         Watch for the chmod syscall.  
          Assume user id's start above 500 and watch for any chmod by them
          Watch for chmods by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b32 -S chmod -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b32[\s]+)(?:.*-S[\s]+chmod[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5791,16 +5817,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
-           arch. Remember that we can still have x32 libs on x64
-         Watch for the chmod syscall.
+         Syscall numbers between x64/x32 dont always line up so split them by 
+           arch. Remember that we can still have x32 libs on x64 
+         Watch for the chmod syscall.  
          Assume user id's start above 500 and watch for any chmod by them
          Watch for chmods by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b64 -S chmod -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b64[\s]+)(?:.*-S[\s]+chmod[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5839,16 +5865,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
+         Syscall numbers between x64/x32 dont always line up so split them by 
            arch.  Remember that we can still have x32 libs on x64
-         Watch for the fchmodat syscall.
+         Watch for the fchmodat syscall.  
          Assume user id's start above 500 and watch for fchmodats by them
          Watch for fchmodats by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b32 -S fchmodat -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b32[\s]+)(?:.*-S[\s]+fchmodat[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -5858,16 +5884,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
-           arch. Remember that we can still have x32 libs on x64
-         Watch for the fchmodat syscall.
+         Syscall numbers between x64/x32 dont always line up so split them by 
+           arch. Remember that we can still have x32 libs on x64 
+         Watch for the fchmodat syscall.  
          Assume user id's start above 500 and watch for fchmodats by them
          Watch for fchmodats by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b64 -S fchmodat -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^[\s]*-a[\s](?:always,exit|exit,always)+(?:.*-F[\s]+arch=b32[\s]+)(?:.*-S[\s]+fchmodat[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -6099,16 +6125,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
+         Syscall numbers between x64/x32 dont always line up so split them by 
            arch.  Remember that we can still have x32 libs on x64
-         Watch for the removexattr syscall.
+         Watch for the removexattr syscall.  
          Assume user id's start above 500 and watch for any removexattr by them
          Watch for removexattrs by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b32 -S removexattr -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^-[Aa][\s]*(?:exit,always|always,exit)+(?:.*-F[\s]+arch=b32[\s]+)(?:.*-S[\s]+removexattr[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -6118,16 +6144,16 @@
       <ind:filepath datatype="string">/etc/audit/audit.rules</ind:filepath>
       <!-- What's going on here?
          Ensure we have both exit and always in the action list
-         Syscall numbers between x64/x32 dont always line up so split them by
-           arch. Remember that we can still have x32 libs on x64
-         Watch for the removexattr syscall.
+         Syscall numbers between x64/x32 dont always line up so split them by 
+           arch. Remember that we can still have x32 libs on x64 
+         Watch for the removexattr syscall.  
          Assume user id's start above 500 and watch for any removexattr by them
          Watch for removexattrs by users without a set loginuid (4294967295/-1)
-         Ensure that a key is defined for it but we aren't especially concerned
+         Ensure that a key is defined for it but we aren't especially concerned 
            with what it is
          Some regex foo to account for various ways this could be defined.
 
-         A typical pattern would be:
+         A typical pattern would be: 
          -a always,exit -F arch=b64 -S removexattr -F auid>=500 -F auid!=4294967295 -k perms
     -->
       <ind:pattern operation="pattern match" datatype="string">^-[Aa][\s]*(?:exit,always|always,exit)+(?:.*-F[\s]+arch=b64[\s]+)(?:.*-S[\s]+removexattr[\s]+)(?:.*-F\s+auid&gt;=500[\s]+)(?:.*-F\s+auid!=(?:-1|4294967295)[\s]+).*-k[\s]+[\S]+[\s]*$</ind:pattern>
@@ -6752,48 +6778,48 @@
       <ind:pattern operation="pattern match" datatype="string">^\s*password\s+(?:(?:required)|(?:requisite))\s+(?:(?:\/lib\/security\/\$ISA\/pam_cracklib\.so)|(?:pam_cracklib\.so))\s+ucredit=-(\d+)\s+.*$</ind:pattern>
       <ind:instance datatype="int" operation="less than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check all the files in /etc/pam.d for incorrect password pam_unix.so usage" id="oval:mil.disa.fso.redhat.rhel6:obj:149001" version="4">
+    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check all the files in /etc/pam.d for incorrect password pam_unix.so usage" id="oval:mil.disa.fso.redhat.rhel6:obj:149001" version="5">
       <ind:path operation="equals" datatype="string">/etc/pam.d</ind:path>
       <ind:filename operation="pattern match" datatype="string">^.*$</ind:filename>
       <ind:pattern operation="pattern match" datatype="string">^([ \t]*password[ \t]+[^#\r\f\n]+[ \t]+pam_unix\.so.*)$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
       <filter action="exclude">oval:mil.disa.fso.redhat.rhel6:ste:149001</filter>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check all the files in /etc/pam.d for the setting: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:obj:149002" version="3">
+    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check all the files in /etc/pam.d for the setting: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:obj:149002" version="4">
       <ind:path operation="equals" datatype="string">/etc/pam.d</ind:path>
       <ind:filename operation="pattern match" datatype="string">^.*$</ind:filename>
       <ind:pattern operation="pattern match" datatype="string">^[ \t]*password[ \t]+sufficient[ \t]+pam_unix\.so(?:[ \t]+|(?:[ \t][^#\r\f\n]+[ \t]))sha512(?:[ \t]|$)</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check the file /etc/pam.d/password-auth for the setting: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:obj:149003" version="3">
+    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check the file /etc/pam.d/password-auth for the setting: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:obj:149003" version="4">
       <ind:behaviors recurse="symlinks and directories" recurse_direction="down" max_depth="-1" recurse_file_system="all" />
       <ind:path operation="equals" datatype="string">/etc/pam.d</ind:path>
       <ind:filename operation="equals" datatype="string">password-auth</ind:filename>
       <ind:pattern operation="pattern match" datatype="string">^[ \t]*password[ \t]+sufficient[ \t]+pam_unix\.so(.*)</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check the file /etc/pam.d/password-auth-ac for the setting: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:obj:149004" version="3">
+    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check the file /etc/pam.d/password-auth-ac for the setting: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:obj:149004" version="4">
       <ind:behaviors recurse="symlinks and directories" recurse_direction="down" max_depth="-1" recurse_file_system="all" />
       <ind:path operation="equals" datatype="string">/etc/pam.d</ind:path>
       <ind:filename operation="equals" datatype="string">password-auth-ac</ind:filename>
       <ind:pattern operation="pattern match" datatype="string">^[ \t]*password[ \t]+sufficient[ \t]+pam_unix\.so(.*)</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check the file /etc/pam.d/system-auth for the setting: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:obj:149005" version="1">
+    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check the file /etc/pam.d/system-auth for the setting: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:obj:149005" version="2">
       <ind:behaviors recurse="symlinks and directories" recurse_direction="down" max_depth="-1" recurse_file_system="all" />
       <ind:path operation="equals" datatype="string">/etc/pam.d</ind:path>
       <ind:filename operation="equals" datatype="string">system-auth</ind:filename>
       <ind:pattern operation="pattern match" datatype="string">^[ \t]*password[ \t]+sufficient[ \t]+pam_unix\.so(.*)</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check the file /etc/pam.d/system-auth-ac for the setting: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:obj:149006" version="1">
+    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check the file /etc/pam.d/system-auth-ac for the setting: password sufficient pam_unix.so sha512" id="oval:mil.disa.fso.redhat.rhel6:obj:149006" version="2">
       <ind:behaviors recurse="symlinks and directories" recurse_direction="down" max_depth="-1" recurse_file_system="all" />
       <ind:path operation="equals" datatype="string">/etc/pam.d</ind:path>
       <ind:filename operation="equals" datatype="string">system-auth-ac</ind:filename>
       <ind:pattern operation="pattern match" datatype="string">^[ \t]*password[ \t]+sufficient[ \t]+pam_unix\.so(.*)</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check all the files in /etc/pam.d for incorrect crypto use with password sufficient pam_unix.so usage" id="oval:mil.disa.fso.redhat.rhel6:obj:149007" version="1">
+    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check all the files in /etc/pam.d for incorrect crypto use with password sufficient pam_unix.so usage" id="oval:mil.disa.fso.redhat.rhel6:obj:149007" version="2">
       <ind:path operation="equals" datatype="string">/etc/pam.d</ind:path>
       <ind:filename operation="pattern match" datatype="string">^.*$</ind:filename>
       <ind:pattern operation="pattern match" datatype="string">^[ \t]*password[ \t]+[^#\r\f\n]+[ \t]+pam_unix\.so(.*)$</ind:pattern>
@@ -6888,7 +6914,7 @@
     <ind:xmlfilecontent_state xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.fso.redhat.rhel6:ste:1481" version="1">
       <ind:value_of datatype="string">blank-only</ind:value_of>
     </ind:xmlfilecontent_state>
-    <ind:textfilecontent54_state xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="check for sha512" id="oval:mil.disa.fso.redhat.rhel6:ste:1490" version="3">
+    <ind:textfilecontent54_state xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="check for sha512" id="oval:mil.disa.fso.redhat.rhel6:ste:1490" version="4">
       <ind:subexpression operation="pattern match">^(?:[ \t]+|(?:[ \t][^#\r\f\n]+[ \t]))sha512(?:\s|$)</ind:subexpression>
     </ind:textfilecontent54_state>
     <unix:sysctl_state xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:mil.disa.fso.redhat.rhel6:ste:1492" version="1">
@@ -6995,6 +7021,14 @@
     <unix:file_state xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:mil.disa.fso.redhat.rhel6:ste:1740" version="2">
       <unix:user_id datatype="int" operation="equals">0</unix:user_id>
     </unix:file_state>
+    <linux:rpminfo_state xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.fso.redhat.rhel6:ste:1743" version="1">
+      <linux:release>4ae0493b</linux:release>
+      <linux:version>fd431d51</linux:version>
+    </linux:rpminfo_state>
+    <linux:rpminfo_state xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.fso.redhat.rhel6:ste:1744" version="1">
+      <linux:release>45700c69</linux:release>
+      <linux:version>2fa658e0</linux:version>
+    </linux:rpminfo_state>
     <unix:file_state xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:mil.disa.fso.redhat.rhel6:ste:1747" version="1">
       <unix:user_id datatype="int" operation="equals">0</unix:user_id>
     </unix:file_state>
@@ -7217,10 +7251,10 @@
       <ind:instance datatype="int">1</ind:instance>
       <ind:subexpression datatype="int" operation="greater than or equal">1</ind:subexpression>
     </ind:textfilecontent54_state>
-    <ind:textfilecontent54_state xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="check for anything not matching to password sufficient pam_unix.so sha512 ..." id="oval:mil.disa.fso.redhat.rhel6:ste:149001" version="1">
+    <ind:textfilecontent54_state xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="check for anything not matching to password sufficient pam_unix.so sha512 ..." id="oval:mil.disa.fso.redhat.rhel6:ste:149001" version="2">
       <ind:subexpression operation="pattern match">^[ \t]*password[ \t]+sufficient[ \t]+pam_unix.so(?:[ \t]+|(?:[ \t][^#\r\f\n]+[ \t]))sha512(?:[\s]|$)</ind:subexpression>
     </ind:textfilecontent54_state>
-    <ind:textfilecontent54_state xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="check for md5, blowfish, big_crypt, sha256" id="oval:mil.disa.fso.redhat.rhel6:ste:149002" version="1">
+    <ind:textfilecontent54_state xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="check for md5, blowfish, big_crypt, sha256" id="oval:mil.disa.fso.redhat.rhel6:ste:149002" version="2">
       <ind:subexpression operation="pattern match">^(?:[ \t]+|(?:[ \t][^#\r\f\n]+[ \t]))(?:md5|sha256|big_crypt|blowfish)(?:\s|$)</ind:subexpression>
     </ind:textfilecontent54_state>
     <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="greater than 5" id="oval:mil.disa.fso.redhat.rhel6:ste:400200" version="1">
@@ -7274,3 +7308,4 @@
     <external_variable comment="number of failed login attempts allowed" datatype="int" id="oval:mil.disa.fso.redhat.rhel6:var:3276" version="10" />
   </variables>
 </oval_definitions>
+
