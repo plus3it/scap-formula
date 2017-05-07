@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Benchmark xmlns="http://checklists.nist.gov/xccdf/1.1" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cpe="http://cpe.mitre.org/language/2.0" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" id="Windows_2012_MS_STIG" xml:lang="en" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.1 http://nvd.nist.gov/schema/xccdf-1.1.4.xsd" style="SCAP_1.1">
-  <status date="2016-12-19">accepted</status>
-  <title>Windows Server 2012 / 2012 R2 Member Server Security Technical Implementation Guide</title>
-  <description>The Windows Server 2012 / 2012 R2 Member Server Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems. Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil.</description>
+  <status date="2017-04-28">accepted</status>
+  <title>Windows Server 2012/2012 R2 Member Server Security Technical Implementation Guide</title>
+  <description>The Windows Server 2012/2012 R2 Member Server Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems. Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil.</description>
   <notice id="terms-of-use" xml:lang="en">Developed_by_DISA_for_the_DoD</notice>
   <reference href="http://iase.disa.mil">
     <dc:publisher>DISA</dc:publisher>
     <dc:source>STIG.DOD.MIL</dc:source>
   </reference>
-  <plain-text id="release-info">Release: 7 Benchmark Date: 27 Jan 2017</plain-text>
+  <plain-text id="release-info">Release: 2.8 Benchmark Date: 28 Apr 2017</plain-text>
   <platform idref="cpe:/o:microsoft:windows_server_2012:-" />
   <platform idref="cpe:/o:microsoft:windows_server_2012:r2" />
-  <version>2</version>
+  <version>002.008</version>
   <metadata>
     <dc:creator>DISA</dc:creator>
     <dc:publisher>DISA</dc:publisher>
@@ -284,6 +284,9 @@
     <select idref="V-57635" selected="true" />
     <select idref="V-57639" selected="true" />
     <select idref="V-57721" selected="true" />
+    <select idref="V-73519" selected="true" />
+    <select idref="V-73523" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-1_Public">
     <title>I - Mission Critical Public</title>
@@ -387,6 +390,7 @@
     <select idref="V-14259" selected="true" />
     <select idref="V-14260" selected="true" />
     <select idref="V-14261" selected="true" />
+    <select idref="V-15505" selected="true" />
     <select idref="V-15666" selected="true" />
     <select idref="V-15667" selected="true" />
     <select idref="V-15672" selected="true" />
@@ -551,6 +555,9 @@
     <select idref="V-57635" selected="true" />
     <select idref="V-57639" selected="true" />
     <select idref="V-57721" selected="true" />
+    <select idref="V-73519" selected="true" />
+    <select idref="V-73523" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-1_Sensitive">
     <title>I - Mission Critical Sensitive</title>
@@ -654,6 +661,7 @@
     <select idref="V-14259" selected="true" />
     <select idref="V-14260" selected="true" />
     <select idref="V-14261" selected="true" />
+    <select idref="V-15505" selected="true" />
     <select idref="V-15666" selected="true" />
     <select idref="V-15667" selected="true" />
     <select idref="V-15672" selected="true" />
@@ -818,6 +826,9 @@
     <select idref="V-57635" selected="true" />
     <select idref="V-57639" selected="true" />
     <select idref="V-57721" selected="true" />
+    <select idref="V-73519" selected="true" />
+    <select idref="V-73523" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-2_Classified">
     <title>II - Mission Support Classified</title>
@@ -1085,6 +1096,9 @@
     <select idref="V-57635" selected="true" />
     <select idref="V-57639" selected="true" />
     <select idref="V-57721" selected="true" />
+    <select idref="V-73519" selected="true" />
+    <select idref="V-73523" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-2_Public">
     <title>II - Mission Support Public</title>
@@ -1188,6 +1202,7 @@
     <select idref="V-14259" selected="true" />
     <select idref="V-14260" selected="true" />
     <select idref="V-14261" selected="true" />
+    <select idref="V-15505" selected="true" />
     <select idref="V-15666" selected="true" />
     <select idref="V-15667" selected="true" />
     <select idref="V-15672" selected="true" />
@@ -1352,6 +1367,9 @@
     <select idref="V-57635" selected="true" />
     <select idref="V-57639" selected="true" />
     <select idref="V-57721" selected="true" />
+    <select idref="V-73519" selected="true" />
+    <select idref="V-73523" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-2_Sensitive">
     <title>II - Mission Support Sensitive</title>
@@ -1455,6 +1473,7 @@
     <select idref="V-14259" selected="true" />
     <select idref="V-14260" selected="true" />
     <select idref="V-14261" selected="true" />
+    <select idref="V-15505" selected="true" />
     <select idref="V-15666" selected="true" />
     <select idref="V-15667" selected="true" />
     <select idref="V-15672" selected="true" />
@@ -1619,6 +1638,9 @@
     <select idref="V-57635" selected="true" />
     <select idref="V-57639" selected="true" />
     <select idref="V-57721" selected="true" />
+    <select idref="V-73519" selected="true" />
+    <select idref="V-73523" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-3_Classified">
     <title>III - Administrative Classified</title>
@@ -1886,6 +1908,9 @@
     <select idref="V-57635" selected="true" />
     <select idref="V-57639" selected="true" />
     <select idref="V-57721" selected="true" />
+    <select idref="V-73519" selected="true" />
+    <select idref="V-73523" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-3_Public">
     <title>III - Administrative Public</title>
@@ -1989,6 +2014,7 @@
     <select idref="V-14259" selected="true" />
     <select idref="V-14260" selected="true" />
     <select idref="V-14261" selected="true" />
+    <select idref="V-15505" selected="true" />
     <select idref="V-15666" selected="true" />
     <select idref="V-15667" selected="true" />
     <select idref="V-15672" selected="true" />
@@ -2153,6 +2179,9 @@
     <select idref="V-57635" selected="true" />
     <select idref="V-57639" selected="true" />
     <select idref="V-57721" selected="true" />
+    <select idref="V-73519" selected="true" />
+    <select idref="V-73523" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-3_Sensitive">
     <title>III - Administrative Sensitive</title>
@@ -2256,6 +2285,7 @@
     <select idref="V-14259" selected="true" />
     <select idref="V-14260" selected="true" />
     <select idref="V-14261" selected="true" />
+    <select idref="V-15505" selected="true" />
     <select idref="V-15666" selected="true" />
     <select idref="V-15667" selected="true" />
     <select idref="V-15672" selected="true" />
@@ -2420,6 +2450,9 @@
     <select idref="V-57635" selected="true" />
     <select idref="V-57639" selected="true" />
     <select idref="V-57721" selected="true" />
+    <select idref="V-73519" selected="true" />
+    <select idref="V-73523" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="Disable_Slow_Rules">
     <title>Disable Slow Rules</title>
@@ -2633,6 +2666,7 @@
     <select idref="SV-53007r2_rule" selected="false" />
     <select idref="SV-53008r1_rule" selected="false" />
     <select idref="SV-53009r1_rule" selected="false" />
+    <select idref="SV-53010r3_rule" selected="false" />
     <select idref="SV-53011r2_rule" selected="false" />
     <select idref="SV-53012r1_rule" selected="false" />
     <select idref="SV-53013r2_rule" selected="false" />
@@ -2704,6 +2738,9 @@
     <select idref="SV-72049r2_rule" selected="false" />
     <select idref="SV-72135r2_rule" selected="false" />
     <select idref="SV-83319r1_rule" selected="false" />
+    <select idref="SV-88193r1_rule" selected="false" />
+    <select idref="SV-88205r1_rule" selected="false" />
+    <select idref="SV-88471r1_rule" selected="false" />
   </Profile>
   <Value id="virtualize_write_failures_per_user_locations_var" type="number" operator="equals">
     <title>Virtualize file and registry write failures to per-user locations</title>
@@ -6063,6 +6100,28 @@ This setting prevents Windows from searching Windows Update for device drivers w
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-export value-id="turn_off_windows_update_device_driver_searching_var" export-name="oval:mil.disa.fso.windows:var:447000" />
         <check-content-ref name="oval:mil.disa.fso.windows:def:4470" href="stig-ws2012-ms-oval.xml" />
+      </check>
+    </Rule>
+  </Group>
+  <Group id="V-15505">
+    <title>HBSS McAfee Agent</title>
+    <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
+    <Rule id="SV-53010r3_rule" severity="medium" weight="10.0">
+      <version>WN12-GE-000019</version>
+      <title>The HBSS McAfee Agent must be installed.</title>
+      <description>&lt;VulnDiscussion&gt;The McAfee Agent is the client side distributed component of McAfee ePolicy Orchestrator (McAfee ePO) which provides a secure communication channel between the ePO server and managed point products.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <reference>
+        <dc:title>DPMS Target Windows 2012</dc:title>
+        <dc:publisher>DISA</dc:publisher>
+        <dc:type>DPMS Target</dc:type>
+        <dc:subject>Windows 2012</dc:subject>
+        <dc:identifier>2350</dc:identifier>
+      </reference>
+      <ident system="http://iase.disa.mil/cci">CCI-000366</ident>
+      <fixtext fixref="F-45937r1_fix">Deploy the McAfee Agent as detailed in accordance with the DoD HBSS STIG.</fixtext>
+      <fix id="F-45937r1_fix" />
+      <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <check-content-ref name="oval:mil.disa.fso.windows:def:5160" href="stig-ws2012-ms-oval.xml" />
       </check>
     </Rule>
   </Group>
@@ -10299,6 +10358,119 @@ Administrators, SYSTEM, Users, ALL APPLICATION PACKAGES - Read &amp; Execute</fi
       <fix id="F-62927r2_fix" />
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-content-ref name="oval:mil.disa.fso.windows:def:4984" href="stig-ws2012-ms-oval.xml" />
+      </check>
+    </Rule>
+  </Group>
+  <Group id="V-73519">
+    <title>WIN00-000170</title>
+    <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
+    <Rule id="SV-88193r1_rule" severity="medium" weight="10.0">
+      <version>WN12-00-000170</version>
+      <title>The Server Message Block (SMB) v1 protocol must be disabled on the Windows 2012 SMB server.</title>
+      <description>&lt;VulnDiscussion&gt;SMBv1 is a legacy protocol that uses the MD5 algorithm as part of SMB. MD5 is known to be vulnerable to a number of attacks such as collision and preimage attacks as well as not being FIPS compliant.
+
+Disabling SMBv1 support may prevent access to file or print sharing resources with systems or devices that only support SMBv1. File shares and print services hosted on Windows Server 2003 are an example, however Windows Server 2003 is no longer a supported operating system. Some older network attached devices may only support SMBv1.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <reference>
+        <dc:title>DPMS Target Windows 2012</dc:title>
+        <dc:publisher>DISA</dc:publisher>
+        <dc:type>DPMS Target</dc:type>
+        <dc:subject>Windows 2012</dc:subject>
+        <dc:identifier>2350</dc:identifier>
+      </reference>
+      <ident system="http://iase.disa.mil/cci">CCI-000381</ident>
+      <fixtext fixref="F-80255r1_fix">Configure the following registry value to disable the SMBv1 protocol on the SMB server.
+
+Registry Hive: HKEY_LOCAL_MACHINE
+Registry Path: \SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters\
+
+Value Name: SMB1
+
+Type: REG_DWORD
+Value: 0x00000000 (0)
+
+The system must be restarted for the change to take effect.</fixtext>
+      <fix id="F-80255r1_fix" />
+      <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <check-content-ref name="oval:mil.disa.fso.windows:def:5165" href="stig-ws2012-ms-oval.xml" />
+      </check>
+    </Rule>
+  </Group>
+  <Group id="V-73523">
+    <title>WIN00-000180</title>
+    <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
+    <Rule id="SV-88205r1_rule" severity="medium" weight="10.0">
+      <version>WN12-00-000180</version>
+      <title>The Server Message Block (SMB) v1 protocol must be disabled on the Windows 2012 SMB client.</title>
+      <description>&lt;VulnDiscussion&gt;SMBv1 is a legacy protocol that uses the MD5 algorithm as part of SMB. MD5 is known to be vulnerable to a number of attacks such as collision and preimage attacks as well as not being FIPS compliant.
+
+Disabling SMBv1 support may prevent access to file or print sharing resources with systems or devices that only support SMBv1. File shares and print services hosted on Windows Server 2003 are an example, however Windows Server 2003 is no longer a supported operating system. Some older network attached devices may only support SMBv1.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <reference>
+        <dc:title>DPMS Target Windows 2012</dc:title>
+        <dc:publisher>DISA</dc:publisher>
+        <dc:type>DPMS Target</dc:type>
+        <dc:subject>Windows 2012</dc:subject>
+        <dc:identifier>2350</dc:identifier>
+      </reference>
+      <ident system="http://iase.disa.mil/cci">CCI-000381</ident>
+      <fixtext fixref="F-80257r1_fix">Configure the following registry values to disable the SMBv1 protocol on the SMB client.
+
+Registry Hive: HKEY_LOCAL_MACHINE
+Registry Path: \SYSTEM\CurrentControlSet\Services\LanmanWorkstation\
+
+Value Name: DependOnService
+
+Type: REG_MULTI_SZ
+Value: Bowser MRxSmb20 NSI
+
+Registry Hive: HKEY_LOCAL_MACHINE
+Registry Path: \SYSTEM\CurrentControlSet\Services\mrxsmb10\
+
+Value Name: Start
+
+Type: REG_DWORD
+Value: 0x00000004 (4)
+
+The following commands can be run from an elevated command prompt to configure the registry values as noted above.
+"sc.exe config lanmanworkstation depend= bowser/mrxsmb20/nsi"
+"sc.exe config mrxsmb10 start= disabled"
+
+The system must be restarted for the changes to take effect.</fixtext>
+      <fix id="F-80257r1_fix" />
+      <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <check-content-ref name="oval:mil.disa.fso.windows:def:5167" href="stig-ws2012-ms-oval.xml" />
+      </check>
+    </Rule>
+  </Group>
+  <Group id="V-73805">
+    <title>WIN00-000160</title>
+    <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
+    <Rule id="SV-88471r1_rule" severity="medium" weight="10.0">
+      <version>WN12-00-000160</version>
+      <title>The Server Message Block (SMB) v1 protocol must be disabled on Windows 2012 R2.</title>
+      <description>&lt;VulnDiscussion&gt;SMBv1 is a legacy protocol that uses the MD5 algorithm as part of SMB. MD5 is known to be vulnerable to a number of attacks such as collision and preimage attacks as well as not being FIPS compliant.
+
+Disabling SMBv1 support may prevent access to file or print sharing resources with systems or devices that only support SMBv1. File shares and print services hosted on Windows Server 2003 are an example, however Windows Server 2003 is no longer a supported operating system. Some older network attached devices may only support SMBv1.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <reference>
+        <dc:title>DPMS Target Windows 2012</dc:title>
+        <dc:publisher>DISA</dc:publisher>
+        <dc:type>DPMS Target</dc:type>
+        <dc:subject>Windows 2012</dc:subject>
+        <dc:identifier>2350</dc:identifier>
+      </reference>
+      <ident system="http://iase.disa.mil/cci">CCI-000381</ident>
+      <fixtext fixref="F-80261r1_fix">Run "Windows PowerShell" with elevated privileges (run as administrator).
+Enter the following:
+Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+
+Alternately:
+Search for "Features".
+Select "Turn Windows features on or off".
+De-select "SMB 1.0/CIFS File Sharing Support".   
+
+The system must be restarted for the changes to take effect.</fixtext>
+      <fix id="F-80261r1_fix" />
+      <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <check-content-ref name="oval:mil.disa.fso.windows:def:5163" href="stig-ws2012-ms-oval.xml" />
       </check>
     </Rule>
   </Group>

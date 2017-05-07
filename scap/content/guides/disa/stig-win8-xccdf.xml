@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Benchmark xmlns="http://checklists.nist.gov/xccdf/1.1" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cpe="http://cpe.mitre.org/language/2.0" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" id="Windows_8_STIG" xml:lang="en" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.1 http://nvd.nist.gov/schema/xccdf-1.1.4.xsd" style="SCAP_1.1">
-  <status date="2016-12-19">accepted</status>
-  <title>Windows 8 / 8.1 Security Technical Implementation Guide</title>
-  <description>The Windows 8 / 8.1 Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems. Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil.</description>
+  <status date="2017-04-28">accepted</status>
+  <title>Windows 8/8.1 Security Technical Implementation Guide</title>
+  <description>The Windows 8/8.1 Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems. Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil.</description>
   <notice id="terms-of-use" xml:lang="en">Developed_by_DISA_for_the_DoD</notice>
   <reference href="http://iase.disa.mil">
     <dc:publisher>DISA</dc:publisher>
     <dc:source>STIG.DOD.MIL</dc:source>
   </reference>
-  <plain-text id="release-info">Release: 17 Benchmark Date: 27 Jan 2017</plain-text>
+  <plain-text id="release-info">Release: 1.18 Benchmark Date: 28 Apr 2017</plain-text>
   <platform idref="cpe:/o:microsoft:windows_8" />
   <platform idref="cpe:/o:microsoft:windows_8.1" />
-  <version>1</version>
+  <version>001.018</version>
   <metadata>
     <dc:creator>DISA</dc:creator>
     <dc:publisher>DISA</dc:publisher>
@@ -296,6 +296,7 @@
     <select idref="V-43239" selected="true" />
     <select idref="V-68843" selected="true" />
     <select idref="V-68847" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-1_Public">
     <title>I - Mission Critical Public</title>
@@ -401,6 +402,7 @@
     <select idref="V-14259" selected="true" />
     <select idref="V-14260" selected="true" />
     <select idref="V-14261" selected="true" />
+    <select idref="V-15505" selected="true" />
     <select idref="V-15666" selected="true" />
     <select idref="V-15667" selected="true" />
     <select idref="V-15672" selected="true" />
@@ -575,6 +577,7 @@
     <select idref="V-43239" selected="true" />
     <select idref="V-68843" selected="true" />
     <select idref="V-68847" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-1_Sensitive">
     <title>I - Mission Critical Sensitive</title>
@@ -680,6 +683,7 @@
     <select idref="V-14259" selected="true" />
     <select idref="V-14260" selected="true" />
     <select idref="V-14261" selected="true" />
+    <select idref="V-15505" selected="true" />
     <select idref="V-15666" selected="true" />
     <select idref="V-15667" selected="true" />
     <select idref="V-15672" selected="true" />
@@ -854,6 +858,7 @@
     <select idref="V-43239" selected="true" />
     <select idref="V-68843" selected="true" />
     <select idref="V-68847" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-2_Classified">
     <title>II - Mission Support Classified</title>
@@ -1131,6 +1136,7 @@
     <select idref="V-43239" selected="true" />
     <select idref="V-68843" selected="true" />
     <select idref="V-68847" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-2_Public">
     <title>II - Mission Support Public</title>
@@ -1236,6 +1242,7 @@
     <select idref="V-14259" selected="true" />
     <select idref="V-14260" selected="true" />
     <select idref="V-14261" selected="true" />
+    <select idref="V-15505" selected="true" />
     <select idref="V-15666" selected="true" />
     <select idref="V-15667" selected="true" />
     <select idref="V-15672" selected="true" />
@@ -1408,6 +1415,7 @@
     <select idref="V-43239" selected="true" />
     <select idref="V-68843" selected="true" />
     <select idref="V-68847" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-2_Sensitive">
     <title>II - Mission Support Sensitive</title>
@@ -1513,6 +1521,7 @@
     <select idref="V-14259" selected="true" />
     <select idref="V-14260" selected="true" />
     <select idref="V-14261" selected="true" />
+    <select idref="V-15505" selected="true" />
     <select idref="V-15666" selected="true" />
     <select idref="V-15667" selected="true" />
     <select idref="V-15672" selected="true" />
@@ -1685,6 +1694,7 @@
     <select idref="V-43239" selected="true" />
     <select idref="V-68843" selected="true" />
     <select idref="V-68847" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-3_Classified">
     <title>III - Administrative Classified</title>
@@ -1962,6 +1972,7 @@
     <select idref="V-43239" selected="true" />
     <select idref="V-68843" selected="true" />
     <select idref="V-68847" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-3_Public">
     <title>III - Administrative Public</title>
@@ -2067,6 +2078,7 @@
     <select idref="V-14259" selected="true" />
     <select idref="V-14260" selected="true" />
     <select idref="V-14261" selected="true" />
+    <select idref="V-15505" selected="true" />
     <select idref="V-15666" selected="true" />
     <select idref="V-15667" selected="true" />
     <select idref="V-15672" selected="true" />
@@ -2239,6 +2251,7 @@
     <select idref="V-43239" selected="true" />
     <select idref="V-68843" selected="true" />
     <select idref="V-68847" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="MAC-3_Sensitive">
     <title>III - Administrative Sensitive</title>
@@ -2344,6 +2357,7 @@
     <select idref="V-14259" selected="true" />
     <select idref="V-14260" selected="true" />
     <select idref="V-14261" selected="true" />
+    <select idref="V-15505" selected="true" />
     <select idref="V-15666" selected="true" />
     <select idref="V-15667" selected="true" />
     <select idref="V-15672" selected="true" />
@@ -2516,6 +2530,7 @@
     <select idref="V-43239" selected="true" />
     <select idref="V-68843" selected="true" />
     <select idref="V-68847" selected="true" />
+    <select idref="V-73805" selected="true" />
   </Profile>
   <Profile id="Disable_Slow_Rules">
     <title>Disable Slow Rules</title>
@@ -2644,6 +2659,7 @@
     <select idref="SV-48213r1_rule" selected="false" />
     <select idref="SV-48214r1_rule" selected="false" />
     <select idref="SV-48215r1_rule" selected="false" />
+    <select idref="SV-48219r3_rule" selected="false" />
     <select idref="SV-48220r1_rule" selected="false" />
     <select idref="SV-48221r1_rule" selected="false" />
     <select idref="SV-48223r1_rule" selected="false" />
@@ -2676,7 +2692,7 @@
     <select idref="SV-48259r2_rule" selected="false" />
     <select idref="SV-48260r2_rule" selected="false" />
     <select idref="SV-48262r1_rule" selected="false" />
-    <select idref="SV-48291r2_rule" selected="false" />
+    <select idref="SV-48291r3_rule" selected="false" />
     <select idref="SV-48292r2_rule" selected="false" />
     <select idref="SV-48293r2_rule" selected="false" />
     <select idref="SV-48296r2_rule" selected="false" />
@@ -2809,6 +2825,18 @@
     <select idref="SV-48552r1_rule" selected="false" />
     <select idref="SV-52398r3_rule" selected="false" />
     <select idref="SV-55992r5_rule" selected="false" />
+    <select idref="SV-88469r1_rule" selected="false" />
+  </Profile>
+  <Profile id="Disable_EMET">
+    <title>Disable EMET</title>
+    <description>This profile disables EMET rules.</description>
+    <select idref="SV-48326r7_rule" selected="false" />
+    <select idref="SV-48328r7_rule" selected="false" />
+    <select idref="SV-48329r7_rule" selected="false" />
+    <select idref="SV-48331r7_rule" selected="false" />
+    <select idref="SV-48332r7_rule" selected="false" />
+    <select idref="SV-48335r7_rule" selected="false" />
+    <select idref="SV-50953r7_rule" selected="false" />
   </Profile>
   <Value id="virtualize_write_failures_per_user_locations_var" type="number" operator="equals">
     <title>Virtualize file and registry write failures to per-user locations</title>
@@ -6353,6 +6381,28 @@ This setting prevents Windows from searching Windows Update for device drivers w
       </check>
     </Rule>
   </Group>
+  <Group id="V-15505">
+    <title>HBSS McAfee Agent</title>
+    <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
+    <Rule id="SV-48219r3_rule" severity="medium" weight="10.0">
+      <version>WN08-GE-000019</version>
+      <title>The HBSS McAfee Agent must be installed.</title>
+      <description>&lt;VulnDiscussion&gt;The McAfee Agent is the client side distributed component of McAfee ePolicy Orchestrator (McAfee ePO) which provides a secure communication channel between the ePO server and managed point products.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <reference>
+        <dc:title>DPMS Target Windows 8</dc:title>
+        <dc:publisher>DISA</dc:publisher>
+        <dc:type>DPMS Target</dc:type>
+        <dc:subject>Windows 8</dc:subject>
+        <dc:identifier>2348</dc:identifier>
+      </reference>
+      <ident system="http://iase.disa.mil/cci">CCI-000366</ident>
+      <fixtext fixref="F-41355r1_fix">Deploy the McAfee Agent as detailed in accordance with the DoD HBSS STIG.</fixtext>
+      <fix id="F-41355r1_fix" />
+      <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <check-content-ref name="oval:mil.disa.fso.windows:def:5160" href="stig-win8-oval.xml" />
+      </check>
+    </Rule>
+  </Group>
   <Group id="V-15666">
     <title>Windows Peer to Peer Networking</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
@@ -9829,10 +9879,10 @@ The FBCA Cross-Certificate Remover tool and user guide is available on IASE at h
   <Group id="V-36674">
     <title>WN08-CC-000014</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
-    <Rule id="SV-48291r2_rule" severity="medium" weight="10.0">
+    <Rule id="SV-48291r3_rule" severity="medium" weight="10.0">
       <version>WN08-CC-000014</version>
       <title>Simultaneous connections to the Internet or a Windows domain must be limited.</title>
-      <description>&lt;VulnDiscussion&gt;Multiple network connections can provide additional attack vectors to a system and must be limited.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;ECSC-1&lt;/IAControls&gt;</description>
+      <description>&lt;VulnDiscussion&gt;Multiple network connections can provide additional attack vectors to a system and must be limited.  The "Minimize the number of simultaneous connections to the Internet or a Windows Domain" setting prevents systems from automatically establishing multiple connections.  When both wired and wireless connections are available, for example, the less preferred connection (typically wireless) will be disconnected.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
       <reference>
         <dc:title>DPMS Target Windows 8</dc:title>
         <dc:publisher>DISA</dc:publisher>
@@ -9842,8 +9892,8 @@ The FBCA Cross-Certificate Remover tool and user guide is available on IASE at h
       </reference>
       <ident system="http://cce.mitre.org">CCE-21215-9</ident>
       <ident system="http://iase.disa.mil/cci">CCI-000366</ident>
-      <fixtext fixref="F-41426r1_fix">Configure the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Network -&gt; Windows Connection Manager -&gt; "Minimize the number of simultaneous connections to the Internet or a Windows Domain" to "Enabled".</fixtext>
-      <fix id="F-41426r1_fix" />
+      <fixtext fixref="F-41426r2_fix">Configure the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Network &gt;&gt; Windows Connection Manager &gt;&gt; "Minimize the number of simultaneous connections to the Internet or a Windows Domain" to "Enabled".</fixtext>
+      <fix id="F-41426r2_fix" />
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-content-ref name="oval:mil.disa.fso.windows:def:3984" href="stig-win8-oval.xml" />
       </check>
@@ -10852,6 +10902,39 @@ Value: 0</fixtext>
       <fix id="F-75019r1_fix" />
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-content-ref name="oval:mil.disa.fso.windows:def:5150" href="stig-win8-oval.xml" />
+      </check>
+    </Rule>
+  </Group>
+  <Group id="V-73805">
+    <title>WIN00-000160</title>
+    <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
+    <Rule id="SV-88469r1_rule" severity="medium" weight="10.0">
+      <version>WN08-00-000160</version>
+      <title>The Server Message Block (SMB) v1 protocol must be disabled on the system.</title>
+      <description>&lt;VulnDiscussion&gt;SMBv1 is a legacy protocol that uses the MD5 algorithm as part of SMB. MD5 is known to be vulnerable to a number of attacks such as collision and preimage attacks as well as not being FIPS compliant.
+
+Disabling SMBv1 support may prevent access to file or print sharing resources with systems or devices that only support SMBv1. File shares and print services hosted on Windows Server 2003 are an example, however Windows Server 2003 is no longer a supported operating system. Some older network attached devices may only support SMBv1.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <reference>
+        <dc:title>DPMS Target Windows 8</dc:title>
+        <dc:publisher>DISA</dc:publisher>
+        <dc:type>DPMS Target</dc:type>
+        <dc:subject>Windows 8</dc:subject>
+        <dc:identifier>2348</dc:identifier>
+      </reference>
+      <ident system="http://iase.disa.mil/cci">CCI-000381</ident>
+      <fixtext fixref="F-80259r2_fix">Run "Windows PowerShell" with elevated privileges (run as administrator).
+Enter the following:
+Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+
+Alternately:
+Search for "Features".
+Select "Turn Windows features on or off".
+De-select "SMB 1.0/CIFS File Sharing Support".   
+
+The system must be restarted for the changes to take effect.</fixtext>
+      <fix id="F-80259r2_fix" />
+      <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <check-content-ref name="oval:mil.disa.fso.windows:def:5170" href="stig-win8-oval.xml" />
       </check>
     </Rule>
   </Group>

@@ -3,7 +3,7 @@
   <generator>
     <oval:product_name>repotool</oval:product_name>
     <oval:schema_version>5.8</oval:schema_version>
-    <oval:timestamp>2017-01-11T10:37:26</oval:timestamp>
+    <oval:timestamp>2017-04-03T09:35:21</oval:timestamp>
   </generator>
   <definitions>
     <definition id="oval:mil.disa.fso.windows:def:3887" version="4" class="compliance">
@@ -2229,7 +2229,7 @@
         <criterion test_ref="oval:mil.disa.fso.windows:tst:498200" comment="System is not a member of a domain" />
       </criteria>
     </definition>
-    <definition id="oval:mil.disa.fso.windows:def:4985" version="2" class="compliance">
+    <definition id="oval:mil.disa.fso.windows:def:4985" version="3" class="compliance">
       <metadata>
         <title>Windows Update must not obtain updates from other PCs on the Internet</title>
         <affected family="windows">
@@ -2239,7 +2239,13 @@
         <description>Prevents getting updates from other systems on the Internet</description>
       </metadata>
       <criteria operator="OR">
-        <criterion test_ref="oval:mil.disa.fso.windows:tst:498500" comment="'DownloadMode' is set to 'Enabled' with 'None, LAN or Group' selected." />
+        <criteria operator="AND">
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:498500" comment="'DownloadMode' is set to 'Enabled' with 'None, LAN or Group' selected." />
+        </criteria>
+        <criteria operator="AND">
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:498501" comment="'DownloadMode' is set to 'Enabled' with 'HTTP only, LAN, Group, Simple or Bypass' selected." />
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:498502" comment="Verifies the OS Build is equal to or greater than 14393" />
+        </criteria>
       </criteria>
     </definition>
     <definition id="oval:mil.disa.fso.windows:def:5142" version="1" class="compliance">
@@ -2421,7 +2427,7 @@
         <criterion test_ref="oval:mil.disa.stig.windows:tst:3500" comment="No IIS components are installed" />
       </criteria>
     </definition>
-    <definition id="oval:mil.disa.stig.windows:def:38" version="3" class="compliance">
+    <definition id="oval:mil.disa.stig.windows:def:38" version="4" class="compliance">
       <metadata>
         <title>The HBSS McAfee Agent must be installed.</title>
         <affected family="windows">
@@ -2431,14 +2437,8 @@
         <description>The HBSS McAfee Agent must be installed.</description>
       </metadata>
       <criteria operator="OR">
-        <criteria operator="AND" comment="Test to see if McAfee Framework Service version 4 or greater is installed and running">
-          <criterion test_ref="oval:mil.disa.stig.windows:tst:3800" comment="McAfee Framework Service is running" />
-          <criterion test_ref="oval:mil.disa.stig.windows:tst:3801" comment="FrameworkService.exe is version 4 or greater" />
-        </criteria>
-        <criteria operator="AND" comment="Test to see if McAfee Agent Service version 5 or greater is installed and running">
-          <criterion test_ref="oval:mil.disa.stig.windows:tst:3802" comment="McAfee Agent Service is running" />
-          <criterion test_ref="oval:mil.disa.stig.windows:tst:3803" comment="masvc.exe is version 5 or greater" />
-        </criteria>
+        <criterion test_ref="oval:mil.disa.stig.windows:tst:3800" comment="McAfee Framework Service is running" />
+        <criterion test_ref="oval:mil.disa.stig.windows:tst:3802" comment="McAfee Agent Service is running" />
       </criteria>
     </definition>
     <definition id="oval:mil.disa.stig.windows:def:51" version="4" class="compliance">
@@ -2818,7 +2818,7 @@
         <criterion test_ref="oval:mil.disa.stig.windows:tst:9800" comment="NoGPOistChanges is set to 0." />
       </criteria>
     </definition>
-    <definition id="oval:mil.disa.stig.windows:def:99" version="3" class="compliance">
+    <definition id="oval:mil.disa.stig.windows:def:99" version="4" class="compliance">
       <metadata>
         <title>The Windows SmartScreen must be configured to require approval from an administrator before running downloaded unknown software.</title>
         <affected family="windows">
@@ -2827,8 +2827,15 @@
         </affected>
         <description>Windows SmartScreen helps protect systems from programs downloaded from the internet that may be malicious. Requiring administrator approval before running unknown software will prevent users from executing potentially malicious programs.</description>
       </metadata>
-      <criteria operator="AND">
-        <criterion test_ref="oval:mil.disa.stig.windows:tst:9900" comment="EnableSmartScreen has value of 1." />
+      <criteria operator="OR">
+        <criteria operator="AND">
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:9900" comment="EnableSmartScreen has value of 1." />
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:498502" comment="Verifies the OS Build is equal to or greater than 14393" />
+        </criteria>
+        <criteria operator="AND">
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:9901" comment="EnableSmartScreen has value of 2." />
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:498502" negate="true" comment="Verifies the OS Build is equal to or greater than 14393" />
+        </criteria>
       </criteria>
     </definition>
     <definition id="oval:mil.disa.stig.windows:def:100" version="2" class="compliance">
@@ -3435,7 +3442,7 @@
         <criterion test_ref="oval:mil.disa.stig.windows:tst:15100" comment="Verifies 'Prohibit use of Internet Connection Sharing on your DNS domain network' is set to 'Enabled'" />
       </criteria>
     </definition>
-    <definition id="oval:mil.disa.stig.windows:def:152" version="1" class="compliance">
+    <definition id="oval:mil.disa.stig.windows:def:152" version="2" class="compliance">
       <metadata>
         <title>Security Account Manager (SAM) RPC</title>
         <affected family="windows">
@@ -3444,8 +3451,12 @@
         <reference source="DISA" ref_id="71771" ref_url="http://iase.disa.mil/stigs/SRR/index.html" />
         <description>Remote calls to the Security Account Manager (SAM) must be restricted to Administrators.</description>
       </metadata>
-      <criteria operator="AND">
+      <criteria operator="OR">
         <criterion test_ref="oval:mil.disa.stig.windows:tst:15200" comment="Allow Administrators group to make remote calls to SAM" />
+        <criteria operator="AND" comment="Check is not applicable to Windows 10 versions before version 1607 (OS Build 14393.0)">
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:10900" comment="Verifies the OS Version is equal to or greater than 6.3" />
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:14900" comment="Verifies the OS Build is equal to or greater than 14393.0" negate="true" />
+        </criteria>
       </criteria>
     </definition>
     <definition id="oval:mil.disa.stig.windows:def:153" version="1" class="compliance">
@@ -4377,6 +4388,18 @@
       <state state_ref="oval:mil.disa.fso.windows:ste:498501" />
       <state state_ref="oval:mil.disa.fso.windows:ste:498502" />
     </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:498501" version="1" comment="'DownloadMode' is set to 'Enabled' with 'HTTP only, LAN, Group, Simple or Bypass' selected." state_operator="OR" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:498500" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:498500" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:498501" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:498502" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:498503" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:498504" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:498502" version="2" comment="The OS Build is equal to or greater than 14393" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:498501" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:498505" />
+    </registry_test>
     <accesstoken_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:514200" version="1" comment="Deny log on through Remote Desktop Services - Everyone" check_existence="all_exist" check="all">
       <object object_ref="oval:mil.disa.fso.windows:obj:514200" />
       <state state_ref="oval:mil.disa.fso.windows:ste:514200" />
@@ -4438,18 +4461,10 @@
       <object object_ref="oval:mil.disa.stig.windows:obj:3800" />
       <state state_ref="oval:mil.disa.stig.windows:ste:3800" />
     </wmi57_test>
-    <file_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:3801" version="1" comment="FrameworkService.exe is version 4 or greater" check_existence="all_exist" check="all">
-      <object object_ref="oval:mil.disa.stig.windows:obj:3801" />
-      <state state_ref="oval:mil.disa.stig.windows:ste:3801" />
-    </file_test>
     <wmi57_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:3802" version="1" comment="McAfee Agent Service is running" check_existence="all_exist" check="all">
       <object object_ref="oval:mil.disa.stig.windows:obj:3803" />
       <state state_ref="oval:mil.disa.stig.windows:ste:3800" />
     </wmi57_test>
-    <file_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:3803" version="1" comment="masvc.exe is version 5 or greater" check_existence="all_exist" check="all">
-      <object object_ref="oval:mil.disa.stig.windows:obj:3804" />
-      <state state_ref="oval:mil.disa.stig.windows:ste:3802" />
-    </file_test>
     <fileeffectiverights53_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:5100" version="2" comment="The Applicaion event log must have at least default permissions. Built Path" check_existence="none_exist" check="all">
       <object object_ref="oval:mil.disa.stig.windows:obj:5100" />
     </fileeffectiverights53_test>
@@ -4589,6 +4604,10 @@
     <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:9900" version="2" comment="EnableSmartScreen has value of 1." check_existence="at_least_one_exists" check="all">
       <object object_ref="oval:mil.disa.fso.windows:obj:405800" />
       <state state_ref="oval:mil.disa.stig.windows:ste:9900" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:9901" version="1" comment="EnableSmartScreen has value of 2." check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:405800" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:9901" />
     </registry_test>
     <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:10000" version="1" comment="AllowBasicAuthInClear reg value set to not 1" check_existence="any_exist" check="none satisfy">
       <object object_ref="oval:mil.disa.fso.windows:obj:478900" />
@@ -4929,6 +4948,10 @@
     <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:14800" version="1" comment="WDigest Authentication is disabled" check_existence="at_least_one_exists" check="all">
       <object object_ref="oval:mil.disa.stig.windows:obj:14800" />
       <state state_ref="oval:mil.disa.stig.windows:ste:14800" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:14900" version="1" comment="The OS Build is equal to or greater than 14393.0" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.stig.windows:obj:10901" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:14900" />
     </registry_test>
     <auditeventpolicysubcategories_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:15000" version="1" check="all" comment="Audit - Audit Policy Change - Success only" check_existence="at_least_one_exists">
       <object object_ref="oval:mil.disa.fso.windows:obj:394100" />
@@ -5741,6 +5764,11 @@
       <key datatype="string" operation="equals">Software\Policies\Microsoft\Windows\DeliveryOptimization</key>
       <name datatype="string" operation="equals">DODownloadMode</name>
     </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:498501" version="1">
+      <hive datatype="string" operation="equals">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string" operation="equals">Software\Microsoft\Windows NT\CurrentVersion</key>
+      <name datatype="string" operation="equals">CurrentBuildNumber</name>
+    </registry_object>
     <accesstoken_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:514200" version="1" comment="Everyone Group">
       <security_principle datatype="string" operation="pattern match">^.*\\Everyone$|^Everyone$</security_principle>
     </accesstoken_object>
@@ -5798,24 +5826,10 @@
       <namespace>root\cimv2</namespace>
       <wql>SELECT state FROM Win32_Service WHERE Name="McAfeeFramework"</wql>
     </wmi57_object>
-    <file_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:3801" version="2" comment="Determine the path FrameworkService.exe is installed">
-      <filepath var_ref="oval:mil.disa.stig.windows:var:3800" />
-    </file_object>
-    <wmi_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:3802" version="1" comment="McAfeeFramework PathName">
-      <namespace>root\cimv2</namespace>
-      <wql>SELECT pathname FROM Win32_Service WHERE Name="McAfeeFramework"</wql>
-    </wmi_object>
     <wmi57_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:3803" version="1" comment="McAfee Agent Service (masvc) State">
       <namespace>root\cimv2</namespace>
       <wql>SELECT state FROM Win32_Service WHERE Name="masvc"</wql>
     </wmi57_object>
-    <file_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:3804" version="1" comment="Determine the path masvc.exe is installed">
-      <filepath var_ref="oval:mil.disa.stig.windows:var:3801" />
-    </file_object>
-    <wmi_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:3805" version="1" comment="McAfee Agent Service (masvc) PathName">
-      <namespace>root\cimv2</namespace>
-      <wql>SELECT pathname FROM Win32_Service WHERE Name="masvc"</wql>
-    </wmi_object>
     <fileeffectiverights53_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:5100" version="4" comment="Permissions of Application event log, minus those allowed. Built filepath.">
       <set xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <object_reference>oval:mil.disa.stig.windows:obj:5101</object_reference>
@@ -6989,6 +7003,18 @@
       <type>reg_dword</type>
       <value datatype="int" operation="equals">2</value>
     </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:498503" version="1" comment="Reg_Dword type and value equals 99">
+      <type>reg_dword</type>
+      <value datatype="int" operation="equals">99</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:498504" version="1" comment="Reg_Dword type and value equals 100">
+      <type>reg_dword</type>
+      <value datatype="int" operation="equals">100</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:498505" version="2" comment="Reg_Sz type and value is greater than or equal to 14393">
+      <type>reg_sz</type>
+      <value datatype="version" operation="greater than or equal">14393</value>
+    </registry_state>
     <accesstoken_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:514200" version="1" comment="Deny log on through Remote Desktop Services - Everyone">
       <sedenyremoteInteractivelogonright datatype="boolean">1</sedenyremoteInteractivelogonright>
     </accesstoken_state>
@@ -7045,12 +7071,6 @@
         <field xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" name="state">Running</field>
       </result>
     </wmi57_state>
-    <file_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:3801" version="3" comment="McAfee Framework Service version">
-      <version datatype="version" operation="greater than or equal">4</version>
-    </file_state>
-    <file_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:3802" version="1" comment="McAfee Agent Service version">
-      <version datatype="version" operation="greater than or equal">5</version>
-    </file_state>
     <fileeffectiverights53_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:5100" version="3" comment="Event Log process account. Deterministically built with respect to service name.">
       <trustee_sid datatype="string">S-1-5-80-880578595-1860270145-482643319-2788375705-1540778122</trustee_sid>
     </fileeffectiverights53_state>
@@ -7153,6 +7173,10 @@
     <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:9900" version="2" comment="REG_DWORD value of 1.">
       <type>reg_dword</type>
       <value datatype="int" operation="equals">1</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:9901" version="1" comment="REG_DWORD value of 2.">
+      <type>reg_dword</type>
+      <value datatype="int" operation="equals">2</value>
     </registry_state>
     <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:10000" version="1" comment="Reg_Dword value equals 1">
       <type>reg_dword</type>
@@ -7302,6 +7326,10 @@
     <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:14800" version="1" comment="DWORD type and value is equal to 0">
       <type>reg_dword</type>
       <value datatype="int" operation="equals">0</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:14900" version="1" comment="Reg_Sz type and value is greater than or equal to 14939.0">
+      <type>reg_sz</type>
+      <value datatype="version" operation="greater than or equal">14393.0</value>
     </registry_state>
     <auditeventpolicysubcategories_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:15000" version="1" comment="Audit - Audit Policy Change - Success only">
       <authorization_policy_change datatype="string" operation="equals">AUDIT_SUCCESS</authorization_policy_change>
@@ -7637,16 +7665,6 @@
     </external_variable>
     <local_variable id="oval:mil.disa.fso.windows:var:439600" version="3" datatype="string" comment="EMET Install Key">
       <object_component object_ref="oval:mil.disa.fso.windows:obj:439601" item_field="key" />
-    </local_variable>
-    <local_variable datatype="string" id="oval:mil.disa.stig.windows:var:3800" version="5" comment="FrameworkService.exe full path">
-      <regex_capture pattern="&quot;?(.*FrameworkService.exe).*">
-        <object_component object_ref="oval:mil.disa.stig.windows:obj:3802" item_field="result" />
-      </regex_capture>
-    </local_variable>
-    <local_variable datatype="string" id="oval:mil.disa.stig.windows:var:3801" version="1" comment="masvc.exe full path">
-      <regex_capture pattern="&quot;?(.*masvc.exe).*">
-        <object_component object_ref="oval:mil.disa.stig.windows:obj:3805" item_field="result" />
-      </regex_capture>
     </local_variable>
     <local_variable id="oval:mil.disa.stig.windows:var:5101" version="2" datatype="string" comment="Path to Application.evtx">
       <concat>
