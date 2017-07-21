@@ -22,16 +22,16 @@ create scc output directory:
 {%- set archive = salt.temp.file(suffix='.zip', prefix=pattern | replace('/', '.') ~ '-') %}
 {%- do salt.archive.zip(zip_file=archive, sources=guides) %}
 
-'disable content other than {{ pattern }}':
+'uninstall all content before analyzing {{ pattern }}':
   cmd.run:
-    - name: '"{{ scc.cmd }}" -da -q'
+    - name: '"{{ scc.cmd }}" -ua -q'
 
 'analyze {{ pattern }}':
   cmd.script:
     - name: {{ scc.retry_script }}
     - args: '5 "{{ scc.cmd }}" -isr {{ archive }} -q -u "{{ scc.output_dir }}"'
     - require:
-      - cmd: 'disable content other than {{ pattern }}'
+      - cmd: 'uninstall all content before analyzing {{ pattern }}'
       - file: 'create scc output directory'
 
 {%- endfor %}
