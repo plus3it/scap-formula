@@ -3,7 +3,7 @@
   <generator>
     <oval:product_name>repotool</oval:product_name>
     <oval:schema_version>5.8</oval:schema_version>
-    <oval:timestamp>2017-03-31T10:48:47</oval:timestamp>
+    <oval:timestamp>2017-07-05T10:26:41</oval:timestamp>
   </generator>
   <definitions>
     <definition class="inventory" id="oval:mil.disa.fso.redhat.rhel6:def:100" version="3">
@@ -82,3 +82,4 @@
     </linux:rpminfo_state>
   </states>
 </oval_definitions>
+

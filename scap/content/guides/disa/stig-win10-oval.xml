@@ -3,7 +3,7 @@
   <generator>
     <oval:product_name>repotool</oval:product_name>
     <oval:schema_version>5.8</oval:schema_version>
-    <oval:timestamp>2017-04-03T09:35:21</oval:timestamp>
+    <oval:timestamp>2017-07-31T14:36:16</oval:timestamp>
   </generator>
   <definitions>
     <definition id="oval:mil.disa.fso.windows:def:3887" version="4" class="compliance">
@@ -34,7 +34,7 @@
         <criterion test_ref="oval:mil.disa.fso.windows:tst:388900" comment="Verifes Telnet Client feature is not installed" />
       </criteria>
     </definition>
-    <definition id="oval:mil.disa.fso.windows:def:3931" version="6" class="compliance">
+    <definition id="oval:mil.disa.fso.windows:def:3931" version="7" class="compliance">
       <metadata>
         <title>Lockout Duration</title>
         <affected family="windows">
@@ -44,9 +44,15 @@
         <reference source="DISA" ref_id="1099" ref_url="http://iase.disa.mil/stigs/SRR/index.html" />
         <description>Lockout duration must meet minimum requirements.</description>
       </metadata>
-      <criteria operator="AND">
-        <criterion test_ref="oval:mil.disa.fso.windows:tst:393100" comment="Verifies 'Account lockout duration' is set to '0'" />
-        <criterion test_ref="oval:mil.disa.fso.windows:tst:393201" comment="Verifies 'Account lockout threshold' is not set to '0'" />
+      <criteria operator="OR">
+        <criteria operator="AND">
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:393100" comment="Verifies 'Account lockout duration' is set to '0'" />
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:393201" comment="Verifies 'Account lockout threshold' is not set to '0'" />
+        </criteria>
+        <criteria operator="AND">
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:393101" comment="Verifies 'Account lockout duration' is set to '15 minutes' or greater" />
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:393201" comment="Verifies 'Account lockout threshold' is not set to '0'" />
+        </criteria>
       </criteria>
     </definition>
     <definition id="oval:mil.disa.fso.windows:def:3932" version="4" class="compliance">
@@ -1876,7 +1882,7 @@
         <criterion test_ref="oval:mil.disa.fso.windows:tst:484801" comment="Legal Notice Caption - US Department of Defense Warning Statement" />
       </criteria>
     </definition>
-    <definition id="oval:mil.disa.fso.windows:def:4849" version="2" class="compliance">
+    <definition id="oval:mil.disa.fso.windows:def:4849" version="3" class="compliance">
       <metadata>
         <title>UR: Access this computer from the network</title>
         <affected family="windows">
@@ -1887,7 +1893,7 @@
         <description>Unauthorized accounts must not have the Access this computer from the network user right.</description>
       </metadata>
       <criteria operator="AND">
-        <criterion test_ref="oval:mil.disa.fso.windows:tst:484900" comment="Access this computer from the network - Administrators" />
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:484900" comment="Access this computer from the network - Administrators, Remote Desktop Users" />
       </criteria>
     </definition>
     <definition id="oval:mil.disa.fso.windows:def:4851" version="2" class="compliance">
@@ -2276,17 +2282,20 @@
         <criterion test_ref="oval:mil.disa.stig.windows:tst:1100" comment="Verifies EMET 5.5 or higher is installed" />
       </criteria>
     </definition>
-    <definition id="oval:mil.disa.stig.windows:def:15" version="3" class="compliance">
+    <definition id="oval:mil.disa.stig.windows:def:15" version="4" class="compliance">
       <metadata>
-        <title>Domain-joined systems must use Windows 10 Enterprise Edition.</title>
+        <title>Domain-joined systems must use Windows 10 Enterprise Edition 64-bit version.</title>
         <affected family="windows">
           <platform>Microsoft Windows 8</platform>
           <platform>Microsoft Windows 10</platform>
         </affected>
-        <description>Domain-joined systems must use Windows 10 Enterprise Edition.</description>
+        <description>Domain-joined systems must use Windows 10 Enterprise Edition 64-bit version.</description>
       </metadata>
-      <criteria operator="OR" comment="Standalone or Enterprise Edition">
-        <extend_definition definition_ref="oval:mil.disa.stig.windows:def:83" comment="Enterprise Edition" />
+      <criteria operator="OR" comment="Standalone or Enterprise 64-bit Edition">
+        <criteria operator="AND" comment="Enterprise 64-bit Edition">
+          <extend_definition definition_ref="oval:mil.disa.stig.windows:def:83" comment="Enterprise Edition" />
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:1500" comment="OSArchitecture is 64-bit" />
+        </criteria>
         <extend_definition definition_ref="oval:mil.disa.stig.windows:def:82" comment="Standalone System" />
       </criteria>
     </definition>
@@ -2333,19 +2342,6 @@
       <criteria operator="OR">
         <extend_definition definition_ref="oval:mil.disa.stig.windows:def:82" comment="System is standalone" />
         <criterion test_ref="oval:mil.disa.stig.windows:tst:2100" comment="DevicePKInitEnabled (reg_dword) is 1 or does not exist" />
-      </criteria>
-    </definition>
-    <definition id="oval:mil.disa.stig.windows:def:22" version="1" class="compliance">
-      <metadata>
-        <title>The system must be configured to block untrusted fonts from loading.</title>
-        <affected family="windows">
-          <platform>Microsoft Windows 8</platform>
-          <platform>Microsoft Windows 10</platform>
-        </affected>
-        <description>The system must be configured to block untrusted fonts from loading.</description>
-      </metadata>
-      <criteria operator="AND">
-        <criterion test_ref="oval:mil.disa.stig.windows:tst:2200" comment="Untrusted fonts are blocked" />
       </criteria>
     </definition>
     <definition id="oval:mil.disa.stig.windows:def:23" version="1" class="compliance">
@@ -2818,7 +2814,7 @@
         <criterion test_ref="oval:mil.disa.stig.windows:tst:9800" comment="NoGPOistChanges is set to 0." />
       </criteria>
     </definition>
-    <definition id="oval:mil.disa.stig.windows:def:99" version="4" class="compliance">
+    <definition id="oval:mil.disa.stig.windows:def:99" version="5" class="compliance">
       <metadata>
         <title>The Windows SmartScreen must be configured to require approval from an administrator before running downloaded unknown software.</title>
         <affected family="windows">
@@ -2828,11 +2824,17 @@
         <description>Windows SmartScreen helps protect systems from programs downloaded from the internet that may be malicious. Requiring administrator approval before running unknown software will prevent users from executing potentially malicious programs.</description>
       </metadata>
       <criteria operator="OR">
-        <criteria operator="AND">
+        <criteria operator="AND" comment="SmartScreen setting on Windows 10 v1703 and greater">
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:9900" comment="EnableSmartScreen has value of 1." />
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:9902" comment="Verifies the OS Build is equal to or greater than 15063" />
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:9903" comment="ShellSmartScreenLevel has value of Block." />
+        </criteria>
+        <criteria operator="AND" comment="SmartScreen setting on Windows 10 v1607">
           <criterion test_ref="oval:mil.disa.stig.windows:tst:9900" comment="EnableSmartScreen has value of 1." />
           <criterion test_ref="oval:mil.disa.fso.windows:tst:498502" comment="Verifies the OS Build is equal to or greater than 14393" />
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:9902" negate="true" comment="Verifies the OS Build is equal to or greater than 15063" />
         </criteria>
-        <criteria operator="AND">
+        <criteria operator="AND" comment="SmartScreen setting on Windows 10 v1511 and earlier">
           <criterion test_ref="oval:mil.disa.stig.windows:tst:9901" comment="EnableSmartScreen has value of 2." />
           <criterion test_ref="oval:mil.disa.fso.windows:tst:498502" negate="true" comment="Verifies the OS Build is equal to or greater than 14393" />
         </criteria>
@@ -3375,7 +3377,7 @@
         </criteria>
       </criteria>
     </definition>
-    <definition id="oval:mil.disa.stig.windows:def:141" version="1" class="compliance">
+    <definition id="oval:mil.disa.stig.windows:def:141" version="2" class="compliance">
       <metadata>
         <title>WN10-00-000160</title>
         <affected family="windows">
@@ -3383,9 +3385,13 @@
         </affected>
         <description>The Server Message Block (SMB) v1 protocol must be disabled on the system.</description>
       </metadata>
-      <criteria>
-        <criteria comment="Determine if SMB v1 protocol is disabled" operator="AND">
+      <criteria operator="OR">
+        <criteria operator="AND" comment="Determine if SMB v1 protocol is disabled">
           <criterion test_ref="oval:mil.disa.stig.windows:tst:14100" comment="Check the WMI Objects to see if the SMB1Protocol Win32_OptionalFeature is at InstallState 2" />
+        </criteria>
+        <criteria operator="AND" comment="Determine if SMBv1 Server and SMBv1 client driver are disabled">
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:16600" comment="Verifies 'Configure SMBv1 Server' is set to 'Disabled'" />
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:16700" comment="Verifies 'Configure SMBv1 client driver' is set to 'Enabled' with 'Disable driver (recommended)' selected for 'Configure MrxSmb10 driver'" />
         </criteria>
       </criteria>
     </definition>
@@ -3516,6 +3522,164 @@
         <criterion test_ref="oval:mil.disa.stig.windows:tst:15601" comment="Deny log on as a batch job - Enterprise Admins" />
       </criteria>
     </definition>
+    <definition id="oval:mil.disa.stig.windows:def:157" version="1" class="compliance">
+      <metadata>
+        <title>WN10-AU-000083</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 10</platform>
+        </affected>
+        <reference ref_id="CCE-48005-3" source="http://cce.mitre.org" />
+        <reference source="DISA" ref_id="74409" ref_url="http://iase.disa.mil/stigs/SRR/index.html" />
+        <description>The system must be configured to audit Object Access - Other Object Access Events failures.</description>
+      </metadata>
+      <criteria operator="OR">
+        <criterion test_ref="oval:mil.disa.stig.windows:tst:15700" comment="Audit - Other Object Access Events - Failure only" />
+        <criterion test_ref="oval:mil.disa.stig.windows:tst:15701" comment="Audit - Other Object Access Events - Success and Failure" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.stig.windows:def:158" version="1" class="compliance">
+      <metadata>
+        <title>WN10-AU-000084</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 10</platform>
+        </affected>
+        <reference ref_id="CCE-48005-3" source="http://cce.mitre.org" />
+        <reference source="DISA" ref_id="74411" ref_url="http://iase.disa.mil/stigs/SRR/index.html" />
+        <description>The system must be configured to audit Object Access - Other Object Access Events successes.</description>
+      </metadata>
+      <criteria operator="OR">
+        <criterion test_ref="oval:mil.disa.stig.windows:tst:15800" comment="Audit - Other Object Access Events - Success only" />
+        <criterion test_ref="oval:mil.disa.stig.windows:tst:15701" comment="Audit - Other Object Access Events - Success and Failure" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.stig.windows:def:159" version="1" class="compliance">
+      <metadata>
+        <title>WN10-AU-000082</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 10</platform>
+        </affected>
+        <reference ref_id="CCE-50123-9" source="http://cce.mitre.org" />
+        <reference source="DISA" ref_id="74721" ref_url="http://iase.disa.mil/stigs/SRR/index.html" />
+        <description>The system must be configured to audit Object Access - File Share successes.</description>
+      </metadata>
+      <criteria operator="OR">
+        <criterion test_ref="oval:mil.disa.stig.windows:tst:15900" comment="Audit - File Share - Success only" />
+        <criterion test_ref="oval:mil.disa.stig.windows:tst:15901" comment="Audit - File Share - Success and Failure" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.stig.windows:def:160" version="1" class="compliance">
+      <metadata>
+        <title>WN10-AU-000081</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 10</platform>
+        </affected>
+        <reference ref_id="CCE-50123-9" source="http://cce.mitre.org" />
+        <reference source="DISA" ref_id="75027" ref_url="http://iase.disa.mil/stigs/SRR/index.html" />
+        <description>The system must be configured to audit Object Access - File Share failures.</description>
+      </metadata>
+      <criteria operator="OR">
+        <criterion test_ref="oval:mil.disa.stig.windows:tst:16000" comment="Audit - File Share - Failure only" />
+        <criterion test_ref="oval:mil.disa.stig.windows:tst:15901" comment="Audit - File Share - Success and Failure" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.stig.windows:def:162" version="1" class="compliance">
+      <metadata>
+        <title>WN10-CC-000068</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 10</platform>
+        </affected>
+        <reference source="DISA" ref_id="74699" ref_url="http://iase.disa.mil/stigs/SRR/index.html" />
+        <description>Windows 10 mst be configured to enable Remote host allows delegtion of non-exportable credentials.</description>
+      </metadata>
+      <criteria operator="OR">
+        <criteria operator="AND" comment="Setting on Windows 10 v1703 and greater">
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:16200" comment="Verifies 'Remote host allows delegation of non-exportable credentials' is set to 'Enabled'" />
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:9902" comment="Verifies the OS Build is equal to or greater than 15063" />
+        </criteria>
+        <criteria operator="AND" comment="Versions of Windows 10 earlier than v1703">
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:9902" negate="true" comment="Verifies the OS Build is equal to or greater than 15063" />
+        </criteria>
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.stig.windows:def:163" version="1" class="compliance">
+      <metadata>
+        <title>WN10-CC-000228</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 10</platform>
+        </affected>
+        <reference source="DISA" ref_id="74415" ref_url="http://iase.disa.mil/stigs/SRR/index.html" />
+        <description>Windows 10 must be configured to prevent Microsoft Edge browser data from being cleared on exit.</description>
+      </metadata>
+      <criteria operator="OR">
+        <criteria operator="AND" comment="Setting on Windows 10 v1703 and greater">
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:16300" comment="Verifies 'Allow clearing browsing data on exit' is set to 'Disabled'" />
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:9902" comment="Verifies the OS Build is equal to or greater than 15063" />
+        </criteria>
+        <criteria operator="AND" comment="Versions of Windows 10 earlier than v1703">
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:9902" negate="true" comment="Verifies the OS Build is equal to or greater than 15063" />
+        </criteria>
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.stig.windows:def:164" version="1" class="compliance">
+      <metadata>
+        <title>WN10-CC-000252</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 10</platform>
+        </affected>
+        <reference source="DISA" ref_id="74415" ref_url="http://iase.disa.mil/stigs/SRR/index.html" />
+        <description>Windows 10 must be configured to disable Windows Game Recording and Broadcasting.</description>
+      </metadata>
+      <criteria operator="OR">
+        <criteria operator="AND" comment="Setting on Windows 10 v1703 and greater">
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:16400" comment="Verifies 'Enables or disables Windows Game Recording and Broadcasting' is set to 'Disabled'" />
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:9902" comment="Verifies the OS Build is equal to or greater than 15063" />
+        </criteria>
+        <criteria operator="AND" comment="Versions of Windows 10 earlier than v1703">
+          <criterion test_ref="oval:mil.disa.stig.windows:tst:9902" negate="true" comment="Verifies the OS Build is equal to or greater than 15063" />
+        </criteria>
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.stig.windows:def:165" version="1" class="compliance">
+      <metadata>
+        <title>WN10-00-000175</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 10</platform>
+        </affected>
+        <reference source="DISA" ref_id="74719" ref_url="http://iase.disa.mil/stigs/SRR/index.html" />
+        <description>The Secondary Logon service must be disabled on Windows 10.</description>
+      </metadata>
+      <criteria operator="AND">
+        <criterion test_ref="oval:mil.disa.stig.windows:tst:16500" comment="Verifies the Secondary Logon service startup type is Disabled" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.stig.windows:def:166" version="1" class="compliance">
+      <metadata>
+        <title>WN10-00-000165</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 10</platform>
+        </affected>
+        <reference source="DISA" ref_id="74723" ref_url="http://iase.disa.mil/stigs/SRR/index.html" />
+        <description>The Server Message Block (SMB) v1 protocol must be disabled on the SMB server.</description>
+      </metadata>
+      <criteria operator="OR">
+        <criterion test_ref="oval:mil.disa.stig.windows:tst:16600" comment="Verifies 'Configure SMBv1 Server' is set to 'Disabled'" />
+        <criterion test_ref="oval:mil.disa.stig.windows:tst:14100" comment="Check the WMI Objects to see if the SMB1Protocol Win32_OptionalFeature is at InstallState 2" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.stig.windows:def:167" version="1" class="compliance">
+      <metadata>
+        <title>WN10-00-000170</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 10</platform>
+        </affected>
+        <reference source="DISA" ref_id="74723" ref_url="http://iase.disa.mil/stigs/SRR/index.html" />
+        <description>The Server Message Block (SMB) v1 protocol must be disabled on the SMB client.</description>
+      </metadata>
+      <criteria operator="OR">
+        <criterion test_ref="oval:mil.disa.stig.windows:tst:16700" comment="Verifies 'Configure SMBv1 client driver' is set to 'Enabled' with 'Disable driver (recommended)' selected for 'Configure MrxSmb10 driver'" />
+        <criterion test_ref="oval:mil.disa.stig.windows:tst:14100" comment="Check the WMI Objects to see if the SMB1Protocol Win32_OptionalFeature is at InstallState 2" />
+      </criteria>
+    </definition>
     <definition id="oval:mil.disa.stig.windows:def:4029" version="3" class="compliance">
       <metadata>
         <title>Remote Assistance - Solicit Remote Assistance</title>
@@ -3541,6 +3705,10 @@
       <object object_ref="oval:mil.disa.fso.windows:obj:393200" />
       <state state_ref="oval:mil.disa.fso.windows:ste:393100" />
       <state state_ref="oval:mil.disa.fso.windows:ste:393101" />
+    </lockoutpolicy_test>
+    <lockoutpolicy_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:393101" version="3" comment="'Account lockout duration' is set to '15 minutes' or greater" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:393200" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:393102" />
     </lockoutpolicy_test>
     <lockoutpolicy_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:393200" version="2" comment="'Account lockout threshold' is set to '3' or less" check_existence="at_least_one_exists" check="all">
       <object object_ref="oval:mil.disa.fso.windows:obj:393200" />
@@ -4197,8 +4365,8 @@
       <object object_ref="oval:mil.disa.fso.windows:obj:484800" />
       <state state_ref="oval:mil.disa.fso.windows:ste:484801" />
     </registry_test>
-    <accesstoken_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:484900" version="1" comment="Access this computer from the network - Administrators" check="all">
-      <object object_ref="oval:mil.disa.fso.windows:obj:425301" />
+    <accesstoken_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:484900" version="2" comment="Access this computer from the network - Administrators, Remote Desktop Users" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:484900" />
       <state state_ref="oval:mil.disa.fso.windows:ste:484900" />
     </accesstoken_test>
     <accesstoken_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:485100" version="1" comment="Allow log on locally - Administrators, Users" check="all">
@@ -4408,6 +4576,10 @@
       <object object_ref="oval:mil.disa.fso.windows:obj:439606" />
       <state state_ref="oval:mil.disa.stig.windows:ste:1100" />
     </registry_test>
+    <wmi57_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:1500" version="1" comment="OSArchitecture is 64-bit" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.stig.windows:obj:1500" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:1500" />
+    </wmi57_test>
     <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:1900" version="1" comment="Mutual Authentication and Integrity for \\*\SYSVOL" check_existence="at_least_one_exists" check="all">
       <object object_ref="oval:mil.disa.stig.windows:obj:1900" />
       <state state_ref="oval:mil.disa.stig.windows:ste:1900" />
@@ -4425,10 +4597,6 @@
     <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:2100" version="1" comment="DevicePKInitEnabled (reg_dword) is 1 or does not exist" check_existence="any_exist" check="all">
       <object object_ref="oval:mil.disa.stig.windows:obj:2100" />
       <state state_ref="oval:mil.disa.stig.windows:ste:2100" />
-    </registry_test>
-    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:2200" version="1" comment="Untrusted fonts are blocked" check_existence="at_least_one_exists" check="all">
-      <object object_ref="oval:mil.disa.stig.windows:obj:2200" />
-      <state state_ref="oval:mil.disa.stig.windows:ste:2200" />
     </registry_test>
     <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:2300" version="1" comment="Verifies 'Disable Wi-Fi Sense' is set to 'Enabled'" check_existence="at_least_one_exists" check="all">
       <object object_ref="oval:mil.disa.stig.windows:obj:2300" />
@@ -4608,6 +4776,14 @@
     <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:9901" version="1" comment="EnableSmartScreen has value of 2." check_existence="at_least_one_exists" check="all">
       <object object_ref="oval:mil.disa.fso.windows:obj:405800" />
       <state state_ref="oval:mil.disa.stig.windows:ste:9901" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:9902" version="1" comment="The OS Build is equal to or greater than 15063" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:498501" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:9902" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:9903" version="1" comment="ShellSmartScreenLevel has value of Block." check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.stig.windows:obj:9900" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:9903" />
     </registry_test>
     <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:10000" version="1" comment="AllowBasicAuthInClear reg value set to not 1" check_existence="any_exist" check="none satisfy">
       <object object_ref="oval:mil.disa.fso.windows:obj:478900" />
@@ -4997,6 +5173,54 @@
       <object object_ref="oval:mil.disa.stig.windows:obj:15601" />
       <state state_ref="oval:mil.disa.stig.windows:ste:15500" />
     </accesstoken_test>
+    <auditeventpolicysubcategories_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:15700" version="1" comment="'Audit Other Object Access Events' is set to 'Failure'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:394100" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:15700" />
+    </auditeventpolicysubcategories_test>
+    <auditeventpolicysubcategories_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:15701" version="1" comment="'Audit Other Object Access Events' is set to 'Success' and 'Failure'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:394100" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:15701" />
+    </auditeventpolicysubcategories_test>
+    <auditeventpolicysubcategories_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:15800" version="1" comment="'Audit Other Object Access Events' is set to 'Success'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:394100" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:15800" />
+    </auditeventpolicysubcategories_test>
+    <auditeventpolicysubcategories_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:15900" version="1" comment="'Audit File Share' is set to 'Success'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:394100" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:15900" />
+    </auditeventpolicysubcategories_test>
+    <auditeventpolicysubcategories_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:15901" version="1" comment="'Audit File Share' is set to 'Success' and 'Failure'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:394100" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:15901" />
+    </auditeventpolicysubcategories_test>
+    <auditeventpolicysubcategories_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:16000" version="1" comment="'Audit File Share' is set to 'Failure'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:394100" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:16000" />
+    </auditeventpolicysubcategories_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:16200" version="1" comment="'Remote host allows delegation of non-exportable credentials' is set to 'Enabled'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.stig.windows:obj:16200" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:16200" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:16300" version="1" comment="'Allow clearing browsing data on exit' is set to 'Disabled'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.stig.windows:obj:16300" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:16300" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:16400" version="1" comment="'Enables or disables Windows Game Recording and Broadcasting' is set to 'Disabled'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.stig.windows:obj:16400" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:16400" />
+    </registry_test>
+    <wmi57_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:16500" version="1" comment="The Smart Card Removal Policy service startup type is Automatic" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.stig.windows:obj:16500" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:16500" />
+    </wmi57_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:16600" version="1" comment="'Configure SMBv1 Server' is set to 'Disabled'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.stig.windows:obj:16600" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:16600" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:16700" version="1" comment="'Configure SMBv1 client driver' is set to 'Enabled' with 'Disable driver (recommended)' selected for 'Configure MrxSmb10 driver'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.stig.windows:obj:16700" />
+      <state state_ref="oval:mil.disa.stig.windows:ste:16700" />
+    </registry_test>
     <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:tst:402900" version="2" comment="'Configure Solicited Remote Assistance' is set to 'Disabled'" check_existence="at_least_one_exists" check="all">
       <object object_ref="oval:mil.disa.stig.windows:obj:402900" />
       <state state_ref="oval:mil.disa.stig.windows:ste:402900" />
@@ -5545,6 +5769,13 @@
       <key datatype="string">SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System</key>
       <name datatype="string">LegalNoticeCaption</name>
     </registry_object>
+    <accesstoken_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:484900" version="1" comment="Administrators, Remote Desktop Users">
+      <set xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" set_operator="UNION">
+        <object_reference>oval:mil.disa.fso.windows:obj:424000</object_reference>
+        <filter>oval:mil.disa.fso.windows:ste:425301</filter>
+        <filter>oval:mil.disa.fso.windows:ste:484901</filter>
+      </set>
+    </accesstoken_object>
     <accesstoken_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:485100" version="1" comment="Administrators, Users only">
       <set xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" set_operator="UNION">
         <object_reference>oval:mil.disa.fso.windows:obj:424000</object_reference>
@@ -5772,6 +6003,10 @@
     <accesstoken_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:514200" version="1" comment="Everyone Group">
       <security_principle datatype="string" operation="pattern match">^.*\\Everyone$|^Everyone$</security_principle>
     </accesstoken_object>
+    <wmi57_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:1500" version="1" comment="Win32_OperatingSystem/OSArchitecture">
+      <namespace>root\cimv2</namespace>
+      <wql>SELECT OSArchitecture FROM Win32_OperatingSystem</wql>
+    </wmi57_object>
     <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:1900" version="1" comment="Hardened Path Config for \\*\SYSVOL">
       <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
       <key datatype="string">SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths</key>
@@ -5786,12 +6021,6 @@
       <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
       <key datatype="string">SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters</key>
       <name datatype="string">DevicePKInitEnabled</name>
-    </registry_object>
-    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:2200" version="1" comment="MitigationOptions_FontBocking">
-      <!-- Note:  acutal registry value name is misspelled "Bocking"; this is not a content error -->
-      <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
-      <key datatype="string">SOFTWARE\Policies\Microsoft\Windows NT\MitigationOptions</key>
-      <name datatype="string">MitigationOptions_FontBocking</name>
     </registry_object>
     <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:2300" version="1" comment="AutoConnectAllowedOEM">
       <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
@@ -6034,6 +6263,11 @@
       <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
       <key datatype="string">SOFTWARE\Policies\Microsoft\EMET\SysSettings</key>
       <name datatype="string">BannedFunctions</name>
+    </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:9900" version="1">
+      <hive datatype="string" operation="equals">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string" operation="equals">Software\Policies\Microsoft\Windows\System</key>
+      <name datatype="string" operation="equals">ShellSmartScreenLevel</name>
     </registry_object>
     <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:10500" version="3">
       <hive datatype="string" operation="equals">HKEY_LOCAL_MACHINE</hive>
@@ -6414,6 +6648,35 @@
     <accesstoken_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:15603" version="1" comment="Enterprise Admins pattern match">
       <security_principle datatype="string" operation="pattern match">^.*\\Enterprise Admins$</security_principle>
     </accesstoken_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:16200" version="1">
+      <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string">SOFTWARE\Policies\Microsoft\Windows\CredentialsDelegation</key>
+      <name datatype="string">AllowProtectedCreds</name>
+    </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:16300" version="1">
+      <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string">SOFTWARE\Policies\Microsoft\MicrosoftEdge\Privacy</key>
+      <name datatype="string">ClearBrowsingHistoryOnExit</name>
+    </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:16400" version="1">
+      <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string">SOFTWARE\Policies\Microsoft\Windows\GameDVR</key>
+      <name datatype="string">AllowGameDVR</name>
+    </registry_object>
+    <wmi57_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:16500" version="1" comment="Secondary Logon Service Startup Type">
+      <namespace datatype="string">root\cimv2</namespace>
+      <wql datatype="string" operation="equals">SELECT startmode FROM Win32_Service WHERE name='seclogon'</wql>
+    </wmi57_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:16600" version="1">
+      <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string">SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters</key>
+      <name datatype="string">SMB1</name>
+    </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:16700" version="1">
+      <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string">SYSTEM\CurrentControlSet\Services\mrxsmb10</key>
+      <name datatype="string">Start</name>
+    </registry_object>
     <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:obj:402900" version="2">
       <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
       <key datatype="string">SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services</key>
@@ -6426,6 +6689,9 @@
     </lockoutpolicy_state>
     <lockoutpolicy_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:393101" version="2" comment="Lockout Duration equals 4294967295">
       <lockout_duration operation="equals" datatype="int">4294967295</lockout_duration>
+    </lockoutpolicy_state>
+    <lockoutpolicy_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:393102" version="1" comment="Lockout Duration greater than or equals 900">
+      <lockout_duration datatype="int" operation="greater than or equal" entity_check="all">900</lockout_duration>
     </lockoutpolicy_state>
     <lockoutpolicy_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:393200" version="1" comment="Lockout Threshold is less than or equal to variable">
       <lockout_threshold operation="less than or equal" datatype="int" var_ref="oval:mil.disa.fso.windows:var:393200" />
@@ -6922,6 +7188,9 @@
     <accesstoken_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:484900" version="1" comment="Access this computer from the network">
       <senetworklogonright datatype="boolean">0</senetworklogonright>
     </accesstoken_state>
+    <accesstoken_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:484901" version="1" comment="Remote Desktop Users">
+      <security_principle datatype="string" operation="equals">Remote Desktop Users</security_principle>
+    </accesstoken_state>
     <accesstoken_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:485001" version="1" comment="LOCAL SERVICE">
       <security_principle datatype="string" operation="equals">LOCAL SERVICE</security_principle>
     </accesstoken_state>
@@ -7022,6 +7291,11 @@
       <type>reg_sz</type>
       <value datatype="version" operation="greater than or equal">5.5</value>
     </registry_state>
+    <wmi57_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:1500" version="2" comment="OSArchitecture is 64-bit">
+      <result datatype="record" operation="equals">
+        <field xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" name="osarchitecture" entity_check="at least one" datatype="string">64-bit</field>
+      </result>
+    </wmi57_state>
     <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:1900" version="2" comment="RequireMutualAuthentication=1">
       <type>reg_sz</type>
       <value datatype="string" operation="pattern match">(^| *, *)RequireMutualAuthentication=1( *, *|$)</value>
@@ -7041,10 +7315,6 @@
     <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:2100" version="1" comment="DevicePKInitEnabled = 1 (reg_dword)">
       <type>reg_dword</type>
       <value datatype="int">1</value>
-    </registry_state>
-    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:2200" version="1" comment="MitigationOptions_FontBocking = 1000000000000 (reg_sz, 12 zeros)">
-      <type>reg_sz</type>
-      <value datatype="string">1000000000000</value>
     </registry_state>
     <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:2300" version="1" comment="AutoConnectAllowedOEM = 0 (reg_dword)">
       <type>reg_dword</type>
@@ -7177,6 +7447,14 @@
     <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:9901" version="1" comment="REG_DWORD value of 2.">
       <type>reg_dword</type>
       <value datatype="int" operation="equals">2</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:9902" version="1" comment="Reg_Sz type and value is greater than or equal to 15063">
+      <type>reg_sz</type>
+      <value datatype="version" operation="greater than or equal">15063</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:9903" version="1" comment="Reg_Sz type and value is equals Block">
+      <type>reg_sz</type>
+      <value datatype="string" operation="equals">Block</value>
     </registry_state>
     <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:10000" version="1" comment="Reg_Dword value equals 1">
       <type>reg_dword</type>
@@ -7356,6 +7634,49 @@
     <accesstoken_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:15500" version="1" comment="Deny log on as a batch job">
       <sedenybatchLogonright datatype="boolean" operation="equals">1</sedenybatchLogonright>
     </accesstoken_state>
+    <auditeventpolicysubcategories_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:15700" version="1" comment="'Other Object Access Events' is set to 'Failure'">
+      <other_object_access_events datatype="string">AUDIT_FAILURE</other_object_access_events>
+    </auditeventpolicysubcategories_state>
+    <auditeventpolicysubcategories_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:15701" version="1" comment="'Other Object Access Events' is set to 'Success' and 'Failure'">
+      <other_object_access_events datatype="string">AUDIT_SUCCESS_FAILURE</other_object_access_events>
+    </auditeventpolicysubcategories_state>
+    <auditeventpolicysubcategories_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:15800" version="1" comment="'Other Object Access Events' is set to 'Success'">
+      <other_object_access_events datatype="string">AUDIT_SUCCESS</other_object_access_events>
+    </auditeventpolicysubcategories_state>
+    <auditeventpolicysubcategories_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:15900" version="1" comment="'File Share' is set to 'Success'">
+      <file_share datatype="string">AUDIT_SUCCESS</file_share>
+    </auditeventpolicysubcategories_state>
+    <auditeventpolicysubcategories_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:15901" version="1" comment="'File Share' is set to 'Success' and 'Failure'">
+      <file_share datatype="string">AUDIT_SUCCESS_FAILURE</file_share>
+    </auditeventpolicysubcategories_state>
+    <auditeventpolicysubcategories_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:16000" version="1" comment="'File Share' is set to 'Failure'">
+      <file_share datatype="string">AUDIT_FAILURE</file_share>
+    </auditeventpolicysubcategories_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:16200" version="1" comment="Reg_Dword type and value equals 1">
+      <type>reg_dword</type>
+      <value datatype="int" operation="equals">1</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:16300" version="1" comment="Reg_Dword type and value equals 0">
+      <type>reg_dword</type>
+      <value datatype="int" operation="equals">0</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:16400" version="1" comment="Reg_Dword type and value equals 0">
+      <type>reg_dword</type>
+      <value datatype="int" operation="equals">0</value>
+    </registry_state>
+    <wmi57_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:16500" version="1" comment="Service Startup Type is Disabled">
+      <result datatype="record" operation="equals">
+        <field xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" name="startmode">Disabled</field>
+      </result>
+    </wmi57_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:16600" version="1" comment="Reg_Dword type and value equals 0">
+      <type>reg_dword</type>
+      <value datatype="int" operation="equals">0</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:16700" version="1" comment="Reg_Dword type and value equals 4">
+      <type>reg_dword</type>
+      <value datatype="int" operation="equals">4</value>
+    </registry_state>
     <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.windows:ste:402900" version="2" comment="Reg_Dword type and value equals variable">
       <type>reg_dword</type>
       <value datatype="int" var_ref="oval:mil.disa.stig.windows:var:402900" />

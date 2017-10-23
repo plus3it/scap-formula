@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Benchmark xmlns="http://checklists.nist.gov/xccdf/1.1" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cpe="http://cpe.mitre.org/language/2.0" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" id="IE_11_STIG" xml:lang="en" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.1 http://nvd.nist.gov/schema/xccdf-1.1.4.xsd" style="SCAP_1.1">
-  <status date="2017-01-04">accepted</status>
+  <status date="2017-07-28">accepted</status>
   <title>Microsoft Internet Explorer 11 Security Technical Implementation Guide</title>
   <description>The Microsoft Internet Explorer 11 Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems. Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil</description>
   <notice id="terms-of-use" xml:lang="en" />
@@ -9,9 +9,9 @@
     <dc:publisher>DISA</dc:publisher>
     <dc:source>STIG.DOD.MIL</dc:source>
   </reference>
-  <plain-text id="release-info">Release: 8 Benchmark Date: 27 Jan 2017</plain-text>
+  <plain-text id="release-info">Release: 1.10 Benchmark Date: 28 Jul 2017</plain-text>
   <platform idref="cpe:/a:microsoft:internet_explorer:11" />
-  <version>1</version>
+  <version>001.010</version>
   <metadata>
     <dc:creator>DISA</dc:creator>
     <dc:publisher>DISA</dc:publisher>
@@ -21,6 +21,7 @@
   <Profile id="MAC-1_Classified">
     <title>I - Mission Critical Classified</title>
     <description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description>
+    <select idref="V-46473" selected="true" />
     <select idref="V-46475" selected="true" />
     <select idref="V-46481" selected="true" />
     <select idref="V-46483" selected="true" />
@@ -148,13 +149,18 @@
     <select idref="V-64721" selected="true" />
     <select idref="V-64723" selected="true" />
     <select idref="V-64725" selected="true" />
+    <select idref="V-64729" selected="true" />
     <select idref="V-72757" selected="true" />
+    <select idref="V-72759" selected="true" />
     <select idref="V-72761" selected="true" />
     <select idref="V-72763" selected="true" />
+    <select idref="V-75169" selected="true" />
+    <select idref="V-75171" selected="true" />
   </Profile>
   <Profile id="MAC-1_Public">
     <title>I - Mission Critical Public</title>
     <description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description>
+    <select idref="V-46473" selected="true" />
     <select idref="V-46475" selected="true" />
     <select idref="V-46481" selected="true" />
     <select idref="V-46483" selected="true" />
@@ -282,13 +288,18 @@
     <select idref="V-64721" selected="true" />
     <select idref="V-64723" selected="true" />
     <select idref="V-64725" selected="true" />
+    <select idref="V-64729" selected="true" />
     <select idref="V-72757" selected="true" />
+    <select idref="V-72759" selected="true" />
     <select idref="V-72761" selected="true" />
     <select idref="V-72763" selected="true" />
+    <select idref="V-75169" selected="true" />
+    <select idref="V-75171" selected="true" />
   </Profile>
   <Profile id="MAC-1_Sensitive">
     <title>I - Mission Critical Sensitive</title>
     <description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description>
+    <select idref="V-46473" selected="true" />
     <select idref="V-46475" selected="true" />
     <select idref="V-46481" selected="true" />
     <select idref="V-46483" selected="true" />
@@ -416,13 +427,18 @@
     <select idref="V-64721" selected="true" />
     <select idref="V-64723" selected="true" />
     <select idref="V-64725" selected="true" />
+    <select idref="V-64729" selected="true" />
     <select idref="V-72757" selected="true" />
+    <select idref="V-72759" selected="true" />
     <select idref="V-72761" selected="true" />
     <select idref="V-72763" selected="true" />
+    <select idref="V-75169" selected="true" />
+    <select idref="V-75171" selected="true" />
   </Profile>
   <Profile id="MAC-2_Classified">
     <title>II - Mission Support Classified</title>
     <description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description>
+    <select idref="V-46473" selected="true" />
     <select idref="V-46475" selected="true" />
     <select idref="V-46481" selected="true" />
     <select idref="V-46483" selected="true" />
@@ -550,13 +566,18 @@
     <select idref="V-64721" selected="true" />
     <select idref="V-64723" selected="true" />
     <select idref="V-64725" selected="true" />
+    <select idref="V-64729" selected="true" />
     <select idref="V-72757" selected="true" />
+    <select idref="V-72759" selected="true" />
     <select idref="V-72761" selected="true" />
     <select idref="V-72763" selected="true" />
+    <select idref="V-75169" selected="true" />
+    <select idref="V-75171" selected="true" />
   </Profile>
   <Profile id="MAC-2_Public">
     <title>II - Mission Support Public</title>
     <description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description>
+    <select idref="V-46473" selected="true" />
     <select idref="V-46475" selected="true" />
     <select idref="V-46481" selected="true" />
     <select idref="V-46483" selected="true" />
@@ -684,13 +705,18 @@
     <select idref="V-64721" selected="true" />
     <select idref="V-64723" selected="true" />
     <select idref="V-64725" selected="true" />
+    <select idref="V-64729" selected="true" />
     <select idref="V-72757" selected="true" />
+    <select idref="V-72759" selected="true" />
     <select idref="V-72761" selected="true" />
     <select idref="V-72763" selected="true" />
+    <select idref="V-75169" selected="true" />
+    <select idref="V-75171" selected="true" />
   </Profile>
   <Profile id="MAC-2_Sensitive">
     <title>II - Mission Support Sensitive</title>
     <description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description>
+    <select idref="V-46473" selected="true" />
     <select idref="V-46475" selected="true" />
     <select idref="V-46481" selected="true" />
     <select idref="V-46483" selected="true" />
@@ -818,13 +844,18 @@
     <select idref="V-64721" selected="true" />
     <select idref="V-64723" selected="true" />
     <select idref="V-64725" selected="true" />
+    <select idref="V-64729" selected="true" />
     <select idref="V-72757" selected="true" />
+    <select idref="V-72759" selected="true" />
     <select idref="V-72761" selected="true" />
     <select idref="V-72763" selected="true" />
+    <select idref="V-75169" selected="true" />
+    <select idref="V-75171" selected="true" />
   </Profile>
   <Profile id="MAC-3_Classified">
     <title>III - Administrative Classified</title>
     <description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description>
+    <select idref="V-46473" selected="true" />
     <select idref="V-46475" selected="true" />
     <select idref="V-46481" selected="true" />
     <select idref="V-46483" selected="true" />
@@ -952,13 +983,18 @@
     <select idref="V-64721" selected="true" />
     <select idref="V-64723" selected="true" />
     <select idref="V-64725" selected="true" />
+    <select idref="V-64729" selected="true" />
     <select idref="V-72757" selected="true" />
+    <select idref="V-72759" selected="true" />
     <select idref="V-72761" selected="true" />
     <select idref="V-72763" selected="true" />
+    <select idref="V-75169" selected="true" />
+    <select idref="V-75171" selected="true" />
   </Profile>
   <Profile id="MAC-3_Public">
     <title>III - Administrative Public</title>
     <description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description>
+    <select idref="V-46473" selected="true" />
     <select idref="V-46475" selected="true" />
     <select idref="V-46481" selected="true" />
     <select idref="V-46483" selected="true" />
@@ -1086,13 +1122,18 @@
     <select idref="V-64721" selected="true" />
     <select idref="V-64723" selected="true" />
     <select idref="V-64725" selected="true" />
+    <select idref="V-64729" selected="true" />
     <select idref="V-72757" selected="true" />
+    <select idref="V-72759" selected="true" />
     <select idref="V-72761" selected="true" />
     <select idref="V-72763" selected="true" />
+    <select idref="V-75169" selected="true" />
+    <select idref="V-75171" selected="true" />
   </Profile>
   <Profile id="MAC-3_Sensitive">
     <title>III - Administrative Sensitive</title>
     <description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description>
+    <select idref="V-46473" selected="true" />
     <select idref="V-46475" selected="true" />
     <select idref="V-46481" selected="true" />
     <select idref="V-46483" selected="true" />
@@ -1220,13 +1261,18 @@
     <select idref="V-64721" selected="true" />
     <select idref="V-64723" selected="true" />
     <select idref="V-64725" selected="true" />
+    <select idref="V-64729" selected="true" />
     <select idref="V-72757" selected="true" />
+    <select idref="V-72759" selected="true" />
     <select idref="V-72761" selected="true" />
     <select idref="V-72763" selected="true" />
+    <select idref="V-75169" selected="true" />
+    <select idref="V-75171" selected="true" />
   </Profile>
   <Profile id="CAT_I_Only">
     <title>CAT I Only</title>
     <description>This profile only includes rules that are Severity Category I.</description>
+    <select idref="SV-59337r7_rule" selected="false" />
     <select idref="SV-59339r1_rule" selected="false" />
     <select idref="SV-59345r1_rule" selected="false" />
     <select idref="SV-59347r1_rule" selected="false" />
@@ -1354,9 +1400,13 @@
     <select idref="SV-79211r1_rule" selected="false" />
     <select idref="SV-79213r1_rule" selected="false" />
     <select idref="SV-79215r1_rule" selected="false" />
-    <select idref="SV-87395r1_rule" selected="false" />
-    <select idref="SV-87399r1_rule" selected="false" />
-    <select idref="SV-87401r1_rule" selected="false" />
+    <select idref="SV-79219r3_rule" selected="false" />
+    <select idref="SV-87395r2_rule" selected="false" />
+    <select idref="SV-87397r2_rule" selected="false" />
+    <select idref="SV-87399r2_rule" selected="false" />
+    <select idref="SV-87401r2_rule" selected="false" />
+    <select idref="SV-89849r1_rule" selected="false" />
+    <select idref="SV-89851r1_rule" selected="false" />
   </Profile>
   <Value id="WebSitesInLessPrivilegedWebContentZonesCanNavigateIntoThisZone_RestrictedSitesZone_LocalComputer_var" type="number" operator="equals">
     <title>WebSitesInLessPrivilegedWebContentZonesCanNavigateIntoThisZone_RestrictedSitesZone_LocalComputer_var</title>
@@ -1938,6 +1988,30 @@
     <value selector="enabled:prompt">1</value>
     <value selector="enabled:disable">3</value>
   </Value>
+  <Group id="V-46473">
+    <title>DTBI014-IE11-TLS setting</title>
+    <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
+    <Rule id="SV-59337r7_rule" severity="medium" weight="10.0">
+      <version>DTBI014-IE11</version>
+      <title>Turn off Encryption Support must be enabled.</title>
+      <description>&lt;VulnDiscussion&gt;This parameter ensures only DoD-approved ciphers and algorithms are enabled for use by the web browser by allowing you to turn on/off support for TLS and SSL. TLS is a protocol for protecting communications between the browser and the target server. When the browser attempts to set up a protected communication with the target server, the browser and server negotiate which protocol and version to use. The browser and server attempt to match each other's list of supported protocols and versions and pick the most preferred match..&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <reference>
+        <dc:title>DPMS Target IE Version 11</dc:title>
+        <dc:publisher>DISA</dc:publisher>
+        <dc:type>DPMS Target</dc:type>
+        <dc:subject>IE Version 11</dc:subject>
+        <dc:identifier>2589</dc:identifier>
+      </reference>
+      <ident system="http://iase.disa.mil/cci">CCI-001131</ident>
+      <fixtext fixref="F-50263r17_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Panel &gt;&gt; Advanced Page &gt;&gt; "Turn off Encryption Support" to "Enabled".
+
+Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</fixtext>
+      <fix id="F-50263r17_fix" />
+      <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <check-content-ref name="oval:mil.disa.fso.ie:def:580" href="stig-ie11-oval.xml" />
+      </check>
+    </Rule>
+  </Group>
   <Group id="V-46475">
     <title>DTBI015-IE11-Warning of certificate mismatch</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
@@ -4799,10 +4873,31 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
       </check>
     </Rule>
   </Group>
+  <Group id="V-64729">
+    <title>DTBI1100-IE11-Allow Fallback to SSL 3.0 (Internet Explorer)</title>
+    <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
+    <Rule id="SV-79219r3_rule" severity="medium" weight="10.0">
+      <version>DTBI1100-IE11</version>
+      <title>Allow Fallback to SSL 3.0 (Internet Explorer) must be disabled.</title>
+      <description>&lt;VulnDiscussion&gt;This parameter ensures only DoD-approved ciphers and algorithms are enabled for use by the web browser by blocking an insecure fallback to SSL when TLS 1.0 or greater fails. &lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <reference>
+        <dc:title>DPMS Target IE Version 11</dc:title>
+        <dc:publisher>DISA</dc:publisher>
+        <dc:type>DPMS Target</dc:type>
+        <dc:subject>IE Version 11</dc:subject>
+        <dc:identifier>2589</dc:identifier>
+      </reference>
+      <fixtext fixref="F-70659r6_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Security Features &gt;&gt; "Allow fallback to SSL 3.0 (Internet Explorer)" to "Enabled", and select "No Sites" from the drop-down box.</fixtext>
+      <fix id="F-70659r6_fix" />
+      <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <check-content-ref name="oval:mil.disa.fso.ie:def:581" href="stig-ie11-oval.xml" />
+      </check>
+    </Rule>
+  </Group>
   <Group id="V-72757">
     <title>DTBI1105-IE11-Run once selection for running outdated ActiveX controls must be disabled.</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
-    <Rule id="SV-87395r1_rule" severity="medium" weight="10.0">
+    <Rule id="SV-87395r2_rule" severity="medium" weight="10.0">
       <version>DTBI1105-IE11</version>
       <title>Run once selection for running outdated ActiveX controls must be disabled.</title>
       <description>&lt;VulnDiscussion&gt;This feature keeps ActiveX controls up to date and helps make them safer to use in Internet Explorer. Many ActiveX controls are not automatically updated as new versions are released. It is very important to keep ActiveX controls up to date because malicious or compromised webpages can target security flaws in out-of-date ActiveX controls.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
@@ -4814,17 +4909,39 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
         <dc:identifier>2589</dc:identifier>
       </reference>
       <ident system="http://iase.disa.mil/cci">CCI-000381</ident>
-      <fixtext fixref="F-79167r3_fix">In the policy value for Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Security Features &gt;&gt; Add-on Management, set "Remove the Run this time button for outdated ActiveX controls in IE" to "Disabled".</fixtext>
-      <fix id="F-79167r3_fix" />
+      <fixtext fixref="F-79167r7_fix">In the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Security Features &gt;&gt; Add-on Management, set "Remove the Run this time button for outdated ActiveX controls in IE" to "Enabled".</fixtext>
+      <fix id="F-79167r7_fix" />
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-content-ref name="oval:mil.disa.fso.ie:def:585" href="stig-ie11-oval.xml" />
+      </check>
+    </Rule>
+  </Group>
+  <Group id="V-72759">
+    <title>DTBI1110-IE11-Enabling outdated ActiveX controls for Internet Explorer must be blocked.</title>
+    <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
+    <Rule id="SV-87397r2_rule" severity="medium" weight="10.0">
+      <version>DTBI1110-IE11</version>
+      <title>Enabling outdated ActiveX controls for Internet Explorer must be blocked.</title>
+      <description>&lt;VulnDiscussion&gt;This feature keeps ActiveX controls up to date and helps make them safer to use in Internet Explorer. Many ActiveX controls are not automatically updated as new versions are released. It is very important to keep ActiveX controls up to date because malicious or compromised webpages can target security flaws in out-of-date ActiveX controls.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <reference>
+        <dc:title>DPMS Target IE Version 11</dc:title>
+        <dc:publisher>DISA</dc:publisher>
+        <dc:type>DPMS Target</dc:type>
+        <dc:subject>IE Version 11</dc:subject>
+        <dc:identifier>2589</dc:identifier>
+      </reference>
+      <ident system="http://iase.disa.mil/cci">CCI-000381</ident>
+      <fixtext fixref="F-79169r5_fix">In the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Security Features &gt;&gt; Add-on Management, set "Turn off blocking of outdated ActiveX controls for Internet Explorer" to "Disabled".</fixtext>
+      <fix id="F-79169r5_fix" />
+      <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <check-content-ref name="oval:mil.disa.fso.ie:def:586" href="stig-ie11-oval.xml" />
       </check>
     </Rule>
   </Group>
   <Group id="V-72761">
     <title>DTBI1115-IE11-Use of the Tabular Data Control (TDC) ActiveX control must be disabled for the Interne</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
-    <Rule id="SV-87399r1_rule" severity="medium" weight="10.0">
+    <Rule id="SV-87399r2_rule" severity="medium" weight="10.0">
       <version>DTBI1115-IE11</version>
       <title>Use of the Tabular Data Control (TDC) ActiveX control must be disabled for the Internet Zone.</title>
       <description>&lt;VulnDiscussion&gt;This policy setting determines whether users can run the Tabular Data Control (TDC) ActiveX control, based on security zone. By default, the TDC ActiveX Control is disabled in the Internet and Restricted Sites security zones. If you enable this policy setting, users will not be able to run the TDC ActiveX control from all sites in the specified zone.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
@@ -4836,8 +4953,10 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
         <dc:identifier>2589</dc:identifier>
       </reference>
       <ident system="http://iase.disa.mil/cci">CCI-000381</ident>
-      <fixtext fixref="F-79171r2_fix">In the policy value for Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Panel &gt;&gt; Security Page &gt;&gt; Intranet Zone, set "Allow only approved domains to use the TDC ActiveX control" to "Enabled".</fixtext>
-      <fix id="F-79171r2_fix" />
+      <fixtext fixref="F-79171r6_fix">In the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Pane &gt;&gt; Security Page &gt;&gt; Internet Zone, set the "Allow only approved domains to use the TDC ActiveX control" to “Enabled”. 
+
+In the Options window, select "Enable" from the “Only allow approved domains to use the TDC ActiveX control" drop-down box.</fixtext>
+      <fix id="F-79171r6_fix" />
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-export value-id="AllowApprovedDomainsToUseTDCActiveXControl_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:58300" />
         <check-content-ref name="oval:mil.disa.fso.ie:def:583" href="stig-ie11-oval.xml" />
@@ -4847,7 +4966,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
   <Group id="V-72763">
     <title>DTBI1120-IE11-Use of the Tabular Data Control (TDC) ActiveX control must be disabled for the Restric</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
-    <Rule id="SV-87401r1_rule" severity="medium" weight="10.0">
+    <Rule id="SV-87401r2_rule" severity="medium" weight="10.0">
       <version>DTBI1120-IE11</version>
       <title>Use of the Tabular Data Control (TDC) ActiveX control must be disabled for the Restricted Sites Zone.</title>
       <description>&lt;VulnDiscussion&gt;This policy setting determines whether users can run the Tabular Data Control (TDC) ActiveX control, based on security zone. By default, the TDC ActiveX Control is disabled in the Internet and Restricted Sites security zones. If you enable this policy setting, users won’t be able to run the TDC ActiveX control from all sites in the specified zone.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
@@ -4859,11 +4978,57 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
         <dc:identifier>2589</dc:identifier>
       </reference>
       <ident system="http://iase.disa.mil/cci">CCI-000381</ident>
-      <fixtext fixref="F-79173r2_fix">In the policy value for Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Panel &gt;&gt; Security Page &gt;&gt; Restricted Sites Zone, set "Allow only approved domains to use the TDC ActiveX control" to "Enabled".</fixtext>
-      <fix id="F-79173r2_fix" />
+      <fixtext fixref="F-79173r5_fix">In the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Panel &gt;&gt; Security Page &gt;&gt; Restricted Sites Zone, set the "Allow only approved domains to use the TDC ActiveX control" to “Enabled”.
+
+In the Options windows, select "Enable" from the “Only allow approved domains to use the TDC ActiveX control" drop-down box.</fixtext>
+      <fix id="F-79173r5_fix" />
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-export value-id="AllowApprovedDomainsToUseTDCActiveXControl_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:58400" />
         <check-content-ref name="oval:mil.disa.fso.ie:def:584" href="stig-ie11-oval.xml" />
+      </check>
+    </Rule>
+  </Group>
+  <Group id="V-75169">
+    <title>DTBI1125-IE11-VBScript</title>
+    <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
+    <Rule id="SV-89849r1_rule" severity="medium" weight="10.0">
+      <version>DTBI1125-IE11</version>
+      <title>VBScript must not be allowed to run in Internet Explorer (Internet zone).</title>
+      <description>&lt;VulnDiscussion&gt;This policy setting allows the management of whether VBScript can be run on pages from the specified zone in Internet Explorer. By selecting "Enable" in the drop-down box, VBScript can run without user intervention. By selecting "Prompt" in the drop-down box, users are asked to choose whether to allow VBScript to run. By selecting "Disable" in the drop-down box, VBScript is prevented from running. If this policy setting is not configured or disabled, VBScript will run without user intervention.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <reference>
+        <dc:title>DPMS Target IE Version 11</dc:title>
+        <dc:publisher>DISA</dc:publisher>
+        <dc:type>DPMS Target</dc:type>
+        <dc:subject>IE Version 11</dc:subject>
+        <dc:identifier>2589</dc:identifier>
+      </reference>
+      <ident system="http://iase.disa.mil/cci">CCI-001169</ident>
+      <fixtext fixref="F-81781r1_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Panel &gt;&gt; Security Page &gt;&gt; Internet Zone &gt;&gt; "Allow VBScript to run in Internet Explorer" to "Enabled" and select "Disable" from the drop-down box.</fixtext>
+      <fix id="F-81781r1_fix" />
+      <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <check-content-ref name="oval:mil.disa.fso.ie:def:588" href="stig-ie11-oval.xml" />
+      </check>
+    </Rule>
+  </Group>
+  <Group id="V-75171">
+    <title>DTBI1130-IE11-VBScript</title>
+    <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
+    <Rule id="SV-89851r1_rule" severity="medium" weight="10.0">
+      <version>DTBI1130-IE11</version>
+      <title>VBScript must not be allowed to run in Internet Explorer (Restricted Sites zone).</title>
+      <description>&lt;VulnDiscussion&gt;This policy setting allows the management of whether VBScript can be run on pages from the specified zone in Internet Explorer. By selecting "Enable" in the drop-down box, VBScript can run without user intervention. By selecting "Prompt" in the drop-down box, users are asked to choose whether to allow VBScript to run. By selecting "Disable" in the drop-down box, VBScript is prevented from running. If this policy setting is not configured or disabled, VBScript will run without user intervention.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <reference>
+        <dc:title>DPMS Target IE Version 11</dc:title>
+        <dc:publisher>DISA</dc:publisher>
+        <dc:type>DPMS Target</dc:type>
+        <dc:subject>IE Version 11</dc:subject>
+        <dc:identifier>2589</dc:identifier>
+      </reference>
+      <ident system="http://iase.disa.mil/cci">CCI-001169</ident>
+      <fixtext fixref="F-81783r1_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Panel &gt;&gt; Security Page &gt;&gt; Restricted Sites Zone &gt;&gt; "Allow VBScript to run in Internet Explorer" to "Enabled" and select "Disable" from the drop-down box.</fixtext>
+      <fix id="F-81783r1_fix" />
+      <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <check-content-ref name="oval:mil.disa.fso.ie:def:589" href="stig-ie11-oval.xml" />
       </check>
     </Rule>
   </Group>

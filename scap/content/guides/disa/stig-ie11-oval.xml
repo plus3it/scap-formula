@@ -3,7 +3,7 @@
   <generator>
     <oval:product_name>repotool</oval:product_name>
     <oval:schema_version>5.8</oval:schema_version>
-    <oval:timestamp>2017-01-05T13:23:26</oval:timestamp>
+    <oval:timestamp>2017-07-06T16:22:01</oval:timestamp>
   </generator>
   <definitions>
     <definition id="oval:mil.disa.fso.ie:def:417" version="1" class="compliance">
@@ -2123,30 +2123,71 @@
         <criterion comment="HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\1\1201 is a REG_DWORD equal to 3" test_ref="oval:mil.disa.fso.ie:tst:57900" />
       </criteria>
     </definition>
-    <definition id="oval:mil.disa.fso.ie:def:583" version="1" class="compliance">
+    <definition id="oval:mil.disa.fso.ie:def:580" version="3" class="compliance">
+      <metadata>
+        <title>Turn off Encryption Support must be enabled.</title>
+        <affected family="windows">
+          <product>Microsoft Internet Explorer 11</product>
+        </affected>
+        <description>This parameter ensures only DoD-approved ciphers and algorithms are enabled for use by the web browser by allowing you to turn on/off support for TLS and SSL. TLS is a protocol for protecting communications between the browser and the target server. When the browser attempts to set up a protected communication with the target server, the browser and server negotiate which protocol and version to use. The browser and server attempt to match each other's list of supported protocols and versions and pick the most preferred match</description>
+      </metadata>
+      <criteria operator="OR">
+        <criteria operator="AND">
+          <criterion comment="'turn off encryption support' setting is handled by Group Policy." test_ref="oval:mil.disa.fso.ie:tst:58000" />
+          <criterion comment="TLS 1, 1.1, and 1.2 must be selected for the IE option 'turn off encryption support' via Group Policy." test_ref="oval:mil.disa.fso.ie:tst:58001" />
+        </criteria>
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.fso.ie:def:581" version="3" class="compliance">
+      <metadata>
+        <title>Allow Fallback to SSL 3.0 (Internet Explorer) must be disabled.</title>
+        <affected family="windows">
+          <product>Microsoft Internet Explorer 11</product>
+        </affected>
+        <description>This parameter ensures only DoD-approved ciphers and algorithms are enabled for use by the web browser by blocking an insecure fallback to SSL when TLS 1.0 or greater fails.</description>
+      </metadata>
+      <criteria operator="AND">
+        <criterion test_ref="oval:mil.disa.fso.ie:tst:58100" comment="Verifies 'Allow Fallback to SSL 3.0 (Internet Explorer)' is set to 'Enabled' with 'Allow insecure fallback for:' set to 'No Sites'" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.fso.ie:def:583" version="3" class="compliance">
       <metadata>
         <title>DTBI1115-IE11 - Computer Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Allow only approved domains to use the TDC ActiveX control</title>
         <affected family="windows">
           <platform>Microsoft Windows 10</platform>
+          <platform>Microsoft Windows Server 2016</platform>
           <product>Microsoft Internet Explorer 11</product>
         </affected>
         <description>This policy setting determines whether users can run the Tabular Data Control (TDC) ActiveX control, based on security zone. By default, the TDC ActiveX Control is disabled in the Internet and Resticted Sites security zones. If you enable this policy setting, users will not be able to run the TDC ActiveX control from all sites in the specified zones.</description>
       </metadata>
-      <criteria>
-        <criterion comment="Computer Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Allow only approved domains to use the TDC ActiveX control" test_ref="oval:mil.disa.fso.ie:tst:58300" />
+      <criteria operator="OR">
+        <criteria operator="AND">
+          <criterion test_ref="oval:mil.disa.fso.ie:tst:58300" comment="Computer Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Allow only approved domains to use the TDC ActiveX control" />
+          <extend_definition definition_ref="oval:mil.disa.fso.ie:def:587" comment="The OS is either Windows Server 2016 or Windows 10 Version 1607 or higher." />
+        </criteria>
+        <criteria operator="AND">
+          <extend_definition definition_ref="oval:mil.disa.fso.ie:def:587" negate="true" comment="The OS is neither Windows Server 2016 or Windows 10 Version 1607 or higher." />
+        </criteria>
       </criteria>
     </definition>
-    <definition id="oval:mil.disa.fso.ie:def:584" version="1" class="compliance">
+    <definition id="oval:mil.disa.fso.ie:def:584" version="2" class="compliance">
       <metadata>
         <title>DTBI1120-IE11 - Computer Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Allow only approved domains to use the TDC ActiveX control</title>
         <affected family="windows">
           <platform>Microsoft Windows 10</platform>
+          <platform>Microsoft Windows Server 2016</platform>
           <product>Microsoft Internet Explorer 11</product>
         </affected>
         <description>This policy setting determines whether users can run the Tabular Data Control (TDC) ActiveX control, based on security zone. By default, the TDC ActiveX Control is disabled in the Internet and Resticted Sites security zones. If you enable this policy setting, users will not be able to run the TDC ActiveX control from all sites in the specified zones.</description>
       </metadata>
-      <criteria>
-        <criterion comment="Computer Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Allow only approved domains to use the TDC ActiveX control" test_ref="oval:mil.disa.fso.ie:tst:58400" />
+      <criteria operator="OR">
+        <criteria operator="AND">
+          <criterion test_ref="oval:mil.disa.fso.ie:tst:58400" comment="Computer Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Allow only approved domains to use the TDC ActiveX control" />
+          <extend_definition definition_ref="oval:mil.disa.fso.ie:def:587" comment="The OS is either Windows Server 2016 or Windows 10 Version 1607 or higher." />
+        </criteria>
+        <criteria operator="AND">
+          <extend_definition definition_ref="oval:mil.disa.fso.ie:def:587" negate="true" comment="The OS is neither Windows Server 2016 or Windows 10 Version 1607 or higher." />
+        </criteria>
       </criteria>
     </definition>
     <definition class="compliance" id="oval:mil.disa.fso.ie:def:585" version="1">
@@ -2165,6 +2206,80 @@
       </metadata>
       <criteria operator="AND">
         <criterion test_ref="oval:mil.disa.fso.ie:tst:58500" comment="Check if HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext\RunThisTimeEnabled is set to 0." />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.fso.ie:def:586" version="2" class="compliance">
+      <metadata>
+        <title>DTBI1110-IE11-Enabling outdated ActiveX controls for Internet Explorer must be blocked</title>
+        <affected family="windows">
+          <platform>Microsoft Windows Server 2008 R2</platform>
+          <platform>Microsoft Windows Server 2012</platform>
+          <platform>Microsoft Windows 7</platform>
+          <platform>Microsoft Windows 8</platform>
+          <platform>Microsoft Windows 8.1</platform>
+          <platform>Microsoft Windows 10</platform>
+          <product>Microsoft Internet Explorer 11</product>
+        </affected>
+        <description>Enabling outdated ActiveX controls for Internet Explorer must be blocked.</description>
+      </metadata>
+      <criteria operator="OR">
+        <criterion test_ref="oval:mil.disa.fso.ie:tst:58600" comment="Block enabling outdated ActiveX controls for Internet Explorer" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.fso.ie:def:587" version="1" class="compliance">
+      <metadata>
+        <title>Operating system is Windows Server 2016 or Windows 10 Version 1607 or higher</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 10</platform>
+          <platform>Microsoft Windows Server 2016</platform>
+          <product>Microsoft Internet Explorer 11</product>
+        </affected>
+        <description>Verifies the operating system is either Windows Server 2016 or Windows 10 Version 1607 or higher.</description>
+      </metadata>
+      <criteria operator="AND">
+        <criterion test_ref="oval:mil.disa.fso.ie:tst:58700" comment="Verifies the OS Version is equal to or greater than 6.3" />
+        <criterion test_ref="oval:mil.disa.fso.ie:tst:58701" comment="Verifies the OS Build is equal to or greater than 14393" />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.fso.ie:def:588" version="1" class="compliance">
+      <metadata>
+        <title>VBScript must not be allowed to run in Internet Explorer (Internet Zone)</title>
+        <affected family="windows">
+          <product>Microsoft Internet Explorer 11</product>
+        </affected>
+        <description>This policy setting allows you to manage whether VBScript can be run on pages from the specified zone in Internet Explorer.  If you selected Enable in the drop-down box VBScript can run without user intervention.  If you selected Prompt in the drop-down box users are asked to choose whether to allow VBScript to run.  If you selected Disable in the drop-down box VBScript is prevented from running.  If you do not configure or disable this policy setting VBScript will run without user intervention.</description>
+      </metadata>
+      <criteria operator="OR">
+        <extend_definition definition_ref="oval:mil.disa.fso.ie:def:590" negate="true" comment="Is the operating system Windows Server 2016 or Windows 10 Version 1703 or higher" />
+        <criterion test_ref="oval:mil.disa.fso.ie:tst:58800" comment="Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Internet Zone -&gt; 'Allow VBScript to run in Internet Explorer' setting is set to 'Enabled' and the drop-down box is set to 'Disable' Group Policy." />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.fso.ie:def:589" version="1" class="compliance">
+      <metadata>
+        <title>VBScript must not be allowed to run in Internet Explorer (Restricted Sites zone).</title>
+        <affected family="windows">
+          <product>Microsoft Internet Explorer 11</product>
+        </affected>
+        <description>This policy setting allows you to manage whether VBScript can be run on pages from the specified zone in Internet Explorer.  If you selected Enable in the drop-down box VBScript can run without user intervention.  If you selected Prompt in the drop-down box users are asked to choose whether to allow VBScript to run.  If you selected Disable in the drop-down box VBScript is prevented from running.  If you do not configure or disable this policy setting VBScript will run without user intervention.</description>
+      </metadata>
+      <criteria operator="OR">
+        <extend_definition definition_ref="oval:mil.disa.fso.ie:def:590" negate="true" comment="Is the operating system Windows Server 2016 or Windows 10 Version 1703 or higher" />
+        <criterion test_ref="oval:mil.disa.fso.ie:tst:58900" comment="Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Restricted Sites Zone -&gt; 'Allow VBScript to run in Internet Explorer' setting is set to 'Enabled' and the drop-down box is set to 'Disable' Group Policy." />
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.fso.ie:def:590" version="1" class="compliance">
+      <metadata>
+        <title>Operating system is Windows Server 2016 or  Windows 10 Version 1703 or higher</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 10</platform>
+          <platform>Microsoft Windows Server 2016</platform>
+          <product>Microsoft Internet Explorer 11</product>
+        </affected>
+        <description>Verifies the operating system is either Windows Server 2016 or Windows 10 Version 1703 or higher.</description>
+      </metadata>
+      <criteria operator="AND">
+        <criterion test_ref="oval:mil.disa.fso.ie:tst:58700" comment="Verifies the OS Version is equal to or greater than 6.3" />
+        <criterion test_ref="oval:mil.disa.fso.ie:tst:59000" comment="Verifies the OS Build is equal to or greater than 15063" />
       </criteria>
     </definition>
   </definitions>
@@ -2681,6 +2796,17 @@
       <object object_ref="oval:mil.disa.fso.ie:obj:57900" />
       <state state_ref="oval:mil.disa.fso.ie:ste:57900" />
     </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:tst:58000" version="2" comment="'turn off encryption support' setting is handled by Group Policy." check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.ie:obj:58000" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:tst:58001" version="1" comment="TLS 1, 1.1, and 1.2 must be selected for the IE option 'turn off encryption support' via Group Policy." check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.ie:obj:58000" />
+      <state state_ref="oval:mil.disa.fso.ie:ste:58000" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:tst:58100" version="3" comment="'Allow Fallback to SSL 3.0 (Internet Explorer)' is set to 'Enabled' with 'Allow insecure fallback for:' set to 'No Sites'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.ie:obj:58100" />
+      <state state_ref="oval:mil.disa.fso.ie:ste:58100" />
+    </registry_test>
     <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:tst:58300" version="1" comment="Computer Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Allow only approved domains to use the TDC ActiveX control" check_existence="at_least_one_exists" check="all">
       <object object_ref="oval:mil.disa.fso.ie:obj:58300" />
       <state state_ref="oval:mil.disa.fso.ie:ste:58300" />
@@ -2692,6 +2818,30 @@
     <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="all_exist" comment="Check if HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext\RunThisTimeEnabled is set to 0" id="oval:mil.disa.fso.ie:tst:58500" version="1">
       <object object_ref="oval:mil.disa.fso.ie:obj:58500" />
       <state state_ref="oval:mil.disa.fso.ie:ste:58500" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:tst:58600" version="1" comment="Check if HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext\VersionCheckEnabled is set to 1" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.ie:obj:58600" />
+      <state state_ref="oval:mil.disa.fso.ie:ste:58600" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:tst:58700" version="1" comment="The OS Version is equal to or greater than 6.3" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.ie:obj:58700" />
+      <state state_ref="oval:mil.disa.fso.ie:ste:58700" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:tst:58701" version="1" comment="The OS Build is equal to or greater than 14393" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.ie:obj:58701" />
+      <state state_ref="oval:mil.disa.fso.ie:ste:58701" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:tst:58800" version="1" comment="Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Internet Zone -&gt; 'Allow VBScript to run in Internet Explorer' setting is set to 'Enable' and 'Disable' selected from the drop-down box in Group Policy." check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.ie:obj:58800" />
+      <state state_ref="oval:mil.disa.fso.ie:ste:58800" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:tst:58900" version="1" comment="Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Restricted Sites Zone-&gt;'Allow VBScript to run in Internet Explorer' setting is set to 'Enable' and 'Disable' selected from the drop-down box in Group Policy." check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.ie:obj:58900" />
+      <state state_ref="oval:mil.disa.fso.ie:ste:58900" />
+    </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:tst:59000" version="1" comment="The OS Build is equal to or greater than 15063" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.ie:obj:58701" />
+      <state state_ref="oval:mil.disa.fso.ie:ste:59000" />
     </registry_test>
   </tests>
   <objects>
@@ -3335,6 +3485,16 @@
       <key datatype="string" operation="equals">Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\1</key>
       <name datatype="string" operation="equals">1201</name>
     </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:obj:58000" version="2" comment="Registry value associated with IE 'turn off encryption support' option, Group Policy value.">
+      <hive datatype="string" operation="equals">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string" operation="equals">Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings</key>
+      <name datatype="string" operation="equals">SecureProtocols</name>
+    </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:obj:58100" version="2" comment="Registry value associated with IE 'Allow Fallback to SSL 3.0' option, Group Policy value.">
+      <hive datatype="string" operation="equals">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string" operation="equals">Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings</key>
+      <name datatype="string" operation="equals">EnableSSL3Fallback</name>
+    </registry_object>
     <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:obj:58300" version="1" comment="Computer Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Allow only approved domains to use the TDC ActiveX control">
       <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
       <key datatype="string">Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3</key>
@@ -3349,6 +3509,31 @@
       <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
       <key datatype="string">SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext</key>
       <name datatype="string">RunThisTimeEnabled</name>
+    </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:obj:58600" version="1" comment="Check HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext for the value named VersionCheckEnabled">
+      <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string">Software\Microsoft\Windows\CurrentVersion\Policies\Ext</key>
+      <name datatype="string">VersionCheckEnabled</name>
+    </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:obj:58700" version="1">
+      <hive datatype="string" operation="equals">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string" operation="equals">Software\Microsoft\Windows NT\CurrentVersion</key>
+      <name datatype="string" operation="equals">CurrentVersion</name>
+    </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:obj:58701" version="1">
+      <hive datatype="string" operation="equals">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string" operation="equals">Software\Microsoft\Windows NT\CurrentVersion</key>
+      <name datatype="string" operation="equals">CurrentBuildNumber</name>
+    </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:obj:58800" version="1" comment="Registry value associated with Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Internet Zone -&gt; 'Allow VBScript to run in Internet Explorer' option, Group Policy value.">
+      <hive datatype="string" operation="equals">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string" operation="equals">Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3</key>
+      <name datatype="string" operation="equals">140C</name>
+    </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:obj:58900" version="1" comment="Registry value associated with Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Restricted Sites Zone-&gt;'Allow VBScript to run in Internet Explorer' option, Group Policy value.">
+      <hive datatype="string" operation="equals">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string" operation="equals">Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\4</key>
+      <name datatype="string" operation="equals">140C</name>
     </registry_object>
   </objects>
   <states>
@@ -3864,6 +4049,14 @@
       <type datatype="string" operation="equals" entity_check="all">reg_dword</type>
       <value datatype="int" operation="equals" entity_check="all">3</value>
     </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:ste:58000" version="2" comment="Registry value corresponding with selection of TLS 1, 1.1, and 1.2.">
+      <type datatype="string" operation="equals" entity_check="all">reg_dword</type>
+      <value datatype="int" operation="equals" entity_check="all">2560</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:ste:58100" version="1" comment="Registry value corresponding with EnableSSL3Fallback value.">
+      <type datatype="string" operation="equals" entity_check="all">reg_dword</type>
+      <value datatype="int" operation="equals" entity_check="all">0</value>
+    </registry_state>
     <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:ste:58300" version="1" comment="Computer Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Allow only approved domains to use the TDC ActiveX control">
       <type>reg_dword</type>
       <value datatype="int" var_ref="oval:mil.disa.fso.ie:var:58300" />
@@ -3875,6 +4068,30 @@
     <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" comment="equals 0" id="oval:mil.disa.fso.ie:ste:58500" version="1">
       <type>reg_dword</type>
       <value operation="equals" datatype="int">0</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:ste:58600" version="1" comment="REG_DWORD type and value equals 1">
+      <type>reg_dword</type>
+      <value datatype="int" operation="equals">1</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:ste:58700" version="1" comment="Reg_Sz type and value is greater than or equal to 6.3">
+      <type>reg_sz</type>
+      <value datatype="version" operation="greater than or equal">6.3</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:ste:58701" version="1" comment="Reg_Sz type and value is greater than or equal to 14393">
+      <type>reg_sz</type>
+      <value datatype="version" operation="greater than or equal">14393</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:ste:58800" version="1" comment="Registry value corresponding with selection of 'Enabled' and then 'Disable' from the drop-down box in the group policy setting.">
+      <type datatype="string" operation="equals" entity_check="all">reg_dword</type>
+      <value datatype="int" operation="equals" entity_check="all">3</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:ste:58900" version="1" comment="Registry value corresponding with selection of 'Enabled' and then 'Disable' from the drop-down box in the group policy setting.">
+      <type datatype="string" operation="equals" entity_check="all">reg_dword</type>
+      <value datatype="int" operation="equals" entity_check="all">3</value>
+    </registry_state>
+    <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:ste:59000" version="1" comment="Reg_Sz type and value is greater than or equal to 15063">
+      <type>reg_sz</type>
+      <value datatype="version" operation="greater than or equal">15063</value>
     </registry_state>
   </states>
   <variables>

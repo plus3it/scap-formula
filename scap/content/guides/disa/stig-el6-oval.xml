@@ -3,7 +3,7 @@
   <generator>
     <oval:product_name>repotool</oval:product_name>
     <oval:schema_version>5.8</oval:schema_version>
-    <oval:timestamp>2017-03-31T10:48:47</oval:timestamp>
+    <oval:timestamp>2017-07-05T10:26:41</oval:timestamp>
   </generator>
   <definitions>
     <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:1" version="1">
@@ -250,18 +250,19 @@
         <criterion comment="gnome screensaver is activated on idle" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:3651" />
       </criteria>
     </definition>
-    <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:159" version="4">
+    <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:159" version="6">
       <metadata>
         <title>Enable Auditing for Processes Which Start Prior to the Audit Daemon</title>
         <affected family="unix">
           <platform>Red Hat Enterprise Linux 6</platform>
         </affected>
         <reference ref_id="CCE-26785-6" source="http://cce.mitre.org" />
-        <description>Look for argument audit=1 in the kernel line in /boot/grub/grub.conf.</description>
+        <description>Look for argument audit=1 in the kernel line in grub.conf.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="bootloader_audit_argument" />
       </metadata>
-      <criteria>
+      <criteria operator="OR">
         <criterion test_ref="oval:mil.disa.fso.redhat.rhel6:tst:160" comment="check for audit=1 in /boot/grub/grub.conf" />
+        <criterion test_ref="oval:mil.disa.fso.redhat.rhel6:tst:161" comment="check for audit=1 in /boot/efi/EFI/redhat/grub.conf" />
       </criteria>
     </definition>
     <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:161" version="3">
@@ -1118,18 +1119,19 @@
         <criterion test_ref="oval:mil.disa.fso.redhat.rhel6:tst:498" comment="/var/log on own partition" />
       </criteria>
     </definition>
-    <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:508" version="2">
+    <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:508" version="3">
       <metadata>
-        <title>File /boot/grub/grub.conf Permissions</title>
+        <title>File grub.conf Permissions</title>
         <affected family="unix">
           <platform>Red Hat Enterprise Linux 6</platform>
         </affected>
         <reference ref_id="CCE-26949-8" source="http://cce.mitre.org" />
-        <description>File permissions for /boot/grub/grub.conf should be set to 0600.</description>
+        <description>File permissions for grub.conf should be set to 0600.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="file_permissions_grub_conf" />
       </metadata>
-      <criteria>
+      <criteria operator="AND">
         <criterion test_ref="oval:mil.disa.fso.redhat.rhel6:tst:509" />
+        <criterion test_ref="oval:mil.disa.fso.redhat.rhel6:tst:510" />
       </criteria>
     </definition>
     <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:510" version="3">
@@ -1205,27 +1207,6 @@
       <criteria operator="AND">
         <criterion comment="kernel runtime parameter net.ipv4.conf.default.rp_filter set to 1" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:3123" />
         <criterion comment="kernel /etc/sysctl.conf parameter net.ipv4.conf.default.rp_filter set to 1" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:3124" />
-      </criteria>
-    </definition>
-    <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:542" version="4">
-      <metadata>
-        <title>Record Attempts to Alter Time Through Adjtimex</title>
-        <affected family="unix">
-          <platform>Red Hat Enterprise Linux 6</platform>
-        </affected>
-        <reference ref_id="CCE-26242-8" source="http://cce.mitre.org" />
-        <description>Record attempts to alter time through adjtimex.</description>
-        <reference source="mil.disa.fso.redhat.rhel6" ref_id="audit_rules_time_adjtimex" />
-      </metadata>
-      <criteria comment="Test for either..." operator="OR">
-        <criteria comment="both..." operator="AND">
-          <extend_definition comment="32bit and ..." definition_ref="oval:mil.disa.fso.redhat.rhel6:def:126" />
-          <criterion comment="32bit line adjtimex and key present" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:543" />
-        </criteria>
-        <criteria comment="both ..." operator="AND">
-          <extend_definition comment="64bit and ..." definition_ref="oval:mil.disa.fso.redhat.rhel6:def:128" />
-          <criterion comment="64bit line for adjtimex and key present" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:544" />
-        </criteria>
       </criteria>
     </definition>
     <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:548" version="2">
@@ -2370,7 +2351,7 @@
         <criterion comment="watch localtime file" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:1062" />
       </criteria>
     </definition>
-    <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:1078" version="4">
+    <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:1078" version="5">
       <metadata>
         <title>Set Boot Loader Password</title>
         <affected family="unix">
@@ -2380,8 +2361,9 @@
         <description>The grub boot loader should have password protection enabled.</description>
         <reference source="mil.disa.fso.redhat.rhel6" ref_id="bootloader_password" />
       </metadata>
-      <criteria>
+      <criteria operator="OR">
         <criterion comment="make sure a password is defined in /boot/grub/grub.conf" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:1079" />
+        <criterion comment="make sure a password is defined in /boot/efi/EFI/redhat/grub.conf" test_ref="oval:mil.disa.fso.redhat.rhel6:tst:1080" />
       </criteria>
     </definition>
     <definition class="compliance" id="oval:mil.disa.fso.redhat.rhel6:def:1080" version="3">
@@ -3199,6 +3181,9 @@
     <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="check for audit=1 in /boot/grub/grub.conf" id="oval:mil.disa.fso.redhat.rhel6:tst:160" version="3">
       <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1220" />
     </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="check for audit=1 in /boot/efi/EFI/redhat/grub.conf" id="oval:mil.disa.fso.redhat.rhel6:tst:161" version="2">
+      <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1222" />
+    </ind:textfilecontent54_test>
     <linux:partition_test xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" id="oval:mil.disa.fso.redhat.rhel6:tst:162" version="1" comment="/var on own partition">
       <linux:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1221" />
     </linux:partition_test>
@@ -3549,8 +3534,12 @@
     <linux:partition_test xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" id="oval:mil.disa.fso.redhat.rhel6:tst:498" version="1" comment="/var/log on own partition">
       <linux:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1496" />
     </linux:partition_test>
-    <unix:file_test xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="Testing file permissions" id="oval:mil.disa.fso.redhat.rhel6:tst:509" version="1">
+    <unix:file_test xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="any_exist" comment="Testing file permissions for /boot/grub/grub.conf" id="oval:mil.disa.fso.redhat.rhel6:tst:509" version="2">
       <unix:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1505" />
+      <unix:state state_ref="oval:mil.disa.fso.redhat.rhel6:ste:1506" />
+    </unix:file_test>
+    <unix:file_test xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="any_exist" comment="Testing file permissions for /boot/efi/EFI/redhat/grub.conf" id="oval:mil.disa.fso.redhat.rhel6:tst:510" version="2">
+      <unix:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1506" />
       <unix:state state_ref="oval:mil.disa.fso.redhat.rhel6:ste:1506" />
     </unix:file_test>
     <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="serial ports /etc/securetty" id="oval:mil.disa.fso.redhat.rhel6:tst:511" version="1">
@@ -3559,12 +3548,6 @@
     <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="Tests the value of PASS_MIN_DAYS in /etc/login.defs" id="oval:mil.disa.fso.redhat.rhel6:tst:526" version="1">
       <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1519" />
       <ind:state state_ref="oval:mil.disa.fso.redhat.rhel6:ste:1520" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Tests the for presence of 32bit -S adjtime and key" id="oval:mil.disa.fso.redhat.rhel6:tst:543" version="2">
-      <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1534" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Tests the for presence of 64bit -S adjtime and key" id="oval:mil.disa.fso.redhat.rhel6:tst:544" version="2">
-      <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1535" />
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="email account for actions" id="oval:mil.disa.fso.redhat.rhel6:tst:549" version="1">
       <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:1538" />
@@ -3990,6 +3973,9 @@
     </unix:runlevel_test>
     <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="make sure a password is defined in /boot/grub/grub.conf" id="oval:mil.disa.fso.redhat.rhel6:tst:1079" version="2">
       <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:2006" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="make sure a password is defined in /boot/efi/EFI/redhat/grub.conf" id="oval:mil.disa.fso.redhat.rhel6:tst:1080" version="1">
+      <ind:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:2008" />
     </ind:textfilecontent54_test>
     <unix:runlevel_test xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="any_exist" comment="Runlevel test" id="oval:mil.disa.fso.redhat.rhel6:tst:1081" version="2">
       <unix:object object_ref="oval:mil.disa.fso.redhat.rhel6:obj:2007" />
@@ -4714,6 +4700,11 @@
     <linux:partition_object xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.fso.redhat.rhel6:obj:1221" version="1">
       <linux:mount_point datatype="string">/var</linux:mount_point>
     </linux:partition_object>
+    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.fso.redhat.rhel6:obj:1222" version="2">
+      <ind:filepath datatype="string">/boot/efi/EFI/redhat/grub.conf</ind:filepath>
+      <ind:pattern operation="pattern match" datatype="string">^\s*kernel\s(?:/boot)?/vmlinuz.*audit=1.*$</ind:pattern>
+      <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
+    </ind:textfilecontent54_object>
     <unix:runlevel_object xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:mil.disa.fso.redhat.rhel6:obj:1223" version="1">
       <unix:service_name datatype="string">postfix</unix:service_name>
       <unix:runlevel operation="equals" datatype="string">0</unix:runlevel>
@@ -5362,6 +5353,10 @@
       <unix:path datatype="string">/boot/grub</unix:path>
       <unix:filename datatype="string">grub.conf</unix:filename>
     </unix:file_object>
+    <unix:file_object xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="/boot/efi/EFI/redhat/grub.conf" id="oval:mil.disa.fso.redhat.rhel6:obj:1506" version="2">
+      <unix:path datatype="string">/boot/efi/EFI/redhat</unix:path>
+      <unix:filename datatype="string">grub.conf</unix:filename>
+    </unix:file_object>
     <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="serial ports /etc/securetty" id="oval:mil.disa.fso.redhat.rhel6:obj:1507" version="1">
       <ind:path datatype="string">/etc</ind:path>
       <ind:filename datatype="string">securetty</ind:filename>
@@ -5379,18 +5374,6 @@
     <unix:sysctl_object xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:mil.disa.fso.redhat.rhel6:obj:1532" version="1">
       <unix:name datatype="string">net.ipv4.conf.default.rp_filter</unix:name>
     </unix:sysctl_object>
-    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.fso.redhat.rhel6:obj:1534" version="2">
-      <ind:path datatype="string">/etc/audit</ind:path>
-      <ind:filename datatype="string">audit.rules</ind:filename>
-      <ind:pattern operation="pattern match" datatype="string">^-[Aa][\s]*(?:exit,always|always,exit)[\s]+-F[\s]+arch=b32.*-S[\s]+adjtimex[\s]+.*-k[\s]+[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.fso.redhat.rhel6:obj:1535" version="2">
-      <ind:path datatype="string">/etc/audit</ind:path>
-      <ind:filename datatype="string">audit.rules</ind:filename>
-      <ind:pattern operation="pattern match" datatype="string">^-[Aa][\s]*(?:exit,always|always,exit)[\s]+-F[\s]+arch=b64.*-S[\s]+adjtimex[\s]+.*-k[\s]+[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
     <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.fso.redhat.rhel6:obj:1538" version="1">
       <ind:filepath datatype="string">/etc/audit/auditd.conf</ind:filepath>
       <ind:pattern operation="pattern match" datatype="string">^action_mail_acct\s*=\s*(\S+)\s*$</ind:pattern>
@@ -6052,6 +6035,12 @@
       <unix:service_name datatype="string">rdisc</unix:service_name>
       <unix:runlevel operation="equals" datatype="string">0</unix:runlevel>
     </unix:runlevel_object>
+    <ind:textfilecontent54_object xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.fso.redhat.rhel6:obj:2008" version="1">
+      <ind:path datatype="string">/boot/efi/EFI/redhat</ind:path>
+      <ind:filename datatype="string">grub.conf</ind:filename>
+      <ind:pattern operation="pattern match" datatype="string">^\s*password\s+--encrypted\s+.*</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
     <unix:runlevel_object xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:mil.disa.fso.redhat.rhel6:obj:2009" version="1">
       <unix:service_name datatype="string">rdisc</unix:service_name>
       <unix:runlevel operation="equals" datatype="string">1</unix:runlevel>
@@ -6830,14 +6819,14 @@
       <ind:pattern operation="pattern match" datatype="string">^[^#]*insecure_locks.*$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
-    <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.fso.redhat.rhel6:obj:400200" version="6" comment="the remember setting in /etc/pam.d/system-auth">
+    <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.fso.redhat.rhel6:obj:400200" version="7" comment="the remember setting in /etc/pam.d/system-auth">
       <filepath datatype="string" operation="equals">/etc/pam.d/system-auth</filepath>
-      <pattern datatype="string" operation="pattern match">^\s*password\s+(?:(?:sufficient)|(?:required))\s+pam_pwhistory\.so[\t ]+[^#\n\r]*\s+remember=(\d+)(?:(?:\s)|(?:$))</pattern>
+      <pattern datatype="string" operation="pattern match">^\s*password\s+(?:(?:requisite)|(?:required))\s+pam_pwhistory\.so[\t ]+[^#\n\r]*\s+remember=(\d+)(?:(?:\s)|(?:$))</pattern>
       <instance datatype="int" operation="greater than or equal">1</instance>
     </textfilecontent54_object>
-    <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.fso.redhat.rhel6:obj:400201" version="4" comment="the remember setting in /etc/pam.d/system-auth">
+    <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.fso.redhat.rhel6:obj:400201" version="5" comment="the remember setting in /etc/pam.d/system-auth">
       <filepath datatype="string" operation="equals">/etc/pam.d/system-auth</filepath>
-      <pattern datatype="string" operation="pattern match">^\s*password\s+(?:(?:sufficient)|(?:required))\s+pam_pwhistory\.so\s+remember=(\d+)(?:(?:\s)|(?:$))</pattern>
+      <pattern datatype="string" operation="pattern match">^\s*password\s+(?:(?:requisite)|(?:required))\s+pam_pwhistory\.so\s+remember=(\d+)(?:(?:\s)|(?:$))</pattern>
       <instance datatype="int" operation="greater than or equal">1</instance>
     </textfilecontent54_object>
   </objects>
