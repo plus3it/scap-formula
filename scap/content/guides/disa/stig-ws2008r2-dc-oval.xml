@@ -3,7 +3,7 @@
   <generator>
     <oval:product_name>repotool</oval:product_name>
     <oval:schema_version>5.8</oval:schema_version>
-    <oval:timestamp>2017-04-04T14:55:07</oval:timestamp>
+    <oval:timestamp>2017-07-10T18:13:23</oval:timestamp>
   </generator>
   <definitions>
     <definition id="oval:mil.disa.fso.windows:def:2908" version="5" class="compliance">
@@ -105,7 +105,7 @@
         <criterion test_ref="oval:mil.disa.fso.windows:tst:291501" comment="Verifies 'Account lockout threshold' is not set to '0'" />
       </criteria>
     </definition>
-    <definition id="oval:mil.disa.fso.windows:def:2916" version="6" class="compliance">
+    <definition id="oval:mil.disa.fso.windows:def:2916" version="7" class="compliance">
       <metadata>
         <title>Bad Logon Counter Reset</title>
         <affected family="windows">
@@ -113,14 +113,14 @@
         </affected>
         <reference source="DISA" ref_id="1098" ref_url="http://iase.disa.mil/stigs/srr/index.html" />
         <reference source="http://cce.mitre.org" ref_id="CCE-11059-3" />
-        <description>The time before the bad-logon counter is reset must meet minimum requirements.</description>
+        <description>Windows 2008 R2 must be configured for the period of time before the bad logon counter is reset to 15 minutes or greater.</description>
       </metadata>
       <criteria operator="AND">
-        <criterion test_ref="oval:mil.disa.fso.windows:tst:291600" comment="Verifies 'Reset account lockout counter after' is set to at least '60' minutes" />
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:291600" comment="Verifies 'Reset account lockout counter after' is set to at least '15' minutes" />
         <criterion test_ref="oval:mil.disa.fso.windows:tst:291501" comment="Verifies 'Account lockout threshold' is not set to '0'" />
       </criteria>
     </definition>
-    <definition id="oval:mil.disa.fso.windows:def:2917" version="7" class="compliance">
+    <definition id="oval:mil.disa.fso.windows:def:2917" version="8" class="compliance">
       <metadata>
         <title>Lockout Duration</title>
         <affected family="windows">
@@ -128,11 +128,17 @@
         </affected>
         <reference source="DISA" ref_id="1099" ref_url="http://iase.disa.mil/stigs/SRR/index.html" />
         <reference source="http://cce.mitre.org" ref_id="CCE-10399-4" />
-        <description>Lockout duration must meet minimum requirements.</description>
+        <description>Windows 2008 R2 account lockout duration must be configured to 15 minutes or greater.</description>
       </metadata>
-      <criteria operator="AND">
-        <criterion test_ref="oval:mil.disa.fso.windows:tst:291700" comment="Verifies 'Account lockout duration' is set to '0'" />
-        <criterion test_ref="oval:mil.disa.fso.windows:tst:291501" comment="Verifies 'Account lockout threshold' is not set to '0'" />
+      <criteria operator="OR">
+        <criteria operator="AND">
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:291700" comment="Verifies 'Account lockout duration' is set to '0'" />
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:291501" comment="Verifies 'Account lockout threshold' is not set to '0'" />
+        </criteria>
+        <criteria operator="AND">
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:291701" comment="Verifies 'Account lockout duration' is set to '15 or greater'" />
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:291501" comment="Verifies 'Account lockout threshold' is not set to '0'" />
+        </criteria>
       </criteria>
     </definition>
     <definition id="oval:mil.disa.fso.windows:def:2918" version="2" class="compliance">
@@ -8190,6 +8196,52 @@
         </criteria>
       </criteria>
     </definition>
+    <definition id="oval:mil.disa.fso.windows:def:4978" version="4" class="compliance">
+      <metadata>
+        <title>Anonymous Access to the Registry</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 7</platform>
+          <platform>Microsoft Windows 8</platform>
+          <platform>Microsoft Windows Server 2008</platform>
+          <platform>Microsoft Windows Server 2008 R2</platform>
+          <platform>Microsoft Windows Server 2012</platform>
+          <platform>Microsoft Windows Vista</platform>
+        </affected>
+        <description>Anonymous access to the Registry is not restricted.</description>
+      </metadata>
+      <criteria operator="AND">
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:497800" comment="Winreg key exists" />
+        <criteria operator="OR">
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:497801" comment="Winreg key has no non-(admin,backup,localsvc) rights to check" />
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:497802" comment="Winreg key has no bad rights for non-(admin,backup,localsvc)" />
+        </criteria>
+        <criteria operator="OR">
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:497803" comment="Winreg key has no non-admin rights to check" />
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:497804" comment="Winreg key has no bad rights for non-admin" />
+        </criteria>
+      </criteria>
+    </definition>
+    <definition id="oval:mil.disa.fso.windows:def:4980" version="2" class="compliance">
+      <metadata>
+        <title>Winlogon Registry Permissions</title>
+        <affected family="windows">
+          <platform>Microsoft Windows 7</platform>
+          <platform>Microsoft Windows Server 2008 R2</platform>
+        </affected>
+        <description>Standard user accounts must only have Read permissions to the Winlogon registry key.</description>
+      </metadata>
+      <criteria operator="AND">
+        <criterion test_ref="oval:mil.disa.fso.windows:tst:498000" comment="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon key exists" />
+        <criteria operator="OR">
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:498001" comment="Winlogon key has no non-(Users group, Administrators group, SYSTEM, TrustedInstaller) rights to check" />
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:498002" comment="Winlogon key has no bad rights for non-(Users group, Administrators group, SYSTEM, TrustedInstaller)" />
+        </criteria>
+        <criteria operator="OR">
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:498003" comment="Winlogon key has no non-(Administrators group, SYSTEM, TrustedInstaller) rights to check" />
+          <criterion test_ref="oval:mil.disa.fso.windows:tst:498004" comment="Winlogon key has no bad rights for non-(Administrators group, SYSTEM, TrustedInstaller)" />
+        </criteria>
+      </criteria>
+    </definition>
     <definition id="oval:mil.disa.fso.windows:def:4981" version="2" class="compliance">
       <metadata>
         <title>Active Directory data files must have proper access control permissions.</title>
@@ -8377,7 +8429,7 @@
       <object object_ref="oval:mil.disa.fso.windows:obj:291500" />
       <state state_ref="oval:mil.disa.fso.windows:ste:291501" />
     </lockoutpolicy_test>
-    <lockoutpolicy_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:291600" version="6" comment="'Reset account lockout counter after' is set to at least '60' minutes" check_existence="at_least_one_exists" check="all">
+    <lockoutpolicy_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:291600" version="7" comment="'Reset account lockout counter after' is set to at least '15' minutes" check_existence="at_least_one_exists" check="all">
       <object object_ref="oval:mil.disa.fso.windows:obj:291500" />
       <state state_ref="oval:mil.disa.fso.windows:ste:291600" />
     </lockoutpolicy_test>
@@ -8385,6 +8437,10 @@
       <object object_ref="oval:mil.disa.fso.windows:obj:291500" />
       <state state_ref="oval:mil.disa.fso.windows:ste:291700" />
       <state state_ref="oval:mil.disa.fso.windows:ste:291701" />
+    </lockoutpolicy_test>
+    <lockoutpolicy_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:291701" version="1" comment="'Account lockout duration' is set to '15 or greater'" check_existence="at_least_one_exists" check="all">
+      <object object_ref="oval:mil.disa.fso.windows:obj:291500" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:291702" />
     </lockoutpolicy_test>
     <accesstoken_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:291800" version="2" check="all" comment="Act as part of the operating system - None">
       <object object_ref="oval:mil.disa.fso.windows:obj:309800" />
@@ -10703,6 +10759,40 @@
     <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:487707" version="2" comment="The US DoD CCEB Interoperability Root CA 1 to DoD Root CA 2 cross-certificate is installed into the Untrusted Certificates Store -DA" check_existence="all_exist" check="all">
       <object object_ref="oval:mil.disa.fso.windows:obj:487707" />
     </registry_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:497800" version="1" check="at least one" comment="Winreg key exists" check_existence="at_least_one_exists">
+      <object object_ref="oval:mil.disa.fso.windows:obj:497800" />
+    </registry_test>
+    <regkeyeffectiverights53_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:497801" version="2" check="all" check_existence="any_exist" comment="Winreg key has no bad rights for non-(admin,backup,localservice)">
+      <object object_ref="oval:mil.disa.fso.windows:obj:497801" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:497803" />
+    </regkeyeffectiverights53_test>
+    <regkeyeffectiverights53_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:497802" version="2" check="all" check_existence="none_exist" comment="Winreg key has no non-(admin,backup,localsys) rights to check">
+      <object object_ref="oval:mil.disa.fso.windows:obj:497801" />
+    </regkeyeffectiverights53_test>
+    <regkeyeffectiverights53_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:497803" version="1" check="all" check_existence="any_exist" comment="Winreg key has no bad rights for non-admin">
+      <object object_ref="oval:mil.disa.fso.windows:obj:497803" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:497805" />
+    </regkeyeffectiverights53_test>
+    <regkeyeffectiverights53_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:497804" version="1" check="all" check_existence="none_exist" comment="Winreg key has no non-admin rights to check">
+      <object object_ref="oval:mil.disa.fso.windows:obj:497803" />
+    </regkeyeffectiverights53_test>
+    <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:498000" version="1" check="at least one" comment="Winlogon key exists" check_existence="at_least_one_exists">
+      <object object_ref="oval:mil.disa.fso.windows:obj:498000" />
+    </registry_test>
+    <regkeyeffectiverights53_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:498001" version="1" check="all" check_existence="any_exist" comment="Winlogon key has no bad rights for non-(Users group, Administrators group, SYSTEM, TrustedInstaller)">
+      <object object_ref="oval:mil.disa.fso.windows:obj:498001" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:498002" />
+    </regkeyeffectiverights53_test>
+    <regkeyeffectiverights53_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:498002" version="1" check="all" check_existence="none_exist" comment="Winlogon key has no non-(Users group, Administrators group, SYSTEM, TrustedInstaller) rights to check">
+      <object object_ref="oval:mil.disa.fso.windows:obj:498001" />
+    </regkeyeffectiverights53_test>
+    <regkeyeffectiverights53_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:498003" version="1" check="all" check_existence="any_exist" comment="Winlogon key has no bad rights for non-(Administrators group, SYSTEM, TrustedInstaller)">
+      <object object_ref="oval:mil.disa.fso.windows:obj:498003" />
+      <state state_ref="oval:mil.disa.fso.windows:ste:498003" />
+    </regkeyeffectiverights53_test>
+    <regkeyeffectiverights53_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:498004" version="1" check="all" check_existence="none_exist" comment="Winlogon key has no non-(Administrators group, SYSTEM, TrustedInstaller) rights to check">
+      <object object_ref="oval:mil.disa.fso.windows:obj:498003" />
+    </regkeyeffectiverights53_test>
     <fileeffectiverights53_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:tst:498100" version="1" comment="Database log files: NT Authority\SYSTEM has full control" check_existence="at_least_one_exists" check="all">
       <object object_ref="oval:mil.disa.fso.windows:obj:498102" />
       <state state_ref="oval:mil.disa.fso.windows:ste:498102" />
@@ -11923,6 +12013,57 @@
       <key datatype="string" operation="equals">SOFTWARE\Policies\Microsoft\EnterpriseCertificates\Disallowed\Certificates\DA36FAF56B2F6FBA1604F5BE46D864C9FA013BA3</key>
       <name datatype="string" operation="pattern match">^.+$</name>
     </registry_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:497800" version="2" comment="Winreg key">
+      <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string">System\CurrentControlSet\Control\SecurePipeServers\Winreg</key>
+      <name datatype="string" xsi:nil="true" />
+    </registry_object>
+    <regkeyeffectiverights53_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:497801" version="1" comment="Winreg rights, except for admin, backup, local service">
+      <set xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" set_operator="UNION">
+        <object_reference>oval:mil.disa.fso.windows:obj:497802</object_reference>
+        <filter>oval:mil.disa.fso.windows:ste:497800</filter>
+        <filter>oval:mil.disa.fso.windows:ste:497801</filter>
+        <filter>oval:mil.disa.fso.windows:ste:497806</filter>
+      </set>
+    </regkeyeffectiverights53_object>
+    <regkeyeffectiverights53_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:497802" version="1" comment="Winreg rights">
+      <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string">System\CurrentControlSet\Control\SecurePipeServers\Winreg</key>
+      <trustee_sid datatype="string" operation="pattern match">.*</trustee_sid>
+    </regkeyeffectiverights53_object>
+    <regkeyeffectiverights53_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:497803" version="1" comment="Winreg rights, except for admin">
+      <set xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" set_operator="UNION">
+        <object_reference>oval:mil.disa.fso.windows:obj:497802</object_reference>
+        <filter>oval:mil.disa.fso.windows:ste:497800</filter>
+      </set>
+    </regkeyeffectiverights53_object>
+    <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:498000" version="1" comment="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon key">
+      <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string">SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon</key>
+      <name datatype="string" xsi:nil="true" />
+    </registry_object>
+    <regkeyeffectiverights53_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:498001" version="1" comment="Winlogon rights, except for Users group, Administrators group, SYSTEM, TrustedInstaller">
+      <set xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" set_operator="UNION">
+        <object_reference>oval:mil.disa.fso.windows:obj:498002</object_reference>
+        <filter>oval:mil.disa.fso.windows:ste:498000</filter>
+        <filter>oval:mil.disa.fso.windows:ste:498001</filter>
+        <filter>oval:mil.disa.fso.windows:ste:517500</filter>
+        <filter>oval:mil.disa.fso.windows:ste:517501</filter>
+      </set>
+    </regkeyeffectiverights53_object>
+    <regkeyeffectiverights53_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:498002" version="1" comment="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon rights">
+      <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+      <key datatype="string">SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon</key>
+      <trustee_sid datatype="string" operation="pattern match">.*</trustee_sid>
+    </regkeyeffectiverights53_object>
+    <regkeyeffectiverights53_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:498003" version="1" comment="Winlogon rights, except for Administrators group, SYSTEM, and TrustedInstaller">
+      <set xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" set_operator="UNION">
+        <object_reference>oval:mil.disa.fso.windows:obj:498002</object_reference>
+        <filter>oval:mil.disa.fso.windows:ste:498000</filter>
+        <filter>oval:mil.disa.fso.windows:ste:498001</filter>
+        <filter>oval:mil.disa.fso.windows:ste:517501</filter>
+      </set>
+    </regkeyeffectiverights53_object>
     <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:obj:498100" version="3" comment="Database log files path">
       <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
       <key datatype="string">System\CurrentControlSet\Services\NTDS\Parameters</key>
@@ -12046,14 +12187,17 @@
     <lockoutpolicy_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:291501" version="7" comment="lockout threshold is not 0">
       <lockout_threshold datatype="int" operation="not equal">0</lockout_threshold>
     </lockoutpolicy_state>
-    <lockoutpolicy_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:291600" version="6" comment="Ensure lockout counter is greater than or equal to 60 minutes">
-      <lockout_observation_window datatype="int" operation="greater than or equal">3600</lockout_observation_window>
+    <lockoutpolicy_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:291600" version="7" comment="Ensure lockout counter is greater than or equal to 15 minutes">
+      <lockout_observation_window datatype="int" operation="greater than or equal">900</lockout_observation_window>
     </lockoutpolicy_state>
     <lockoutpolicy_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:291700" version="7" comment="lockout duration is forever">
       <lockout_duration datatype="int" operation="less than or equal" entity_check="all">0</lockout_duration>
     </lockoutpolicy_state>
     <lockoutpolicy_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:291701" version="2" comment="lockout duration is forever,option2">
       <lockout_duration datatype="int" operation="equals" entity_check="all">4294967295</lockout_duration>
+    </lockoutpolicy_state>
+    <lockoutpolicy_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:291702" version="1" comment="lockout duration is at least 15 minutes">
+      <lockout_duration datatype="int" operation="greater than or equal" entity_check="all">900</lockout_duration>
     </lockoutpolicy_state>
     <accesstoken_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:291800" version="1" comment="Act as part of the operating system">
       <setcbprivilege datatype="boolean" operation="equals">0</setcbprivilege>
@@ -12570,6 +12714,91 @@
     <accesstoken_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:473700" version="1" comment="Manage auditing and security log">
       <sesecurityprivilege datatype="boolean" operation="equals">0</sesecurityprivilege>
     </accesstoken_state>
+    <regkeyeffectiverights53_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:497800" version="1" comment="Administrators Group">
+      <trustee_sid datatype="string" operation="equals">S-1-5-32-544</trustee_sid>
+    </regkeyeffectiverights53_state>
+    <regkeyeffectiverights53_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:497801" version="1" comment="Backup Operators Group">
+      <trustee_sid datatype="string" operation="equals">S-1-5-32-551</trustee_sid>
+    </regkeyeffectiverights53_state>
+    <regkeyeffectiverights53_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:497803" version="1" comment="No registry rights">
+      <standard_delete datatype="boolean" operation="equals">0</standard_delete>
+      <standard_read_control datatype="boolean" operation="equals">0</standard_read_control>
+      <standard_write_dac datatype="boolean" operation="equals">0</standard_write_dac>
+      <standard_write_owner datatype="boolean" operation="equals">0</standard_write_owner>
+      <access_system_security datatype="boolean" operation="equals">0</access_system_security>
+      <generic_read datatype="boolean" operation="equals">0</generic_read>
+      <generic_write datatype="boolean" operation="equals">0</generic_write>
+      <generic_execute datatype="boolean" operation="equals">0</generic_execute>
+      <generic_all datatype="boolean" operation="equals">0</generic_all>
+      <key_query_value datatype="boolean" operation="equals">0</key_query_value>
+      <key_set_value datatype="boolean" operation="equals">0</key_set_value>
+      <key_create_sub_key datatype="boolean" operation="equals">0</key_create_sub_key>
+      <key_enumerate_sub_keys datatype="boolean" operation="equals">0</key_enumerate_sub_keys>
+      <key_notify datatype="boolean" operation="equals">0</key_notify>
+      <key_create_link datatype="boolean" operation="equals">0</key_create_link>
+      <key_wow64_64key datatype="boolean" operation="equals">0</key_wow64_64key>
+      <key_wow64_32key datatype="boolean" operation="equals">0</key_wow64_32key>
+      <key_wow64_res datatype="boolean" operation="equals">0</key_wow64_res>
+    </regkeyeffectiverights53_state>
+    <regkeyeffectiverights53_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:497805" version="1" comment="QENR registry rights">
+      <standard_delete datatype="boolean" operation="equals">0</standard_delete>
+      <standard_write_dac datatype="boolean" operation="equals">0</standard_write_dac>
+      <standard_write_owner datatype="boolean" operation="equals">0</standard_write_owner>
+      <access_system_security datatype="boolean" operation="equals">0</access_system_security>
+      <generic_write datatype="boolean" operation="equals">0</generic_write>
+      <generic_execute datatype="boolean" operation="equals">0</generic_execute>
+      <generic_all datatype="boolean" operation="equals">0</generic_all>
+      <key_set_value datatype="boolean" operation="equals">0</key_set_value>
+      <key_create_sub_key datatype="boolean" operation="equals">0</key_create_sub_key>
+      <key_create_link datatype="boolean" operation="equals">0</key_create_link>
+      <key_wow64_64key datatype="boolean" operation="equals">0</key_wow64_64key>
+      <key_wow64_32key datatype="boolean" operation="equals">0</key_wow64_32key>
+      <key_wow64_res datatype="boolean" operation="equals">0</key_wow64_res>
+    </regkeyeffectiverights53_state>
+    <regkeyeffectiverights53_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:497806" version="1" comment="Local Service">
+      <trustee_sid datatype="string" operation="equals">S-1-5-19</trustee_sid>
+    </regkeyeffectiverights53_state>
+    <regkeyeffectiverights53_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:498000" version="1" comment="Administrators Group">
+      <trustee_sid datatype="string" operation="equals">S-1-5-32-544</trustee_sid>
+    </regkeyeffectiverights53_state>
+    <regkeyeffectiverights53_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:498001" version="1" comment="TrustedInstaller">
+      <trustee_sid datatype="string" operation="equals">S-1-5-80-956008885-3418522649-1831038044-1853292631-2271478464</trustee_sid>
+    </regkeyeffectiverights53_state>
+    <regkeyeffectiverights53_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:498002" version="1" comment="No registry rights">
+      <standard_delete datatype="boolean" operation="equals">0</standard_delete>
+      <standard_read_control datatype="boolean" operation="equals">0</standard_read_control>
+      <standard_write_dac datatype="boolean" operation="equals">0</standard_write_dac>
+      <standard_write_owner datatype="boolean" operation="equals">0</standard_write_owner>
+      <access_system_security datatype="boolean" operation="equals">0</access_system_security>
+      <generic_read datatype="boolean" operation="equals">0</generic_read>
+      <generic_write datatype="boolean" operation="equals">0</generic_write>
+      <generic_execute datatype="boolean" operation="equals">0</generic_execute>
+      <generic_all datatype="boolean" operation="equals">0</generic_all>
+      <key_query_value datatype="boolean" operation="equals">0</key_query_value>
+      <key_set_value datatype="boolean" operation="equals">0</key_set_value>
+      <key_create_sub_key datatype="boolean" operation="equals">0</key_create_sub_key>
+      <key_enumerate_sub_keys datatype="boolean" operation="equals">0</key_enumerate_sub_keys>
+      <key_notify datatype="boolean" operation="equals">0</key_notify>
+      <key_create_link datatype="boolean" operation="equals">0</key_create_link>
+      <key_wow64_64key datatype="boolean" operation="equals">0</key_wow64_64key>
+      <key_wow64_32key datatype="boolean" operation="equals">0</key_wow64_32key>
+      <key_wow64_res datatype="boolean" operation="equals">0</key_wow64_res>
+    </regkeyeffectiverights53_state>
+    <regkeyeffectiverights53_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:498003" version="1" comment="QENR registry rights">
+      <standard_delete datatype="boolean" operation="equals">0</standard_delete>
+      <standard_write_dac datatype="boolean" operation="equals">0</standard_write_dac>
+      <standard_write_owner datatype="boolean" operation="equals">0</standard_write_owner>
+      <access_system_security datatype="boolean" operation="equals">0</access_system_security>
+      <generic_write datatype="boolean" operation="equals">0</generic_write>
+      <generic_execute datatype="boolean" operation="equals">0</generic_execute>
+      <generic_all datatype="boolean" operation="equals">0</generic_all>
+      <key_set_value datatype="boolean" operation="equals">0</key_set_value>
+      <key_create_sub_key datatype="boolean" operation="equals">0</key_create_sub_key>
+      <key_create_link datatype="boolean" operation="equals">0</key_create_link>
+      <key_wow64_64key datatype="boolean" operation="equals">0</key_wow64_64key>
+      <key_wow64_32key datatype="boolean" operation="equals">0</key_wow64_32key>
+      <key_wow64_res datatype="boolean" operation="equals">0</key_wow64_res>
+    </regkeyeffectiverights53_state>
     <fileeffectiverights53_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:498100" version="1" comment="Administrators Rights">
       <trustee_sid>S-1-5-32-544</trustee_sid>
     </fileeffectiverights53_state>
@@ -12658,6 +12887,12 @@
       <type>reg_dword</type>
       <value datatype="int" operation="equals">4</value>
     </registry_state>
+    <regkeyeffectiverights53_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:517500" version="1" comment="Users Group">
+      <trustee_sid datatype="string" operation="equals">S-1-5-32-545</trustee_sid>
+    </regkeyeffectiverights53_state>
+    <regkeyeffectiverights53_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.windows:ste:517501" version="1" comment="SYSTEM">
+      <trustee_sid datatype="string" operation="equals">S-1-5-18</trustee_sid>
+    </regkeyeffectiverights53_state>
   </states>
   <variables>
     <local_variable id="oval:mil.disa.fso.windows:var:292200" version="1" datatype="string" comment="Guest">

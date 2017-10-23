@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data-stream-collection xmlns="http://scap.nist.gov/schema/scap/source/1.2" id="scap_mil.disa.stig_collection_stig-ws2016" schematron-version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.2 http://scap.nist.gov/schema/xccdf/1.2/xccdf_1.2.xsd http://cpe.mitre.org/dictionary/2.0 http://scap.nist.gov/schema/cpe/2.3/cpe-dictionary_2.3.xsd http://oval.mitre.org/XMLSchema/oval-common-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/windows-definitions-schema.xsd http://scap.nist.gov/schema/scap/source/1.2 http://scap.nist.gov/schema/scap/1.2/scap-source-data-stream_1.2.xsd">
-  <data-stream id="scap_mil.disa.stig_datastream_stig-ws2016" use-case="CONFIGURATION" scap-version="1.2" timestamp="2017-06-05T09:32:29">
+  <data-stream id="scap_mil.disa.stig_datastream_stig-ws2016" use-case="CONFIGURATION" scap-version="1.2" timestamp="2017-07-05T16:02:50">
     <dictionaries>
       <component-ref id="scap_mil.disa.stig_cref_stig-ws2016-cpe-dictionary.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_stig-ws2016-cpe-dictionary.xml">
         <cat:catalog xmlns:cat="urn:oasis:names:tc:entity:xmlns:xml:catalog">
@@ -20,7 +20,7 @@
       <component-ref id="scap_mil.disa.stig_cref_stig-ws2016-cpe-oval.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_stig-ws2016-cpe-oval.xml" />
     </checks>
   </data-stream>
-  <component id="scap_mil.disa.stig_comp_stig-ws2016-cpe-dictionary.xml" timestamp="2017-06-05T09:32:29">
+  <component id="scap_mil.disa.stig_comp_stig-ws2016-cpe-dictionary.xml" timestamp="2017-07-05T16:02:50">
     <cpe-list xmlns="http://cpe.mitre.org/dictionary/2.0">
       <cpe-item name="cpe:/o:microsoft:windows_server_2016:-">
         <title>Microsoft Windows Server 2016</title>
@@ -28,9 +28,9 @@
       </cpe-item>
     </cpe-list>
   </component>
-  <component id="scap_mil.disa.stig_comp_stig-ws2016-xccdf.xml" timestamp="2017-06-05T09:32:29">
+  <component id="scap_mil.disa.stig_comp_stig-ws2016-xccdf.xml" timestamp="2017-07-05T16:02:50">
     <xccdf:Benchmark xmlns:xccdf="http://checklists.nist.gov/xccdf/1.2" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:cpe="http://cpe.mitre.org/language/2.0" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" id="xccdf_mil.disa.stig_benchmark_Windows_Server_2016_STIG" xml:lang="en" style="SCAP_1.2">
-      <xccdf:status date="2017-06-08">accepted</xccdf:status>
+      <xccdf:status date="2017-07-28">accepted</xccdf:status>
       <xccdf:title>Windows Server 2016 Security Technical Implementation Guide</xccdf:title>
       <xccdf:description>This Security Technical Implementation Guide is published as a tool to improve the security of Department of Defense (DoD) information systems. The requirements are derived from the National Institute of Standards and Technology (NIST) 800-53 and related documents. Comments or proposed revisions to this document should be sent via email to the following address: disa.stig_spt@mail.mil.</xccdf:description>
       <xccdf:notice id="terms-of-use" xml:lang="en" />
@@ -38,7 +38,7 @@
         <dc:publisher>DISA</dc:publisher>
         <dc:source>STIG.DOD.MIL</dc:source>
       </xccdf:reference>
-      <xccdf:plain-text id="release-info">Release: 1.1 Benchmark Date: 08 Jun 2017</xccdf:plain-text>
+      <xccdf:plain-text id="release-info">Release: 1.2 Benchmark Date: 28 Jul 2017</xccdf:plain-text>
       <platform-specification xmlns="http://cpe.mitre.org/language/2.0">
         <platform id="Windows_Server_2016_DC">
           <title xml:lang="en-US">Windows Server 2016 Domain Controller</title>
@@ -54,7 +54,7 @@
         </platform>
       </platform-specification>
       <xccdf:platform idref="cpe:/o:microsoft:windows_server_2016:-" />
-      <xccdf:version update="http://iase.disa.mil/stigs">001.001</xccdf:version>
+      <xccdf:version update="http://iase.disa.mil/stigs">001.002</xccdf:version>
       <xccdf:metadata>
         <dc:creator>DISA</dc:creator>
         <dc:publisher>DISA</dc:publisher>
@@ -1835,7 +1835,7 @@
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-87943r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-87945r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-87947r1_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-87961r1_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-87961r2_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-87963r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-87965r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-87967r1_rule" selected="false" />
@@ -2529,10 +2529,10 @@ Click "Next" and "Remove" as prompted.</xccdf:fixtext>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-73309">
         <xccdf:title>SRG-OS-000329-GPOS-00128</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-87961r1_rule" severity="medium" weight="10.0">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-87961r2_rule" severity="medium" weight="10.0">
           <xccdf:version update="http://iase.disa.mil/stigs">WN16-AC-000010</xccdf:version>
-          <xccdf:title>The lockout duration must be configured to require an administrator to unlock an account.</xccdf:title>
-          <xccdf:description>&lt;VulnDiscussion&gt;The account lockout feature, when enabled, prevents brute-force password attacks on the system. This parameter specifies the period of time that an account will remain locked after the specified number of failed logon attempts. A value of "0" will require an administrator to unlock the account.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
+          <xccdf:title>Windows 2016 account lockout duration must be configured to 15 minutes or greater.</xccdf:title>
+          <xccdf:description>&lt;VulnDiscussion&gt;The account lockout feature, when enabled, prevents brute-force password attacks on the system. This parameter specifies the period of time that an account will remain locked after the specified number of failed logon attempts.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
           <xccdf:reference>
             <dc:title>DPMS Target Windows 2016</dc:title>
             <dc:publisher>DISA</dc:publisher>
@@ -2542,8 +2542,10 @@ Click "Next" and "Remove" as prompted.</xccdf:fixtext>
           </xccdf:reference>
           <xccdf:ident system="http://cce.mitre.org">CCE-47152-4</xccdf:ident>
           <xccdf:ident system="http://iase.disa.mil/cci">CCI-002238</xccdf:ident>
-          <xccdf:fixtext fixref="F-79751r1_fix">Configure the policy value for Computer Configuration &gt;&gt; Windows Settings &gt;&gt; Security Settings &gt;&gt; Account Policies &gt;&gt; Account Lockout Policy &gt;&gt; "Account lockout duration" to "0" minutes, "Account is locked out until administrator unlocks it".</xccdf:fixtext>
-          <xccdf:fix id="F-79751r1_fix" />
+          <xccdf:fixtext fixref="F-80983r1_fix">Configure the policy value for Computer Configuration &gt;&gt; Windows Settings &gt;&gt; Security Settings &gt;&gt; Account Policies &gt;&gt; Account Lockout Policy &gt;&gt; "Account lockout duration" to "15" minutes or greater.
+
+A value of "0" is also acceptable, requiring an administrator to unlock the account.</xccdf:fixtext>
+          <xccdf:fix id="F-80983r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-content-ref name="oval:mil.disa.stig.windows:def:1011" href="stig-ws2016-oval.xml" />
           </xccdf:check>
@@ -4008,7 +4010,7 @@ If this needs to be corrected or a more secure setting is desired, configure the
         <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-88179r1_rule" severity="medium" weight="10.0">
           <xccdf:version update="http://iase.disa.mil/stigs">WN16-CC-000160</xccdf:version>
           <xccdf:title>Downloading print driver packages over HTTP must be prevented.</xccdf:title>
-          <xccdf:description>&lt;VulnDiscussion&gt;Some features may communicate with the vendor, sending system information or downloading data or components for the feature. Turning off this capability will prevent potentially sensitive information from being sent outside the enterprise and will prevent uncontrolled updates to the system. 
+          <xccdf:description>&lt;VulnDiscussion&gt;Some features may communicate with the vendor, sending system information or downloading data or components for the feature. Turning off this capability will prevent potentially sensitive information from being sent outside the enterprise and will prevent uncontrolled updates to the system.
 
 This setting prevents the computer from downloading print driver packages over HTTP.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
           <xccdf:reference>
@@ -4987,7 +4989,7 @@ The FBCA Cross-Certificate Remover Tool and User Guide are available on IASE at 
         <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-88291r1_rule" severity="medium" weight="10.0">
           <xccdf:version update="http://iase.disa.mil/stigs">WN16-SO-000050</xccdf:version>
           <xccdf:title>Audit policy using subcategories must be enabled.</xccdf:title>
-          <xccdf:description>&lt;VulnDiscussion&gt;Maintaining an audit trail of system activity logs can help identify configuration errors, troubleshoot service disruptions, and analyze compromises that have occurred, as well as detect attacks. Audit logs are necessary to provide a trail of evidence in case the system or network is compromised. Collecting this data is essential for analyzing the security of information assets and detecting signs of suspicious and unexpected behavior. 
+          <xccdf:description>&lt;VulnDiscussion&gt;Maintaining an audit trail of system activity logs can help identify configuration errors, troubleshoot service disruptions, and analyze compromises that have occurred, as well as detect attacks. Audit logs are necessary to provide a trail of evidence in case the system or network is compromised. Collecting this data is essential for analyzing the security of information assets and detecting signs of suspicious and unexpected behavior.
 This setting allows administrators to enable more precise auditing capabilities.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
           <xccdf:reference>
             <dc:title>DPMS Target Windows 2016</dc:title>
@@ -5299,7 +5301,7 @@ Satisfies: SRG-OS-000023-GPOS-00006, SRG-OS-000228-GPOS-00088&lt;/VulnDiscussion
           <xccdf:ident system="http://iase.disa.mil/cci">CCI-001386</xccdf:ident>
           <xccdf:ident system="http://iase.disa.mil/cci">CCI-001387</xccdf:ident>
           <xccdf:ident system="http://iase.disa.mil/cci">CCI-001388</xccdf:ident>
-          <xccdf:fixtext fixref="F-80099r1_fix">Configure the policy value for Computer Configuration &gt;&gt; Windows Settings &gt;&gt; Security Settings &gt;&gt; Local Policies &gt;&gt; Security Options &gt;&gt; "Interactive Logon: Message title for users attempting to log on" to "DoD Notice and Consent Banner", "US Department of Defense Warning Statement", or an organization-defined equivalent. 
+          <xccdf:fixtext fixref="F-80099r1_fix">Configure the policy value for Computer Configuration &gt;&gt; Windows Settings &gt;&gt; Security Settings &gt;&gt; Local Policies &gt;&gt; Security Options &gt;&gt; "Interactive Logon: Message title for users attempting to log on" to "DoD Notice and Consent Banner", "US Department of Defense Warning Statement", or an organization-defined equivalent.
 
 If an organization-defined title is used, it can in no case contravene or modify the language of the message text required in WN16-SO-000150.</xccdf:fixtext>
           <xccdf:fix id="F-80099r1_fix" />
@@ -5618,7 +5620,7 @@ Satisfies: SRG-OS-000373-GPOS-00157, SRG-OS-000373-GPOS-00156&lt;/VulnDiscussion
           </xccdf:reference>
           <xccdf:ident system="http://cce.mitre.org">CCE-45487-6</xccdf:ident>
           <xccdf:ident system="http://iase.disa.mil/cci">CCI-002235</xccdf:ident>
-          <xccdf:fixtext fixref="F-80127r1_fix">Navigate to the policy Computer Configuration &gt;&gt; Windows Settings &gt;&gt; Security Settings &gt;&gt; Local Policies &gt;&gt; Security Options &gt;&gt; "Network access: Restrict clients allowed to make remote calls to SAM". 
+          <xccdf:fixtext fixref="F-80127r1_fix">Navigate to the policy Computer Configuration &gt;&gt; Windows Settings &gt;&gt; Security Settings &gt;&gt; Local Policies &gt;&gt; Security Options &gt;&gt; "Network access: Restrict clients allowed to make remote calls to SAM".
 Select "Edit Security" to configure the "Security descriptor:".
 
 Add "Administrators" in "Group or user names:" if it is not already listed (this is the default).
@@ -6193,7 +6195,7 @@ Accounts with the "Access Credential Manager as a trusted caller" user right may
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
         <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-88395r1_rule" severity="medium" weight="10.0">
           <xccdf:version update="http://iase.disa.mil/stigs">WN16-DC-000340</xccdf:version>
-          <xccdf:title>The Access this computer from the network user right must only be assigned to the Administrators, Authenticated Users, and 
+          <xccdf:title>The Access this computer from the network user right must only be assigned to the Administrators, Authenticated Users, and
 Enterprise Domain Controllers groups on domain controllers.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Inappropriate granting of user rights can provide system, administrative, and other high-level capabilities.
 
@@ -7329,12 +7331,12 @@ Accounts with the "Take ownership of files or other objects" user right can take
       </xccdf:Group>
     </xccdf:Benchmark>
   </component>
-  <component id="scap_mil.disa.stig_comp_stig-ws2016-oval.xml" timestamp="2017-06-05T09:32:29">
+  <component id="scap_mil.disa.stig_comp_stig-ws2016-oval.xml" timestamp="2017-07-05T16:02:50">
     <oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5">
       <generator>
         <oval:product_name>repotool</oval:product_name>
         <oval:schema_version>5.10</oval:schema_version>
-        <oval:timestamp>2017-06-05T09:32:29</oval:timestamp>
+        <oval:timestamp>2017-07-05T16:02:49</oval:timestamp>
       </generator>
       <definitions>
         <definition id="oval:mil.disa.fso.windows:def:4595" version="1" class="compliance">
@@ -13892,12 +13894,12 @@ Accounts with the "Take ownership of files or other objects" user right can take
       </variables>
     </oval_definitions>
   </component>
-  <component id="scap_mil.disa.stig_comp_stig-ws2016-cpe-oval.xml" timestamp="2017-06-05T09:32:29">
+  <component id="scap_mil.disa.stig_comp_stig-ws2016-cpe-oval.xml" timestamp="2017-07-05T16:02:50">
     <oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5">
       <generator>
         <oval:product_name>repotool</oval:product_name>
         <oval:schema_version>5.10</oval:schema_version>
-        <oval:timestamp>2017-06-05T09:32:29</oval:timestamp>
+        <oval:timestamp>2017-07-05T16:02:49</oval:timestamp>
       </generator>
       <definitions>
         <definition id="oval:mil.disa.stig.windows:def:1001" version="1" class="inventory">
@@ -13944,4 +13946,3 @@ Accounts with the "Take ownership of files or other objects" user right can take
     </oval_definitions>
   </component>
 </data-stream-collection>
-

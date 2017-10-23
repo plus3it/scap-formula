@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Benchmark xmlns="http://checklists.nist.gov/xccdf/1.1" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cpe="http://cpe.mitre.org/language/2.0" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" id="Windows_2012_DC_STIG" xml:lang="en" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.1 http://nvd.nist.gov/schema/xccdf-1.1.4.xsd" style="SCAP_1.1">
-  <status date="2017-04-28">accepted</status>
+  <status date="2017-07-28">accepted</status>
   <title>Windows Server 2012/2012 R2 Domain Controller Security Technical Implementation Guide</title>
   <description>The Windows Server 2012/2012 R2 Domain Controller Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems. Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil.</description>
   <notice id="terms-of-use" xml:lang="en">Developed_by_DISA_for_the_DoD</notice>
@@ -8,10 +8,10 @@
     <dc:publisher>DISA</dc:publisher>
     <dc:source>STIG.DOD.MIL</dc:source>
   </reference>
-  <plain-text id="release-info">Release: 2.8 Benchmark Date: 28 Apr 2017</plain-text>
+  <plain-text id="release-info">Release: 2.9 Benchmark Date: 28 Jul 2017</plain-text>
   <platform idref="cpe:/o:microsoft:windows_server_2012:r2" />
   <platform idref="cpe:/o:microsoft:windows_server_2012:-" />
-  <version>002.008</version>
+  <version>002.009</version>
   <metadata>
     <dc:creator>DISA</dc:creator>
     <dc:publisher>DISA</dc:publisher>
@@ -42,6 +42,7 @@
     <select idref="V-1145" selected="true" />
     <select idref="V-1150" selected="true" />
     <select idref="V-1151" selected="true" />
+    <select idref="V-1152" selected="true" />
     <select idref="V-1153" selected="true" />
     <select idref="V-1154" selected="true" />
     <select idref="V-1155" selected="true" />
@@ -181,6 +182,7 @@
     <select idref="V-21973" selected="true" />
     <select idref="V-21980" selected="true" />
     <select idref="V-22692" selected="true" />
+    <select idref="V-26070" selected="true" />
     <select idref="V-26283" selected="true" />
     <select idref="V-26359" selected="true" />
     <select idref="V-26469" selected="true" />
@@ -323,6 +325,7 @@
     <select idref="V-1145" selected="true" />
     <select idref="V-1150" selected="true" />
     <select idref="V-1151" selected="true" />
+    <select idref="V-1152" selected="true" />
     <select idref="V-1153" selected="true" />
     <select idref="V-1154" selected="true" />
     <select idref="V-1155" selected="true" />
@@ -463,6 +466,7 @@
     <select idref="V-21973" selected="true" />
     <select idref="V-21980" selected="true" />
     <select idref="V-22692" selected="true" />
+    <select idref="V-26070" selected="true" />
     <select idref="V-26283" selected="true" />
     <select idref="V-26359" selected="true" />
     <select idref="V-26469" selected="true" />
@@ -605,6 +609,7 @@
     <select idref="V-1145" selected="true" />
     <select idref="V-1150" selected="true" />
     <select idref="V-1151" selected="true" />
+    <select idref="V-1152" selected="true" />
     <select idref="V-1153" selected="true" />
     <select idref="V-1154" selected="true" />
     <select idref="V-1155" selected="true" />
@@ -745,6 +750,7 @@
     <select idref="V-21973" selected="true" />
     <select idref="V-21980" selected="true" />
     <select idref="V-22692" selected="true" />
+    <select idref="V-26070" selected="true" />
     <select idref="V-26283" selected="true" />
     <select idref="V-26359" selected="true" />
     <select idref="V-26469" selected="true" />
@@ -887,6 +893,7 @@
     <select idref="V-1145" selected="true" />
     <select idref="V-1150" selected="true" />
     <select idref="V-1151" selected="true" />
+    <select idref="V-1152" selected="true" />
     <select idref="V-1153" selected="true" />
     <select idref="V-1154" selected="true" />
     <select idref="V-1155" selected="true" />
@@ -1026,6 +1033,7 @@
     <select idref="V-21973" selected="true" />
     <select idref="V-21980" selected="true" />
     <select idref="V-22692" selected="true" />
+    <select idref="V-26070" selected="true" />
     <select idref="V-26283" selected="true" />
     <select idref="V-26359" selected="true" />
     <select idref="V-26469" selected="true" />
@@ -1168,6 +1176,7 @@
     <select idref="V-1145" selected="true" />
     <select idref="V-1150" selected="true" />
     <select idref="V-1151" selected="true" />
+    <select idref="V-1152" selected="true" />
     <select idref="V-1153" selected="true" />
     <select idref="V-1154" selected="true" />
     <select idref="V-1155" selected="true" />
@@ -1308,6 +1317,7 @@
     <select idref="V-21973" selected="true" />
     <select idref="V-21980" selected="true" />
     <select idref="V-22692" selected="true" />
+    <select idref="V-26070" selected="true" />
     <select idref="V-26283" selected="true" />
     <select idref="V-26359" selected="true" />
     <select idref="V-26469" selected="true" />
@@ -1450,6 +1460,7 @@
     <select idref="V-1145" selected="true" />
     <select idref="V-1150" selected="true" />
     <select idref="V-1151" selected="true" />
+    <select idref="V-1152" selected="true" />
     <select idref="V-1153" selected="true" />
     <select idref="V-1154" selected="true" />
     <select idref="V-1155" selected="true" />
@@ -1590,6 +1601,7 @@
     <select idref="V-21973" selected="true" />
     <select idref="V-21980" selected="true" />
     <select idref="V-22692" selected="true" />
+    <select idref="V-26070" selected="true" />
     <select idref="V-26283" selected="true" />
     <select idref="V-26359" selected="true" />
     <select idref="V-26469" selected="true" />
@@ -1732,6 +1744,7 @@
     <select idref="V-1145" selected="true" />
     <select idref="V-1150" selected="true" />
     <select idref="V-1151" selected="true" />
+    <select idref="V-1152" selected="true" />
     <select idref="V-1153" selected="true" />
     <select idref="V-1154" selected="true" />
     <select idref="V-1155" selected="true" />
@@ -1871,6 +1884,7 @@
     <select idref="V-21973" selected="true" />
     <select idref="V-21980" selected="true" />
     <select idref="V-22692" selected="true" />
+    <select idref="V-26070" selected="true" />
     <select idref="V-26283" selected="true" />
     <select idref="V-26359" selected="true" />
     <select idref="V-26469" selected="true" />
@@ -2013,6 +2027,7 @@
     <select idref="V-1145" selected="true" />
     <select idref="V-1150" selected="true" />
     <select idref="V-1151" selected="true" />
+    <select idref="V-1152" selected="true" />
     <select idref="V-1153" selected="true" />
     <select idref="V-1154" selected="true" />
     <select idref="V-1155" selected="true" />
@@ -2153,6 +2168,7 @@
     <select idref="V-21973" selected="true" />
     <select idref="V-21980" selected="true" />
     <select idref="V-22692" selected="true" />
+    <select idref="V-26070" selected="true" />
     <select idref="V-26283" selected="true" />
     <select idref="V-26359" selected="true" />
     <select idref="V-26469" selected="true" />
@@ -2295,6 +2311,7 @@
     <select idref="V-1145" selected="true" />
     <select idref="V-1150" selected="true" />
     <select idref="V-1151" selected="true" />
+    <select idref="V-1152" selected="true" />
     <select idref="V-1153" selected="true" />
     <select idref="V-1154" selected="true" />
     <select idref="V-1155" selected="true" />
@@ -2435,6 +2452,7 @@
     <select idref="V-21973" selected="true" />
     <select idref="V-21980" selected="true" />
     <select idref="V-22692" selected="true" />
+    <select idref="V-26070" selected="true" />
     <select idref="V-26283" selected="true" />
     <select idref="V-26359" selected="true" />
     <select idref="V-26469" selected="true" />
@@ -2662,7 +2680,7 @@
     <select idref="SV-52234r3_rule" selected="false" />
     <select idref="SV-52235r3_rule" selected="false" />
     <select idref="SV-52236r2_rule" selected="false" />
-    <select idref="SV-52237r3_rule" selected="false" />
+    <select idref="SV-52237r4_rule" selected="false" />
     <select idref="SV-52238r2_rule" selected="false" />
     <select idref="SV-52239r2_rule" selected="false" />
     <select idref="SV-52240r2_rule" selected="false" />
@@ -2670,8 +2688,8 @@
     <select idref="SV-52845r2_rule" selected="false" />
     <select idref="SV-52846r2_rule" selected="false" />
     <select idref="SV-52848r1_rule" selected="false" />
-    <select idref="SV-52849r1_rule" selected="false" />
-    <select idref="SV-52850r1_rule" selected="false" />
+    <select idref="SV-52849r2_rule" selected="false" />
+    <select idref="SV-52850r2_rule" selected="false" />
     <select idref="SV-52851r1_rule" selected="false" />
     <select idref="SV-52852r1_rule" selected="false" />
     <select idref="SV-52853r2_rule" selected="false" />
@@ -2736,7 +2754,7 @@
     <select idref="SV-52951r1_rule" selected="false" />
     <select idref="SV-52952r1_rule" selected="false" />
     <select idref="SV-52953r1_rule" selected="false" />
-    <select idref="SV-52955r1_rule" selected="false" />
+    <select idref="SV-52955r2_rule" selected="false" />
     <select idref="SV-52957r5_rule" selected="false" />
     <select idref="SV-52958r1_rule" selected="false" />
     <select idref="SV-52959r1_rule" selected="false" />
@@ -3291,10 +3309,11 @@
   <Value id="maximum_security_log_size_var" type="number" operator="equals">
     <title>Maximum Security Log Size</title>
     <description>The value defines the maximum size (in KB) of the security log.</description>
-    <value>81920</value>
+    <value>196608</value>
     <value selector="enabled:16384_kb">16384</value>
     <value selector="enabled:32768_kb">32768</value>
     <value selector="enabled:81920_kb">81920</value>
+    <value selector="enabled:196608_kb">196608</value>
   </Value>
   <Value id="maximum_machine_account_password_age_var" type="number" operator="less than or equal">
     <title>Maximum Machine Account Password Age</title>
@@ -3666,7 +3685,7 @@
   <Value id="account_lockout_reset_counter_var" type="number" operator="greater than or equal">
     <title>Reset Account Lockout Counter After</title>
     <description>The time period in seconds to be used with the lockout threshold value. For example, if the threshold is set to 10 attempts and the duration is set to 15 minutes, then if more than 10 failed login attempts occur with a single user account within a 15-minute period, the account will be disabled. 15 minutes = 900 seconds</description>
-    <value>3600</value>
+    <value>900</value>
     <value selector="900_seconds">900</value>
     <value selector="3600_seconds">3600</value>
     <value selector="86400_seconds">86400</value>
@@ -3764,10 +3783,10 @@
   <Group id="V-1081">
     <title>NTFS Requirement</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
-    <Rule id="SV-52843r2_rule" severity="high" weight="10.0">
+    <Rule id="SV-52843r3_rule" severity="high" weight="10.0">
       <version>WN12-GE-000005</version>
-      <title>Local volumes must be formatted using NTFS.</title>
-      <description>&lt;VulnDiscussion&gt;The ability to set access permissions and auditing is critical to maintaining the security and proper access controls of a system.  To support this, volumes must be formatted using the NTFS file system.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <title>Local volumes must use a format that supports NTFS attributes.</title>
+      <description>&lt;VulnDiscussion&gt;The ability to set access permissions and auditing is critical to maintaining the security and proper access controls of a system. To support this, local volumes must be formatted using a file system that supports NTFS attributes.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
       <reference>
         <dc:title>DPMS Target Windows 2012</dc:title>
         <dc:publisher>DISA</dc:publisher>
@@ -3776,8 +3795,8 @@
         <dc:identifier>2350</dc:identifier>
       </reference>
       <ident system="http://iase.disa.mil/cci">CCI-000213</ident>
-      <fixtext fixref="F-45769r1_fix">Format all partitions/drives to use NTFS.</fixtext>
-      <fix id="F-45769r1_fix" />
+      <fixtext fixref="F-81015r1_fix">Format local volumes to use NTFS or ReFS.</fixtext>
+      <fix id="F-81015r1_fix" />
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-content-ref name="oval:mil.disa.fso.windows:def:4614" href="stig-ws2012-dc-oval.xml" />
       </check>
@@ -3902,10 +3921,10 @@ Configure the policy value for Computer Configuration &gt;&gt; Windows Settings 
   <Group id="V-1098">
     <title>Bad Logon Counter Reset</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
-    <Rule id="SV-52849r1_rule" severity="medium" weight="10.0">
+    <Rule id="SV-52849r2_rule" severity="medium" weight="10.0">
       <version>WN12-AC-000003</version>
-      <title>The period of time before the bad logon counter is reset must meet minimum requirements.</title>
-      <description>&lt;VulnDiscussion&gt;The account lockout feature, when enabled, prevents brute-force password attacks on the system.  This parameter specifies the period of time that must pass after failed logon attempts before the counter is reset to 0.  The smaller this value is, the less effective the account lockout feature will be in protecting the local system.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <title>The reset period for the account lockout counter must be configured to 15 minutes or greater on Windows 2012.</title>
+      <description>&lt;VulnDiscussion&gt;The account lockout feature, when enabled, prevents brute-force password attacks on the system.  This parameter specifies the period of time that must pass after failed logon attempts before the counter is reset to "0".  The smaller this value is, the less effective the account lockout feature will be in protecting the local system.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
       <reference>
         <dc:title>DPMS Target Windows 2012</dc:title>
         <dc:publisher>DISA</dc:publisher>
@@ -3916,8 +3935,8 @@ Configure the policy value for Computer Configuration &gt;&gt; Windows Settings 
       <ident system="http://cce.mitre.org">CCE-24840-1</ident>
       <ident system="http://iase.disa.mil/cci">CCI-000044</ident>
       <ident system="http://iase.disa.mil/cci">CCI-002238</ident>
-      <fixtext fixref="F-45775r1_fix">Configure the policy value for Computer Configuration -&gt; Windows Settings -&gt; Security Settings -&gt; Account Policies -&gt; Account Lockout Policy -&gt; "Reset account lockout counter after" to at least "60" minutes.</fixtext>
-      <fix id="F-45775r1_fix" />
+      <fixtext fixref="F-81025r1_fix">Configure the policy value for Computer Configuration &gt;&gt; Windows Settings &gt;&gt; Security Settings &gt;&gt; Account Policies &gt;&gt; Account Lockout Policy &gt;&gt; "Reset account lockout counter after" to at least "15" minutes.</fixtext>
+      <fix id="F-81025r1_fix" />
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-export value-id="account_lockout_reset_counter_var" export-name="oval:mil.disa.fso.windows:var:442400" />
         <check-content-ref name="oval:mil.disa.fso.windows:def:4424" href="stig-ws2012-dc-oval.xml" />
@@ -3927,10 +3946,10 @@ Configure the policy value for Computer Configuration &gt;&gt; Windows Settings 
   <Group id="V-1099">
     <title>Lockout Duration</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
-    <Rule id="SV-52850r1_rule" severity="medium" weight="10.0">
+    <Rule id="SV-52850r2_rule" severity="medium" weight="10.0">
       <version>WN12-AC-000001</version>
-      <title>The lockout duration must be configured to require an administrator to unlock an account.</title>
-      <description>&lt;VulnDiscussion&gt;The account lockout feature, when enabled, prevents brute-force password attacks on the system.  This parameter specifies the period of time that an account will remain locked after the specified number of failed logon attempts.  A value of 0 will require an administrator to unlock the account.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <title>Windows 2012 account lockout duration must be configured to 15 minutes or greater.</title>
+      <description>&lt;VulnDiscussion&gt;The account lockout feature, when enabled, prevents brute-force password attacks on the system. This parameter specifies the period of time that an account will remain locked after the specified number of failed logon attempts.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
       <reference>
         <dc:title>DPMS Target Windows 2012</dc:title>
         <dc:publisher>DISA</dc:publisher>
@@ -3940,8 +3959,10 @@ Configure the policy value for Computer Configuration &gt;&gt; Windows Settings 
       </reference>
       <ident system="http://cce.mitre.org">CCE-24768-4</ident>
       <ident system="http://iase.disa.mil/cci">CCI-002238</ident>
-      <fixtext fixref="F-45776r1_fix">Configure the policy value for Computer Configuration -&gt; Windows Settings -&gt; Security Settings -&gt; Account Policies -&gt; Account Lockout Policy -&gt; "Account lockout duration" to "0" minutes, "Account is locked out until administrator unlocks it".</fixtext>
-      <fix id="F-45776r1_fix" />
+      <fixtext fixref="F-81027r1_fix">Configure the policy value for Computer Configuration &gt;&gt; Windows Settings &gt;&gt; Security Settings &gt;&gt; Account Policies &gt;&gt; Account Lockout Policy &gt;&gt; "Account lockout duration" to "15" minutes or greater.
+
+A value of "0" is also acceptable, requiring an administrator to unlock the account.</fixtext>
+      <fix id="F-81027r1_fix" />
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-content-ref name="oval:mil.disa.fso.windows:def:4422" href="stig-ws2012-dc-oval.xml" />
       </check>
@@ -4244,6 +4265,39 @@ Value Name: DefaultPassword
       <fix id="F-45233r2_fix" />
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-content-ref name="oval:mil.disa.fso.windows:def:4618" href="stig-ws2012-dc-oval.xml" />
+      </check>
+    </Rule>
+  </Group>
+  <Group id="V-1152">
+    <title>Anonymous Access to the Registry</title>
+    <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
+    <Rule id="SV-52864r3_rule" severity="high" weight="10.0">
+      <version>WN12-RG-000004</version>
+      <title>Anonymous access to the registry must be restricted.</title>
+      <description>&lt;VulnDiscussion&gt;The registry is integral to the function, security, and stability of the Windows system.  Some processes may require anonymous access to the registry.  This must be limited to properly protect the system.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <reference>
+        <dc:title>DPMS Target Windows 2012</dc:title>
+        <dc:publisher>DISA</dc:publisher>
+        <dc:type>DPMS Target</dc:type>
+        <dc:subject>Windows 2012</dc:subject>
+        <dc:identifier>2350</dc:identifier>
+      </reference>
+      <ident system="http://iase.disa.mil/cci">CCI-002235</ident>
+      <fixtext fixref="F-80411r1_fix">Maintain permissions at least as restrictive as the defaults listed below for the "winreg" registry key.  It is recommended to not change the permissions from the defaults.
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurePipeServers\winreg\
+
+The following are the same for each permission listed:
+Type - Allow
+Inherited from - None
+
+Columns: Principal - Access - Applies to
+Administrators - Full Control - This key and subkeys
+Backup Operators - Read - This key only
+LOCAL SERVICE - Read - This key and subkeys</fixtext>
+      <fix id="F-80411r1_fix" />
+      <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <check-content-ref name="oval:mil.disa.fso.windows:def:4978" href="stig-ws2012-dc-oval.xml" />
       </check>
     </Rule>
   </Group>
@@ -6227,10 +6281,10 @@ Configure the policy value for Computer Configuration -&gt; Windows Settings -&g
   <Group id="V-14243">
     <title>Enumerate Administrator Accounts on Elevation</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
-    <Rule id="SV-52955r1_rule" severity="medium" weight="10.0">
+    <Rule id="SV-52955r2_rule" severity="medium" weight="10.0">
       <version>WN12-CC-000077</version>
-      <title>The system must require username and password to elevate a running application.</title>
-      <description>&lt;VulnDiscussion&gt;Enumeration of administrator accounts when elevating can provide part of the logon information to an unauthorized user.  This setting configures the system to always require users to type in a username and password to elevate a running application.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <title>Administrator accounts must not be enumerated during elevation.</title>
+      <description>&lt;VulnDiscussion&gt;Enumeration of administrator accounts when elevating can provide part of the logon information to an unauthorized user.  This setting configures the system to always require users to enter in a username and password to elevate a running application.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
       <reference>
         <dc:title>DPMS Target Windows 2012</dc:title>
         <dc:publisher>DISA</dc:publisher>
@@ -6240,8 +6294,8 @@ Configure the policy value for Computer Configuration -&gt; Windows Settings -&g
       </reference>
       <ident system="http://cce.mitre.org">CCE-24805-4</ident>
       <ident system="http://iase.disa.mil/cci">CCI-001084</ident>
-      <fixtext fixref="F-45881r1_fix">Configure the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Credential User Interface -&gt; "Enumerate administrator accounts on elevation" to "Disabled".</fixtext>
-      <fix id="F-45881r1_fix" />
+      <fixtext fixref="F-45881r2_fix">Configure the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Credential User Interface &gt;&gt; "Enumerate administrator accounts on elevation" to "Disabled".</fixtext>
+      <fix id="F-45881r2_fix" />
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-export value-id="enumerate_administrator_accounts_on_elevation_var" export-name="oval:mil.disa.fso.windows:var:449500" />
         <check-content-ref name="oval:mil.disa.fso.windows:def:4495" href="stig-ws2012-dc-oval.xml" />
@@ -7689,6 +7743,42 @@ This setting will prevent the Program Inventory from collecting data about a sys
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-export value-id="default_behavior_for_autorun_var" export-name="oval:mil.disa.fso.windows:var:449100" />
         <check-content-ref name="oval:mil.disa.fso.windows:def:4491" href="stig-ws2012-dc-oval.xml" />
+      </check>
+    </Rule>
+  </Group>
+  <Group id="V-26070">
+    <title>Winlogon Registry Permissions</title>
+    <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
+    <Rule id="SV-53123r4_rule" severity="high" weight="10.0">
+      <version>WN12-RG-000001</version>
+      <title>Standard user accounts must only have Read permissions to the Winlogon registry key.</title>
+      <description>&lt;VulnDiscussion&gt;Permissions on the Winlogon registry key must only allow privileged accounts to change registry values.  If standard users have these permissions, there is a potential for programs to run with elevated privileges when a privileged user logs on to the system.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
+      <reference>
+        <dc:title>DPMS Target Windows 2012</dc:title>
+        <dc:publisher>DISA</dc:publisher>
+        <dc:type>DPMS Target</dc:type>
+        <dc:subject>Windows 2012</dc:subject>
+        <dc:identifier>2350</dc:identifier>
+      </reference>
+      <ident system="http://iase.disa.mil/cci">CCI-002235</ident>
+      <fixtext fixref="F-80413r1_fix">Maintain permissions at least as restrictive as the defaults listed below for the "WinLogon" registry key.  It is recommended to not change the permissions from the defaults.
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\
+
+The following are the same for each permission listed:
+Type - Allow
+Inherited from - MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion
+Applies to - This key and subkeys
+
+Columns: Principal - Access
+TrustedInstaller - Full Control
+SYSTEM - Full Control
+Administrators - Full Control
+Users - Read
+ALL APPLICATION PACKAGES - Read</fixtext>
+      <fix id="F-80413r1_fix" />
+      <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <check-content-ref name="oval:mil.disa.fso.windows:def:5176" href="stig-ws2012-dc-oval.xml" />
       </check>
     </Rule>
   </Group>
@@ -9651,9 +9741,9 @@ Note: "IPHTTPS URL:" must be entered in the policy even if set to Disabled State
   <Group id="V-26602">
     <title>Microsoft FTP Service Disabled</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
-    <Rule id="SV-52237r3_rule" severity="medium" weight="10.0">
+    <Rule id="SV-52237r4_rule" severity="medium" weight="10.0">
       <version>WN12-SV-000101</version>
-      <title>The Microsoft FTP service must not be installed.</title>
+      <title>The Microsoft FTP service must not be installed unless required.</title>
       <description>&lt;VulnDiscussion&gt;Unnecessary services increase the attack surface of a system. Some of these services may not support required levels of authentication or encryption.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
       <reference>
         <dc:title>DPMS Target Windows 2012</dc:title>

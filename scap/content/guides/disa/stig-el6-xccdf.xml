@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Benchmark xmlns="http://checklists.nist.gov/xccdf/1.1" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cpe="http://cpe.mitre.org/language/2.0" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" id="RHEL_6_STIG" xml:lang="en" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.1 http://nvd.nist.gov/schema/xccdf-1.1.4.xsd" style="SCAP_1.1">
-  <status date="2017-04-28">accepted</status>
+  <status date="2017-07-28">accepted</status>
   <title>Red Hat Enterprise Linux 6 Security Technical Implementation Guide</title>
   <description>The Red Hat Enterprise Linux 6 Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems.  Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil.</description>
   <notice id="terms-of-use" xml:lang="en" />
@@ -8,9 +8,9 @@
     <dc:publisher>DISA</dc:publisher>
     <dc:source>STIG.DOD.MIL</dc:source>
   </reference>
-  <plain-text id="release-info">Release: 1.15 Benchmark Date: 28 Apr 2017</plain-text>
+  <plain-text id="release-info">Release: 1.16 Benchmark Date: 28 Jul 2017</plain-text>
   <platform idref="cpe:/o:redhat:enterprise_linux:6" />
-  <version>001.015</version>
+  <version>001.016</version>
   <metadata>
     <dc:creator>DISA</dc:creator>
     <dc:publisher>DISA</dc:publisher>
@@ -158,7 +158,6 @@
     <select idref="V-38629" selected="true" />
     <select idref="V-38630" selected="true" />
     <select idref="V-38633" selected="true" />
-    <select idref="V-38635" selected="true" />
     <select idref="V-38636" selected="true" />
     <select idref="V-38638" selected="true" />
     <select idref="V-38639" selected="true" />
@@ -339,7 +338,6 @@
     <select idref="V-38629" selected="true" />
     <select idref="V-38630" selected="true" />
     <select idref="V-38633" selected="true" />
-    <select idref="V-38635" selected="true" />
     <select idref="V-38636" selected="true" />
     <select idref="V-38638" selected="true" />
     <select idref="V-38639" selected="true" />
@@ -520,7 +518,6 @@
     <select idref="V-38629" selected="true" />
     <select idref="V-38630" selected="true" />
     <select idref="V-38633" selected="true" />
-    <select idref="V-38635" selected="true" />
     <select idref="V-38636" selected="true" />
     <select idref="V-38638" selected="true" />
     <select idref="V-38639" selected="true" />
@@ -701,7 +698,6 @@
     <select idref="V-38629" selected="true" />
     <select idref="V-38630" selected="true" />
     <select idref="V-38633" selected="true" />
-    <select idref="V-38635" selected="true" />
     <select idref="V-38636" selected="true" />
     <select idref="V-38638" selected="true" />
     <select idref="V-38639" selected="true" />
@@ -882,7 +878,6 @@
     <select idref="V-38629" selected="true" />
     <select idref="V-38630" selected="true" />
     <select idref="V-38633" selected="true" />
-    <select idref="V-38635" selected="true" />
     <select idref="V-38636" selected="true" />
     <select idref="V-38638" selected="true" />
     <select idref="V-38639" selected="true" />
@@ -1063,7 +1058,6 @@
     <select idref="V-38629" selected="true" />
     <select idref="V-38630" selected="true" />
     <select idref="V-38633" selected="true" />
-    <select idref="V-38635" selected="true" />
     <select idref="V-38636" selected="true" />
     <select idref="V-38638" selected="true" />
     <select idref="V-38639" selected="true" />
@@ -1244,7 +1238,6 @@
     <select idref="V-38629" selected="true" />
     <select idref="V-38630" selected="true" />
     <select idref="V-38633" selected="true" />
-    <select idref="V-38635" selected="true" />
     <select idref="V-38636" selected="true" />
     <select idref="V-38638" selected="true" />
     <select idref="V-38639" selected="true" />
@@ -1425,7 +1418,6 @@
     <select idref="V-38629" selected="true" />
     <select idref="V-38630" selected="true" />
     <select idref="V-38633" selected="true" />
-    <select idref="V-38635" selected="true" />
     <select idref="V-38636" selected="true" />
     <select idref="V-38638" selected="true" />
     <select idref="V-38639" selected="true" />
@@ -1606,7 +1598,6 @@
     <select idref="V-38629" selected="true" />
     <select idref="V-38630" selected="true" />
     <select idref="V-38633" selected="true" />
-    <select idref="V-38635" selected="true" />
     <select idref="V-38636" selected="true" />
     <select idref="V-38638" selected="true" />
     <select idref="V-38639" selected="true" />
@@ -1650,7 +1641,7 @@
     <title>CAT I Only</title>
     <description>This profile only includes rules that are Severity Category I.</description>
     <select idref="SV-50237r1_rule" selected="false" />
-    <select idref="SV-50238r3_rule" selected="false" />
+    <select idref="SV-50238r4_rule" selected="false" />
     <select idref="SV-50243r1_rule" selected="false" />
     <select idref="SV-50248r1_rule" selected="false" />
     <select idref="SV-50249r1_rule" selected="false" />
@@ -1748,9 +1739,9 @@
     <select idref="SV-50381r2_rule" selected="false" />
     <select idref="SV-50382r2_rule" selected="false" />
     <select idref="SV-50383r2_rule" selected="false" />
-    <select idref="SV-50384r3_rule" selected="false" />
+    <select idref="SV-50384r4_rule" selected="false" />
     <select idref="SV-50385r1_rule" selected="false" />
-    <select idref="SV-50386r3_rule" selected="false" />
+    <select idref="SV-50386r4_rule" selected="false" />
     <select idref="SV-50387r1_rule" selected="false" />
     <select idref="SV-50389r1_rule" selected="false" />
     <select idref="SV-50391r1_rule" selected="false" />
@@ -1776,7 +1767,6 @@
     <select idref="SV-50430r3_rule" selected="false" />
     <select idref="SV-50431r3_rule" selected="false" />
     <select idref="SV-50434r1_rule" selected="false" />
-    <select idref="SV-50436r3_rule" selected="false" />
     <select idref="SV-50437r1_rule" selected="false" />
     <select idref="SV-50439r3_rule" selected="false" />
     <select idref="SV-50440r3_rule" selected="false" />
@@ -1792,7 +1782,7 @@
     <select idref="SV-50451r2_rule" selected="false" />
     <select idref="SV-50452r1_rule" selected="false" />
     <select idref="SV-50457r1_rule" selected="false" />
-    <select idref="SV-50459r4_rule" selected="false" />
+    <select idref="SV-50459r5_rule" selected="false" />
     <select idref="SV-50470r1_rule" selected="false" />
     <select idref="SV-50472r1_rule" selected="false" />
     <select idref="SV-50473r2_rule" selected="false" />
@@ -2024,7 +2014,7 @@ Stop the service if it is already running:
   <Group id="V-38438">
     <title>SRG-OS-000062</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
-    <Rule id="SV-50238r3_rule" severity="low" weight="10.0">
+    <Rule id="SV-50238r4_rule" severity="low" weight="10.0">
       <version>RHEL-06-000525</version>
       <title>Auditing must be enabled at boot by setting a kernel parameter.</title>
       <description>&lt;VulnDiscussion&gt;Each process on the system carries an "auditable" flag which indicates whether its activities can be audited. Although "auditd" takes care of enabling this for all processes which launch after it does, adding the kernel argument ensures it is set for every process during boot.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
@@ -2037,12 +2027,12 @@ Stop the service if it is already running:
       </reference>
       <ident system="http://cce.mitre.org">CCE-26785-6</ident>
       <ident system="http://iase.disa.mil/cci">CCI-000169</ident>
-      <fixtext fixref="F-43382r3_fix">To ensure all processes can be audited, even those which start prior to the audit daemon, add the argument "audit=1" to the kernel line in "/boot/grub/grub.conf", in the manner below:
+      <fixtext fixref="F-43382r4_fix">To ensure all processes can be audited, even those which start prior to the audit daemon, add the argument "audit=1" to the kernel line in "/boot/grub/grub.conf" or “/boot/efi/EFI/redhat/grub.conf”, in the manner below:
 
 kernel /vmlinuz-version ro vga=ext root=/dev/VolGroup00/LogVol00 rhgb quiet audit=1
 
 UEFI systems may prepend "/boot" to the "/vmlinuz-version" argument.</fixtext>
-      <fix id="F-43382r3_fix" />
+      <fix id="F-43382r4_fix" />
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-content-ref name="oval:mil.disa.fso.redhat.rhel6:def:159" href="stig-el6-oval.xml" />
       </check>
@@ -4862,7 +4852,7 @@ crypt_style = sha512</fixtext>
   <Group id="V-38583">
     <title>SRG-OS-999999</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
-    <Rule id="SV-50384r3_rule" severity="medium" weight="10.0">
+    <Rule id="SV-50384r4_rule" severity="medium" weight="10.0">
       <version>RHEL-06-000067</version>
       <title>The system boot loader configuration file(s) must have mode 0600 or less permissive.</title>
       <description>&lt;VulnDiscussion&gt;Proper permissions ensure that only the root user can modify important boot parameters.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
@@ -4875,12 +4865,18 @@ crypt_style = sha512</fixtext>
       </reference>
       <ident system="http://cce.mitre.org">CCE-26949-8</ident>
       <ident system="http://iase.disa.mil/cci">CCI-000366</ident>
-      <fixtext fixref="F-43531r2_fix">File permissions for "/boot/grub/grub.conf" should be set to 600, which is the default. To properly set the permissions of "/boot/grub/grub.conf", run the command:
+      <fixtext fixref="F-43531r3_fix">File permissions for "/boot/grub/grub.conf" and “/boot/efi/EFI/redhat/grub.conf” should be set to 600, which is the default.
 
-# chmod 600 /boot/grub/grub.conf
+To properly set the permissions of "/boot/grub/grub.conf", run the command:
+
+$ chmod 600 /boot/grub/grub.conf
+
+To properly set the permissions of “/boot/efi/EFI/redhat/grub.conf”, run the command:
+
+$ chmod 600 /boot/efi/EFI/redhat/grub.conf
 
 Boot partitions based on VFAT, NTFS, or other non-standard configurations may require alternative measures.</fixtext>
-      <fix id="F-43531r2_fix" />
+      <fix id="F-43531r3_fix" />
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-content-ref name="oval:mil.disa.fso.redhat.rhel6:def:508" href="stig-el6-oval.xml" />
       </check>
@@ -4914,7 +4910,7 @@ Boot partitions based on VFAT, NTFS, or other non-standard configurations may re
   <Group id="V-38585">
     <title>SRG-OS-000080</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
-    <Rule id="SV-50386r3_rule" severity="medium" weight="10.0">
+    <Rule id="SV-50386r4_rule" severity="medium" weight="10.0">
       <version>RHEL-06-000068</version>
       <title>The system boot loader must require authentication.</title>
       <description>&lt;VulnDiscussion&gt;Password protection on the boot loader configuration ensures users with physical access cannot trivially alter important bootloader settings. These include which kernel to use, and whether to enter single-user mode.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
@@ -4927,14 +4923,14 @@ Boot partitions based on VFAT, NTFS, or other non-standard configurations may re
       </reference>
       <ident system="http://cce.mitre.org">CCE-26911-8</ident>
       <ident system="http://iase.disa.mil/cci">CCI-000213</ident>
-      <fixtext fixref="F-43533r2_fix">The grub boot loader should have password protection enabled to protect boot-time settings. To do so, select a password and then generate a hash from it by running the following command: 
+      <fixtext fixref="F-43533r3_fix">The grub boot loader should have password protection enabled to protect boot-time settings. To do so, select a password and then generate a hash from it by running the following command:
 
 # grub-crypt --sha-512
 
-When prompted to enter a password, insert the following line into "/boot/grub/grub.conf" immediately after the header comments. (Use the output from "grub-crypt" as the value of [password-hash]): 
+When prompted to enter a password, insert the following line into "/boot/grub/grub.conf" or “/boot/efi/EFI/redhat/grub.conf” immediately after the header comments. (Use the output from "grub-crypt" as the value of [password-hash]):
 
 password --encrypted [password-hash]</fixtext>
-      <fix id="F-43533r2_fix" />
+      <fix id="F-43533r3_fix" />
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-content-ref name="oval:mil.disa.fso.redhat.rhel6:def:1078" href="stig-el6-oval.xml" />
       </check>
@@ -5836,41 +5832,6 @@ Set the value to "6" (MB) or higher for general-purpose systems. Larger values, 
       </check>
     </Rule>
   </Group>
-  <Group id="V-38635">
-    <title>SRG-OS-000062</title>
-    <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
-    <Rule id="SV-50436r3_rule" severity="low" weight="10.0">
-      <version>RHEL-06-000165</version>
-      <title>The audit system must be configured to audit all attempts to alter system time through adjtimex.</title>
-      <description>&lt;VulnDiscussion&gt;Arbitrary changes to the system time can be used to obfuscate nefarious activities in log files, as well as to confuse network services that are highly dependent upon an accurate system time (such as sshd). All changes to the system time should be audited.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
-      <reference>
-        <dc:title>DPMS Target Red Hat 6</dc:title>
-        <dc:publisher>DISA</dc:publisher>
-        <dc:type>DPMS Target</dc:type>
-        <dc:subject>Red Hat 6</dc:subject>
-        <dc:identifier>2367</dc:identifier>
-      </reference>
-      <ident system="http://cce.mitre.org">CCE-26242-8</ident>
-      <ident system="http://iase.disa.mil/cci">CCI-000169</ident>
-      <fixtext fixref="F-43584r2_fix">On a 32-bit system, add the following to "/etc/audit/audit.rules": 
-
-# audit_time_rules
--a always,exit -F arch=b32 -S adjtimex -k audit_time_rules
-
-On a 64-bit system, add the following to "/etc/audit/audit.rules": 
-
-# audit_time_rules
--a always,exit -F arch=b64 -S adjtimex -k audit_time_rules
-
-The -k option allows for the specification of a key in string form that can be used for better reporting capability through ausearch and aureport. Multiple system calls can be defined on the same line to save space if desired, but is not required. See an example of multiple combined syscalls: 
-
--a always,exit -F arch=b64 -S adjtimex -S settimeofday -S clock_settime -k audit_time_rules</fixtext>
-      <fix id="F-43584r2_fix" />
-      <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-        <check-content-ref name="oval:mil.disa.fso.redhat.rhel6:def:542" href="stig-el6-oval.xml" />
-      </check>
-    </Rule>
-  </Group>
   <Group id="V-38636">
     <title>SRG-OS-999999</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
@@ -6274,7 +6235,7 @@ Requiring samba clients such as "smbclient" to use packet signing ensures they c
   <Group id="V-38658">
     <title>SRG-OS-000077</title>
     <description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description>
-    <Rule id="SV-50459r4_rule" severity="medium" weight="10.0">
+    <Rule id="SV-50459r5_rule" severity="medium" weight="10.0">
       <version>RHEL-06-000274</version>
       <title>The system must prohibit the reuse of passwords within five iterations.</title>
       <description>&lt;VulnDiscussion&gt;Preventing reuse of previous passwords helps ensure that a compromised password is not reused by a user.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description>
@@ -6287,12 +6248,16 @@ Requiring samba clients such as "smbclient" to use packet signing ensures they c
       </reference>
       <ident system="http://cce.mitre.org">CCE-26741-9</ident>
       <ident system="http://iase.disa.mil/cci">CCI-000200</ident>
-      <fixtext fixref="F-43608r4_fix">Do not allow users to reuse recent passwords. This can be accomplished by using the "remember" option for the "pam_pwhistory" PAM module. In the file "/etc/pam.d/system-auth", append "remember=5" to the line which refers to the "pam_pwhistory.so" module, as shown: 
+      <fixtext fixref="F-43608r5_fix">Do not allow users to reuse recent passwords. This can be accomplished by using the "remember" option for the "pam_pwhistory" PAM module. In the file "/etc/pam.d/system-auth", append "remember=5" to the line which refers to the "pam_pwhistory.so" module, as shown:
 
 password required pam_pwhistory.so [existing_options] remember=5
 
+or
+
+password requisite pam_pwhistory.so [existing_options] remember=5
+
 The DoD requirement is five passwords.</fixtext>
-      <fix id="F-43608r4_fix" />
+      <fix id="F-43608r5_fix" />
       <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
         <check-content-ref name="oval:mil.disa.fso.redhat.rhel6:def:4002" href="stig-el6-oval.xml" />
       </check>
