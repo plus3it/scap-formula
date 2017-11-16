@@ -2,62 +2,11 @@
 <ns0:oval_definitions xmlns:ns0="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:ns1="http://www.w3.org/2001/XMLSchema-instance" ns1:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <ns0:generator>
     <ns2:product_name xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">combine-ovals.py from SCAP Security Guide</ns2:product_name>
-    <ns2:product_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">ssg: 0.1.35, python: 2.6.6</ns2:product_version>
+    <ns2:product_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">ssg: 0.1.36, python: 2.6.6</ns2:product_version>
     <ns2:schema_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">5.11</ns2:schema_version>
-    <ns2:timestamp xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">2017-08-29T22:21:05</ns2:timestamp>
+    <ns2:timestamp xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">2017-11-01T20:44:28</ns2:timestamp>
   </ns0:generator>
   <ns0:definitions>
-    <ns0:definition class="compliance" id="oval:ssg-rsyslog_files_groupownership:def:1" version="1">
-      <ns0:metadata>
-        <ns0:title>Confirm Existence and Permissions of System Log Files</ns0:title>
-        <ns0:affected family="unix">
-          <ns0:platform>Fedora 23</ns0:platform>
-          <ns0:platform>Fedora 24</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
-        </ns0:affected>
-        <ns0:description>All syslog log files should be owned by the appropriate group.</ns0:description>
-        <reference ref_id="rsyslog_files_groupownership" source="ssg"/>
-      </ns0:metadata>
-      <ns0:criteria>
-        <ns0:criterion comment="Check if all system log files are owned by root group" test_ref="oval:ssg-test_rsyslog_files_groupownership:tst:1"/>
-      </ns0:criteria>
-    </ns0:definition>
-    <ns0:definition class="compliance" id="oval:ssg-rsyslog_files_ownership:def:1" version="1">
-      <ns0:metadata>
-        <ns0:title>Confirm Existence and Permissions of System Log Files</ns0:title>
-        <ns0:affected family="unix">
-          <ns0:platform>Ubuntu 1404</ns0:platform>
-          <ns0:platform>Ubuntu 1604</ns0:platform>
-          <ns0:platform>Debian 8</ns0:platform>
-          <ns0:platform>Fedora 23</ns0:platform>
-          <ns0:platform>Fedora 24</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
-        </ns0:affected>
-        <ns0:description>All syslog log files should be owned by the appropriate user.</ns0:description>
-        <reference ref_id="rsyslog_files_ownership" source="ssg"/>
-      </ns0:metadata>
-      <ns0:criteria>
-        <ns0:criterion comment="Check if all system log files are owned by root user" test_ref="oval:ssg-test_rsyslog_files_ownership:tst:1"/>
-      </ns0:criteria>
-    </ns0:definition>
-    <ns0:definition class="compliance" id="oval:ssg-rsyslog_files_permissions:def:1" version="1">
-      <ns0:metadata>
-        <ns0:title>Confirm Existence and Permissions of System Log Files</ns0:title>
-        <ns0:affected family="unix">
-          <ns0:platform>Fedora 23</ns0:platform>
-          <ns0:platform>Fedora 24</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
-        </ns0:affected>
-        <ns0:description>File permissions for all syslog log files should be set correctly.</ns0:description>
-        <reference ref_id="rsyslog_files_permissions" source="ssg"/>
-      </ns0:metadata>
-      <ns0:criteria>
-        <ns0:criterion comment="Check permissions of all system log files" test_ref="oval:ssg-test_rsyslog_files_permissions:tst:1"/>
-      </ns0:criteria>
-    </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-accounts_password_pam_dcredit:def:1" version="1">
       <ns0:metadata>
         <ns0:title>Set Password dcredit Requirements</ns0:title>
@@ -1353,6 +1302,21 @@
         <ns0:criterion comment="wifi connection notification is disabled" test_ref="oval:ssg-test_gconf_tree_disable_wifi_notification:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-gconf_gnome_screen_locking_keybindings:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Set GNOME Screen Locking Keybindings</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>GNOME Screen Locking Keybindings should be configured to lock the screen on entry.</ns0:description>
+        <reference ref_id="gconf_gnome_screen_locking_keybindings" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria operator="OR">
+        <ns0:extend_definition comment="GConf2 installed" definition_ref="oval:ssg-package_GConf2_installed:def:1" negate="true"/>
+        <ns0:criterion comment="gnome screen locking keybindings set" test_ref="oval:ssg-test_gnome_screen_locking_keybindings:tst:1"/>
+        <ns0:criterion comment="gnome screen locking keybindings set" test_ref="oval:ssg-test_gconf_tree_gnome_screen_locking_keybindings:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-gconf_gnome_screensaver_idle_activation_enabled:def:1" version="1">
       <ns0:metadata>
         <ns0:title>Implement idle activation of screen saver</ns0:title>
@@ -1574,6 +1538,21 @@
       <ns0:criteria operator="OR">
         <ns0:extend_definition comment="IPv6 disabled or..." definition_ref="oval:ssg-kernel_module_ipv6_option_disabled:def:1"/>
         <ns0:criterion comment="Set static IPv6 address on each interface" test_ref="oval:ssg-test_network_ipv6_static_address:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-no_all_squash_exports:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Ensure All-Squashing Disabled On All Exports</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>The all_squash option maps all uids and gids to an
+      anonymous user and should be disabled.</ns0:description>
+        <reference ref_id="no_all_squash_exports" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria operator="OR">
+        <ns0:criterion comment="Check for all_squash in /etc/exports" test_ref="oval:ssg-test_no_all_squash_exports:tst:1"/>
+        <ns0:criterion comment="Check for a share in /etc/exports" negate="true" test_ref="oval:ssg-test_non_empty_exports_file:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-ntpd_specify_multiple_servers:def:1" version="2">
@@ -2005,6 +1984,78 @@
       <ns0:criteria operator="OR">
         <ns0:criterion comment="kernel module usb-storage disabled in /etc/modprobe.d" test_ref="oval:ssg-test_kernmod_usb-storage_disabled:tst:1"/>
         <ns0:criterion comment="kernel module usb-storage disabled in /etc/modprobe.conf" test_ref="oval:ssg-test_kernmod_usb-storage_modprobeconf:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-mount_option_dev_shm_nodev:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Add nodev Option to /dev/shm</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>/dev/shm should be mounted with mount option nodev.</ns0:description>
+        <reference ref_id="mount_option_dev_shm_nodev" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="nodev on /dev/shm" test_ref="oval:ssg-test_dev_shm_partition_nodev:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-mount_option_dev_shm_noexec:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Add noexec Option to /dev/shm</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>/dev/shm should be mounted with mount option noexec.</ns0:description>
+        <reference ref_id="mount_option_dev_shm_noexec" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="noexec on /dev/shm" test_ref="oval:ssg-test_dev_shm_partition_noexec:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-mount_option_dev_shm_nosuid:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Add nosuid Option to /dev/shm</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>/dev/shm should be mounted with mount option nosuid.</ns0:description>
+        <reference ref_id="mount_option_dev_shm_nosuid" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="nosuid on /dev/shm" test_ref="oval:ssg-test_dev_shm_partition_nosuid:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-mount_option_tmp_nodev:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Add nodev Option to /tmp</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>/tmp should be mounted with mount option nodev.</ns0:description>
+        <reference ref_id="mount_option_tmp_nodev" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="nodev on /tmp" test_ref="oval:ssg-test_tmp_partition_nodev:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-mount_option_tmp_noexec:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Add noexec Option to /tmp</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>/tmp should be mounted with mount option noexec.</ns0:description>
+        <reference ref_id="mount_option_tmp_noexec" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="noexec on /tmp" test_ref="oval:ssg-test_tmp_partition_noexec:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-mount_option_tmp_nosuid:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Add nosuid Option to /tmp</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>/tmp should be mounted with mount option nosuid.</ns0:description>
+        <reference ref_id="mount_option_tmp_nosuid" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="nosuid on /tmp" test_ref="oval:ssg-test_tmp_partition_nosuid:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-package_GConf2_installed:def:1" version="1">
@@ -2447,6 +2498,19 @@
       </ns0:metadata>
       <ns0:criteria>
         <ns0:criterion comment="package openldap-servers is removed" test_ref="oval:ssg-test_package_openldap-servers_removed:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-package_openssh-server_installed:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Package openssh-server Installed</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>The RPM package openssh-server should be installed.</ns0:description>
+        <reference ref_id="package_openssh-server_installed" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="package openssh-server is installed" test_ref="oval:ssg-test_package_openssh-server_installed:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-package_openssh-server_removed:def:1" version="1">
@@ -5769,6 +5833,30 @@
         <ns0:criterion comment="Verify 'log_group' not set to 'root' in /etc/audit/auditd.conf" test_ref="oval:ssg-test_auditd_conf_log_group_not_root:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-auditd_data_disk_error_action:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Auditd Action to Take When Disk Errors</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>disk_error_action setting in /etc/audit/auditd.conf is set to a certain action</ns0:description>
+        <reference ref_id="auditd_data_disk_error_action" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="disk_error_action setting in auditd.conf" test_ref="oval:ssg-test_auditd_data_disk_error_action:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-auditd_data_disk_full_action:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Auditd Action to Take When Disk Is Full</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>disk_full_action setting in /etc/audit/auditd.conf is set to a certain action</ns0:description>
+        <reference ref_id="auditd_data_disk_full_action" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="disk_full_action setting in auditd.conf" test_ref="oval:ssg-test_auditd_data_disk_full_action:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-auditd_data_retention_action_mail_acct:def:1" version="2">
       <ns0:metadata>
         <ns0:title>Auditd Email Account to Notify Upon Action</ns0:title>
@@ -5841,6 +5929,18 @@
       </ns0:metadata>
       <ns0:criteria>
         <ns0:criterion comment="num_logs setting in auditd.conf" test_ref="oval:ssg-test_auditd_data_retention_num_logs:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-auditd_data_retention_space_left:def:1" version="2">
+      <ns0:metadata>
+        <ns0:title>Configure auditd space_left on Low Disk Space</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>space_left setting in /etc/audit/auditd.conf is set to at least a certain value</ns0:description>
+        <reference ref_id="auditd_data_retention_space_left" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="space_left setting in auditd.conf" test_ref="oval:ssg-test_auditd_data_retention_space_left:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-auditd_data_retention_space_left_action:def:1" version="3">
@@ -5956,6 +6056,24 @@
         <ns0:criterion comment="all local world writable directories have sticky bit set" negate="true" test_ref="oval:ssg-test_dir_perms_world_writable_sticky_bits:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-directory_permissions_var_log_audit:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Verify /var/log/audit Directory Permissions</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>Checks for correct permissions for /var/log/audit.</ns0:description>
+        <reference ref_id="directory_permissions_var_log_audit" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria operator="OR">
+        <ns0:criterion negate="true" test_ref="oval:ssg-test_dir_permissions_var_log_audit:tst:1"/>
+        <ns0:criteria comment="log_group in auditd.conf is not root" operator="AND">
+          <ns0:extend_definition comment="log_group in auditd.conf is not root" definition_ref="oval:ssg-auditd_conf_log_group_not_root:def:1"/>
+          <ns0:criterion negate="true" test_ref="oval:ssg-test_dir_permissions_var_log_audit-non_root:tst:1"/>
+        </ns0:criteria>
+      </ns0:criteria>
+    </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-disable_host_auth:def:1" version="2">
       <ns0:metadata>
         <ns0:title>Disable Host-Based Authentication</ns0:title>
@@ -5966,9 +6084,12 @@
         <ns0:description>SSH host-based authentication should be disabled.</ns0:description>
         <reference ref_id="disable_host_auth" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not being used or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd service is disabled" definition_ref="oval:ssg-service_sshd_disabled:def:1"/>
-        <ns0:criterion comment="Check HostbasedAuthentication in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_hostbasedauthentication:tst:1"/>
+      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
+        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+        <ns0:criteria comment="sshd is installed and configured" operator="AND">
+          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:criterion comment="Check HostbasedAuthentication in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_hostbasedauthentication:tst:1"/>
+        </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-disable_prelink:def:1" version="3">
@@ -6657,6 +6778,21 @@
         <ns0:extend_definition comment="Installed OS is RHEL7" definition_ref="oval:ssg-installed_OS_is_rhel7:def:1"/>
       </ns0:criteria>
     </ns0:definition>
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_debian8:def:1" version="2">
+      <ns0:metadata>
+        <ns0:title>Debian 8</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:reference ref_id="cpe:/o:debian:debian:8" source="CPE"/>
+        <ns0:description>The operating system installed on the system is
+      Debian 8</ns0:description>
+        <reference ref_id="installed_OS_is_debian8" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria operator="AND">
+        <ns0:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
+        <ns0:criterion comment="Debian8 is installed" test_ref="oval:ssg-test_debian8:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
     <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_fedora:def:1" version="3">
       <ns0:metadata>
         <ns0:title>Installed operating system is Fedora</ns0:title>
@@ -6673,6 +6809,22 @@
         <ns0:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
         <ns0:criterion comment="fedora-release RPM package is installed" test_ref="oval:ssg-test_fedora_release_rpm:tst:1"/>
         <ns0:criterion comment="CPE vendor is 'fedoraproject' and product is 'fedora'" test_ref="oval:ssg-test_fedora_vendor_product:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_opensuse:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>OpenSUSE</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:reference ref_id="cpe:/o:novell:leap:42.0" source="CPE"/>
+        <ns0:reference ref_id="cpe:/o:novell:leap:42.1" source="CPE"/>
+        <ns0:description>The operating system installed on the system is
+      OpenSUSE.</ns0:description>
+        <reference ref_id="installed_OS_is_opensuse" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="Installed operating system is part of the unix family" test_ref="oval:ssg-test_opensuse_unix_family:tst:1"/>
+        <ns0:criterion comment="opensuse is installed" test_ref="oval:ssg-test_opensuse_installed:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_part_of_Unix_family:def:1" version="1">
@@ -6759,6 +6911,86 @@
       <ns0:criteria operator="AND">
         <ns0:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
         <ns0:criterion comment="Scientific Linux 7 is installed" test_ref="oval:ssg-test_sl7:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_sle11:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>SUSE Linux Enterprise 11</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:reference ref_id="cpe:/o:suse:linux_enterprise_server:11" source="CPE"/>
+        <ns0:reference ref_id="cpe:/o:suse:linux_enterprise_desktop:11" source="CPE"/>
+        <ns0:description>The operating system installed on the system is
+      SUSE Linux Enterprise 11.</ns0:description>
+        <reference ref_id="installed_OS_is_sle11" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="Installed operating system is part of the unix family" test_ref="oval:ssg-test_sle11_unix_family:tst:1"/>
+        <ns0:criteria operator="OR">
+          <ns0:criterion comment="SLE 11 Desktop is installed" test_ref="oval:ssg-test_sle11_desktop:tst:1"/>
+          <ns0:criterion comment="SLE 11 Server is installed" test_ref="oval:ssg-test_sle11_server:tst:1"/>
+        </ns0:criteria>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_sle12:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>SUSE Linux Enterprise 12</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:reference ref_id="cpe:/o:suse:linux_enterprise_server:12" source="CPE"/>
+        <ns0:reference ref_id="cpe:/o:suse:linux_enterprise_desktop:12" source="CPE"/>
+        <ns0:description>The operating system installed on the system is
+      SUSE Linux Enterprise 12.</ns0:description>
+        <reference ref_id="installed_OS_is_sle12" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="Installed operating system is part of the unix family" test_ref="oval:ssg-test_sle12_unix_family:tst:1"/>
+        <ns0:criteria operator="OR">
+          <ns0:criterion comment="SLE 12 Desktop is installed" test_ref="oval:ssg-test_sle12_desktop:tst:1"/>
+          <ns0:criterion comment="SLE 12 Server is installed" test_ref="oval:ssg-test_sle12_server:tst:1"/>
+        </ns0:criteria>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_ubuntu:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Ubuntu</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>The operating system installed is an Ubuntu System</ns0:description>
+        <reference ref_id="installed_OS_is_ubuntu" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria comment="System is Ubuntu" operator="AND">
+        <ns0:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
+        <ns0:criterion comment="lsb-based distrib" test_ref="oval:ssg-test_lsb:tst:1"/>
+        <ns0:criterion comment="Ubuntu is installed" test_ref="oval:ssg-test_ubuntu:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_ubuntu1404:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Ubuntu 1404</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:reference ref_id="cpe:/o:canonical:ubuntu_linux:14.04" source="CPE"/>
+        <ns0:description>The operating system installed on the system is Ubuntu 1404</ns0:description>
+        <reference ref_id="installed_OS_is_ubuntu1404" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria comment="current Ubuntu version is Trusty" operator="AND">
+        <ns0:extend_definition comment="Ubuntu is installed" definition_ref="oval:ssg-installed_OS_is_ubuntu:def:1"/>
+        <ns0:criterion comment="Trusty is installed" test_ref="oval:ssg-test_ubuntu_trusty:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_ubuntu1604:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Ubuntu 1604</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:reference ref_id="cpe:/o:canonical:ubuntu_linux:16.04" source="CPE"/>
+        <ns0:description>The operating system installed on the system is Ubuntu 1604</ns0:description>
+        <reference ref_id="installed_OS_is_ubuntu1604" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria comment="current Ubuntu version is Xenial" operator="AND">
+        <ns0:extend_definition comment="Ubuntu is installed" definition_ref="oval:ssg-installed_OS_is_ubuntu:def:1"/>
+        <ns0:criterion comment="Xenial is installed" test_ref="oval:ssg-test_ubuntu_xenial:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_wrlinux:def:1" version="1">
@@ -7315,6 +7547,22 @@
         <ns0:criterion comment="/var/log/audit on own partition" test_ref="oval:ssg-test_var_log_audit_partition:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-partition_for_var_tmp:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Ensure /var/tmp Located On Separate Partition</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>The /var/tmp directory is a world-writable directory used for
+      temporary file storage. Verify that it has its own partition or logical
+      volume.</ns0:description>
+        <reference ref_id="partition_for_var_tmp" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="/var/tmp on own partition" test_ref="oval:ssg-test_var_tmp_partition:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-postfix_server_banner:def:1" version="1">
       <ns0:metadata>
         <ns0:title>Configure Postfix Against Unnecessary Release of Information</ns0:title>
@@ -7415,25 +7663,94 @@
         <ns0:criterion comment="verify file md5 hashes" test_ref="oval:ssg-test_files_fail_md5_hash:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
-    <ns0:definition class="compliance" id="oval:ssg-rpm_verify_permissions:def:1" version="3">
+    <ns0:definition class="compliance" id="oval:ssg-rpm_verify_ownership:def:1" version="3">
       <ns0:metadata>
-        <ns0:title>Verify File Ownership And Permissions Using RPM</ns0:title>
+        <ns0:title>Verify File Ownership Using RPM</ns0:title>
         <ns0:affected family="unix">
           <ns0:platform>Fedora 23</ns0:platform>
           <ns0:platform>Fedora 24</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
-        <ns0:description>Verify the integrity of installed packages
+        <ns0:description>Verify ownership of installed packages
+      by comparing the installed files with information about the
+      files taken from the package metadata stored in the RPM
+      database.</ns0:description>
+        <reference ref_id="rpm_verify_ownership" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria operator="AND">
+        <ns0:criterion comment="user ownership of all files matches local rpm database" test_ref="oval:ssg-test_verify_all_rpms_user_ownership:tst:1"/>
+        <ns0:criterion comment="group ownership of all files matches local rpm database" test_ref="oval:ssg-test_verify_all_rpms_group_ownership:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-rpm_verify_permissions:def:1" version="3">
+      <ns0:metadata>
+        <ns0:title>Verify File Permissions Using RPM</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Fedora 23</ns0:platform>
+          <ns0:platform>Fedora 24</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>Verify the permissions of installed packages
       by comparing the installed files with information about the
       files taken from the package metadata stored in the RPM
       database.</ns0:description>
         <reference ref_id="rpm_verify_permissions" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria operator="AND">
-        <ns0:criterion comment="user ownership of all files matches local rpm database" test_ref="oval:ssg-test_verify_all_rpms_user_ownership:tst:1"/>
-        <ns0:criterion comment="group ownership of all files matches local rpm database" test_ref="oval:ssg-test_verify_all_rpms_group_ownership:tst:1"/>
+      <ns0:criteria>
         <ns0:criterion comment="mode of all files matches local rpm database" test_ref="oval:ssg-test_verify_all_rpms_mode:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-rsyslog_files_groupownership:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Confirm Existence and Permissions of System Log Files</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Fedora 23</ns0:platform>
+          <ns0:platform>Fedora 24</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>All syslog log files should be owned by the appropriate group.</ns0:description>
+        <reference ref_id="rsyslog_files_groupownership" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="Check if all system log files are owned by root group" test_ref="oval:ssg-test_rsyslog_files_groupownership:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-rsyslog_files_ownership:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Confirm Existence and Permissions of System Log Files</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Ubuntu 1404</ns0:platform>
+          <ns0:platform>Ubuntu 1604</ns0:platform>
+          <ns0:platform>Debian 8</ns0:platform>
+          <ns0:platform>Fedora 23</ns0:platform>
+          <ns0:platform>Fedora 24</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>All syslog log files should be owned by the appropriate user.</ns0:description>
+        <reference ref_id="rsyslog_files_ownership" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="Check if all system log files are owned by root user" test_ref="oval:ssg-test_rsyslog_files_ownership:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-rsyslog_files_permissions:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Confirm Existence and Permissions of System Log Files</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Fedora 23</ns0:platform>
+          <ns0:platform>Fedora 24</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>File permissions for all syslog log files should be set correctly.</ns0:description>
+        <reference ref_id="rsyslog_files_permissions" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="Check permissions of all system log files" test_ref="oval:ssg-test_rsyslog_files_permissions:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-rsyslog_nolisten:def:1" version="2">
@@ -7623,10 +7940,15 @@
         <ns0:description>The OpenSSH daemon should be running protocol 2.</ns0:description>
         <reference ref_id="sshd_allow_only_protocol2" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not being used or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd service is disabled" definition_ref="oval:ssg-service_sshd_disabled:def:1"/>
-        <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
-        <ns0:criterion comment="Check Protocol in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_allow_only_protocol2:tst:1"/>
+      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
+        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+        <ns0:criteria comment="sshd is installed and configured" operator="AND">
+          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:criteria comment="SSH version is equal or higher than 7.4 or it is configured with protocol 2" operator="OR">
+            <ns0:extend_definition comment="OpenSSH version 7.4 or higher supports only protocol 2" definition_ref="oval:ssg-sshd_version_equal_or_higher_than_74:def:1"/>
+            <ns0:criterion comment="Check Protocol in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_allow_only_protocol2:tst:1"/>
+          </ns0:criteria>
+        </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-sshd_disable_empty_passwords:def:1" version="1">
@@ -7638,9 +7960,12 @@
       be disabled (and dependencies are met)</ns0:description>
         <reference ref_id="sshd_disable_empty_passwords" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not being used or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd service is disabled" definition_ref="oval:ssg-service_sshd_disabled:def:1"/>
-        <ns0:criterion comment="Check PermitEmptyPasswords in /etc/ssh/sshd_config" negate="true" test_ref="oval:ssg-test_sshd_permitemptypasswords_no:tst:1"/>
+      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
+        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+        <ns0:criteria comment="sshd is installed and configured" operator="AND">
+          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:criterion comment="Check PermitEmptyPasswords in /etc/ssh/sshd_config" negate="true" test_ref="oval:ssg-test_sshd_permitemptypasswords_no:tst:1"/>
+        </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-sshd_disable_rhosts:def:1" version="1">
@@ -7654,9 +7979,12 @@
       be disabled (and dependencies are met)</ns0:description>
         <reference ref_id="sshd_disable_rhosts" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not being used or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd service is disabled" definition_ref="oval:ssg-service_sshd_disabled:def:1"/>
-        <ns0:criterion comment="Check IgnoreRhosts in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_rsh_emulation_disabled:tst:1"/>
+      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
+        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+        <ns0:criteria comment="sshd is installed and configured" operator="AND">
+          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:criterion comment="Check IgnoreRhosts in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_rsh_emulation_disabled:tst:1"/>
+        </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-sshd_disable_rhosts_rsa:def:1" version="1">
@@ -7668,9 +7996,12 @@
       through the use of the authenticating user's SSH keys. This should be disabled.</ns0:description>
         <reference ref_id="sshd_disable_rhosts_rsa" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not being used or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd service is disabled" definition_ref="oval:ssg-service_sshd_disabled:def:1"/>
-        <ns0:criterion comment="Check RhostsRSAAuthentication in /etc/ssh/sshd_config" negate="true" test_ref="oval:ssg-test_sshd_disable_rhosts_rsa:tst:1"/>
+      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
+        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+        <ns0:criteria comment="sshd is installed and configured" operator="AND">
+          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:criterion comment="Check RhostsRSAAuthentication in /etc/ssh/sshd_config" negate="true" test_ref="oval:ssg-test_sshd_disable_rhosts_rsa:tst:1"/>
+        </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-sshd_disable_root_login:def:1" version="1">
@@ -7682,9 +8013,12 @@
       met)</ns0:description>
         <reference ref_id="sshd_disable_root_login" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not being used or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd service is disabled" definition_ref="oval:ssg-service_sshd_disabled:def:1"/>
-        <ns0:criterion comment="Check PermitRootLogin in /etc/ssh/sshd_config" negate="true" test_ref="oval:ssg-test_sshd_permitrootlogin_no:tst:1"/>
+      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
+        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+        <ns0:criteria comment="sshd is installed and configured" operator="AND">
+          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:criterion comment="Check PermitRootLogin in /etc/ssh/sshd_config" negate="true" test_ref="oval:ssg-test_sshd_permitrootlogin_no:tst:1"/>
+        </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-sshd_disable_user_known_hosts:def:1" version="1">
@@ -7697,9 +8031,12 @@ to connect to systems if a cache of the remote systems public keys are available
 This should be disabled.</ns0:description>
         <reference ref_id="sshd_disable_user_known_hosts" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not being used or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd service is disabled" definition_ref="oval:ssg-service_sshd_disabled:def:1"/>
-        <ns0:criterion comment="Check IgnoreUserKnownHosts in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_disable_user_known_hosts:tst:1"/>
+      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
+        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+        <ns0:criteria comment="sshd is installed and configured" operator="AND">
+          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:criterion comment="Check IgnoreUserKnownHosts in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_disable_user_known_hosts:tst:1"/>
+        </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-sshd_do_not_permit_user_env:def:1" version="1">
@@ -7712,9 +8049,12 @@ This should be disabled.</ns0:description>
         <ns0:description>PermitUserEnvironment should be disabled</ns0:description>
         <reference ref_id="sshd_do_not_permit_user_env" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not being used or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd service is disabled" definition_ref="oval:ssg-service_sshd_disabled:def:1"/>
-        <ns0:criterion comment="Check PermitUserEnvironment in /etc/ssh/sshd_config" negate="true" test_ref="oval:ssg-test_sshd_no_user_envset:tst:1"/>
+      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
+        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+        <ns0:criteria comment="sshd is installed and configured" operator="AND">
+          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:criterion comment="Check PermitUserEnvironment in /etc/ssh/sshd_config" negate="true" test_ref="oval:ssg-test_sshd_no_user_envset:tst:1"/>
+        </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-sshd_enable_warning_banner:def:1" version="1">
@@ -7728,9 +8068,12 @@ This should be disabled.</ns0:description>
       met)</ns0:description>
         <reference ref_id="sshd_enable_warning_banner" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not being used or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd service is disabled" definition_ref="oval:ssg-service_sshd_disabled:def:1"/>
-        <ns0:criterion comment="Check Banner in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_banner_set:tst:1"/>
+      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
+        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+        <ns0:criteria comment="sshd is installed and configured" operator="AND">
+          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:criterion comment="Check Banner in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_banner_set:tst:1"/>
+        </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-sshd_enable_x11_forwarding:def:1" version="1">
@@ -7741,9 +8084,75 @@ This should be disabled.</ns0:description>
         <ns0:description>Enable X11Forwarding to encrypt X11 remote connections over SSH.</ns0:description>
         <reference ref_id="sshd_enable_x11_forwarding" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not being used or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd service is disabled" definition_ref="oval:ssg-service_sshd_disabled:def:1"/>
-        <ns0:criterion comment="Check X11Forwarding in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_enable_x11_forwarding:tst:1"/>
+      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
+        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+        <ns0:criteria comment="sshd is installed and configured" operator="AND">
+          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:criterion comment="Check X11Forwarding in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_enable_x11_forwarding:tst:1"/>
+        </ns0:criteria>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-sshd_not_required_or_unset:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>SSHD is not required to be installed or requirement not set</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>If SSHD is not required, we check it is not installed. If SSH requirement is unset, we are good.</ns0:description>
+        <reference ref_id="sshd_not_required_or_unset" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria comment="SSH not required or not set" operator="OR">
+        <ns0:criteria comment="SSH is not required and not installed" operator="AND">
+          <ns0:criterion test_ref="oval:ssg-test_sshd_not_required:tst:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+        </ns0:criteria>
+        <ns0:extend_definition comment="SSH requirement is unset" definition_ref="oval:ssg-sshd_requirement_unset:def:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-sshd_print_last_log:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Enable Print Last Log</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>Enable PrintLastLog to display user's last login time 
+and date.</ns0:description>
+        <reference ref_id="sshd_print_last_log" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
+        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+        <ns0:criteria comment="sshd is installed and configured" operator="AND">
+          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:criterion comment="Check PrintLastLog in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_enable_printlastlog:tst:1"/>
+        </ns0:criteria>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-sshd_required_or_unset:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>SSHD is required to be installed or requirement not set</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>If SSHD is required, we check it is installed. If SSH requirement is unset, we are good.</ns0:description>
+        <reference ref_id="sshd_required_or_unset" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria comment="SSH required or not set" operator="OR">
+        <ns0:criteria comment="SSH is required and installed" operator="AND">
+          <ns0:criterion test_ref="oval:ssg-test_sshd_required:tst:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
+        </ns0:criteria>
+        <ns0:extend_definition comment="SSH requirement is unset" definition_ref="oval:ssg-sshd_requirement_unset:def:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-sshd_requirement_unset:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>It doesn't matter if sshd is installed or not</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>Test if value sshd_required is 0.</ns0:description>
+        <reference ref_id="sshd_requirement_unset" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria operator="AND">
+        <ns0:criterion test_ref="oval:ssg-test_sshd_requirement_unset:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-sshd_set_idle_timeout:def:1" version="1">
@@ -7755,9 +8164,12 @@ This should be disabled.</ns0:description>
       appropriate value.</ns0:description>
         <reference ref_id="sshd_set_idle_timeout" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not being used or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd service is disabled" definition_ref="oval:ssg-service_sshd_disabled:def:1"/>
-        <ns0:criterion comment="Check ClientAliveInterval in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_idle_timeout:tst:1"/>
+      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
+        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+        <ns0:criteria comment="sshd is installed and configured" operator="AND">
+          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:criterion comment="Check ClientAliveInterval in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_idle_timeout:tst:1"/>
+        </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-sshd_set_keepalive:def:1" version="1">
@@ -7769,9 +8181,12 @@ This should be disabled.</ns0:description>
       value (and dependencies are met)</ns0:description>
         <reference ref_id="sshd_set_keepalive" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not being used or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd service is disabled" definition_ref="oval:ssg-service_sshd_disabled:def:1"/>
-        <ns0:criterion comment="Check ClientAliveCountMax in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_clientalivecountmax:tst:1"/>
+      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
+        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+        <ns0:criteria comment="sshd is installed and configured" operator="AND">
+          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:criterion comment="Check ClientAliveCountMax in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_clientalivecountmax:tst:1"/>
+        </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-sshd_set_loglevel_info:def:1" version="1">
@@ -7813,9 +8228,12 @@ This should be disabled.</ns0:description>
       </ns0:metadata>
       <ns0:criteria operator="AND">
         <ns0:extend_definition comment="Installed OS is certified" definition_ref="oval:ssg-installed_OS_is_certified:def:1"/>
-        <ns0:criteria comment="SSH is not being used or conditions are met" operator="OR">
-          <ns0:extend_definition comment="sshd service is disabled" definition_ref="oval:ssg-service_sshd_disabled:def:1"/>
-          <ns0:criterion comment="Check the Cipers list in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_use_approved_ciphers:tst:1"/>
+        <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
+          <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+          <ns0:criteria comment="sshd is installed and configured" operator="AND">
+            <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+            <ns0:criterion comment="Check the Cipers list in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_use_approved_ciphers:tst:1"/>
+          </ns0:criteria>
         </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
@@ -7831,9 +8249,12 @@ This should be disabled.</ns0:description>
       </ns0:metadata>
       <ns0:criteria operator="AND">
         <ns0:extend_definition comment="Installed OS is certified" definition_ref="oval:ssg-installed_OS_is_certified:def:1"/>
-        <ns0:criteria comment="SSH is not being used or conditions are met" operator="OR">
-          <ns0:extend_definition comment="sshd service is disabled" definition_ref="oval:ssg-service_sshd_disabled:def:1"/>
-          <ns0:criterion comment="Check MACs in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_use_approved_macs:tst:1"/>
+        <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
+          <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+          <ns0:criteria comment="sshd is installed and configured" operator="AND">
+            <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+            <ns0:criterion comment="Check MACs in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_use_approved_macs:tst:1"/>
+          </ns0:criteria>
         </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
@@ -7861,6 +8282,88 @@ This should be disabled.</ns0:description>
       <ns0:criteria comment="SSH is not being used or conditions are met" operator="OR">
         <ns0:extend_definition comment="sshd service is disabled" definition_ref="oval:ssg-service_sshd_disabled:def:1"/>
         <ns0:criterion comment="Check MACs in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_use_strong_macs:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-sshd_version_equal_or_higher_than_74:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>OpenSSH Server is 7.4 or newer</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>Check if version of OpenSSH Server is equal or higher than 7.4</ns0:description>
+        <reference ref_id="sshd_version_equal_or_higher_than_74" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria comment="OpenSSH Server version is equal or higher than 7.4" operator="OR">
+        <ns0:criteria comment="System uses RPM based packages" operator="AND">
+          <ns0:criteria comment="System uses RPM based packages" operator="OR">
+            <ns0:extend_definition comment="RHEL7 OS installed" definition_ref="oval:ssg-installed_OS_is_rhel7:def:1"/>
+            <ns0:extend_definition comment="RHEL6 OS installed" definition_ref="oval:ssg-installed_OS_is_rhel6:def:1"/>
+            <ns0:extend_definition comment="CentOS7 OS installed" definition_ref="oval:ssg-installed_OS_is_centos7:def:1"/>
+            <ns0:extend_definition comment="CentOS6 OS installed" definition_ref="oval:ssg-installed_OS_is_centos6:def:1"/>
+            <ns0:extend_definition comment="Fedora OS installed" definition_ref="oval:ssg-installed_OS_is_fedora:def:1"/>
+            <ns0:extend_definition comment="OpenSUSE OS installed" definition_ref="oval:ssg-installed_OS_is_opensuse:def:1"/>
+            <ns0:extend_definition comment="SLE11 OS installed" definition_ref="oval:ssg-installed_OS_is_sle11:def:1"/>
+            <ns0:extend_definition comment="SLE12 OS installed" definition_ref="oval:ssg-installed_OS_is_sle12:def:1"/>
+          </ns0:criteria>
+          <ns0:criterion comment="Check RPM OpenSSH Server is equal or higher than 7.4" test_ref="oval:ssg-test_rpm_openssh-server_version:tst:1"/>
+        </ns0:criteria>
+        <ns0:criteria comment="System uses DEB based packages" operator="AND">
+          <ns0:criteria comment="System uses RPM based packages" operator="OR">
+            <ns0:extend_definition comment="Ubuntu 1404 OS installed" definition_ref="oval:ssg-installed_OS_is_ubuntu1404:def:1"/>
+            <ns0:extend_definition comment="Ubuntu 1604 OS installed" definition_ref="oval:ssg-installed_OS_is_ubuntu1604:def:1"/>
+            <ns0:extend_definition comment="Debian 8 OS installed" definition_ref="oval:ssg-installed_OS_is_debian8:def:1"/>
+          </ns0:criteria>
+          <ns0:criterion comment="Check DEB version of OpenSSH Server is equal or higher than 7.4" test_ref="oval:ssg-test_deb_openssh-server_version:tst:1"/>
+        </ns0:criteria>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-sudo_remove_no_authenticate:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Ensure !authenticate Is Not Used in Sudo</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Ubuntu 1404</ns0:platform>
+          <ns0:platform>Ubuntu 1604</ns0:platform>
+          <ns0:platform>Debian 8</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>Checks sudo usage without authentication</ns0:description>
+        <reference ref_id="sudo_remove_no_authenticate" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria operator="AND">
+        <ns0:criterion comment="!authenticate does not exist in /etc/sudoers" test_ref="oval:ssg-test_no_authenticate_etc_sudoers:tst:1"/>
+        <ns0:criterion comment="!authenticate does not exist in /etc/sudoers.d" test_ref="oval:ssg-test_no_authenticate_etc_sudoers_d:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-sudo_remove_nopasswd:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Ensure NOPASSWD Is Not Used in Sudo</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Ubuntu 1404</ns0:platform>
+          <ns0:platform>Ubuntu 1604</ns0:platform>
+          <ns0:platform>Debian 8</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>Checks sudo usage without password</ns0:description>
+        <reference ref_id="sudo_remove_nopasswd" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria operator="AND">
+        <ns0:criterion comment="NOPASSWD is not configured in /etc/sudoers" test_ref="oval:ssg-test_nopasswd_etc_sudoers:tst:1"/>
+        <ns0:criterion comment="NOPASSWD is not configured in /etc/sudoers.d" test_ref="oval:ssg-test_nopasswd_etc_sudoers_d:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-sudo_require_authentication:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Ensure Users Re-Authenticate for Privilege Escalation - sudo</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>Checks sudo usage without password</ns0:description>
+        <reference ref_id="sudo_require_authentication" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria operator="AND">
+        <ns0:extend_definition definition_ref="oval:ssg-sudo_remove_no_authenticate:def:1"/>
+        <ns0:extend_definition definition_ref="oval:ssg-sudo_remove_nopasswd:def:1"/>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-sysconfig_networking_bootproto_ifcfg:def:1" version="2">
@@ -12913,18 +13416,6 @@ This should be disabled.</ns0:description>
     </ns0:definition>
   </ns0:definitions>
   <ns0:tests>
-    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="System log files are owned by root group" id="oval:ssg-test_rsyslog_files_groupownership:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_rsyslog_files_groupownership:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_rsyslog_files_groupownership:ste:1"/>
-    </ns2:file_test>
-    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="System log files are owned by root" id="oval:ssg-test_rsyslog_files_ownership:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_rsyslog_files_ownership:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_rsyslog_files_ownership:ste:1"/>
-    </ns2:file_test>
-    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="Permissions of system log files are 0600" id="oval:ssg-test_rsyslog_files_permissions:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_rsyslog_files_permissions:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_rsyslog_files_permissions:ste:1"/>
-    </ns2:file_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="check the configuration of /etc/pam.d/system-auth" id="oval:ssg-test_password_pam_cracklib_dcredit:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_password_pam_cracklib_dcredit:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_password_pam_cracklib_dcredit:ste:1"/>
@@ -13441,6 +13932,14 @@ This should be disabled.</ns0:description>
       <ns2:object object_ref="oval:ssg-object_gconf_tree_disable_wifi_notification:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_disable_wifi_notification:ste:1"/>
     </ns2:xmlfilecontent_test>
+    <ns2:xmlfilecontent_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="gnome screen locking keybindings set" id="oval:ssg-test_gnome_screen_locking_keybindings:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_gnome_screen_locking_keybindings:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_gnome_screen_locking_keybindings:ste:1"/>
+    </ns2:xmlfilecontent_test>
+    <ns2:xmlfilecontent_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="gnome screen locking keybindings set" id="oval:ssg-test_gconf_tree_gnome_screen_locking_keybindings:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_gconf_tree_gnome_screen_locking_keybindings:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_gnome_screen_locking_keybindings:ste:1"/>
+    </ns2:xmlfilecontent_test>
     <ns2:xmlfilecontent_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="gnome screensaver is activated on idle" id="oval:ssg-test_gnome_screensaver_idle_activated:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_gnome_screensaver_idle_activated:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_gnome_screensaver_idle_activated:ste:1"/>
@@ -13522,6 +14021,13 @@ This should be disabled.</ns0:description>
     </ns2:textfilecontent54_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="Set static IPv6 address on each interface" id="oval:ssg-test_network_ipv6_static_address:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_network_ipv6_static_address:obj:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="Tests the value of all_squash in /etc/exports" id="oval:ssg-test_no_all_squash_exports:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_no_all_squash_exports:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_no_all_squash_exports:ste:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="Tests if a share is configured in /etc/exports" id="oval:ssg-test_non_empty_exports_file:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_non_empty_exports_file:obj:1"/>
     </ns2:textfilecontent54_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="Ensure more than one ntpd NTP server is set" id="oval:ssg-test_ntpd_multiple_servers:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_ntpd_multiple_servers:obj:1"/>
@@ -13680,6 +14186,30 @@ This should be disabled.</ns0:description>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="kernel module usb-storage disabled in /etc/modprobe.conf" id="oval:ssg-test_kernmod_usb-storage_modprobeconf:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_kernmod_usb-storage_modprobeconf:obj:1"/>
     </ns2:textfilecontent54_test>
+    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="nodev on /dev/shm" id="oval:ssg-test_dev_shm_partition_nodev:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_dev_shm_partition_nodev:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_dev_shm_partition_nodev:ste:1"/>
+    </ns2:partition_test>
+    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="noexec on /dev/shm" id="oval:ssg-test_dev_shm_partition_noexec:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_dev_shm_partition_noexec:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_dev_shm_partition_noexec:ste:1"/>
+    </ns2:partition_test>
+    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="nosuid on /dev/shm" id="oval:ssg-test_dev_shm_partition_nosuid:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_dev_shm_partition_nosuid:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_dev_shm_partition_nosuid:ste:1"/>
+    </ns2:partition_test>
+    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="nodev on /tmp" id="oval:ssg-test_tmp_partition_nodev:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_tmp_partition_nodev:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_tmp_partition_nodev:ste:1"/>
+    </ns2:partition_test>
+    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="noexec on /tmp" id="oval:ssg-test_tmp_partition_noexec:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_tmp_partition_noexec:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_tmp_partition_noexec:ste:1"/>
+    </ns2:partition_test>
+    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="nosuid on /tmp" id="oval:ssg-test_tmp_partition_nosuid:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_tmp_partition_nosuid:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_tmp_partition_nosuid:ste:1"/>
+    </ns2:partition_test>
     <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="package GConf2 is installed" id="oval:ssg-test_package_GConf2_installed:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_package_GConf2_installed:obj:1"/>
     </ns2:rpminfo_test>
@@ -13781,6 +14311,9 @@ This should be disabled.</ns0:description>
     </ns2:rpminfo_test>
     <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="none_exist" comment="package openldap-servers is removed" id="oval:ssg-test_package_openldap-servers_removed:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_package_openldap-servers_removed:obj:1"/>
+    </ns2:rpminfo_test>
+    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="package openssh-server is installed" id="oval:ssg-test_package_openssh-server_installed:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_package_openssh-server_installed:obj:1"/>
     </ns2:rpminfo_test>
     <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="none_exist" comment="package openssh-server is removed" id="oval:ssg-test_package_openssh-server_removed:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_package_openssh-server_removed:obj:1"/>
@@ -16098,6 +16631,14 @@ This should be disabled.</ns0:description>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="log_group = root" id="oval:ssg-test_auditd_conf_log_group_not_root:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_auditd_conf_log_group_root:obj:1"/>
     </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="disk full action" id="oval:ssg-test_auditd_data_disk_error_action:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_auditd_data_disk_error_action:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_auditd_data_disk_error_action:ste:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="disk error action" id="oval:ssg-test_auditd_data_disk_full_action:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_auditd_data_disk_full_action:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_auditd_data_disk_full_action:ste:1"/>
+    </ns2:textfilecontent54_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="email account for actions" id="oval:ssg-test_auditd_data_retention_action_mail_acct:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_auditd_data_retention_action_mail_acct:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_auditd_data_retention_action_mail_acct:ste:1"/>
@@ -16121,6 +16662,10 @@ This should be disabled.</ns0:description>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="admin space left action " id="oval:ssg-test_auditd_data_retention_num_logs:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_auditd_data_retention_num_logs:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_auditd_data_retention_num_logs:ste:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="admin space left action " id="oval:ssg-test_auditd_data_retention_space_left:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_auditd_data_retention_space_left:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_auditd_data_retention_space_left:ste:1"/>
     </ns2:textfilecontent54_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="space left action" id="oval:ssg-test_auditd_data_retention_space_left_action:tst:1" version="2">
       <ns2:object object_ref="oval:ssg-object_auditd_data_retention_space_left_action:obj:1"/>
@@ -16152,6 +16697,14 @@ This should be disabled.</ns0:description>
     <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="all local world-writable directories have sticky bit set" id="oval:ssg-test_dir_perms_world_writable_sticky_bits:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_only_local_directories:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_world_writable_and_not_sticky:ste:1"/>
+    </ns2:file_test>
+    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="at_least_one_exists" comment="/var/log/audit files mode 0750" id="oval:ssg-test_dir_permissions_var_log_audit-non_root:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_var_log_audit_directory-non_root:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_not_mode_0750:ste:1"/>
+    </ns2:file_test>
+    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="at_least_one_exists" comment="/var/log/audit mode 0700" id="oval:ssg-test_dir_permissions_var_log_audit:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_var_log_audit_directory:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_not_mode_0700:ste:1"/>
     </ns2:file_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="sshd HostbasedAuthentication" id="oval:ssg-test_sshd_hostbasedauthentication:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_sshd_hostbasedauthentication:obj:1"/>
@@ -16345,12 +16898,23 @@ This should be disabled.</ns0:description>
       <ns2:object object_ref="oval:ssg-obj_centos7:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_centos7:ste:1"/>
     </ns2:rpminfo_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Check Debian 8" id="oval:ssg-test_debian8:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_debian8:obj:1"/>
+    </ns2:textfilecontent54_test>
     <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="only_one_exists" comment="fedora-release RPM package is installed" id="oval:ssg-test_fedora_release_rpm:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_fedora_release_rpm:obj:1"/>
     </ns2:rpminfo_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="CPE vendor is 'fedoraproject' and 'product' is fedora" id="oval:ssg-test_fedora_vendor_product:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_fedora_vendor_product:obj:1"/>
     </ns2:textfilecontent54_test>
+    <ns2:family_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_opensuse_unix_family:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_opensuse_unix_family:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_opensuse_unix_family:ste:1"/>
+    </ns2:family_test>
+    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="opensuse is installed" id="oval:ssg-test_opensuse_installed:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_opensuse_installed:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_opensuse_installed:ste:1"/>
+    </ns2:rpminfo_test>
     <ns2:family_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Test installed OS is part of the unix family" id="oval:ssg-test_unix_family:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_unix_family:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_unix_family:ste:1"/>
@@ -16406,6 +16970,42 @@ This should be disabled.</ns0:description>
       <ns2:object object_ref="oval:ssg-obj_sl7:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_sl7:ste:1"/>
     </ns2:rpminfo_test>
+    <ns2:family_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_sle11_unix_family:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_sle11_unix_family:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_sle11_unix_family:ste:1"/>
+    </ns2:family_test>
+    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="sled-release is version 6" id="oval:ssg-test_sle11_desktop:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_sle11_desktop:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_sle11_desktop:ste:1"/>
+    </ns2:rpminfo_test>
+    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="sles-release is version 6" id="oval:ssg-test_sle11_server:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_sle11_server:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_sle11_server:ste:1"/>
+    </ns2:rpminfo_test>
+    <ns2:family_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_sle12_unix_family:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_sle12_unix_family:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_sle12_unix_family:ste:1"/>
+    </ns2:family_test>
+    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="sled-release is version 6" id="oval:ssg-test_sle12_desktop:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_sle12_desktop:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_sle12_desktop:ste:1"/>
+    </ns2:rpminfo_test>
+    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="sles-release is version 6" id="oval:ssg-test_sle12_server:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_sle12_server:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_sle12_server:ste:1"/>
+    </ns2:rpminfo_test>
+    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="/etc/lsb-release exists" id="oval:ssg-test_lsb:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_lsb:obj:1"/>
+    </ns2:file_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Check Ubuntu" id="oval:ssg-test_ubuntu:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_ubuntu:obj:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Check Ubuntu version" id="oval:ssg-test_ubuntu_trusty:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_ubuntu_trusty:obj:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Check Ubuntu version" id="oval:ssg-test_ubuntu_xenial:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_ubuntu_xenial:obj:1"/>
+    </ns2:textfilecontent54_test>
     <ns2:family_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_unix_wrlinux:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_unix_wrlinux:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_unix_wrlinux:ste:1"/>
@@ -16594,6 +17194,9 @@ This should be disabled.</ns0:description>
     <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="check for /var/log/audit partition" id="oval:ssg-test_var_log_audit_partition:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_mount_var_log_audit_own_partition:obj:1"/>
     </ns2:partition_test>
+    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="/var/tmp on own partition" id="oval:ssg-test_var_tmp_partition:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_own_var_tmp_partition:obj:1"/>
+    </ns2:partition_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="Set banner" id="oval:ssg-test_postfix_server_banner:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_postfix_server_banner:obj:1"/>
     </ns2:textfilecontent54_test>
@@ -16642,6 +17245,18 @@ This should be disabled.</ns0:description>
     <ns2:rpmverifyfile_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="none_exist" comment="mode of all files matches local rpm database" id="oval:ssg-test_verify_all_rpms_mode:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_files_fail_mode:obj:1"/>
     </ns2:rpmverifyfile_test>
+    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="System log files are owned by root group" id="oval:ssg-test_rsyslog_files_groupownership:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_rsyslog_files_groupownership:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_rsyslog_files_groupownership:ste:1"/>
+    </ns2:file_test>
+    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="System log files are owned by root" id="oval:ssg-test_rsyslog_files_ownership:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_rsyslog_files_ownership:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_rsyslog_files_ownership:ste:1"/>
+    </ns2:file_test>
+    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="Permissions of system log files are 0600" id="oval:ssg-test_rsyslog_files_permissions:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_rsyslog_files_permissions:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_rsyslog_files_permissions:ste:1"/>
+    </ns2:file_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="Ensure that the /etc/rsyslog.conf does not contain $InputTCPServerRun | $UDPServerRun | $InputRELPServerRun" id="oval:ssg-test_rsyslog_nolisten:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_rsyslog_nolisten:obj:1"/>
     </ns2:textfilecontent54_test>
@@ -16713,6 +17328,21 @@ This should be disabled.</ns0:description>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="tests the value of X11Forwarding setting in the /etc/ssh/sshd_config file" id="oval:ssg-test_sshd_enable_x11_forwarding:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_sshd_enable_x11_forwarding:obj:1"/>
     </ns2:textfilecontent54_test>
+    <ns2:variable_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Verify if Profile set Value sshd_required as not required" id="oval:ssg-test_sshd_not_required:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_sshd_not_required:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_sshd_not_required:ste:1"/>
+    </ns2:variable_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="tests the value of PrintLastLog setting in the /etc/ssh/sshd_config file" id="oval:ssg-test_sshd_enable_printlastlog:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_sshd_enable_printlastlog:obj:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:variable_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Verify if Profile set Value sshd_required as required" id="oval:ssg-test_sshd_required:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_sshd_required:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_sshd_required:ste:1"/>
+    </ns2:variable_test>
+    <ns2:variable_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Verify if Value of sshd_required is the default" id="oval:ssg-test_sshd_requirement_unset:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_sshd_requirement_unknown:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_sshd_requirement_unset:ste:1"/>
+    </ns2:variable_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="timeout is configured" id="oval:ssg-test_sshd_idle_timeout:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_sshd_idle_timeout:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_timeout_value_upper_bound:ste:1"/>
@@ -16741,6 +17371,26 @@ This should be disabled.</ns0:description>
     </ns2:textfilecontent54_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="tests the value of MACs setting in the /etc/ssh/sshd_config file" id="oval:ssg-test_sshd_use_strong_macs:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_sshd_use_strong_macs:obj:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="OpenSSH is version 7.4 or higher" id="oval:ssg-test_rpm_openssh-server_version:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_rpm_openssh-server-version:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_rpm_openssh-server-version:ste:1"/>
+    </ns2:rpminfo_test>
+    <ns2:dpkginfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="at least one" check_existence="any_exist" comment="OpenSSH is version 7.4 or higher" id="oval:ssg-test_deb_openssh-server_version:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_deb_openssh-server-version:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_deb_openssh-server-version:ste:1"/>
+    </ns2:dpkginfo_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="!authenticate does not exist in /etc/sudoers" id="oval:ssg-test_no_authenticate_etc_sudoers:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_no_authenticate_etc_sudoers:obj:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="!authenticate does not exist in /etc/sudoers.d" id="oval:ssg-test_no_authenticate_etc_sudoers_d:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_no_authenticate_etc_sudoers_d:obj:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="NOPASSWD does not exist /etc/sudoers" id="oval:ssg-test_nopasswd_etc_sudoers:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_nopasswd_etc_sudoers:obj:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="NOPASSWD does not exist in /etc/sudoers.d" id="oval:ssg-test_nopasswd_etc_sudoers_d:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_nopasswd_etc_sudoers_d:obj:1"/>
     </ns2:textfilecontent54_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="Tests the value of the ^[\s]*BOOTPROTO[\s]*=[\s]*([^#]*) expression in the /etc/sysconfig/network-scripts/ifcfg-.* file" id="oval:ssg-test_sysconfig_networking_bootproto_ifcfg:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_sysconfig_networking_bootproto_ifcfg:obj:1"/>
@@ -18008,45 +18658,6 @@ This should be disabled.</ns0:description>
     </ns2:selinuxboolean_test>
   </ns0:tests>
   <ns0:objects>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="rsyslog's $IncludeConfig directive value" id="oval:ssg-object_rfg_rsyslog_include_config_value:obj:1" version="1">
-      <ns2:filepath>/etc/rsyslog.conf</ns2:filepath>
-      <ns2:pattern operation="pattern match">^\$IncludeConfig[\s]+([^\s;]+)</ns2:pattern>
-      <ns2:instance datatype="int">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="All rsyslog configuration files" id="oval:ssg-object_rfg_log_files_paths:obj:1" version="1">
-      <ns2:filepath operation="pattern match" var_check="at least one" var_ref="oval:ssg-var_rfg_all_log_files_as_collection:var:1"/>
-      <ns2:pattern operation="pattern match">^[^(\s|#|\$)]+[\s]+.*[\s]+-?(/+[^:;\s]+);*.*$</ns2:pattern>
-      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="Various system log files" id="oval:ssg-object_rsyslog_files_groupownership:obj:1" version="1">
-      <ns2:filepath datatype="string" var_check="at least one" var_ref="oval:ssg-var_rfg_log_files_paths:var:1"/>
-    </ns2:file_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="rsyslog's $IncludeConfig directive value" id="oval:ssg-object_rfo_rsyslog_include_config_value:obj:1" version="1">
-      <ns2:filepath>/etc/rsyslog.conf</ns2:filepath>
-      <ns2:pattern operation="pattern match">^\$IncludeConfig[\s]+([^\s;]+)</ns2:pattern>
-      <ns2:instance datatype="int">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="All rsyslog configuration files" id="oval:ssg-object_rfo_log_files_paths:obj:1" version="1">
-      <ns2:filepath operation="pattern match" var_check="at least one" var_ref="oval:ssg-var_rfo_all_log_files_as_collection:var:1"/>
-      <ns2:pattern operation="pattern match">^[^(\s|#|\$)]+[\s]+.*[\s]+-?(/+[^:;\s]+);*.*$</ns2:pattern>
-      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="Various system log files" id="oval:ssg-object_rsyslog_files_ownership:obj:1" version="1">
-      <ns2:filepath datatype="string" var_check="at least one" var_ref="oval:ssg-var_rfo_log_files_paths:var:1"/>
-    </ns2:file_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="rsyslog's $IncludeConfig directive value" id="oval:ssg-object_rfp_rsyslog_include_config_value:obj:1" version="1">
-      <ns2:filepath>/etc/rsyslog.conf</ns2:filepath>
-      <ns2:pattern operation="pattern match">^\$IncludeConfig[\s]+([^\s;]+)</ns2:pattern>
-      <ns2:instance datatype="int">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="All rsyslog configuration files" id="oval:ssg-object_rfp_log_files_paths:obj:1" version="1">
-      <ns2:filepath operation="pattern match" var_check="at least one" var_ref="oval:ssg-var_rfp_all_log_files_as_collection:var:1"/>
-      <ns2:pattern operation="pattern match">^[^(\s|#|\$)]+[\s]+.*[\s]+-?(/+[^:;\s]+);*.*$</ns2:pattern>
-      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="Various system log files" id="oval:ssg-object_rsyslog_files_permissions:obj:1" version="1">
-      <ns2:filepath datatype="string" var_check="at least one" var_ref="oval:ssg-var_rfp_log_files_paths:var:1"/>
-    </ns2:file_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_password_pam_cracklib_dcredit:obj:1" version="1">
       <ns2:filepath>/etc/pam.d/system-auth</ns2:filepath>
       <ns2:pattern operation="pattern match">^\s*password\s+(?:(?:required)|(?:requisite))\s+pam_cracklib\.so.*dcredit=(-?\d+)(?:[\s]|$)</ns2:pattern>
@@ -18349,12 +18960,12 @@ This should be disabled.</ns0:description>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_audit_rules_time_clock_settime_x86:obj:1" version="1">
       <ns2:filepath>/etc/audit/audit.rules</ns2:filepath>
-      <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+-F[\s]+arch=b32[\s]+-S[\s]+clock_settime[\s]+-F[\s]+a0=(?:0x)?0[\s]+(?:-F[\s]+key=|-k[\s]+)time-change[\s]*$</ns2:pattern>
+      <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+-F[\s]+arch=b32[\s]+-S[\s]+clock_settime[\s]+-F[\s]+a0=(?:0x)?0[\s]+(?:-F[\s]+key=|-k[\s]+)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_audit_rules_time_clock_settime_x86_64:obj:1" version="1">
       <ns2:filepath>/etc/audit/audit.rules</ns2:filepath>
-      <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+-F[\s]+arch=b64[\s]+-S[\s]+clock_settime[\s]+-F[\s]+a0=(?:0x)?0[\s]+(?:-F[\s]+key=|-k[\s]+)time-change[\s]*$</ns2:pattern>
+      <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+-F[\s]+arch=b64[\s]+-S[\s]+clock_settime[\s]+-F[\s]+a0=(?:0x)?0[\s]+(?:-F[\s]+key=|-k[\s]+)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_audit_rules_time_settimeofday_x86:obj:1" version="1">
@@ -18802,6 +19413,14 @@ This should be disabled.</ns0:description>
       <ns2:filepath>/etc/gconf/gconf.xml.mandatory/%gconf-tree.xml</ns2:filepath>
       <ns2:xpath>/gconf/dir/dir/entry[@name='disable-connected-notifications']/@value</ns2:xpath>
     </ns2:xmlfilecontent_object>
+    <ns2:xmlfilecontent_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_gnome_screen_locking_keybindings:obj:1" version="1">
+      <ns2:filepath>/etc/gconf/gconf.xml.mandatory/apps/gnome_settings_daemon/keybindings/%gconf.xml</ns2:filepath>
+      <ns2:xpath>/gconf/entry[@name='screen']/stringvalue[1]/text()</ns2:xpath>
+    </ns2:xmlfilecontent_object>
+    <ns2:xmlfilecontent_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_gconf_tree_gnome_screen_locking_keybindings:obj:1" version="1">
+      <ns2:filepath>/etc/gconf/gconf.xml.mandatory/%gconf-tree.xml</ns2:filepath>
+      <ns2:xpath>/gconf/dir/dir/dir/entry[@name='screen']/stringvalue[1]/text()</ns2:xpath>
+    </ns2:xmlfilecontent_object>
     <ns2:xmlfilecontent_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_gnome_screensaver_idle_activated:obj:1" version="1">
       <ns2:filepath>/etc/gconf/gconf.xml.mandatory/apps/gnome-screensaver/%gconf.xml</ns2:filepath>
       <ns2:xpath>/gconf/entry[@name='idle_activation_enabled']/@value</ns2:xpath>
@@ -18918,6 +19537,16 @@ This should be disabled.</ns0:description>
       <ns2:filename operation="pattern match">ifcfg-.*</ns2:filename>
       <ns2:pattern operation="pattern match">^IPV6ADDR=.+$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_no_all_squash_exports:obj:1" version="2">
+      <ns2:filepath>/etc/exports</ns2:filepath>
+      <ns2:pattern operation="pattern match">^\/.*\((\S+)\)$</ns2:pattern>
+      <ns2:instance datatype="int" operation="not equal">0</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_non_empty_exports_file:obj:1" version="1">
+      <ns2:filepath>/etc/exports</ns2:filepath>
+      <ns2:pattern operation="pattern match">^\/.*$</ns2:pattern>
+      <ns2:instance datatype="int" operation="not equal">0</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Ensure more than one ntpd NTP server is set" id="oval:ssg-obj_ntpd_multiple_servers:obj:1" version="1">
       <ns2:filepath>/etc/ntp.conf</ns2:filepath>
@@ -19175,6 +19804,24 @@ This should be disabled.</ns0:description>
       <ns2:pattern operation="pattern match">^\s*install\s+usb-storage\s+(/bin/false|/bin/true)$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
+    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_dev_shm_partition_nodev:obj:1" version="1">
+      <ns2:mount_point>/dev/shm</ns2:mount_point>
+    </ns2:partition_object>
+    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_dev_shm_partition_noexec:obj:1" version="1">
+      <ns2:mount_point>/dev/shm</ns2:mount_point>
+    </ns2:partition_object>
+    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_dev_shm_partition_nosuid:obj:1" version="1">
+      <ns2:mount_point>/dev/shm</ns2:mount_point>
+    </ns2:partition_object>
+    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_tmp_partition_nodev:obj:1" version="1">
+      <ns2:mount_point>/tmp</ns2:mount_point>
+    </ns2:partition_object>
+    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_tmp_partition_noexec:obj:1" version="1">
+      <ns2:mount_point>/tmp</ns2:mount_point>
+    </ns2:partition_object>
+    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_tmp_partition_nosuid:obj:1" version="1">
+      <ns2:mount_point>/tmp</ns2:mount_point>
+    </ns2:partition_object>
     <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_package_GConf2_installed:obj:1" version="1">
       <ns2:name>GConf2</ns2:name>
     </ns2:rpminfo_object>
@@ -19276,6 +19923,9 @@ This should be disabled.</ns0:description>
     </ns2:rpminfo_object>
     <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_package_openldap-servers_removed:obj:1" version="1">
       <ns2:name>openldap-servers</ns2:name>
+    </ns2:rpminfo_object>
+    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_package_openssh-server_installed:obj:1" version="1">
+      <ns2:name>openssh-server</ns2:name>
     </ns2:rpminfo_object>
     <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_package_openssh-server_removed:obj:1" version="1">
       <ns2:name>openssh-server</ns2:name>
@@ -21749,6 +22399,16 @@ This should be disabled.</ns0:description>
       <ns2:pattern operation="pattern match">^[ ]*log_group[ ]+=[ ]+root[ ]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_auditd_data_disk_error_action:obj:1" version="2">
+      <ns2:filepath>/etc/audit/auditd.conf</ns2:filepath>
+      <ns2:pattern operation="pattern match">^[ ]*disk_error_action[ ]+=[ ]+(\S+)[ ]*$</ns2:pattern>
+      <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_auditd_data_disk_full_action:obj:1" version="2">
+      <ns2:filepath>/etc/audit/auditd.conf</ns2:filepath>
+      <ns2:pattern operation="pattern match">^[ ]*disk_full_action[ ]+=[ ]+(\S+)[ ]*$</ns2:pattern>
+      <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_auditd_data_retention_action_mail_acct:obj:1" version="2">
       <ns2:filepath>/etc/audit/auditd.conf</ns2:filepath>
       <ns2:pattern operation="pattern match">^[ ]*action_mail_acct[ ]+=[ ]+(\S+)[ ]*$</ns2:pattern>
@@ -21777,6 +22437,11 @@ This should be disabled.</ns0:description>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_auditd_data_retention_num_logs:obj:1" version="2">
       <ns2:filepath>/etc/audit/auditd.conf</ns2:filepath>
       <ns2:pattern operation="pattern match">^[ ]*num_logs[ ]+=[ ]+(\d+)[ ]*$</ns2:pattern>
+      <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_auditd_data_retention_space_left:obj:1" version="2">
+      <ns2:filepath>/etc/audit/auditd.conf</ns2:filepath>
+      <ns2:pattern operation="pattern match">^[\s]*space_left[\s]+=[\s]+(\d+)[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_auditd_data_retention_space_left_action:obj:1" version="2">
@@ -21822,6 +22487,18 @@ This should be disabled.</ns0:description>
       <ns2:path operation="equals">/</ns2:path>
       <ns2:filename ns1:nil="true"/>
       <ns0:filter action="include">oval:ssg-state_world_writable_and_not_sticky:ste:1</ns0:filter>
+    </ns2:file_object>
+    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="/var/log/audit files" id="oval:ssg-object_var_log_audit_directory-non_root:obj:1" version="1">
+      <ns2:behaviors max_depth="-1" recurse="directories" recurse_direction="down" recurse_file_system="local"/>
+      <ns2:path operation="equals">/var/log/audit</ns2:path>
+      <ns2:filename operation="pattern match">^.*$</ns2:filename>
+      <ns0:filter action="include">oval:ssg-state_not_mode_0750:ste:1</ns0:filter>
+    </ns2:file_object>
+    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="/var/log/audit files" id="oval:ssg-object_var_log_audit_directory:obj:1" version="1">
+      <ns2:behaviors max_depth="-1" recurse="directories" recurse_direction="down" recurse_file_system="local"/>
+      <ns2:path operation="equals">/var/log/audit</ns2:path>
+      <ns2:filename operation="pattern match">^.*$</ns2:filename>
+      <ns0:filter action="include">oval:ssg-state_not_mode_0700:ste:1</ns0:filter>
     </ns2:file_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_sshd_hostbasedauthentication:obj:1" version="2">
       <ns2:filepath>/etc/ssh/sshd_config</ns2:filepath>
@@ -22087,6 +22764,11 @@ This should be disabled.</ns0:description>
     <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_centos7:obj:1" version="1">
       <ns2:name>centos-release</ns2:name>
     </ns2:rpminfo_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check Debian version" id="oval:ssg-obj_debian8:obj:1" version="1">
+      <ns2:filepath>/etc/debian_version</ns2:filepath>
+      <ns2:pattern operation="pattern match">^8.[0-9]+$</ns2:pattern>
+      <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
     <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_fedora_release_rpm:obj:1" version="1">
       <ns2:name>fedora-release</ns2:name>
     </ns2:rpminfo_object>
@@ -22095,6 +22777,10 @@ This should be disabled.</ns0:description>
       <ns2:pattern operation="pattern match">^cpe:\/o:fedoraproject:fedora:[\d]+$</ns2:pattern>
       <ns2:instance datatype="int" operation="equals">1</ns2:instance>
     </ns2:textfilecontent54_object>
+    <ns2:family_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_opensuse_unix_family:obj:1" version="1"/>
+    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_opensuse_installed:obj:1" version="1">
+      <ns2:name>openSUSE-release</ns2:name>
+    </ns2:rpminfo_object>
     <ns2:family_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_unix_family:obj:1" version="1"/>
     <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_rhel_client:obj:1" version="1">
       <ns2:name>redhat-release-client</ns2:name>
@@ -22135,6 +22821,38 @@ This should be disabled.</ns0:description>
     <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_sl7:obj:1" version="1">
       <ns2:name>sl-release</ns2:name>
     </ns2:rpminfo_object>
+    <ns2:family_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_sle11_unix_family:obj:1" version="1"/>
+    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_sle11_desktop:obj:1" version="1">
+      <ns2:name>sled-release</ns2:name>
+    </ns2:rpminfo_object>
+    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_sle11_server:obj:1" version="1">
+      <ns2:name>sles-release</ns2:name>
+    </ns2:rpminfo_object>
+    <ns2:family_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_sle12_unix_family:obj:1" version="1"/>
+    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_sle12_desktop:obj:1" version="1">
+      <ns2:name>sled-release</ns2:name>
+    </ns2:rpminfo_object>
+    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_sle12_server:obj:1" version="1">
+      <ns2:name>sles-release</ns2:name>
+    </ns2:rpminfo_object>
+    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="check /etc/lsb-release file" id="oval:ssg-obj_lsb:obj:1" version="1">
+      <ns2:filepath>/etc/lsb-release</ns2:filepath>
+    </ns2:file_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check Ubuntu" id="oval:ssg-obj_ubuntu:obj:1" version="1">
+      <ns2:filepath>/etc/lsb-release</ns2:filepath>
+      <ns2:pattern operation="pattern match">^DISTRIB_ID=Ubuntu$</ns2:pattern>
+      <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check Ubuntu version" id="oval:ssg-obj_ubuntu_trusty:obj:1" version="1">
+      <ns2:filepath>/etc/lsb-release</ns2:filepath>
+      <ns2:pattern operation="pattern match">^DISTRIB_CODENAME=trusty$</ns2:pattern>
+      <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check Ubuntu version" id="oval:ssg-obj_ubuntu_xenial:obj:1" version="1">
+      <ns2:filepath>/etc/lsb-release</ns2:filepath>
+      <ns2:pattern operation="pattern match">^DISTRIB_CODENAME=xenial$</ns2:pattern>
+      <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
     <ns2:family_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_unix_wrlinux:obj:1" version="1"/>
     <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:ssg-obj_test_wrlinux:obj:1" version="1">
       <ns2:filepath>/etc/wrlinux-release</ns2:filepath>
@@ -22383,6 +23101,9 @@ This should be disabled.</ns0:description>
     <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_mount_var_log_audit_own_partition:obj:1" version="1">
       <ns2:mount_point>/var/log/audit</ns2:mount_point>
     </ns2:partition_object>
+    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_own_var_tmp_partition:obj:1" version="1">
+      <ns2:mount_point>/var/tmp</ns2:mount_point>
+    </ns2:partition_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_postfix_server_banner:obj:1" version="1">
       <ns2:filepath>/etc/postfix/main.cf</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*smtpd_banner[\s]*=[\s]*\$myhostname[\s]+ESMTP[\s]*$</ns2:pattern>
@@ -22445,6 +23166,45 @@ This should be disabled.</ns0:description>
       <ns2:filepath operation="pattern match">.*</ns2:filepath>
       <ns0:filter action="include">oval:ssg-state_files_fail_mode:ste:1</ns0:filter>
     </ns2:rpmverifyfile_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="rsyslog's $IncludeConfig directive value" id="oval:ssg-object_rfg_rsyslog_include_config_value:obj:1" version="1">
+      <ns2:filepath>/etc/rsyslog.conf</ns2:filepath>
+      <ns2:pattern operation="pattern match">^\$IncludeConfig[\s]+([^\s;]+)</ns2:pattern>
+      <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="All rsyslog configuration files" id="oval:ssg-object_rfg_log_files_paths:obj:1" version="1">
+      <ns2:filepath operation="pattern match" var_check="at least one" var_ref="oval:ssg-var_rfg_all_log_files_as_collection:var:1"/>
+      <ns2:pattern operation="pattern match">^[^(\s|#|\$)]+[\s]+.*[\s]+-?(/+[^:;\s]+);*.*$</ns2:pattern>
+      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="Various system log files" id="oval:ssg-object_rsyslog_files_groupownership:obj:1" version="1">
+      <ns2:filepath datatype="string" var_check="at least one" var_ref="oval:ssg-var_rfg_log_files_paths:var:1"/>
+    </ns2:file_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="rsyslog's $IncludeConfig directive value" id="oval:ssg-object_rfo_rsyslog_include_config_value:obj:1" version="1">
+      <ns2:filepath>/etc/rsyslog.conf</ns2:filepath>
+      <ns2:pattern operation="pattern match">^\$IncludeConfig[\s]+([^\s;]+)</ns2:pattern>
+      <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="All rsyslog configuration files" id="oval:ssg-object_rfo_log_files_paths:obj:1" version="1">
+      <ns2:filepath operation="pattern match" var_check="at least one" var_ref="oval:ssg-var_rfo_all_log_files_as_collection:var:1"/>
+      <ns2:pattern operation="pattern match">^[^(\s|#|\$)]+[\s]+.*[\s]+-?(/+[^:;\s]+);*.*$</ns2:pattern>
+      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="Various system log files" id="oval:ssg-object_rsyslog_files_ownership:obj:1" version="1">
+      <ns2:filepath datatype="string" var_check="at least one" var_ref="oval:ssg-var_rfo_log_files_paths:var:1"/>
+    </ns2:file_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="rsyslog's $IncludeConfig directive value" id="oval:ssg-object_rfp_rsyslog_include_config_value:obj:1" version="1">
+      <ns2:filepath>/etc/rsyslog.conf</ns2:filepath>
+      <ns2:pattern operation="pattern match">^\$IncludeConfig[\s]+([^\s;]+)</ns2:pattern>
+      <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="All rsyslog configuration files" id="oval:ssg-object_rfp_log_files_paths:obj:1" version="1">
+      <ns2:filepath operation="pattern match" var_check="at least one" var_ref="oval:ssg-var_rfp_all_log_files_as_collection:var:1"/>
+      <ns2:pattern operation="pattern match">^[^(\s|#|\$)]+[\s]+.*[\s]+-?(/+[^:;\s]+);*.*$</ns2:pattern>
+      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="Various system log files" id="oval:ssg-object_rsyslog_files_permissions:obj:1" version="1">
+      <ns2:filepath datatype="string" var_check="at least one" var_ref="oval:ssg-var_rfp_log_files_paths:var:1"/>
+    </ns2:file_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_rsyslog_nolisten:obj:1" version="2">
       <ns2:filepath>/etc/rsyslog.conf</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*\$(?:Input(?:TCP|RELP)|UDP)ServerRun</ns2:pattern>
@@ -22562,6 +23322,20 @@ This should be disabled.</ns0:description>
       <ns2:pattern operation="pattern match">^[\s]*(?i)X11Forwarding(?-i)[\s]+yes[\s]*(?:|(?:#.*))?$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
+    <ns2:variable_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_sshd_not_required:obj:1" version="1">
+      <ns2:var_ref>oval:ssg-sshd_required:var:1</ns2:var_ref>
+    </ns2:variable_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_sshd_enable_printlastlog:obj:1" version="1">
+      <ns2:filepath>/etc/ssh/sshd_config</ns2:filepath>
+      <ns2:pattern operation="pattern match">^[\s]*(?i)PrintLastLog(?-i)[\s]+yes[\s]*(?:|(?:#.*))?$</ns2:pattern>
+      <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:variable_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_sshd_required:obj:1" version="1">
+      <ns2:var_ref>oval:ssg-sshd_required:var:1</ns2:var_ref>
+    </ns2:variable_object>
+    <ns2:variable_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_sshd_requirement_unknown:obj:1" version="1">
+      <ns2:var_ref>oval:ssg-sshd_required:var:1</ns2:var_ref>
+    </ns2:variable_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_sshd_idle_timeout:obj:1" version="2">
       <ns2:filepath>/etc/ssh/sshd_config</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*(?i)ClientAliveInterval[\s]+(\d+)[\s]*(?:|(?:#.*))?$</ns2:pattern>
@@ -22600,6 +23374,34 @@ This should be disabled.</ns0:description>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_sshd_use_strong_macs:obj:1" version="1">
       <ns2:filepath>/etc/ssh/sshd_config</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*(?i)MACs(?-i)[\s]+((hmac-sha2-512-etm@openssh\.com|hmac-sha2-256-etm@openssh\.com|umac-128-etm@openssh\.com|hmac-sha2-512|hmac-sha2-256|hmac-ripemd160),?)+[\s]*(?:|(?:#.*))?$</ns2:pattern>
+      <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_rpm_openssh-server-version:obj:1" version="1">
+      <ns2:name>openssh-server</ns2:name>
+    </ns2:rpminfo_object>
+    <ns2:dpkginfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_deb_openssh-server-version:obj:1" version="1">
+      <ns2:name>openssh-server</ns2:name>
+    </ns2:dpkginfo_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_no_authenticate_etc_sudoers:obj:1" version="1">
+      <ns2:filepath>/etc/sudoers</ns2:filepath>
+      <ns2:pattern operation="pattern match">^(?!#).*[\s]+\!authenticate.*$</ns2:pattern>
+      <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_no_authenticate_etc_sudoers_d:obj:1" version="1">
+      <ns2:path>/etc/sudoers.d</ns2:path>
+      <ns2:filename operation="pattern match">^.*$</ns2:filename>
+      <ns2:pattern operation="pattern match">^(?!#).*[\s]+\!authenticate.*$</ns2:pattern>
+      <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_nopasswd_etc_sudoers:obj:1" version="1">
+      <ns2:filepath>/etc/sudoers</ns2:filepath>
+      <ns2:pattern operation="pattern match">^(?!#).*[\s]+NOPASSWD[\s]*\:.*$</ns2:pattern>
+      <ns2:instance datatype="int">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_nopasswd_etc_sudoers_d:obj:1" version="1">
+      <ns2:path>/etc/sudoers.d</ns2:path>
+      <ns2:filename operation="pattern match">^.*$</ns2:filename>
+      <ns2:pattern operation="pattern match">^(?!#).*[\s]+NOPASSWD[\s]*\:.*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_sysconfig_networking_bootproto_ifcfg:obj:1" version="1">
@@ -23559,24 +24361,6 @@ This should be disabled.</ns0:description>
     </ns2:selinuxboolean_object>
   </ns0:objects>
   <ns0:states>
-    <ns2:file_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:ssg-state_rsyslog_files_groupownership:ste:1" version="1">
-      <ns2:type operation="equals">regular</ns2:type>
-      <ns2:group_id datatype="int">0</ns2:group_id>
-    </ns2:file_state>
-    <ns2:file_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:ssg-state_rsyslog_files_ownership:ste:1" version="1">
-      <ns2:type operation="equals">regular</ns2:type>
-      <ns2:user_id datatype="int">0</ns2:user_id>
-    </ns2:file_state>
-    <ns2:file_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:ssg-state_rsyslog_files_permissions:ste:1" version="1">
-      <ns2:type operation="equals">regular</ns2:type>
-      <ns2:uexec datatype="boolean">false</ns2:uexec>
-      <ns2:gread datatype="boolean">false</ns2:gread>
-      <ns2:gwrite datatype="boolean">false</ns2:gwrite>
-      <ns2:gexec datatype="boolean">false</ns2:gexec>
-      <ns2:oread datatype="boolean">false</ns2:oread>
-      <ns2:owrite datatype="boolean">false</ns2:owrite>
-      <ns2:oexec datatype="boolean">false</ns2:oexec>
-    </ns2:file_state>
     <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_password_pam_cracklib_dcredit:ste:1" version="1">
       <ns2:instance datatype="int">1</ns2:instance>
       <ns2:subexpression datatype="int" operation="less than or equal" var_ref="oval:ssg-var_password_pam_dcredit:var:1"/>
@@ -23697,6 +24481,9 @@ This should be disabled.</ns0:description>
     <ns2:xmlfilecontent_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_disable_wifi_notification:ste:1" version="1">
       <ns2:value_of datatype="string">true</ns2:value_of>
     </ns2:xmlfilecontent_state>
+    <ns2:xmlfilecontent_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_gnome_screen_locking_keybindings:ste:1" version="1">
+      <ns2:value_of datatype="string">&lt;Control&gt;&lt;Alt&gt;l</ns2:value_of>
+    </ns2:xmlfilecontent_state>
     <ns2:xmlfilecontent_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_gnome_screensaver_idle_activated:ste:1" version="1">
       <ns2:value_of datatype="string">true</ns2:value_of>
     </ns2:xmlfilecontent_state>
@@ -23717,6 +24504,9 @@ This should be disabled.</ns0:description>
     </ns2:xmlfilecontent_state>
     <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_grub_enable_fips_mode:ste:1" version="1">
       <ns2:subexpression datatype="string" operation="pattern match">^.*fips=1.*$</ns2:subexpression>
+    </ns2:textfilecontent54_state>
+    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_no_all_squash_exports:ste:1" version="1">
+      <ns2:subexpression operation="pattern match">^.*all_squash*$</ns2:subexpression>
     </ns2:textfilecontent54_state>
     <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_pam_pkcs11_cert_policy_ocsp_on:ste:1" version="1">
       <ns2:subexpression operation="pattern match">^.*ocsp_on.*$</ns2:subexpression>
@@ -23781,6 +24571,24 @@ This should be disabled.</ns0:description>
       <ns2:owrite datatype="boolean">false</ns2:owrite>
       <ns2:oexec datatype="boolean">false</ns2:oexec>
     </ns2:file_state>
+    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_dev_shm_partition_nodev:ste:1" version="1">
+      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">nodev</ns2:mount_options>
+    </ns2:partition_state>
+    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_dev_shm_partition_noexec:ste:1" version="1">
+      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">noexec</ns2:mount_options>
+    </ns2:partition_state>
+    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_dev_shm_partition_nosuid:ste:1" version="1">
+      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">nosuid</ns2:mount_options>
+    </ns2:partition_state>
+    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_tmp_partition_nodev:ste:1" version="1">
+      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">nodev</ns2:mount_options>
+    </ns2:partition_state>
+    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_tmp_partition_noexec:ste:1" version="1">
+      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">noexec</ns2:mount_options>
+    </ns2:partition_state>
+    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_tmp_partition_nosuid:ste:1" version="1">
+      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">nosuid</ns2:mount_options>
+    </ns2:partition_state>
     <ns2:runlevel_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="not configured to start" id="oval:ssg-state_service_abrtd_off:ste:1" version="1">
       <ns2:start datatype="boolean">false</ns2:start>
       <ns2:kill datatype="boolean">true</ns2:kill>
@@ -24245,6 +25053,12 @@ This should be disabled.</ns0:description>
     <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_aide_verify_ext_attributes:ste:1" version="1">
       <ns2:subexpression operation="pattern match">^.*xattrs.*$</ns2:subexpression>
     </ns2:textfilecontent54_state>
+    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_auditd_data_disk_error_action:ste:1" version="1">
+      <ns2:subexpression operation="case insensitive equals" var_ref="oval:ssg-var_auditd_disk_error_action:var:1"/>
+    </ns2:textfilecontent54_state>
+    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_auditd_data_disk_full_action:ste:1" version="1">
+      <ns2:subexpression operation="case insensitive equals" var_ref="oval:ssg-var_auditd_disk_full_action:var:1"/>
+    </ns2:textfilecontent54_state>
     <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_auditd_data_retention_action_mail_acct:ste:1" version="1">
       <ns2:subexpression operation="equals" var_ref="oval:ssg-var_auditd_action_mail_acct:var:1"/>
     </ns2:textfilecontent54_state>
@@ -24262,6 +25076,9 @@ This should be disabled.</ns0:description>
     </ns2:textfilecontent54_state>
     <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_auditd_data_retention_num_logs:ste:1" version="1">
       <ns2:subexpression datatype="int" operation="greater than or equal" var_ref="oval:ssg-var_auditd_num_logs:var:1"/>
+    </ns2:textfilecontent54_state>
+    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_auditd_data_retention_space_left:ste:1" version="1">
+      <ns2:subexpression datatype="int" operation="greater than or equal" var_ref="oval:ssg-var_auditd_space_left:var:1"/>
     </ns2:textfilecontent54_state>
     <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_auditd_data_retention_space_left_action:ste:1" version="2">
       <ns2:subexpression operation="case insensitive equals" var_ref="oval:ssg-var_auditd_space_left_action:var:1"/>
@@ -24289,6 +25106,27 @@ This should be disabled.</ns0:description>
     <ns2:file_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:ssg-state_world_writable_and_not_sticky:ste:1" version="1">
       <ns2:sticky datatype="boolean">false</ns2:sticky>
       <ns2:owrite datatype="boolean">true</ns2:owrite>
+    </ns2:file_state>
+    <ns2:file_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:ssg-state_not_mode_0700:ste:1" operator="OR" version="1">
+      <ns2:suid datatype="boolean">true</ns2:suid>
+      <ns2:sgid datatype="boolean">true</ns2:sgid>
+      <ns2:sticky datatype="boolean">true</ns2:sticky>
+      <ns2:gread datatype="boolean">true</ns2:gread>
+      <ns2:gwrite datatype="boolean">true</ns2:gwrite>
+      <ns2:gexec datatype="boolean">true</ns2:gexec>
+      <ns2:oread datatype="boolean">true</ns2:oread>
+      <ns2:owrite datatype="boolean">true</ns2:owrite>
+      <ns2:oexec datatype="boolean">true</ns2:oexec>
+    </ns2:file_state>
+    <ns2:file_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:ssg-state_not_mode_0750:ste:1" operator="OR" version="1">
+      <ns2:suid datatype="boolean">true</ns2:suid>
+      <ns2:sgid datatype="boolean">true</ns2:sgid>
+      <ns2:sticky datatype="boolean">true</ns2:sticky>
+      <ns2:uexec datatype="boolean">true</ns2:uexec>
+      <ns2:gwrite datatype="boolean">true</ns2:gwrite>
+      <ns2:oread datatype="boolean">true</ns2:oread>
+      <ns2:owrite datatype="boolean">true</ns2:owrite>
+      <ns2:oexec datatype="boolean">true</ns2:oexec>
     </ns2:file_state>
     <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_core_dumps_limitsconf:ste:1" version="1">
       <ns2:subexpression operation="equals">0</ns2:subexpression>
@@ -24470,6 +25308,12 @@ This should be disabled.</ns0:description>
     <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_centos7:ste:1" version="1">
       <ns2:version operation="pattern match">^7.*$</ns2:version>
     </ns2:rpminfo_state>
+    <ns2:family_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_opensuse_unix_family:ste:1" version="1">
+      <ns2:family>unix</ns2:family>
+    </ns2:family_state>
+    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_opensuse_installed:ste:1" version="1">
+      <ns2:version operation="pattern match">^42.*$</ns2:version>
+    </ns2:rpminfo_state>
     <ns2:family_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_unix_family:ste:1" version="1">
       <ns2:family>unix</ns2:family>
     </ns2:family_state>
@@ -24508,6 +25352,24 @@ This should be disabled.</ns0:description>
     </ns2:rpminfo_state>
     <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_sl7:ste:1" version="1">
       <ns2:version operation="pattern match">^7.*$</ns2:version>
+    </ns2:rpminfo_state>
+    <ns2:family_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_sle11_unix_family:ste:1" version="1">
+      <ns2:family>unix</ns2:family>
+    </ns2:family_state>
+    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_sle11_desktop:ste:1" version="1">
+      <ns2:version operation="pattern match">^11.*$</ns2:version>
+    </ns2:rpminfo_state>
+    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_sle11_server:ste:1" version="1">
+      <ns2:version operation="pattern match">^11.*$</ns2:version>
+    </ns2:rpminfo_state>
+    <ns2:family_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_sle12_unix_family:ste:1" version="1">
+      <ns2:family>unix</ns2:family>
+    </ns2:family_state>
+    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_sle12_desktop:ste:1" version="1">
+      <ns2:version operation="pattern match">^12.*$</ns2:version>
+    </ns2:rpminfo_state>
+    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_sle12_server:ste:1" version="1">
+      <ns2:version operation="pattern match">^12.*$</ns2:version>
     </ns2:rpminfo_state>
     <ns2:family_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_unix_wrlinux:ste:1" version="1">
       <ns2:family>unix</ns2:family>
@@ -24616,6 +25478,24 @@ This should be disabled.</ns0:description>
     <ns2:rpmverifyfile_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_files_fail_mode:ste:1" version="1">
       <ns2:mode_differs>fail</ns2:mode_differs>
     </ns2:rpmverifyfile_state>
+    <ns2:file_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:ssg-state_rsyslog_files_groupownership:ste:1" version="1">
+      <ns2:type operation="equals">regular</ns2:type>
+      <ns2:group_id datatype="int">0</ns2:group_id>
+    </ns2:file_state>
+    <ns2:file_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:ssg-state_rsyslog_files_ownership:ste:1" version="1">
+      <ns2:type operation="equals">regular</ns2:type>
+      <ns2:user_id datatype="int">0</ns2:user_id>
+    </ns2:file_state>
+    <ns2:file_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:ssg-state_rsyslog_files_permissions:ste:1" version="1">
+      <ns2:type operation="equals">regular</ns2:type>
+      <ns2:uexec datatype="boolean">false</ns2:uexec>
+      <ns2:gread datatype="boolean">false</ns2:gread>
+      <ns2:gwrite datatype="boolean">false</ns2:gwrite>
+      <ns2:gexec datatype="boolean">false</ns2:gexec>
+      <ns2:oread datatype="boolean">false</ns2:oread>
+      <ns2:owrite datatype="boolean">false</ns2:owrite>
+      <ns2:oexec datatype="boolean">false</ns2:oexec>
+    </ns2:file_state>
     <ns2:selinuxsecuritycontext_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" comment="do it" id="oval:ssg-state_selinux_all_devicefiles_labeled:ste:1" version="1">
       <ns2:type datatype="string" operation="equals">device_t</ns2:type>
     </ns2:selinuxsecuritycontext_state>
@@ -24630,6 +25510,15 @@ This should be disabled.</ns0:description>
     </ns2:textfilecontent54_state>
     <ns2:variable_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_last_encrypt_method_instance_value:ste:1" version="1">
       <ns2:value datatype="string" operation="equals">SHA512</ns2:value>
+    </ns2:variable_state>
+    <ns2:variable_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_sshd_not_required:ste:1" version="1">
+      <ns2:value datatype="int" operation="equals">1</ns2:value>
+    </ns2:variable_state>
+    <ns2:variable_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_sshd_required:ste:1" version="1">
+      <ns2:value datatype="int" operation="equals">2</ns2:value>
+    </ns2:variable_state>
+    <ns2:variable_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_sshd_requirement_unset:ste:1" version="1">
+      <ns2:value datatype="int" operation="equals">0</ns2:value>
     </ns2:variable_state>
     <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="upper bound of ClientAliveInterval in seconds" id="oval:ssg-state_timeout_value_upper_bound:ste:1" version="1">
       <ns2:subexpression datatype="int" operation="less than or equal" var_check="all" var_ref="oval:ssg-sshd_idle_timeout_value:var:1"/>
@@ -24646,6 +25535,12 @@ This should be disabled.</ns0:description>
     <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="lower bound of MaxAuthTries" id="oval:ssg-state_maxauthtries_value_lower_bound:ste:1" version="1">
       <ns2:subexpression datatype="int" operation="greater than">0</ns2:subexpression>
     </ns2:textfilecontent54_state>
+    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_rpm_openssh-server-version:ste:1" version="1">
+      <ns2:evr datatype="evr_string" operation="greater than or equal">0:7.4</ns2:evr>
+    </ns2:rpminfo_state>
+    <ns2:dpkginfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_deb_openssh-server-version:ste:1" version="1">
+      <ns2:evr datatype="evr_string" operation="greater than or equal">0:7.4</ns2:evr>
+    </ns2:dpkginfo_state>
     <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_sysconfig_networking_bootproto_ifcfg:ste:1" version="2">
       <ns2:subexpression operation="pattern match">^(static|none)$</ns2:subexpression>
     </ns2:textfilecontent54_state>
@@ -26197,63 +27092,6 @@ This should be disabled.</ns0:description>
     </ns2:selinuxboolean_state>
   </ns0:states>
   <ns0:variables>
-    <ns0:local_variable comment="$IncludeConfig value converted to regex" datatype="string" id="oval:ssg-var_rfg_include_config_regex:var:1" version="1">
-      <ns0:glob_to_regex>
-        <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfg_rsyslog_include_config_value:obj:1"/>
-      </ns0:glob_to_regex>
-    </ns0:local_variable>
-    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfg_all_log_files_as_string:var:1" version="1">
-      <ns0:concat>
-        <ns0:variable_component var_ref="oval:ssg-var_rfg_include_config_regex:var:1"/>
-        <ns0:literal_component datatype="string">%/etc/rsyslog.conf</ns0:literal_component>
-      </ns0:concat>
-    </ns0:local_variable>
-    <ns0:local_variable comment="Locations of all rsyslog configuration files as collection" datatype="string" id="oval:ssg-var_rfg_all_log_files_as_collection:var:1" version="1">
-      <ns0:split delimiter="%">
-        <ns0:variable_component var_ref="oval:ssg-var_rfg_all_log_files_as_string:var:1"/>
-      </ns0:split>
-    </ns0:local_variable>
-    <ns0:local_variable comment="File paths of all rsyslog configuration files" datatype="string" id="oval:ssg-var_rfg_log_files_paths:var:1" version="1">
-      <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfg_log_files_paths:obj:1"/>
-    </ns0:local_variable>
-    <ns0:local_variable comment="$IncludeConfig value converted to regex" datatype="string" id="oval:ssg-var_rfo_include_config_regex:var:1" version="1">
-      <ns0:glob_to_regex>
-        <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfo_rsyslog_include_config_value:obj:1"/>
-      </ns0:glob_to_regex>
-    </ns0:local_variable>
-    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfo_all_log_files_as_string:var:1" version="1">
-      <ns0:concat>
-        <ns0:variable_component var_ref="oval:ssg-var_rfo_include_config_regex:var:1"/>
-        <ns0:literal_component datatype="string">%/etc/rsyslog.conf</ns0:literal_component>
-      </ns0:concat>
-    </ns0:local_variable>
-    <ns0:local_variable comment="Locations of all rsyslog configuration files as collection" datatype="string" id="oval:ssg-var_rfo_all_log_files_as_collection:var:1" version="1">
-      <ns0:split delimiter="%">
-        <ns0:variable_component var_ref="oval:ssg-var_rfo_all_log_files_as_string:var:1"/>
-      </ns0:split>
-    </ns0:local_variable>
-    <ns0:local_variable comment="File paths of all rsyslog configuration files" datatype="string" id="oval:ssg-var_rfo_log_files_paths:var:1" version="1">
-      <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfo_log_files_paths:obj:1"/>
-    </ns0:local_variable>
-    <ns0:local_variable comment="$IncludeConfig value converted to regex" datatype="string" id="oval:ssg-var_rfp_include_config_regex:var:1" version="1">
-      <ns0:glob_to_regex>
-        <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfp_rsyslog_include_config_value:obj:1"/>
-      </ns0:glob_to_regex>
-    </ns0:local_variable>
-    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfp_all_log_files_as_string:var:1" version="1">
-      <ns0:concat>
-        <ns0:variable_component var_ref="oval:ssg-var_rfp_include_config_regex:var:1"/>
-        <ns0:literal_component datatype="string">%/etc/rsyslog.conf</ns0:literal_component>
-      </ns0:concat>
-    </ns0:local_variable>
-    <ns0:local_variable comment="Locations of all rsyslog configuration files as collection" datatype="string" id="oval:ssg-var_rfp_all_log_files_as_collection:var:1" version="1">
-      <ns0:split delimiter="%">
-        <ns0:variable_component var_ref="oval:ssg-var_rfp_all_log_files_as_string:var:1"/>
-      </ns0:split>
-    </ns0:local_variable>
-    <ns0:local_variable comment="File paths of all rsyslog configuration files" datatype="string" id="oval:ssg-var_rfp_log_files_paths:var:1" version="1">
-      <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfp_log_files_paths:obj:1"/>
-    </ns0:local_variable>
     <ns0:external_variable comment="External variable for pam_cracklib dcredit" datatype="int" id="oval:ssg-var_password_pam_dcredit:var:1" version="1"/>
     <ns0:external_variable comment="External variable for pam_cracklib difok" datatype="int" id="oval:ssg-var_password_pam_difok:var:1" version="1"/>
     <ns0:external_variable comment="External variable for pam_cracklib lcredit" datatype="int" id="oval:ssg-var_password_pam_lcredit:var:1" version="1"/>
@@ -26624,12 +27462,15 @@ This should be disabled.</ns0:description>
         <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_aide_operational_database_filename:obj:1"/>
       </ns0:concat>
     </ns0:local_variable>
+    <ns0:external_variable comment="audit disk_error_action setting" datatype="string" id="oval:ssg-var_auditd_disk_error_action:var:1" version="1"/>
+    <ns0:external_variable comment="audit disk_full_action setting" datatype="string" id="oval:ssg-var_auditd_disk_full_action:var:1" version="1"/>
     <ns0:external_variable comment="audit action_mail_acct setting" datatype="string" id="oval:ssg-var_auditd_action_mail_acct:var:1" version="1"/>
     <ns0:external_variable comment="audit admin_space_left_action setting" datatype="string" id="oval:ssg-var_auditd_admin_space_left_action:var:1" version="1"/>
     <ns0:external_variable comment="audit flush setting" datatype="string" id="oval:ssg-var_auditd_flush:var:1" version="1"/>
     <ns0:external_variable comment="audit max_log_file settting" datatype="int" id="oval:ssg-var_auditd_max_log_file:var:1" version="1"/>
     <ns0:external_variable comment="audit max_log_file_action setting" datatype="string" id="oval:ssg-var_auditd_max_log_file_action:var:1" version="1"/>
     <ns0:external_variable comment="audit num_logs settting" datatype="int" id="oval:ssg-var_auditd_num_logs:var:1" version="1"/>
+    <ns0:external_variable comment="audit space_left settting" datatype="int" id="oval:ssg-var_auditd_space_left:var:1" version="1"/>
     <ns0:external_variable comment="audit space_left_action setting" datatype="string" id="oval:ssg-var_auditd_space_left_action:var:1" version="2"/>
     <ns0:local_variable comment="all GIDs on the target system" datatype="int" id="oval:ssg-variable_file_permissions_ungroupowned:var:1" version="1">
       <ns0:object_component item_field="subexpression" object_ref="oval:ssg-etc_group_object:obj:1"/>
@@ -26773,6 +27614,63 @@ This should be disabled.</ns0:description>
         </ns0:arithmetic>
       </ns0:arithmetic>
     </ns0:local_variable>
+    <ns0:local_variable comment="$IncludeConfig value converted to regex" datatype="string" id="oval:ssg-var_rfg_include_config_regex:var:1" version="1">
+      <ns0:glob_to_regex>
+        <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfg_rsyslog_include_config_value:obj:1"/>
+      </ns0:glob_to_regex>
+    </ns0:local_variable>
+    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfg_all_log_files_as_string:var:1" version="1">
+      <ns0:concat>
+        <ns0:variable_component var_ref="oval:ssg-var_rfg_include_config_regex:var:1"/>
+        <ns0:literal_component datatype="string">%/etc/rsyslog.conf</ns0:literal_component>
+      </ns0:concat>
+    </ns0:local_variable>
+    <ns0:local_variable comment="Locations of all rsyslog configuration files as collection" datatype="string" id="oval:ssg-var_rfg_all_log_files_as_collection:var:1" version="1">
+      <ns0:split delimiter="%">
+        <ns0:variable_component var_ref="oval:ssg-var_rfg_all_log_files_as_string:var:1"/>
+      </ns0:split>
+    </ns0:local_variable>
+    <ns0:local_variable comment="File paths of all rsyslog configuration files" datatype="string" id="oval:ssg-var_rfg_log_files_paths:var:1" version="1">
+      <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfg_log_files_paths:obj:1"/>
+    </ns0:local_variable>
+    <ns0:local_variable comment="$IncludeConfig value converted to regex" datatype="string" id="oval:ssg-var_rfo_include_config_regex:var:1" version="1">
+      <ns0:glob_to_regex>
+        <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfo_rsyslog_include_config_value:obj:1"/>
+      </ns0:glob_to_regex>
+    </ns0:local_variable>
+    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfo_all_log_files_as_string:var:1" version="1">
+      <ns0:concat>
+        <ns0:variable_component var_ref="oval:ssg-var_rfo_include_config_regex:var:1"/>
+        <ns0:literal_component datatype="string">%/etc/rsyslog.conf</ns0:literal_component>
+      </ns0:concat>
+    </ns0:local_variable>
+    <ns0:local_variable comment="Locations of all rsyslog configuration files as collection" datatype="string" id="oval:ssg-var_rfo_all_log_files_as_collection:var:1" version="1">
+      <ns0:split delimiter="%">
+        <ns0:variable_component var_ref="oval:ssg-var_rfo_all_log_files_as_string:var:1"/>
+      </ns0:split>
+    </ns0:local_variable>
+    <ns0:local_variable comment="File paths of all rsyslog configuration files" datatype="string" id="oval:ssg-var_rfo_log_files_paths:var:1" version="1">
+      <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfo_log_files_paths:obj:1"/>
+    </ns0:local_variable>
+    <ns0:local_variable comment="$IncludeConfig value converted to regex" datatype="string" id="oval:ssg-var_rfp_include_config_regex:var:1" version="1">
+      <ns0:glob_to_regex>
+        <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfp_rsyslog_include_config_value:obj:1"/>
+      </ns0:glob_to_regex>
+    </ns0:local_variable>
+    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfp_all_log_files_as_string:var:1" version="1">
+      <ns0:concat>
+        <ns0:variable_component var_ref="oval:ssg-var_rfp_include_config_regex:var:1"/>
+        <ns0:literal_component datatype="string">%/etc/rsyslog.conf</ns0:literal_component>
+      </ns0:concat>
+    </ns0:local_variable>
+    <ns0:local_variable comment="Locations of all rsyslog configuration files as collection" datatype="string" id="oval:ssg-var_rfp_all_log_files_as_collection:var:1" version="1">
+      <ns0:split delimiter="%">
+        <ns0:variable_component var_ref="oval:ssg-var_rfp_all_log_files_as_string:var:1"/>
+      </ns0:split>
+    </ns0:local_variable>
+    <ns0:local_variable comment="File paths of all rsyslog configuration files" datatype="string" id="oval:ssg-var_rfp_log_files_paths:var:1" version="1">
+      <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfp_log_files_paths:obj:1"/>
+    </ns0:local_variable>
     <ns0:external_variable comment="used for remediation only" datatype="string" id="oval:ssg-rsyslog_remote_loghost_address:var:1" version="1"/>
     <ns0:external_variable comment="External variable: name of selinux policy in /etc/selinux/config" datatype="string" id="oval:ssg-var_selinux_policy_name:var:1" version="1"/>
     <ns0:external_variable comment="external variable for selinux state" datatype="string" id="oval:ssg-var_selinux_state:var:1" version="1"/>
@@ -26781,6 +27679,7 @@ This should be disabled.</ns0:description>
         <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_last_encrypt_method_from_etc_login_defs:obj:1"/>
       </ns0:regex_capture>
     </ns0:local_variable>
+    <ns0:external_variable comment="May be defined by Profiles to explicitly say if sshd is required or not" datatype="int" id="oval:ssg-sshd_required:var:1" version="1"/>
     <ns0:external_variable comment="timeout value" datatype="int" id="oval:ssg-sshd_idle_timeout_value:var:1" version="1"/>
     <ns0:external_variable comment="maxauthtries value" datatype="int" id="oval:ssg-sshd_max_auth_tries_value:var:1" version="1"/>
     <ns0:local_variable comment="First octal digit of umask from /etc/init.d/functions" datatype="int" id="oval:ssg-var_first_digit_of_umask_from_etc_init_d_functions:var:1" version="1">
