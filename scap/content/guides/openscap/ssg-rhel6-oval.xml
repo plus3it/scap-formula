@@ -2,9 +2,9 @@
 <ns0:oval_definitions xmlns:ns0="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:ns1="http://www.w3.org/2001/XMLSchema-instance" ns1:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <ns0:generator>
     <ns2:product_name xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">combine-ovals.py from SCAP Security Guide</ns2:product_name>
-    <ns2:product_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">ssg: 0.1.36, python: 2.6.6</ns2:product_version>
+    <ns2:product_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">ssg: 0.1.37, python: 2.6.6</ns2:product_version>
     <ns2:schema_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">5.11</ns2:schema_version>
-    <ns2:timestamp xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">2017-11-01T20:44:28</ns2:timestamp>
+    <ns2:timestamp xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">2018-01-04T17:46:50</ns2:timestamp>
   </ns0:generator>
   <ns0:definitions>
     <ns0:definition class="compliance" id="oval:ssg-accounts_password_pam_dcredit:def:1" version="1">
@@ -6084,10 +6084,14 @@
         <ns0:description>SSH host-based authentication should be disabled.</ns0:description>
         <reference ref_id="disable_host_auth" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+      <ns0:criteria comment="SSH is configured correctly or is not installed" operator="OR">
+        <ns0:criteria comment="sshd is not installed" operator="AND">
+          <ns0:extend_definition comment="sshd is not required or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+        </ns0:criteria>
         <ns0:criteria comment="sshd is installed and configured" operator="AND">
-          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="sshd is required or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
           <ns0:criterion comment="Check HostbasedAuthentication in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_hostbasedauthentication:tst:1"/>
         </ns0:criteria>
       </ns0:criteria>
@@ -6201,6 +6205,8 @@
           <ns0:criteria comment="Red Hat Installed" operator="OR">
             <ns0:extend_definition comment="RHEL6 installed" definition_ref="oval:ssg-installed_OS_is_rhel6:def:1"/>
             <ns0:extend_definition comment="RHEL7 installed" definition_ref="oval:ssg-installed_OS_is_rhel7:def:1"/>
+            <ns0:extend_definition comment="SL6 installed" definition_ref="oval:ssg-installed_OS_is_sl6:def:1"/>
+            <ns0:extend_definition comment="SL7 installed" definition_ref="oval:ssg-installed_OS_is_sl7:def:1"/>
           </ns0:criteria>
           <ns0:criterion comment="package gpg-pubkey-fd431d51-4ae0493b is installed" test_ref="oval:ssg-test_package_gpgkey-fd431d51-4ae0493b_installed:tst:1"/>
           <ns0:criterion comment="package gpg-pubkey-2fa658e0-45700c69 is installed" test_ref="oval:ssg-test_package_gpgkey-2fa658e0-45700c69_installed:tst:1"/>
@@ -7940,10 +7946,14 @@
         <ns0:description>The OpenSSH daemon should be running protocol 2.</ns0:description>
         <reference ref_id="sshd_allow_only_protocol2" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+      <ns0:criteria comment="SSH is configured correctly or is not installed" operator="OR">
+        <ns0:criteria comment="sshd is not installed" operator="AND">
+          <ns0:extend_definition comment="sshd is not required or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+        </ns0:criteria>
         <ns0:criteria comment="sshd is installed and configured" operator="AND">
-          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="sshd is required or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
           <ns0:criteria comment="SSH version is equal or higher than 7.4 or it is configured with protocol 2" operator="OR">
             <ns0:extend_definition comment="OpenSSH version 7.4 or higher supports only protocol 2" definition_ref="oval:ssg-sshd_version_equal_or_higher_than_74:def:1"/>
             <ns0:criterion comment="Check Protocol in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_allow_only_protocol2:tst:1"/>
@@ -7960,10 +7970,14 @@
       be disabled (and dependencies are met)</ns0:description>
         <reference ref_id="sshd_disable_empty_passwords" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+      <ns0:criteria comment="SSH is configured correctly or is not installed" operator="OR">
+        <ns0:criteria comment="sshd is not installed" operator="AND">
+          <ns0:extend_definition comment="sshd is not required or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+        </ns0:criteria>
         <ns0:criteria comment="sshd is installed and configured" operator="AND">
-          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="sshd is required or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
           <ns0:criterion comment="Check PermitEmptyPasswords in /etc/ssh/sshd_config" negate="true" test_ref="oval:ssg-test_sshd_permitemptypasswords_no:tst:1"/>
         </ns0:criteria>
       </ns0:criteria>
@@ -7979,10 +7993,14 @@
       be disabled (and dependencies are met)</ns0:description>
         <reference ref_id="sshd_disable_rhosts" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+      <ns0:criteria comment="SSH is configured correctly or is not installed" operator="OR">
+        <ns0:criteria comment="sshd is not installed" operator="AND">
+          <ns0:extend_definition comment="sshd is not required or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+        </ns0:criteria>
         <ns0:criteria comment="sshd is installed and configured" operator="AND">
-          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="sshd is required or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
           <ns0:criterion comment="Check IgnoreRhosts in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_rsh_emulation_disabled:tst:1"/>
         </ns0:criteria>
       </ns0:criteria>
@@ -7996,11 +8014,18 @@
       through the use of the authenticating user's SSH keys. This should be disabled.</ns0:description>
         <reference ref_id="sshd_disable_rhosts_rsa" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+      <ns0:criteria comment="SSH is configured correctly or is not installed" operator="OR">
+        <ns0:criteria comment="sshd is not installed" operator="AND">
+          <ns0:extend_definition comment="sshd is not required or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+        </ns0:criteria>
         <ns0:criteria comment="sshd is installed and configured" operator="AND">
-          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
-          <ns0:criterion comment="Check RhostsRSAAuthentication in /etc/ssh/sshd_config" negate="true" test_ref="oval:ssg-test_sshd_disable_rhosts_rsa:tst:1"/>
+          <ns0:extend_definition comment="sshd is required or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
+          <ns0:criteria comment="SSH version is equal or higher than 7.4 has deprecated RhostsRSAAuthentication" operator="OR">
+            <ns0:extend_definition comment="OpenSSH version 7.4 or higher has deprecated RhostsRSAAuthentication" definition_ref="oval:ssg-sshd_version_equal_or_higher_than_74:def:1"/>
+            <ns0:criterion comment="Check RhostsRSAAuthentication in /etc/ssh/sshd_config" negate="true" test_ref="oval:ssg-test_sshd_disable_rhosts_rsa:tst:1"/>
+          </ns0:criteria>
         </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
@@ -8013,10 +8038,14 @@
       met)</ns0:description>
         <reference ref_id="sshd_disable_root_login" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+      <ns0:criteria comment="SSH is configured correctly or is not installed" operator="OR">
+        <ns0:criteria comment="sshd is not installed" operator="AND">
+          <ns0:extend_definition comment="sshd is not required or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+        </ns0:criteria>
         <ns0:criteria comment="sshd is installed and configured" operator="AND">
-          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="sshd is required or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
           <ns0:criterion comment="Check PermitRootLogin in /etc/ssh/sshd_config" negate="true" test_ref="oval:ssg-test_sshd_permitrootlogin_no:tst:1"/>
         </ns0:criteria>
       </ns0:criteria>
@@ -8031,10 +8060,14 @@ to connect to systems if a cache of the remote systems public keys are available
 This should be disabled.</ns0:description>
         <reference ref_id="sshd_disable_user_known_hosts" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+      <ns0:criteria comment="SSH is configured correctly or is not installed" operator="OR">
+        <ns0:criteria comment="sshd is not installed" operator="AND">
+          <ns0:extend_definition comment="sshd is not required or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+        </ns0:criteria>
         <ns0:criteria comment="sshd is installed and configured" operator="AND">
-          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="sshd is required or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
           <ns0:criterion comment="Check IgnoreUserKnownHosts in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_disable_user_known_hosts:tst:1"/>
         </ns0:criteria>
       </ns0:criteria>
@@ -8049,10 +8082,14 @@ This should be disabled.</ns0:description>
         <ns0:description>PermitUserEnvironment should be disabled</ns0:description>
         <reference ref_id="sshd_do_not_permit_user_env" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+      <ns0:criteria comment="SSH is configured correctly or is not installed" operator="OR">
+        <ns0:criteria comment="sshd is not installed" operator="AND">
+          <ns0:extend_definition comment="sshd is not required or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+        </ns0:criteria>
         <ns0:criteria comment="sshd is installed and configured" operator="AND">
-          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="sshd is required or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
           <ns0:criterion comment="Check PermitUserEnvironment in /etc/ssh/sshd_config" negate="true" test_ref="oval:ssg-test_sshd_no_user_envset:tst:1"/>
         </ns0:criteria>
       </ns0:criteria>
@@ -8068,10 +8105,14 @@ This should be disabled.</ns0:description>
       met)</ns0:description>
         <reference ref_id="sshd_enable_warning_banner" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+      <ns0:criteria comment="SSH is configured correctly or is not installed" operator="OR">
+        <ns0:criteria comment="sshd is not installed" operator="AND">
+          <ns0:extend_definition comment="sshd is not required or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+        </ns0:criteria>
         <ns0:criteria comment="sshd is installed and configured" operator="AND">
-          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="sshd is required or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
           <ns0:criterion comment="Check Banner in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_banner_set:tst:1"/>
         </ns0:criteria>
       </ns0:criteria>
@@ -8084,10 +8125,14 @@ This should be disabled.</ns0:description>
         <ns0:description>Enable X11Forwarding to encrypt X11 remote connections over SSH.</ns0:description>
         <reference ref_id="sshd_enable_x11_forwarding" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+      <ns0:criteria comment="SSH is configured correctly or is not installed" operator="OR">
+        <ns0:criteria comment="sshd is not installed" operator="AND">
+          <ns0:extend_definition comment="sshd is not required or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+        </ns0:criteria>
         <ns0:criteria comment="sshd is installed and configured" operator="AND">
-          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="sshd is required or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
           <ns0:criterion comment="Check X11Forwarding in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_enable_x11_forwarding:tst:1"/>
         </ns0:criteria>
       </ns0:criteria>
@@ -8101,10 +8146,7 @@ This should be disabled.</ns0:description>
         <reference ref_id="sshd_not_required_or_unset" source="ssg"/>
       </ns0:metadata>
       <ns0:criteria comment="SSH not required or not set" operator="OR">
-        <ns0:criteria comment="SSH is not required and not installed" operator="AND">
-          <ns0:criterion test_ref="oval:ssg-test_sshd_not_required:tst:1"/>
-          <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
-        </ns0:criteria>
+        <ns0:criterion test_ref="oval:ssg-test_sshd_not_required:tst:1"/>
         <ns0:extend_definition comment="SSH requirement is unset" definition_ref="oval:ssg-sshd_requirement_unset:def:1"/>
       </ns0:criteria>
     </ns0:definition>
@@ -8119,10 +8161,14 @@ This should be disabled.</ns0:description>
 and date.</ns0:description>
         <reference ref_id="sshd_print_last_log" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+      <ns0:criteria comment="SSH is configured correctly or is not installed" operator="OR">
+        <ns0:criteria comment="sshd is not installed" operator="AND">
+          <ns0:extend_definition comment="sshd is not required or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+        </ns0:criteria>
         <ns0:criteria comment="sshd is installed and configured" operator="AND">
-          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="sshd is required or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
           <ns0:criterion comment="Check PrintLastLog in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_enable_printlastlog:tst:1"/>
         </ns0:criteria>
       </ns0:criteria>
@@ -8136,10 +8182,7 @@ and date.</ns0:description>
         <reference ref_id="sshd_required_or_unset" source="ssg"/>
       </ns0:metadata>
       <ns0:criteria comment="SSH required or not set" operator="OR">
-        <ns0:criteria comment="SSH is required and installed" operator="AND">
-          <ns0:criterion test_ref="oval:ssg-test_sshd_required:tst:1"/>
-          <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
-        </ns0:criteria>
+        <ns0:criterion test_ref="oval:ssg-test_sshd_required:tst:1"/>
         <ns0:extend_definition comment="SSH requirement is unset" definition_ref="oval:ssg-sshd_requirement_unset:def:1"/>
       </ns0:criteria>
     </ns0:definition>
@@ -8164,10 +8207,14 @@ and date.</ns0:description>
       appropriate value.</ns0:description>
         <reference ref_id="sshd_set_idle_timeout" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+      <ns0:criteria comment="SSH is configured correctly or is not installed" operator="OR">
+        <ns0:criteria comment="sshd is not installed" operator="AND">
+          <ns0:extend_definition comment="sshd is not required or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+        </ns0:criteria>
         <ns0:criteria comment="sshd is installed and configured" operator="AND">
-          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="sshd is required or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
           <ns0:criterion comment="Check ClientAliveInterval in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_idle_timeout:tst:1"/>
         </ns0:criteria>
       </ns0:criteria>
@@ -8181,10 +8228,14 @@ and date.</ns0:description>
       value (and dependencies are met)</ns0:description>
         <reference ref_id="sshd_set_keepalive" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
-        <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+      <ns0:criteria comment="SSH is configured correctly or is not installed" operator="OR">
+        <ns0:criteria comment="sshd is not installed" operator="AND">
+          <ns0:extend_definition comment="sshd is not required or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+        </ns0:criteria>
         <ns0:criteria comment="sshd is installed and configured" operator="AND">
-          <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="sshd is required or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+          <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
           <ns0:criterion comment="Check ClientAliveCountMax in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_clientalivecountmax:tst:1"/>
         </ns0:criteria>
       </ns0:criteria>
@@ -8228,10 +8279,14 @@ and date.</ns0:description>
       </ns0:metadata>
       <ns0:criteria operator="AND">
         <ns0:extend_definition comment="Installed OS is certified" definition_ref="oval:ssg-installed_OS_is_certified:def:1"/>
-        <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
-          <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+        <ns0:criteria comment="SSH is configured correctly or is not installed" operator="OR">
+          <ns0:criteria comment="sshd is not installed" operator="AND">
+            <ns0:extend_definition comment="sshd is not required or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+            <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+          </ns0:criteria>
           <ns0:criteria comment="sshd is installed and configured" operator="AND">
-            <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+            <ns0:extend_definition comment="sshd is required or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+            <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
             <ns0:criterion comment="Check the Cipers list in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_use_approved_ciphers:tst:1"/>
           </ns0:criteria>
         </ns0:criteria>
@@ -8249,10 +8304,14 @@ and date.</ns0:description>
       </ns0:metadata>
       <ns0:criteria operator="AND">
         <ns0:extend_definition comment="Installed OS is certified" definition_ref="oval:ssg-installed_OS_is_certified:def:1"/>
-        <ns0:criteria comment="SSH is not installed or conditions are met" operator="OR">
-          <ns0:extend_definition comment="sshd is not required and not installed, or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+        <ns0:criteria comment="SSH is configured correctly or is not installed" operator="OR">
+          <ns0:criteria comment="sshd is not installed" operator="AND">
+            <ns0:extend_definition comment="sshd is not required or requirement is unset" definition_ref="oval:ssg-sshd_not_required_or_unset:def:1"/>
+            <ns0:extend_definition comment="rpm package openssh-server removed" definition_ref="oval:ssg-package_openssh-server_removed:def:1"/>
+          </ns0:criteria>
           <ns0:criteria comment="sshd is installed and configured" operator="AND">
-            <ns0:extend_definition comment="sshd is required and installed, or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+            <ns0:extend_definition comment="sshd is required or requirement is unset" definition_ref="oval:ssg-sshd_required_or_unset:def:1"/>
+            <ns0:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1"/>
             <ns0:criterion comment="Check MACs in /etc/ssh/sshd_config" test_ref="oval:ssg-test_sshd_use_approved_macs:tst:1"/>
           </ns0:criteria>
         </ns0:criteria>
@@ -22592,7 +22651,7 @@ and date.</ns0:description>
       <ns0:filter action="include">oval:ssg-state_owner_libraries_not_root:ste:1</ns0:filter>
     </ns2:file_object>
     <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="library files" id="oval:ssg-object_file_ownership_lib_files:obj:1" version="1">
-      <ns2:path operation="pattern match">^\/lib(|64)|^\/usr\/lib(|64)</ns2:path>
+      <ns2:path operation="pattern match">^\/lib(|64)\/|^\/usr\/lib(|64)\/</ns2:path>
       <ns2:filename operation="pattern match">^.*$</ns2:filename>
       <ns0:filter action="include">oval:ssg-state_owner_libraries_not_root:ste:1</ns0:filter>
     </ns2:file_object>
@@ -27467,10 +27526,10 @@ and date.</ns0:description>
     <ns0:external_variable comment="audit action_mail_acct setting" datatype="string" id="oval:ssg-var_auditd_action_mail_acct:var:1" version="1"/>
     <ns0:external_variable comment="audit admin_space_left_action setting" datatype="string" id="oval:ssg-var_auditd_admin_space_left_action:var:1" version="1"/>
     <ns0:external_variable comment="audit flush setting" datatype="string" id="oval:ssg-var_auditd_flush:var:1" version="1"/>
-    <ns0:external_variable comment="audit max_log_file settting" datatype="int" id="oval:ssg-var_auditd_max_log_file:var:1" version="1"/>
+    <ns0:external_variable comment="audit max_log_file setting" datatype="int" id="oval:ssg-var_auditd_max_log_file:var:1" version="1"/>
     <ns0:external_variable comment="audit max_log_file_action setting" datatype="string" id="oval:ssg-var_auditd_max_log_file_action:var:1" version="1"/>
-    <ns0:external_variable comment="audit num_logs settting" datatype="int" id="oval:ssg-var_auditd_num_logs:var:1" version="1"/>
-    <ns0:external_variable comment="audit space_left settting" datatype="int" id="oval:ssg-var_auditd_space_left:var:1" version="1"/>
+    <ns0:external_variable comment="audit num_logs setting" datatype="int" id="oval:ssg-var_auditd_num_logs:var:1" version="1"/>
+    <ns0:external_variable comment="audit space_left setting" datatype="int" id="oval:ssg-var_auditd_space_left:var:1" version="1"/>
     <ns0:external_variable comment="audit space_left_action setting" datatype="string" id="oval:ssg-var_auditd_space_left_action:var:1" version="2"/>
     <ns0:local_variable comment="all GIDs on the target system" datatype="int" id="oval:ssg-variable_file_permissions_ungroupowned:var:1" version="1">
       <ns0:object_component item_field="subexpression" object_ref="oval:ssg-etc_group_object:obj:1"/>
@@ -27710,7 +27769,6 @@ and date.</ns0:description>
         <ns0:variable_component var_ref="oval:ssg-var_third_digit_of_umask_from_etc_init_d_functions:var:1"/>
       </ns0:arithmetic>
     </ns0:local_variable>
-    <ns0:external_variable comment="Required umask converted from string to octal number" datatype="int" id="oval:ssg-var_umask_for_daemons_umask_as_number:var:1" version="1"/>
     <ns0:external_variable comment="Value of var_accounts_user_umask (the required umask) as string" datatype="string" id="oval:ssg-var_accounts_user_umask:var:1" version="1"/>
     <ns0:local_variable comment="First octal digit of umask from var_accounts_user_umask" datatype="int" id="oval:ssg-var_first_digit_of_umask_from_var_accounts_user_umask:var:1" version="1">
       <ns0:substring substring_length="1" substring_start="1">
@@ -27755,6 +27813,19 @@ and date.</ns0:description>
       <ns0:substring substring_length="1" substring_start="3">
         <ns0:variable_component var_ref="oval:ssg-var_umask_for_daemons:var:1"/>
       </ns0:substring>
+    </ns0:local_variable>
+    <ns0:local_variable comment="var_umask_for_daemons umask converted from string to a number" datatype="int" id="oval:ssg-var_umask_for_daemons_umask_as_number:var:1" version="1">
+      <ns0:arithmetic arithmetic_operation="add">
+        <ns0:arithmetic arithmetic_operation="multiply">
+          <ns0:literal_component datatype="int">64</ns0:literal_component>
+          <ns0:variable_component var_ref="oval:ssg-var_first_digit_of_umask_from_var_umask_for_daemons:var:1"/>
+        </ns0:arithmetic>
+        <ns0:arithmetic arithmetic_operation="multiply">
+          <ns0:literal_component datatype="int">8</ns0:literal_component>
+          <ns0:variable_component var_ref="oval:ssg-var_second_digit_of_umask_from_var_umask_for_daemons:var:1"/>
+        </ns0:arithmetic>
+        <ns0:variable_component var_ref="oval:ssg-var_third_digit_of_umask_from_var_umask_for_daemons:var:1"/>
+      </ns0:arithmetic>
     </ns0:local_variable>
     <ns0:external_variable comment="external variable for SELinux" datatype="boolean" id="oval:ssg-var_SELinux:var:1" version="1"/>
     <ns0:external_variable comment="external variable for abrt_anon_write" datatype="boolean" id="oval:ssg-var_abrt_anon_write:var:1" version="1"/>
