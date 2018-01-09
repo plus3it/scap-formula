@@ -2,9 +2,9 @@
 <ns0:oval_definitions xmlns:ns0="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:ns1="http://www.w3.org/2001/XMLSchema-instance" ns1:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <ns0:generator>
     <ns2:product_name xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">combine-ovals.py from SCAP Security Guide</ns2:product_name>
-    <ns2:product_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">ssg: 0.1.36, python: 2.6.6</ns2:product_version>
+    <ns2:product_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">ssg: 0.1.37, python: 2.6.6</ns2:product_version>
     <ns2:schema_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">5.11</ns2:schema_version>
-    <ns2:timestamp xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">2017-11-01T20:44:28</ns2:timestamp>
+    <ns2:timestamp xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">2018-01-04T17:46:50</ns2:timestamp>
   </ns0:generator>
   <ns0:definitions>
     <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_centos6:def:1" version="2">
