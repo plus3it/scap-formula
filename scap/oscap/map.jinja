@@ -12,6 +12,7 @@
     'cpe': salt.pillar.get('scap:lookup:oscap:cpe') | default('openscap/ssg-rhel' ~ osrel ~ '-cpe-dictionary.xml', true),
     'xccdf': salt.pillar.get('scap:lookup:oscap:xccdf') | default('openscap/ssg-' ~ os ~ osrel ~ '-xccdf.xml', true),
     'profile': salt.pillar.get('scap:lookup:oscap:profile') | default('common', true),
+    'scap1_2': salt.pillar.get('scap:lookup:oscap:scap1_2') | default(false, true)
 } %}
 
 {#- Update oscap dictionary with static values #}
