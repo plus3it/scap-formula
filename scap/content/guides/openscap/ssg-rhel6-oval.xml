@@ -2,9 +2,9 @@
 <ns0:oval_definitions xmlns:ns0="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:ns1="http://www.w3.org/2001/XMLSchema-instance" ns1:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <ns0:generator>
     <ns2:product_name xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">combine-ovals.py from SCAP Security Guide</ns2:product_name>
-    <ns2:product_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">ssg: 0.1.37, python: 2.6.6</ns2:product_version>
+    <ns2:product_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">ssg: 0.1.38, python: 2.6.6</ns2:product_version>
     <ns2:schema_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">5.11</ns2:schema_version>
-    <ns2:timestamp xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">2018-01-04T17:46:50</ns2:timestamp>
+    <ns2:timestamp xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">2018-03-05T13:43:25</ns2:timestamp>
   </ns0:generator>
   <ns0:definitions>
     <ns0:definition class="compliance" id="oval:ssg-accounts_password_pam_dcredit:def:1" version="1">
@@ -7364,6 +7364,20 @@
         <ns0:criterion comment="Check all files and make sure they are owned by a user" test_ref="oval:ssg-no_files_unowned_by_user_test:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-no_host_based_files:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>No shosts.equiv file deployed on the system</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>There should not be any shosts.equiv files on the system.</ns0:description>
+        <reference ref_id="no_host_based_files" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion test_ref="oval:ssg-test_no_shosts_equiv:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-no_insecure_locks_exports:def:1" version="1">
       <ns0:metadata>
         <ns0:title>Ensure insecure_locks is disabled</ns0:title>
@@ -7426,6 +7440,20 @@
           <ns0:criterion comment="Test shell defined for reserved system UIDs" test_ref="oval:ssg-test_shell_defined_reserved_uid_range:tst:1"/>
           <ns0:criterion comment="Test shell defined for dynamically allocated system UIDs" test_ref="oval:ssg-test_shell_defined_dynalloc_uid_range:tst:1"/>
         </ns0:criteria>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-no_user_host_based_files:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>No .shosts file deployed on the system</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>There should not be any .shosts files on the system.</ns0:description>
+        <reference ref_id="no_user_host_based_files" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion test_ref="oval:ssg-test_no_shosts:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-package_dracut-fips_installed:def:1" version="1">
@@ -17196,6 +17224,9 @@ and date.</ns0:description>
     <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="none_exist" comment="Check user ids on all files on the system" id="oval:ssg-no_files_unowned_by_user_test:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-file_permissions_unowned_object:obj:1"/>
     </ns2:file_test>
+    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="none_exist" comment="look for shosts.equiv in /" id="oval:ssg-test_no_shosts_equiv:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_no_shosts_equiv_files_root:obj:1"/>
+    </ns2:file_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="Tests the value of the insecure locks in /etc/exports" id="oval:ssg-test_no_insecure_locks_exports:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_no_insecure_locks_exports:obj:1"/>
     </ns2:textfilecontent54_test>
@@ -17229,6 +17260,9 @@ and date.</ns0:description>
       <ns2:object object_ref="oval:ssg-object_shell_defined_dynalloc_uid_range:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_shell_defined_dynalloc_uid_range:ste:1"/>
     </ns2:variable_test>
+    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="none_exist" comment="look for .shosts in /" id="oval:ssg-test_no_shosts:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_no_shosts_files_root:obj:1"/>
+    </ns2:file_test>
     <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="package dracut-fips is installed" id="oval:ssg-test_package_dracut-fips_installed:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_package_dracut-fips_installed:obj:1"/>
     </ns2:rpminfo_test>
@@ -22414,18 +22448,18 @@ and date.</ns0:description>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="notify personnel when aide completes" id="oval:ssg-object_test_aide_scan_notification:obj:1" version="1">
       <ns2:filepath>/etc/crontab</ns2:filepath>
-      <ns2:pattern operation="pattern match">^.*/usr/sbin/aide[\s]*\-\-check.*\|.*/bin/mail[\s]*-s[\s]*".*"[\s]*root@.*$</ns2:pattern>
+      <ns2:pattern operation="pattern match">^.*/usr/sbin/aide[\s]*\-\-check.*\|.*/bin/mail[\s]*-s[\s]*".*"[\s]*.+@.+$</ns2:pattern>
       <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="notify personnel when aide completes" id="oval:ssg-object_aide_var_cron_notification:obj:1" version="1">
       <ns2:filepath>/var/spool/cron/root</ns2:filepath>
-      <ns2:pattern operation="pattern match">^.*/usr/sbin/aide[\s]*\-\-check.*\|.*/bin/mail[\s]*-s[\s]*".*"[\s]*root@.*$</ns2:pattern>
+      <ns2:pattern operation="pattern match">^.*/usr/sbin/aide[\s]*\-\-check.*\|.*/bin/mail[\s]*-s[\s]*".*"[\s]*.+@.+$</ns2:pattern>
       <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="notify personnel when aide completes in cron.(d|daily|weekly|monthly)" id="oval:ssg-object_aide_crontabs_notification:obj:1" version="1">
       <ns2:path operation="pattern match">/etc/cron.(d|daily|weekly|monthly)</ns2:path>
       <ns2:filename operation="pattern match">^.*$</ns2:filename>
-      <ns2:pattern operation="pattern match">^.*/usr/sbin/aide[\s]*\-\-check.*\|.*/bin/mail[\s]*-s[\s]*".*"[\s]*root@.*$</ns2:pattern>
+      <ns2:pattern operation="pattern match">^.*/usr/sbin/aide[\s]*\-\-check.*\|.*/bin/mail[\s]*-s[\s]*".*"[\s]*.+@.+$</ns2:pattern>
       <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_aide_non_fips_hashes:obj:1" version="1">
@@ -23081,6 +23115,11 @@ and date.</ns0:description>
       <ns2:filename operation="pattern match">.*</ns2:filename>
       <ns0:filter action="exclude">oval:ssg-file_permissions_unowned_userid_list_match:ste:1</ns0:filter>
     </ns2:file_object>
+    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="look for any shosts.equiv file on the system" id="oval:ssg-object_no_shosts_equiv_files_root:obj:1" version="1">
+      <ns2:behaviors max_depth="-1" recurse="directories" recurse_direction="down" recurse_file_system="local"/>
+      <ns2:path operation="equals">/</ns2:path>
+      <ns2:filename operation="pattern match">shosts\.equiv$</ns2:filename>
+    </ns2:file_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_no_insecure_locks_exports:obj:1" version="2">
       <ns2:filepath>/etc/exports</ns2:filepath>
       <ns2:pattern operation="pattern match">^(.*?(\binsecure_locks\b)[^$]*)$</ns2:pattern>
@@ -23136,6 +23175,11 @@ and date.</ns0:description>
     <ns2:variable_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_shell_defined_dynalloc_uid_range:obj:1" version="1">
       <ns2:var_ref>oval:ssg-variable_dynalloc_range_quad_expr:var:1</ns2:var_ref>
     </ns2:variable_object>
+    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="look for any .shosts file on the system" id="oval:ssg-object_no_shosts_files_root:obj:1" version="1">
+      <ns2:behaviors max_depth="-1" recurse="directories" recurse_direction="down" recurse_file_system="local"/>
+      <ns2:path operation="equals">/</ns2:path>
+      <ns2:filename operation="pattern match">\.shosts</ns2:filename>
+    </ns2:file_object>
     <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_package_dracut-fips_installed:obj:1" version="1">
       <ns2:name>dracut-fips</ns2:name>
     </ns2:rpminfo_object>
@@ -27678,15 +27722,15 @@ and date.</ns0:description>
         <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfg_rsyslog_include_config_value:obj:1"/>
       </ns0:glob_to_regex>
     </ns0:local_variable>
-    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfg_all_log_files_as_string:var:1" version="1">
+    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfg_all_log_files_as_string_regex:var:1" version="1">
       <ns0:concat>
         <ns0:variable_component var_ref="oval:ssg-var_rfg_include_config_regex:var:1"/>
-        <ns0:literal_component datatype="string">%/etc/rsyslog.conf</ns0:literal_component>
+        <ns0:literal_component datatype="string">%^/etc/rsyslog.conf$</ns0:literal_component>
       </ns0:concat>
     </ns0:local_variable>
     <ns0:local_variable comment="Locations of all rsyslog configuration files as collection" datatype="string" id="oval:ssg-var_rfg_all_log_files_as_collection:var:1" version="1">
       <ns0:split delimiter="%">
-        <ns0:variable_component var_ref="oval:ssg-var_rfg_all_log_files_as_string:var:1"/>
+        <ns0:variable_component var_ref="oval:ssg-var_rfg_all_log_files_as_string_regex:var:1"/>
       </ns0:split>
     </ns0:local_variable>
     <ns0:local_variable comment="File paths of all rsyslog configuration files" datatype="string" id="oval:ssg-var_rfg_log_files_paths:var:1" version="1">
@@ -27697,15 +27741,15 @@ and date.</ns0:description>
         <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfo_rsyslog_include_config_value:obj:1"/>
       </ns0:glob_to_regex>
     </ns0:local_variable>
-    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfo_all_log_files_as_string:var:1" version="1">
+    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfo_all_log_files_as_string_regex:var:1" version="1">
       <ns0:concat>
         <ns0:variable_component var_ref="oval:ssg-var_rfo_include_config_regex:var:1"/>
-        <ns0:literal_component datatype="string">%/etc/rsyslog.conf</ns0:literal_component>
+        <ns0:literal_component datatype="string">%^/etc/rsyslog.conf$</ns0:literal_component>
       </ns0:concat>
     </ns0:local_variable>
     <ns0:local_variable comment="Locations of all rsyslog configuration files as collection" datatype="string" id="oval:ssg-var_rfo_all_log_files_as_collection:var:1" version="1">
       <ns0:split delimiter="%">
-        <ns0:variable_component var_ref="oval:ssg-var_rfo_all_log_files_as_string:var:1"/>
+        <ns0:variable_component var_ref="oval:ssg-var_rfo_all_log_files_as_string_regex:var:1"/>
       </ns0:split>
     </ns0:local_variable>
     <ns0:local_variable comment="File paths of all rsyslog configuration files" datatype="string" id="oval:ssg-var_rfo_log_files_paths:var:1" version="1">
@@ -27716,15 +27760,15 @@ and date.</ns0:description>
         <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfp_rsyslog_include_config_value:obj:1"/>
       </ns0:glob_to_regex>
     </ns0:local_variable>
-    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfp_all_log_files_as_string:var:1" version="1">
+    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfp_all_log_files_as_string_regex:var:1" version="1">
       <ns0:concat>
         <ns0:variable_component var_ref="oval:ssg-var_rfp_include_config_regex:var:1"/>
-        <ns0:literal_component datatype="string">%/etc/rsyslog.conf</ns0:literal_component>
+        <ns0:literal_component datatype="string">%^/etc/rsyslog.conf$</ns0:literal_component>
       </ns0:concat>
     </ns0:local_variable>
     <ns0:local_variable comment="Locations of all rsyslog configuration files as collection" datatype="string" id="oval:ssg-var_rfp_all_log_files_as_collection:var:1" version="1">
       <ns0:split delimiter="%">
-        <ns0:variable_component var_ref="oval:ssg-var_rfp_all_log_files_as_string:var:1"/>
+        <ns0:variable_component var_ref="oval:ssg-var_rfp_all_log_files_as_string_regex:var:1"/>
       </ns0:split>
     </ns0:local_variable>
     <ns0:local_variable comment="File paths of all rsyslog configuration files" datatype="string" id="oval:ssg-var_rfp_log_files_paths:var:1" version="1">

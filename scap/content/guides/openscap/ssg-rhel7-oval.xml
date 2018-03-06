@@ -2,9 +2,9 @@
 <ns0:oval_definitions xmlns:ns0="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:ns1="http://www.w3.org/2001/XMLSchema-instance" ns1:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <ns0:generator>
     <ns2:product_name xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">combine-ovals.py from SCAP Security Guide</ns2:product_name>
-    <ns2:product_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">ssg: 0.1.37, python: 2.6.6</ns2:product_version>
+    <ns2:product_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">ssg: 0.1.38, python: 2.6.6</ns2:product_version>
     <ns2:schema_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">5.11</ns2:schema_version>
-    <ns2:timestamp xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">2018-01-04T17:46:51</ns2:timestamp>
+    <ns2:timestamp xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">2018-03-05T13:43:25</ns2:timestamp>
   </ns0:generator>
   <ns0:definitions>
     <ns0:definition class="compliance" id="oval:ssg-accounts_logon_fail_delay:def:1" version="1">
@@ -5691,7 +5691,7 @@ root privileges when not needed.</ns0:description>
       <ns0:criteria operator="OR">
         <ns0:criterion comment="Pass if /boot/grub2/grub.cfg does not exist" test_ref="oval:ssg-test_bootloader_grub_cfg:tst:1"/>
         <ns0:criteria operator="AND">
-          <ns0:criterion comment="make sure a password is defined in /boot/grub2/grub.cfg" test_ref="oval:ssg-test_bootloader_password:tst:1"/>
+          <ns0:criterion comment="make sure a password is defined in /boot/grub2/user.cfg" test_ref="oval:ssg-test_bootloader_password:tst:1"/>
           <ns0:criterion comment="make sure a superuser is defined in /boot/grub2/grub.cfg" test_ref="oval:ssg-test_bootloader_superuser:tst:1"/>
         </ns0:criteria>
       </ns0:criteria>
@@ -5710,7 +5710,7 @@ root privileges when not needed.</ns0:description>
       <ns0:criteria operator="OR">
         <ns0:criterion comment="Pass if /boot/efi/EFI/redhat/grub.cfg does not exist" test_ref="oval:ssg-test_bootloader_uefi_grub_cfg:tst:1"/>
         <ns0:criteria operator="AND">
-          <ns0:criterion comment="make sure a password is defined in /boot/efi/EFI/redhat/grub.cfg" test_ref="oval:ssg-test_bootloader_uefi_password:tst:1"/>
+          <ns0:criterion comment="make sure a password is defined in /boot/efi/EFI/redhat/user.cfg" test_ref="oval:ssg-test_bootloader_uefi_password:tst:1"/>
           <ns0:criterion comment="make sure a superuser is defined in /boot/efi/EFI/redhat/grub.cfg" test_ref="oval:ssg-test_bootloader_uefi_superuser:tst:1"/>
         </ns0:criteria>
       </ns0:criteria>
@@ -8111,6 +8111,20 @@ root privileges when not needed.</ns0:description>
         <ns0:criterion comment="Check all files and make sure they are owned by a user" test_ref="oval:ssg-no_files_unowned_by_user_test:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-no_host_based_files:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>No shosts.equiv file deployed on the system</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>There should not be any shosts.equiv files on the system.</ns0:description>
+        <reference ref_id="no_host_based_files" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion test_ref="oval:ssg-test_no_shosts_equiv:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-no_insecure_locks_exports:def:1" version="1">
       <ns0:metadata>
         <ns0:title>Ensure insecure_locks is disabled</ns0:title>
@@ -8173,6 +8187,20 @@ root privileges when not needed.</ns0:description>
           <ns0:criterion comment="Test shell defined for reserved system UIDs" test_ref="oval:ssg-test_shell_defined_reserved_uid_range:tst:1"/>
           <ns0:criterion comment="Test shell defined for dynamically allocated system UIDs" test_ref="oval:ssg-test_shell_defined_dynalloc_uid_range:tst:1"/>
         </ns0:criteria>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-no_user_host_based_files:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>No .shosts file deployed on the system</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>There should not be any .shosts files on the system.</ns0:description>
+        <reference ref_id="no_user_host_based_files" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion test_ref="oval:ssg-test_no_shosts:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-ntpd_specify_multiple_servers:def:1" version="2">
@@ -18291,7 +18319,7 @@ and date.</ns0:description>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="superuser is defined in /boot/grub2/grub.cfg files. Superuser is not root, admin, or administrator" id="oval:ssg-test_bootloader_superuser:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_bootloader_superuser:obj:1"/>
     </ns2:textfilecontent54_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="make sure a password is defined in /boot/grub2/grub.cfg" id="oval:ssg-test_bootloader_password:tst:1" version="1">
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="make sure a password is defined in /boot/grub2/user.cfg" id="oval:ssg-test_bootloader_password:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_bootloader_password:obj:1"/>
     </ns2:textfilecontent54_test>
     <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="none_exist" comment="/boot/efi/EFI/redhat/grub.cfg does not exist" id="oval:ssg-test_bootloader_uefi_grub_cfg:tst:1" version="1">
@@ -18300,7 +18328,7 @@ and date.</ns0:description>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="superuser is defined in /boot/efi/EFI/redhat/grub.cfg. Superuser is not root, admin, or administrator" id="oval:ssg-test_bootloader_uefi_superuser:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_bootloader_uefi_superuser:obj:1"/>
     </ns2:textfilecontent54_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="make sure a password is defined in /boot/efi/EFI/redhat/grub.cfg" id="oval:ssg-test_bootloader_uefi_password:tst:1" version="1">
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="make sure a password is defined in /boot/efi/EFI/redhat/user.cfg" id="oval:ssg-test_bootloader_uefi_password:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_bootloader_uefi_password:obj:1"/>
     </ns2:textfilecontent54_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="check if maxpoll is set in /etc/ntp.conf" id="oval:ssg-test_ntp_set_maxpoll:tst:1" version="1">
@@ -19090,6 +19118,9 @@ and date.</ns0:description>
     <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="none_exist" comment="Check user ids on all files on the system" id="oval:ssg-no_files_unowned_by_user_test:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-file_permissions_unowned_object:obj:1"/>
     </ns2:file_test>
+    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="none_exist" comment="look for shosts.equiv in /" id="oval:ssg-test_no_shosts_equiv:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_no_shosts_equiv_files_root:obj:1"/>
+    </ns2:file_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="Tests the value of the insecure locks in /etc/exports" id="oval:ssg-test_no_insecure_locks_exports:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_no_insecure_locks_exports:obj:1"/>
     </ns2:textfilecontent54_test>
@@ -19123,6 +19154,9 @@ and date.</ns0:description>
       <ns2:object object_ref="oval:ssg-object_shell_defined_dynalloc_uid_range:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_shell_defined_dynalloc_uid_range:ste:1"/>
     </ns2:variable_test>
+    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="none_exist" comment="look for .shosts in /" id="oval:ssg-test_no_shosts:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_no_shosts_files_root:obj:1"/>
+    </ns2:file_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="Ensure more than one ntpd NTP server is set" id="oval:ssg-test_ntpd_multiple_servers:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_ntpd_multiple_servers:obj:1"/>
     </ns2:textfilecontent54_test>
@@ -23704,18 +23738,18 @@ and date.</ns0:description>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="notify personnel when aide completes" id="oval:ssg-object_test_aide_scan_notification:obj:1" version="1">
       <ns2:filepath>/etc/crontab</ns2:filepath>
-      <ns2:pattern operation="pattern match">^.*/usr/sbin/aide[\s]*\-\-check.*\|.*/bin/mail[\s]*-s[\s]*".*"[\s]*root@.*$</ns2:pattern>
+      <ns2:pattern operation="pattern match">^.*/usr/sbin/aide[\s]*\-\-check.*\|.*/bin/mail[\s]*-s[\s]*".*"[\s]*.+@.+$</ns2:pattern>
       <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="notify personnel when aide completes" id="oval:ssg-object_aide_var_cron_notification:obj:1" version="1">
       <ns2:filepath>/var/spool/cron/root</ns2:filepath>
-      <ns2:pattern operation="pattern match">^.*/usr/sbin/aide[\s]*\-\-check.*\|.*/bin/mail[\s]*-s[\s]*".*"[\s]*root@.*$</ns2:pattern>
+      <ns2:pattern operation="pattern match">^.*/usr/sbin/aide[\s]*\-\-check.*\|.*/bin/mail[\s]*-s[\s]*".*"[\s]*.+@.+$</ns2:pattern>
       <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="notify personnel when aide completes in cron.(d|daily|weekly|monthly)" id="oval:ssg-object_aide_crontabs_notification:obj:1" version="1">
       <ns2:path operation="pattern match">/etc/cron.(d|daily|weekly|monthly)</ns2:path>
       <ns2:filename operation="pattern match">^.*$</ns2:filename>
-      <ns2:pattern operation="pattern match">^.*/usr/sbin/aide[\s]*\-\-check.*\|.*/bin/mail[\s]*-s[\s]*".*"[\s]*root@.*$</ns2:pattern>
+      <ns2:pattern operation="pattern match">^.*/usr/sbin/aide[\s]*\-\-check.*\|.*/bin/mail[\s]*-s[\s]*".*"[\s]*.+@.+$</ns2:pattern>
       <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_aide_non_fips_hashes:obj:1" version="1">
@@ -23749,7 +23783,7 @@ and date.</ns0:description>
       <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_ari_locked_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-e\s+2\s*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -23759,12 +23793,12 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_32bit_ardm_delete_module_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+delete_module[\s]+|([\s]+|[,])delete_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_64bit_ardm_delete_module_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+delete_module[\s]+|([\s]+|[,])delete_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -23779,12 +23813,12 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_32bit_ardm_init_module_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+init_module[\s]+|([\s]+|[,])init_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_64bit_ardm_init_module_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+init_module[\s]+|([\s]+|[,])init_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -23799,7 +23833,7 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_audit_rule_kernel_module_loading_insmod_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w[\s]+/usr/sbin/insmod[\s]+\-p[\s]+\b([raw]*x[raw]*)\b[\s]+(-k[\s]+|-F[\s]+key=)[-\w]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -23809,7 +23843,7 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_audit_rule_kernel_module_loading_modprobe_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w[\s]+/usr/sbin/modprobe[\s]+\-p[\s]+\b([raw]*x[raw]*)\b[\s]+(-k[\s]+|-F[\s]+key=)[-\w]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -23819,7 +23853,7 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_audit_rule_kernel_module_loading_rmmod_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w[\s]+/usr/sbin/rmmod[\s]+\-p[\s]+\b([raw]*x[raw]*)\b[\s]+(-k[\s]+|-F[\s]+key=)[-\w]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -23829,7 +23863,7 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_armm_selinux_watch_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w[\s]+/etc/selinux/[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b[\s]+(-k[\s]+|-F[\s]+key=)[-\w]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -23839,12 +23873,12 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_audit_rules_media_export_mount_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-a\s+always,exit\s+(\-F\s+arch=b32\s+)(?:.*(-S[\s]+mount[\s]+|([\s]+|[,])mount([\s]+|[,])))(?:.*-F\s+auid&gt;=1000\s+\-F\s+auid!=4294967295\s+)(-k[\s]+|-F[\s]+key=)[-\w]+\s*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_64bit_ardm_media_export_mount_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-a\s+always,exit\s+(\-F\s+arch=b64\s+)(?:.*(-S[\s]+mount[\s]+|([\s]+|[,])mount([\s]+|[,])))(?:.*-F\s+auid&gt;=1000\s+\-F\s+auid!=4294967295\s+)(-k[\s]+|-F[\s]+key=)[-\w]+\s*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -23859,22 +23893,22 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_arnm_etc_issue_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w[\s]+/etc/issue[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b[\s]+(-k[\s]+|-F[\s]+key=)[-\w]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_arnm_etc_issue_net_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w[\s]+/etc/issue\.net[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b[\s]+(-k[\s]+|-F[\s]+key=)[-\w]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_arnm_etc_hosts_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w[\s]+/etc/hosts[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b[\s]+(-k[\s]+|-F[\s]+key=)[-\w]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_arnm_etc_sysconfig_network_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w[\s]+/etc/sysconfig/network[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b[\s]+(-k[\s]+|-F[\s]+key=)[-\w]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -23899,12 +23933,12 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_32bit_ardm_setdomainname_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+setdomainname[\s]+|([\s]+|[,])setdomainname([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_64bit_ardm_setdomainname_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+setdomainname[\s]+|([\s]+|[,])setdomainname([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -23919,12 +23953,12 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_32bit_ardm_sethostname_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+sethostname[\s]+|([\s]+|[,])sethostname([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_64bit_ardm_sethostname_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+sethostname[\s]+|([\s]+|[,])sethostname([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -23949,7 +23983,7 @@ and date.</ns0:description>
       <ns2:var_ref>oval:ssg-variable_count_of_suid_sgid_binaries_on_system:var:1</ns2:var_ref>
     </ns2:variable_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_arpc_suid_sgid_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a always,exit (?:-F path=([\S]+) )+-F perm=[r|w]?x -F auid&gt;=1000 -F auid!=4294967295 -k privileged[\s]*$</ns2:pattern>
       <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
       <ns0:filter action="exclude">oval:ssg-state_proper_audit_rule_but_for_unprivileged_command:ste:1</ns0:filter>
@@ -23961,17 +23995,17 @@ and date.</ns0:description>
       <ns0:filter action="exclude">oval:ssg-state_proper_audit_rule_but_for_unprivileged_command:ste:1</ns0:filter>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_arse_utmp_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w\s+/var/run/utmp\s+\-p\s+wa\s+(-k[\s]+|-F[\s]+key=)[-\w]+\s*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_arse_btmp_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w\s+/var/log/btmp\s+\-p\s+wa\s+(-k[\s]+|-F[\s]+key=)[-\w]+\s*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_arse_wtmp_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w\s+/var/log/wtmp\s+\-p\s+wa\s+(-k[\s]+|-F[\s]+key=)[-\w]+\s*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -23991,7 +24025,7 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_audit_rules_sysadmin_actions_sudoers_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w[\s]+/etc/sudoers[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b[\s]+(-k[\s]+|-F[\s]+key=)[-\w]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -24001,7 +24035,7 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_ars_shutdown_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-f\s+2\s*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -24011,12 +24045,12 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_32bit_art_adjtimex_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+-F[\s]+arch=b32.*(-S[\s]+adjtimex[\s]+|([\s]+|[,])adjtimex([\s]+|[,])).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_64bit_art_adjtimex_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+-F[\s]+arch=b64.*(-S[\s]+adjtimex[\s]+|([\s]+|[,])adjtimex([\s]+|[,])).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -24031,12 +24065,12 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_32bit_art_clock_settime_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+-F[\s]+arch=b32[\s]+(-S[\s]+clock_settime[\s]+|([\s]+|[,])clock_settime([\s]+|[,]))-F[\s]+a0=(?:0x)?0[\s]+(?:-F[\s]+key=|-k[\s]+)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_64bit_art_clock_settime_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+-F[\s]+arch=b64[\s]+(-S[\s]+clock_settime[\s]+|([\s]+|[,])clock_settime([\s]+|[,]))-F[\s]+a0=(?:0x)?0[\s]+(?:-F[\s]+key=|-k[\s]+)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -24051,12 +24085,12 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_32bit_art_settimeofday_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+-F[\s]+arch=b32.*(-S[\s]+settimeofday[\s]+|([\s]+|[,])settimeofday([\s]+|[,])).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_64bit_art_settimeofday_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+-F[\s]+arch=b64.*(-S[\s]+settimeofday[\s]+|([\s]+|[,])settimeofday([\s]+|[,])).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -24071,7 +24105,7 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_32bit_art_stime_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+-F[\s]+arch=b32.*(-S[\s]+stime[\s]+|([\s]+|[,])stime([\s]+|[,])).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -24081,7 +24115,7 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_artw_etc_localtime_augenrules:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*-w[\s]+\/etc\/localtime[\s]+-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b.*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -24091,27 +24125,27 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_audit_rules_usergroup_modification_etc_group_augen:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w[\s]+/etc/group[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b[\s+]+(-k[\s]+|-F[\s]+key=)\w+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_audit_rules_usergroup_modification_etc_passwd_augen:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w[\s]+/etc/passwd[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b[\s]+(-k[\s]+|-F[\s]+key=)\w+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_audit_rules_usergroup_modification_etc_gshadow_augen:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w[\s]+/etc/gshadow[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b[\s]+(-k[\s]+|-F[\s]+key=)\w+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_audit_rules_usergroup_modification_etc_shadow_augen:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w[\s]+/etc/shadow[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b[\s]+(-k[\s]+|-F[\s]+key=)\w+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_audit_rules_usergroup_modification_etc_security_opasswd_augen:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules</ns2:filepath>
       <ns2:pattern operation="pattern match">^\-w[\s]+/etc/security/opasswd[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b[\s]+(-k[\s]+|-F[\s]+key=)\w+[\s]*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -24234,20 +24268,20 @@ and date.</ns0:description>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_bootloader_password:obj:1" version="1">
-      <ns2:filepath>/boot/grub2/grub.cfg</ns2:filepath>
+      <ns2:filepath>/boot/grub2/user.cfg</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*password_pbkdf2[\s]+.*[\s]+grub\.pbkdf2\.sha512.*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:ssg-object_bootloader_uefi_grub_cfg:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/boot/efi/EFI/(redhat|fedora)/grub.cfg</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/boot/efi/EFI/(redhat|fedora)/grub.cfg</ns2:filepath>
     </ns2:file_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_bootloader_uefi_superuser:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/boot/efi/EFI/(redhat|fedora)/grub.cfg</ns2:filepath>
+      <ns2:filepath operation="pattern match">^/boot/efi/EFI/(redhat|fedora)/grub.cfg</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*set[\s]+superusers=\"(?i)(?!root|admin|administrator)(?-i).*\"$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_bootloader_uefi_password:obj:1" version="1">
-      <ns2:filepath operation="pattern match">/boot/efi/EFI/(redhat|fedora)/grub.cfg</ns2:filepath>
+      <ns2:filepath operation="pattern match">/boot/efi/EFI/(redhat|fedora)/user.cfg</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*password_pbkdf2[\s]+.*[\s]+grub\.pbkdf2\.sha512.*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
@@ -25369,6 +25403,11 @@ and date.</ns0:description>
       <ns2:filename operation="pattern match">.*</ns2:filename>
       <ns0:filter action="exclude">oval:ssg-file_permissions_unowned_userid_list_match:ste:1</ns0:filter>
     </ns2:file_object>
+    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="look for any shosts.equiv file on the system" id="oval:ssg-object_no_shosts_equiv_files_root:obj:1" version="1">
+      <ns2:behaviors max_depth="-1" recurse="directories" recurse_direction="down" recurse_file_system="local"/>
+      <ns2:path operation="equals">/</ns2:path>
+      <ns2:filename operation="pattern match">shosts\.equiv$</ns2:filename>
+    </ns2:file_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_no_insecure_locks_exports:obj:1" version="2">
       <ns2:filepath>/etc/exports</ns2:filepath>
       <ns2:pattern operation="pattern match">^(.*?(\binsecure_locks\b)[^$]*)$</ns2:pattern>
@@ -25424,6 +25463,11 @@ and date.</ns0:description>
     <ns2:variable_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_shell_defined_dynalloc_uid_range:obj:1" version="1">
       <ns2:var_ref>oval:ssg-variable_dynalloc_range_quad_expr:var:1</ns2:var_ref>
     </ns2:variable_object>
+    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="look for any .shosts file on the system" id="oval:ssg-object_no_shosts_files_root:obj:1" version="1">
+      <ns2:behaviors max_depth="-1" recurse="directories" recurse_direction="down" recurse_file_system="local"/>
+      <ns2:path operation="equals">/</ns2:path>
+      <ns2:filename operation="pattern match">\.shosts</ns2:filename>
+    </ns2:file_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Ensure more than one ntpd NTP server is set" id="oval:ssg-obj_ntpd_multiple_servers:obj:1" version="1">
       <ns2:filepath>/etc/ntp.conf</ns2:filepath>
       <ns2:pattern operation="pattern match">^([\s]*server[\s]+.+$){2,}$</ns2:pattern>
@@ -26286,12 +26330,12 @@ and date.</ns0:description>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_arle_faillock_augenrules:obj:1" version="1">
       <ns2:filepath operation="pattern match">/etc/audit/rules\.d/.*\.rules</ns2:filepath>
-      <ns2:pattern operation="pattern match">^\-w\s+\/var\/run\/faillock\s+\-p\s+wa\s+(-k[\s]+|-F[\s]+key=)[-\w]+\s*$</ns2:pattern>
+      <ns2:pattern operation="pattern match">^\-w\s+\/var\/run\/faillock\/\s+\-p\s+wa\s+(-k[\s]+|-F[\s]+key=)[-\w]+\s*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_arle_faillock_auditctl:obj:1" version="1">
       <ns2:filepath>/etc/audit/audit.rules</ns2:filepath>
-      <ns2:pattern operation="pattern match">^\-w\s+\/var\/run\/faillock\s+\-p\s+wa\s+(-k[\s]+|-F[\s]+key=)[-\w]+\s*$</ns2:pattern>
+      <ns2:pattern operation="pattern match">^\-w\s+\/var\/run\/faillock\/\s+\-p\s+wa\s+(-k[\s]+|-F[\s]+key=)[-\w]+\s*$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_arle_lastlog_augenrules:obj:1" version="1">
@@ -31361,15 +31405,15 @@ and date.</ns0:description>
         <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfg_rsyslog_include_config_value:obj:1"/>
       </ns0:glob_to_regex>
     </ns0:local_variable>
-    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfg_all_log_files_as_string:var:1" version="1">
+    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfg_all_log_files_as_string_regex:var:1" version="1">
       <ns0:concat>
         <ns0:variable_component var_ref="oval:ssg-var_rfg_include_config_regex:var:1"/>
-        <ns0:literal_component datatype="string">%/etc/rsyslog.conf</ns0:literal_component>
+        <ns0:literal_component datatype="string">%^/etc/rsyslog.conf$</ns0:literal_component>
       </ns0:concat>
     </ns0:local_variable>
     <ns0:local_variable comment="Locations of all rsyslog configuration files as collection" datatype="string" id="oval:ssg-var_rfg_all_log_files_as_collection:var:1" version="1">
       <ns0:split delimiter="%">
-        <ns0:variable_component var_ref="oval:ssg-var_rfg_all_log_files_as_string:var:1"/>
+        <ns0:variable_component var_ref="oval:ssg-var_rfg_all_log_files_as_string_regex:var:1"/>
       </ns0:split>
     </ns0:local_variable>
     <ns0:local_variable comment="File paths of all rsyslog configuration files" datatype="string" id="oval:ssg-var_rfg_log_files_paths:var:1" version="1">
@@ -31380,15 +31424,15 @@ and date.</ns0:description>
         <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfo_rsyslog_include_config_value:obj:1"/>
       </ns0:glob_to_regex>
     </ns0:local_variable>
-    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfo_all_log_files_as_string:var:1" version="1">
+    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfo_all_log_files_as_string_regex:var:1" version="1">
       <ns0:concat>
         <ns0:variable_component var_ref="oval:ssg-var_rfo_include_config_regex:var:1"/>
-        <ns0:literal_component datatype="string">%/etc/rsyslog.conf</ns0:literal_component>
+        <ns0:literal_component datatype="string">%^/etc/rsyslog.conf$</ns0:literal_component>
       </ns0:concat>
     </ns0:local_variable>
     <ns0:local_variable comment="Locations of all rsyslog configuration files as collection" datatype="string" id="oval:ssg-var_rfo_all_log_files_as_collection:var:1" version="1">
       <ns0:split delimiter="%">
-        <ns0:variable_component var_ref="oval:ssg-var_rfo_all_log_files_as_string:var:1"/>
+        <ns0:variable_component var_ref="oval:ssg-var_rfo_all_log_files_as_string_regex:var:1"/>
       </ns0:split>
     </ns0:local_variable>
     <ns0:local_variable comment="File paths of all rsyslog configuration files" datatype="string" id="oval:ssg-var_rfo_log_files_paths:var:1" version="1">
@@ -31399,15 +31443,15 @@ and date.</ns0:description>
         <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfp_rsyslog_include_config_value:obj:1"/>
       </ns0:glob_to_regex>
     </ns0:local_variable>
-    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfp_all_log_files_as_string:var:1" version="1">
+    <ns0:local_variable comment="Locations of all rsyslog configuration files concatenated into string" datatype="string" id="oval:ssg-var_rfp_all_log_files_as_string_regex:var:1" version="1">
       <ns0:concat>
         <ns0:variable_component var_ref="oval:ssg-var_rfp_include_config_regex:var:1"/>
-        <ns0:literal_component datatype="string">%/etc/rsyslog.conf</ns0:literal_component>
+        <ns0:literal_component datatype="string">%^/etc/rsyslog.conf$</ns0:literal_component>
       </ns0:concat>
     </ns0:local_variable>
     <ns0:local_variable comment="Locations of all rsyslog configuration files as collection" datatype="string" id="oval:ssg-var_rfp_all_log_files_as_collection:var:1" version="1">
       <ns0:split delimiter="%">
-        <ns0:variable_component var_ref="oval:ssg-var_rfp_all_log_files_as_string:var:1"/>
+        <ns0:variable_component var_ref="oval:ssg-var_rfp_all_log_files_as_string_regex:var:1"/>
       </ns0:split>
     </ns0:local_variable>
     <ns0:local_variable comment="File paths of all rsyslog configuration files" datatype="string" id="oval:ssg-var_rfp_log_files_paths:var:1" version="1">
