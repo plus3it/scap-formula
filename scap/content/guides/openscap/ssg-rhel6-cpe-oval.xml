@@ -2,9 +2,9 @@
 <ns0:oval_definitions xmlns:ns0="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:ns1="http://www.w3.org/2001/XMLSchema-instance" ns1:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <ns0:generator>
     <ns2:product_name xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">combine-ovals.py from SCAP Security Guide</ns2:product_name>
-    <ns2:product_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">ssg: 0.1.38, python: 2.6.6</ns2:product_version>
+    <ns2:product_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">ssg: 0.1.39, python: 2.6.6</ns2:product_version>
     <ns2:schema_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">5.11</ns2:schema_version>
-    <ns2:timestamp xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">2018-03-05T13:43:25</ns2:timestamp>
+    <ns2:timestamp xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">2018-05-04T15:34:26</ns2:timestamp>
   </ns0:generator>
   <ns0:definitions>
     <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_centos6:def:1" version="2">
@@ -66,15 +66,48 @@
         <ns0:criterion comment="CPE vendor is 'fedoraproject' and product is 'fedora'" test_ref="oval:ssg-test_fedora_vendor_product:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
-    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_opensuse:def:1" version="1">
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_ol6_family:def:1" version="1">
       <ns0:metadata>
-        <ns0:title>OpenSUSE</ns0:title>
+        <ns0:title>Oracle Linux 6</ns0:title>
         <ns0:affected family="unix">
         </ns0:affected>
-        <ns0:reference ref_id="cpe:/o:novell:leap:42.0" source="CPE"/>
-        <ns0:reference ref_id="cpe:/o:novell:leap:42.1" source="CPE"/>
+        <ns0:reference ref_id="cpe:/o:oracle:linux:6" source="CPE"/>
         <ns0:description>The operating system installed on the system is
-      OpenSUSE.</ns0:description>
+      Oracle Linux 6</ns0:description>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
+        <ns0:criteria operator="OR">
+          <ns0:criterion comment="Oracle Linux 6 System is installed" test_ref="oval:ssg-test_ol6_system:tst:1"/>
+        </ns0:criteria>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_ol7_family:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Oracle Linux 7</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:reference ref_id="cpe:/o:oracle:linux:7" source="CPE"/>
+        <ns0:description>The operating system installed on the system is
+      Oracle Linux 7</ns0:description>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
+        <ns0:criteria operator="OR">
+          <ns0:criterion comment="Oracle Linux 7 System is installed" test_ref="oval:ssg-test_ol7_system:tst:1"/>
+        </ns0:criteria>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_opensuse:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>openSUSE</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:reference ref_id="cpe:/o:opensuse:leap:42.1" source="CPE"/>
+        <ns0:reference ref_id="cpe:/o:opensuse:leap:42.2" source="CPE"/>
+        <ns0:reference ref_id="cpe:/o:opensuse:leap:42.3" source="CPE"/>
+        <ns0:description>The operating system installed on the system is
+      openSUSE.</ns0:description>
       </ns0:metadata>
       <ns0:criteria>
         <ns0:criterion comment="Installed operating system is part of the unix family" test_ref="oval:ssg-test_opensuse_unix_family:tst:1"/>
@@ -294,6 +327,14 @@
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="CPE vendor is 'fedoraproject' and 'product' is fedora" id="oval:ssg-test_fedora_vendor_product:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_fedora_vendor_product:obj:1"/>
     </ns2:textfilecontent54_test>
+    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="oraclelinux-release is version 6" id="oval:ssg-test_ol6_system:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_ol6_system:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_ol6_system:ste:1"/>
+    </ns2:rpminfo_test>
+    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="oraclelinux-release is version 7" id="oval:ssg-test_ol7_system:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_ol7_system:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_ol7_system:ste:1"/>
+    </ns2:rpminfo_test>
     <ns2:family_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_opensuse_unix_family:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_opensuse_unix_family:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_opensuse_unix_family:ste:1"/>
@@ -427,6 +468,12 @@
       <ns2:pattern operation="pattern match">^cpe:\/o:fedoraproject:fedora:[\d]+$</ns2:pattern>
       <ns2:instance datatype="int" operation="equals">1</ns2:instance>
     </ns2:textfilecontent54_object>
+    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_ol6_system:obj:1" version="1">
+      <ns2:name>oraclelinux-release</ns2:name>
+    </ns2:rpminfo_object>
+    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_ol7_system:obj:1" version="1">
+      <ns2:name>oraclelinux-release</ns2:name>
+    </ns2:rpminfo_object>
     <ns2:family_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_opensuse_unix_family:obj:1" version="1"/>
     <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_opensuse_installed:obj:1" version="1">
       <ns2:name>openSUSE-release</ns2:name>
@@ -519,6 +566,12 @@
       <ns2:version operation="pattern match">^6.*$</ns2:version>
     </ns2:rpminfo_state>
     <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_centos7:ste:1" version="1">
+      <ns2:version operation="pattern match">^7.*$</ns2:version>
+    </ns2:rpminfo_state>
+    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_ol6_system:ste:1" version="1">
+      <ns2:version operation="pattern match">^6Server$</ns2:version>
+    </ns2:rpminfo_state>
+    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_ol7_system:ste:1" version="1">
       <ns2:version operation="pattern match">^7.*$</ns2:version>
     </ns2:rpminfo_state>
     <ns2:family_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_opensuse_unix_family:ste:1" version="1">
