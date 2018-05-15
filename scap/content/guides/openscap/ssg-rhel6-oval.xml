@@ -2,9 +2,9 @@
 <ns0:oval_definitions xmlns:ns0="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:ns1="http://www.w3.org/2001/XMLSchema-instance" ns1:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <ns0:generator>
     <ns2:product_name xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">combine-ovals.py from SCAP Security Guide</ns2:product_name>
-    <ns2:product_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">ssg: 0.1.38, python: 2.6.6</ns2:product_version>
+    <ns2:product_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">ssg: 0.1.39, python: 2.6.6</ns2:product_version>
     <ns2:schema_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">5.11</ns2:schema_version>
-    <ns2:timestamp xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">2018-03-05T13:43:25</ns2:timestamp>
+    <ns2:timestamp xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">2018-05-04T15:34:26</ns2:timestamp>
   </ns0:generator>
   <ns0:definitions>
     <ns0:definition class="compliance" id="oval:ssg-accounts_password_pam_dcredit:def:1" version="1">
@@ -2058,11 +2058,22 @@
         <ns0:criterion comment="nosuid on /tmp" test_ref="oval:ssg-test_tmp_partition_nosuid:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-mount_option_var_tmp_bind:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Add bind Option to /var/tmp</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>/var/tmp should be mounted with mount option bind.</ns0:description>
+        <reference ref_id="mount_option_var_tmp_bind" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="bind on /var/tmp" test_ref="oval:ssg-test_var_tmp_partition_bind:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-package_GConf2_installed:def:1" version="1">
       <ns0:metadata>
         <ns0:title>Package GConf2 Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package GConf2 should be installed.</ns0:description>
         <reference ref_id="package_GConf2_installed" source="ssg"/>
@@ -2075,7 +2086,6 @@
       <ns0:metadata>
         <ns0:title>Package abrt Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package abrt should be removed.</ns0:description>
         <reference ref_id="package_abrt_removed" source="ssg"/>
@@ -2088,7 +2098,6 @@
       <ns0:metadata>
         <ns0:title>Package aide Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package aide should be installed.</ns0:description>
         <reference ref_id="package_aide_installed" source="ssg"/>
@@ -2101,7 +2110,6 @@
       <ns0:metadata>
         <ns0:title>Package at Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package at should be removed.</ns0:description>
         <reference ref_id="package_at_removed" source="ssg"/>
@@ -2114,7 +2122,6 @@
       <ns0:metadata>
         <ns0:title>Package audit Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package audit should be installed.</ns0:description>
         <reference ref_id="package_audit_installed" source="ssg"/>
@@ -2127,7 +2134,6 @@
       <ns0:metadata>
         <ns0:title>Package autofs Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package autofs should be removed.</ns0:description>
         <reference ref_id="package_autofs_removed" source="ssg"/>
@@ -2140,7 +2146,6 @@
       <ns0:metadata>
         <ns0:title>Package avahi Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package avahi should be installed.</ns0:description>
         <reference ref_id="package_avahi_installed" source="ssg"/>
@@ -2153,7 +2158,6 @@
       <ns0:metadata>
         <ns0:title>Package bind Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package bind should be removed.</ns0:description>
         <reference ref_id="package_bind_removed" source="ssg"/>
@@ -2166,7 +2170,6 @@
       <ns0:metadata>
         <ns0:title>Package bluez Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package bluez should be removed.</ns0:description>
         <reference ref_id="package_bluez_removed" source="ssg"/>
@@ -2179,7 +2182,6 @@
       <ns0:metadata>
         <ns0:title>Package cpuspeed Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package cpuspeed should be removed.</ns0:description>
         <reference ref_id="package_cpuspeed_removed" source="ssg"/>
@@ -2192,7 +2194,6 @@
       <ns0:metadata>
         <ns0:title>Package cronie Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package cronie should be installed.</ns0:description>
         <reference ref_id="package_cronie_installed" source="ssg"/>
@@ -2205,7 +2206,6 @@
       <ns0:metadata>
         <ns0:title>Package cups Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package cups should be removed.</ns0:description>
         <reference ref_id="package_cups_removed" source="ssg"/>
@@ -2218,7 +2218,6 @@
       <ns0:metadata>
         <ns0:title>Package cyrus-sasl Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package cyrus-sasl should be removed.</ns0:description>
         <reference ref_id="package_cyrus-sasl_removed" source="ssg"/>
@@ -2231,7 +2230,6 @@
       <ns0:metadata>
         <ns0:title>Package dbus Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package dbus should be removed.</ns0:description>
         <reference ref_id="package_dbus_removed" source="ssg"/>
@@ -2244,7 +2242,6 @@
       <ns0:metadata>
         <ns0:title>Package dhcp Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package dhcp should be removed.</ns0:description>
         <reference ref_id="package_dhcp_removed" source="ssg"/>
@@ -2257,7 +2254,6 @@
       <ns0:metadata>
         <ns0:title>Package dovecot Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package dovecot should be removed.</ns0:description>
         <reference ref_id="package_dovecot_removed" source="ssg"/>
@@ -2270,7 +2266,6 @@
       <ns0:metadata>
         <ns0:title>Package esc Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package esc should be installed.</ns0:description>
         <reference ref_id="package_esc_installed" source="ssg"/>
@@ -2283,7 +2278,6 @@
       <ns0:metadata>
         <ns0:title>Package gdm Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package gdm should be installed.</ns0:description>
         <reference ref_id="package_gdm_installed" source="ssg"/>
@@ -2296,7 +2290,6 @@
       <ns0:metadata>
         <ns0:title>Package hal Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package hal should be removed.</ns0:description>
         <reference ref_id="package_hal_removed" source="ssg"/>
@@ -2309,7 +2302,6 @@
       <ns0:metadata>
         <ns0:title>Package httpd Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package httpd should be removed.</ns0:description>
         <reference ref_id="package_httpd_removed" source="ssg"/>
@@ -2322,7 +2314,6 @@
       <ns0:metadata>
         <ns0:title>Package iptables-ipv6 Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package iptables-ipv6 should be installed.</ns0:description>
         <reference ref_id="package_iptables-ipv6_installed" source="ssg"/>
@@ -2335,7 +2326,6 @@
       <ns0:metadata>
         <ns0:title>Package iptables Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package iptables should be installed.</ns0:description>
         <reference ref_id="package_iptables_installed" source="ssg"/>
@@ -2348,7 +2338,6 @@
       <ns0:metadata>
         <ns0:title>Package iputils Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package iputils should be removed.</ns0:description>
         <reference ref_id="package_iputils_removed" source="ssg"/>
@@ -2361,7 +2350,6 @@
       <ns0:metadata>
         <ns0:title>Package irqbalance Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package irqbalance should be installed.</ns0:description>
         <reference ref_id="package_irqbalance_installed" source="ssg"/>
@@ -2374,7 +2362,6 @@
       <ns0:metadata>
         <ns0:title>Package kexec-tools Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package kexec-tools should be removed.</ns0:description>
         <reference ref_id="package_kexec-tools_removed" source="ssg"/>
@@ -2387,7 +2374,6 @@
       <ns0:metadata>
         <ns0:title>Package libcgroup Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package libcgroup should be removed.</ns0:description>
         <reference ref_id="package_libcgroup_removed" source="ssg"/>
@@ -2400,7 +2386,6 @@
       <ns0:metadata>
         <ns0:title>Package mcstrans Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package mcstrans should be removed.</ns0:description>
         <reference ref_id="package_mcstrans_removed" source="ssg"/>
@@ -2413,7 +2398,6 @@
       <ns0:metadata>
         <ns0:title>Package mdadm Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package mdadm should be removed.</ns0:description>
         <reference ref_id="package_mdadm_removed" source="ssg"/>
@@ -2426,7 +2410,6 @@
       <ns0:metadata>
         <ns0:title>Package net-snmp Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package net-snmp should be removed.</ns0:description>
         <reference ref_id="package_net-snmp_removed" source="ssg"/>
@@ -2439,7 +2422,6 @@
       <ns0:metadata>
         <ns0:title>Package nfs-utils Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package nfs-utils should be removed.</ns0:description>
         <reference ref_id="package_nfs-utils_removed" source="ssg"/>
@@ -2452,7 +2434,6 @@
       <ns0:metadata>
         <ns0:title>Package ntp Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package ntp should be installed.</ns0:description>
         <reference ref_id="package_ntp_installed" source="ssg"/>
@@ -2465,7 +2446,6 @@
       <ns0:metadata>
         <ns0:title>Package ntpdate Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package ntpdate should be removed.</ns0:description>
         <reference ref_id="package_ntpdate_removed" source="ssg"/>
@@ -2478,7 +2458,6 @@
       <ns0:metadata>
         <ns0:title>Package oddjob Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package oddjob should be removed.</ns0:description>
         <reference ref_id="package_oddjob_removed" source="ssg"/>
@@ -2491,7 +2470,6 @@
       <ns0:metadata>
         <ns0:title>Package openldap-servers Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package openldap-servers should be removed.</ns0:description>
         <reference ref_id="package_openldap-servers_removed" source="ssg"/>
@@ -2504,7 +2482,6 @@
       <ns0:metadata>
         <ns0:title>Package openssh-server Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package openssh-server should be installed.</ns0:description>
         <reference ref_id="package_openssh-server_installed" source="ssg"/>
@@ -2517,7 +2494,6 @@
       <ns0:metadata>
         <ns0:title>Package openssh-server Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package openssh-server should be removed.</ns0:description>
         <reference ref_id="package_openssh-server_removed" source="ssg"/>
@@ -2530,7 +2506,6 @@
       <ns0:metadata>
         <ns0:title>Package pam_ldap Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package pam_ldap should be removed.</ns0:description>
         <reference ref_id="package_pam_ldap_removed" source="ssg"/>
@@ -2543,7 +2518,6 @@
       <ns0:metadata>
         <ns0:title>Package pam_pkcs11 Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package pam_pkcs11 should be installed.</ns0:description>
         <reference ref_id="package_pam_pkcs11_installed" source="ssg"/>
@@ -2556,7 +2530,6 @@
       <ns0:metadata>
         <ns0:title>Package pcsc-lite Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package pcsc-lite should be installed.</ns0:description>
         <reference ref_id="package_pcsc-lite_installed" source="ssg"/>
@@ -2569,7 +2542,6 @@
       <ns0:metadata>
         <ns0:title>Package policycoreutils Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package policycoreutils should be installed.</ns0:description>
         <reference ref_id="package_policycoreutils_installed" source="ssg"/>
@@ -2582,7 +2554,6 @@
       <ns0:metadata>
         <ns0:title>Package portreserve Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package portreserve should be removed.</ns0:description>
         <reference ref_id="package_portreserve_removed" source="ssg"/>
@@ -2595,7 +2566,6 @@
       <ns0:metadata>
         <ns0:title>Package postfix Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package postfix should be installed.</ns0:description>
         <reference ref_id="package_postfix_installed" source="ssg"/>
@@ -2608,7 +2578,6 @@
       <ns0:metadata>
         <ns0:title>Package psacct Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package psacct should be installed.</ns0:description>
         <reference ref_id="package_psacct_installed" source="ssg"/>
@@ -2621,7 +2590,6 @@
       <ns0:metadata>
         <ns0:title>Package qpid-cpp-server Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package qpid-cpp-server should be removed.</ns0:description>
         <reference ref_id="package_qpid-cpp-server_removed" source="ssg"/>
@@ -2634,7 +2602,6 @@
       <ns0:metadata>
         <ns0:title>Package quota Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package quota should be removed.</ns0:description>
         <reference ref_id="package_quota_removed" source="ssg"/>
@@ -2647,7 +2614,6 @@
       <ns0:metadata>
         <ns0:title>Package rhnsd Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package rhnsd should be removed.</ns0:description>
         <reference ref_id="package_rhnsd_removed" source="ssg"/>
@@ -2660,7 +2626,6 @@
       <ns0:metadata>
         <ns0:title>Package rpcbind Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package rpcbind should be removed.</ns0:description>
         <reference ref_id="package_rpcbind_removed" source="ssg"/>
@@ -2673,7 +2638,6 @@
       <ns0:metadata>
         <ns0:title>Package rsh-server Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package rsh-server should be removed.</ns0:description>
         <reference ref_id="package_rsh-server_removed" source="ssg"/>
@@ -2686,7 +2650,6 @@
       <ns0:metadata>
         <ns0:title>Package rsh Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package rsh should be removed.</ns0:description>
         <reference ref_id="package_rsh_removed" source="ssg"/>
@@ -2699,7 +2662,6 @@
       <ns0:metadata>
         <ns0:title>Package rsyslog Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package rsyslog should be installed.</ns0:description>
         <reference ref_id="package_rsyslog_installed" source="ssg"/>
@@ -2712,7 +2674,6 @@
       <ns0:metadata>
         <ns0:title>Package samba-common Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package samba-common should be removed.</ns0:description>
         <reference ref_id="package_samba-common_removed" source="ssg"/>
@@ -2725,7 +2686,6 @@
       <ns0:metadata>
         <ns0:title>Package samba Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package samba should be removed.</ns0:description>
         <reference ref_id="package_samba_removed" source="ssg"/>
@@ -2738,7 +2698,6 @@
       <ns0:metadata>
         <ns0:title>Package screen Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package screen should be installed.</ns0:description>
         <reference ref_id="package_screen_installed" source="ssg"/>
@@ -2751,7 +2710,6 @@
       <ns0:metadata>
         <ns0:title>Package sendmail Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package sendmail should be removed.</ns0:description>
         <reference ref_id="package_sendmail_removed" source="ssg"/>
@@ -2764,7 +2722,6 @@
       <ns0:metadata>
         <ns0:title>Package setroubleshoot Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package setroubleshoot should be removed.</ns0:description>
         <reference ref_id="package_setroubleshoot_removed" source="ssg"/>
@@ -2777,7 +2734,6 @@
       <ns0:metadata>
         <ns0:title>Package smartmontools Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package smartmontools should be removed.</ns0:description>
         <reference ref_id="package_smartmontools_removed" source="ssg"/>
@@ -2790,7 +2746,6 @@
       <ns0:metadata>
         <ns0:title>Package squid Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package squid should be removed.</ns0:description>
         <reference ref_id="package_squid_removed" source="ssg"/>
@@ -2803,7 +2758,6 @@
       <ns0:metadata>
         <ns0:title>Package sssd Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package sssd should be installed.</ns0:description>
         <reference ref_id="package_sssd_installed" source="ssg"/>
@@ -2816,7 +2770,6 @@
       <ns0:metadata>
         <ns0:title>Package subscription-manager Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package subscription-manager should be removed.</ns0:description>
         <reference ref_id="package_subscription-manager_removed" source="ssg"/>
@@ -2829,7 +2782,6 @@
       <ns0:metadata>
         <ns0:title>Package sysstat Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package sysstat should be removed.</ns0:description>
         <reference ref_id="package_sysstat_removed" source="ssg"/>
@@ -2842,7 +2794,6 @@
       <ns0:metadata>
         <ns0:title>Package talk-server Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package talk-server should be removed.</ns0:description>
         <reference ref_id="package_talk-server_removed" source="ssg"/>
@@ -2855,7 +2806,6 @@
       <ns0:metadata>
         <ns0:title>Package talk Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package talk should be removed.</ns0:description>
         <reference ref_id="package_talk_removed" source="ssg"/>
@@ -2868,7 +2818,6 @@
       <ns0:metadata>
         <ns0:title>Package telnet-server Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package telnet-server should be removed.</ns0:description>
         <reference ref_id="package_telnet-server_removed" source="ssg"/>
@@ -2881,7 +2830,6 @@
       <ns0:metadata>
         <ns0:title>Package telnet Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package telnet should be removed.</ns0:description>
         <reference ref_id="package_telnet_removed" source="ssg"/>
@@ -2894,7 +2842,6 @@
       <ns0:metadata>
         <ns0:title>Package tftp-server Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package tftp-server should be removed.</ns0:description>
         <reference ref_id="package_tftp-server_removed" source="ssg"/>
@@ -2907,7 +2854,6 @@
       <ns0:metadata>
         <ns0:title>Package tftp Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package tftp should be removed.</ns0:description>
         <reference ref_id="package_tftp_removed" source="ssg"/>
@@ -2920,7 +2866,6 @@
       <ns0:metadata>
         <ns0:title>Package vsftpd Installed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package vsftpd should be installed.</ns0:description>
         <reference ref_id="package_vsftpd_installed" source="ssg"/>
@@ -2933,7 +2878,6 @@
       <ns0:metadata>
         <ns0:title>Package vsftpd Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package vsftpd should be removed.</ns0:description>
         <reference ref_id="package_vsftpd_removed" source="ssg"/>
@@ -2946,7 +2890,6 @@
       <ns0:metadata>
         <ns0:title>Package xinetd Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package xinetd should be removed.</ns0:description>
         <reference ref_id="package_xinetd_removed" source="ssg"/>
@@ -2959,7 +2902,6 @@
       <ns0:metadata>
         <ns0:title>Package xorg-x11-server-common Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package xorg-x11-server-common should be removed.</ns0:description>
         <reference ref_id="package_xorg-x11-server-common_removed" source="ssg"/>
@@ -2972,7 +2914,6 @@
       <ns0:metadata>
         <ns0:title>Package ypbind Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package ypbind should be removed.</ns0:description>
         <reference ref_id="package_ypbind_removed" source="ssg"/>
@@ -2985,7 +2926,6 @@
       <ns0:metadata>
         <ns0:title>Package ypserv Removed</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The RPM package ypserv should be removed.</ns0:description>
         <reference ref_id="package_ypserv_removed" source="ssg"/>
@@ -5733,10 +5673,10 @@
       <ns0:criteria operator="AND">
         <ns0:extend_definition comment="Aide is installed" definition_ref="oval:ssg-package_aide_installed:def:1"/>
         <ns0:criteria operator="OR">
-          <ns0:criterion comment="run aide daily with cron" test_ref="oval:ssg-test_aide_periodic_cron_checking:tst:1"/>
-          <ns0:criterion comment="run aide daily with cron" test_ref="oval:ssg-test_aide_crond_checking:tst:1"/>
-          <ns0:criterion comment="run aide daily with cron" test_ref="oval:ssg-test_aide_var_cron_checking:tst:1"/>
-          <ns0:criterion comment="run aide daily with cron.(daily|weekly|monthly)" test_ref="oval:ssg-test_aide_crontabs_checking:tst:1"/>
+          <ns0:criterion comment="run aide with cron" test_ref="oval:ssg-test_aide_periodic_cron_checking:tst:1"/>
+          <ns0:criterion comment="run aide with cron" test_ref="oval:ssg-test_aide_crond_checking:tst:1"/>
+          <ns0:criterion comment="run aide with cron" test_ref="oval:ssg-test_aide_var_cron_checking:tst:1"/>
+          <ns0:criterion comment="run aide with cron.(daily|weekly|monthly)" test_ref="oval:ssg-test_aide_crontabs_checking:tst:1"/>
         </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
@@ -6046,6 +5986,7 @@
       <ns0:metadata>
         <ns0:title>Verify that All World-Writable Directories Have Sticky Bits Set</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Oracle Linux 7</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
@@ -6185,7 +6126,7 @@
       </ns0:description>
         <reference ref_id="ensure_logrotate_activated" source="ssg"/>
       </ns0:metadata>
-      <ns0:criteria comment="/etc/logrotate.conf contains daily setting or /etc/cron.daily/logrotate file exists" operator="OR">
+      <ns0:criteria comment="/etc/logrotate.conf contains daily setting and /etc/cron.daily/logrotate file exists" operator="AND">
         <ns0:criterion comment="Check if daily is set in /etc/logrotate.conf" test_ref="oval:ssg-test_logrotate_conf_daily_setting:tst:1"/>
         <ns0:criterion comment="Check if /etc/cron.daily/logrotate file exists (and calls logrotate)" test_ref="oval:ssg-test_cron_daily_logrotate_existence:tst:1"/>
       </ns0:criteria>
@@ -6490,8 +6431,10 @@
       <ns0:metadata>
         <ns0:title>Find Unauthorized World-Writable Files</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>OpenSUSE 42.1</ns0:platform>
-          <ns0:platform>OpenSUSE 42.0</ns0:platform>
+          <ns0:platform>Oracle Linux 7</ns0:platform>
+          <ns0:platform>openSUSE 42.3</ns0:platform>
+          <ns0:platform>openSUSE 42.2</ns0:platform>
+          <ns0:platform>openSUSE 42.1</ns0:platform>
           <ns0:platform>Wind River Linux 8</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
@@ -6817,15 +6760,50 @@
         <ns0:criterion comment="CPE vendor is 'fedoraproject' and product is 'fedora'" test_ref="oval:ssg-test_fedora_vendor_product:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
-    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_opensuse:def:1" version="1">
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_ol6_family:def:1" version="1">
       <ns0:metadata>
-        <ns0:title>OpenSUSE</ns0:title>
+        <ns0:title>Oracle Linux 6</ns0:title>
         <ns0:affected family="unix">
         </ns0:affected>
-        <ns0:reference ref_id="cpe:/o:novell:leap:42.0" source="CPE"/>
-        <ns0:reference ref_id="cpe:/o:novell:leap:42.1" source="CPE"/>
+        <ns0:reference ref_id="cpe:/o:oracle:linux:6" source="CPE"/>
         <ns0:description>The operating system installed on the system is
-      OpenSUSE.</ns0:description>
+      Oracle Linux 6</ns0:description>
+        <reference ref_id="installed_OS_is_ol6_family" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
+        <ns0:criteria operator="OR">
+          <ns0:criterion comment="Oracle Linux 6 System is installed" test_ref="oval:ssg-test_ol6_system:tst:1"/>
+        </ns0:criteria>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_ol7_family:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Oracle Linux 7</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:reference ref_id="cpe:/o:oracle:linux:7" source="CPE"/>
+        <ns0:description>The operating system installed on the system is
+      Oracle Linux 7</ns0:description>
+        <reference ref_id="installed_OS_is_ol7_family" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
+        <ns0:criteria operator="OR">
+          <ns0:criterion comment="Oracle Linux 7 System is installed" test_ref="oval:ssg-test_ol7_system:tst:1"/>
+        </ns0:criteria>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_opensuse:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>openSUSE</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:reference ref_id="cpe:/o:opensuse:leap:42.1" source="CPE"/>
+        <ns0:reference ref_id="cpe:/o:opensuse:leap:42.2" source="CPE"/>
+        <ns0:reference ref_id="cpe:/o:opensuse:leap:42.3" source="CPE"/>
+        <ns0:description>The operating system installed on the system is
+      openSUSE.</ns0:description>
         <reference ref_id="installed_OS_is_opensuse" source="ssg"/>
       </ns0:metadata>
       <ns0:criteria>
@@ -7072,8 +7050,6 @@
       <ns0:metadata>
         <ns0:title>Add nodev Option to Non-Root Local Partitions</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The nodev mount option prevents files from being interpreted
       as character or block devices. Legitimate character and block devices
@@ -7086,141 +7062,11 @@
         <ns0:criterion comment="nodev on local filesystems" negate="true" test_ref="oval:ssg-test_nodev_nonroot_local_partitions:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
-    <ns0:definition class="compliance" id="oval:ssg-mount_option_nodev_remote_filesystems:def:1" version="1">
-      <ns0:metadata>
-        <ns0:title>Mount Remote Filesystems with nodev</ns0:title>
-        <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
-        </ns0:affected>
-        <ns0:description>The nodev option should be enabled for all NFS mounts in /etc/fstab.</ns0:description>
-        <reference ref_id="mount_option_nodev_remote_filesystems" source="ssg"/>
-      </ns0:metadata>
-      <ns0:criteria operator="XOR">
-        <ns0:criterion comment="remote nfs filesystems" test_ref="oval:ssg-test_no_nfs_defined_etc_fstab_nodev:tst:1"/>
-        <ns0:criterion comment="remote nfs filesystems" test_ref="oval:ssg-test_nfs_nodev_etc_fstab:tst:1"/>
-      </ns0:criteria>
-    </ns0:definition>
-    <ns0:definition class="compliance" id="oval:ssg-mount_option_nodev_removable_partitions:def:1" version="4">
-      <ns0:metadata>
-        <ns0:title>Add nodev Option to Removable Media Partitions</ns0:title>
-        <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
-        </ns0:affected>
-        <ns0:description>The nodev mount option prevents files from being interpreted
-      as character or block devices. Legitimate character and block devices
-      should exist in the /dev directory on the root partition or within chroot
-      jails built for system services. All other locations should not allow
-      character and block devices.</ns0:description>
-        <reference ref_id="mount_option_nodev_removable_partitions" source="ssg"/>
-      </ns0:metadata>
-      <ns0:criteria operator="OR">
-        <ns0:extend_definition comment="Check if removable partition really exists on the system" definition_ref="oval:ssg-removable_partition_doesnt_exist:def:1"/>
-        <ns0:criteria operator="AND">
-          <ns0:extend_definition comment="Check if removable partition value represents CD/DVD drive" definition_ref="oval:ssg-var_removable_partition_is_cd_dvd_drive:def:1"/>
-          <ns0:criteria operator="OR">
-            <ns0:criteria operator="AND">
-              <ns0:criterion comment="Check if at least one from CD/DVD drive alternative names is using 'nodev' mount option in /etc/fstab" test_ref="oval:ssg-test_nodev_etc_fstab_cd_dvd_drive:tst:1"/>
-              <ns0:criterion comment="Check if at least one from CD/DVD drive alternative names is using 'nodev' mount option in runtime configuration" test_ref="oval:ssg-test_nodev_runtime_cd_dvd_drive:tst:1"/>
-            </ns0:criteria>
-            <ns0:extend_definition comment="Check if CD/DVD drive is not configured to automount in /etc/fstab" definition_ref="oval:ssg-no_cd_dvd_drive_in_etc_fstab:def:1"/>
-          </ns0:criteria>
-        </ns0:criteria>
-        <ns0:criteria operator="AND">
-          <ns0:criterion comment="Check if removable partition is using 'nodev' mount option in /etc/fstab" test_ref="oval:ssg-test_nodev_etc_fstab_not_cd_dvd_drive:tst:1"/>
-          <ns0:criterion comment="Check if removable partition is using 'nodev' mount option in runtime configuration" test_ref="oval:ssg-test_nodev_runtime_not_cd_dvd_drive:tst:1"/>
-        </ns0:criteria>
-      </ns0:criteria>
-    </ns0:definition>
-    <ns0:definition class="compliance" id="oval:ssg-mount_option_noexec_removable_partitions:def:1" version="4">
-      <ns0:metadata>
-        <ns0:title>Add noexec Option to Removable Media Partitions</ns0:title>
-        <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
-        </ns0:affected>
-        <ns0:description>The noexec mount option prevents the direct execution of
-      binaries on the mounted filesystem. Users should not be allowed to
-      execute binaries that exist on partitions mounted from removable media
-      (such as a USB key). The noexec option prevents code from being executed
-      directly from the media itself, and may therefore provide a line of
-      defense against certain types of worms or malicious code.</ns0:description>
-        <reference ref_id="mount_option_noexec_removable_partitions" source="ssg"/>
-      </ns0:metadata>
-      <ns0:criteria operator="OR">
-        <ns0:extend_definition comment="Check if removable partition really exists on the system" definition_ref="oval:ssg-removable_partition_doesnt_exist:def:1"/>
-        <ns0:criteria operator="AND">
-          <ns0:extend_definition comment="Check if removable partition value represents CD/DVD drive" definition_ref="oval:ssg-var_removable_partition_is_cd_dvd_drive:def:1"/>
-          <ns0:criteria operator="OR">
-            <ns0:criteria operator="AND">
-              <ns0:criterion comment="Check if at least one from CD/DVD drive alternative names is using 'noexec' mount option in /etc/fstab" test_ref="oval:ssg-test_noexec_etc_fstab_cd_dvd_drive:tst:1"/>
-              <ns0:criterion comment="Check if at least one from CD/DVD drive alternative names is using 'noexec' mount option in runtime configuration" test_ref="oval:ssg-test_noexec_runtime_cd_dvd_drive:tst:1"/>
-            </ns0:criteria>
-            <ns0:extend_definition comment="Check if CD/DVD drive is not configured to automount in /etc/fstab" definition_ref="oval:ssg-no_cd_dvd_drive_in_etc_fstab:def:1"/>
-          </ns0:criteria>
-        </ns0:criteria>
-        <ns0:criteria operator="AND">
-          <ns0:criterion comment="Check if removable partition is using 'noexec' mount option in /etc/fstab" test_ref="oval:ssg-test_noexec_etc_fstab_not_cd_dvd_drive:tst:1"/>
-          <ns0:criterion comment="Check if removable partition is using 'noexec' mount option in runtime configuration" test_ref="oval:ssg-test_noexec_runtime_not_cd_dvd_drive:tst:1"/>
-        </ns0:criteria>
-      </ns0:criteria>
-    </ns0:definition>
-    <ns0:definition class="compliance" id="oval:ssg-mount_option_nosuid_remote_filesystems:def:1" version="1">
-      <ns0:metadata>
-        <ns0:title>Mount Remote Filesystems with nosuid</ns0:title>
-        <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
-        </ns0:affected>
-        <ns0:description>The nosuid option should be enabled for all NFS mounts in /etc/fstab.</ns0:description>
-        <reference ref_id="mount_option_nosuid_remote_filesystems" source="ssg"/>
-      </ns0:metadata>
-      <ns0:criteria operator="XOR">
-        <ns0:criterion comment="remote nfs filesystems" test_ref="oval:ssg-test_no_nfs_defined_etc_fstab_nosuid:tst:1"/>
-        <ns0:criterion comment="remote nfs filesystems" test_ref="oval:ssg-test_nfs_nosuid_etc_fstab:tst:1"/>
-      </ns0:criteria>
-    </ns0:definition>
-    <ns0:definition class="compliance" id="oval:ssg-mount_option_nosuid_removable_partitions:def:1" version="4">
-      <ns0:metadata>
-        <ns0:title>Add nosuid Option to Removable Media Partitions</ns0:title>
-        <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
-        </ns0:affected>
-        <ns0:description>The nosuid mount option prevents set-user-identifier (suid)
-      and set-group-identifier (sgid) permissions from taking effect. These
-      permissions allow users to execute binaries with the same permissions as
-      the owner and group of the file respectively. Users should not be allowed
-      to introduce suid and guid files into the system via partitions mounted
-      from removeable media.</ns0:description>
-        <reference ref_id="mount_option_nosuid_removable_partitions" source="ssg"/>
-      </ns0:metadata>
-      <ns0:criteria operator="OR">
-        <ns0:extend_definition comment="Check if removable partition really exists on the system" definition_ref="oval:ssg-removable_partition_doesnt_exist:def:1"/>
-        <ns0:criteria operator="AND">
-          <ns0:extend_definition comment="Check if removable partition value represents CD/DVD drive" definition_ref="oval:ssg-var_removable_partition_is_cd_dvd_drive:def:1"/>
-          <ns0:criteria operator="OR">
-            <ns0:criteria operator="AND">
-              <ns0:criterion comment="Check if at least one from CD/DVD drive alternative names is using 'nosuid' mount option in /etc/fstab" test_ref="oval:ssg-test_nosuid_etc_fstab_cd_dvd_drive:tst:1"/>
-              <ns0:criterion comment="Check if at least one from CD/DVD drive alternative names is using 'nosuid' mount option in runtime configuration" test_ref="oval:ssg-test_nosuid_runtime_cd_dvd_drive:tst:1"/>
-            </ns0:criteria>
-            <ns0:extend_definition comment="Check if CD/DVD drive is not configured to automount in /etc/fstab" definition_ref="oval:ssg-no_cd_dvd_drive_in_etc_fstab:def:1"/>
-          </ns0:criteria>
-        </ns0:criteria>
-        <ns0:criteria operator="AND">
-          <ns0:criterion comment="Check if removable partition is using 'nosuid' mount option in /etc/fstab" test_ref="oval:ssg-test_nosuid_etc_fstab_not_cd_dvd_drive:tst:1"/>
-          <ns0:criterion comment="Check if removable partition is using 'nosuid' mount option in runtime configuration" test_ref="oval:ssg-test_nosuid_runtime_not_cd_dvd_drive:tst:1"/>
-        </ns0:criteria>
-      </ns0:criteria>
-    </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-mount_option_smb_client_signing:def:1" version="1">
       <ns0:metadata>
         <ns0:title>Require Client SMB Packet Signing, if using
       mount.cifs</ns0:title>
         <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>Require packet signing of clients who mount
       Samba shares using the mount.cifs program (e.g., those who
@@ -7240,28 +7086,6 @@
             <ns0:criterion comment="check for no cifs in /etc/mtab" test_ref="oval:ssg-test_20340113:tst:1"/>
             <ns0:criterion comment="check for sec=krb5i or sec=ntlmv2i in /etc/mtab" test_ref="oval:ssg-test_20340114:tst:1"/>
           </ns0:criteria>
-        </ns0:criteria>
-      </ns0:criteria>
-    </ns0:definition>
-    <ns0:definition class="compliance" id="oval:ssg-mount_option_var_tmp_bind:def:1" version="1">
-      <ns0:metadata>
-        <ns0:title>Bind Mount /var/tmp To /tmp</ns0:title>
-        <ns0:affected family="unix">
-          <ns0:platform>Fedora 23</ns0:platform>
-          <ns0:platform>Fedora 24</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
-        </ns0:affected>
-        <ns0:description>The /var/tmp directory should be bind mounted to /tmp in
-      order to consolidate temporary storage into one location protected by the
-      same techniques as /tmp.</ns0:description>
-        <reference ref_id="mount_option_var_tmp_bind" source="ssg"/>
-      </ns0:metadata>
-      <ns0:criteria operator="AND">
-        <ns0:criterion comment="Ensure /var/tmp is mounted" test_ref="oval:ssg-test_mount_option_var_tmp:tst:1"/>
-        <ns0:criteria operator="OR">
-          <ns0:criterion comment="Ensure /tmp is bind mounted" test_ref="oval:ssg-test_mount_option_var_tmp_bind:tst:1"/>
-          <ns0:criterion comment="Ensure /var/tmp and /tmp have the same source device" test_ref="oval:ssg-test_mount_option_var_tmp_bind_compare_source:tst:1"/>
         </ns0:criteria>
       </ns0:criteria>
     </ns0:definition>
@@ -7313,6 +7137,9 @@
       <ns0:metadata>
         <ns0:title>No CD/DVD drive is configured to automount in /etc/fstab</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Wind River Linux 8</ns0:platform>
+          <ns0:platform>Fedora 23</ns0:platform>
+          <ns0:platform>Fedora 24</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
@@ -7407,6 +7234,7 @@
       <ns0:metadata>
         <ns0:title>No Legacy .rhosts Or hosts.equiv Files</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Oracle Linux 7</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
@@ -7487,6 +7315,9 @@
       <ns0:metadata>
         <ns0:title>Package samba-common Installed</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Wind River Linux 8</ns0:platform>
+          <ns0:platform>Fedora 23</ns0:platform>
+          <ns0:platform>Fedora 24</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
@@ -7495,106 +7326,6 @@
       </ns0:metadata>
       <ns0:criteria>
         <ns0:criterion comment="package samba-common is installed" test_ref="oval:ssg-test_package_samba-common_installed:tst:1"/>
-      </ns0:criteria>
-    </ns0:definition>
-    <ns0:definition class="compliance" id="oval:ssg-partition_for_home:def:1" version="1">
-      <ns0:metadata>
-        <ns0:title>Ensure /home Located On Separate Partition</ns0:title>
-        <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
-        </ns0:affected>
-        <ns0:description>If user home directories will be stored locally, create a
-      separate partition for /home. If /home will be mounted from another
-      system such as an NFS server, then creating a separate partition is not
-      necessary at this time, and the mountpoint can instead be configured
-      later.</ns0:description>
-        <reference ref_id="partition_for_home" source="ssg"/>
-      </ns0:metadata>
-      <ns0:criteria>
-        <ns0:criterion comment="/home on own partition" test_ref="oval:ssg-test_home_partition:tst:1"/>
-      </ns0:criteria>
-    </ns0:definition>
-    <ns0:definition class="compliance" id="oval:ssg-partition_for_tmp:def:1" version="1">
-      <ns0:metadata>
-        <ns0:title>Ensure /tmp Located On Separate Partition</ns0:title>
-        <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
-        </ns0:affected>
-        <ns0:description>The /tmp directory is a world-writable directory used for
-      temporary file storage. Verify that it has its own partition or logical
-      volume.</ns0:description>
-        <reference ref_id="partition_for_tmp" source="ssg"/>
-      </ns0:metadata>
-      <ns0:criteria>
-        <ns0:criterion comment="/tmp on own partition" test_ref="oval:ssg-test_tmp_partition:tst:1"/>
-      </ns0:criteria>
-    </ns0:definition>
-    <ns0:definition class="compliance" id="oval:ssg-partition_for_var:def:1" version="1">
-      <ns0:metadata>
-        <ns0:title>Ensure /var Located On Separate Partition</ns0:title>
-        <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
-        </ns0:affected>
-        <ns0:description>Ensuring that /var is mounted on its own partition enables
-      the setting of more restrictive mount options, which is used as temporary
-      storage by many program, particularly system services such as daemons. It
-      is not uncommon for the /var directory to contain world-writable
-      directories, installed by other software packages.</ns0:description>
-        <reference ref_id="partition_for_var" source="ssg"/>
-      </ns0:metadata>
-      <ns0:criteria>
-        <ns0:criterion comment="/var on own partition" test_ref="oval:ssg-test_var_partition:tst:1"/>
-      </ns0:criteria>
-    </ns0:definition>
-    <ns0:definition class="compliance" id="oval:ssg-partition_for_var_log:def:1" version="1">
-      <ns0:metadata>
-        <ns0:title>Ensure /var/log Located On Separate Partition</ns0:title>
-        <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
-        </ns0:affected>
-        <ns0:description>System logs are stored in the /var/log directory. Ensure
-      that it has its own partition or logical volume.</ns0:description>
-        <reference ref_id="partition_for_var_log" source="ssg"/>
-      </ns0:metadata>
-      <ns0:criteria>
-        <ns0:criterion comment="/var/log on own partition" test_ref="oval:ssg-test_var_log_partition:tst:1"/>
-      </ns0:criteria>
-    </ns0:definition>
-    <ns0:definition class="compliance" id="oval:ssg-partition_for_var_log_audit:def:1" version="1">
-      <ns0:metadata>
-        <ns0:title>Ensure /var/log/audit Located On Separate Partition</ns0:title>
-        <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
-        </ns0:affected>
-        <ns0:description>Audit logs are stored in the /var/log/audit directory.
-      Ensure that it has its own partition or logical volume. Make absolutely
-      certain that it is large enough to store all audit logs that will be
-      created by the auditing daemon.</ns0:description>
-        <reference ref_id="partition_for_var_log_audit" source="ssg"/>
-      </ns0:metadata>
-      <ns0:criteria>
-        <ns0:criterion comment="/var/log/audit on own partition" test_ref="oval:ssg-test_var_log_audit_partition:tst:1"/>
-      </ns0:criteria>
-    </ns0:definition>
-    <ns0:definition class="compliance" id="oval:ssg-partition_for_var_tmp:def:1" version="1">
-      <ns0:metadata>
-        <ns0:title>Ensure /var/tmp Located On Separate Partition</ns0:title>
-        <ns0:affected family="unix">
-          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
-          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
-        </ns0:affected>
-        <ns0:description>The /var/tmp directory is a world-writable directory used for
-      temporary file storage. Verify that it has its own partition or logical
-      volume.</ns0:description>
-        <reference ref_id="partition_for_var_tmp" source="ssg"/>
-      </ns0:metadata>
-      <ns0:criteria>
-        <ns0:criterion comment="/var/tmp on own partition" test_ref="oval:ssg-test_var_tmp_partition:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-postfix_server_banner:def:1" version="1">
@@ -7615,6 +7346,9 @@
       <ns0:metadata>
         <ns0:title>Device Files for Removable Media Partitions Does Not Exist on the System</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Wind River Linux 8</ns0:platform>
+          <ns0:platform>Fedora 23</ns0:platform>
+          <ns0:platform>Fedora 24</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
@@ -7664,6 +7398,7 @@
       <ns0:metadata>
         <ns0:title>Ensure that No Dangerous Directories Exist in Root's Path</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Oracle Linux 7</ns0:platform>
           <ns0:platform>Wind River Linux 8</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
@@ -7685,6 +7420,7 @@
       <ns0:metadata>
         <ns0:title>Verify File Hashes with RPM</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Oracle Linux 7</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
           <ns0:platform>Fedora 23</ns0:platform>
@@ -7721,6 +7457,7 @@
       <ns0:metadata>
         <ns0:title>Verify File Permissions Using RPM</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Oracle Linux 7</ns0:platform>
           <ns0:platform>Fedora 23</ns0:platform>
           <ns0:platform>Fedora 24</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
@@ -8387,7 +8124,7 @@ and date.</ns0:description>
             <ns0:extend_definition comment="CentOS7 OS installed" definition_ref="oval:ssg-installed_OS_is_centos7:def:1"/>
             <ns0:extend_definition comment="CentOS6 OS installed" definition_ref="oval:ssg-installed_OS_is_centos6:def:1"/>
             <ns0:extend_definition comment="Fedora OS installed" definition_ref="oval:ssg-installed_OS_is_fedora:def:1"/>
-            <ns0:extend_definition comment="OpenSUSE OS installed" definition_ref="oval:ssg-installed_OS_is_opensuse:def:1"/>
+            <ns0:extend_definition comment="openSUSE OS installed" definition_ref="oval:ssg-installed_OS_is_opensuse:def:1"/>
             <ns0:extend_definition comment="SLE11 OS installed" definition_ref="oval:ssg-installed_OS_is_sle11:def:1"/>
             <ns0:extend_definition comment="SLE12 OS installed" definition_ref="oval:ssg-installed_OS_is_sle12:def:1"/>
           </ns0:criteria>
@@ -8582,6 +8319,9 @@ and date.</ns0:description>
       <ns0:metadata>
         <ns0:title>Value of 'var_removable_partition' variable is set to '/dev/cdrom'</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Wind River Linux 8</ns0:platform>
+          <ns0:platform>Fedora 23</ns0:platform>
+          <ns0:platform>Fedora 24</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
           <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
@@ -8619,6 +8359,150 @@ and date.</ns0:description>
       </ns0:metadata>
       <ns0:criteria>
         <ns0:criterion comment="query /proc/net/wireless" test_ref="oval:ssg-test_wireless_disable_interfaces:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-mount_option_nodev_remote_filesystems:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Mount Remote Filesystems with nodev</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>The nodev option should be enabled for all NFS mounts in /etc/fstab.</ns0:description>
+        <reference ref_id="mount_option_nodev_remote_filesystems" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria operator="XOR">
+        <ns0:criterion comment="remote nfs filesystems" test_ref="oval:ssg-test_no_nfs_defined_etc_fstab_nodev:tst:1"/>
+        <ns0:criterion comment="remote nfs filesystems" test_ref="oval:ssg-test_nfs_nodev_etc_fstab:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-mount_option_nodev_removable_partitions:def:1" version="4">
+      <ns0:metadata>
+        <ns0:title>Add nodev Option to Removable Media Partitions</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Wind River Linux 8</ns0:platform>
+          <ns0:platform>Fedora 23</ns0:platform>
+          <ns0:platform>Fedora 24</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>The nodev option should be enabled for all removable devices mounts in /etc/fstab.</ns0:description>
+        <reference ref_id="mount_option_nodev_removable_partitions" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria operator="OR">
+        <ns0:extend_definition comment="Check if removable partition really exists on the system" definition_ref="oval:ssg-removable_partition_doesnt_exist:def:1"/>
+        <ns0:criteria operator="AND">
+          <ns0:extend_definition comment="Check if removable partition value represents CD/DVD drive" definition_ref="oval:ssg-var_removable_partition_is_cd_dvd_drive:def:1"/>
+          <ns0:criteria operator="OR">
+            <ns0:criteria operator="AND">
+              <ns0:criterion comment="Check if at least one from CD/DVD drive alternative names is using 'nodev' mount option in /etc/fstab" test_ref="oval:ssg-test_nodev_etc_fstab_cd_dvd_drive:tst:1"/>
+              <ns0:criterion comment="Check if at least one from CD/DVD drive alternative names is using 'nodev' mount option in runtime configuration" test_ref="oval:ssg-test_nodev_runtime_cd_dvd_drive:tst:1"/>
+            </ns0:criteria>
+            <ns0:extend_definition comment="Check if CD/DVD drive is not configured to automount in /etc/fstab" definition_ref="oval:ssg-no_cd_dvd_drive_in_etc_fstab:def:1"/>
+          </ns0:criteria>
+        </ns0:criteria>
+        <ns0:criteria operator="AND">
+          <ns0:criterion comment="Check if removable partition is using 'nodev' mount option in /etc/fstab" test_ref="oval:ssg-test_nodev_etc_fstab_not_cd_dvd_drive:tst:1"/>
+          <ns0:criterion comment="Check if removable partition is using 'nodev' mount option in runtime configuration" test_ref="oval:ssg-test_nodev_runtime_not_cd_dvd_drive:tst:1"/>
+        </ns0:criteria>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-mount_option_noexec_remote_filesystems:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Mount Remote Filesystems with noexec</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>The noexec option should be enabled for all NFS mounts in /etc/fstab.</ns0:description>
+        <reference ref_id="mount_option_noexec_remote_filesystems" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria operator="XOR">
+        <ns0:criterion comment="remote nfs filesystems" test_ref="oval:ssg-test_no_nfs_defined_etc_fstab_noexec:tst:1"/>
+        <ns0:criterion comment="remote nfs filesystems" test_ref="oval:ssg-test_nfs_noexec_etc_fstab:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-mount_option_noexec_removable_partitions:def:1" version="4">
+      <ns0:metadata>
+        <ns0:title>Add noexec Option to Removable Media Partitions</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Wind River Linux 8</ns0:platform>
+          <ns0:platform>Fedora 23</ns0:platform>
+          <ns0:platform>Fedora 24</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>The noexec option should be enabled for all removable devices mounts in /etc/fstab.</ns0:description>
+        <reference ref_id="mount_option_noexec_removable_partitions" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria operator="OR">
+        <ns0:extend_definition comment="Check if removable partition really exists on the system" definition_ref="oval:ssg-removable_partition_doesnt_exist:def:1"/>
+        <ns0:criteria operator="AND">
+          <ns0:extend_definition comment="Check if removable partition value represents CD/DVD drive" definition_ref="oval:ssg-var_removable_partition_is_cd_dvd_drive:def:1"/>
+          <ns0:criteria operator="OR">
+            <ns0:criteria operator="AND">
+              <ns0:criterion comment="Check if at least one from CD/DVD drive alternative names is using 'noexec' mount option in /etc/fstab" test_ref="oval:ssg-test_noexec_etc_fstab_cd_dvd_drive:tst:1"/>
+              <ns0:criterion comment="Check if at least one from CD/DVD drive alternative names is using 'noexec' mount option in runtime configuration" test_ref="oval:ssg-test_noexec_runtime_cd_dvd_drive:tst:1"/>
+            </ns0:criteria>
+            <ns0:extend_definition comment="Check if CD/DVD drive is not configured to automount in /etc/fstab" definition_ref="oval:ssg-no_cd_dvd_drive_in_etc_fstab:def:1"/>
+          </ns0:criteria>
+        </ns0:criteria>
+        <ns0:criteria operator="AND">
+          <ns0:criterion comment="Check if removable partition is using 'noexec' mount option in /etc/fstab" test_ref="oval:ssg-test_noexec_etc_fstab_not_cd_dvd_drive:tst:1"/>
+          <ns0:criterion comment="Check if removable partition is using 'noexec' mount option in runtime configuration" test_ref="oval:ssg-test_noexec_runtime_not_cd_dvd_drive:tst:1"/>
+        </ns0:criteria>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-mount_option_nosuid_remote_filesystems:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Mount Remote Filesystems with nosuid</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>The nosuid option should be enabled for all NFS mounts in /etc/fstab.</ns0:description>
+        <reference ref_id="mount_option_nosuid_remote_filesystems" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria operator="XOR">
+        <ns0:criterion comment="remote nfs filesystems" test_ref="oval:ssg-test_no_nfs_defined_etc_fstab_nosuid:tst:1"/>
+        <ns0:criterion comment="remote nfs filesystems" test_ref="oval:ssg-test_nfs_nosuid_etc_fstab:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-mount_option_nosuid_removable_partitions:def:1" version="4">
+      <ns0:metadata>
+        <ns0:title>Add nosuid Option to Removable Media Partitions</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Wind River Linux 8</ns0:platform>
+          <ns0:platform>Fedora 23</ns0:platform>
+          <ns0:platform>Fedora 24</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>The nosuid option should be enabled for all removable devices mounts in /etc/fstab.</ns0:description>
+        <reference ref_id="mount_option_nosuid_removable_partitions" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria operator="OR">
+        <ns0:extend_definition comment="Check if removable partition really exists on the system" definition_ref="oval:ssg-removable_partition_doesnt_exist:def:1"/>
+        <ns0:criteria operator="AND">
+          <ns0:extend_definition comment="Check if removable partition value represents CD/DVD drive" definition_ref="oval:ssg-var_removable_partition_is_cd_dvd_drive:def:1"/>
+          <ns0:criteria operator="OR">
+            <ns0:criteria operator="AND">
+              <ns0:criterion comment="Check if at least one from CD/DVD drive alternative names is using 'nosuid' mount option in /etc/fstab" test_ref="oval:ssg-test_nosuid_etc_fstab_cd_dvd_drive:tst:1"/>
+              <ns0:criterion comment="Check if at least one from CD/DVD drive alternative names is using 'nosuid' mount option in runtime configuration" test_ref="oval:ssg-test_nosuid_runtime_cd_dvd_drive:tst:1"/>
+            </ns0:criteria>
+            <ns0:extend_definition comment="Check if CD/DVD drive is not configured to automount in /etc/fstab" definition_ref="oval:ssg-no_cd_dvd_drive_in_etc_fstab:def:1"/>
+          </ns0:criteria>
+        </ns0:criteria>
+        <ns0:criteria operator="AND">
+          <ns0:criterion comment="Check if removable partition is using 'nosuid' mount option in /etc/fstab" test_ref="oval:ssg-test_nosuid_etc_fstab_not_cd_dvd_drive:tst:1"/>
+          <ns0:criterion comment="Check if removable partition is using 'nosuid' mount option in runtime configuration" test_ref="oval:ssg-test_nosuid_runtime_not_cd_dvd_drive:tst:1"/>
+        </ns0:criteria>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="compliance" id="oval:ssg-package_uuidd_installed:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Package uuidd Installed</ns0:title>
+        <ns0:affected family="unix">
+        </ns0:affected>
+        <ns0:description>The RPM package uuidd should be installed.</ns0:description>
+        <reference ref_id="package_uuidd_installed" source="ssg"/>
+      </ns0:metadata>
+      <ns0:criteria>
+        <ns0:criterion comment="package uuidd is installed" test_ref="oval:ssg-test_package_uuidd_installed:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="compliance" id="oval:ssg-sebool_SELinux:def:1" version="1">
@@ -14297,6 +14181,10 @@ and date.</ns0:description>
       <ns2:object object_ref="oval:ssg-object_tmp_partition_nosuid:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_tmp_partition_nosuid:ste:1"/>
     </ns2:partition_test>
+    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="bind on /var/tmp" id="oval:ssg-test_var_tmp_partition_bind:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_var_tmp_partition_bind:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_var_tmp_partition_bind:ste:1"/>
+    </ns2:partition_test>
     <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="package GConf2 is installed" id="oval:ssg-test_package_GConf2_installed:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_package_GConf2_installed:obj:1"/>
     </ns2:rpminfo_test>
@@ -16676,16 +16564,16 @@ and date.</ns0:description>
     <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="Testing existence of operational aide database file" id="oval:ssg-test_aide_operational_database_absolute_path:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_aide_operational_database_absolute_path:obj:1"/>
     </ns2:file_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="run aide daily with cron" id="oval:ssg-test_aide_periodic_cron_checking:tst:1" version="1">
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="run aide with cron" id="oval:ssg-test_aide_periodic_cron_checking:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_test_aide_periodic_cron_checking:obj:1"/>
     </ns2:textfilecontent54_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="run aide daily with cron" id="oval:ssg-test_aide_crond_checking:tst:1" version="1">
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="run aide with cron" id="oval:ssg-test_aide_crond_checking:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_test_aide_crond_checking:obj:1"/>
     </ns2:textfilecontent54_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="run aide daily with cron" id="oval:ssg-test_aide_var_cron_checking:tst:1" version="1">
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="run aide with cron" id="oval:ssg-test_aide_var_cron_checking:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_aide_var_cron_checking:obj:1"/>
     </ns2:textfilecontent54_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="run aide daily with cron.(daily|weekly|monthly)" id="oval:ssg-test_aide_crontabs_checking:tst:1" version="2">
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="run aide with cron.(daily|weekly|monthly)" id="oval:ssg-test_aide_crontabs_checking:tst:1" version="2">
       <ns2:object object_ref="oval:ssg-object_aide_crontabs_checking:obj:1"/>
     </ns2:textfilecontent54_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="notify personnel when aide completes" id="oval:ssg-test_aide_scan_notification:tst:1" version="1">
@@ -16994,6 +16882,14 @@ and date.</ns0:description>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="CPE vendor is 'fedoraproject' and 'product' is fedora" id="oval:ssg-test_fedora_vendor_product:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_fedora_vendor_product:obj:1"/>
     </ns2:textfilecontent54_test>
+    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="oraclelinux-release is version 6" id="oval:ssg-test_ol6_system:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_ol6_system:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_ol6_system:ste:1"/>
+    </ns2:rpminfo_test>
+    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="oraclelinux-release is version 7" id="oval:ssg-test_ol7_system:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_ol7_system:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_ol7_system:ste:1"/>
+    </ns2:rpminfo_test>
     <ns2:family_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_opensuse_unix_family:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_opensuse_unix_family:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_opensuse_unix_family:ste:1"/>
@@ -17116,62 +17012,6 @@ and date.</ns0:description>
       <ns2:object object_ref="oval:ssg-object_non_root_partitions:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_local_nodev:ste:1"/>
     </ns2:partition_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="all nfs has nodev" id="oval:ssg-test_nfs_nodev_etc_fstab:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_nfs_nodev_etc_fstab:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_remote_filesystem_nodev:ste:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="no nfs" id="oval:ssg-test_no_nfs_defined_etc_fstab_nodev:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_no_nfs_defined_etc_fstab_nodev:obj:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="any_exist" comment="'nodev' mount option used for at least one CD / DVD drive alternative names in /etc/fstab" id="oval:ssg-test_nodev_etc_fstab_cd_dvd_drive:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_nodev_etc_fstab_cd_dvd_drive:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_nodev_etc_fstab_cd_dvd_drive:ste:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" comment="'nodev' mount option used for at least one CD / DVD drive alternative names in runtime configuration" id="oval:ssg-test_nodev_runtime_cd_dvd_drive:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_nodev_runtime_cd_dvd_drive:obj:1"/>
-    </ns2:partition_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="at least one" check_existence="all_exist" comment="Check if removable partition is configured with 'nodev' mount option in /etc/fstab" id="oval:ssg-test_nodev_etc_fstab_not_cd_dvd_drive:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_nodev_etc_fstab_not_cd_dvd_drive:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_nodev_etc_fstab_not_cd_dvd_drive:ste:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="'nodev' mount option used for removable partition in runtime configuration" id="oval:ssg-test_nodev_runtime_not_cd_dvd_drive:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_nodev_runtime_not_cd_dvd_drive:obj:1"/>
-    </ns2:partition_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="any_exist" comment="'noexec' mount option used for at least one CD / DVD drive alternative names in /etc/fstab" id="oval:ssg-test_noexec_etc_fstab_cd_dvd_drive:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_noexec_etc_fstab_cd_dvd_drive:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_noexec_etc_fstab_cd_dvd_drive:ste:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" comment="'noexec' mount option used for at least one CD / DVD drive alternative names in runtime configuration" id="oval:ssg-test_noexec_runtime_cd_dvd_drive:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_noexec_runtime_cd_dvd_drive:obj:1"/>
-    </ns2:partition_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="at least one" check_existence="all_exist" comment="Check if removable partition is configured with 'noexec' mount option in /etc/fstab" id="oval:ssg-test_noexec_etc_fstab_not_cd_dvd_drive:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_noexec_etc_fstab_not_cd_dvd_drive:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_noexec_etc_fstab_not_cd_dvd_drive:ste:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="'noexec' mount option used for removable partition in runtime configuration" id="oval:ssg-test_noexec_runtime_not_cd_dvd_drive:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_noexec_runtime_not_cd_dvd_drive:obj:1"/>
-    </ns2:partition_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="all nfs has nosuid" id="oval:ssg-test_nfs_nosuid_etc_fstab:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_nfs_nosuid_etc_fstab:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_remote_filesystem_nosuid:ste:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="no nfs" id="oval:ssg-test_no_nfs_defined_etc_fstab_nosuid:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_no_nfs_defined_etc_fstab_nosuid:obj:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="any_exist" comment="'nosuid' mount option used for at least one CD / DVD drive alternative names in /etc/fstab" id="oval:ssg-test_nosuid_etc_fstab_cd_dvd_drive:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_nosuid_etc_fstab_cd_dvd_drive:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_nosuid_etc_fstab_cd_dvd_drive:ste:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" comment="'nosuid' mount option used for at least one CD / DVD drive alternative names in runtime configuration" id="oval:ssg-test_nosuid_runtime_cd_dvd_drive:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_nosuid_runtime_cd_dvd_drive:obj:1"/>
-    </ns2:partition_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="at least one" check_existence="all_exist" comment="Check if removable partition is configured with 'nosuid' mount option in /etc/fstab" id="oval:ssg-test_nosuid_etc_fstab_not_cd_dvd_drive:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_nosuid_etc_fstab_not_cd_dvd_drive:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_nosuid_etc_fstab_not_cd_dvd_drive:ste:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="'nosuid' mount option used for removable partition in runtime configuration" id="oval:ssg-test_nosuid_runtime_not_cd_dvd_drive:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_nosuid_runtime_not_cd_dvd_drive:obj:1"/>
-    </ns2:partition_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="check for no cifs in /etc/fstab" id="oval:ssg-test_20340111:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_20340111:obj:1"/>
     </ns2:textfilecontent54_test>
@@ -17186,16 +17026,6 @@ and date.</ns0:description>
       <ns2:object object_ref="oval:ssg-obj_20340112:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_20340112:ste:1"/>
     </ns2:textfilecontent54_test>
-    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" comment="Ensure /var/tmp is mounted" id="oval:ssg-test_mount_option_var_tmp:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_mount_option_var_tmp:obj:1"/>
-    </ns2:partition_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Ensure bind mount option is on /var/tmp" id="oval:ssg-test_mount_option_var_tmp_bind:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_mount_option_var_tmp_bind:obj:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" comment="Ensure /var/tmp and /tmp have the same source device" id="oval:ssg-test_mount_option_var_tmp_bind_compare_source:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_mount_option_var_tmp_bind_compare_source:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_mount_option_var_tmp_bind_compare_source:ste:1"/>
-    </ns2:partition_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="check NOZEROCONF=yes in /etc/sysconfig/network" id="oval:ssg-test_sysconfig_nozeroconf_yes:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_sysconfig_nozeroconf_yes:obj:1"/>
     </ns2:textfilecontent54_test>
@@ -17272,24 +17102,6 @@ and date.</ns0:description>
     <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="package samba-common is installed" id="oval:ssg-test_package_samba-common_installed:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_package_samba-common_installed:obj:1"/>
     </ns2:rpminfo_test>
-    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="/home on own partition" id="oval:ssg-test_home_partition:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_mount_home_own_partition:obj:1"/>
-    </ns2:partition_test>
-    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="/tmp on own partition" id="oval:ssg-test_tmp_partition:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_own_tmp_partition:obj:1"/>
-    </ns2:partition_test>
-    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="/var on own partition" id="oval:ssg-test_var_partition:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_mount_var_own_partition:obj:1"/>
-    </ns2:partition_test>
-    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="/var/log on own partition" id="oval:ssg-test_var_log_partition:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_mount_var_log_own_partition:obj:1"/>
-    </ns2:partition_test>
-    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="check for /var/log/audit partition" id="oval:ssg-test_var_log_audit_partition:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_mount_var_log_audit_own_partition:obj:1"/>
-    </ns2:partition_test>
-    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="/var/tmp on own partition" id="oval:ssg-test_var_tmp_partition:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_own_var_tmp_partition:obj:1"/>
-    </ns2:partition_test>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="Set banner" id="oval:ssg-test_postfix_server_banner:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-obj_postfix_server_banner:obj:1"/>
     </ns2:textfilecontent54_test>
@@ -17529,6 +17341,72 @@ and date.</ns0:description>
     <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="query /proc/net/wireless" id="oval:ssg-test_wireless_disable_interfaces:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_wireless_disable_interfaces:obj:1"/>
     </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="all nfs has nodev" id="oval:ssg-test_nfs_nodev_etc_fstab:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_nfs_nodev_etc_fstab:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_remote_filesystem_nodev:ste:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="no nfs" id="oval:ssg-test_no_nfs_defined_etc_fstab_nodev:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_no_nfs_defined_etc_fstab_nodev:obj:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="any_exist" comment="'nodev' mount option used for at least one CD / DVD drive alternative names in /etc/fstab" id="oval:ssg-test_nodev_etc_fstab_cd_dvd_drive:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_nodev_etc_fstab_cd_dvd_drive:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_nodev_etc_fstab_cd_dvd_drive:ste:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" comment="'nodev' mount option used for at least one CD / DVD drive alternative names in runtime configuration" id="oval:ssg-test_nodev_runtime_cd_dvd_drive:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_nodev_runtime_cd_dvd_drive:obj:1"/>
+    </ns2:partition_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="at least one" check_existence="all_exist" comment="Check if removable partition is configured with 'nodev' mount option in /etc/fstab" id="oval:ssg-test_nodev_etc_fstab_not_cd_dvd_drive:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_nodev_etc_fstab_not_cd_dvd_drive:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_nodev_etc_fstab_not_cd_dvd_drive:ste:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="'nodev' mount option used for removable partition in runtime configuration" id="oval:ssg-test_nodev_runtime_not_cd_dvd_drive:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_nodev_runtime_not_cd_dvd_drive:obj:1"/>
+    </ns2:partition_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="all nfs has noexec" id="oval:ssg-test_nfs_noexec_etc_fstab:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_nfs_noexec_etc_fstab:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_remote_filesystem_noexec:ste:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="no nfs" id="oval:ssg-test_no_nfs_defined_etc_fstab_noexec:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_no_nfs_defined_etc_fstab_noexec:obj:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="any_exist" comment="'noexec' mount option used for at least one CD / DVD drive alternative names in /etc/fstab" id="oval:ssg-test_noexec_etc_fstab_cd_dvd_drive:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_noexec_etc_fstab_cd_dvd_drive:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_noexec_etc_fstab_cd_dvd_drive:ste:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" comment="'noexec' mount option used for at least one CD / DVD drive alternative names in runtime configuration" id="oval:ssg-test_noexec_runtime_cd_dvd_drive:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_noexec_runtime_cd_dvd_drive:obj:1"/>
+    </ns2:partition_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="at least one" check_existence="all_exist" comment="Check if removable partition is configured with 'noexec' mount option in /etc/fstab" id="oval:ssg-test_noexec_etc_fstab_not_cd_dvd_drive:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_noexec_etc_fstab_not_cd_dvd_drive:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_noexec_etc_fstab_not_cd_dvd_drive:ste:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="'noexec' mount option used for removable partition in runtime configuration" id="oval:ssg-test_noexec_runtime_not_cd_dvd_drive:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_noexec_runtime_not_cd_dvd_drive:obj:1"/>
+    </ns2:partition_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="all nfs has nosuid" id="oval:ssg-test_nfs_nosuid_etc_fstab:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_nfs_nosuid_etc_fstab:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_remote_filesystem_nosuid:ste:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="no nfs" id="oval:ssg-test_no_nfs_defined_etc_fstab_nosuid:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_no_nfs_defined_etc_fstab_nosuid:obj:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="any_exist" comment="'nosuid' mount option used for at least one CD / DVD drive alternative names in /etc/fstab" id="oval:ssg-test_nosuid_etc_fstab_cd_dvd_drive:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_nosuid_etc_fstab_cd_dvd_drive:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_nosuid_etc_fstab_cd_dvd_drive:ste:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" comment="'nosuid' mount option used for at least one CD / DVD drive alternative names in runtime configuration" id="oval:ssg-test_nosuid_runtime_cd_dvd_drive:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_nosuid_runtime_cd_dvd_drive:obj:1"/>
+    </ns2:partition_test>
+    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="at least one" check_existence="all_exist" comment="Check if removable partition is configured with 'nosuid' mount option in /etc/fstab" id="oval:ssg-test_nosuid_etc_fstab_not_cd_dvd_drive:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_nosuid_etc_fstab_not_cd_dvd_drive:obj:1"/>
+      <ns2:state state_ref="oval:ssg-state_nosuid_etc_fstab_not_cd_dvd_drive:ste:1"/>
+    </ns2:textfilecontent54_test>
+    <ns2:partition_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="'nosuid' mount option used for removable partition in runtime configuration" id="oval:ssg-test_nosuid_runtime_not_cd_dvd_drive:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-object_nosuid_runtime_not_cd_dvd_drive:obj:1"/>
+    </ns2:partition_test>
+    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="package uuidd is installed" id="oval:ssg-test_package_uuidd_installed:tst:1" version="1">
+      <ns2:object object_ref="oval:ssg-obj_package_uuidd_installed:obj:1"/>
+    </ns2:rpminfo_test>
     <ns2:selinuxboolean_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="SELinux is configured correctly" id="oval:ssg-test_sebool_SELinux:tst:1" version="1">
       <ns2:object object_ref="oval:ssg-object_sebool_SELinux:obj:1"/>
       <ns2:state state_ref="oval:ssg-state_sebool_SELinux:ste:1"/>
@@ -19914,6 +19792,9 @@ and date.</ns0:description>
     </ns2:partition_object>
     <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_tmp_partition_nosuid:obj:1" version="1">
       <ns2:mount_point>/tmp</ns2:mount_point>
+    </ns2:partition_object>
+    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_var_tmp_partition_bind:obj:1" version="1">
+      <ns2:mount_point>/var/tmp</ns2:mount_point>
     </ns2:partition_object>
     <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_package_GConf2_installed:obj:1" version="1">
       <ns2:name>GConf2</ns2:name>
@@ -22424,23 +22305,23 @@ and date.</ns0:description>
     <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:ssg-object_aide_operational_database_absolute_path:obj:1" version="1">
       <ns2:filepath var_check="at least one" var_ref="oval:ssg-variable_aide_operational_database_absolute_path:var:1"/>
     </ns2:file_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="run aide daily with cron" id="oval:ssg-object_test_aide_periodic_cron_checking:obj:1" version="1">
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="run aide with cron" id="oval:ssg-object_test_aide_periodic_cron_checking:obj:1" version="1">
       <ns2:filepath>/etc/crontab</ns2:filepath>
-      <ns2:pattern operation="pattern match">^[0-9]*[\s]*[0-9]*[\s]*\*[\s]*\*[\s]*\*[\s]*root[\s]*/usr/sbin/aide[\s]*\-\-check.*$</ns2:pattern>
+      <ns2:pattern operation="pattern match">^(([0-9]*[\s]*[0-9]*[\s]*\*[\s]*\*[\s]*\*)|@(hourly|daily|weekly|monthly))[\s]*root[\s]*/usr/sbin/aide[\s]*\-\-check.*$</ns2:pattern>
       <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
     </ns2:textfilecontent54_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="run aide daily with cron" id="oval:ssg-object_test_aide_crond_checking:obj:1" version="1">
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="run aide with cron" id="oval:ssg-object_test_aide_crond_checking:obj:1" version="1">
       <ns2:path>/etc/cron.d</ns2:path>
       <ns2:filename operation="pattern match">^.*$</ns2:filename>
-      <ns2:pattern operation="pattern match">^[0-9]*[\s]*[0-9]*[\s]*\*[\s]*\*[\s]*\*[\s]*root[\s]*/usr/sbin/aide[\s]*\-\-check.*$</ns2:pattern>
+      <ns2:pattern operation="pattern match">^(([0-9]*[\s]*[0-9]*[\s]*\*[\s]*\*[\s]*\*)|@(hourly|daily|weekly|monthly))[\s]*root[\s]*/usr/sbin/aide[\s]*\-\-check.*$</ns2:pattern>
       <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
     </ns2:textfilecontent54_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="run aide daily with cron" id="oval:ssg-object_aide_var_cron_checking:obj:1" version="1">
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="run aide with cron" id="oval:ssg-object_aide_var_cron_checking:obj:1" version="1">
       <ns2:filepath>/var/spool/cron/root</ns2:filepath>
-      <ns2:pattern operation="pattern match">^[0-9]*[\s]*[0-9]*[\s]*\*[\s]*\*[\s]*\*[\s]*(root|)/usr/sbin/aide[\s]*\-\-check.*$</ns2:pattern>
+      <ns2:pattern operation="pattern match">^(([0-9]*[\s]*[0-9]*[\s]*\*[\s]*\*[\s]*\*)|@(hourly|daily|weekly|monthly))[\s]*root[\s]*/usr/sbin/aide[\s]*\-\-check.*$</ns2:pattern>
       <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
     </ns2:textfilecontent54_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="run aide daily with cron.(daily|weekly|monthly)" id="oval:ssg-object_aide_crontabs_checking:obj:1" version="1">
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="run aide with cron.(daily|weekly|monthly)" id="oval:ssg-object_aide_crontabs_checking:obj:1" version="1">
       <ns2:path operation="pattern match">/etc/cron.(daily|weekly|monthly)</ns2:path>
       <ns2:filename operation="pattern match">^.*$</ns2:filename>
       <ns2:pattern operation="pattern match">^\s*/usr/sbin/aide[\s]*\-\-check.*$</ns2:pattern>
@@ -22645,7 +22526,7 @@ and date.</ns0:description>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_cron_daily_logrotate_existence:obj:1" version="1">
       <ns2:filepath>/etc/cron.daily/logrotate</ns2:filepath>
-      <ns2:pattern operation="pattern match">^[\s]*/usr/sbin/logrotate[\s]*/etc/logrotate.conf(?:.*)$</ns2:pattern>
+      <ns2:pattern operation="pattern match">^[\s]*/usr/sbin/logrotate[\s\S]*/etc/logrotate.conf$</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_package_gpg-pubkey:obj:1" version="1">
@@ -22805,7 +22686,7 @@ and date.</ns0:description>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Banner for FTP Users" id="oval:ssg-object_test_ftp_present_banner:obj:1" version="1">
       <ns2:filepath>/etc/vsftpd/vsftpd.conf</ns2:filepath>
-      <ns2:pattern operation="pattern match">^[\s]*banner_file[\s]*=[\s]*/etc/issue*$</ns2:pattern>
+      <ns2:pattern operation="pattern match">^[\s]*banner_file=/etc/issue[\s]*$</ns2:pattern>
       <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
     </ns2:textfilecontent54_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_gid_passwd_group_same_var:obj:1" version="1">
@@ -22870,6 +22751,12 @@ and date.</ns0:description>
       <ns2:pattern operation="pattern match">^cpe:\/o:fedoraproject:fedora:[\d]+$</ns2:pattern>
       <ns2:instance datatype="int" operation="equals">1</ns2:instance>
     </ns2:textfilecontent54_object>
+    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_ol6_system:obj:1" version="1">
+      <ns2:name>oraclelinux-release</ns2:name>
+    </ns2:rpminfo_object>
+    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_ol7_system:obj:1" version="1">
+      <ns2:name>oraclelinux-release</ns2:name>
+    </ns2:rpminfo_object>
     <ns2:family_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_opensuse_unix_family:obj:1" version="1"/>
     <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_opensuse_installed:obj:1" version="1">
       <ns2:name>openSUSE-release</ns2:name>
@@ -22970,80 +22857,6 @@ and date.</ns0:description>
       <ns2:mount_point operation="pattern match">^/\w.*$</ns2:mount_point>
       <ns0:filter action="include">oval:ssg-state_local_nodev:ste:1</ns0:filter>
     </ns2:partition_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_nfs_nodev_etc_fstab:obj:1" version="1">
-      <ns2:filepath>/etc/fstab</ns2:filepath>
-      <ns2:pattern operation="pattern match">^\s*\[?[\.\w-:]+\]?:[/\w-]+\s+[/\w-]+\s+nfs[4]?\s+(.*)$</ns2:pattern>
-      <ns2:instance datatype="int" operation="not equal">0</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_no_nfs_defined_etc_fstab_nodev:obj:1" version="1">
-      <ns2:filepath>/etc/fstab</ns2:filepath>
-      <ns2:pattern operation="pattern match">^\s*\[?[\.\w-:]+\]?:[/\w-]+\s+[/\w-]+\s+nfs[4]?\s+.*$</ns2:pattern>
-      <ns2:instance datatype="int" operation="not equal">0</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_nodev_etc_fstab_cd_dvd_drive:obj:1" version="1">
-      <ns2:filepath>/etc/fstab</ns2:filepath>
-      <ns2:pattern datatype="string" operation="pattern match" var_check="at least one" var_ref="oval:ssg-variable_cd_dvd_drive_regex_pattern_nodev:var:1"/>
-      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_nodev_runtime_cd_dvd_drive:obj:1" version="1">
-      <ns2:mount_point operation="pattern match">^.*$</ns2:mount_point>
-      <ns0:filter action="include">oval:ssg-state_nodev_runtime_cd_dvd_drive:ste:1</ns0:filter>
-    </ns2:partition_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_nodev_etc_fstab_not_cd_dvd_drive:obj:1" version="1">
-      <ns2:filepath>/etc/fstab</ns2:filepath>
-      <ns2:pattern datatype="string" operation="pattern match" var_check="at least one" var_ref="oval:ssg-variable_not_cd_dvd_drive_regex_pattern_nodev:var:1"/>
-      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_nodev_runtime_not_cd_dvd_drive:obj:1" version="1">
-      <ns2:mount_point operation="pattern match">^.*$</ns2:mount_point>
-      <ns0:filter action="include">oval:ssg-state_nodev_runtime_not_cd_dvd_drive:ste:1</ns0:filter>
-    </ns2:partition_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_noexec_etc_fstab_cd_dvd_drive:obj:1" version="1">
-      <ns2:filepath>/etc/fstab</ns2:filepath>
-      <ns2:pattern datatype="string" operation="pattern match" var_check="at least one" var_ref="oval:ssg-variable_cd_dvd_drive_regex_pattern_noexec:var:1"/>
-      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_noexec_runtime_cd_dvd_drive:obj:1" version="1">
-      <ns2:mount_point operation="pattern match">^.*$</ns2:mount_point>
-      <ns0:filter action="include">oval:ssg-state_noexec_runtime_cd_dvd_drive:ste:1</ns0:filter>
-    </ns2:partition_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_noexec_etc_fstab_not_cd_dvd_drive:obj:1" version="1">
-      <ns2:filepath>/etc/fstab</ns2:filepath>
-      <ns2:pattern datatype="string" operation="pattern match" var_check="at least one" var_ref="oval:ssg-variable_not_cd_dvd_drive_regex_pattern_noexec:var:1"/>
-      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_noexec_runtime_not_cd_dvd_drive:obj:1" version="1">
-      <ns2:mount_point operation="pattern match">^.*$</ns2:mount_point>
-      <ns0:filter action="include">oval:ssg-state_noexec_runtime_not_cd_dvd_drive:ste:1</ns0:filter>
-    </ns2:partition_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_nfs_nosuid_etc_fstab:obj:1" version="1">
-      <ns2:filepath>/etc/fstab</ns2:filepath>
-      <ns2:pattern operation="pattern match">^\s*\[?[\.\w-:]+\]?:[/\w-]+\s+[/\w-]+\s+nfs[4]?\s+(.*)$</ns2:pattern>
-      <ns2:instance datatype="int" operation="not equal">0</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_no_nfs_defined_etc_fstab_nosuid:obj:1" version="1">
-      <ns2:filepath>/etc/fstab</ns2:filepath>
-      <ns2:pattern operation="pattern match">^\s*\[?[\.\w-:]+\]?:[/\w-]+\s+[/\w-]+\s+nfs[4]?\s+.*$</ns2:pattern>
-      <ns2:instance datatype="int" operation="not equal">0</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_nosuid_etc_fstab_cd_dvd_drive:obj:1" version="1">
-      <ns2:filepath>/etc/fstab</ns2:filepath>
-      <ns2:pattern datatype="string" operation="pattern match" var_check="at least one" var_ref="oval:ssg-variable_cd_dvd_drive_regex_pattern_nosuid:var:1"/>
-      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_nosuid_runtime_cd_dvd_drive:obj:1" version="1">
-      <ns2:mount_point operation="pattern match">^.*$</ns2:mount_point>
-      <ns0:filter action="include">oval:ssg-state_nosuid_runtime_cd_dvd_drive:ste:1</ns0:filter>
-    </ns2:partition_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_nosuid_etc_fstab_not_cd_dvd_drive:obj:1" version="1">
-      <ns2:filepath>/etc/fstab</ns2:filepath>
-      <ns2:pattern datatype="string" operation="pattern match" var_check="at least one" var_ref="oval:ssg-variable_not_cd_dvd_drive_regex_pattern_nosuid:var:1"/>
-      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_nosuid_runtime_not_cd_dvd_drive:obj:1" version="1">
-      <ns2:mount_point operation="pattern match">^.*$</ns2:mount_point>
-      <ns0:filter action="include">oval:ssg-state_nosuid_runtime_not_cd_dvd_drive:ste:1</ns0:filter>
-    </ns2:partition_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_20340111:obj:1" version="1">
       <ns2:filepath>/etc/fstab</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*[\S]+[\s]+[\S]+[\s]+cifs[\s]+([\S]+)</ns2:pattern>
@@ -23054,17 +22867,6 @@ and date.</ns0:description>
       <ns2:pattern operation="pattern match">^[\s]*[\S]+[\s]+[\S]+[\s]+cifs[\s]+([\S]+)</ns2:pattern>
       <ns2:instance datatype="int">1</ns2:instance>
     </ns2:textfilecontent54_object>
-    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_mount_option_var_tmp:obj:1" version="1">
-      <ns2:mount_point operation="pattern match">/var/tmp</ns2:mount_point>
-    </ns2:partition_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="look for the partition mount point in /etc/mtab" id="oval:ssg-object_mount_option_var_tmp_bind:obj:1" version="1">
-      <ns2:filepath>/etc/mtab</ns2:filepath>
-      <ns2:pattern operation="pattern match">^[\s]*/tmp[\s]+/var/tmp[\s]+.*bind.*$</ns2:pattern>
-      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_mount_option_var_tmp_bind_compare_source:obj:1" version="1">
-      <ns2:mount_point operation="pattern match">/tmp</ns2:mount_point>
-    </ns2:partition_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_sysconfig_nozeroconf_yes:obj:1" version="1">
       <ns2:filepath>/etc/sysconfig/network</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*NOZEROCONF[\s]*=[\s]*yes</ns2:pattern>
@@ -23189,24 +22991,6 @@ and date.</ns0:description>
     <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_package_samba-common_installed:obj:1" version="1">
       <ns2:name>samba-common</ns2:name>
     </ns2:rpminfo_object>
-    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_mount_home_own_partition:obj:1" version="1">
-      <ns2:mount_point>/home</ns2:mount_point>
-    </ns2:partition_object>
-    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_own_tmp_partition:obj:1" version="1">
-      <ns2:mount_point>/tmp</ns2:mount_point>
-    </ns2:partition_object>
-    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_mount_var_own_partition:obj:1" version="1">
-      <ns2:mount_point>/var</ns2:mount_point>
-    </ns2:partition_object>
-    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_mount_var_log_own_partition:obj:1" version="1">
-      <ns2:mount_point>/var/log</ns2:mount_point>
-    </ns2:partition_object>
-    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_mount_var_log_audit_own_partition:obj:1" version="1">
-      <ns2:mount_point>/var/log/audit</ns2:mount_point>
-    </ns2:partition_object>
-    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_own_var_tmp_partition:obj:1" version="1">
-      <ns2:mount_point>/var/tmp</ns2:mount_point>
-    </ns2:partition_object>
     <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_postfix_server_banner:obj:1" version="1">
       <ns2:filepath>/etc/postfix/main.cf</ns2:filepath>
       <ns2:pattern operation="pattern match">^[\s]*smtpd_banner[\s]*=[\s]*\$myhostname[\s]+ESMTP[\s]*$</ns2:pattern>
@@ -23547,6 +23331,93 @@ and date.</ns0:description>
       <ns2:pattern operation="pattern match">^\s*[-\w]+:</ns2:pattern>
       <ns2:instance datatype="int" operation="equals">1</ns2:instance>
     </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_nfs_nodev_etc_fstab:obj:1" version="1">
+      <ns2:filepath>/etc/fstab</ns2:filepath>
+      <ns2:pattern operation="pattern match">^\s*\[?[\.\w-:]+\]?:[/\w-]+\s+[/\w-]+\s+nfs[4]?\s+(.*)$</ns2:pattern>
+      <ns2:instance datatype="int" operation="not equal">0</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_no_nfs_defined_etc_fstab_nodev:obj:1" version="1">
+      <ns2:filepath>/etc/fstab</ns2:filepath>
+      <ns2:pattern operation="pattern match">^\s*\[?[\.\w-:]+\]?:[/\w-]+\s+[/\w-]+\s+nfs[4]?\s+.*$</ns2:pattern>
+      <ns2:instance datatype="int" operation="not equal">0</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_nodev_etc_fstab_cd_dvd_drive:obj:1" version="1">
+      <ns2:filepath>/etc/fstab</ns2:filepath>
+      <ns2:pattern datatype="string" operation="pattern match" var_check="at least one" var_ref="oval:ssg-variable_cd_dvd_drive_regex_pattern_nodev:var:1"/>
+      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_nodev_runtime_cd_dvd_drive:obj:1" version="1">
+      <ns2:mount_point operation="pattern match">^.*$</ns2:mount_point>
+      <ns0:filter action="include">oval:ssg-state_nodev_runtime_cd_dvd_drive:ste:1</ns0:filter>
+    </ns2:partition_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_nodev_etc_fstab_not_cd_dvd_drive:obj:1" version="1">
+      <ns2:filepath>/etc/fstab</ns2:filepath>
+      <ns2:pattern datatype="string" operation="pattern match" var_check="at least one" var_ref="oval:ssg-variable_not_cd_dvd_drive_regex_pattern_nodev:var:1"/>
+      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_nodev_runtime_not_cd_dvd_drive:obj:1" version="1">
+      <ns2:mount_point operation="pattern match">^.*$</ns2:mount_point>
+      <ns0:filter action="include">oval:ssg-state_nodev_runtime_not_cd_dvd_drive:ste:1</ns0:filter>
+    </ns2:partition_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_nfs_noexec_etc_fstab:obj:1" version="1">
+      <ns2:filepath>/etc/fstab</ns2:filepath>
+      <ns2:pattern operation="pattern match">^\s*\[?[\.\w-:]+\]?:[/\w-]+\s+[/\w-]+\s+nfs[4]?\s+(.*)$</ns2:pattern>
+      <ns2:instance datatype="int" operation="not equal">0</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_no_nfs_defined_etc_fstab_noexec:obj:1" version="1">
+      <ns2:filepath>/etc/fstab</ns2:filepath>
+      <ns2:pattern operation="pattern match">^\s*\[?[\.\w-:]+\]?:[/\w-]+\s+[/\w-]+\s+nfs[4]?\s+.*$</ns2:pattern>
+      <ns2:instance datatype="int" operation="not equal">0</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_noexec_etc_fstab_cd_dvd_drive:obj:1" version="1">
+      <ns2:filepath>/etc/fstab</ns2:filepath>
+      <ns2:pattern datatype="string" operation="pattern match" var_check="at least one" var_ref="oval:ssg-variable_cd_dvd_drive_regex_pattern_noexec:var:1"/>
+      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_noexec_runtime_cd_dvd_drive:obj:1" version="1">
+      <ns2:mount_point operation="pattern match">^.*$</ns2:mount_point>
+      <ns0:filter action="include">oval:ssg-state_noexec_runtime_cd_dvd_drive:ste:1</ns0:filter>
+    </ns2:partition_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_noexec_etc_fstab_not_cd_dvd_drive:obj:1" version="1">
+      <ns2:filepath>/etc/fstab</ns2:filepath>
+      <ns2:pattern datatype="string" operation="pattern match" var_check="at least one" var_ref="oval:ssg-variable_not_cd_dvd_drive_regex_pattern_noexec:var:1"/>
+      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_noexec_runtime_not_cd_dvd_drive:obj:1" version="1">
+      <ns2:mount_point operation="pattern match">^.*$</ns2:mount_point>
+      <ns0:filter action="include">oval:ssg-state_noexec_runtime_not_cd_dvd_drive:ste:1</ns0:filter>
+    </ns2:partition_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_nfs_nosuid_etc_fstab:obj:1" version="1">
+      <ns2:filepath>/etc/fstab</ns2:filepath>
+      <ns2:pattern operation="pattern match">^\s*\[?[\.\w-:]+\]?:[/\w-]+\s+[/\w-]+\s+nfs[4]?\s+(.*)$</ns2:pattern>
+      <ns2:instance datatype="int" operation="not equal">0</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_no_nfs_defined_etc_fstab_nosuid:obj:1" version="1">
+      <ns2:filepath>/etc/fstab</ns2:filepath>
+      <ns2:pattern operation="pattern match">^\s*\[?[\.\w-:]+\]?:[/\w-]+\s+[/\w-]+\s+nfs[4]?\s+.*$</ns2:pattern>
+      <ns2:instance datatype="int" operation="not equal">0</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_nosuid_etc_fstab_cd_dvd_drive:obj:1" version="1">
+      <ns2:filepath>/etc/fstab</ns2:filepath>
+      <ns2:pattern datatype="string" operation="pattern match" var_check="at least one" var_ref="oval:ssg-variable_cd_dvd_drive_regex_pattern_nosuid:var:1"/>
+      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_nosuid_runtime_cd_dvd_drive:obj:1" version="1">
+      <ns2:mount_point operation="pattern match">^.*$</ns2:mount_point>
+      <ns0:filter action="include">oval:ssg-state_nosuid_runtime_cd_dvd_drive:ste:1</ns0:filter>
+    </ns2:partition_object>
+    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_nosuid_etc_fstab_not_cd_dvd_drive:obj:1" version="1">
+      <ns2:filepath>/etc/fstab</ns2:filepath>
+      <ns2:pattern datatype="string" operation="pattern match" var_check="at least one" var_ref="oval:ssg-variable_not_cd_dvd_drive_regex_pattern_nosuid:var:1"/>
+      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
+    </ns2:textfilecontent54_object>
+    <ns2:partition_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_nosuid_runtime_not_cd_dvd_drive:obj:1" version="1">
+      <ns2:mount_point operation="pattern match">^.*$</ns2:mount_point>
+      <ns0:filter action="include">oval:ssg-state_nosuid_runtime_not_cd_dvd_drive:ste:1</ns0:filter>
+    </ns2:partition_object>
+    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_package_uuidd_installed:obj:1" version="1">
+      <ns2:name>uuidd</ns2:name>
+    </ns2:rpminfo_object>
     <ns2:selinuxboolean_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_sebool_SELinux:obj:1" version="1">
       <ns2:name>SELinux</ns2:name>
     </ns2:selinuxboolean_object>
@@ -24692,6 +24563,9 @@ and date.</ns0:description>
     <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_tmp_partition_nosuid:ste:1" version="1">
       <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">nosuid</ns2:mount_options>
     </ns2:partition_state>
+    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_var_tmp_partition_bind:ste:1" version="1">
+      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">bind</ns2:mount_options>
+    </ns2:partition_state>
     <ns2:runlevel_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="not configured to start" id="oval:ssg-state_service_abrtd_off:ste:1" version="1">
       <ns2:start datatype="boolean">false</ns2:start>
       <ns2:kill datatype="boolean">true</ns2:kill>
@@ -25411,6 +25285,12 @@ and date.</ns0:description>
     <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_centos7:ste:1" version="1">
       <ns2:version operation="pattern match">^7.*$</ns2:version>
     </ns2:rpminfo_state>
+    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_ol6_system:ste:1" version="1">
+      <ns2:version operation="pattern match">^6Server$</ns2:version>
+    </ns2:rpminfo_state>
+    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_ol7_system:ste:1" version="1">
+      <ns2:version operation="pattern match">^7.*$</ns2:version>
+    </ns2:rpminfo_state>
     <ns2:family_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_opensuse_unix_family:ste:1" version="1">
       <ns2:family>unix</ns2:family>
     </ns2:family_state>
@@ -25481,61 +25361,10 @@ and date.</ns0:description>
       <ns2:device operation="pattern match">^/dev/.*$</ns2:device>
       <ns2:mount_options datatype="string" entity_check="all" operation="not equal">nodev</ns2:mount_options>
     </ns2:partition_state>
-    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_remote_filesystem_nodev:ste:1" version="1">
-      <ns2:subexpression operation="pattern match">^.*nodev.*$</ns2:subexpression>
-    </ns2:textfilecontent54_state>
-    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_nodev_etc_fstab_cd_dvd_drive:ste:1" version="1">
-      <ns2:subexpression datatype="string" operation="pattern match">^.*,?nodev,?.*$</ns2:subexpression>
-    </ns2:textfilecontent54_state>
-    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_nodev_runtime_cd_dvd_drive:ste:1" version="1">
-      <ns2:device datatype="string" operation="equals" var_check="at least one" var_ref="oval:ssg-variable_cd_dvd_drive_alternative_names_nodev:var:1"/>
-      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">nodev</ns2:mount_options>
-    </ns2:partition_state>
-    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_nodev_etc_fstab_not_cd_dvd_drive:ste:1" version="1">
-      <ns2:subexpression datatype="string" operation="pattern match">^.*,?nodev,?.*</ns2:subexpression>
-    </ns2:textfilecontent54_state>
-    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_nodev_runtime_not_cd_dvd_drive:ste:1" version="1">
-      <ns2:device datatype="string" operation="equals" var_check="at least one" var_ref="oval:ssg-var_removable_partition:var:1"/>
-      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">nodev</ns2:mount_options>
-    </ns2:partition_state>
-    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_noexec_etc_fstab_cd_dvd_drive:ste:1" version="1">
-      <ns2:subexpression datatype="string" operation="pattern match">^.*,?noexec,?.*$</ns2:subexpression>
-    </ns2:textfilecontent54_state>
-    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_noexec_runtime_cd_dvd_drive:ste:1" version="1">
-      <ns2:device datatype="string" operation="equals" var_check="at least one" var_ref="oval:ssg-variable_cd_dvd_drive_alternative_names_noexec:var:1"/>
-      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">noexec</ns2:mount_options>
-    </ns2:partition_state>
-    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_noexec_etc_fstab_not_cd_dvd_drive:ste:1" version="1">
-      <ns2:subexpression datatype="string" operation="pattern match">^.*,?noexec,?.*</ns2:subexpression>
-    </ns2:textfilecontent54_state>
-    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_noexec_runtime_not_cd_dvd_drive:ste:1" version="1">
-      <ns2:device datatype="string" operation="equals" var_check="at least one" var_ref="oval:ssg-var_removable_partition:var:1"/>
-      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">noexec</ns2:mount_options>
-    </ns2:partition_state>
-    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_remote_filesystem_nosuid:ste:1" version="1">
-      <ns2:subexpression operation="pattern match">^.*nosuid.*$</ns2:subexpression>
-    </ns2:textfilecontent54_state>
-    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_nosuid_etc_fstab_cd_dvd_drive:ste:1" version="1">
-      <ns2:subexpression datatype="string" operation="pattern match">^.*,?nosuid,?.*$</ns2:subexpression>
-    </ns2:textfilecontent54_state>
-    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_nosuid_runtime_cd_dvd_drive:ste:1" version="1">
-      <ns2:device datatype="string" operation="equals" var_check="at least one" var_ref="oval:ssg-variable_cd_dvd_drive_alternative_names_nosuid:var:1"/>
-      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">nosuid</ns2:mount_options>
-    </ns2:partition_state>
-    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_nosuid_etc_fstab_not_cd_dvd_drive:ste:1" version="1">
-      <ns2:subexpression datatype="string" operation="pattern match">^.*,?nosuid,?.*</ns2:subexpression>
-    </ns2:textfilecontent54_state>
-    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_nosuid_runtime_not_cd_dvd_drive:ste:1" version="1">
-      <ns2:device datatype="string" operation="equals" var_check="at least one" var_ref="oval:ssg-var_removable_partition:var:1"/>
-      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">nosuid</ns2:mount_options>
-    </ns2:partition_state>
     <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_20340112:ste:1" version="1">
       <ns2:instance datatype="int">2</ns2:instance>
       <ns2:subexpression operation="pattern match">sec=(krb5i|ntlmv2i)</ns2:subexpression>
     </ns2:textfilecontent54_state>
-    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_mount_option_var_tmp_bind_compare_source:ste:1" version="1">
-      <ns2:device datatype="string" entity_check="at least one" operation="equals" var_ref="oval:ssg-var_mount_option_var_tmp_bind_var_tmp_source_device:var:1"/>
-    </ns2:partition_state>
     <ns2:interface_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:ssg-state_promisc:ste:1" version="1">
       <ns2:flag datatype="string" entity_check="at least one" operation="equals">PROMISC</ns2:flag>
     </ns2:interface_state>
@@ -25668,6 +25497,57 @@ and date.</ns0:description>
     <ns2:variable_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_var_removable_partition_is_cd_dvd_drive:ste:1" version="1">
       <ns2:value operation="equals">/dev/cdrom</ns2:value>
     </ns2:variable_state>
+    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_remote_filesystem_nodev:ste:1" version="1">
+      <ns2:subexpression operation="pattern match">^.*nodev.*$</ns2:subexpression>
+    </ns2:textfilecontent54_state>
+    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_nodev_etc_fstab_cd_dvd_drive:ste:1" version="1">
+      <ns2:subexpression datatype="string" operation="pattern match">^.*,?nodev,?.*$</ns2:subexpression>
+    </ns2:textfilecontent54_state>
+    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_nodev_runtime_cd_dvd_drive:ste:1" version="1">
+      <ns2:device datatype="string" operation="equals" var_check="at least one" var_ref="oval:ssg-variable_cd_dvd_drive_alternative_names_nodev:var:1"/>
+      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">nodev</ns2:mount_options>
+    </ns2:partition_state>
+    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_nodev_etc_fstab_not_cd_dvd_drive:ste:1" version="1">
+      <ns2:subexpression datatype="string" operation="pattern match">^.*,?nodev,?.*</ns2:subexpression>
+    </ns2:textfilecontent54_state>
+    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_nodev_runtime_not_cd_dvd_drive:ste:1" version="1">
+      <ns2:device datatype="string" operation="equals" var_check="at least one" var_ref="oval:ssg-var_removable_partition:var:1"/>
+      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">nodev</ns2:mount_options>
+    </ns2:partition_state>
+    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_remote_filesystem_noexec:ste:1" version="1">
+      <ns2:subexpression operation="pattern match">^.*noexec.*$</ns2:subexpression>
+    </ns2:textfilecontent54_state>
+    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_noexec_etc_fstab_cd_dvd_drive:ste:1" version="1">
+      <ns2:subexpression datatype="string" operation="pattern match">^.*,?noexec,?.*$</ns2:subexpression>
+    </ns2:textfilecontent54_state>
+    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_noexec_runtime_cd_dvd_drive:ste:1" version="1">
+      <ns2:device datatype="string" operation="equals" var_check="at least one" var_ref="oval:ssg-variable_cd_dvd_drive_alternative_names_noexec:var:1"/>
+      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">noexec</ns2:mount_options>
+    </ns2:partition_state>
+    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_noexec_etc_fstab_not_cd_dvd_drive:ste:1" version="1">
+      <ns2:subexpression datatype="string" operation="pattern match">^.*,?noexec,?.*</ns2:subexpression>
+    </ns2:textfilecontent54_state>
+    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_noexec_runtime_not_cd_dvd_drive:ste:1" version="1">
+      <ns2:device datatype="string" operation="equals" var_check="at least one" var_ref="oval:ssg-var_removable_partition:var:1"/>
+      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">noexec</ns2:mount_options>
+    </ns2:partition_state>
+    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_remote_filesystem_nosuid:ste:1" version="1">
+      <ns2:subexpression operation="pattern match">^.*nosuid.*$</ns2:subexpression>
+    </ns2:textfilecontent54_state>
+    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_nosuid_etc_fstab_cd_dvd_drive:ste:1" version="1">
+      <ns2:subexpression datatype="string" operation="pattern match">^.*,?nosuid,?.*$</ns2:subexpression>
+    </ns2:textfilecontent54_state>
+    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_nosuid_runtime_cd_dvd_drive:ste:1" version="1">
+      <ns2:device datatype="string" operation="equals" var_check="at least one" var_ref="oval:ssg-variable_cd_dvd_drive_alternative_names_nosuid:var:1"/>
+      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">nosuid</ns2:mount_options>
+    </ns2:partition_state>
+    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_nosuid_etc_fstab_not_cd_dvd_drive:ste:1" version="1">
+      <ns2:subexpression datatype="string" operation="pattern match">^.*,?nosuid,?.*</ns2:subexpression>
+    </ns2:textfilecontent54_state>
+    <ns2:partition_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_nosuid_runtime_not_cd_dvd_drive:ste:1" version="1">
+      <ns2:device datatype="string" operation="equals" var_check="at least one" var_ref="oval:ssg-var_removable_partition:var:1"/>
+      <ns2:mount_options datatype="string" entity_check="at least one" operation="equals">nosuid</ns2:mount_options>
+    </ns2:partition_state>
     <ns2:selinuxboolean_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_sebool_SELinux:ste:1" version="1">
       <ns2:name>SELinux</ns2:name>
       <ns2:current_status datatype="boolean" var_ref="oval:ssg-var_SELinux:var:1"/>
@@ -27581,70 +27461,6 @@ and date.</ns0:description>
     <ns0:local_variable comment="GIDs from /etc/group" datatype="string" id="oval:ssg-var_gid_passwd_group_same:var:1" version="1">
       <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_gid_passwd_group_same_var:obj:1"/>
     </ns0:local_variable>
-    <ns0:constant_variable comment="CD/DVD drive alternative names whitelist" datatype="string" id="oval:ssg-variable_cd_dvd_drive_alternative_names_nodev:var:1" version="1">
-      <ns0:value>/dev/cdrom</ns0:value>
-      <ns0:value>/dev/dvd</ns0:value>
-      <ns0:value>/dev/scd0</ns0:value>
-      <ns0:value>/dev/sr0</ns0:value>
-    </ns0:constant_variable>
-    <ns0:local_variable comment="Regular expression pattern for CD / DVD drive alternative names" datatype="string" id="oval:ssg-variable_cd_dvd_drive_regex_pattern_nodev:var:1" version="1">
-      <ns0:concat>
-        <ns0:literal_component>^[\s]*</ns0:literal_component>
-        <ns0:variable_component var_ref="oval:ssg-variable_cd_dvd_drive_alternative_names_nodev:var:1"/>
-        <ns0:literal_component>[\s]+[/\w]+[\s]+[\w]+[\s]+([^\s]+)(?:[\s]+[\d]+){2}$</ns0:literal_component>
-      </ns0:concat>
-    </ns0:local_variable>
-    <ns0:local_variable comment="Regular expression pattern for removable block special device other than CD / DVD drive" datatype="string" id="oval:ssg-variable_not_cd_dvd_drive_regex_pattern_nodev:var:1" version="1">
-      <ns0:concat>
-        <ns0:literal_component>^[\s]*</ns0:literal_component>
-        <ns0:variable_component var_ref="oval:ssg-var_removable_partition:var:1"/>
-        <ns0:literal_component>[\s]+[/\w]+[\s]+[\w]+[\s]+([^\s]+)(?:[\s]+[\d]+){2}$</ns0:literal_component>
-      </ns0:concat>
-    </ns0:local_variable>
-    <ns0:external_variable comment="removable partition" datatype="string" id="oval:ssg-var_removable_partition:var:1" version="1"/>
-    <ns0:constant_variable comment="CD/DVD drive alternative names whitelist" datatype="string" id="oval:ssg-variable_cd_dvd_drive_alternative_names_noexec:var:1" version="1">
-      <ns0:value>/dev/cdrom</ns0:value>
-      <ns0:value>/dev/dvd</ns0:value>
-      <ns0:value>/dev/scd0</ns0:value>
-      <ns0:value>/dev/sr0</ns0:value>
-    </ns0:constant_variable>
-    <ns0:local_variable comment="Regular expression pattern for CD / DVD drive alternative names" datatype="string" id="oval:ssg-variable_cd_dvd_drive_regex_pattern_noexec:var:1" version="1">
-      <ns0:concat>
-        <ns0:literal_component>^[\s]*</ns0:literal_component>
-        <ns0:variable_component var_ref="oval:ssg-variable_cd_dvd_drive_alternative_names_noexec:var:1"/>
-        <ns0:literal_component>[\s]+[/\w]+[\s]+[\w]+[\s]+([^\s]+)(?:[\s]+[\d]+){2}$</ns0:literal_component>
-      </ns0:concat>
-    </ns0:local_variable>
-    <ns0:local_variable comment="Regular expression pattern for removable block special device other than CD / DVD drive" datatype="string" id="oval:ssg-variable_not_cd_dvd_drive_regex_pattern_noexec:var:1" version="1">
-      <ns0:concat>
-        <ns0:literal_component>^[\s]*</ns0:literal_component>
-        <ns0:variable_component var_ref="oval:ssg-var_removable_partition:var:1"/>
-        <ns0:literal_component>[\s]+[/\w]+[\s]+[\w]+[\s]+([^\s]+)(?:[\s]+[\d]+){2}$</ns0:literal_component>
-      </ns0:concat>
-    </ns0:local_variable>
-    <ns0:constant_variable comment="CD/DVD drive alternative names whitelist" datatype="string" id="oval:ssg-variable_cd_dvd_drive_alternative_names_nosuid:var:1" version="1">
-      <ns0:value>/dev/cdrom</ns0:value>
-      <ns0:value>/dev/dvd</ns0:value>
-      <ns0:value>/dev/scd0</ns0:value>
-      <ns0:value>/dev/sr0</ns0:value>
-    </ns0:constant_variable>
-    <ns0:local_variable comment="Regular expression pattern for CD / DVD drive alternative names" datatype="string" id="oval:ssg-variable_cd_dvd_drive_regex_pattern_nosuid:var:1" version="1">
-      <ns0:concat>
-        <ns0:literal_component>^[\s]*</ns0:literal_component>
-        <ns0:variable_component var_ref="oval:ssg-variable_cd_dvd_drive_alternative_names_nosuid:var:1"/>
-        <ns0:literal_component>[\s]+[/\w]+[\s]+[\w]+[\s]+([^\s]+)(?:[\s]+[\d]+){2}$</ns0:literal_component>
-      </ns0:concat>
-    </ns0:local_variable>
-    <ns0:local_variable comment="Regular expression pattern for removable block special device other than CD / DVD drive" datatype="string" id="oval:ssg-variable_not_cd_dvd_drive_regex_pattern_nosuid:var:1" version="1">
-      <ns0:concat>
-        <ns0:literal_component>^[\s]*</ns0:literal_component>
-        <ns0:variable_component var_ref="oval:ssg-var_removable_partition:var:1"/>
-        <ns0:literal_component>[\s]+[/\w]+[\s]+[\w]+[\s]+([^\s]+)(?:[\s]+[\d]+){2}$</ns0:literal_component>
-      </ns0:concat>
-    </ns0:local_variable>
-    <ns0:local_variable comment="Source device of /var/tmp" datatype="string" id="oval:ssg-var_mount_option_var_tmp_bind_var_tmp_source_device:var:1" version="1">
-      <ns0:object_component item_field="device" object_ref="oval:ssg-object_mount_option_var_tmp:obj:1"/>
-    </ns0:local_variable>
     <ns0:constant_variable comment="CD/DVD drive alternative names whitelist" datatype="string" id="oval:ssg-variable_cd_dvd_drive_alternative_names:var:1" version="1">
       <ns0:value>/dev/cdrom</ns0:value>
       <ns0:value>/dev/dvd</ns0:value>
@@ -27717,6 +27533,7 @@ and date.</ns0:description>
         </ns0:arithmetic>
       </ns0:arithmetic>
     </ns0:local_variable>
+    <ns0:external_variable comment="removable partition" datatype="string" id="oval:ssg-var_removable_partition:var:1" version="1"/>
     <ns0:local_variable comment="$IncludeConfig value converted to regex" datatype="string" id="oval:ssg-var_rfg_include_config_regex:var:1" version="1">
       <ns0:glob_to_regex>
         <ns0:object_component item_field="subexpression" object_ref="oval:ssg-object_rfg_rsyslog_include_config_value:obj:1"/>
@@ -27870,6 +27687,66 @@ and date.</ns0:description>
         </ns0:arithmetic>
         <ns0:variable_component var_ref="oval:ssg-var_third_digit_of_umask_from_var_umask_for_daemons:var:1"/>
       </ns0:arithmetic>
+    </ns0:local_variable>
+    <ns0:constant_variable comment="CD/DVD drive alternative names whitelist" datatype="string" id="oval:ssg-variable_cd_dvd_drive_alternative_names_nodev:var:1" version="1">
+      <ns0:value>/dev/cdrom</ns0:value>
+      <ns0:value>/dev/dvd</ns0:value>
+      <ns0:value>/dev/scd0</ns0:value>
+      <ns0:value>/dev/sr0</ns0:value>
+    </ns0:constant_variable>
+    <ns0:local_variable comment="Regular expression pattern for CD / DVD drive alternative names" datatype="string" id="oval:ssg-variable_cd_dvd_drive_regex_pattern_nodev:var:1" version="1">
+      <ns0:concat>
+        <ns0:literal_component>^[\s]*</ns0:literal_component>
+        <ns0:variable_component var_ref="oval:ssg-variable_cd_dvd_drive_alternative_names_nodev:var:1"/>
+        <ns0:literal_component>[\s]+[/\w]+[\s]+[\w]+[\s]+([^\s]+)(?:[\s]+[\d]+){2}$</ns0:literal_component>
+      </ns0:concat>
+    </ns0:local_variable>
+    <ns0:local_variable comment="Regular expression pattern for removable block special device other than CD / DVD drive" datatype="string" id="oval:ssg-variable_not_cd_dvd_drive_regex_pattern_nodev:var:1" version="1">
+      <ns0:concat>
+        <ns0:literal_component>^[\s]*</ns0:literal_component>
+        <ns0:variable_component var_ref="oval:ssg-var_removable_partition:var:1"/>
+        <ns0:literal_component>[\s]+[/\w]+[\s]+[\w]+[\s]+([^\s]+)(?:[\s]+[\d]+){2}$</ns0:literal_component>
+      </ns0:concat>
+    </ns0:local_variable>
+    <ns0:constant_variable comment="CD/DVD drive alternative names whitelist" datatype="string" id="oval:ssg-variable_cd_dvd_drive_alternative_names_noexec:var:1" version="1">
+      <ns0:value>/dev/cdrom</ns0:value>
+      <ns0:value>/dev/dvd</ns0:value>
+      <ns0:value>/dev/scd0</ns0:value>
+      <ns0:value>/dev/sr0</ns0:value>
+    </ns0:constant_variable>
+    <ns0:local_variable comment="Regular expression pattern for CD / DVD drive alternative names" datatype="string" id="oval:ssg-variable_cd_dvd_drive_regex_pattern_noexec:var:1" version="1">
+      <ns0:concat>
+        <ns0:literal_component>^[\s]*</ns0:literal_component>
+        <ns0:variable_component var_ref="oval:ssg-variable_cd_dvd_drive_alternative_names_noexec:var:1"/>
+        <ns0:literal_component>[\s]+[/\w]+[\s]+[\w]+[\s]+([^\s]+)(?:[\s]+[\d]+){2}$</ns0:literal_component>
+      </ns0:concat>
+    </ns0:local_variable>
+    <ns0:local_variable comment="Regular expression pattern for removable block special device other than CD / DVD drive" datatype="string" id="oval:ssg-variable_not_cd_dvd_drive_regex_pattern_noexec:var:1" version="1">
+      <ns0:concat>
+        <ns0:literal_component>^[\s]*</ns0:literal_component>
+        <ns0:variable_component var_ref="oval:ssg-var_removable_partition:var:1"/>
+        <ns0:literal_component>[\s]+[/\w]+[\s]+[\w]+[\s]+([^\s]+)(?:[\s]+[\d]+){2}$</ns0:literal_component>
+      </ns0:concat>
+    </ns0:local_variable>
+    <ns0:constant_variable comment="CD/DVD drive alternative names whitelist" datatype="string" id="oval:ssg-variable_cd_dvd_drive_alternative_names_nosuid:var:1" version="1">
+      <ns0:value>/dev/cdrom</ns0:value>
+      <ns0:value>/dev/dvd</ns0:value>
+      <ns0:value>/dev/scd0</ns0:value>
+      <ns0:value>/dev/sr0</ns0:value>
+    </ns0:constant_variable>
+    <ns0:local_variable comment="Regular expression pattern for CD / DVD drive alternative names" datatype="string" id="oval:ssg-variable_cd_dvd_drive_regex_pattern_nosuid:var:1" version="1">
+      <ns0:concat>
+        <ns0:literal_component>^[\s]*</ns0:literal_component>
+        <ns0:variable_component var_ref="oval:ssg-variable_cd_dvd_drive_alternative_names_nosuid:var:1"/>
+        <ns0:literal_component>[\s]+[/\w]+[\s]+[\w]+[\s]+([^\s]+)(?:[\s]+[\d]+){2}$</ns0:literal_component>
+      </ns0:concat>
+    </ns0:local_variable>
+    <ns0:local_variable comment="Regular expression pattern for removable block special device other than CD / DVD drive" datatype="string" id="oval:ssg-variable_not_cd_dvd_drive_regex_pattern_nosuid:var:1" version="1">
+      <ns0:concat>
+        <ns0:literal_component>^[\s]*</ns0:literal_component>
+        <ns0:variable_component var_ref="oval:ssg-var_removable_partition:var:1"/>
+        <ns0:literal_component>[\s]+[/\w]+[\s]+[\w]+[\s]+([^\s]+)(?:[\s]+[\d]+){2}$</ns0:literal_component>
+      </ns0:concat>
     </ns0:local_variable>
     <ns0:external_variable comment="external variable for SELinux" datatype="boolean" id="oval:ssg-var_SELinux:var:1" version="1"/>
     <ns0:external_variable comment="external variable for abrt_anon_write" datatype="boolean" id="oval:ssg-var_abrt_anon_write:var:1" version="1"/>
