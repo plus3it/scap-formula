@@ -15,6 +15,11 @@ services:
   - docker
 
 before_install:
+# refer to this commit for context: https://github.com/plus3it/scap-formula/commit/7d7f61b597cd6d1677dc877cbdf4c3c98a4e2d49
+  - EL6="./scap/content/guides/disa/stig-el6.xml"
+  - EL7="./scap/content/guides/disa/stig-el7.xml"
+  - if ! grep -i "centos" $EL6 > /dev/null; then echo "ERROR CentOS string not found in $EL6"; false; fi
+  - if ! grep -i "centos" $EL7 > /dev/null; then echo "ERROR CentOS string not found in $EL7"; false; fi
   - sudo apt-get update
   - |
     echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | \
