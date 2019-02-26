@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ns0:cpe-list xmlns:ns0="http://cpe.mitre.org/dictionary/2.0" xmlns:ns1="http://www.w3.org/2001/XMLSchema-instance" ns1:schemaLocation="http://cpe.mitre.org/dictionary/2.0 http://cpe.mitre.org/files/cpe-dictionary_2.1.xsd">
+<ns0:cpe-list xmlns:ns0="http://cpe.mitre.org/dictionary/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cpe.mitre.org/dictionary/2.0 http://cpe.mitre.org/files/cpe-dictionary_2.1.xsd">
   <ns0:cpe-item name="cpe:/o:redhat:enterprise_linux:7">
     <ns0:title xml:lang="en-us">Red Hat Enterprise Linux 7</ns0:title>
     <ns0:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</ns0:check>
