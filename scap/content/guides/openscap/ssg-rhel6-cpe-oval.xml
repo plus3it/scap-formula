@@ -1,16 +1,17 @@
 <?xml version="1.0"?>
-<ns0:oval_definitions xmlns:ns0="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:ns1="http://www.w3.org/2001/XMLSchema-instance" ns1:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
+<ns0:oval_definitions xmlns:ns0="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:ns3="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:ns4="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:ns5="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <ns0:generator>
-    <ns2:product_name xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">combine-ovals.py from SCAP Security Guide</ns2:product_name>
-    <ns2:product_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">ssg: 0.1.39, python: 2.6.6</ns2:product_version>
-    <ns2:schema_version xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">5.11</ns2:schema_version>
-    <ns2:timestamp xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5">2018-05-04T15:34:26</ns2:timestamp>
+    <ns2:product_name>combine_ovals.py from SCAP Security Guide</ns2:product_name>
+    <ns2:product_version>ssg: [0, 1, 41], python: 2.7.5</ns2:product_version>
+    <ns2:schema_version>5.11</ns2:schema_version>
+    <ns2:timestamp>2019-03-04T14:46:12</ns2:timestamp>
   </ns0:generator>
   <ns0:definitions>
     <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_centos6:def:1" version="2">
       <ns0:metadata>
         <ns0:title>CentOS 6</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:reference ref_id="cpe:/o:centos:centos:6" source="CPE"/>
         <ns0:description>The operating system installed on the system is
@@ -25,6 +26,7 @@
       <ns0:metadata>
         <ns0:title>CentOS 7</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:reference ref_id="cpe:/o:centos:centos:7" source="CPE"/>
         <ns0:description>The operating system installed on the system is
@@ -35,24 +37,26 @@
         <ns0:criterion comment="CentOS7 is installed" test_ref="oval:ssg-test_centos7:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
-    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_debian8:def:1" version="2">
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_debian8:def:1" version="3">
       <ns0:metadata>
         <ns0:title>Debian 8</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
-        <ns0:reference ref_id="cpe:/o:debian:debian:8" source="CPE"/>
-        <ns0:description>The operating system installed on the system is
-      Debian 8</ns0:description>
+        <ns0:reference ref_id="cpe:/o:debian:debian_linux:8" source="CPE"/>
+        <ns0:description>The operating system installed on the system is Debian 8</ns0:description>
       </ns0:metadata>
-      <ns0:criteria operator="AND">
+      <ns0:criteria comment="current Debian version is Debian jessie" operator="AND">
         <ns0:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
-        <ns0:criterion comment="Debian8 is installed" test_ref="oval:ssg-test_debian8:tst:1"/>
+        <ns0:criterion comment="Debian is installed" test_ref="oval:ssg-test_debian:tst:1"/>
+        <ns0:criterion comment="Debian8 is installed" test_ref="oval:ssg-test_debian_8:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_fedora:def:1" version="3">
       <ns0:metadata>
         <ns0:title>Installed operating system is Fedora</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:reference ref_id="cpe:/o:fedoraproject:fedora:25" source="CPE"/>
         <ns0:reference ref_id="cpe:/o:fedoraproject:fedora:26" source="CPE"/>
@@ -70,6 +74,7 @@
       <ns0:metadata>
         <ns0:title>Oracle Linux 6</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:reference ref_id="cpe:/o:oracle:linux:6" source="CPE"/>
         <ns0:description>The operating system installed on the system is
@@ -86,6 +91,7 @@
       <ns0:metadata>
         <ns0:title>Oracle Linux 7</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:reference ref_id="cpe:/o:oracle:linux:7" source="CPE"/>
         <ns0:description>The operating system installed on the system is
@@ -102,22 +108,50 @@
       <ns0:metadata>
         <ns0:title>openSUSE</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:description>The operating system installed on the system is openSUSE.</ns0:description>
+      </ns0:metadata>
+      <ns0:criteria operator="AND">
+        <ns0:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
+        <ns0:criterion comment="openSUSE is installed" test_ref="oval:ssg-test_opensuse_installed:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_opensuse_leap15:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>openSUSE Leap 15</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:reference ref_id="cpe:/o:opensuse:leap:15.0" source="CPE"/>
+        <ns0:description>The operating system installed on the system is openSUSE Leap 15.</ns0:description>
+      </ns0:metadata>
+      <ns0:criteria operator="AND">
+        <ns0:extend_definition comment="openSUSE is installed" definition_ref="oval:ssg-installed_OS_is_opensuse:def:1"/>
+        <ns0:criterion comment="openSUSE Leap 15 is installed" test_ref="oval:ssg-test_opensuse_leap15_installed:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_opensuse_leap42:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>openSUSE Leap 42</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:reference ref_id="cpe:/o:opensuse:leap:42.1" source="CPE"/>
         <ns0:reference ref_id="cpe:/o:opensuse:leap:42.2" source="CPE"/>
         <ns0:reference ref_id="cpe:/o:opensuse:leap:42.3" source="CPE"/>
-        <ns0:description>The operating system installed on the system is
-      openSUSE.</ns0:description>
+        <ns0:description>The operating system installed on the system is openSUSE Leap 42.</ns0:description>
       </ns0:metadata>
-      <ns0:criteria>
-        <ns0:criterion comment="Installed operating system is part of the unix family" test_ref="oval:ssg-test_opensuse_unix_family:tst:1"/>
-        <ns0:criterion comment="opensuse is installed" test_ref="oval:ssg-test_opensuse_installed:tst:1"/>
+      <ns0:criteria operator="AND">
+        <ns0:extend_definition comment="openSUSE is installed" definition_ref="oval:ssg-installed_OS_is_opensuse:def:1"/>
+        <ns0:criterion comment="openSUSE Leap 42 is installed" test_ref="oval:ssg-test_opensuse_leap42_installed:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
     <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_part_of_Unix_family:def:1" version="1">
       <ns0:metadata>
         <ns0:title>Installed operating system is part of the Unix family</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The operating system installed on the system is part of the Unix OS family</ns0:description>
       </ns0:metadata>
@@ -129,6 +163,7 @@
       <ns0:metadata>
         <ns0:title>Red Hat Enterprise Linux 6</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:reference ref_id="cpe:/o:redhat:enterprise_linux:6" source="CPE"/>
         <ns0:description>The operating system installed on the system is
@@ -148,6 +183,7 @@
       <ns0:metadata>
         <ns0:title>Red Hat Enterprise Linux 7</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:reference ref_id="cpe:/o:redhat:enterprise_linux:7" source="CPE"/>
         <ns0:description>The operating system installed on the system is
@@ -171,6 +207,7 @@
       <ns0:metadata>
         <ns0:title>Scientific Linux 6</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:reference ref_id="cpe:/o:scientificlinux:scientificlinux:6" source="CPE"/>
         <ns0:description>The operating system installed on the system is
@@ -185,8 +222,9 @@
       <ns0:metadata>
         <ns0:title>Scientific Linux 7</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
-        <ns0:reference ref_id="cpe:/o:scientificlinux:scientificlinux:6" source="CPE"/>
+        <ns0:reference ref_id="cpe:/o:scientificlinux:scientificlinux:7" source="CPE"/>
         <ns0:description>The operating system installed on the system is
       Scientific Linux 7</ns0:description>
       </ns0:metadata>
@@ -199,6 +237,7 @@
       <ns0:metadata>
         <ns0:title>SUSE Linux Enterprise 11</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:reference ref_id="cpe:/o:suse:linux_enterprise_server:11" source="CPE"/>
         <ns0:reference ref_id="cpe:/o:suse:linux_enterprise_desktop:11" source="CPE"/>
@@ -217,6 +256,7 @@
       <ns0:metadata>
         <ns0:title>SUSE Linux Enterprise 12</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:reference ref_id="cpe:/o:suse:linux_enterprise_server:12" source="CPE"/>
         <ns0:reference ref_id="cpe:/o:suse:linux_enterprise_desktop:12" source="CPE"/>
@@ -235,6 +275,7 @@
       <ns0:metadata>
         <ns0:title>Ubuntu</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>The operating system installed is an Ubuntu System</ns0:description>
       </ns0:metadata>
@@ -248,6 +289,7 @@
       <ns0:metadata>
         <ns0:title>Ubuntu 1404</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:reference ref_id="cpe:/o:canonical:ubuntu_linux:14.04" source="CPE"/>
         <ns0:description>The operating system installed on the system is Ubuntu 1404</ns0:description>
@@ -261,6 +303,7 @@
       <ns0:metadata>
         <ns0:title>Ubuntu 1604</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:reference ref_id="cpe:/o:canonical:ubuntu_linux:16.04" source="CPE"/>
         <ns0:description>The operating system installed on the system is Ubuntu 1604</ns0:description>
@@ -270,10 +313,25 @@
         <ns0:criterion comment="Xenial is installed" test_ref="oval:ssg-test_ubuntu_xenial:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_ubuntu1804:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Ubuntu 1804</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
+        </ns0:affected>
+        <ns0:reference ref_id="cpe:/o:canonical:ubuntu_linux:18.04" source="CPE"/>
+        <ns0:description>The operating system installed on the system is Ubuntu 1804</ns0:description>
+      </ns0:metadata>
+      <ns0:criteria comment="current Ubuntu version is Bionic" operator="AND">
+        <ns0:extend_definition comment="Ubuntu is installed" definition_ref="oval:ssg-installed_OS_is_ubuntu:def:1"/>
+        <ns0:criterion comment="Bionic is installed" test_ref="oval:ssg-test_ubuntu_bionic:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
     <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_wrlinux:def:1" version="1">
       <ns0:metadata>
         <ns0:title>WRLinux</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:reference ref_id="cpe:/o:windriver:wrlinux" source="CPE"/>
         <ns0:description>The operating system installed on the system is
@@ -288,6 +346,7 @@
       <ns0:metadata>
         <ns0:title>Check if the scan target is a container</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>Check if file /.dockerenv exists, if it does then we consider to be a docker filesystem.</ns0:description>
         <ns0:reference ref_id="cpe:/a:container" source="CPE"/>
@@ -300,6 +359,7 @@
       <ns0:metadata>
         <ns0:title>Check if the scan target is a machine</ns0:title>
         <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 6</ns0:platform>
         </ns0:affected>
         <ns0:description>Check if file /.dockerenv exists, if it doesn't then we consider to be host filesystem or virtual machine.</ns0:description>
         <ns0:reference ref_id="cpe:/a:machine" source="CPE"/>
@@ -310,335 +370,361 @@
     </ns0:definition>
   </ns0:definitions>
   <ns0:tests>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="centos-release is version 6" id="oval:ssg-test_centos6:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_centos6:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_centos6:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="centos-release is version 7" id="oval:ssg-test_centos7:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_centos7:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_centos7:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Check Debian 8" id="oval:ssg-test_debian8:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_debian8:obj:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="only_one_exists" comment="fedora-release RPM package is installed" id="oval:ssg-test_fedora_release_rpm:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_fedora_release_rpm:obj:1"/>
-    </ns2:rpminfo_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="CPE vendor is 'fedoraproject' and 'product' is fedora" id="oval:ssg-test_fedora_vendor_product:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_fedora_vendor_product:obj:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="oraclelinux-release is version 6" id="oval:ssg-test_ol6_system:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_ol6_system:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_ol6_system:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="oraclelinux-release is version 7" id="oval:ssg-test_ol7_system:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_ol7_system:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_ol7_system:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:family_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_opensuse_unix_family:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_opensuse_unix_family:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_opensuse_unix_family:ste:1"/>
-    </ns2:family_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="opensuse is installed" id="oval:ssg-test_opensuse_installed:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_opensuse_installed:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_opensuse_installed:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:family_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Test installed OS is part of the unix family" id="oval:ssg-test_unix_family:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-object_unix_family:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_unix_family:ste:1"/>
-    </ns2:family_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="redhat-release-client is version 6" id="oval:ssg-test_rhel_client:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_rhel_client:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_rhel_client:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="redhat-release-workstation is version 6" id="oval:ssg-test_rhel_workstation:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_rhel_workstation:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_rhel_workstation:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="redhat-release-server is version 6" id="oval:ssg-test_rhel_server:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_rhel_server:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_rhel_server:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="redhat-release-computenode is version 6" id="oval:ssg-test_rhel_computenode:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_rhel_computenode:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_rhel_computenode:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:family_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_rhel7_unix_family:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_rhel7_unix_family:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_rhel7_unix_family:ste:1"/>
-    </ns2:family_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="redhat-release-client is version 7" id="oval:ssg-test_rhel7_client:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_rhel7_client:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_rhel7_client:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="redhat-release-workstation is version 7" id="oval:ssg-test_rhel7_workstation:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_rhel7_workstation:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_rhel7_workstation:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="redhat-release-server is version 7" id="oval:ssg-test_rhel7_server:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_rhel7_server:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_rhel7_server:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="redhat-release-computenode is version 7" id="oval:ssg-test_rhel7_computenode:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_rhel7_computenode:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_rhel7_computenode:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="only_one_exists" comment="redhat-release-virtualization-host RPM package is installed" id="oval:ssg-test_redhat_release_virtualization_host_rpm:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_redhat_release_virtualization_host_rpm:obj:1"/>
-    </ns2:rpminfo_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="RHEVH base RHEL is version 7" id="oval:ssg-test_rhev_rhel_version:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_rhevh_rhel_version:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_rhevh_rhel_version:ste:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="sl-release is version 6" id="oval:ssg-test_sl6:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_sl6:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_sl6:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="sl-release is version 7" id="oval:ssg-test_sl7:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_sl7:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_sl7:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:family_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_sle11_unix_family:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_sle11_unix_family:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_sle11_unix_family:ste:1"/>
-    </ns2:family_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="sled-release is version 6" id="oval:ssg-test_sle11_desktop:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_sle11_desktop:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_sle11_desktop:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="sles-release is version 6" id="oval:ssg-test_sle11_server:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_sle11_server:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_sle11_server:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:family_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_sle12_unix_family:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_sle12_unix_family:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_sle12_unix_family:ste:1"/>
-    </ns2:family_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="sled-release is version 6" id="oval:ssg-test_sle12_desktop:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_sle12_desktop:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_sle12_desktop:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:rpminfo_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="sles-release is version 6" id="oval:ssg-test_sle12_server:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_sle12_server:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_sle12_server:ste:1"/>
-    </ns2:rpminfo_test>
-    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="/etc/lsb-release exists" id="oval:ssg-test_lsb:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_lsb:obj:1"/>
-    </ns2:file_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Check Ubuntu" id="oval:ssg-test_ubuntu:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_ubuntu:obj:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Check Ubuntu version" id="oval:ssg-test_ubuntu_trusty:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_ubuntu_trusty:obj:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:textfilecontent54_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="Check Ubuntu version" id="oval:ssg-test_ubuntu_xenial:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_ubuntu_xenial:obj:1"/>
-    </ns2:textfilecontent54_test>
-    <ns2:family_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_unix_wrlinux:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_unix_wrlinux:obj:1"/>
-      <ns2:state state_ref="oval:ssg-state_unix_wrlinux:ste:1"/>
-    </ns2:family_test>
-    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="at_least_one_exists" comment="Test presence of /etc/wrlinux-release." id="oval:ssg-test_wrlinux:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-obj_test_wrlinux:obj:1"/>
-    </ns2:file_test>
-    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="Check if /.dockerenv exists" id="oval:ssg-installed_env_is_a_container:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-installed_env_is_a_container:obj:1"/>
-    </ns2:file_test>
-    <ns2:file_test xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="Check if /.dockerenv exists" id="oval:ssg-installed_env_is_a_machine:tst:1" version="1">
-      <ns2:object object_ref="oval:ssg-installed_env_is_a_machine:obj:1"/>
-    </ns2:file_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="centos-release is version 6" id="oval:ssg-test_centos6:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_centos6:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_centos6:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="centos-release is version 7" id="oval:ssg-test_centos7:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_centos7:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_centos7:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns4:file_test check="all" check_existence="all_exist" comment="/etc/debian_version exists" id="oval:ssg-test_debian:tst:1" version="1">
+      <ns4:object object_ref="oval:ssg-obj_debian:obj:1"/>
+    </ns4:file_test>
+    <ns5:textfilecontent54_test check="all" check_existence="at_least_one_exists" comment="Check Debian version" id="oval:ssg-test_debian_8:tst:1" version="1">
+      <ns5:object object_ref="oval:ssg-obj_debian_8:obj:1"/>
+    </ns5:textfilecontent54_test>
+    <ns3:rpminfo_test check="all" check_existence="only_one_exists" comment="fedora-release RPM package is installed" id="oval:ssg-test_fedora_release_rpm:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-object_fedora_release_rpm:obj:1"/>
+    </ns3:rpminfo_test>
+    <ns5:textfilecontent54_test check="all" comment="CPE vendor is 'fedoraproject' and 'product' is fedora" id="oval:ssg-test_fedora_vendor_product:tst:1" version="1">
+      <ns5:object object_ref="oval:ssg-object_fedora_vendor_product:obj:1"/>
+    </ns5:textfilecontent54_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="oraclelinux-release is version 6" id="oval:ssg-test_ol6_system:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_ol6_system:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_ol6_system:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="oraclelinux-release is version 7" id="oval:ssg-test_ol7_system:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_ol7_system:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_ol7_system:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="openSUSE is installed" id="oval:ssg-test_opensuse_installed:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_opensuse_installed:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_opensuse_installed:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="openSUSE Leap 15 is installed" id="oval:ssg-test_opensuse_leap15_installed:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_opensuse_leap15_installed:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_opensuse_leap15_installed:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="openSUSE Leap 42 is installed" id="oval:ssg-test_opensuse_leap42_installed:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_opensuse_leap42_installed:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_opensuse_leap42_installed:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns5:family_test check="all" check_existence="at_least_one_exists" comment="Test installed OS is part of the unix family" id="oval:ssg-test_unix_family:tst:1" version="1">
+      <ns5:object object_ref="oval:ssg-object_unix_family:obj:1"/>
+      <ns5:state state_ref="oval:ssg-state_unix_family:ste:1"/>
+    </ns5:family_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="redhat-release-client is version 6" id="oval:ssg-test_rhel_client:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_rhel_client:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_rhel_client:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="redhat-release-workstation is version 6" id="oval:ssg-test_rhel_workstation:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_rhel_workstation:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_rhel_workstation:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="redhat-release-server is version 6" id="oval:ssg-test_rhel_server:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_rhel_server:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_rhel_server:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="redhat-release-computenode is version 6" id="oval:ssg-test_rhel_computenode:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_rhel_computenode:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_rhel_computenode:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns5:family_test check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_rhel7_unix_family:tst:1" version="1">
+      <ns5:object object_ref="oval:ssg-obj_rhel7_unix_family:obj:1"/>
+      <ns5:state state_ref="oval:ssg-state_rhel7_unix_family:ste:1"/>
+    </ns5:family_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="redhat-release-client is version 7" id="oval:ssg-test_rhel7_client:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_rhel7_client:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_rhel7_client:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="redhat-release-workstation is version 7" id="oval:ssg-test_rhel7_workstation:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_rhel7_workstation:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_rhel7_workstation:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="redhat-release-server is version 7" id="oval:ssg-test_rhel7_server:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_rhel7_server:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_rhel7_server:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="redhat-release-computenode is version 7" id="oval:ssg-test_rhel7_computenode:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_rhel7_computenode:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_rhel7_computenode:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns3:rpminfo_test check="all" check_existence="only_one_exists" comment="redhat-release-virtualization-host RPM package is installed" id="oval:ssg-test_redhat_release_virtualization_host_rpm:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_redhat_release_virtualization_host_rpm:obj:1"/>
+    </ns3:rpminfo_test>
+    <ns5:textfilecontent54_test check="all" comment="RHEVH base RHEL is version 7" id="oval:ssg-test_rhev_rhel_version:tst:1" version="1">
+      <ns5:object object_ref="oval:ssg-obj_rhevh_rhel_version:obj:1"/>
+      <ns5:state state_ref="oval:ssg-state_rhevh_rhel_version:ste:1"/>
+    </ns5:textfilecontent54_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="sl-release is version 6" id="oval:ssg-test_sl6:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_sl6:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_sl6:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="sl-release is version 7" id="oval:ssg-test_sl7:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_sl7:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_sl7:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns5:family_test check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_sle11_unix_family:tst:1" version="1">
+      <ns5:object object_ref="oval:ssg-obj_sle11_unix_family:obj:1"/>
+      <ns5:state state_ref="oval:ssg-state_sle11_unix_family:ste:1"/>
+    </ns5:family_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="sled-release is version 6" id="oval:ssg-test_sle11_desktop:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_sle11_desktop:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_sle11_desktop:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="sles-release is version 6" id="oval:ssg-test_sle11_server:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_sle11_server:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_sle11_server:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns5:family_test check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_sle12_unix_family:tst:1" version="1">
+      <ns5:object object_ref="oval:ssg-obj_sle12_unix_family:obj:1"/>
+      <ns5:state state_ref="oval:ssg-state_sle12_unix_family:ste:1"/>
+    </ns5:family_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="sled-release is version 6" id="oval:ssg-test_sle12_desktop:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_sle12_desktop:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_sle12_desktop:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns3:rpminfo_test check="all" check_existence="at_least_one_exists" comment="sles-release is version 6" id="oval:ssg-test_sle12_server:tst:1" version="1">
+      <ns3:object object_ref="oval:ssg-obj_sle12_server:obj:1"/>
+      <ns3:state state_ref="oval:ssg-state_sle12_server:ste:1"/>
+    </ns3:rpminfo_test>
+    <ns4:file_test check="all" check_existence="all_exist" comment="/etc/lsb-release exists" id="oval:ssg-test_lsb:tst:1" version="1">
+      <ns4:object object_ref="oval:ssg-obj_lsb:obj:1"/>
+    </ns4:file_test>
+    <ns5:textfilecontent54_test check="all" check_existence="at_least_one_exists" comment="Check Ubuntu" id="oval:ssg-test_ubuntu:tst:1" version="1">
+      <ns5:object object_ref="oval:ssg-obj_ubuntu:obj:1"/>
+    </ns5:textfilecontent54_test>
+    <ns5:textfilecontent54_test check="all" check_existence="at_least_one_exists" comment="Check Ubuntu version" id="oval:ssg-test_ubuntu_trusty:tst:1" version="1">
+      <ns5:object object_ref="oval:ssg-obj_ubuntu_trusty:obj:1"/>
+    </ns5:textfilecontent54_test>
+    <ns5:textfilecontent54_test check="all" check_existence="at_least_one_exists" comment="Check Ubuntu version" id="oval:ssg-test_ubuntu_xenial:tst:1" version="1">
+      <ns5:object object_ref="oval:ssg-obj_ubuntu_xenial:obj:1"/>
+    </ns5:textfilecontent54_test>
+    <ns5:textfilecontent54_test check="all" check_existence="at_least_one_exists" comment="Check Ubuntu version" id="oval:ssg-test_ubuntu_bionic:tst:1" version="1">
+      <ns5:object object_ref="oval:ssg-obj_ubuntu_bionic:obj:1"/>
+    </ns5:textfilecontent54_test>
+    <ns5:family_test check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_unix_wrlinux:tst:1" version="1">
+      <ns5:object object_ref="oval:ssg-obj_unix_wrlinux:obj:1"/>
+      <ns5:state state_ref="oval:ssg-state_unix_wrlinux:ste:1"/>
+    </ns5:family_test>
+    <ns4:file_test check="all" check_existence="at_least_one_exists" comment="Test presence of /etc/wrlinux-release." id="oval:ssg-test_wrlinux:tst:1" version="1">
+      <ns4:object object_ref="oval:ssg-obj_test_wrlinux:obj:1"/>
+    </ns4:file_test>
+    <ns4:file_test check="all" check_existence="all_exist" comment="Check if /.dockerenv exists" id="oval:ssg-installed_env_is_a_container:tst:1" version="1">
+      <ns4:object object_ref="oval:ssg-installed_env_is_a_container:obj:1"/>
+    </ns4:file_test>
+    <ns4:file_test check="all" check_existence="all_exist" comment="Check if /.dockerenv exists" id="oval:ssg-installed_env_is_a_machine:tst:1" version="1">
+      <ns4:object object_ref="oval:ssg-installed_env_is_a_machine:obj:1"/>
+    </ns4:file_test>
   </ns0:tests>
   <ns0:objects>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_centos6:obj:1" version="1">
-      <ns2:name>centos-release</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_centos7:obj:1" version="1">
-      <ns2:name>centos-release</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check Debian version" id="oval:ssg-obj_debian8:obj:1" version="1">
-      <ns2:filepath>/etc/debian_version</ns2:filepath>
-      <ns2:pattern operation="pattern match">^8.[0-9]+$</ns2:pattern>
-      <ns2:instance datatype="int">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-object_fedora_release_rpm:obj:1" version="1">
-      <ns2:name>fedora-release</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_fedora_vendor_product:obj:1" version="1">
-      <ns2:filepath>/etc/system-release-cpe</ns2:filepath>
-      <ns2:pattern operation="pattern match">^cpe:\/o:fedoraproject:fedora:[\d]+$</ns2:pattern>
-      <ns2:instance datatype="int" operation="equals">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_ol6_system:obj:1" version="1">
-      <ns2:name>oraclelinux-release</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_ol7_system:obj:1" version="1">
-      <ns2:name>oraclelinux-release</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:family_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_opensuse_unix_family:obj:1" version="1"/>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_opensuse_installed:obj:1" version="1">
-      <ns2:name>openSUSE-release</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:family_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-object_unix_family:obj:1" version="1"/>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_rhel_client:obj:1" version="1">
-      <ns2:name>redhat-release-client</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_rhel_workstation:obj:1" version="1">
-      <ns2:name>redhat-release-workstation</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_rhel_server:obj:1" version="1">
-      <ns2:name>redhat-release-server</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_rhel_computenode:obj:1" version="1">
-      <ns2:name>redhat-release-computenode</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:family_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_rhel7_unix_family:obj:1" version="1"/>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_rhel7_client:obj:1" version="1">
-      <ns2:name>redhat-release-client</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_rhel7_workstation:obj:1" version="1">
-      <ns2:name>redhat-release-workstation</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_rhel7_server:obj:1" version="1">
-      <ns2:name>redhat-release-server</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_rhel7_computenode:obj:1" version="1">
-      <ns2:name>redhat-release-computenode</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_redhat_release_virtualization_host_rpm:obj:1" version="1">
-      <ns2:name>redhat-release-virtualization-host</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_rhevh_rhel_version:obj:1" version="1">
-      <ns2:filepath>/etc/redhat-release</ns2:filepath>
-      <ns2:pattern operation="pattern match">^Red Hat Enterprise Linux release (\d)\.\d+$</ns2:pattern>
-      <ns2:instance datatype="int" operation="greater than or equal">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_sl6:obj:1" version="1">
-      <ns2:name>sl-release</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_sl7:obj:1" version="1">
-      <ns2:name>sl-release</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:family_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_sle11_unix_family:obj:1" version="1"/>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_sle11_desktop:obj:1" version="1">
-      <ns2:name>sled-release</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_sle11_server:obj:1" version="1">
-      <ns2:name>sles-release</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:family_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_sle12_unix_family:obj:1" version="1"/>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_sle12_desktop:obj:1" version="1">
-      <ns2:name>sled-release</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:rpminfo_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-obj_sle12_server:obj:1" version="1">
-      <ns2:name>sles-release</ns2:name>
-    </ns2:rpminfo_object>
-    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="check /etc/lsb-release file" id="oval:ssg-obj_lsb:obj:1" version="1">
-      <ns2:filepath>/etc/lsb-release</ns2:filepath>
-    </ns2:file_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check Ubuntu" id="oval:ssg-obj_ubuntu:obj:1" version="1">
-      <ns2:filepath>/etc/lsb-release</ns2:filepath>
-      <ns2:pattern operation="pattern match">^DISTRIB_ID=Ubuntu$</ns2:pattern>
-      <ns2:instance datatype="int">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check Ubuntu version" id="oval:ssg-obj_ubuntu_trusty:obj:1" version="1">
-      <ns2:filepath>/etc/lsb-release</ns2:filepath>
-      <ns2:pattern operation="pattern match">^DISTRIB_CODENAME=trusty$</ns2:pattern>
-      <ns2:instance datatype="int">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:textfilecontent54_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="Check Ubuntu version" id="oval:ssg-obj_ubuntu_xenial:obj:1" version="1">
-      <ns2:filepath>/etc/lsb-release</ns2:filepath>
-      <ns2:pattern operation="pattern match">^DISTRIB_CODENAME=xenial$</ns2:pattern>
-      <ns2:instance datatype="int">1</ns2:instance>
-    </ns2:textfilecontent54_object>
-    <ns2:family_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-obj_unix_wrlinux:obj:1" version="1"/>
-    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:ssg-obj_test_wrlinux:obj:1" version="1">
-      <ns2:filepath>/etc/wrlinux-release</ns2:filepath>
-    </ns2:file_object>
-    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="Check file /.dockerenv" id="oval:ssg-installed_env_is_a_container:obj:1" version="1">
-      <ns2:filepath datatype="string">/.dockerenv</ns2:filepath>
-    </ns2:file_object>
-    <ns2:file_object xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="Check file /.dockerenv" id="oval:ssg-installed_env_is_a_machine:obj:1" version="1">
-      <ns2:filepath datatype="string">/.dockerenv</ns2:filepath>
-    </ns2:file_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_centos6:obj:1" version="1">
+      <ns3:name>centos-release</ns3:name>
+    </ns3:rpminfo_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_centos7:obj:1" version="1">
+      <ns3:name>centos-release</ns3:name>
+    </ns3:rpminfo_object>
+    <ns4:file_object comment="check /etc/debian_version file" id="oval:ssg-obj_debian:obj:1" version="1">
+      <ns4:filepath>/etc/debian_version</ns4:filepath>
+    </ns4:file_object>
+    <ns5:textfilecontent54_object comment="Check Debian version" id="oval:ssg-obj_debian_8:obj:1" version="1">
+      <ns5:filepath>/etc/debian_version</ns5:filepath>
+      <ns5:pattern operation="pattern match">^8.[0-9]+$</ns5:pattern>
+      <ns5:instance datatype="int">1</ns5:instance>
+    </ns5:textfilecontent54_object>
+    <ns3:rpminfo_object id="oval:ssg-object_fedora_release_rpm:obj:1" version="1">
+      <ns3:name>fedora-release</ns3:name>
+    </ns3:rpminfo_object>
+    <ns5:textfilecontent54_object id="oval:ssg-object_fedora_vendor_product:obj:1" version="1">
+      <ns5:filepath>/etc/system-release-cpe</ns5:filepath>
+      <ns5:pattern operation="pattern match">^cpe:\/o:fedoraproject:fedora:[\d]+$</ns5:pattern>
+      <ns5:instance datatype="int" operation="equals">1</ns5:instance>
+    </ns5:textfilecontent54_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_ol6_system:obj:1" version="1">
+      <ns3:name>oraclelinux-release</ns3:name>
+    </ns3:rpminfo_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_ol7_system:obj:1" version="1">
+      <ns3:name>oraclelinux-release</ns3:name>
+    </ns3:rpminfo_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_opensuse_installed:obj:1" version="1">
+      <ns3:name>openSUSE-release</ns3:name>
+    </ns3:rpminfo_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_opensuse_leap15_installed:obj:1" version="1">
+      <ns3:name>openSUSE-release</ns3:name>
+    </ns3:rpminfo_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_opensuse_leap42_installed:obj:1" version="1">
+      <ns3:name>openSUSE-release</ns3:name>
+    </ns3:rpminfo_object>
+    <ns5:family_object id="oval:ssg-object_unix_family:obj:1" version="1"/>
+    <ns3:rpminfo_object id="oval:ssg-obj_rhel_client:obj:1" version="1">
+      <ns3:name>redhat-release-client</ns3:name>
+    </ns3:rpminfo_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_rhel_workstation:obj:1" version="1">
+      <ns3:name>redhat-release-workstation</ns3:name>
+    </ns3:rpminfo_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_rhel_server:obj:1" version="1">
+      <ns3:name>redhat-release-server</ns3:name>
+    </ns3:rpminfo_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_rhel_computenode:obj:1" version="1">
+      <ns3:name>redhat-release-computenode</ns3:name>
+    </ns3:rpminfo_object>
+    <ns5:family_object id="oval:ssg-obj_rhel7_unix_family:obj:1" version="1"/>
+    <ns3:rpminfo_object id="oval:ssg-obj_rhel7_client:obj:1" version="1">
+      <ns3:name>redhat-release-client</ns3:name>
+    </ns3:rpminfo_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_rhel7_workstation:obj:1" version="1">
+      <ns3:name>redhat-release-workstation</ns3:name>
+    </ns3:rpminfo_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_rhel7_server:obj:1" version="1">
+      <ns3:name>redhat-release-server</ns3:name>
+    </ns3:rpminfo_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_rhel7_computenode:obj:1" version="1">
+      <ns3:name>redhat-release-computenode</ns3:name>
+    </ns3:rpminfo_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_redhat_release_virtualization_host_rpm:obj:1" version="1">
+      <ns3:name>redhat-release-virtualization-host</ns3:name>
+    </ns3:rpminfo_object>
+    <ns5:textfilecontent54_object id="oval:ssg-obj_rhevh_rhel_version:obj:1" version="1">
+      <ns5:filepath>/etc/redhat-release</ns5:filepath>
+      <ns5:pattern operation="pattern match">^Red Hat Enterprise Linux release (\d)\.\d+$</ns5:pattern>
+      <ns5:instance datatype="int" operation="greater than or equal">1</ns5:instance>
+    </ns5:textfilecontent54_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_sl6:obj:1" version="1">
+      <ns3:name>sl-release</ns3:name>
+    </ns3:rpminfo_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_sl7:obj:1" version="1">
+      <ns3:name>sl-release</ns3:name>
+    </ns3:rpminfo_object>
+    <ns5:family_object id="oval:ssg-obj_sle11_unix_family:obj:1" version="1"/>
+    <ns3:rpminfo_object id="oval:ssg-obj_sle11_desktop:obj:1" version="1">
+      <ns3:name>sled-release</ns3:name>
+    </ns3:rpminfo_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_sle11_server:obj:1" version="1">
+      <ns3:name>sles-release</ns3:name>
+    </ns3:rpminfo_object>
+    <ns5:family_object id="oval:ssg-obj_sle12_unix_family:obj:1" version="1"/>
+    <ns3:rpminfo_object id="oval:ssg-obj_sle12_desktop:obj:1" version="1">
+      <ns3:name>sled-release</ns3:name>
+    </ns3:rpminfo_object>
+    <ns3:rpminfo_object id="oval:ssg-obj_sle12_server:obj:1" version="1">
+      <ns3:name>sles-release</ns3:name>
+    </ns3:rpminfo_object>
+    <ns4:file_object comment="check /etc/lsb-release file" id="oval:ssg-obj_lsb:obj:1" version="1">
+      <ns4:filepath>/etc/lsb-release</ns4:filepath>
+    </ns4:file_object>
+    <ns5:textfilecontent54_object comment="Check Ubuntu" id="oval:ssg-obj_ubuntu:obj:1" version="1">
+      <ns5:filepath>/etc/lsb-release</ns5:filepath>
+      <ns5:pattern operation="pattern match">^DISTRIB_ID=Ubuntu$</ns5:pattern>
+      <ns5:instance datatype="int">1</ns5:instance>
+    </ns5:textfilecontent54_object>
+    <ns5:textfilecontent54_object comment="Check Ubuntu version" id="oval:ssg-obj_ubuntu_trusty:obj:1" version="1">
+      <ns5:filepath>/etc/lsb-release</ns5:filepath>
+      <ns5:pattern operation="pattern match">^DISTRIB_CODENAME=trusty$</ns5:pattern>
+      <ns5:instance datatype="int">1</ns5:instance>
+    </ns5:textfilecontent54_object>
+    <ns5:textfilecontent54_object comment="Check Ubuntu version" id="oval:ssg-obj_ubuntu_xenial:obj:1" version="1">
+      <ns5:filepath>/etc/lsb-release</ns5:filepath>
+      <ns5:pattern operation="pattern match">^DISTRIB_CODENAME=xenial$</ns5:pattern>
+      <ns5:instance datatype="int">1</ns5:instance>
+    </ns5:textfilecontent54_object>
+    <ns5:textfilecontent54_object comment="Check Ubuntu version" id="oval:ssg-obj_ubuntu_bionic:obj:1" version="1">
+      <ns5:filepath>/etc/lsb-release</ns5:filepath>
+      <ns5:pattern operation="pattern match">^DISTRIB_CODENAME=bionic$</ns5:pattern>
+      <ns5:instance datatype="int">1</ns5:instance>
+    </ns5:textfilecontent54_object>
+    <ns5:family_object id="oval:ssg-obj_unix_wrlinux:obj:1" version="1"/>
+    <ns4:file_object id="oval:ssg-obj_test_wrlinux:obj:1" version="1">
+      <ns4:filepath>/etc/wrlinux-release</ns4:filepath>
+    </ns4:file_object>
+    <ns4:file_object comment="Check file /.dockerenv" id="oval:ssg-installed_env_is_a_container:obj:1" version="1">
+      <ns4:filepath datatype="string">/.dockerenv</ns4:filepath>
+    </ns4:file_object>
+    <ns4:file_object comment="Check file /.dockerenv" id="oval:ssg-installed_env_is_a_machine:obj:1" version="1">
+      <ns4:filepath datatype="string">/.dockerenv</ns4:filepath>
+    </ns4:file_object>
   </ns0:objects>
   <ns0:states>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_centos6:ste:1" version="1">
-      <ns2:version operation="pattern match">^6.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_centos7:ste:1" version="1">
-      <ns2:version operation="pattern match">^7.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_ol6_system:ste:1" version="1">
-      <ns2:version operation="pattern match">^6Server$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_ol7_system:ste:1" version="1">
-      <ns2:version operation="pattern match">^7.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:family_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_opensuse_unix_family:ste:1" version="1">
-      <ns2:family>unix</ns2:family>
-    </ns2:family_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_opensuse_installed:ste:1" version="1">
-      <ns2:version operation="pattern match">^42.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:family_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_unix_family:ste:1" version="1">
-      <ns2:family>unix</ns2:family>
-    </ns2:family_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_rhel_client:ste:1" version="1">
-      <ns2:version operation="pattern match">^6.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_rhel_workstation:ste:1" version="1">
-      <ns2:version operation="pattern match">^6.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_rhel_server:ste:1" version="1">
-      <ns2:version operation="pattern match">^6.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_rhel_computenode:ste:1" version="1">
-      <ns2:version operation="pattern match">^6.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:family_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_rhel7_unix_family:ste:1" version="1">
-      <ns2:family>unix</ns2:family>
-    </ns2:family_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_rhel7_client:ste:1" version="1">
-      <ns2:version operation="pattern match">^7.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_rhel7_workstation:ste:1" version="1">
-      <ns2:version operation="pattern match">^7.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_rhel7_server:ste:1" version="1">
-      <ns2:version operation="pattern match">^7.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_rhel7_computenode:ste:1" version="1">
-      <ns2:version operation="pattern match">^7.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:textfilecontent54_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_rhevh_rhel_version:ste:1" version="1">
-      <ns2:subexpression operation="pattern match">7</ns2:subexpression>
-    </ns2:textfilecontent54_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_sl6:ste:1" version="1">
-      <ns2:version operation="pattern match">^6.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_sl7:ste:1" version="1">
-      <ns2:version operation="pattern match">^7.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:family_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_sle11_unix_family:ste:1" version="1">
-      <ns2:family>unix</ns2:family>
-    </ns2:family_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_sle11_desktop:ste:1" version="1">
-      <ns2:version operation="pattern match">^11.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_sle11_server:ste:1" version="1">
-      <ns2:version operation="pattern match">^11.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:family_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_sle12_unix_family:ste:1" version="1">
-      <ns2:family>unix</ns2:family>
-    </ns2:family_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_sle12_desktop:ste:1" version="1">
-      <ns2:version operation="pattern match">^12.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:rpminfo_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:ssg-state_sle12_server:ste:1" version="1">
-      <ns2:version operation="pattern match">^12.*$</ns2:version>
-    </ns2:rpminfo_state>
-    <ns2:family_state xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:ssg-state_unix_wrlinux:ste:1" version="1">
-      <ns2:family>unix</ns2:family>
-    </ns2:family_state>
+    <ns3:rpminfo_state id="oval:ssg-state_centos6:ste:1" version="1">
+      <ns3:version operation="pattern match">^6.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns3:rpminfo_state id="oval:ssg-state_centos7:ste:1" version="1">
+      <ns3:version operation="pattern match">^7.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns3:rpminfo_state id="oval:ssg-state_ol6_system:ste:1" version="1">
+      <ns3:version operation="pattern match">^6Server$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns3:rpminfo_state id="oval:ssg-state_ol7_system:ste:1" version="1">
+      <ns3:version operation="pattern match">^7.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns3:rpminfo_state id="oval:ssg-state_opensuse_installed:ste:1" version="1">
+      <ns3:name operation="pattern match">openSUSE-release</ns3:name>
+    </ns3:rpminfo_state>
+    <ns3:rpminfo_state id="oval:ssg-state_opensuse_leap15_installed:ste:1" version="1">
+      <ns3:version operation="pattern match">^15.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns3:rpminfo_state id="oval:ssg-state_opensuse_leap42_installed:ste:1" version="1">
+      <ns3:version operation="pattern match">^42.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns5:family_state id="oval:ssg-state_unix_family:ste:1" version="1">
+      <ns5:family>unix</ns5:family>
+    </ns5:family_state>
+    <ns3:rpminfo_state id="oval:ssg-state_rhel_client:ste:1" version="1">
+      <ns3:version operation="pattern match">^6.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns3:rpminfo_state id="oval:ssg-state_rhel_workstation:ste:1" version="1">
+      <ns3:version operation="pattern match">^6.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns3:rpminfo_state id="oval:ssg-state_rhel_server:ste:1" version="1">
+      <ns3:version operation="pattern match">^6.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns3:rpminfo_state id="oval:ssg-state_rhel_computenode:ste:1" version="1">
+      <ns3:version operation="pattern match">^6.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns5:family_state id="oval:ssg-state_rhel7_unix_family:ste:1" version="1">
+      <ns5:family>unix</ns5:family>
+    </ns5:family_state>
+    <ns3:rpminfo_state id="oval:ssg-state_rhel7_client:ste:1" version="1">
+      <ns3:version operation="pattern match">^7.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns3:rpminfo_state id="oval:ssg-state_rhel7_workstation:ste:1" version="1">
+      <ns3:version operation="pattern match">^7.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns3:rpminfo_state id="oval:ssg-state_rhel7_server:ste:1" version="1">
+      <ns3:version operation="pattern match">^7.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns3:rpminfo_state id="oval:ssg-state_rhel7_computenode:ste:1" version="1">
+      <ns3:version operation="pattern match">^7.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns5:textfilecontent54_state id="oval:ssg-state_rhevh_rhel_version:ste:1" version="1">
+      <ns5:subexpression operation="pattern match">7</ns5:subexpression>
+    </ns5:textfilecontent54_state>
+    <ns3:rpminfo_state id="oval:ssg-state_sl6:ste:1" version="1">
+      <ns3:version operation="pattern match">^6.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns3:rpminfo_state id="oval:ssg-state_sl7:ste:1" version="1">
+      <ns3:version operation="pattern match">^7.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns5:family_state id="oval:ssg-state_sle11_unix_family:ste:1" version="1">
+      <ns5:family>unix</ns5:family>
+    </ns5:family_state>
+    <ns3:rpminfo_state id="oval:ssg-state_sle11_desktop:ste:1" version="1">
+      <ns3:version operation="pattern match">^11.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns3:rpminfo_state id="oval:ssg-state_sle11_server:ste:1" version="1">
+      <ns3:version operation="pattern match">^11.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns5:family_state id="oval:ssg-state_sle12_unix_family:ste:1" version="1">
+      <ns5:family>unix</ns5:family>
+    </ns5:family_state>
+    <ns3:rpminfo_state id="oval:ssg-state_sle12_desktop:ste:1" version="1">
+      <ns3:version operation="pattern match">^12.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns3:rpminfo_state id="oval:ssg-state_sle12_server:ste:1" version="1">
+      <ns3:version operation="pattern match">^12.*$</ns3:version>
+    </ns3:rpminfo_state>
+    <ns5:family_state id="oval:ssg-state_unix_wrlinux:ste:1" version="1">
+      <ns5:family>unix</ns5:family>
+    </ns5:family_state>
   </ns0:states>
 </ns0:oval_definitions>
