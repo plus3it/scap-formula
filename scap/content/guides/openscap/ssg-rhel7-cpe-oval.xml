@@ -2,9 +2,9 @@
 <ns0:oval_definitions xmlns:ns0="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:ns2="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:ns3="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:ns4="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:ns5="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <ns0:generator>
     <ns2:product_name>combine_ovals.py from SCAP Security Guide</ns2:product_name>
-    <ns2:product_version>ssg: [0, 1, 40], python: 2.7.5</ns2:product_version>
+    <ns2:product_version>ssg: [0, 1, 41], python: 2.7.5</ns2:product_version>
     <ns2:schema_version>5.11</ns2:schema_version>
-    <ns2:timestamp>2018-11-25T15:45:55</ns2:timestamp>
+    <ns2:timestamp>2019-03-04T14:39:58</ns2:timestamp>
   </ns0:generator>
   <ns0:definitions>
     <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_centos6:def:1" version="2">
@@ -313,6 +313,20 @@
         <ns0:criterion comment="Xenial is installed" test_ref="oval:ssg-test_ubuntu_xenial:tst:1"/>
       </ns0:criteria>
     </ns0:definition>
+    <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_ubuntu1804:def:1" version="1">
+      <ns0:metadata>
+        <ns0:title>Ubuntu 1804</ns0:title>
+        <ns0:affected family="unix">
+          <ns0:platform>Red Hat Enterprise Linux 7</ns0:platform>
+        </ns0:affected>
+        <ns0:reference ref_id="cpe:/o:canonical:ubuntu_linux:18.04" source="CPE"/>
+        <ns0:description>The operating system installed on the system is Ubuntu 1804</ns0:description>
+      </ns0:metadata>
+      <ns0:criteria comment="current Ubuntu version is Bionic" operator="AND">
+        <ns0:extend_definition comment="Ubuntu is installed" definition_ref="oval:ssg-installed_OS_is_ubuntu:def:1"/>
+        <ns0:criterion comment="Bionic is installed" test_ref="oval:ssg-test_ubuntu_bionic:tst:1"/>
+      </ns0:criteria>
+    </ns0:definition>
     <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_wrlinux:def:1" version="1">
       <ns0:metadata>
         <ns0:title>WRLinux</ns0:title>
@@ -487,6 +501,9 @@
     <ns5:textfilecontent54_test check="all" check_existence="at_least_one_exists" comment="Check Ubuntu version" id="oval:ssg-test_ubuntu_xenial:tst:1" version="1">
       <ns5:object object_ref="oval:ssg-obj_ubuntu_xenial:obj:1"/>
     </ns5:textfilecontent54_test>
+    <ns5:textfilecontent54_test check="all" check_existence="at_least_one_exists" comment="Check Ubuntu version" id="oval:ssg-test_ubuntu_bionic:tst:1" version="1">
+      <ns5:object object_ref="oval:ssg-obj_ubuntu_bionic:obj:1"/>
+    </ns5:textfilecontent54_test>
     <ns5:family_test check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_unix_wrlinux:tst:1" version="1">
       <ns5:object object_ref="oval:ssg-obj_unix_wrlinux:obj:1"/>
       <ns5:state state_ref="oval:ssg-state_unix_wrlinux:ste:1"/>
@@ -609,6 +626,11 @@
     <ns5:textfilecontent54_object comment="Check Ubuntu version" id="oval:ssg-obj_ubuntu_xenial:obj:1" version="1">
       <ns5:filepath>/etc/lsb-release</ns5:filepath>
       <ns5:pattern operation="pattern match">^DISTRIB_CODENAME=xenial$</ns5:pattern>
+      <ns5:instance datatype="int">1</ns5:instance>
+    </ns5:textfilecontent54_object>
+    <ns5:textfilecontent54_object comment="Check Ubuntu version" id="oval:ssg-obj_ubuntu_bionic:obj:1" version="1">
+      <ns5:filepath>/etc/lsb-release</ns5:filepath>
+      <ns5:pattern operation="pattern match">^DISTRIB_CODENAME=bionic$</ns5:pattern>
       <ns5:instance datatype="int">1</ns5:instance>
     </ns5:textfilecontent54_object>
     <ns5:family_object id="oval:ssg-obj_unix_wrlinux:obj:1" version="1"/>
