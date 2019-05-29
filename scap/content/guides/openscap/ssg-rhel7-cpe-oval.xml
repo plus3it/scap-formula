@@ -4,7 +4,7 @@
     <ns2:product_name>combine_ovals.py from SCAP Security Guide</ns2:product_name>
     <ns2:product_version>ssg: [0, 1, 44], python: 2.7.5</ns2:product_version>
     <ns2:schema_version>5.11</ns2:schema_version>
-    <ns2:timestamp>2019-05-06T13:39:16</ns2:timestamp>
+    <ns2:timestamp>2019-05-28T21:22:48</ns2:timestamp>
   </ns0:generator>
   <ns0:definitions>
     <ns0:definition class="inventory" id="oval:ssg-installed_OS_is_centos6:def:1" version="2">
