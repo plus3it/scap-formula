@@ -47,7 +47,7 @@ echo
 cd build
 cmake ../
 make -j4 "${MAKE_TARGETS[@]}"
-cp *-ds.xml *-xccdf.xml *-oval.xml "$DIST_DIR"
+cp *-ds.xml *-xccdf.xml *-oval.xml *-cpe-dictionary.xml "$DIST_DIR"
 echo
 echo 'Done building content!'
 
