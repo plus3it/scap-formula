@@ -1,25 +1,8 @@
-# Auto detect text files and perform LF normalization
-* text=auto eol=lf
+# Force LF normalization for text files
+* text eol=lf
 
-# Custom for Visual Studio
-*.cs     diff=csharp
-*.sln    merge=union
-*.csproj merge=union
-*.vbproj merge=union
-*.fsproj merge=union
-*.dbproj merge=union
-
-# Standard to msysgit
-*.doc	 diff=astextplain
-*.DOC	 diff=astextplain
-*.docx diff=astextplain
-*.DOCX diff=astextplain
-*.dot  diff=astextplain
-*.DOT  diff=astextplain
-*.pdf  diff=astextplain
-*.PDF	 diff=astextplain
-*.rtf	 diff=astextplain
-*.RTF	 diff=astextplain
-
+# Use CRLF for .bat files
 *.bat text eol=crlf
+
+# Remove text attribute from xml files
 *.xml -text
