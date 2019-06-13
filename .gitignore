@@ -46,6 +46,9 @@ Temporary Items
 #Personal git ignore settings
 #===============
 
-#pycharm dirs
+# pycharm dirs
 .idea
 *.bundle
+
+# build dir
+build/
