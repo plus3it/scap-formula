@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<data-stream-collection xmlns="http://scap.nist.gov/schema/scap/source/1.2" id="scap_mil.disa.stig_collection_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark" schematron-version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.2 http://scap.nist.gov/schema/xccdf/1.2/xccdf_1.2.xsd http://cpe.mitre.org/dictionary/2.0 http://scap.nist.gov/schema/cpe/2.3/cpe-dictionary_2.3.xsd http://oval.mitre.org/XMLSchema/oval-common-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/windows-definitions-schema.xsd http://scap.nist.gov/schema/scap/source/1.2 http://scap.nist.gov/schema/scap/1.2/scap-source-data-stream_1.2.xsd">
-  <data-stream id="scap_mil.disa.stig_datastream_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark" use-case="CONFIGURATION" scap-version="1.2" timestamp="2017-12-14T13:41:11">
+<data-stream-collection xmlns="http://scap.nist.gov/schema/scap/source/1.2" id="scap_mil.disa.stig_collection_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark" schematron-version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.2 http://scap.nist.gov/schema/xccdf/1.2/xccdf_1.2.xsd http://cpe.mitre.org/dictionary/2.0 http://scap.nist.gov/schema/cpe/2.3/cpe-dictionary_2.3.xsd http://oval.mitre.org/XMLSchema/oval-common-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/windows-definitions-schema.xsd http://scap.nist.gov/schema/scap/source/1.2 http://scap.nist.gov/schema/scap/1.2/scap-source-data-stream_1.2.xsd">
+  <data-stream id="scap_mil.disa.stig_datastream_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark" use-case="CONFIGURATION" scap-version="1.2" timestamp="2019-03-29T11:36:52">
     <dictionaries>
-      <component-ref id="scap_mil.disa.stig_cref_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml">
+      <component-ref id="scap_mil.disa.stig_cref_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml">
         <cat:catalog xmlns:cat="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-          <cat:uri name="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" uri="#scap_mil.disa.stig_cref_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
+          <cat:uri name="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" uri="#scap_mil.disa.stig_cref_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
         </cat:catalog>
       </component-ref>
     </dictionaries>
     <checklists>
-      <component-ref id="scap_mil.disa.stig_cref_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-xccdf.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-xccdf.xml">
+      <component-ref id="scap_mil.disa.stig_cref_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-xccdf.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-xccdf.xml">
         <cat:catalog xmlns:cat="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-          <cat:uri name="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" uri="#scap_mil.disa.stig_cref_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+          <cat:uri name="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" uri="#scap_mil.disa.stig_cref_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
         </cat:catalog>
       </component-ref>
     </checklists>
     <checks>
-      <component-ref id="scap_mil.disa.stig_cref_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
-      <component-ref id="scap_mil.disa.stig_cref_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
+      <component-ref id="scap_mil.disa.stig_cref_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
+      <component-ref id="scap_mil.disa.stig_cref_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
     </checks>
   </data-stream>
-  <component id="scap_mil.disa.stig_comp_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" timestamp="2017-12-14T13:41:11">
+  <component id="scap_mil.disa.stig_comp_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" timestamp="2019-03-29T11:36:52">
     <cpe-list xmlns="http://cpe.mitre.org/dictionary/2.0">
       <cpe-item name="cpe:/a:microsoft:internet_explorer:11">
         <title>Microsoft Internet Explorer 11</title>
-        <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-cpe-oval.xml">oval:mil.disa.fso.ie:def:18343</check>
+        <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-cpe-oval.xml">oval:mil.disa.fso.ie:def:18343</check>
       </cpe-item>
     </cpe-list>
   </component>
-  <component id="scap_mil.disa.stig_comp_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-xccdf.xml" timestamp="2017-12-14T13:41:11">
+  <component id="scap_mil.disa.stig_comp_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-xccdf.xml" timestamp="2019-03-29T11:36:52">
     <xccdf:Benchmark xmlns:xccdf="http://checklists.nist.gov/xccdf/1.2" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:cpe="http://cpe.mitre.org/language/2.0" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" id="xccdf_mil.disa.stig_benchmark_IE_11_STIG" xml:lang="en" style="SCAP_1.2">
-      <xccdf:status date="2018-01-26">accepted</xccdf:status>
+      <xccdf:status date="2019-04-26">accepted</xccdf:status>
       <xccdf:title>Microsoft Internet Explorer 11 Security Technical Implementation Guide</xccdf:title>
       <xccdf:description>The Microsoft Internet Explorer 11 Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems. Comments or proposed revisions to this document should be sent via e-mail to the following address: disa.stig_spt@mail.mil</xccdf:description>
       <xccdf:notice id="terms-of-use" xml:lang="en" />
@@ -39,9 +39,9 @@
         <dc:publisher>DISA</dc:publisher>
         <dc:source>STIG.DOD.MIL</dc:source>
       </xccdf:reference>
-      <xccdf:plain-text id="release-info">Release: 1.11 Benchmark Date: 26 Jan 2018</xccdf:plain-text>
+      <xccdf:plain-text id="release-info">Release: 1.13 Benchmark Date: 26 Apr 2019</xccdf:plain-text>
       <xccdf:platform idref="cpe:/a:microsoft:internet_explorer:11" />
-      <xccdf:version update="http://iase.disa.mil/stigs">001.011</xccdf:version>
+      <xccdf:version update="http://iase.disa.mil/stigs">001.013</xccdf:version>
       <xccdf:metadata>
         <dc:creator>DISA</dc:creator>
         <dc:publisher>DISA</dc:publisher>
@@ -56,7 +56,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46481" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46483" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46501" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46505" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46507" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46509" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46511" selected="true" />
@@ -78,7 +77,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46579" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46581" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46583" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46585" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46587" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46589" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46591" selected="true" />
@@ -195,7 +193,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46481" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46483" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46501" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46505" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46507" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46509" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46511" selected="true" />
@@ -217,7 +214,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46579" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46581" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46583" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46585" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46587" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46589" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46591" selected="true" />
@@ -334,7 +330,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46481" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46483" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46501" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46505" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46507" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46509" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46511" selected="true" />
@@ -356,7 +351,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46579" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46581" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46583" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46585" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46587" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46589" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46591" selected="true" />
@@ -473,7 +467,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46481" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46483" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46501" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46505" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46507" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46509" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46511" selected="true" />
@@ -495,7 +488,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46579" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46581" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46583" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46585" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46587" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46589" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46591" selected="true" />
@@ -612,7 +604,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46481" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46483" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46501" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46505" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46507" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46509" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46511" selected="true" />
@@ -634,7 +625,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46579" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46581" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46583" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46585" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46587" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46589" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46591" selected="true" />
@@ -751,7 +741,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46481" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46483" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46501" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46505" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46507" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46509" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46511" selected="true" />
@@ -773,7 +762,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46579" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46581" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46583" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46585" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46587" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46589" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46591" selected="true" />
@@ -890,7 +878,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46481" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46483" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46501" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46505" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46507" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46509" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46511" selected="true" />
@@ -912,7 +899,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46579" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46581" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46583" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46585" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46587" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46589" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46591" selected="true" />
@@ -1029,7 +1015,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46481" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46483" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46501" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46505" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46507" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46509" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46511" selected="true" />
@@ -1051,7 +1036,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46579" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46581" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46583" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46585" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46587" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46589" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46591" selected="true" />
@@ -1168,7 +1152,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46481" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46483" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46501" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46505" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46507" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46509" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46511" selected="true" />
@@ -1190,7 +1173,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46579" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46581" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46583" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-46585" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46587" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46589" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-46591" selected="true" />
@@ -1302,12 +1284,11 @@
       <xccdf:Profile id="xccdf_mil.disa.stig_profile_CAT_I_Only">
         <xccdf:title>CAT I Only</xccdf:title>
         <xccdf:description>This profile only includes rules that are Severity Category I.</xccdf:description>
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59337r7_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59337r8_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59339r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59345r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59347r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59365r1_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59369r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59371r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59373r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59375r1_rule" selected="false" />
@@ -1329,7 +1310,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59443r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59445r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59447r1_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59449r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59451r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59453r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59455r1_rule" selected="false" />
@@ -1422,10 +1402,10 @@
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59869r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59871r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-59875r1_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-79201r1_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-79203r1_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-79201r2_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-79203r2_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-79205r1_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-79207r1_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-79207r2_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-79209r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-79211r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-79213r1_rule" selected="false" />
@@ -1916,22 +1896,6 @@
         <xccdf:value selector="enabled:prompt">1</xccdf:value>
         <xccdf:value selector="enabled:disable">3</xccdf:value>
       </xccdf:Value>
-      <xccdf:Value id="xccdf_mil.disa.stig_value_AllowFontDownloads_RestrictedSitesZone_LocalComputer_var" type="number" operator="equals">
-        <xccdf:title>AllowFontDownloads_RestrictedSitesZone_LocalComputer_var</xccdf:title>
-        <xccdf:description>AllowFontDownloads_RestrictedSitesZone_LocalComputer_var</xccdf:description>
-        <xccdf:value>3</xccdf:value>
-        <xccdf:value selector="enabled:enable">0</xccdf:value>
-        <xccdf:value selector="enabled:prompt">1</xccdf:value>
-        <xccdf:value selector="enabled:disable">3</xccdf:value>
-      </xccdf:Value>
-      <xccdf:Value id="xccdf_mil.disa.stig_value_AllowFontDownloads_InternetZone_LocalComputer_var" type="number" operator="equals">
-        <xccdf:title>AllowFontDownloads_InternetZone_LocalComputer_var</xccdf:title>
-        <xccdf:description>AllowFontDownloads_InternetZone_LocalComputer_var</xccdf:description>
-        <xccdf:value>3</xccdf:value>
-        <xccdf:value selector="enabled:enable">0</xccdf:value>
-        <xccdf:value selector="enabled:prompt">1</xccdf:value>
-        <xccdf:value selector="enabled:disable">3</xccdf:value>
-      </xccdf:Value>
       <xccdf:Value id="xccdf_mil.disa.stig_value_AllowFileDownloads_RestrictedSitesZone_LocalComputer_var" type="number" operator="equals">
         <xccdf:title>AllowFileDownloads_RestrictedSitesZone_LocalComputer_var</xccdf:title>
         <xccdf:description>AllowFileDownloads_RestrictedSitesZone_LocalComputer_var</xccdf:description>
@@ -2021,7 +1985,7 @@
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-46473">
         <xccdf:title>DTBI014-IE11-TLS setting</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-59337r7_rule" severity="medium" weight="10.0">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-59337r8_rule" severity="medium" weight="10.0">
           <xccdf:version update="http://iase.disa.mil/stigs">DTBI014-IE11</xccdf:version>
           <xccdf:title>Turn off Encryption Support must be enabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This parameter ensures only DoD-approved ciphers and algorithms are enabled for use by the web browser by allowing you to turn on/off support for TLS and SSL. TLS is a protocol for protecting communications between the browser and the target server. When the browser attempts to set up a protected communication with the target server, the browser and server negotiate which protocol and version to use. The browser and server attempt to match each other's list of supported protocols and versions and pick the most preferred match..&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
@@ -2032,13 +1996,13 @@
             <dc:subject>IE Version 11</dc:subject>
             <dc:identifier>2589</dc:identifier>
           </xccdf:reference>
-          <xccdf:ident system="http://iase.disa.mil/cci">CCI-001131</xccdf:ident>
-          <xccdf:fixtext fixref="F-50263r17_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Panel &gt;&gt; Advanced Page &gt;&gt; "Turn off Encryption Support" to "Enabled".
+          <xccdf:ident system="http://iase.disa.mil/cci">CCI-002450</xccdf:ident>
+          <xccdf:fixtext fixref="F-50263r18_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Panel &gt;&gt; Advanced Page &gt;&gt; "Turn off Encryption Support" to "Enabled".
 
 Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixtext>
-          <xccdf:fix id="F-50263r17_fix" />
+          <xccdf:fix id="F-50263r18_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:580" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:580" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2060,7 +2024,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50265r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page 'Turn on certificate address mismatch warning' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50265r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:421" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:421" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2083,7 +2047,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50271r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_DownloadSignedActiveXControls_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:42200" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:422" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:422" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2106,7 +2070,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50275r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_DownloadUnsignedActiveXControls_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:42300" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:423" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:423" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2129,30 +2093,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50291r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_InitializeScriptActiveXControlsNotMarkedAsSafe_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:42400" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:424" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
-          </xccdf:check>
-        </xccdf:Rule>
-      </xccdf:Group>
-      <xccdf:Group id="xccdf_mil.disa.stig_group_V-46505">
-        <xccdf:title>DTBI030-IE11-Font download control - Internet</xccdf:title>
-        <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-59369r1_rule" severity="medium" weight="10.0">
-          <xccdf:version update="http://iase.disa.mil/stigs">DTBI030-IE11</xccdf:version>
-          <xccdf:title>Font downloads must be disallowed (Internet zone).</xccdf:title>
-          <xccdf:description>&lt;VulnDiscussion&gt;Downloads of fonts can sometimes contain malicious code. It is possible that a font could include malformed data that would cause Internet Explorer to crash when it attempts to load and render the font. This policy setting allows you to manage whether pages of the zone may download HTML fonts. If you enable this policy setting, HTML fonts can be downloaded automatically. If you enable this policy setting and "Prompt" is selected in the drop-down box, users are queried whether to allow HTML fonts to download. If you disable this policy setting, HTML fonts are prevented from downloading.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;DCMC-1&lt;/IAControls&gt;</xccdf:description>
-          <xccdf:reference>
-            <dc:title>DPMS Target IE Version 11</dc:title>
-            <dc:publisher>DISA</dc:publisher>
-            <dc:type>DPMS Target</dc:type>
-            <dc:subject>IE Version 11</dc:subject>
-            <dc:identifier>2589</dc:identifier>
-          </xccdf:reference>
-          <xccdf:ident system="http://iase.disa.mil/cci">CCI-000381</xccdf:ident>
-          <xccdf:fixtext fixref="F-50295r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Internet Zone -&gt; 'Allow font downloads' to 'Enabled', and select 'Disable' from the drop-down box.</xccdf:fixtext>
-          <xccdf:fix id="F-50295r1_fix" />
-          <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowFontDownloads_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:42500" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:425" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:424" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2174,7 +2115,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50297r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Internet Zone -&gt; 'Java permissions' to 'Enabled', and select 'Disable Java' from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50297r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:426" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:426" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2197,7 +2138,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50299r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AccessDataSourcesAcrossDomains_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:42700" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:427" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:427" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2220,7 +2161,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50301r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowDragDropOrCopyPasteFiles_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:42800" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:428" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:428" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2243,7 +2184,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50303r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_LaunchingApplicationsAndFilesInIFRAME_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:42900" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:429" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:429" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2265,7 +2206,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50305r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Internet Zone -&gt; 'Navigate windows and frames across different domains' to 'Enabled', and select 'Disable' from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50305r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:430" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:430" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2288,7 +2229,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50307r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_UserdataPersistence_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:43100" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:431" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:431" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2311,7 +2252,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50309r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowCutCopyPasteOperationsFromClipboardViaScript_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:43200" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:432" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:432" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2334,7 +2275,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50311r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_LogonOptions_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:43300" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:433" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:433" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2356,7 +2297,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50313r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Intranet Zone -&gt; 'Java permissions' to 'Enabled', and select 'High Safety' from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50313r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:434" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:434" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2378,7 +2319,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50319r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Trusted Sites Zone -&gt; 'Java permissions' to 'Enabled', and select 'High Safety' from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50319r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:435" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:435" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2400,7 +2341,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50321r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer-&gt; Internet Control Panel-&gt; Security Page-&gt; Internet Zone 'Enable dragging of content from different domains within a window' to 'Enabled', and select 'Disabled' from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50321r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:549" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:549" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2422,7 +2363,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50323r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer-&gt; Internet Control Panel-&gt; Security Page-&gt; Restricted Sites Zone 'Enable dragging of content from different domains across windows' to 'Enabled', and select 'Disabled' from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50323r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:548" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:548" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2444,7 +2385,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50325r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Restrict ActiveX Install -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50325r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:535" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:535" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2466,7 +2407,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50327r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Restrict ActiveX Install -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50327r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:536" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:536" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2488,7 +2429,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50329r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer-&gt; Internet Control Panel-&gt; Security Page-&gt; Restricted Sites Zone 'Enable dragging of content from different domains within a window' to 'Enabled', and select 'Disabled' from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50329r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:550" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:550" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2511,7 +2452,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50343r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_DownloadSignedActiveXControls_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:43600" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:436" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:436" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2534,7 +2475,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50345r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_DownloadUnsignedActiveXControls_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:43700" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:437" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:437" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2557,7 +2498,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50347r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_InitializeScriptActiveXControlsNotMarkedAsSafe_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:43800" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:438" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:438" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2580,7 +2521,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50349r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_RunActiveXControlsAndPlugins_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:43900" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:439" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:439" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2603,7 +2544,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50351r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_ScriptActiveXControlsMarkedSafeForScripting_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:44000" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:440" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:440" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2626,30 +2567,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50353r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowFileDownloads_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:44100" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:441" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
-          </xccdf:check>
-        </xccdf:Rule>
-      </xccdf:Group>
-      <xccdf:Group id="xccdf_mil.disa.stig_group_V-46585">
-        <xccdf:title>DTBI120-IE11-Font download control - Restricted Sites</xccdf:title>
-        <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-59449r1_rule" severity="medium" weight="10.0">
-          <xccdf:version update="http://iase.disa.mil/stigs">DTBI120-IE11</xccdf:version>
-          <xccdf:title>Font downloads must be disallowed (Restricted Sites zone).</xccdf:title>
-          <xccdf:description>&lt;VulnDiscussion&gt;It is possible that a font could include malformed data that would cause Internet Explorer to crash when it attempts to load and render the font. Downloads of fonts can sometimes contain malicious code. Files should not be downloaded from restricted sites. This policy setting allows you to manage whether pages of the zone may download HTML fonts.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;DCMC-1&lt;/IAControls&gt;</xccdf:description>
-          <xccdf:reference>
-            <dc:title>DPMS Target IE Version 11</dc:title>
-            <dc:publisher>DISA</dc:publisher>
-            <dc:type>DPMS Target</dc:type>
-            <dc:subject>IE Version 11</dc:subject>
-            <dc:identifier>2589</dc:identifier>
-          </xccdf:reference>
-          <xccdf:ident system="http://iase.disa.mil/cci">CCI-000381</xccdf:ident>
-          <xccdf:fixtext fixref="F-50355r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Restricted Sites Zone -&gt; 'Allow font downloads' to 'Enabled', and select 'Disable' from the drop-down box.</xccdf:fixtext>
-          <xccdf:fix id="F-50355r1_fix" />
-          <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowFontDownloads_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:44200" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:442" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:441" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2672,7 +2590,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50357r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_JavaPermissions_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:45300" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:453" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:453" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2695,7 +2613,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50359r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AccessDataSourcesAcrossDomains_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:44300" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:443" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:443" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2718,7 +2636,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50361r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowMETAREFRESH_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:44400" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:444" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:444" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2741,7 +2659,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50363r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowDragDropOrCopyPasteFiles_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:44500" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:445" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:445" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2764,7 +2682,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50367r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_LaunchingApplicationsAndFilesInIFRAME_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:44700" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:447" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:447" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2787,7 +2705,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50369r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_NavigateSub-framesAcrossDifferentDomains_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:44800" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:448" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:448" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2810,7 +2728,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50371r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_UserdataPersistence_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:44900" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:449" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:449" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2833,7 +2751,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50373r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowActiveScripting_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:45000" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:450" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:450" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2856,7 +2774,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50375r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowCutCopyPasteOperationsFromClipboardViaScript_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:45100" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:451" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:451" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2879,7 +2797,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50377r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_LogonOptions_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:45200" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:452" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:452" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2901,7 +2819,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50379r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Delete Browsing History -&gt; 'Disable Configuring History' to 'Enabled', and enter '40' in 'Days to keep pages in History'.</xccdf:fixtext>
           <xccdf:fix id="F-50379r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:513" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:513" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2924,7 +2842,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50385r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_DoNotAllowUsersAddDeleteSites_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:41900" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:419" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:419" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2947,7 +2865,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50387r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_DoNotAllowUsersChangePolicies_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:41800" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:418" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:418" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2970,7 +2888,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50389r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_UseOnlyMachineSettings_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:41700" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:417" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:417" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2993,7 +2911,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50391r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_TurnOffSecuritySettingsCheckFeature_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:45700" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:457" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:457" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3016,7 +2934,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50395r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowSoftwareRunInstallSignatureInvalid_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:45900" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:459" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:459" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3039,7 +2957,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50399r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_CheckServerCertificateRevocation_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:46100" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:461" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:461" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3057,12 +2975,12 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
             <dc:subject>IE Version 11</dc:subject>
             <dc:identifier>2589</dc:identifier>
           </xccdf:reference>
-          <xccdf:ident system="http://iase.disa.mil/cci">CCI-000352</xccdf:ident>
+          <xccdf:ident system="http://iase.disa.mil/cci">CCI-001749</xccdf:ident>
           <xccdf:fixtext fixref="F-50403r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Advanced Page -&gt; 'Check for signatures on downloaded programs' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50403r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_CheckSignatureDownloadedPrograms_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:46200" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:462" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:462" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3085,7 +3003,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50405r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_IncludeAllNetworkPaths_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:46300" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:463" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:463" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3108,7 +3026,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50407r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowScriptInitiatedWindowsWithoutSizeOrPositionConstraints_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:46400" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:464" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:464" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3131,7 +3049,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50409r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowScriptInitiatedWindowsWithoutSizeOrPositionConstraints_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:46500" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:465" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:465" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3154,7 +3072,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50411r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowScriptlets_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:46600" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:466" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:466" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3177,7 +3095,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50413r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AutomaticPromptingFileDownloads_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:46700" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:467" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:467" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3200,7 +3118,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50415r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_JavaPermissions_LocalMachineZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:46800" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:468" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:468" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3223,7 +3141,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50417r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_JavaPermissions_LockedDownLocalMachineZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:46900" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:469" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:469" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3246,7 +3164,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50419r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_JavaPermissions_LockedDownIntranetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:47000" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:470" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:470" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3269,7 +3187,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50423r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_JavaPermissions_LockedDownTrustedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:47100" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:471" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:471" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3292,7 +3210,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50431r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_JavaPermissions_LockedDownRestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:47300" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:473" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:473" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3315,7 +3233,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50433r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_LooseXAMLFiles_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:47400" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:474" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:474" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3338,7 +3256,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50435r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_LooseXAMLFiles_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:47500" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:475" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:475" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3361,7 +3279,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50447r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_TurnOnProtectedMode_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:48000" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:480" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:480" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3384,7 +3302,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50449r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_TurnOnProtectedMode_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:48100" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:481" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:481" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3407,7 +3325,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50451r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_UsePop-upBlocker_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:48200" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:482" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:482" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3430,7 +3348,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50453r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_UsePop-upBlocker_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:48300" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:483" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:483" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3453,7 +3371,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50455r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_WebSitesInLessPrivilegedWebContentZonesCanNavigateIntoThisZone_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:48400" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:484" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:484" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3476,7 +3394,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50457r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_WebSitesInLessPrivilegedWebContentZonesCanNavigateIntoThisZone_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:48500" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:485" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:485" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3499,7 +3417,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50461r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowBinaryAndScriptBehaviors_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:48600" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:486" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:486" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3521,7 +3439,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50463r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Restricted Sites Zone -&gt; 'Automatic prompting for file downloads' to 'Enabled', and select 'Disable' from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50463r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:487" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:487" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3543,7 +3461,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50465r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Consistent Mime Handling -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50465r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:488" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:488" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3565,7 +3483,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50467r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Consistent Mime Handling -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50467r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:502" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:502" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3587,7 +3505,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50469r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Consistent Mime Handling -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50469r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:503" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:503" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3609,7 +3527,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50471r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Mime Sniffing Safety Feature -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50471r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:489" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:489" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3631,7 +3549,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50473r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Mime Sniffing Safety Feature -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50473r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:510" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:510" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3653,7 +3571,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50475r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Mime Sniffing Safety Feature -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50475r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:511" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:511" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3675,7 +3593,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50477r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; MK Protocol Security Restriction -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50477r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:504" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:504" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3697,7 +3615,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50479r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; MK Protocol Security Restriction -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50479r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:490" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:490" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3719,7 +3637,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50481r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; MK Protocol Security Restriction -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50481r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:491" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:491" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3741,7 +3659,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50483r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Protection From Zone Elevation -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50483r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:492" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:492" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3763,7 +3681,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50485r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Protection From Zone Elevation -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50485r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:505" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:505" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3785,7 +3703,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50487r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Protection From Zone Elevation -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50487r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:506" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:506" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3807,7 +3725,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50489r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Restrict File Download -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50489r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:493" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:493" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3829,7 +3747,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50529r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Restrict File Download -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50529r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:494" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:494" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3851,7 +3769,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50531r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Restrict File Download -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50531r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:495" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:495" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3873,7 +3791,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50537r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Scripted Window Security Restrictions -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50537r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:496" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:496" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3895,7 +3813,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50539r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Scripted Window Security Restrictions -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50539r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:507" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:507" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3917,7 +3835,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fixtext fixref="F-50541r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Scripted Window Security Restrictions -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50541r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:508" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:508" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3940,7 +3858,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50547r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_RunNETFrameworkReliantComponentsNotSignedWithAuthenticode_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:49700" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:497" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:497" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3963,7 +3881,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50549r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_RunNETFrameworkReliantComponentsSignedWithAuthenticode_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:49800" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:498" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:498" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3986,7 +3904,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50551r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_ScriptingOfJavaApplets_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:49900" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:499" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:499" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4009,7 +3927,7 @@ Select only "Use TLS 1.1" and "Use TLS 1.2" from the drop-down box.</xccdf:fixte
           <xccdf:fix id="F-50561r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_TurnOffCrashDetection_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:50900" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:509" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:509" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4034,7 +3952,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50565r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_TurnoffManagingSmartScreenFilter_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:51400" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:514" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:514" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4057,7 +3975,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50573r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_ConfigureDeleteBrowsingHistoryonexit_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:51600" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:516" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:516" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4080,7 +3998,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50579r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_PreventDeletingWebsitesthattheUserhasVisited_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:51700" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:517" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:517" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4103,7 +4021,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50583r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_TurnOffInPrivateBrowsing_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:51800" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:518" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:518" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4126,7 +4044,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50585r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowScriptingOfInternetExplorerWebBrowserControl_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:51900" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:519" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:519" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4149,7 +4067,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50589r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_IncludeLocalDirectoryPathWhenUploadingFilesToAServer_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:52000" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:520" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:520" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4171,7 +4089,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50591r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features-&gt; Notification Bar-&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50591r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:541" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:541" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4194,7 +4112,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50595r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_LaunchingProgramsAndUnsafeFiles_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:52100" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:521" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:521" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4216,7 +4134,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50597r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features-&gt; Notification Bar-&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50597r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:542" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:542" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4239,7 +4157,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50603r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_OnlyAllowApprovedDomainsToUseActiveXControlsWithoutPrompt_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:52200" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:522" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:522" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4261,7 +4179,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50605r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features-&gt; Notification Bar-&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50605r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:543" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:543" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4283,7 +4201,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50615r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Internet Zone -&gt; 'Turn on Cross-Site Scripting Filter' to 'Enabled', and select 'Enable' from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50615r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:523" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:523" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4306,7 +4224,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50621r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowScriptingOfInternetExplorerWebBrowserControl_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:52400" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:524" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:524" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4329,7 +4247,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50623r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_IncludeLocalDirectoryPathWhenUploadingFilesToAServer_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:52500" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:525" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:525" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4352,7 +4270,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50625r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_LaunchingProgramsAndUnsafeFiles_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:52600" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:526" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:526" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4375,7 +4293,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50627r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_OnlyAllowApprovedDomainsToUseActiveXControlsWithoutPrompt_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:52700" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:527" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:527" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4398,7 +4316,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50631r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_TurnonCrossSiteScriptingFilter_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:52800" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:528" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:528" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4420,7 +4338,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50635r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Security Features -&gt; Restrict ActiveX Install -&gt; 'Internet Explorer Processes' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50635r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:529" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:529" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4442,7 +4360,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50637r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Internet Zone 'Allow updates to status bar via script' to 'Enabled', and select 'Disable' from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50637r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:530" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:530" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4465,7 +4383,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50643r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_RunNETFrameworkReliantComponentsNotSignedWithAuthenticode_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:53100" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:531" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:531" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4488,7 +4406,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50659r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_RunNETFrameworkReliantComponentsSignedWithAuthenticode_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:53200" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:532" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:532" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4511,7 +4429,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fix id="F-50661r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowScriptlets_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:53300" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:533" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:533" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4533,7 +4451,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50671r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer -&gt; Internet Control Panel -&gt; Security Page -&gt; Restricted Sites Zone 'Allow updates to status bar via script' to 'Enabled', and select 'Disable' from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50671r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:534" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:534" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4555,7 +4473,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50705r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer-&gt; Internet Control Panel-&gt; Advanced Page 'Do not allow ActiveX controls to run in Protected Mode when Enhanced Protected Mode is enabled' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50705r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:556" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:556" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4577,7 +4495,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50707r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer-&gt; Internet Control Panel-&gt; Security Page-&gt; Internet Zone 'Enable dragging of content from different domains across windows' to 'Enabled', and select 'Disabled' from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50707r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:547" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:547" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4599,7 +4517,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50711r2_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer-&gt; Internet Control Panel-&gt; Advanced Page 'Turn on Enhanced Protected Mode' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50711r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:551" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:551" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4621,7 +4539,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50715r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer-&gt; Internet Control Panel -&gt; Advanced Page 'Turn on 64-bit tab processes when running in Enhanced Protected Mode on 64-bit versions of Windows' to 'Enabled'.</xccdf:fixtext>
           <xccdf:fix id="F-50715r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:564" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:564" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4643,7 +4561,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50717r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer-&gt; Internet Control Panel -&gt; Security Page -&gt; Internet Zone 'Don't run antimalware programs against ActiveX controls' to 'Enabled' and select 'Disable' in the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50717r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:565" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:565" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4665,7 +4583,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50719r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer-&gt; Internet Control Panel -&gt; Security Page -&gt; Intranet Zone 'Don't run antimalware programs against ActiveX controls' to 'Enabled' and select 'Disable' in the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50719r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:566" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:566" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4687,7 +4605,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50721r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer-&gt; Internet Control Panel -&gt; Security Page -&gt; Local Machine Zone 'Don't run antimalware programs against ActiveX controls' to 'Enabled' and select 'Disable' in the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50721r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:567" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:567" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4709,7 +4627,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50725r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer-&gt; Internet Control Panel -&gt; Security Page -&gt; Restricted Sites Zone 'Don't run antimalware programs against ActiveX controls' to 'Enabled' and select 'Disable' in the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50725r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:568" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:568" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4731,14 +4649,14 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-50727r1_fix">Set the policy value for Computer Configuration -&gt; Administrative Templates -&gt; Windows Components -&gt; Internet Explorer-&gt; Internet Control Panel -&gt; Security Page -&gt; Trusted Sites Zone 'Don't run antimalware programs against ActiveX controls' to 'Enabled' and select 'Disable' in the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-50727r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:569" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:569" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-64711">
         <xccdf:title>DTBI1060-IE11-Managing SmartScreen Filter Warnings</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-79201r1_rule" severity="medium" weight="10.0">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-79201r2_rule" severity="medium" weight="10.0">
           <xccdf:version update="http://iase.disa.mil/stigs">DTBI1060-IE11</xccdf:version>
           <xccdf:title>Prevent bypassing SmartScreen Filter warnings must be enabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This policy setting determines whether the user can bypass warnings from SmartScreen Filter. SmartScreen Filter prevents the user from browsing to or downloading from sites that are known to host malicious content. SmartScreen Filter also prevents the execution of files that are known to be malicious. If you enable this policy setting, SmartScreen Filter warnings block the user. If you disable or do not configure this policy setting, the user can bypass SmartScreen Filter warnings.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
@@ -4749,17 +4667,20 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
             <dc:subject>IE Version 11</dc:subject>
             <dc:identifier>2589</dc:identifier>
           </xccdf:reference>
-          <xccdf:fixtext fixref="F-70641r1_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; ”Prevent bypassing SmartScreen Filter warnings” to ”Enabled”.</xccdf:fixtext>
-          <xccdf:fix id="F-70641r1_fix" />
+          <xccdf:ident system="http://iase.disa.mil/cci">CCI-001242</xccdf:ident>
+          <xccdf:fixtext fixref="F-70641r2_fix">If the system is on the SIPRNet, this requirement is NA.
+
+Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; ”Prevent bypassing SmartScreen Filter warnings” to ”Enabled”.</xccdf:fixtext>
+          <xccdf:fix id="F-70641r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:578" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:578" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-64713">
         <xccdf:title>DTBI1065-IE11-Managing SmartScreen Filter Warnings</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-79203r1_rule" severity="medium" weight="10.0">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-79203r2_rule" severity="medium" weight="10.0">
           <xccdf:version update="http://iase.disa.mil/stigs">DTBI1065-IE11</xccdf:version>
           <xccdf:title>Prevent bypassing SmartScreen Filter warnings about files that are not commonly downloaded from the internet must be enabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This policy setting determines whether the user can bypass warnings from SmartScreen Filter. SmartScreen Filter warns the user about executable files that Internet Explorer users do not commonly download from the internet. If you enable this policy setting, SmartScreen Filter warnings block the user. If you disable or do not configure this policy setting, the user can bypass SmartScreen Filter warnings.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
@@ -4770,10 +4691,11 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
             <dc:subject>IE Version 11</dc:subject>
             <dc:identifier>2589</dc:identifier>
           </xccdf:reference>
+          <xccdf:ident system="http://iase.disa.mil/cci">CCI-001169</xccdf:ident>
           <xccdf:fixtext fixref="F-70643r1_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; ”Prevent bypassing SmartScreen Filter warnings about files that are not commonly downloaded from the internet” to ”Enabled”.</xccdf:fixtext>
           <xccdf:fix id="F-70643r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:572" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:572" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4791,17 +4713,18 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
             <dc:subject>IE Version 11</dc:subject>
             <dc:identifier>2589</dc:identifier>
           </xccdf:reference>
+          <xccdf:ident system="http://iase.disa.mil/cci">CCI-001170</xccdf:ident>
           <xccdf:fixtext fixref="F-70645r1_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; ”Prevent per-user installation of ActiveX controls” to ”Enabled”.</xccdf:fixtext>
           <xccdf:fix id="F-70645r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:574" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:574" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-64717">
         <xccdf:title>DTBI1075-IE11-Prevent Ignoring Certificate Errors</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-79207r1_rule" severity="medium" weight="10.0">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-79207r2_rule" severity="medium" weight="10.0">
           <xccdf:version update="http://iase.disa.mil/stigs">DTBI1075-IE11</xccdf:version>
           <xccdf:title>Prevent ignoring certificate errors option must be enabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This policy setting prevents the user from ignoring Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificate errors that interrupt browsing (such as “expired”, “revoked”, or “name mismatch” errors) in Internet Explorer. If you enable this policy setting, the user cannot continue browsing. If you disable or do not configure this policy setting, the user can choose to ignore certificate errors and continue browsing.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
@@ -4812,10 +4735,11 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
             <dc:subject>IE Version 11</dc:subject>
             <dc:identifier>2589</dc:identifier>
           </xccdf:reference>
+          <xccdf:ident system="http://iase.disa.mil/cci">CCI-002470</xccdf:ident>
           <xccdf:fixtext fixref="F-70647r1_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Panel &gt;&gt; ”Prevent ignoring certificate errors” to ”Enabled”.</xccdf:fixtext>
           <xccdf:fix id="F-70647r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:575" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:575" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4833,10 +4757,11 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
             <dc:subject>IE Version 11</dc:subject>
             <dc:identifier>2589</dc:identifier>
           </xccdf:reference>
+          <xccdf:ident system="http://iase.disa.mil/cci">CCI-001242</xccdf:ident>
           <xccdf:fixtext fixref="F-70649r1_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Panel &gt;&gt; Security Page &gt;&gt; Internet Zone &gt;&gt; ”Turn on SmartScreen Filter scan” to ”Enabled”, and select ”Enable” from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-70649r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:577" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:577" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4854,10 +4779,11 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
             <dc:subject>IE Version 11</dc:subject>
             <dc:identifier>2589</dc:identifier>
           </xccdf:reference>
+          <xccdf:ident system="http://iase.disa.mil/cci">CCI-001242</xccdf:ident>
           <xccdf:fixtext fixref="F-70651r1_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Panel &gt;&gt; Security Page &gt;&gt; Restricted Sites Zone &gt;&gt; ”Turn on SmartScreen Filter scan” to ”Enabled”, and select ”Enable” from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-70651r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:576" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:576" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4875,10 +4801,11 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
             <dc:subject>IE Version 11</dc:subject>
             <dc:identifier>2589</dc:identifier>
           </xccdf:reference>
+          <xccdf:ident system="http://iase.disa.mil/cci">CCI-001170</xccdf:ident>
           <xccdf:fixtext fixref="F-70653r1_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Panel &gt;&gt; Security Page &gt;&gt; Intranet Zone &gt;&gt; ”Initialize and script ActiveX controls not marked as safe” to ”Enabled”, and select ”Disable” from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-70653r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:579" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:579" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4896,10 +4823,11 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
             <dc:subject>IE Version 11</dc:subject>
             <dc:identifier>2589</dc:identifier>
           </xccdf:reference>
+          <xccdf:ident system="http://iase.disa.mil/cci">CCI-001170</xccdf:ident>
           <xccdf:fixtext fixref="F-70655r1_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Panel &gt;&gt; Security Page &gt;&gt; Trusted Sites Zone &gt;&gt; ”Initialize and script ActiveX controls not marked as safe” to ”Enabled”, and select ”Disable” from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-70655r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:573" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:573" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4917,10 +4845,11 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
             <dc:subject>IE Version 11</dc:subject>
             <dc:identifier>2589</dc:identifier>
           </xccdf:reference>
+          <xccdf:ident system="http://iase.disa.mil/cci">CCI-002450</xccdf:ident>
           <xccdf:fixtext fixref="F-70659r6_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Security Features &gt;&gt; "Allow fallback to SSL 3.0 (Internet Explorer)" to "Enabled", and select "No Sites" from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-70659r6_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:581" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:581" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4942,7 +4871,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-79167r7_fix">In the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Security Features &gt;&gt; Add-on Management, set "Remove the Run this time button for outdated ActiveX controls in IE" to "Enabled".</xccdf:fixtext>
           <xccdf:fix id="F-79167r7_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:585" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:585" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4964,7 +4893,7 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
           <xccdf:fixtext fixref="F-79169r5_fix">In the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Security Features &gt;&gt; Add-on Management, set "Turn off blocking of outdated ActiveX controls for Internet Explorer" to "Disabled".</xccdf:fixtext>
           <xccdf:fix id="F-79169r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:586" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:586" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4983,13 +4912,13 @@ Set the policy value for Computer Configuration &gt;&gt; Administrative Template
             <dc:identifier>2589</dc:identifier>
           </xccdf:reference>
           <xccdf:ident system="http://iase.disa.mil/cci">CCI-000381</xccdf:ident>
-          <xccdf:fixtext fixref="F-79171r6_fix">In the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Pane &gt;&gt; Security Page &gt;&gt; Internet Zone, set the "Allow only approved domains to use the TDC ActiveX control" to “Enabled”. 
+          <xccdf:fixtext fixref="F-79171r6_fix">In the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Pane &gt;&gt; Security Page &gt;&gt; Internet Zone, set the "Allow only approved domains to use the TDC ActiveX control" to “Enabled”.
 
 In the Options window, select "Enable" from the “Only allow approved domains to use the TDC ActiveX control" drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-79171r6_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowApprovedDomainsToUseTDCActiveXControl_InternetZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:58300" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:583" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:583" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5014,7 +4943,7 @@ In the Options windows, select "Enable" from the “Only allow approved domains 
           <xccdf:fix id="F-79173r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export value-id="xccdf_mil.disa.stig_value_AllowApprovedDomainsToUseTDCActiveXControl_RestrictedSitesZone_LocalComputer_var" export-name="oval:mil.disa.fso.ie:var:58400" />
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:584" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:584" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5036,7 +4965,7 @@ In the Options windows, select "Enable" from the “Only allow approved domains 
           <xccdf:fixtext fixref="F-81781r1_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Panel &gt;&gt; Security Page &gt;&gt; Internet Zone &gt;&gt; "Allow VBScript to run in Internet Explorer" to "Enabled" and select "Disable" from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-81781r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:588" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:588" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5058,18 +4987,18 @@ In the Options windows, select "Enable" from the “Only allow approved domains 
           <xccdf:fixtext fixref="F-81783r1_fix">Set the policy value for Computer Configuration &gt;&gt; Administrative Templates &gt;&gt; Windows Components &gt;&gt; Internet Explorer &gt;&gt; Internet Control Panel &gt;&gt; Security Page &gt;&gt; Restricted Sites Zone &gt;&gt; "Allow VBScript to run in Internet Explorer" to "Enabled" and select "Disable" from the drop-down box.</xccdf:fixtext>
           <xccdf:fix id="F-81783r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:589" href="U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.ie:def:589" href="U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
     </xccdf:Benchmark>
   </component>
-  <component id="scap_mil.disa.stig_comp_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-oval.xml" timestamp="2017-12-14T13:41:11">
+  <component id="scap_mil.disa.stig_comp_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-oval.xml" timestamp="2019-03-29T11:36:52">
     <oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5">
       <generator>
         <oval:product_name>repotool</oval:product_name>
         <oval:schema_version>5.10</oval:schema_version>
-        <oval:timestamp>2017-12-14T13:41:10</oval:timestamp>
+        <oval:timestamp>2019-03-29T11:36:51</oval:timestamp>
       </generator>
       <definitions>
         <definition id="oval:mil.disa.fso.ie:def:417" version="1" class="compliance">
@@ -5186,23 +5115,6 @@ In the Options windows, select "Enable" from the “Only allow approved domains 
           </metadata>
           <criteria>
             <criterion comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Initialize and script ActiveX controls not marked as safe" test_ref="oval:mil.disa.fso.ie:tst:42400" />
-          </criteria>
-        </definition>
-        <definition id="oval:mil.disa.fso.ie:def:425" version="1" class="compliance">
-          <metadata>
-            <title>DTBI030-IE11 - Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Allow font downloads</title>
-            <affected family="windows">
-              <platform>Microsoft Windows 7</platform>
-              <platform>Microsoft Windows Server 2008 R2</platform>
-              <platform>Microsoft Windows Server 2012</platform>
-              <platform>Microsoft Windows 8</platform>
-              <platform>Microsoft Windows 8.1</platform>
-              <product>Microsoft Internet Explorer 11</product>
-            </affected>
-            <description>This policy setting allows you to manage whether pages of the zone may download HTML fonts. If you enable this policy setting, HTML fonts can be downloaded automatically.</description>
-          </metadata>
-          <criteria>
-            <criterion comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Allow font downloads" test_ref="oval:mil.disa.fso.ie:tst:42500" />
           </criteria>
         </definition>
         <definition id="oval:mil.disa.fso.ie:def:426" version="1" class="compliance">
@@ -5475,23 +5387,6 @@ In the Options windows, select "Enable" from the “Only allow approved domains 
           </metadata>
           <criteria>
             <criterion comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Allow file downloads" test_ref="oval:mil.disa.fso.ie:tst:44100" />
-          </criteria>
-        </definition>
-        <definition id="oval:mil.disa.fso.ie:def:442" version="2" class="compliance">
-          <metadata>
-            <title>DTBI120-IE11 - Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Allow font downloads</title>
-            <affected family="windows">
-              <platform>Microsoft Windows 7</platform>
-              <platform>Microsoft Windows Server 2008 R2</platform>
-              <platform>Microsoft Windows Server 2012</platform>
-              <platform>Microsoft Windows 8</platform>
-              <platform>Microsoft Windows 8.1</platform>
-              <product>Microsoft Internet Explorer 11</product>
-            </affected>
-            <description>This policy setting allows you to manage whether pages of the zone may download HTML fonts. If you enable this policy setting, HTML fonts can be downloaded automatically.</description>
-          </metadata>
-          <criteria>
-            <criterion comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Allow font downloads" test_ref="oval:mil.disa.fso.ie:tst:44200" />
           </criteria>
         </definition>
         <definition id="oval:mil.disa.fso.ie:def:443" version="2" class="compliance">
@@ -7378,10 +7273,6 @@ In the Options windows, select "Enable" from the “Only allow approved domains 
           <object object_ref="oval:mil.disa.fso.ie:obj:42400" />
           <state state_ref="oval:mil.disa.fso.ie:ste:42400" />
         </registry_test>
-        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:tst:42500" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Allow font downloads" check_existence="at_least_one_exists" check="all">
-          <object object_ref="oval:mil.disa.fso.ie:obj:42500" />
-          <state state_ref="oval:mil.disa.fso.ie:ste:42500" />
-        </registry_test>
         <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:tst:42600" version="1" check="all" comment="Computer Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Java permissions" check_existence="at_least_one_exists">
           <object object_ref="oval:mil.disa.fso.ie:obj:42600" />
           <state state_ref="oval:mil.disa.fso.ie:ste:42600" />
@@ -7445,10 +7336,6 @@ In the Options windows, select "Enable" from the “Only allow approved domains 
         <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:tst:44100" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Allow file downloads" check_existence="at_least_one_exists" check="all">
           <object object_ref="oval:mil.disa.fso.ie:obj:44100" />
           <state state_ref="oval:mil.disa.fso.ie:ste:44100" />
-        </registry_test>
-        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:tst:44200" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Allow font downloads" check_existence="at_least_one_exists" check="all">
-          <object object_ref="oval:mil.disa.fso.ie:obj:44200" />
-          <state state_ref="oval:mil.disa.fso.ie:ste:44200" />
         </registry_test>
         <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:tst:44300" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Access data sources across domains" check_existence="at_least_one_exists" check="all">
           <object object_ref="oval:mil.disa.fso.ie:obj:44300" />
@@ -7946,11 +7833,6 @@ In the Options windows, select "Enable" from the “Only allow approved domains 
           <key datatype="string">Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3</key>
           <name datatype="string">1201</name>
         </registry_object>
-        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:obj:42500" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Allow font downloads">
-          <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
-          <key datatype="string">Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3</key>
-          <name datatype="string">1604</name>
-        </registry_object>
         <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:obj:42600" version="1" comment="Computer Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Java permissions">
           <hive datatype="string" operation="equals">HKEY_LOCAL_MACHINE</hive>
           <key datatype="string" operation="equals">Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3</key>
@@ -8030,11 +7912,6 @@ In the Options windows, select "Enable" from the “Only allow approved domains 
           <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
           <key datatype="string">Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\4</key>
           <name datatype="string">1803</name>
-        </registry_object>
-        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:obj:44200" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Allow font downloads">
-          <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
-          <key datatype="string">Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\4</key>
-          <name datatype="string">1604</name>
         </registry_object>
         <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:obj:44300" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Access data sources across domains">
           <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
@@ -8631,10 +8508,6 @@ In the Options windows, select "Enable" from the “Only allow approved domains 
           <type>reg_dword</type>
           <value datatype="int" var_ref="oval:mil.disa.fso.ie:var:42400" />
         </registry_state>
-        <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:ste:42500" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Allow font downloads">
-          <type>reg_dword</type>
-          <value datatype="int" var_ref="oval:mil.disa.fso.ie:var:42500" />
-        </registry_state>
         <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:ste:42600" version="1" comment="Computer Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Java permissions">
           <type datatype="string" operation="equals" entity_check="all">reg_dword</type>
           <value datatype="string" operation="equals" entity_check="all">0</value>
@@ -8698,10 +8571,6 @@ In the Options windows, select "Enable" from the “Only allow approved domains 
         <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:ste:44100" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Allow file downloads">
           <type>reg_dword</type>
           <value datatype="int" var_ref="oval:mil.disa.fso.ie:var:44100" />
-        </registry_state>
-        <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:ste:44200" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Allow font downloads">
-          <type>reg_dword</type>
-          <value datatype="int" var_ref="oval:mil.disa.fso.ie:var:44200" />
         </registry_state>
         <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.fso.ie:ste:44300" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Access data sources across domains">
           <type>reg_dword</type>
@@ -9167,7 +9036,6 @@ In the Options windows, select "Enable" from the “Only allow approved domains 
         <external_variable id="oval:mil.disa.fso.ie:var:42200" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Download signed ActiveX controls" datatype="int" />
         <external_variable id="oval:mil.disa.fso.ie:var:42300" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Download unsigned ActiveX controls" datatype="int" />
         <external_variable id="oval:mil.disa.fso.ie:var:42400" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Initialize and script ActiveX controls not marked as safe" datatype="int" />
-        <external_variable id="oval:mil.disa.fso.ie:var:42500" version="1" comment="Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3" datatype="int" />
         <external_variable id="oval:mil.disa.fso.ie:var:42700" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Access data sources across domains" datatype="int" />
         <external_variable id="oval:mil.disa.fso.ie:var:42800" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Allow drag and drop or copy and paste files" datatype="int" />
         <external_variable id="oval:mil.disa.fso.ie:var:42900" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Internet Zone\Launching applications and files in an IFRAME" datatype="int" />
@@ -9180,7 +9048,6 @@ In the Options windows, select "Enable" from the “Only allow approved domains 
         <external_variable id="oval:mil.disa.fso.ie:var:43900" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Run ActiveX controls and plugins" datatype="int" />
         <external_variable id="oval:mil.disa.fso.ie:var:44000" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Script ActiveX controls marked safe for scripting" datatype="int" />
         <external_variable id="oval:mil.disa.fso.ie:var:44100" version="1" comment="Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\4" datatype="int" />
-        <external_variable id="oval:mil.disa.fso.ie:var:44200" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Allow font downloads" datatype="int" />
         <external_variable id="oval:mil.disa.fso.ie:var:44300" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Access data sources across domains" datatype="int" />
         <external_variable id="oval:mil.disa.fso.ie:var:44400" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Allow META REFRESH" datatype="int" />
         <external_variable id="oval:mil.disa.fso.ie:var:44500" version="1" comment="Computer Configuration\Network\Internet Explorer\Internet Control Panel\Security Page\Restricted Sites Zone\Allow drag and drop or copy and paste files" datatype="int" />
@@ -9239,12 +9106,12 @@ In the Options windows, select "Enable" from the “Only allow approved domains 
       </variables>
     </oval_definitions>
   </component>
-  <component id="scap_mil.disa.stig_comp_U_MS_IE11_V1R11_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" timestamp="2017-12-14T13:41:11">
+  <component id="scap_mil.disa.stig_comp_U_MS_IE11_V1R13_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" timestamp="2019-03-29T11:36:52">
     <oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5">
       <generator>
         <oval:product_name>repotool</oval:product_name>
         <oval:schema_version>5.10</oval:schema_version>
-        <oval:timestamp>2017-12-14T13:41:10</oval:timestamp>
+        <oval:timestamp>2019-03-29T11:36:51</oval:timestamp>
       </generator>
       <definitions>
         <definition id="oval:mil.disa.fso.ie:def:18343" version="4" class="inventory">
@@ -9287,4 +9154,3 @@ In the Options windows, select "Enable" from the “Only allow approved domains 
     </oval_definitions>
   </component>
 </data-stream-collection>
-
