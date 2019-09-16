@@ -26,8 +26,8 @@ jobs:
       before_install: skip
       install: skip
       env:
-        - EL6="./scap/content/guides/disa/stig-el6.xml"
-        - EL7="./scap/content/guides/disa/stig-el7.xml"
+        - EL6="./scap/content/guides/disa/stig-el6-scap_1-2.xml"
+        - EL7="./scap/content/guides/disa/stig-el7-scap_1-2.xml"
       script:
         - if ! grep -i "centos" $EL6 > /dev/null; then echo "ERROR CentOS string not found in $EL6"; exit 1; fi
         - if ! grep -i "centos" $EL7 > /dev/null; then echo "ERROR CentOS string not found in $EL7"; exit 1; fi
