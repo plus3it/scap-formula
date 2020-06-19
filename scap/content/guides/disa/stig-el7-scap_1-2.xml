@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<data-stream-collection xmlns="http://scap.nist.gov/schema/scap/source/1.2" id="scap_mil.disa.stig_collection_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark" schematron-version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.2 http://scap.nist.gov/schema/xccdf/1.2/xccdf_1.2.xsd http://cpe.mitre.org/dictionary/2.0 http://scap.nist.gov/schema/cpe/2.3/cpe-dictionary_2.3.xsd http://oval.mitre.org/XMLSchema/oval-common-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#linux http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/linux-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#unix http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/unix-definitions-schema.xsd http://scap.nist.gov/schema/scap/source/1.2 http://scap.nist.gov/schema/scap/1.2/scap-source-data-stream_1.2.xsd">
-  <data-stream id="scap_mil.disa.stig_datastream_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark" use-case="CONFIGURATION" scap-version="1.2" timestamp="2019-06-13T11:01:19">
+<data-stream-collection xmlns="http://scap.nist.gov/schema/scap/source/1.2" id="scap_mil.disa.stig_collection_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark" schematron-version="1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.2 http://scap.nist.gov/schema/xccdf/1.2/xccdf_1.2.xsd http://cpe.mitre.org/dictionary/2.0 http://scap.nist.gov/schema/cpe/2.3/cpe-dictionary_2.3.xsd http://oval.mitre.org/XMLSchema/oval-common-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#linux http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/linux-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#unix http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/unix-definitions-schema.xsd http://scap.nist.gov/schema/scap/source/1.2 http://scap.nist.gov/schema/scap/1.2/scap-source-data-stream_1.2.xsd">
+  <data-stream id="scap_mil.disa.stig_datastream_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark" use-case="CONFIGURATION" scap-version="1.2" timestamp="2020-03-17T09:37:39">
     <dictionaries>
-      <component-ref id="scap_mil.disa.stig_cref_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml">
+      <component-ref id="scap_mil.disa.stig_cref_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml">
         <cat:catalog xmlns:cat="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-          <cat:uri name="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" uri="#scap_mil.disa.stig_cref_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
+          <cat:uri name="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" uri="#scap_mil.disa.stig_cref_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
         </cat:catalog>
       </component-ref>
     </dictionaries>
     <checklists>
-      <component-ref id="scap_mil.disa.stig_cref_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-xccdf.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-xccdf.xml">
+      <component-ref id="scap_mil.disa.stig_cref_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-xccdf.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-xccdf.xml">
         <cat:catalog xmlns:cat="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-          <cat:uri name="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" uri="#scap_mil.disa.stig_cref_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+          <cat:uri name="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" uri="#scap_mil.disa.stig_cref_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
         </cat:catalog>
       </component-ref>
     </checklists>
     <checks>
-      <component-ref id="scap_mil.disa.stig_cref_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
-      <component-ref id="scap_mil.disa.stig_cref_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
+      <component-ref id="scap_mil.disa.stig_cref_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
+      <component-ref id="scap_mil.disa.stig_cref_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
     </checks>
   </data-stream>
-  <component id="scap_mil.disa.stig_comp_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" timestamp="2019-06-13T11:01:19">
+  <component id="scap_mil.disa.stig_comp_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" timestamp="2020-03-17T09:37:39">
     <cpe-list xmlns="http://cpe.mitre.org/dictionary/2.0">
       <cpe-item name="cpe:/o:redhat:enterprise_linux:7">
         <title xml:lang="en-us">Red Hat Enterprise Linux 7</title>
         <!-- the check references an OVAL file that contains an inventory definition -->
-        <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-cpe-oval.xml">oval:mil.disa.stig.rhel7:def:1</check>
+        <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-cpe-oval.xml">oval:mil.disa.stig.rhel7:def:1</check>
       </cpe-item>
     </cpe-list>
   </component>
-  <component id="scap_mil.disa.stig_comp_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-xccdf.xml" timestamp="2019-06-13T11:01:19">
+  <component id="scap_mil.disa.stig_comp_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-xccdf.xml" timestamp="2020-03-17T09:37:39">
     <xccdf:Benchmark xmlns:xccdf="http://checklists.nist.gov/xccdf/1.2" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:cpe="http://cpe.mitre.org/language/2.0" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" id="xccdf_mil.disa.stig_benchmark_RHEL_7_STIG" xml:lang="en" style="SCAP_1.2">
-      <xccdf:status date="2019-07-26">accepted</xccdf:status>
+      <xccdf:status date="2020-04-24">accepted</xccdf:status>
       <xccdf:title>Red Hat Enterprise Linux 7 Security Technical Implementation Guide</xccdf:title>
       <xccdf:description>This Security Technical Implementation Guide is published as a tool to improve the security of Department of Defense (DoD) information systems. The requirements are derived from the National Institute of Standards and Technology (NIST) 800-53 and related documents. Comments or proposed revisions to this document should be sent via email to the following address: disa.stig_spt@mail.mil.</xccdf:description>
       <xccdf:notice id="terms-of-use" xml:lang="en" />
-      <xccdf:reference href="http://iase.disa.mil">
+      <xccdf:reference href="https://cyber.mil">
         <dc:publisher>DISA</dc:publisher>
         <dc:source>STIG.DOD.MIL</dc:source>
       </xccdf:reference>
-      <xccdf:plain-text id="release-info">Release: 2.4 Benchmark Date: 26 Jul 2019</xccdf:plain-text>
+      <xccdf:plain-text id="release-info">Release: 2.7 Benchmark Date: 24 Apr 2020</xccdf:plain-text>
       <xccdf:platform idref="cpe:/o:redhat:enterprise_linux:7" />
-      <xccdf:version update="http://iase.disa.mil/stigs">002.004</xccdf:version>
+      <xccdf:version update="http://iase.disa.mil/stigs">002.007</xccdf:version>
       <xccdf:metadata>
         <dc:creator>DISA</dc:creator>
         <dc:publisher>DISA</dc:publisher>
@@ -196,7 +196,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72275" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72277" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72279" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-72281" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72283" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72285" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72287" selected="true" />
@@ -385,7 +384,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72275" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72277" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72279" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-72281" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72283" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72285" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72287" selected="true" />
@@ -574,7 +572,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72275" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72277" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72279" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-72281" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72283" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72285" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72287" selected="true" />
@@ -763,7 +760,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72275" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72277" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72279" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-72281" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72283" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72285" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72287" selected="true" />
@@ -952,7 +948,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72275" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72277" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72279" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-72281" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72283" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72285" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72287" selected="true" />
@@ -1141,7 +1136,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72275" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72277" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72279" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-72281" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72283" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72285" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72287" selected="true" />
@@ -1330,7 +1324,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72275" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72277" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72279" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-72281" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72283" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72285" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72287" selected="true" />
@@ -1519,7 +1512,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72275" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72277" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72279" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-72281" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72283" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72285" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72287" selected="true" />
@@ -1708,7 +1700,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72275" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72277" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72279" selected="true" />
-        <xccdf:select idref="xccdf_mil.disa.stig_group_V-72281" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72283" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72285" selected="true" />
         <xccdf:select idref="xccdf_mil.disa.stig_group_V-72287" selected="true" />
@@ -1753,12 +1744,12 @@
         <xccdf:title>CAT I Only</xccdf:title>
         <xccdf:description>This profile only includes rules that are Severity Category I.</xccdf:description>
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86483r4_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86485r4_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86485r5_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86487r3_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86515r6_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86517r5_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86521r3_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86523r4_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86523r5_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86525r3_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86527r3_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86529r5_rule" selected="false" />
@@ -1800,7 +1791,7 @@
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86685r2_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86687r6_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86689r3_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86705r4_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86705r5_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86707r2_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86709r2_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86711r3_rule" selected="false" />
@@ -1860,7 +1851,7 @@
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86831r5_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86841r3_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86845r3_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86849r4_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86849r5_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86857r3_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86861r4_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86863r4_rule" selected="false" />
@@ -1878,7 +1869,6 @@
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86889r3_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86891r3_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86899r4_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86905r2_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86907r2_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86909r2_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86911r2_rule" selected="false" />
@@ -1888,7 +1878,7 @@
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86931r4_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86933r2_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-86943r2_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-87041r4_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-87041r5_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-87051r4_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-87057r5_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-87807r4_rule" selected="false" />
@@ -2173,7 +2163,7 @@ Cryptographic mechanisms used for protecting the integrity of information includ
             <dc:identifier>2777</dc:identifier>
           </xccdf:reference>
           <xccdf:ident system="http://cce.mitre.org">CCE-27157-7</xccdf:ident>
-          <xccdf:ident system="http://iase.disa.mil/cci">CCI-000663</xccdf:ident>
+          <xccdf:ident system="http://iase.disa.mil/cci">CCI-001749</xccdf:ident>
           <xccdf:fixtext fixref="F-78207r1_fix">Run the following command to determine which package owns the file:
 
 # rpm -qf &lt;filename&gt;
@@ -2187,7 +2177,7 @@ Alternatively, the package can be reinstalled from trusted media using the comma
 # sudo rpm -Uvh &lt;packagename&gt;</xccdf:fixtext>
           <xccdf:fix id="F-78207r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1340" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1340" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2248,21 +2238,21 @@ Update the system databases:
 Users must log out and back in again before the system-wide settings take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78211r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:922" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:922" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-71861">
         <xccdf:title>SRG-OS-000023-GPOS-00006</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-86485r4_rule" severity="medium" weight="10.0">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-86485r5_rule" severity="medium" weight="10.0">
           <xccdf:version update="http://iase.disa.mil/stigs">RHEL-07-010040</xccdf:version>
           <xccdf:title>The Red Hat Enterprise Linux operating system must display the approved Standard Mandatory DoD Notice and Consent Banner before granting local or remote access to the system via a graphical user logon.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Display of a standardized and approved use notification before granting access to the operating system ensures privacy and security notification verbiage used is consistent with applicable federal laws, Executive Orders, directives, policies, regulations, standards, and guidance.
 
 System use notifications are required only for access via logon interfaces with human users and are not required when such human interfaces do not exist.
 
-The banner must be formatted in accordance with applicable DoD policy. Use the following verbiage for operating systems that can accommodate banners of 1300 characters:
+The banner must be formatted in accordance with applicable DoD policy.
 
 "You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
 
@@ -2288,9 +2278,9 @@ Satisfies: SRG-OS-000023-GPOS-00006, SRG-OS-000024-GPOS-00007, SRG-OS-000228-GPO
           </xccdf:reference>
           <xccdf:ident system="http://cce.mitre.org">CCE-26892-0</xccdf:ident>
           <xccdf:ident system="http://iase.disa.mil/cci">CCI-000048</xccdf:ident>
-          <xccdf:fixtext fixref="F-78213r5_fix">Configure the operating system to display the approved Standard Mandatory DoD Notice and Consent Banner before granting access to the system.
+          <xccdf:fixtext fixref="F-78213r6_fix">Configure the operating system to display the approved Standard Mandatory DoD Notice and Consent Banner before granting access to the system.
 
-Note: If the system does not have GNOME installed, this requirement is Not Applicable.
+Note: If the system does not have a Graphical User Interface installed, this requirement is Not Applicable.
 
 Create a database to contain the system-wide graphical user logon settings (if it does not already exist) with the following command:
 
@@ -2304,14 +2294,14 @@ banner-message-enable=true
 
 banner-message-text='You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.\nBy using this IS (which includes any device attached to this IS), you consent to the following conditions:\n-The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.\n-At any time, the USG may inspect and seize data stored on this IS.\n-Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.\n-This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy.\n-Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details. '
 
-Note: The "\n " characters are for formatting only. They will not be displayed on the GUI.
+Note: The "\n " characters are for formatting only. They will not be displayed on the Graphical User Interface.
 
 Run the following command to update the database:
 # dconf update</xccdf:fixtext>
-          <xccdf:fix id="F-78213r5_fix" />
+          <xccdf:fix id="F-78213r6_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3745" value-id="xccdf_mil.disa.stig_value_login_banner_text" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:966" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:966" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2370,7 +2360,7 @@ By using this IS (which includes any device attached to this IS), you consent to
           <xccdf:fix id="F-78217r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3745" value-id="xccdf_mil.disa.stig_value_login_banner_text" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:899" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:899" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2414,7 +2404,7 @@ Update the system databases:
 Users must log out and back in again before the system-wide settings take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78243r9_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:988" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:988" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2458,7 +2448,7 @@ Users must log out and back in again before the system-wide settings take effect
           <xccdf:fix id="F-78245r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3828" value-id="xccdf_mil.disa.stig_value_inactivity_timeout_value" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:981" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:981" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2494,14 +2484,14 @@ Install the tmux program (if it is not on the system) with the following command
 #yum install tmux</xccdf:fixtext>
           <xccdf:fix id="F-78249r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1280" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1280" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-71899">
         <xccdf:title>SRG-OS-000029-GPOS-00010</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-86523r4_rule" severity="medium" weight="10.0">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-86523r5_rule" severity="medium" weight="10.0">
           <xccdf:version update="http://iase.disa.mil/stigs">RHEL-07-010100</xccdf:version>
           <xccdf:title>The Red Hat Enterprise Linux operating system must initiate a session lock for the screensaver after a period of inactivity for graphical user interfaces.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;A session time-out lock is a temporary action taken when a user stops work and moves away from the immediate physical vicinity of the information system but does not log out because of the temporary nature of the absence. Rather than relying on the user to manually lock their operating system session prior to vacating the vicinity, operating systems need to be able to identify when a user's session has idled and take action to initiate the session lock.
@@ -2535,7 +2525,7 @@ Update the system databases:
 Users must log out and back in again before the system-wide settings take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78251r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:978" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:978" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2577,7 +2567,7 @@ Update the system databases:
 Users must log out and back in again before the system-wide settings take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78253r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:985" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:985" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2607,7 +2597,7 @@ ucredit = -1</xccdf:fixtext>
           <xccdf:fix id="F-78255r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3805" value-id="xccdf_mil.disa.stig_value_var_password_pam_ucredit" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:484" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:484" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2638,7 +2628,7 @@ lcredit = -1</xccdf:fixtext>
           <xccdf:fix id="F-78257r6_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3798" value-id="xccdf_mil.disa.stig_value_var_password_pam_lcredit" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:468" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:468" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2668,7 +2658,7 @@ dcredit = -1</xccdf:fixtext>
           <xccdf:fix id="F-78259r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3796" value-id="xccdf_mil.disa.stig_value_var_password_pam_dcredit" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:463" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:463" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2698,7 +2688,7 @@ ocredit = -1</xccdf:fixtext>
           <xccdf:fix id="F-78261r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3803" value-id="xccdf_mil.disa.stig_value_var_password_pam_ocredit" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:478" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:478" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2728,7 +2718,7 @@ difok = 8</xccdf:fixtext>
           <xccdf:fix id="F-78263r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3797" value-id="xccdf_mil.disa.stig_value_var_password_pam_difok" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:466" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:466" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2758,7 +2748,7 @@ minclass = 4</xccdf:fixtext>
           <xccdf:fix id="F-78265r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3801" value-id="xccdf_mil.disa.stig_value_var_password_pam_minclass" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:474" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:474" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2788,7 +2778,7 @@ maxrepeat = 3</xccdf:fixtext>
           <xccdf:fix id="F-78267r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3800" value-id="xccdf_mil.disa.stig_value_var_password_pam_maxrepeat" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:472" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:472" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2818,7 +2808,7 @@ maxclassrepeat = 4</xccdf:fixtext>
           <xccdf:fix id="F-78269r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3799" value-id="xccdf_mil.disa.stig_value_var_password_pam_maxclassrepeat" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:470" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:470" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2849,7 +2839,7 @@ pam_unix.so sha512 shadow try_first_pass use_authtok
 Note: Manual changes to the listed files may be overwritten by the "authconfig" program. The "authconfig" program should not be used to update the configurations listed in this requirement.</xccdf:fixtext>
           <xccdf:fix id="F-78271r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1367" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1367" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2876,7 +2866,7 @@ Add or update the following line in "/etc/login.defs":
 ENCRYPT_METHOD SHA512</xccdf:fixtext>
           <xccdf:fix id="F-78273r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1365" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1365" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2903,7 +2893,7 @@ Add or update the following line in "/etc/libuser.conf" in the [defaults] sectio
 crypt_style = sha512</xccdf:fixtext>
           <xccdf:fix id="F-78275r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1363" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1363" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2931,7 +2921,7 @@ PASS_MIN_DAYS     1</xccdf:fixtext>
           <xccdf:fix id="F-78277r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3794" value-id="xccdf_mil.disa.stig_value_var_accounts_minimum_age_login_defs" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:455" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:455" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2955,7 +2945,7 @@ PASS_MIN_DAYS     1</xccdf:fixtext>
 # chage -m 1 [user]</xccdf:fixtext>
           <xccdf:fix id="F-78279r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86551" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86551" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -2983,7 +2973,7 @@ PASS_MAX_DAYS     60</xccdf:fixtext>
           <xccdf:fix id="F-78281r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3793" value-id="xccdf_mil.disa.stig_value_var_accounts_maximum_age_login_defs" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:453" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:453" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3007,7 +2997,7 @@ PASS_MAX_DAYS     60</xccdf:fixtext>
 # chage -M 60 [user]</xccdf:fixtext>
           <xccdf:fix id="F-78283r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86555" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86555" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3037,7 +3027,7 @@ Note: Manual changes to the listed files may be overwritten by the "authconfig" 
           <xccdf:fix id="F-78285r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3806" value-id="xccdf_mil.disa.stig_value_var_password_pam_unix_remember" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:486" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:486" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3067,7 +3057,7 @@ minlen = 15</xccdf:fixtext>
           <xccdf:fix id="F-78287r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3802" value-id="xccdf_mil.disa.stig_value_var_password_pam_minlen" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:476" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:476" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3094,7 +3084,7 @@ Remove any instances of the "nullok" option in "/etc/pam.d/system-auth" and "/et
 Note: Manual changes to the listed files may be overwritten by the "authconfig" program. The "authconfig" program should not be used to update the configurations listed in this requirement.</xccdf:fixtext>
           <xccdf:fix id="F-78289r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1229" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1229" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3121,7 +3111,7 @@ PermitEmptyPasswords no
 The SSH service must be restarted for changes to take effect.  Any accounts with empty passwords should be disabled immediately, and PAM configuration should prevent users from being able to assign themselves empty passwords.</xccdf:fixtext>
           <xccdf:fix id="F-78291r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1375" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1375" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3151,7 +3141,7 @@ INACTIVE=0</xccdf:fixtext>
           <xccdf:fix id="F-78293r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3790" value-id="xccdf_mil.disa.stig_value_var_account_disable_post_pw_expiration" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:443" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:443" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3188,7 +3178,7 @@ Check the configuration of the /etc/sudoers.d/* files with the following command
 Remove any occurrences of "NOPASSWD" tags in the file.</xccdf:fixtext>
           <xccdf:fix id="F-78299r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:176" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:176" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3225,7 +3215,7 @@ Check the configuration of the "/etc/sudoers.d/*" files with the following comma
 Remove any occurrences of "!authenticate" tags in the file(s).</xccdf:fixtext>
           <xccdf:fix id="F-78301r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:173" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:173" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3255,7 +3245,7 @@ FAIL_DELAY 4</xccdf:fixtext>
           <xccdf:fix id="F-78303r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3761" value-id="xccdf_mil.disa.stig_value_var_accounts_fail_delay" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:101" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:101" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3285,7 +3275,7 @@ Add or edit the line for the "AutomaticLoginEnable" parameter in the [daemon] se
 AutomaticLoginEnable=false</xccdf:fixtext>
           <xccdf:fix id="F-78305r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1119" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1119" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3315,7 +3305,7 @@ Add or edit the line for the "TimedLoginEnable" parameter in the [daemon] sectio
 TimedLoginEnable=false</xccdf:fixtext>
           <xccdf:fix id="F-78307r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1122" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1122" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3344,7 +3334,7 @@ PermitUserEnvironment no
 The SSH service must be restarted for changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78309r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1385" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1385" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3373,7 +3363,7 @@ HostbasedAuthentication no
 The SSH service must be restarted for changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78311r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1011" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1011" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3419,7 +3409,7 @@ Generate a new "grub.conf" file with the new password with the following command
 # mv /tmp/grub2.cfg /boot/grub2/grub.cfg</xccdf:fixtext>
           <xccdf:fix id="F-78313r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:908" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:908" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3465,7 +3455,7 @@ Generate a new "grub.conf" file with the new password with the following command
 # mv /tmp/grub2.cfg /boot/efi/EFI/redhat/grub.cfg</xccdf:fixtext>
           <xccdf:fix id="F-78315r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:912" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:912" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3496,7 +3486,7 @@ If a privileged user were to log on using this service, the privileged user pass
 # yum remove rsh-server</xccdf:fixtext>
           <xccdf:fix id="F-78319r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1271" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1271" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3521,7 +3511,7 @@ If a privileged user were to log on using this service, the privileged user pass
 # yum remove ypserv</xccdf:fixtext>
           <xccdf:fix id="F-78321r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1309" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1309" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3551,7 +3541,7 @@ Detecting such changes and providing an automated response can help avoid uninte
 /usr/sbin/aide --check | /bin/mail -s "$HOSTNAME - Daily aide integrity check run" root@sysname.mil</xccdf:fixtext>
           <xccdf:fix id="F-78325r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:525" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:525" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3580,7 +3570,7 @@ Verifying the authenticity of the software prior to installation validates the i
 gpgcheck=1</xccdf:fixtext>
           <xccdf:fix id="F-78329r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1027" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1027" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3609,7 +3599,7 @@ Verifying the authenticity of the software prior to installation validates the i
 localpkg_gpgcheck=1</xccdf:fixtext>
           <xccdf:fix id="F-78331r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:110" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:110" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3651,7 +3641,7 @@ Add or update the line:
 blacklist usb-storage</xccdf:fixtext>
           <xccdf:fix id="F-78335r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1141" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1141" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3685,7 +3675,7 @@ Turn off the automount service with the following commands:
 If "autofs" is required for Network File System (NFS), it must be documented with the ISSO.</xccdf:fixtext>
           <xccdf:fix id="F-78337r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86609" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86609" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3712,7 +3702,7 @@ Set the "clean_requirements_on_remove" option to "1" in the "/etc/yum.conf" file
 clean_requirements_on_remove=1</xccdf:fixtext>
           <xccdf:fix id="F-78339r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:108" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:108" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3740,14 +3730,14 @@ UMASK  077</xccdf:fixtext>
           <xccdf:fix id="F-78347r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:4211" value-id="xccdf_mil.disa.stig_value_var_accounts_user_umask" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:518" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:518" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-71997">
         <xccdf:title>SRG-OS-000480-GPOS-00227</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-86621r4_rule" severity="high" weight="10.0">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-86621r5_rule" severity="high" weight="10.0">
           <xccdf:version update="http://iase.disa.mil/stigs">RHEL-07-020250</xccdf:version>
           <xccdf:title>The Red Hat Enterprise Linux operating system must be a vendor supported release.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;An operating system release is considered "supported" if the vendor continues to provide security patches for the product. With an unsupported release, it will not be possible to resolve security issues discovered in the system software.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
@@ -3763,7 +3753,7 @@ UMASK  077</xccdf:fixtext>
           <xccdf:fixtext fixref="F-78349r1_fix">Upgrade to a supported version of the operating system.</xccdf:fixtext>
           <xccdf:fix id="F-78349r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:169" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:169" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3786,7 +3776,7 @@ UMASK  077</xccdf:fixtext>
           <xccdf:fixtext fixref="F-78355r1_fix">Configure the system to define all GIDs found in the "/etc/passwd" file by modifying the "/etc/group" file to add any non-existent group referenced in the "/etc/passwd" file, or change the GIDs referenced in the "/etc/passwd" file to a group that exists in "/etc/group".</xccdf:fixtext>
           <xccdf:fix id="F-78355r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1117" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1117" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3811,7 +3801,7 @@ UMASK  077</xccdf:fixtext>
 If the account is associated with system commands or applications, the UID should be changed to one greater than "0" but less than "1000". Otherwise, assign a UID of greater than "1000" that has not already been assigned.</xccdf:fixtext>
           <xccdf:fix id="F-78357r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:457" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:457" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3833,7 +3823,7 @@ If the account is associated with system commands or applications, the UID shoul
           <xccdf:fixtext fixref="F-78363r1_fix">Assign home directories to all local interactive users that currently do not have a home directory assigned.</xccdf:fixtext>
           <xccdf:fix id="F-78363r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86635" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86635" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3858,7 +3848,7 @@ If the account is associated with system commands or applications, the UID shoul
 CREATE_HOME yes</xccdf:fixtext>
           <xccdf:fix id="F-78365r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:447" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:447" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3887,7 +3877,7 @@ Note: The example will be for the user smithj, who has a home directory of "/hom
 # chmod 0750 /home/smithj</xccdf:fixtext>
           <xccdf:fix id="F-78367r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86639" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86639" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3910,7 +3900,7 @@ Note: The example will be for the user smithj, who has a home directory of "/hom
           <xccdf:fixtext fixref="F-78397r2_fix">Configure the "/etc/fstab" to use the "nosuid" option on file systems that are being imported via NFS.</xccdf:fixtext>
           <xccdf:fix id="F-78397r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1186" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1186" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3937,7 +3927,7 @@ The only authorized public directories are those temporary directories supplied 
 # chgrp root &lt;directory&gt;</xccdf:fixtext>
           <xccdf:fix id="F-78399r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1009" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1009" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3962,7 +3952,7 @@ The only authorized public directories are those temporary directories supplied 
 # chown root /etc/cron.allow</xccdf:fixtext>
           <xccdf:fix id="F-78405r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:116" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:116" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -3987,7 +3977,7 @@ The only authorized public directories are those temporary directories supplied 
 # chgrp root /etc/cron.allow</xccdf:fixtext>
           <xccdf:fix id="F-78407r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:114" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:114" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4010,7 +4000,7 @@ The only authorized public directories are those temporary directories supplied 
           <xccdf:fixtext fixref="F-78411r1_fix">Migrate the "/home" directory onto a separate file system/partition.</xccdf:fixtext>
           <xccdf:fix id="F-78411r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1311" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1311" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4033,7 +4023,7 @@ The only authorized public directories are those temporary directories supplied 
           <xccdf:fixtext fixref="F-78413r1_fix">Migrate the "/var" path onto a separate file system.</xccdf:fixtext>
           <xccdf:fix id="F-78413r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1315" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1315" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4055,7 +4045,7 @@ The only authorized public directories are those temporary directories supplied 
           <xccdf:fixtext fixref="F-78415r1_fix">Migrate the system audit data path onto a separate file system.</xccdf:fixtext>
           <xccdf:fix id="F-78415r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1319" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1319" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4084,7 +4074,7 @@ OR
 Edit the "/etc/fstab" file and ensure the "/tmp" directory is defined in the fstab with a device and mount point.</xccdf:fixtext>
           <xccdf:fix id="F-78417r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86689" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86689" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4159,7 +4149,7 @@ boot=UUID=05c000f1-a213-759e-c7a2-f11b7424c797
 Reboot the system for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78419r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:126" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:126" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4188,7 +4178,7 @@ Examples of non-essential capabilities include, but are not limited to, games, s
 # yum remove telnet-server</xccdf:fixtext>
           <xccdf:fix id="F-78429r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1292" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1292" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4222,14 +4212,14 @@ Enable the auditd service with the following command:
 # systemctl start auditd.service</xccdf:fixtext>
           <xccdf:fix id="F-78431r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86703" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86703" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-72081">
         <xccdf:title>SRG-OS-000046-GPOS-00022</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-86705r4_rule" severity="medium" weight="10.0">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-86705r5_rule" severity="medium" weight="10.0">
           <xccdf:version update="http://iase.disa.mil/stigs">RHEL-07-030010</xccdf:version>
           <xccdf:title>The Red Hat Enterprise Linux operating system must shut down upon audit processing failure, unless availability is an overriding concern. If availability is a concern, the system must alert the designated staff (System Administrator [SA] and Information System Security Officer [ISSO] at a minimum) in the event of an audit processing failure.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;It is critical for the appropriate personnel to be aware if a system is at risk of failing to process audit logs as required. Without this notification, the security personnel may be unaware of an impending failure of the audit capability, and system operation may be adversely affected.
@@ -4271,7 +4261,7 @@ Kernel log monitoring must also be configured to properly alert designated staff
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78433r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:776" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:776" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4299,7 +4289,7 @@ Satisfies: SRG-OS-000342-GPOS-00133, SRG-OS-000479-GPOS-00224&lt;/VulnDiscussion
 Set the remote server option in "/etc/audisp/audisp-remote.conf" with the IP address of the log aggregation server.</xccdf:fixtext>
           <xccdf:fix id="F-78435r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86707" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86707" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4329,7 +4319,7 @@ Uncomment the "enable_krb5" option in "/etc/audisp/audisp-remote.conf" and set i
 enable_krb5 = yes</xccdf:fixtext>
           <xccdf:fix id="F-78437r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86709" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86709" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4355,7 +4345,7 @@ Uncomment or edit the "disk_full_action" option in "/etc/audisp/audisp-remote.co
 disk_full_action = single</xccdf:fixtext>
           <xccdf:fix id="F-78439r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86711" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86711" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4381,7 +4371,7 @@ Uncomment or edit the "space_left_action" keyword in "/etc/audit/auditd.conf" an
 space_left_action = email</xccdf:fixtext>
           <xccdf:fix id="F-78443r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86715" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86715" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4409,7 +4399,7 @@ action_mail_acct = root</xccdf:fixtext>
           <xccdf:fix id="F-78445r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3821" value-id="xccdf_mil.disa.stig_value_var_auditd_action_mail_acct" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:885" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:885" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4440,7 +4430,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78447r9_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:710" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:710" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4474,7 +4464,7 @@ Satisfies: SRG-OS-000064-GPOS-00033, SRG-OS-000392-GPOS-00172, SRG-OS-000458-GPO
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78449r8_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:552" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:552" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4508,7 +4498,7 @@ Satisfies: SRG-OS-000064-GPOS-00033, SRG-OS-000392-GPOS-00172, SRG-OS-000458-GPO
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78451r8_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:567" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:567" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4542,7 +4532,7 @@ Satisfies: SRG-OS-000064-GPOS-00033, SRG-OS-000392-GPOS-00172, SRG-OS-000458-GPO
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78453r8_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:587" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:587" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4576,7 +4566,7 @@ Satisfies: SRG-OS-000064-GPOS-00033, SRG-OS-000392-GPOS-00172, SRG-OS-000458-GPO
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78455r7_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:572" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:572" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4611,7 +4601,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78457r7_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:546" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:546" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4646,7 +4636,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78459r9_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:557" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:557" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4681,7 +4671,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78461r8_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:562" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:562" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4716,7 +4706,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78463r8_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:607" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:607" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4751,7 +4741,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78465r7_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:582" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:582" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4786,7 +4776,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78467r10_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:597" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:597" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4821,7 +4811,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78469r7_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:602" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:602" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4856,7 +4846,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78471r6_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:577" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:577" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4891,7 +4881,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78473r7_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:592" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:592" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4931,7 +4921,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules:
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78475r7_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:801" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:801" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -4971,7 +4961,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78477r7_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:805" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:805" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5011,7 +5001,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78479r8_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:803" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:803" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5051,7 +5041,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78481r8_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:804" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:804" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5091,7 +5081,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78483r7_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:806" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:806" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5131,7 +5121,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78485r8_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:802" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:802" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5165,7 +5155,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78487r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:618" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:618" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5199,7 +5189,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78489r6_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:621" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:621" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5233,7 +5223,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78491r6_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:612" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:612" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5266,7 +5256,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78493r7_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86765" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86765" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5301,7 +5291,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78497r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:675" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:675" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5336,7 +5326,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78499r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:676" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:676" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5371,7 +5361,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78501r6_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:733" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:733" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5406,7 +5396,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78503r8_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:760" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:760" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5441,7 +5431,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78505r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:724" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:724" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5476,7 +5466,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78507r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:715" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:715" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5511,7 +5501,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78509r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:763" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:763" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5547,7 +5537,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78511r6_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:748" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:748" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5583,7 +5573,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78513r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:751" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:751" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5621,7 +5611,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78517r6_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:773" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:773" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5657,7 +5647,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78519r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:727" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:727" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5693,7 +5683,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78521r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:718" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:718" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5729,7 +5719,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78525r9_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:686" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:686" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5763,7 +5753,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78527r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:757" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:757" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5797,7 +5787,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78529r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:736" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:736" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5831,7 +5821,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78531r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:739" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:739" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5866,7 +5856,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78533r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:745" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:745" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5901,7 +5891,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78537r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:721" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:721" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5930,7 +5920,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78539r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:730" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:730" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -5965,7 +5955,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78541r7_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:657" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:657" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6000,7 +5990,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78543r7_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:658" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:658" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6032,7 +6022,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78545r10_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86815" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86815" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6068,7 +6058,7 @@ Add or update the following rule "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78551r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:875" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:875" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6102,7 +6092,7 @@ Add the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78553r7_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:628" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:628" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6136,7 +6126,7 @@ Add the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78555r8_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:629" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:629" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6170,7 +6160,7 @@ Add the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78557r9_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:625" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:625" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6204,7 +6194,7 @@ Add the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78559r7_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:626" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:626" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6238,7 +6228,7 @@ Add the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78561r10_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:627" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:627" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6268,7 +6258,7 @@ Add the following line to the top of the /etc/security/limits.conf or in a ".con
           <xccdf:fix id="F-78571r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3792" value-id="xccdf_mil.disa.stig_value_var_accounts_max_concurrent_login_sessions" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:449" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:449" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6305,14 +6295,14 @@ Ciphers aes128-ctr,aes192-ctr,aes256-ctr
 The SSH service must be restarted for changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78575r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1399" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1399" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-72225">
         <xccdf:title>SRG-OS-000023-GPOS-00006</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-86849r4_rule" severity="medium" weight="10.0">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-86849r5_rule" severity="medium" weight="10.0">
           <xccdf:version update="http://iase.disa.mil/stigs">RHEL-07-040170</xccdf:version>
           <xccdf:title>The Red Hat Enterprise Linux operating system must display the Standard Mandatory DoD Notice and Consent Banner immediately prior to, or as part of, remote access logon prompts.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Display of a standardized and approved use notification before granting access to the publicly accessible operating system ensures privacy and security notification verbiage used is consistent with applicable federal laws, Executive Orders, directives, policies, regulations, standards, and guidance.
@@ -6351,7 +6341,7 @@ Satisfies: SRG-OS-000023-GPOS-00006, SRG-OS-000024-GPOS-00007 , SRG-OS-000228-GP
           <xccdf:ident system="http://iase.disa.mil/cci">CCI-001386</xccdf:ident>
           <xccdf:ident system="http://iase.disa.mil/cci">CCI-001387</xccdf:ident>
           <xccdf:ident system="http://iase.disa.mil/cci">CCI-001388</xccdf:ident>
-          <xccdf:fixtext fixref="F-78579r4_fix">Configure the operating system to display the Standard Mandatory DoD Notice and Consent Banner before granting access to the system via the ssh.
+          <xccdf:fixtext fixref="F-78579r5_fix">Configure the operating system to display the Standard Mandatory DoD Notice and Consent Banner before granting access to the system via the ssh.
 
 Edit the "/etc/ssh/sshd_config" file to uncomment the banner keyword and configure it to point to a file that will contain the logon banner (this file may be named differently or be in a different location if using a version of SSH that is provided by a third-party vendor). An example configuration line is:
 
@@ -6359,7 +6349,9 @@ banner /etc/issue
 
 Either create the file containing the banner or replace the text in the file with the Standard Mandatory DoD Notice and Consent Banner. The DoD required text is:
 
-"You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only. By using this IS (which includes any device attached to this IS), you consent to the following conditions:
+"You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
+
+By using this IS (which includes any device attached to this IS), you consent to the following conditions:
 
 -The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
 
@@ -6372,10 +6364,10 @@ Either create the file containing the banner or replace the text in the file wit
 -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details."
 
 The SSH service must be restarted for changes to take effect.</xccdf:fixtext>
-          <xccdf:fix id="F-78579r4_fix" />
+          <xccdf:fix id="F-78579r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3745" value-id="xccdf_mil.disa.stig_value_login_banner_text" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1387" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1387" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6409,7 +6401,7 @@ Satisfies: SRG-OS-000423-GPOS-00187, SRG-OS-000424-GPOS-00188, SRG-OS-000425-GPO
 # yum install openssh-server.x86_64</xccdf:fixtext>
           <xccdf:fix id="F-78587r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:4248" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:4248" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6444,7 +6436,7 @@ The SSH service must be restarted for changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78591r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3866" value-id="xccdf_mil.disa.stig_value_sshd_idle_timeout_value" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1391" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1391" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6473,7 +6465,7 @@ RhostsRSAAuthentication no
 The SSH service must be restarted for changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78593r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1379" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1379" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6507,7 +6499,7 @@ ClientAliveCountMax 0
 The SSH service must be restarted for changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78595r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1393" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1393" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6534,7 +6526,7 @@ Add the following line in "/etc/ssh/sshd_config", or uncomment the line and set 
 IgnoreRhosts yes</xccdf:fixtext>
           <xccdf:fix id="F-78597r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1377" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1377" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6563,7 +6555,7 @@ PrintLastLog yes
 The SSH service must be restarted for changes to "sshd_config" to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78599r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:166" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:166" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6592,7 +6584,7 @@ PermitRootLogin no
 The SSH service must be restarted for changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78601r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1381" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1381" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6621,7 +6613,7 @@ IgnoreUserKnownHosts yes
 The SSH service must be restarted for changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78603r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1383" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1383" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6651,7 +6643,7 @@ Protocol 2
 The SSH service must be restarted for changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78605r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1373" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1373" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6679,7 +6671,7 @@ The SSH service must be restarted for changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78607r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:4175" value-id="xccdf_mil.disa.stig_value_sshd_approved_macs" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:168" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:168" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6706,7 +6698,7 @@ Change the mode of public host key files under "/etc/ssh" to "0644" with the fol
 # chmod 0644 /etc/ssh/*.key.pub</xccdf:fixtext>
           <xccdf:fix id="F-78609r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:120" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:120" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6731,7 +6723,7 @@ Change the mode of public host key files under "/etc/ssh" to "0644" with the fol
 # chmod 0640 /path/to/file/ssh_host*key</xccdf:fixtext>
           <xccdf:fix id="F-78611r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:118" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:118" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6763,7 +6755,7 @@ The SSH service must be restarted for changes to take effect.
 If GSSAPI authentication is required, it must be documented, to include the location of the configuration file, with the ISSO.</xccdf:fixtext>
           <xccdf:fix id="F-78613r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:160" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:160" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6796,7 +6788,7 @@ The SSH service must be restarted for changes to take effect.
 If Kerberos authentication is required, it must be documented, to include the location of the configuration file, with the ISSO.</xccdf:fixtext>
           <xccdf:fix id="F-78615r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:162" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:162" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6823,7 +6815,7 @@ StrictModes yes
 The SSH service must be restarted for changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78617r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:164" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:164" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6850,7 +6842,7 @@ UsePrivilegeSeparation sandbox
 The SSH service must be restarted for changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78619r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:171" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:171" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6876,7 +6868,7 @@ Compression no
 The SSH service must be restarted for changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-78621r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:158" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:158" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6902,7 +6894,7 @@ Add the following line to the top of "/etc/pam.d/postlogin":
 session required pam_lastlog.so showfailed</xccdf:fixtext>
           <xccdf:fix id="F-78629r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1020" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1020" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6926,7 +6918,7 @@ session required pam_lastlog.so showfailed</xccdf:fixtext>
 # rm /[path]/[to]/[file]/.shosts</xccdf:fixtext>
           <xccdf:fix id="F-78631r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86901" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86901" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -6950,39 +6942,7 @@ session required pam_lastlog.so showfailed</xccdf:fixtext>
 # rm /[path]/[to]/[file]/shosts.equiv</xccdf:fixtext>
           <xccdf:fix id="F-78633r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86903" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
-          </xccdf:check>
-        </xccdf:Rule>
-      </xccdf:Group>
-      <xccdf:Group id="xccdf_mil.disa.stig_group_V-72281">
-        <xccdf:title>SRG-OS-000480-GPOS-00227</xccdf:title>
-        <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-86905r2_rule" severity="low" weight="10.0">
-          <xccdf:version update="http://iase.disa.mil/stigs">RHEL-07-040600</xccdf:version>
-          <xccdf:title>For Red Hat Enterprise Linux operating systems using DNS resolution, at least two name servers must be configured.</xccdf:title>
-          <xccdf:description>&lt;VulnDiscussion&gt;To provide availability for name resolution services, multiple redundant name servers are mandated. A failure in name resolution could lead to the failure of security functions requiring name resolution, which may include time synchronization, centralized authentication, and remote system logging.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
-          <xccdf:reference>
-            <dc:title>DPMS Target Red Hat 7</dc:title>
-            <dc:publisher>DISA</dc:publisher>
-            <dc:type>DPMS Target</dc:type>
-            <dc:subject>Red Hat 7</dc:subject>
-            <dc:identifier>2777</dc:identifier>
-          </xccdf:reference>
-          <xccdf:ident system="http://iase.disa.mil/cci">CCI-000366</xccdf:ident>
-          <xccdf:fixtext fixref="F-78635r1_fix">Configure the operating system to use two or more name servers for DNS resolution.
-
-Edit the "/etc/resolv.conf" file to uncomment or add the two or more "nameserver" option lines with the IP address of local authoritative name servers. If local host resolution is being performed, the "/etc/resolv.conf" file must be empty. An empty "/etc/resolv.conf" file can be created as follows:
-
-# echo -n &gt; /etc/resolv.conf
-
-And then make the file immutable with the following command:
-
-# chattr +i /etc/resolv.conf
-
-If the "/etc/resolv.conf" file must be mutable, the required configuration must be documented with the Information System Security Officer (ISSO) and the file must be verified by the system file integrity tool.</xccdf:fixtext>
-          <xccdf:fix id="F-78635r1_fix" />
-          <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86905" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:86903" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7012,7 +6972,7 @@ Issue the following command to make the changes take effect:
           <xccdf:fix id="F-78637r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3771" value-id="xccdf_mil.disa.stig_value_sysctl_net_ipv4_conf_all_accept_source_route_value" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:251" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:251" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7042,7 +7002,7 @@ Issue the following command to make the changes take effect:
           <xccdf:fix id="F-78639r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3776" value-id="xccdf_mil.disa.stig_value_sysctl_net_ipv4_conf_default_accept_source_route_value" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:269" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:269" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7072,7 +7032,7 @@ Issue the following command to make the changes take effect:
           <xccdf:fix id="F-78641r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3780" value-id="xccdf_mil.disa.stig_value_sysctl_net_ipv4_icmp_echo_ignore_broadcasts_value" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:284" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:284" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7102,7 +7062,7 @@ Issue the following command to make the changes take effect:
           <xccdf:fix id="F-78643r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3775" value-id="xccdf_mil.disa.stig_value_sysctl_net_ipv4_conf_default_accept_redirects_value" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:266" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:266" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7133,7 +7093,7 @@ Issue the following command to make the changes take effect:
 # sysctl --system</xccdf:fixtext>
           <xccdf:fix id="F-78645r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:281" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:281" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7164,7 +7124,7 @@ Issue the following command to make the changes take effect:
 # sysctl --system</xccdf:fixtext>
           <xccdf:fix id="F-78647r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:263" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:263" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7188,7 +7148,7 @@ Issue the following command to make the changes take effect:
 # yum remove vsftpd</xccdf:fixtext>
           <xccdf:fix id="F-78653r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1301" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1301" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7217,7 +7177,7 @@ Issue the following command to make the changes take effect:
 # yum remove tftp-server</xccdf:fixtext>
           <xccdf:fix id="F-78655r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1296" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1296" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7248,7 +7208,7 @@ The SSH service must be restarted for changes to take effect:
 # systemctl restart sshd</xccdf:fixtext>
           <xccdf:fix id="F-78657r6_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1389" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1389" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7273,7 +7233,7 @@ The SSH service must be restarted for changes to take effect:
 # rpm -e xorg-x11-server-common</xccdf:fixtext>
           <xccdf:fix id="F-78661r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1305" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1305" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7302,7 +7262,7 @@ Issue the following command to make the changes take effect:
 # sysctl --system</xccdf:fixtext>
           <xccdf:fix id="F-78663r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:290" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:290" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7325,7 +7285,7 @@ Issue the following command to make the changes take effect:
           <xccdf:fixtext fixref="F-78667r1_fix">If the "/etc/snmp/snmpd.conf" file exists, modify any lines that contain a community string value of "public" or "private" to another string value.</xccdf:fixtext>
           <xccdf:fix id="F-78667r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1369" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1369" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7355,14 +7315,14 @@ Issue the following command to make the changes take effect:
           <xccdf:fix id="F-78673r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3785" value-id="xccdf_mil.disa.stig_value_sysctl_net_ipv6_conf_all_accept_source_route_value" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:303" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:303" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-72417">
         <xccdf:title>SRG-OS-000375-GPOS-00160</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-87041r4_rule" severity="medium" weight="10.0">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-87041r5_rule" severity="medium" weight="10.0">
           <xccdf:version update="http://iase.disa.mil/stigs">RHEL-07-041001</xccdf:version>
           <xccdf:title>The Red Hat Enterprise Linux operating system must have the required packages for multifactor authentication installed.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Using an authentication device, such as a CAC or token that is separate from the information system, ensures that even if the information system is compromised, that compromise will not affect credentials stored on the authentication device.
@@ -7386,14 +7346,14 @@ Satisfies: SRG-OS-000375-GPOS-00160, SRG-OS-000375-GPOS-00161, SRG-OS-000375-GPO
           <xccdf:ident system="http://iase.disa.mil/cci">CCI-001948</xccdf:ident>
           <xccdf:ident system="http://iase.disa.mil/cci">CCI-001953</xccdf:ident>
           <xccdf:ident system="http://iase.disa.mil/cci">CCI-001954</xccdf:ident>
-          <xccdf:fixtext fixref="F-78769r4_fix">Configure the operating system to implement multifactor authentication by installing the required packages.
+          <xccdf:fixtext fixref="F-78769r5_fix">Configure the operating system to implement multifactor authentication by installing the required packages.
 
-Install the "esc" and "pam_pkcs11" packages on the system with the following command:
+Install the pam_pkcs11 package with the following command:
 
-# yum install esc pam_pkcs11</xccdf:fixtext>
-          <xccdf:fix id="F-78769r4_fix" />
+# yum install pam_pkcs11</xccdf:fixtext>
+          <xccdf:fix id="F-78769r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:87041" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:87041" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7430,7 +7390,7 @@ Satisfies: SRG-OS-000375-GPOS-00160, SRG-OS-000375-GPOS-00161, SRG-OS-000375-GPO
 Modify all of the services lines in "/etc/sssd/sssd.conf" or in configuration files found under "/etc/sssd/conf.d" to include pam.</xccdf:fixtext>
           <xccdf:fix id="F-78779r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1405" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1405" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7466,7 +7426,7 @@ Satisfies: SRG-OS-000375-GPOS-00160, SRG-OS-000375-GPOS-00161, SRG-OS-000375-GPO
 Modify all of the "cert_policy" lines in "/etc/pam_pkcs11/pam_pkcs11.conf" to include "ocsp_on".</xccdf:fixtext>
           <xccdf:fix id="F-78785r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:87057" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:87057" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7501,7 +7461,7 @@ Add the setting to lock the screensaver lock delay:
 /org/gnome/desktop/screensaver/lock-delay</xccdf:fixtext>
           <xccdf:fix id="F-79601r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:999" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:999" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7530,7 +7490,7 @@ password required pam_pwquality.so retry=3
 Note: The value of "retry" should be between "1" and "3".</xccdf:fixtext>
           <xccdf:fix id="F-79605r5_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:481" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:481" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7553,7 +7513,7 @@ Note: The value of "retry" should be between "1" and "3".</xccdf:fixtext>
           <xccdf:fixtext fixref="F-79607r2_fix">Configure the "/etc/fstab" to use the "noexec" option on file systems that are being imported via NFS.</xccdf:fixtext>
           <xccdf:fix id="F-79607r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1178" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:1178" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7579,7 +7539,7 @@ Uncomment the "network_failure_action" option in "/etc/audisp/audisp-remote.conf
 network_failure_action = syslog</xccdf:fixtext>
           <xccdf:fix id="F-79609r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:87815" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:87815" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7613,7 +7573,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-79611r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:866" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:866" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7647,7 +7607,7 @@ Add or update the following rule in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-79613r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:869" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:869" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7681,7 +7641,7 @@ Add or update the following file system rule in "/etc/audit/rules.d/audit.rules"
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-79617r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:878" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:878" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7716,7 +7676,7 @@ The audit daemon must be restarted for the changes to take effect:
 # systemctl restart auditd</xccdf:fixtext>
           <xccdf:fix id="F-79619r6_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:872" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:872" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7746,7 +7706,7 @@ Issue the following command to make the changes take effect:
           <xccdf:fix id="F-79621r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
             <xccdf:check-export export-name="oval:mil.disa.stig.rhel7:var:3770" value-id="xccdf_mil.disa.stig_value_sysctl_net_ipv4_conf_all_accept_redirects_value" />
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:248" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:248" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7788,7 +7748,7 @@ Update the system databases:
 # dconf update</xccdf:fixtext>
           <xccdf:fix id="F-84519r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:92515" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:92515" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7826,7 +7786,7 @@ Add or update the line:
 blacklist dccp</xccdf:fixtext>
           <xccdf:fix id="F-84521r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:92517" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:92517" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7852,7 +7812,7 @@ Add or modify the "ExecStart" line in "/usr/lib/systemd/system/rescue.service" t
 ExecStart=-/bin/sh -c "/usr/sbin/sulogin; /usr/bin/systemctl --fail --no-block default"</xccdf:fixtext>
           <xccdf:fix id="F-84523r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:92519" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:92519" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7882,7 +7842,7 @@ Issue the following command to make the changes take effect:
 # sysctl --system</xccdf:fixtext>
           <xccdf:fix id="F-84531r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:92521" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:92521" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7918,7 +7878,7 @@ Add the setting to lock the screensaver idle-activation-enabled setting:
 /org/gnome/desktop/screensaver/idle-activation-enabled</xccdf:fixtext>
           <xccdf:fix id="F-85747r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:93703" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:93703" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7952,7 +7912,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-85749r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:93705" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:93705" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -7987,7 +7947,7 @@ Add or update the following rules in "/etc/audit/rules.d/audit.rules":
 The audit daemon must be restarted for the changes to take effect.</xccdf:fixtext>
           <xccdf:fix id="F-85751r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:93707" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:93707" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -8013,7 +7973,7 @@ Add the following line to "/etc/pam.d/passwd" (or modify the line to have the re
 password     substack    system-auth</xccdf:fixtext>
           <xccdf:fix id="F-87837r1_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:95715" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:95715" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -8049,7 +8009,7 @@ set superusers="root"
 export superusers</xccdf:fixtext>
           <xccdf:fix id="F-87839r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:95717" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:95717" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -8085,7 +8045,7 @@ set superusers="root"
 export superusers</xccdf:fixtext>
           <xccdf:fix id="F-87841r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:95719" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:95719" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -8117,7 +8077,7 @@ The audit daemon must be restarted for changes to take effect:
 # service auditd restart</xccdf:fixtext>
           <xccdf:fix id="F-87849r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:95727" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:95727" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -8153,7 +8113,7 @@ The audit daemon must be restarted for changes to take effect:
 # service auditd restart</xccdf:fixtext>
           <xccdf:fix id="F-87851r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:95729" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:95729" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -8187,7 +8147,7 @@ The audit daemon must be restarted for changes to take effect:
 # service auditd restart</xccdf:fixtext>
           <xccdf:fix id="F-87853r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:95731" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:95731" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -8221,18 +8181,18 @@ The audit daemon must be restarted for changes to take effect:
 # service auditd restart</xccdf:fixtext>
           <xccdf:fix id="F-87855r2_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:95733" href="U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.rhel7:def:95733" href="U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
     </xccdf:Benchmark>
   </component>
-  <component id="scap_mil.disa.stig_comp_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-oval.xml" timestamp="2019-06-13T11:01:19">
+  <component id="scap_mil.disa.stig_comp_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-oval.xml" timestamp="2020-03-17T09:37:39">
     <oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5">
       <generator>
         <oval:product_name>repotool</oval:product_name>
         <oval:schema_version>5.10</oval:schema_version>
-        <oval:timestamp>2019-06-13T11:01:18</oval:timestamp>
+        <oval:timestamp>2020-03-17T09:37:38</oval:timestamp>
       </generator>
       <definitions>
         <definition class="inventory" id="oval:mil.disa.stig.rhel7:def:1" version="1">
@@ -8253,7 +8213,6 @@ The audit daemon must be restarted for changes to take effect:
               <criterion comment="RHEL 7 Workstation is installed" test_ref="oval:mil.disa.stig.rhel7:tst:18" />
               <criterion comment="RHEL 7 Server is installed" test_ref="oval:mil.disa.stig.rhel7:tst:19" />
               <criterion comment="RHEL 7 Compute Node is installed" test_ref="oval:mil.disa.stig.rhel7:tst:20" />
-              <criterion comment="CentOS 7 Compute Node is installed" test_ref="oval:mil.fso.centos.centos7:tst:220" />
               <criteria comment="Red Hat Enterpise Virtualization Host is installed" operator="AND">
                 <criterion comment="redhat-release-virtualization-host RPM package is installed" test_ref="oval:mil.disa.stig.rhel7:tst:21" />
                 <criterion comment="Red Hat Enterpise Virtualization Host is based on RHEL 7" test_ref="oval:mil.disa.stig.rhel7:tst:22" />
@@ -8408,7 +8367,7 @@ The audit daemon must be restarted for changes to take effect:
             <criterion comment="Prelinking is disabled" test_ref="oval:mil.disa.stig.rhel7:tst:1016" />
           </criteria>
         </definition>
-        <definition class="compliance" id="oval:mil.disa.stig.rhel7:def:128" version="1">
+        <definition class="compliance" id="oval:mil.disa.stig.rhel7:def:128" version="2">
           <metadata>
             <title>Package dracut-fips Installed</title>
             <affected family="unix">
@@ -8419,7 +8378,6 @@ The audit daemon must be restarted for changes to take effect:
             <reference ref_id="package_dracut-fips_installed" source="ssg" />
           </metadata>
           <criteria>
-            <extend_definition comment="Installed OS is certified" definition_ref="oval:mil.disa.stig.rhel7:def:169" />
             <criterion comment="package dracut-fips is installed" test_ref="oval:mil.disa.stig.rhel7:tst:1257" />
           </criteria>
         </definition>
@@ -9044,7 +9002,7 @@ the SSH Server.</description>
             <criterion comment="Check CREATE_HOME in /etc/login.defs" test_ref="oval:mil.disa.stig.rhel7:tst:448" />
           </criteria>
         </definition>
-        <definition class="compliance" id="oval:mil.disa.stig.rhel7:def:449" version="3">
+        <definition class="compliance" id="oval:mil.disa.stig.rhel7:def:449" version="4">
           <metadata>
             <title>Set Maximum Number of Concurrent Login Sessions Per User</title>
             <affected family="unix">
@@ -9067,6 +9025,7 @@ the SSH Server.</description>
               <criterion comment="limits.d maxlogins in all domains configured correctly" test_ref="oval:mil.disa.stig.rhel7:tst:8684100" />
               <criterion comment="limits.conf maxlogins in all domains configured correctly" test_ref="oval:mil.disa.stig.rhel7:tst:8684101" />
             </criteria>
+            <criterion comment="all values are integers" test_ref="oval:mil.disa.stig.rhel7:tst:8684102" />
           </criteria>
         </definition>
         <definition class="compliance" id="oval:mil.disa.stig.rhel7:def:453" version="4">
@@ -12084,25 +12043,6 @@ This should be disabled.</description>
             <criterion comment="There must be no shosts.equiv files on the system." test_ref="oval:mil.disa.stig.rhel7:tst:8690300" />
           </criteria>
         </definition>
-        <definition class="compliance" id="oval:mil.disa.stig.rhel7:def:86905" version="1">
-          <metadata>
-            <title>For systems using DNS resolution, at least two name servers must be configured.</title>
-            <affected family="unix">
-              <platform>Red Hat Enterprise Linux 7</platform>
-            </affected>
-            <description>To provide availability for name resolution services, multiple redundant name servers are mandated. A failure in name resolution could lead to the failure of security functions requiring name resolution, which may include time synchronization, centralized authentication, and remote system logging.</description>
-          </metadata>
-          <criteria operator="OR">
-            <criteria comment="If DNS is not in use, /etc/resolv.conf must be empty">
-              <criterion test_ref="oval:mil.disa.stig.rhel7:tst:8690500" comment="host resolution uses DNS" negate="true" />
-              <criterion test_ref="oval:mil.disa.stig.rhel7:tst:8690501" comment="/etc/resolv.conf is empty or nonexistent" />
-            </criteria>
-            <criteria comment="If DNS is in use, two or more name servers must be configured">
-              <criterion test_ref="oval:mil.disa.stig.rhel7:tst:8690500" comment="host resolution uses DNS" />
-              <criterion test_ref="oval:mil.disa.stig.rhel7:tst:8690502" comment="/etc/resolv.conf has 2 or more nameservers" />
-            </criteria>
-          </criteria>
-        </definition>
         <definition class="compliance" id="oval:mil.disa.stig.rhel7:def:86943" version="2">
           <metadata>
             <title>The "ipv6.disable" Kernel Boot Option Check</title>
@@ -12116,7 +12056,7 @@ This should be disabled.</description>
             <criterion comment="kernel grub.cfg ipv6.disable set to 1" test_ref="oval:mil.disa.stig.rhel7:tst:8694301" />
           </criteria>
         </definition>
-        <definition class="compliance" id="oval:mil.disa.stig.rhel7:def:87041" version="2">
+        <definition class="compliance" id="oval:mil.disa.stig.rhel7:def:87041" version="3">
           <metadata>
             <title>The operating system must have the required packages for multifactor authentication installed.</title>
             <affected family="unix">
@@ -12124,8 +12064,7 @@ This should be disabled.</description>
             </affected>
             <description>The operating system must have the required packages for multifactor authentication installed.</description>
           </metadata>
-          <criteria operator="AND">
-            <criterion comment="package 'esc' is installed" test_ref="oval:mil.disa.stig.rhel7:tst:8704100" />
+          <criteria>
             <criterion comment="package 'pam_pkcs11' is installed" test_ref="oval:mil.disa.stig.rhel7:tst:8704101" />
           </criteria>
         </definition>
@@ -12421,10 +12360,6 @@ The ability to enable/disable a session lock is given to the user by default. Di
         <rpminfo_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="redhat-release-computenode is version 7" id="oval:mil.disa.stig.rhel7:tst:20" version="1">
           <object object_ref="oval:mil.disa.stig.rhel7:obj:58" />
           <state state_ref="oval:mil.disa.stig.rhel7:ste:59" />
-        </rpminfo_test>
-        <rpminfo_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="centos-release-computenode is version 7" id="oval:mil.fso.centos.centos7:tst:220" version="1">
-          <object object_ref="oval:mil.fso.centos.centos7:obj:258" />
-          <state state_ref="oval:mil.fso.centos.centos7:ste:259" />
         </rpminfo_test>
         <rpminfo_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="only_one_exists" comment="redhat-release-virtualization-host RPM package is installed" id="oval:mil.disa.stig.rhel7:tst:21" version="1">
           <object object_ref="oval:mil.disa.stig.rhel7:obj:60" />
@@ -13611,7 +13546,7 @@ The ability to enable/disable a session lock is given to the user by default. Di
         <rpminfo_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="all_exist" comment="package openssh-server is installed" id="oval:mil.disa.stig.rhel7:tst:4249" version="1">
           <object object_ref="oval:mil.disa.stig.rhel7:obj:4288" />
         </rpminfo_test>
-        <textfilecontent54_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="check for fips=1 in grub.cfg" id="oval:mil.disa.stig.rhel7:tst:12600" version="1">
+        <textfilecontent54_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="check for fips=1 in grub.cfg" id="oval:mil.disa.stig.rhel7:tst:12600" version="2">
           <object object_ref="oval:mil.disa.stig.rhel7:obj:12600" />
           <state state_ref="oval:mil.disa.stig.rhel7:ste:2075" />
         </textfilecontent54_test>
@@ -13621,13 +13556,14 @@ The ability to enable/disable a session lock is given to the user by default. Di
         <textfilecontent54_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="none_exist" comment="check for fips=0 in /etc/default/grub" id="oval:mil.disa.stig.rhel7:tst:12602" version="1">
           <object object_ref="oval:mil.disa.stig.rhel7:obj:12602" />
         </textfilecontent54_test>
-        <textfilecontent54_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="Supported RHEL7 minor version" id="oval:mil.disa.stig.rhel7:tst:16900" version="3" state_operator="OR">
+        <textfilecontent54_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="Supported RHEL7 minor version" id="oval:mil.disa.stig.rhel7:tst:16900" version="4" state_operator="OR">
           <object object_ref="oval:mil.disa.stig.rhel7:obj:16900" />
           <state state_ref="oval:mil.disa.stig.rhel7:ste:16900" />
           <state state_ref="oval:mil.disa.stig.rhel7:ste:16901" />
           <state state_ref="oval:mil.disa.stig.rhel7:ste:16902" />
           <state state_ref="oval:mil.disa.stig.rhel7:ste:16903" />
           <state state_ref="oval:mil.disa.stig.rhel7:ste:16904" />
+          <state state_ref="oval:mil.disa.stig.rhel7:ste:16905" />
         </textfilecontent54_test>
         <textfilecontent54_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="all_exist" comment="Test if remember attribute of pam_unix.so is set correctly in /etc/pam.d/password-auth" id="oval:mil.disa.stig.rhel7:tst:48700" version="1">
           <object object_ref="oval:mil.disa.stig.rhel7:obj:237400" />
@@ -13805,6 +13741,10 @@ The ability to enable/disable a session lock is given to the user by default. Di
           <object object_ref="oval:mil.disa.stig.rhel7:obj:451" />
           <state state_ref="oval:mil.disa.stig.rhel7:ste:2340" />
         </textfilecontent54_test>
+        <textfilecontent54_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="all values are integers" id="oval:mil.disa.stig.rhel7:tst:8684102" version="1" check_existence="at_least_one_exists">
+          <object object_ref="oval:mil.disa.stig.rhel7:obj:8684102" />
+          <state state_ref="oval:mil.disa.stig.rhel7:ste:8684102" />
+        </textfilecontent54_test>
         <file_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="The file specified in the Banner setting in the /etc/ssh/sshd_config file exists" id="oval:mil.disa.stig.rhel7:tst:8684900" version="1">
           <object object_ref="oval:mil.disa.stig.rhel7:obj:8684900" />
         </file_test>
@@ -13829,18 +13769,6 @@ The ability to enable/disable a session lock is given to the user by default. Di
         <file_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="none_exist" comment="There must be no shosts.equiv files on the system." id="oval:mil.disa.stig.rhel7:tst:8690300" version="1">
           <object object_ref="oval:mil.disa.stig.rhel7:obj:8690300" />
         </file_test>
-        <textfilecontent54_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" check_existence="at_least_one_exists" comment="host resolution uses DNS" id="oval:mil.disa.stig.rhel7:tst:8690500" version="1">
-          <object object_ref="oval:mil.disa.stig.rhel7:obj:8690500" />
-          <state state_ref="oval:mil.disa.stig.rhel7:ste:8690500" />
-        </textfilecontent54_test>
-        <file_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="any_exist" comment="/etc/resolv.conf is empty or nonexistent" id="oval:mil.disa.stig.rhel7:tst:8690501" version="1">
-          <object object_ref="oval:mil.disa.stig.rhel7:obj:8690501" />
-          <state state_ref="oval:mil.disa.stig.rhel7:ste:8690501" />
-        </file_test>
-        <textfilecontent54_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="at least one" check_existence="at_least_one_exists" comment="/etc/resolv.conf has 2 or more nameservers" id="oval:mil.disa.stig.rhel7:tst:8690502" version="1">
-          <object object_ref="oval:mil.disa.stig.rhel7:obj:8690502" />
-          <state state_ref="oval:mil.disa.stig.rhel7:ste:8690502" />
-        </textfilecontent54_test>
         <textfilecontent54_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" check="all" comment="ipv6.disable=1 in /proc/cmdline" id="oval:mil.disa.stig.rhel7:tst:8694300" version="1">
           <object object_ref="oval:mil.disa.stig.rhel7:obj:8694300" />
         </textfilecontent54_test>
@@ -13848,9 +13776,6 @@ The ability to enable/disable a session lock is given to the user by default. Di
           <object object_ref="oval:mil.disa.stig.rhel7:obj:12600" />
           <state state_ref="oval:mil.disa.stig.rhel7:ste:8694300" />
         </textfilecontent54_test>
-        <rpminfo_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="package 'esc' is installed" id="oval:mil.disa.stig.rhel7:tst:8704100" version="1">
-          <object object_ref="oval:mil.disa.stig.rhel7:obj:8704100" />
-        </rpminfo_test>
         <rpminfo_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="package 'pam_pkcs11' is installed" id="oval:mil.disa.stig.rhel7:tst:8704101" version="1">
           <object object_ref="oval:mil.disa.stig.rhel7:obj:8704101" />
         </rpminfo_test>
@@ -13998,9 +13923,6 @@ The ability to enable/disable a session lock is given to the user by default. Di
         <rpminfo_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.stig.rhel7:obj:58" version="1">
           <name>redhat-release-computenode</name>
         </rpminfo_object>
-        <rpminfo_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.fso.centos.centos7:obj:258" version="1">
-          <name>centos-release-computenode</name>
-        </rpminfo_object>
         <rpminfo_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.stig.rhel7:obj:60" version="1">
           <name>redhat-release-virtualization-host</name>
         </rpminfo_object>
@@ -14009,15 +13931,15 @@ The ability to enable/disable a session lock is given to the user by default. Di
           <pattern operation="pattern match">^Red Hat Enterprise Linux release (\d)\.\d+$</pattern>
           <instance datatype="int" operation="greater than or equal">1</instance>
         </textfilecontent54_object>
-        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:450" version="2" comment="limits.d maxlogins in any domain">
+        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:450" version="3" comment="limits.d maxlogins in any domain">
           <path>/etc/security/limits.d</path>
           <filename operation="pattern match">^.*\.conf$</filename>
-          <pattern operation="pattern match">^[\s]*[^#\s]+[\s]+(?:(?:hard)|(?:-))[\s]+maxlogins[\s]+(\d+)\s*$</pattern>
+          <pattern operation="pattern match">^[\s]*[^#\s]+[\s]+(?:(?:hard)|(?:-))[\s]+maxlogins[\s]+(\S+)\s*$</pattern>
           <instance datatype="int" operation="greater than or equal">1</instance>
         </textfilecontent54_object>
-        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:451" version="3" comment="limits.conf maxlogins in any domain">
+        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:451" version="4" comment="limits.conf maxlogins in any domain">
           <filepath>/etc/security/limits.conf</filepath>
-          <pattern operation="pattern match">^[\s]*[^#\s]+[\s]+(?:(?:hard)|(?:-))[\s]+maxlogins[\s]+(\d+)\s*$</pattern>
+          <pattern operation="pattern match">^[\s]*[^#\s]+[\s]+(?:(?:hard)|(?:-))[\s]+maxlogins[\s]+(\S+)\s*$</pattern>
           <instance datatype="int" operation="greater than or equal">1</instance>
         </textfilecontent54_object>
         <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="FAIL_DELAY value from /etc/login.defs" id="oval:mil.disa.stig.rhel7:obj:2055" version="2">
@@ -14356,15 +14278,15 @@ The ability to enable/disable a session lock is given to the user by default. Di
           <pattern operation="pattern match">^\s*CREATE_HOME\s+(\S+)\s*$</pattern>
           <instance datatype="int" operation="greater than or equal">1</instance>
         </textfilecontent54_object>
-        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:2339" version="1">
+        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:2339" version="2">
           <filepath>/etc/security/limits.conf</filepath>
-          <pattern operation="pattern match">^[\s]*\*[\s]+(?:(?:hard)|(?:-))[\s]+maxlogins[\s]+(\d+)\s*$</pattern>
+          <pattern operation="pattern match">^[\s]*\*[\s]+(?:(?:hard)|(?:-))[\s]+maxlogins[\s]+(\S+)\s*$</pattern>
           <instance datatype="int">1</instance>
         </textfilecontent54_object>
-        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:2341" version="1">
+        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:2341" version="2">
           <path>/etc/security/limits.d</path>
           <filename operation="pattern match">^.*\.conf$</filename>
-          <pattern operation="pattern match">^[\s]*\*[\s]+(?:(?:hard)|(?:-))[\s]+maxlogins[\s]+(\d+)\s*$</pattern>
+          <pattern operation="pattern match">^[\s]*\*[\s]+(?:(?:hard)|(?:-))[\s]+maxlogins[\s]+(\S+)\s*$</pattern>
           <instance datatype="int" operation="greater than or equal">1</instance>
         </textfilecontent54_object>
         <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:2342" version="1">
@@ -16151,6 +16073,24 @@ The ability to enable/disable a session lock is given to the user by default. Di
           <pattern operation="pattern match">^[\s]*-w\s+\/usr\/bin\/kmod[\s]+((-F[\s]+perm=|-p\s+)([rwa]*x[rwa]*)[\s]+)?-F[\s]+auid!=4294967295[\s]+(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</pattern>
           <instance datatype="int">1</instance>
         </textfilecontent54_object>
+        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:8684102" version="1">
+          <set xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" set_operator="UNION">
+            <object_reference>oval:mil.disa.stig.rhel7:obj:8684103</object_reference>
+            <object_reference>oval:mil.disa.stig.rhel7:obj:8684104</object_reference>
+          </set>
+        </textfilecontent54_object>
+        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:8684103" version="1">
+          <set xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" set_operator="UNION">
+            <object_reference>oval:mil.disa.stig.rhel7:obj:450</object_reference>
+            <object_reference>oval:mil.disa.stig.rhel7:obj:451</object_reference>
+          </set>
+        </textfilecontent54_object>
+        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:8684104" version="1">
+          <set xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" set_operator="UNION">
+            <object_reference>oval:mil.disa.stig.rhel7:obj:2339</object_reference>
+            <object_reference>oval:mil.disa.stig.rhel7:obj:2341</object_reference>
+          </set>
+        </textfilecontent54_object>
         <file_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:mil.disa.stig.rhel7:obj:8684900" version="1">
           <filepath datatype="string" var_ref="oval:mil.disa.stig.rhel7:var:8684900" />
         </file_object>
@@ -16191,38 +16131,22 @@ The ability to enable/disable a session lock is given to the user by default. Di
           <path>/</path>
           <filename>shosts.equiv</filename>
         </file_object>
-        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="/etc/nsswitch.conf: hosts" id="oval:mil.disa.stig.rhel7:obj:8690500" version="1">
-          <filepath>/etc/nsswitch.conf</filepath>
-          <pattern operation="pattern match">^\s*hosts:\s(.*)$</pattern>
-          <instance datatype="int" operation="greater than or equal">1</instance>
-        </textfilecontent54_object>
-        <file_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="/etc/resolv.conf" id="oval:mil.disa.stig.rhel7:obj:8690501" version="1">
-          <filepath>/etc/resolv.conf</filepath>
-        </file_object>
-        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" comment="/etc/resolv.conf: nameserver" id="oval:mil.disa.stig.rhel7:obj:8690502" version="1">
-          <filepath>/etc/resolv.conf</filepath>
-          <pattern operation="pattern match">^\s*nameserver\s(.*)$</pattern>
-          <instance datatype="int" operation="greater than or equal">1</instance>
-        </textfilecontent54_object>
         <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:8694300" version="2">
           <filepath>/proc/cmdline</filepath>
           <pattern operation="pattern match">\bipv6\.disable=1\b</pattern>
           <instance operation="greater than or equal" datatype="int">1</instance>
         </textfilecontent54_object>
-        <rpminfo_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.stig.rhel7:obj:8704100" version="1" comment="package 'esc'">
-          <name>esc</name>
-        </rpminfo_object>
         <rpminfo_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.stig.rhel7:obj:8704101" version="1" comment="package 'pam_pkcs11'">
           <name>pam_pkcs11</name>
         </rpminfo_object>
-        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:8705700" version="1" comment="Check what cert_policy is set to in /etc/pam_pkcs11/pam_pkcs11.conf">
+        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:8705700" version="2" comment="Check what cert_policy is set to in /etc/pam_pkcs11/pam_pkcs11.conf">
           <filepath>/etc/pam_pkcs11/pam_pkcs11.conf</filepath>
-          <pattern operation="pattern match">^[\s]*cert_policy[ \t]+=[ \t]+([\w\, ]+);\s*$</pattern>
+          <pattern operation="pattern match">^[\s]*cert_policy[ \t]+=[ \t]+([\w\,"' ]+);\s*$</pattern>
           <instance datatype="int" operation="greater than or equal">1</instance>
         </textfilecontent54_object>
-        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:8705701" version="1" comment="There are 3 or more cert_policy with the ocsp_on option set in /etc/pam_pkcs11/pam_pkcs11.conf">
+        <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:8705701" version="2" comment="There are 3 or more cert_policy with the ocsp_on option set in /etc/pam_pkcs11/pam_pkcs11.conf">
           <filepath>/etc/pam_pkcs11/pam_pkcs11.conf</filepath>
-          <pattern operation="pattern match">^[\s]*cert_policy[ \t]+=[ \t]+([\w\, ]*ocsp_on[\w\, ]*);\s*$</pattern>
+          <pattern operation="pattern match">^[\s]*cert_policy[ \t]+=[ \t]+([\w\,"' ]*ocsp_on[\w\,"' ]*);\s*$</pattern>
           <instance datatype="int" operation="greater than or equal">3</instance>
         </textfilecontent54_object>
         <textfilecontent54_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:obj:8780700" version="2" comment="lock-delay locks">
@@ -16436,9 +16360,6 @@ The ability to enable/disable a session lock is given to the user by default. Di
           <version operation="pattern match">^7.*$</version>
         </rpminfo_state>
         <rpminfo_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.stig.rhel7:ste:59" version="1">
-          <version operation="pattern match">^7.*$</version>
-        </rpminfo_state>
-        <rpminfo_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.fso.centos.centos7:ste:259" version="1">
           <version operation="pattern match">^7.*$</version>
         </rpminfo_state>
         <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:62" version="1">
@@ -16674,6 +16595,9 @@ The ability to enable/disable a session lock is given to the user by default. Di
         <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:16904" version="1" comment="RHEL 7.6">
           <subexpression>7.6</subexpression>
         </textfilecontent54_state>
+        <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:16905" version="1" comment="RHEL 7.7">
+          <subexpression>7.7</subexpression>
+        </textfilecontent54_state>
         <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:27520" version="1">
           <path operation="pattern match">^/etc/dconf/db/[^/]+\.d/?$</path>
         </textfilecontent54_state>
@@ -16794,6 +16718,9 @@ The ability to enable/disable a session lock is given to the user by default. Di
         <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:8671500" version="1" comment="space_left_action = email">
           <subexpression datatype="string" operation="pattern match">^[Ee][Mm][Aa][Ii][Ll]$</subexpression>
         </textfilecontent54_state>
+        <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:8684102" version="1">
+          <subexpression operation="pattern match">^\d+$</subexpression>
+        </textfilecontent54_state>
         <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:8684901" version="1">
           <subexpression operation="pattern match" var_ref="oval:mil.disa.stig.rhel7:var:3745" />
         </textfilecontent54_state>
@@ -16863,20 +16790,11 @@ The ability to enable/disable a session lock is given to the user by default. Di
         <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:8689901" version="2" comment="showfailed option is present">
           <subexpression datatype="string" operation="pattern match">^showfailed[\s]|[\s]showfailed[\s]|[\s]showfailed$|^showfailed$</subexpression>
         </textfilecontent54_state>
-        <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:8690500" version="1" comment="DNS service specification">
-          <subexpression datatype="string" operation="pattern match">(^|\s)dns(\s|$)</subexpression>
-        </textfilecontent54_state>
-        <file_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:mil.disa.stig.rhel7:ste:8690501" version="1" comment="file has zero length">
-          <size datatype="int">0</size>
-        </file_state>
-        <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:8690502" version="1" comment="second and greater instances">
-          <instance datatype="int" operation="greater than or equal">2</instance>
-        </textfilecontent54_state>
         <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:8694300" version="1">
           <subexpression datatype="string" operation="pattern match">^[^#]*\bipv6\.disable=1\b</subexpression>
         </textfilecontent54_state>
-        <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:8705700" version="1" comment="The ocsp_on option is present in the collected string">
-          <subexpression datatype="string" operation="pattern match">^ocsp_on$|^ocsp_on[,\s]|[,\s]ocsp_on[,\s]|[,\s]ocsp_on$</subexpression>
+        <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:8705700" version="2" comment="The ocsp_on option is present in the collected string">
+          <subexpression datatype="string" operation="pattern match">^["']*ocsp_on["']*$|^["']*ocsp_on["',\s]|["',\s]ocsp_on["',\s]|["',\s]ocsp_on["']*$</subexpression>
         </textfilecontent54_state>
         <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:8780700" version="1" comment="match paths for databases that have lock-delay locked">
           <path datatype="string" var_check="at least one" var_ref="oval:mil.disa.stig.rhel7:var:8780700" />
@@ -17100,12 +17018,12 @@ The ability to enable/disable a session lock is given to the user by default. Di
       </variables>
     </oval_definitions>
   </component>
-  <component id="scap_mil.disa.stig_comp_U_Red_Hat_Enterprise_Linux_7_V2R4_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" timestamp="2019-06-13T11:01:19">
+  <component id="scap_mil.disa.stig_comp_U_RHEL_7_V2R7_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" timestamp="2020-03-17T09:37:39">
     <oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5">
       <generator>
         <oval:product_name>repotool</oval:product_name>
         <oval:schema_version>5.10</oval:schema_version>
-        <oval:timestamp>2019-06-13T11:01:18</oval:timestamp>
+        <oval:timestamp>2020-03-17T09:37:38</oval:timestamp>
       </generator>
       <definitions>
         <definition class="inventory" id="oval:mil.disa.stig.rhel7:def:1" version="1">
@@ -17126,7 +17044,6 @@ The ability to enable/disable a session lock is given to the user by default. Di
               <criterion comment="RHEL 7 Workstation is installed" test_ref="oval:mil.disa.stig.rhel7:tst:18" />
               <criterion comment="RHEL 7 Server is installed" test_ref="oval:mil.disa.stig.rhel7:tst:19" />
               <criterion comment="RHEL 7 Compute Node is installed" test_ref="oval:mil.disa.stig.rhel7:tst:20" />
-              <criterion comment="CentOS 7 Compute Node is installed" test_ref="oval:mil.fso.centos.centos7:tst:220" />
               <criteria comment="Red Hat Enterpise Virtualization Host is installed" operator="AND">
                 <criterion comment="redhat-release-virtualization-host RPM package is installed" test_ref="oval:mil.disa.stig.rhel7:tst:21" />
                 <criterion comment="Red Hat Enterpise Virtualization Host is based on RHEL 7" test_ref="oval:mil.disa.stig.rhel7:tst:22" />
@@ -17156,10 +17073,6 @@ The ability to enable/disable a session lock is given to the user by default. Di
           <object object_ref="oval:mil.disa.stig.rhel7:obj:58" />
           <state state_ref="oval:mil.disa.stig.rhel7:ste:59" />
         </rpminfo_test>
-        <rpminfo_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="centos-release-computenode is version 7" id="oval:mil.fso.centos.centos7:tst:220" version="1">
-          <object object_ref="oval:mil.fso.centos.centos7:obj:258" />
-          <state state_ref="oval:mil.fso.centos.centos7:ste:259" />
-        </rpminfo_test>
         <rpminfo_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="only_one_exists" comment="redhat-release-virtualization-host RPM package is installed" id="oval:mil.disa.stig.rhel7:tst:21" version="1">
           <object object_ref="oval:mil.disa.stig.rhel7:obj:60" />
         </rpminfo_test>
@@ -17181,9 +17094,6 @@ The ability to enable/disable a session lock is given to the user by default. Di
         </rpminfo_object>
         <rpminfo_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.stig.rhel7:obj:58" version="1">
           <name>redhat-release-computenode</name>
-        </rpminfo_object>
-        <rpminfo_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.fso.centos.centos7:obj:258" version="1">
-          <name>centos-release-computenode</name>
         </rpminfo_object>
         <rpminfo_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.stig.rhel7:obj:60" version="1">
           <name>redhat-release-virtualization-host</name>
@@ -17210,9 +17120,6 @@ The ability to enable/disable a session lock is given to the user by default. Di
         <rpminfo_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.stig.rhel7:ste:59" version="1">
           <version operation="pattern match">^7.*$</version>
         </rpminfo_state>
-        <rpminfo_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.fso.centos.centos7:ste:259" version="1">
-          <version operation="pattern match">^7.*$</version>
-        </rpminfo_state>
         <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:62" version="1">
           <subexpression operation="pattern match">7</subexpression>
         </textfilecontent54_state>
@@ -17220,3 +17127,4 @@ The ability to enable/disable a session lock is given to the user by default. Di
     </oval_definitions>
   </component>
 </data-stream-collection>
+
