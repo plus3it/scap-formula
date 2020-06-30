@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<data-stream-collection xmlns="http://scap.nist.gov/schema/scap/source/1.2" id="scap_mil.disa.stig_collection_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark" schematron-version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.2 http://scap.nist.gov/schema/xccdf/1.2/xccdf_1.2.xsd http://cpe.mitre.org/dictionary/2.0 http://scap.nist.gov/schema/cpe/2.3/cpe-dictionary_2.3.xsd http://oval.mitre.org/XMLSchema/oval-common-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/windows-definitions-schema.xsd http://scap.nist.gov/schema/scap/source/1.2 http://scap.nist.gov/schema/scap/1.2/scap-source-data-stream_1.2.xsd">
-  <data-stream id="scap_mil.disa.stig_datastream_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark" use-case="CONFIGURATION" scap-version="1.2" timestamp="2019-05-03T09:48:24">
+<data-stream-collection xmlns="http://scap.nist.gov/schema/scap/source/1.2" id="scap_mil.disa.stig_collection_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark" schematron-version="1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.2 http://scap.nist.gov/schema/xccdf/1.2/xccdf_1.2.xsd http://cpe.mitre.org/dictionary/2.0 http://scap.nist.gov/schema/cpe/2.3/cpe-dictionary_2.3.xsd http://oval.mitre.org/XMLSchema/oval-common-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#independent http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/independent-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/windows-definitions-schema.xsd http://scap.nist.gov/schema/scap/source/1.2 http://scap.nist.gov/schema/scap/1.2/scap-source-data-stream_1.2.xsd">
+  <data-stream id="scap_mil.disa.stig_datastream_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark" use-case="CONFIGURATION" scap-version="1.2" timestamp="2020-03-17T16:46:26">
     <dictionaries>
-      <component-ref id="scap_mil.disa.stig_cref_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml">
+      <component-ref id="scap_mil.disa.stig_cref_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml">
         <cat:catalog xmlns:cat="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-          <cat:uri name="U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" uri="#scap_mil.disa.stig_cref_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
+          <cat:uri name="U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" uri="#scap_mil.disa.stig_cref_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
         </cat:catalog>
       </component-ref>
     </dictionaries>
     <checklists>
-      <component-ref id="scap_mil.disa.stig_cref_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-xccdf.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-xccdf.xml">
+      <component-ref id="scap_mil.disa.stig_cref_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-xccdf.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-xccdf.xml">
         <cat:catalog xmlns:cat="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-          <cat:uri name="U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-oval.xml" uri="#scap_mil.disa.stig_cref_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-oval.xml" />
+          <cat:uri name="U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-oval.xml" uri="#scap_mil.disa.stig_cref_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
         </cat:catalog>
       </component-ref>
     </checklists>
     <checks>
-      <component-ref id="scap_mil.disa.stig_cref_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-oval.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-oval.xml" />
-      <component-ref id="scap_mil.disa.stig_cref_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
+      <component-ref id="scap_mil.disa.stig_cref_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-oval.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
+      <component-ref id="scap_mil.disa.stig_cref_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
     </checks>
   </data-stream>
-  <component id="scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" timestamp="2019-05-03T09:48:24">
+  <component id="scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" timestamp="2020-03-17T16:46:26">
     <cpe-list xmlns="http://cpe.mitre.org/dictionary/2.0">
       <cpe-item name="cpe:/a:microsoft:.net_framework:4.0">
         <title>Microsoft .NET Framework 4.0</title>
-        <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-cpe-oval.xml">oval:mil.disa.fso.dotnet:def:1</check>
+        <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-cpe-oval.xml">oval:mil.disa.fso.dotnet:def:1</check>
       </cpe-item>
     </cpe-list>
   </component>
-  <component id="scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-xccdf.xml" timestamp="2019-05-03T09:48:24">
+  <component id="scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-xccdf.xml" timestamp="2020-03-17T16:46:26">
     <xccdf:Benchmark xmlns:xccdf="http://checklists.nist.gov/xccdf/1.2" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:cpe="http://cpe.mitre.org/language/2.0" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" id="xccdf_mil.disa.stig_benchmark_MS_Dot_Net_Framework" xml:lang="en" style="SCAP_1.2">
-      <xccdf:status date="2019-04-26">accepted</xccdf:status>
+      <xccdf:status date="2020-04-24">accepted</xccdf:status>
       <xccdf:title>Microsoft DotNet Framework 4.0 STIG</xccdf:title>
       <xccdf:description>Applicable to systems and applications utilizing the Microsoft .Net version 4.0 framework.</xccdf:description>
       <xccdf:notice id="terms-of-use" xml:lang="en" />
-      <xccdf:reference href="http://iase.disa.mil">
+      <xccdf:reference href="http://cyber.mil">
         <dc:publisher>DISA</dc:publisher>
         <dc:source>STIG.DOD.MIL</dc:source>
       </xccdf:reference>
-      <xccdf:plain-text id="release-info">Release: 1.6 Benchmark Date: 26 Apr 2019</xccdf:plain-text>
+      <xccdf:plain-text id="release-info">Release: 1.7 Benchmark Date: 24 Apr 2020</xccdf:plain-text>
       <xccdf:platform idref="cpe:/a:microsoft:.net_framework:4.0" />
-      <xccdf:version update="http://iase.disa.mil/stigs">001.006</xccdf:version>
+      <xccdf:version update="http://iase.disa.mil/stigs">001.007</xccdf:version>
       <xccdf:metadata>
         <dc:creator>DISA</dc:creator>
         <dc:publisher>DISA</dc:publisher>
@@ -133,17 +133,17 @@
         <xccdf:description>This profile only includes rules that are Severity Category I.</xccdf:description>
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-40966r1_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-41075r1_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-7438r2_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-7438r3_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-7444r3_rule" selected="false" />
         <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-96209r2_rule" selected="false" />
       </xccdf:Profile>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-7055">
         <xccdf:title>APPNET0031 No Strong Name Verification</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-7438r2_rule" severity="medium" weight="10.0">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-7438r3_rule" severity="medium" weight="10.0">
           <xccdf:version update="http://iase.disa.mil/stigs">APPNET0031</xccdf:version>
           <xccdf:title>Digital signatures assigned to strongly named assemblies must be verified.</xccdf:title>
-          <xccdf:description>&lt;VulnDiscussion&gt;A strong name consists of the assembly's identity, simple text name, version number, and culture information (if provided)—plus a public key and a digital signature.  Strong names serve to identify the author of the code.  If digital signatures used to sign strong name assemblies are not verified, any self signed code can be impersonated.  This can lead to a loss of system integrity. &lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;IAControls&gt;DCSL-1&lt;/IAControls&gt;</xccdf:description>
+          <xccdf:description>&lt;VulnDiscussion&gt;A strong name consists of the assembly's identity, simple text name, version number, and culture information (if provided)—plus a public key and a digital signature.  Strong names serve to identify the author of the code.  If digital signatures used to sign strong name assemblies are not verified, any self signed code can be impersonated.  This can lead to a loss of system integrity. &lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;System Administrator&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
           <xccdf:reference>
             <dc:title>DPMS Target Framework 4.0</dc:title>
             <dc:publisher>DISA</dc:publisher>
@@ -158,7 +158,7 @@ All assemblies must require strong name verification in a production environment
 Strong name assemblies that do not require verification in a development or test environment must have documented approvals from the IAO.</xccdf:fixtext>
           <xccdf:fix id="F-12596r7_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.dotnet:def:2" href="U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.dotnet:def:2" href="U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -196,7 +196,7 @@ The hexadecimal value of 0x23C00 will implement the following certificate enforc
 Using regedit, change the hexadecimal value of the "HKEY_USER\[UNIQUE USER SID VALUE]\Software\Microsoft\Windows\CurrentVersion\WinTrust\Trust Providers\Software Publishing\State" registry key to 0x23C00.</xccdf:fixtext>
           <xccdf:fix id="F-12602r12_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.dotnet:def:15" href="U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.dotnet:def:15" href="U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -249,7 +249,7 @@ Example:
 Delete the "enforceFIPSPolicy" runtime element, change the setting to "true" or there must be documented IAO approvals for the FIPS setting.</xccdf:fixtext>
           <xccdf:fix id="F-34734r4_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.dotnet:def:9" href="U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.dotnet:def:9" href="U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -277,7 +277,7 @@ Examine the configuration settings for
 Enable ETW Tracing by setting the etwEnable flag to "true" or obtain documented IAO approvals.</xccdf:fixtext>
           <xccdf:fix id="F-34847r6_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.dotnet:def:12" href="U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.dotnet:def:12" href="U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
@@ -308,18 +308,18 @@ Modify or create the following Windows registry value: SchUseStrongCrypto
 Set SchUseStrongCrypto to a REG_DWORD value of “1”.</xccdf:fixtext>
           <xccdf:fix id="F-88319r3_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.fso.dotnet:def:16" href="U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.fso.dotnet:def:16" href="U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
     </xccdf:Benchmark>
   </component>
-  <component id="scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-oval.xml" timestamp="2019-05-03T09:48:24">
+  <component id="scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-oval.xml" timestamp="2020-03-17T16:46:26">
     <oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5">
       <generator>
         <oval:product_name>repotool</oval:product_name>
         <oval:schema_version>5.10</oval:schema_version>
-        <oval:timestamp>2019-05-03T09:48:23</oval:timestamp>
+        <oval:timestamp>2020-03-17T16:46:25</oval:timestamp>
       </generator>
       <definitions>
         <definition id="oval:mil.disa.fso.dotnet:def:2" version="1" class="compliance">
@@ -689,12 +689,12 @@ Set SchUseStrongCrypto to a REG_DWORD value of “1”.</xccdf:fixtext>
       </variables>
     </oval_definitions>
   </component>
-  <component id="scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R6_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" timestamp="2019-05-03T09:48:24">
+  <component id="scap_mil.disa.stig_comp_U_MS_DotNet_Framework_4_V1R7_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" timestamp="2020-03-17T16:46:26">
     <oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5">
       <generator>
         <oval:product_name>repotool</oval:product_name>
         <oval:schema_version>5.10</oval:schema_version>
-        <oval:timestamp>2019-05-03T09:48:23</oval:timestamp>
+        <oval:timestamp>2020-03-17T16:46:25</oval:timestamp>
       </generator>
       <definitions>
         <definition id="oval:mil.disa.fso.dotnet:def:1" version="2" class="inventory">
@@ -749,3 +749,4 @@ Set SchUseStrongCrypto to a REG_DWORD value of “1”.</xccdf:fixtext>
     </oval_definitions>
   </component>
 </data-stream-collection>
+
