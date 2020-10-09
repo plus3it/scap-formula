@@ -9,6 +9,7 @@
 
 {#- Initialize oscap dictionary with defaults and pillar data #}
 {%- set oscap = {
+    'os': os,
     'cpe': salt.pillar.get('scap:lookup:oscap:cpe') | default('openscap/ssg-rhel' ~ osrel ~ '-cpe-dictionary.xml', true),
     'xccdf': salt.pillar.get('scap:lookup:oscap:xccdf') | default('openscap/ssg-' ~ os ~ osrel ~ '-xccdf.xml', true),
     'profile': salt.pillar.get('scap:lookup:oscap:profile') | default('common', true),

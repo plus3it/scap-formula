@@ -13,7 +13,7 @@ create oscap output directory:
 
 run oscap scan:
   cmd.run:
-    - name: '(oscap xccdf eval --profile {{ oscap.profile }} --report {{ oscap.report }} --results {{ oscap.results }} {% if not oscap.scap1_2 -%} --cpe {{ oscap.cpe }} {%- endif %} {{ oscap.xccdf }}) || true'
+    - name: '(oscap xccdf eval --profile {%- if oscap.os == 'rhel' %} profile_{{ oscap.profile }} {%- else %} {{ oscap.profile }} {%- endif %} --report {{ oscap.report }} --results {{ oscap.results }} {% if not oscap.scap1_2 -%} --cpe {{ oscap.cpe }} {%- endif %} {{ oscap.xccdf }}) || true'
     - cwd: '/root'
     - require:
       - file: manage scap content
