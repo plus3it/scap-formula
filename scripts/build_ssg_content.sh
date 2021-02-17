@@ -9,8 +9,8 @@ PROJECT_DIR="$( cd -P "$( dirname "$SCRIPT_DIR" )/.." && pwd )"
 # Set vars
 REPO=https://github.com/ComplianceAsCode/content.git
 PROFILES=( C2S stig )
-MAKE_TARGETS_RHEL=( rhel6-content rhel7-content )
-MAKE_TARGETS_CENTOS=( centos6-content centos7-content )
+MAKE_TARGETS_RHEL=( rhel7-content )
+MAKE_TARGETS_CENTOS=( centos7-content )
 BUILD_DIR="${PROJECT_DIR}/build/content"
 DIST_DIR="${PROJECT_DIR}/scap/content/guides/openscap"
 
@@ -20,7 +20,7 @@ rm -rf "$BUILD_DIR"
 
 # Clone the repo and checkout the latest tag
 git clone "$REPO" "$BUILD_DIR" && pushd "$BUILD_DIR"
-TAG="$(git describe --abbrev=0 --tags)"
+TAG="$(git describe --tags $(git rev-list --tags --max-count=1))"
 echo
 echo "Tag to build: ${TAG}"
 echo
