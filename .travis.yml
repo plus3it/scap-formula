@@ -7,8 +7,6 @@ env:
     - SEGFAULT_SIGNALS=all
     - SALT_STATE=scap.scan
   matrix:
-    - OS_VERSION=6 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-scc
-    - OS_VERSION=6 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-oscap
     - OS_VERSION=7 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-scc
     - OS_VERSION=7 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-oscap
 
@@ -26,10 +24,8 @@ jobs:
       before_install: skip
       install: skip
       env:
-        - EL6="./scap/content/guides/disa/stig-el6-scap_1-2.xml"
         - EL7="./scap/content/guides/disa/stig-el7-scap_1-2.xml"
       script:
-        - if ! grep -i "centos" $EL6 > /dev/null; then echo "ERROR CentOS string not found in $EL6"; exit 1; fi
         - if ! grep -i "centos" $EL7 > /dev/null; then echo "ERROR CentOS string not found in $EL7"; exit 1; fi
       after_script: skip
       after_failure: skip
