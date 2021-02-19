@@ -1,41 +1,5 @@
 <?xml version="1.0"?>
 <cpe-dict:cpe-list xmlns:cpe-dict="http://cpe.mitre.org/dictionary/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cpe.mitre.org/dictionary/2.0 http://cpe.mitre.org/files/cpe-dictionary_2.1.xsd">
-  <cpe-dict:cpe-item name="cpe:/o:redhat:enterprise_linux:7">
-    <cpe-dict:title xml:lang="en-us">Red Hat Enterprise Linux 7</cpe-dict:title>
-    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</cpe-dict:check>
-  </cpe-dict:cpe-item>
-  <cpe-dict:cpe-item name="cpe:/o:redhat:enterprise_linux:7::server">
-    <cpe-dict:title xml:lang="en-us">Red Hat Enterprise Linux 7 Server</cpe-dict:title>
-    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</cpe-dict:check>
-  </cpe-dict:cpe-item>
-  <cpe-dict:cpe-item name="cpe:/o:redhat:enterprise_linux:7::client">
-    <cpe-dict:title xml:lang="en-us">Red Hat Enterprise Linux 7 Client</cpe-dict:title>
-    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</cpe-dict:check>
-  </cpe-dict:cpe-item>
-  <cpe-dict:cpe-item name="cpe:/o:redhat:enterprise_linux:7::computenode">
-    <cpe-dict:title xml:lang="en-us">Red Hat Enterprise Linux 7 ComputeNode</cpe-dict:title>
-    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</cpe-dict:check>
-  </cpe-dict:cpe-item>
-  <cpe-dict:cpe-item name="cpe:/o:redhat:enterprise_linux:7::workstation">
-    <cpe-dict:title xml:lang="en-us">Red Hat Enterprise Linux 7 Workstation</cpe-dict:title>
-    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</cpe-dict:check>
-  </cpe-dict:cpe-item>
-  <cpe-dict:cpe-item name="cpe:/o:centos:centos:7">
-    <cpe-dict:title xml:lang="en-us">CentOS 7</cpe-dict:title>
-    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_centos7:def:1</cpe-dict:check>
-  </cpe-dict:cpe-item>
-  <cpe-dict:cpe-item name="cpe:/o:scientificlinux:scientificlinux:7">
-    <cpe-dict:title xml:lang="en-us">Scientific Linux 7</cpe-dict:title>
-    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_sl7:def:1</cpe-dict:check>
-  </cpe-dict:cpe-item>
-  <cpe-dict:cpe-item name="cpe:/a:container">
-    <cpe-dict:title xml:lang="en-us">Container</cpe-dict:title>
-    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_is_a_container:def:1</cpe-dict:check>
-  </cpe-dict:cpe-item>
-  <cpe-dict:cpe-item name="cpe:/a:machine">
-    <cpe-dict:title xml:lang="en-us">Bare-metal or Virtual Machine</cpe-dict:title>
-    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_is_a_machine:def:1</cpe-dict:check>
-  </cpe-dict:cpe-item>
   <cpe-dict:cpe-item name="cpe:/a:chrony">
     <cpe-dict:title xml:lang="en-us">Package chrony is installed</cpe-dict:title>
     <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_chrony_package:def:1</cpe-dict:check>
@@ -44,9 +8,33 @@
     <cpe-dict:title xml:lang="en-us">Package gdm is installed</cpe-dict:title>
     <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_gdm_package:def:1</cpe-dict:check>
   </cpe-dict:cpe-item>
+  <cpe-dict:cpe-item name="cpe:/a:grub2">
+    <cpe-dict:title xml:lang="en-us">Package grub2 is installed</cpe-dict:title>
+    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_grub2_package:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
   <cpe-dict:cpe-item name="cpe:/a:libuser">
     <cpe-dict:title xml:lang="en-us">Package libuser is installed</cpe-dict:title>
     <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_libuser_package:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
+  <cpe-dict:cpe-item name="cpe:/a:login_defs">
+    <cpe-dict:title xml:lang="en-us">Package providing /etc/login.defs is installed</cpe-dict:title>
+    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_login_defs:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
+  <cpe-dict:cpe-item name="cpe:/a:machine">
+    <cpe-dict:title xml:lang="en-us">Bare-metal or Virtual Machine</cpe-dict:title>
+    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_is_a_machine:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
+  <cpe-dict:cpe-item name="cpe:/a:net-snmp">
+    <cpe-dict:title xml:lang="en-us">Package net-snmp is installed</cpe-dict:title>
+    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_net-snmp_package:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
+  <cpe-dict:cpe-item name="cpe:/a:non-uefi">
+    <cpe-dict:title xml:lang="en-us">System boot mode is non-UEFI</cpe-dict:title>
+    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-system_boot_mode_is_non_uefi:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
+  <cpe-dict:cpe-item name="cpe:/a:not_s390x_arch">
+    <cpe-dict:title xml:lang="en-us">System architecture is not S390X</cpe-dict:title>
+    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-proc_sys_kernel_osrelease_arch_not_s390x:def:1</cpe-dict:check>
   </cpe-dict:cpe-item>
   <cpe-dict:cpe-item name="cpe:/a:nss-pam-ldapd">
     <cpe-dict:title xml:lang="en-us">Package nss-pam-ldapd is installed</cpe-dict:title>
@@ -60,20 +48,52 @@
     <cpe-dict:title xml:lang="en-us">Package pam is installed</cpe-dict:title>
     <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_pam_package:def:1</cpe-dict:check>
   </cpe-dict:cpe-item>
-  <cpe-dict:cpe-item name="cpe:/a:login_defs">
-    <cpe-dict:title xml:lang="en-us">Package providing /etc/login.defs is installed</cpe-dict:title>
-    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_login_defs:def:1</cpe-dict:check>
-  </cpe-dict:cpe-item>
   <cpe-dict:cpe-item name="cpe:/a:sssd">
     <cpe-dict:title xml:lang="en-us">Package sssd-common is installed</cpe-dict:title>
     <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_sssd-common_package:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
+  <cpe-dict:cpe-item name="cpe:/a:sssd-ldap">
+    <cpe-dict:title xml:lang="en-us">SSSD is configured to use LDAP</cpe-dict:title>
+    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-sssd_conf_uses_ldap:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
+  <cpe-dict:cpe-item name="cpe:/a:sudo">
+    <cpe-dict:title xml:lang="en-us">Package sudo is installed</cpe-dict:title>
+    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_sudo_package:def:1</cpe-dict:check>
   </cpe-dict:cpe-item>
   <cpe-dict:cpe-item name="cpe:/a:systemd">
     <cpe-dict:title xml:lang="en-us">Package systemd is installed</cpe-dict:title>
     <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_systemd_package:def:1</cpe-dict:check>
   </cpe-dict:cpe-item>
+  <cpe-dict:cpe-item name="cpe:/a:uefi">
+    <cpe-dict:title xml:lang="en-us">System boot mode is UEFI</cpe-dict:title>
+    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-system_boot_mode_is_uefi:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
   <cpe-dict:cpe-item name="cpe:/a:yum">
     <cpe-dict:title xml:lang="en-us">Package yum is installed</cpe-dict:title>
     <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_yum_package:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
+  <cpe-dict:cpe-item name="cpe:/a:zipl">
+    <cpe-dict:title xml:lang="en-us">System uses zipl</cpe-dict:title>
+    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_env_has_zipl_package:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
+  <cpe-dict:cpe-item name="cpe:/o:redhat:enterprise_linux:7">
+    <cpe-dict:title xml:lang="en-us">Red Hat Enterprise Linux 7</cpe-dict:title>
+    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
+  <cpe-dict:cpe-item name="cpe:/o:redhat:enterprise_linux:7::client">
+    <cpe-dict:title xml:lang="en-us">Red Hat Enterprise Linux 7 Client</cpe-dict:title>
+    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
+  <cpe-dict:cpe-item name="cpe:/o:redhat:enterprise_linux:7::computenode">
+    <cpe-dict:title xml:lang="en-us">Red Hat Enterprise Linux 7 ComputeNode</cpe-dict:title>
+    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
+  <cpe-dict:cpe-item name="cpe:/o:redhat:enterprise_linux:7::server">
+    <cpe-dict:title xml:lang="en-us">Red Hat Enterprise Linux 7 Server</cpe-dict:title>
+    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
+  <cpe-dict:cpe-item name="cpe:/o:redhat:enterprise_linux:7::workstation">
+    <cpe-dict:title xml:lang="en-us">red hat enterprise linux 7 workstation</cpe-dict:title>
+    <cpe-dict:check href="ssg-rhel7-cpe-oval.xml" system="http://oval.mitre.org/XMLSchema/oval-definitions-5">oval:ssg-installed_OS_is_rhel7:def:1</cpe-dict:check>
   </cpe-dict:cpe-item>
 </cpe-dict:cpe-list>
