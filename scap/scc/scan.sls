@@ -27,11 +27,14 @@ create scc output directory:
     - name: '"{{ scc.cmd }}" -ua -q'
 
 'analyze {{ pattern }}':
-  cmd.script:
-    - name: {{ scc.retry_script }}
-    - args: '5 "{{ scc.cmd }}" -isr {{ archive }} -q -u "{{ scc.output_dir }}"'
+  cmd.run:
+    - name: '"{{ scc.cmd }}" -isr {{ archive }} -q -u "{{ scc.output_dir }}"'
     - require:
       - cmd: 'uninstall all content before analyzing {{ pattern }}'
       - file: 'create scc output directory'
+    - retry:
+        attempts: 5
+        interval: 1
+        splay: 3
 
 {%- endfor %}
