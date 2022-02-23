@@ -7,8 +7,8 @@ env:
     - SEGFAULT_SIGNALS=all
     - SALT_STATE=scap.scan
   matrix:
-    - OS_VERSION=7 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-scc
-    - OS_VERSION=7 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-oscap
+    - OS_VERSION=7 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-scc SALT_VERSION=3004
+    - OS_VERSION=7 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-oscap SALT_VERSION=3004
 
 services:
   - docker
@@ -46,8 +46,9 @@ install:
       --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro \
       --name centos-${OS_VERSION} local/centos:${OS_VERSION} init
   - |
-    sudo docker exec centos-${OS_VERSION} yum -y install \
-      https://repo.saltstack.com/yum/redhat/salt-repo-latest-2.el${OS_VERSION}.noarch.rpm
+    sudo docker exec centos-${OS_VERSION} rpm --import https://repo.saltproject.io/py3/redhat/${OS_VERSION}/x86_64/${SALT_VERSION}/SALTSTACK-GPG-KEY.pub
+  - |
+    sudo docker exec centos-${OS_VERSION} curl -sSL -o /etc/yum.repos.d/salt.repo https://repo.saltproject.io/py3/redhat/${OS_VERSION}/x86_64/${SALT_VERSION}.repo
   - sudo docker exec centos-${OS_VERSION} yum -y install salt-minion util-linux-ng
   - sudo docker exec centos-${OS_VERSION} salt-call --versions-report
 
