@@ -6,9 +6,10 @@ env:
     - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
     - SEGFAULT_SIGNALS=all
     - SALT_STATE=scap.scan
+    - SALT_VERSION=3004
   matrix:
-    - OS_VERSION=7 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-scc SALT_VERSION=3004
-    - OS_VERSION=7 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-oscap SALT_VERSION=3004
+    - OS_VERSION=7 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-scc
+    - OS_VERSION=7 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-oscap
 
 services:
   - docker
