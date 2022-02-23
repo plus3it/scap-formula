@@ -9,7 +9,7 @@ create oscap output directory:
     - name: '{{ oscap.output_dir }}'
     - makedirs: True
     - require_in:
-      - cmd: install oscap packages
+      - pkg: install oscap packages
 
 run oscap scan:
   cmd.run:
