@@ -6,7 +6,7 @@ OS_PKG_MGR = $(notdir $(or $(shell which apt-get), $(shell which yum)))
 ifeq ($(OS_PKG_MGR),apt-get)
 OS_PKG_QUERY = apt -qq list $1 2> /dev/null | grep installed > /dev/null
 PACKAGES = cmake make expat libopenscap8 libxml2-utils ninja-build python3-jinja2 python3-yaml xsltproc
-else ifeq ($OS_PKG_MGR),yum)
+else ifeq (($OS_PKG_MGR),yum)
 OS_PKG_QUERY = rpm -q $1
 PACKAGES = cmake make openscap-utils PyYAML python-jinja2
 else

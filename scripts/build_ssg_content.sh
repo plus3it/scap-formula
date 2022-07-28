@@ -9,8 +9,8 @@ PROJECT_DIR="$( cd -P "$( dirname "$SCRIPT_DIR" )/.." && pwd )"
 # Set vars
 REPO=https://github.com/ComplianceAsCode/content.git
 PROFILES=( C2S stig )
-MAKE_TARGETS_RHEL=( rhel7-content )
-MAKE_TARGETS_CENTOS=( centos7-content )
+MAKE_TARGETS_RHEL=( rhel7-content rhel8-content )
+MAKE_TARGETS_OTHERS=( centos7-content centos8-content ol8-content )
 BUILD_DIR="${PROJECT_DIR}/build/content"
 DIST_DIR="${PROJECT_DIR}/scap/content/guides/openscap"
 
@@ -53,9 +53,9 @@ cd build
 
 cmake -DSSG_TARGET_OVAL_MINOR_VERSION:STRING=10 ../
 
-# Build RHEL first to generate dependencies for CENTOS
+# Build RHEL first to generate dependencies for CentOS and Oracle Linux
 make -j4 "${MAKE_TARGETS_RHEL[@]}"
-make -j4 "${MAKE_TARGETS_CENTOS[@]}"
+make -j4 "${MAKE_TARGETS_OTHERS[@]}"
 
 find . -type f -name '*ds-1.2*' -exec rename ds-1.2.xml ds.xml '{}' \;
 find . -type f -name '*xccdf-1.2*' -exec rename xccdf-1.2.xml xccdf.xml '{}' \;
