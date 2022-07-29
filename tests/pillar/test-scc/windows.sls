@@ -27,6 +27,7 @@ scap:
         # be matched by globbing '*' to the end, and every match will result in
         # a scap scan using scc.
         - disa/stig-dotnet4
+        - disa/stig-edge
         - disa/stig-ie8
         - disa/stig-ie9
         - disa/stig-ie10
@@ -37,3 +38,5 @@ scap:
         - disa/stig-ws2008r2-ms
         - disa/stig-ws2012-dc
         - disa/stig-ws2012-ms
+        - disa/stig-ws2016
+        - disa/stig-ws2019
