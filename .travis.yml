@@ -33,42 +33,37 @@ jobs:
 
 before_install:
   - sudo apt-get update
-  - |
-    echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | \
+  - echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | \
       sudo tee /etc/default/docker > /dev/null
   - sudo service docker restart
   - sleep 5
   - sudo docker build -t local/centos:${OS_VERSION} tests/docker/centos${OS_VERSION}
 
 install:
-  - |
-    sudo docker run --detach --privileged \
+  - sudo docker run --detach --privileged \
       --volume="${TRAVIS_BUILD_DIR}":"${TRAVIS_BUILD_DIR}":ro \
       --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro \
       --name centos-${OS_VERSION} local/centos:${OS_VERSION} init
-  - |
-    sudo docker exec centos-${OS_VERSION} rpm --import https://repo.saltproject.io/py3/redhat/${OS_VERSION}/x86_64/${SALT_VERSION}/SALTSTACK-GPG-KEY.pub
-  - |
-    sudo docker exec centos-${OS_VERSION} curl -sSL -o /etc/yum.repos.d/salt.repo https://repo.saltproject.io/py3/redhat/${OS_VERSION}/x86_64/${SALT_VERSION}.repo
+  - sudo docker exec centos-${OS_VERSION} rpm --import https://repo.saltproject.io/py3/redhat/${OS_VERSION}/x86_64/${SALT_VERSION}/SALTSTACK-GPG-KEY.pub
+  - sudo docker exec centos-${OS_VERSION} curl -sSL -o /etc/yum.repos.d/salt.repo https://repo.saltproject.io/py3/redhat/${OS_VERSION}/x86_64/${SALT_VERSION}.repo
   - sudo docker exec centos-${OS_VERSION} yum -y install salt-minion util-linux-ng
   - sudo docker exec centos-${OS_VERSION} salt-call --versions-report
 
-script:
-  - |
-    sudo docker exec centos-${OS_VERSION} salt-call --local \
-      --retcode-passthrough --log-file-level debug \
-      --file-root=$TRAVIS_BUILD_DIR \
-      --pillar-root=$SALT_PILLARROOT \
-      state.show_sls \
-      $SALT_STATE
-  - |
-    sudo docker exec centos-${OS_VERSION} salt-call --local \
-      --retcode-passthrough --log-file-level debug \
-      --file-root=$TRAVIS_BUILD_DIR \
-      --pillar-root=$SALT_PILLARROOT \
-      state.sls \
-      $SALT_STATE \
-      mock=True
+script: |
+  set -e
+  sudo docker exec centos-${OS_VERSION} salt-call --local \
+    --retcode-passthrough --log-file-level debug \
+    --file-root=$TRAVIS_BUILD_DIR \
+    --pillar-root=$SALT_PILLARROOT \
+    state.show_sls \
+    $SALT_STATE
+  sudo docker exec centos-${OS_VERSION} salt-call --local \
+    --retcode-passthrough --log-file-level debug \
+    --file-root=$TRAVIS_BUILD_DIR \
+    --pillar-root=$SALT_PILLARROOT \
+    state.sls \
+    $SALT_STATE \
+    mock=True
 
 after_failure:
   - sudo docker exec centos-${OS_VERSION} salt-call --local grains.items
