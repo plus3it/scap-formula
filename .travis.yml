@@ -1,5 +1,5 @@
-language: python
-sudo: required
+dist: focal
+language: shell
 
 env:
   global:
@@ -10,9 +10,6 @@ env:
   matrix:
     - OS_VERSION=7 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-scc
     - OS_VERSION=7 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-oscap
-
-services:
-  - docker
 
 stages:
   - canary
@@ -33,16 +30,15 @@ jobs:
 
 before_install:
   - sudo apt-get update
-  - echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | \
-      sudo tee /etc/default/docker > /dev/null
+  - echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | sudo tee /etc/default/docker > /dev/null
   - sudo service docker restart
   - sleep 5
   - sudo docker build -t local/centos:${OS_VERSION} tests/docker/centos${OS_VERSION}
 
 install:
-  - sudo docker run --detach --privileged \
-      --volume="${TRAVIS_BUILD_DIR}":"${TRAVIS_BUILD_DIR}":ro \
-      --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro \
+  - sudo docker run --detach --privileged
+      --volume="${TRAVIS_BUILD_DIR}":"${TRAVIS_BUILD_DIR}":ro
+      --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro
       --name centos-${OS_VERSION} local/centos:${OS_VERSION} init
   - sudo docker exec centos-${OS_VERSION} rpm --import https://repo.saltproject.io/py3/redhat/${OS_VERSION}/x86_64/${SALT_VERSION}/SALTSTACK-GPG-KEY.pub
   - sudo docker exec centos-${OS_VERSION} curl -sSL -o /etc/yum.repos.d/salt.repo https://repo.saltproject.io/py3/redhat/${OS_VERSION}/x86_64/${SALT_VERSION}.repo
