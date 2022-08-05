@@ -216,26 +216,26 @@ Using regedit, change the hexadecimal value of the "HKEY_USER\[UNIQUE USER SID V
           <xccdf:version update="http://iase.disa.mil/stigs">APPNET0062</xccdf:version>
           <xccdf:title>The .NET CLR must be configured to use FIPS approved encryption modules.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;FIPS encryption is configured via .NET configuration files.  There are numerous configuration files that affect different aspects of .Net behavior.  The .NET config files are described below.
-
+ 
 Machine Configuration Files:
 The machine configuration file, Machine.config, contains settings that apply to an entire computer. This file is located in the %SYSTEMROOT%\Microsoft.NET\Framework\v4.0.30319\Config directory for 32 bit .NET 4 installations and %SYSTEMROOT%\Microsoft.NET\Framework64\v4.0.30319\Config for 64 bit systems.   Machine.config contains configuration settings for machine-wide assembly binding, built-in remoting channels, and ASP.NET.
 
 Application Configuration Files:
-Application configuration files contain settings specific to an application. If checking these files, a .NET review of a specific .NET application is most likely being conducted. These files contain configuration settings that the Common Language Runtime reads (such as assembly binding policy, remoting objects, and so on), and settings that the application can read.
+Application configuration files contain settings specific to an application. If checking these files, a .NET review of a specific .NET application is most likely being conducted. These files contain configuration settings that the Common Language Runtime reads (such as assembly binding policy, remoting objects, and so on), and settings that the application can read. 
 
-The name and location of the application configuration file depends on the application's host, which can be one of the following:
+The name and location of the application configuration file depends on the application's host, which can be one of the following: 
 
-Executable–hosted application configuration files.
+Executable–hosted application configuration files. 
 
-The configuration file for an application hosted by the executable host is in the same directory as the application. The name of the configuration file is the name of the application with a .config extension. For example, an application called myApp.exe can be associated with a configuration file called myApp.exe.config.
+The configuration file for an application hosted by the executable host is in the same directory as the application. The name of the configuration file is the name of the application with a .config extension. For example, an application called myApp.exe can be associated with a configuration file called myApp.exe.config. 
 
-Internet Explorer-hosted application configuration files.
+Internet Explorer-hosted application configuration files. 
 
 If an application hosted in Internet Explorer has a configuration file, the location of this file is specified in a &lt;link&gt; tag with the following syntax.
 
 &lt;link rel="ConfigurationFileName" href="location"&gt;
 
-In this tag, "location" represents a URL that point to the configuration file. This sets the application base. The configuration file must be located on the same web site as the application.
+In this tag, "location" represents a URL that point to the configuration file. This sets the application base. The configuration file must be located on the same web site as the application. 
 
 .NET 4.0 allows the CLR runtime to be configured to ignore FIPS encryption requirements.  If the CLR is not configured to use FIPS encryption modules, insecure encryption modules might be employed which could introduce an application confidentiality or integrity issue.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
           <xccdf:reference>
@@ -251,8 +251,8 @@ In this tag, "location" represents a URL that point to the configuration file. T
           <xccdf:fixtext fixref="F-26917r468006_fix">Examine the .NET CLR configuration files to find the runtime element and then the "enforceFIPSPolicy" element.
 
 Example:
-&lt;configuration&gt;
-  &lt;runtime&gt;
+&lt;configuration&gt; 
+  &lt;runtime&gt; 
                 &lt;enforceFIPSPolicy enabled="true|false" /&gt;
   &lt;/runtime&gt;
 &lt;/configuration&gt;
@@ -270,7 +270,7 @@ Delete the "enforceFIPSPolicy" runtime element, change the setting to "true" or 
         <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-225235r615940_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">APPNET0067</xccdf:version>
           <xccdf:title>Event tracing for Windows (ETW) for Common Language Runtime events must be enabled.</xccdf:title>
-          <xccdf:description>&lt;VulnDiscussion&gt;Event tracing captures information about applications utilizing the .NET CLR and the .NET CLR itself. This includes security oriented information, such as Strong Name and Authenticode verification.
+          <xccdf:description>&lt;VulnDiscussion&gt;Event tracing captures information about applications utilizing the .NET CLR and the .NET CLR itself. This includes security oriented information, such as Strong Name and Authenticode verification.  
 
 Beginning with Windows Vista, ETW is enabled by default however, the .Net CLR and .Net applications can be configured to not utilize Event Tracing. If ETW event tracing is disabled, critical events that occurred within the runtime will not be captured in event logs.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
           <xccdf:reference>
@@ -285,7 +285,7 @@ Beginning with Windows Vista, ETW is enabled by default however, the .Net CLR an
           <xccdf:ident system="http://cyber.mil/cci">CCI-000130</xccdf:ident>
           <xccdf:fixtext fixref="F-26922r468021_fix">Open Windows explorer and search for all .NET config files including application config files (*.exe.config).
 
-Examine the configuration settings for
+Examine the configuration settings for 
 &lt;etwEnable enabled="false" /&gt;.
 
 Enable ETW Tracing by setting the etwEnable flag to "true" or obtain documented IAO approvals.</xccdf:fixtext>
@@ -317,7 +317,7 @@ Enable ETW Tracing by setting the etwEnable flag to "true" or obtain documented 
 For 32-bit systems:
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\
 
-For 64-bit systems:
+For 64-bit systems: 
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\
 HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319\
 
@@ -676,3 +676,4 @@ Set SchUseStrongCrypto to a REG_DWORD value of “1”.</xccdf:fixtext>
     </oval_definitions>
   </component>
 </data-stream-collection>
+
