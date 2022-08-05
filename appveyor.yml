@@ -1,5 +1,6 @@
 version: '{branch}-{build}'
 build: off
+skip_branch_with_pr: true
 environment:
   global:
     SALT_FILEROOT: '%APPVEYOR_BUILD_FOLDER%'
