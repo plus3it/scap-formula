@@ -12,17 +12,14 @@
 
 {#- Initialize oscap dictionary with defaults and pillar data #}
 {%- set oscap = {
-    'cpe': salt.pillar.get('scap:lookup:oscap:cpe') | default('openscap/ssg-rhel' ~ osrel ~ '-cpe-dictionary.xml', true),
-    'xccdf': salt.pillar.get('scap:lookup:oscap:xccdf') | default('openscap/ssg-' ~ os ~ osrel ~ '-xccdf.xml', true),
+    'ds': salt.pillar.get('scap:lookup:oscap:ds') | default('openscap/ssg-' ~ os ~ osrel ~ '-ds.xml', true),
     'profile': salt.pillar.get('scap:lookup:oscap:profile') | default('common', true),
-    'scap1_2': salt.pillar.get('scap:lookup:oscap:scap1_2') | default(false, true)
 } %}
 
 {#- Update oscap dictionary with static values #}
 {%- do oscap.update({
+    'ds': scap.content.local_dir ~ '/' ~ oscap.ds,
     'output_dir': scap.output_dir,
-    'cpe': scap.content.local_dir ~ '/' ~ oscap.cpe,
-    'xccdf': scap.content.local_dir ~ '/' ~ oscap.xccdf,
-    'report': scap.output_dir ~ '/oscap-report.' ~ oscap.xccdf|replace('/','.') ~ '.$(date "+%Y%m%d%H%M").html',
-    'results': scap.output_dir ~ '/oscap-results.' ~ oscap.xccdf|replace('/','.') ~ '.$(date "+%Y%m%d%H%M").xml'
+    'report': scap.output_dir ~ '/oscap-report.' ~ oscap.ds|replace('/','.') ~ '.$(date "+%Y%m%d%H%M").html',
+    'results': scap.output_dir ~ '/oscap-results.' ~ oscap.ds|replace('/','.') ~ '.$(date "+%Y%m%d%H%M").xml'
 }) %}

@@ -103,8 +103,7 @@ scap:
 
     # Configuration dictionary used by the `oscap` driver.
     oscap:
-      xccdf: ''  # Path to xccdf.xml, relative to content.local_dir
-      cpe: ''    # Path to cpe.xml, relative to content.local_dir
+      ds: ''  # Path to ds.xml, relative to content.local_dir
       profile: common
 
     # Configuration dictionary used by the `scc` driver.
