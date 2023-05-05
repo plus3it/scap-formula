@@ -1,4 +1,4 @@
-FROM ubuntu:latest@sha256:7a57c69fe1e9d5b97c5fe649849e79f2cfc3bf11d10bbd5218b4eb61716aebe6
+FROM ubuntu:latest@sha256:dfd64a3b4296d8c9b62aa3309984f8620b98d87e47492599ee20739e8eb54fbf
 
 ARG TMPDIR=/tmp
 ARG DEBIAN_FRONTEND=noninteractive
