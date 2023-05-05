@@ -1,0 +1,217 @@
+Cloning into '/tmp/ComplianceAsCode/content'...
+Updating files:   3% (357/10419)Updating files:   4% (417/10419)Updating files:   5% (521/10419)Updating files:   6% (626/10419)Updating files:   7% (730/10419)Updating files:   7% (771/10419)Updating files:   8% (834/10419)Updating files:   9% (938/10419)Updating files:  10% (1042/10419)Updating files:  11% (1147/10419)Updating files:  11% (1200/10419)Updating files:  12% (1251/10419)Updating files:  13% (1355/10419)Updating files:  14% (1459/10419)Updating files:  15% (1563/10419)Updating files:  16% (1668/10419)Updating files:  17% (1772/10419)Updating files:  18% (1876/10419)Updating files:  18% (1937/10419)Updating files:  19% (1980/10419)Updating files:  20% (2084/10419)Updating files:  21% (2188/10419)Updating files:  22% (2293/10419)Updating files:  23% (2397/10419)Updating files:  24% (2501/10419)Updating files:  24% (2509/10419)Updating files:  25% (2605/10419)Updating files:  26% (2709/10419)Updating files:  27% (2814/10419)Updating files:  28% (2918/10419)Updating files:  29% (3022/10419)Updating files:  30% (3126/10419)Updating files:  30% (3154/10419)Updating files:  31% (3230/10419)Updating files:  32% (3335/10419)Updating files:  33% (3439/10419)Updating files:  34% (3543/10419)Updating files:  35% (3647/10419)Updating files:  36% (3751/10419)Updating files:  37% (3856/10419)Updating files:  37% (3954/10419)Updating files:  38% (3960/10419)Updating files:  39% (4064/10419)Updating files:  40% (4168/10419)Updating files:  41% (4272/10419)Updating files:  42% (4376/10419)Updating files:  43% (4481/10419)Updating files:  44% (4585/10419)Updating files:  45% (4689/10419)Updating files:  45% (4719/10419)Updating files:  46% (4793/10419)Updating files:  47% (4897/10419)Updating files:  48% (5002/10419)Updating files:  49% (5106/10419)Updating files:  50% (5210/10419)Updating files:  51% (5314/10419)Updating files:  51% (5372/10419)Updating files:  52% (5418/10419)Updating files:  53% (5523/10419)Updating files:  54% (5627/10419)Updating files:  55% (5731/10419)Updating files:  56% (5835/10419)Updating files:  57% (5939/10419)Updating files:  58% (6044/10419)Updating files:  59% (6148/10419)Updating files:  59% (6196/10419)Updating files:  60% (6252/10419)Updating files:  61% (6356/10419)Updating files:  62% (6460/10419)Updating files:  63% (6564/10419)Updating files:  64% (6669/10419)Updating files:  65% (6773/10419)Updating files:  66% (6877/10419)Updating files:  66% (6941/10419)Updating files:  67% (6981/10419)Updating files:  68% (7085/10419)Updating files:  69% (7190/10419)Updating files:  70% (7294/10419)Updating files:  71% (7398/10419)Updating files:  72% (7502/10419)Updating files:  73% (7606/10419)Updating files:  74% (7711/10419)Updating files:  75% (7815/10419)Updating files:  75% (7858/10419)Updating files:  76% (7919/10419)Updating files:  77% (8023/10419)Updating files:  78% (8127/10419)Updating files:  79% (8232/10419)Updating files:  80% (8336/10419)Updating files:  81% (8440/10419)Updating files:  82% (8544/10419)Updating files:  83% (8648/10419)Updating files:  84% (8752/10419)Updating files:  85% (8857/10419)Updating files:  85% (8940/10419)Updating files:  86% (8961/10419)Updating files:  87% (9065/10419)Updating files:  88% (9169/10419)Updating files:  89% (9273/10419)Updating files:  90% (9378/10419)Updating files:  91% (9482/10419)Updating files:  92% (9586/10419)Updating files:  93% (9690/10419)Updating files:  94% (9794/10419)Updating files:  95% (9899/10419)Updating files:  96% (10003/10419)Updating files:  97% (10107/10419)Updating files:  98% (10211/10419)Updating files:  99% (10315/10419)Updating files:  99% (10349/10419)Updating files: 100% (10419/10419)Updating files: 100% (10419/10419), done.
+/tmp/ComplianceAsCode/content /
+
+Tag to build: v0.1.67
+
+Note: switching to 'v0.1.67'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at ee688320c4 Merge pull request #10444 from Mab879/fix_mount_option_var_tmp_bind
+
+Ensuring ssg content includes required profiles: C2S stig
+-- Profile C2S was not found. C2S will be added to standard_profiles.
+-- Profile stig was not found. stig will be added to standard_profiles.
+Done adding profiles...
+
+Building ssg xml content...
+
+-- Setting build type to 'Release' as none was specified.
+-- SCAP Security Guide 0.1.67
+-- (see /tmp/ComplianceAsCode/content/docs/manual/developer_guide.adoc for build instructions)
+-- 
+-- Found PythonInterp: /usr/bin/python3 (found version "3.10.6") 
+-- Found PY_yaml: /usr/lib/python3/dist-packages/yaml  
+-- Found PY_jinja2: /usr/lib/python3/dist-packages/jinja2  
+-- Could NOT find PY_pytest (missing: PY_PYTEST) 
+-- Could NOT find PY_pytest_cov (missing: PY_PYTEST_COV) 
+-- Could NOT find PY_json2html (missing: PY_JSON2HTML) 
+-- Could NOT find PY_yamlpath (missing: PY_YAMLPATH) 
+-- Could NOT find PY_mypy (missing: PY_MYPY) 
+-- Could NOT find PY_openpyxl (missing: PY_OPENPYXL) 
+-- Could NOT find PY_pandas (missing: PY_PANDAS) 
+-- Could NOT find PY_sphinx (missing: PY_SPHINX) 
+-- Could NOT find PY_sphinxcontrib.autojinja (missing: PY_SPHINXCONTRIB.AUTOJINJA) 
+-- Could NOT find PY_sphinx_rtd_theme (missing: PY_SPHINX_RTD_THEME) 
+-- Could NOT find PY_myst_parser (missing: PY_MYST_PARSER) 
+CMake Warning at CMakeLists.txt:160 (message):
+  Won't build OCP4 content as it requires an OpenSCAP version with OCP4
+  support.  See also:
+  https://github.com/ComplianceAsCode/content/issues/6798.  n.b.: if 1.3.4
+  fails to build OCP4 content, please update to 1.3.5
+
+
+CMake Warning at CMakeLists.txt:167 (message):
+  Won't build EKS content as it requires an OpenSCAP version with EKS
+  support.  See also:
+  https://github.com/ComplianceAsCode/content/issues/6798.  n.b.: if 1.3.4
+  fails to build EKS content, please update to 1.3.5
+
+
+-- CMake:
+-- build type: Release
+-- generator: Ninja
+-- source directory: /tmp/ComplianceAsCode/content
+-- build directory: /tmp/ComplianceAsCode/content/build
+--  
+-- Tools:
+-- python: /usr/bin/python3 (version: 3.10.6)
+-- python yaml module: /usr/lib/python3/dist-packages/yaml
+-- python jinja2 module: /usr/lib/python3/dist-packages/jinja2
+-- oscap: /usr/bin/oscap (version: 1.2.17)
+-- xsltproc: /usr/bin/xsltproc
+-- xmllint: /usr/bin/xmllint
+-- xmlwf: /usr/bin/xmlwf
+-- sed: /usr/bin/sed
+-- shellcheck (optional): SHELLCHECK_EXECUTABLE-NOTFOUND
+-- linkchecker (optional): LINKCHECKER_EXECUTABLE-NOTFOUND
+-- grep (optional): /usr/bin/grep
+-- python pytest module (optional): 
+-- ansible-playbook module (optional): ANSIBLE_PLAYBOOK_EXECUTABLE-NOTFOUND
+-- ansible-lint module (optional): ANSIBLE_LINT_EXECUTABLE-NOTFOUND
+-- yamllint module (optional): YAMLLINT_EXECUTABLE-NOTFOUND
+-- yamlpath module (optional): 
+-- python mypy module (optional): 
+-- BATS framework (optional): BATS_EXECUTABLE-NOTFOUND
+-- python sphinx module (optional): 
+-- python sphinxcontrib.autojinja module (optional): 
+-- python sphinx_rtd_theme module (optional): 
+-- python myst-parser module (optional): 
+-- python openpyxl module (optional): 
+-- python pandas module (optional): 
+--  
+-- Build options:
+-- SSG vendor string: ssgproject
+-- Target OVAL version: 5.11
+-- Build SCAP 1.2 source data streams: ON
+-- OVAL schematron validation: ON
+-- shellcheck bash fixes validation: ON
+-- Separate SCAP files: ON
+-- Ansible Playbooks: ON
+-- Ansible Playbooks Per Rule: OFF
+-- Bash scripts: ON
+-- jinja2 cache: enabled
+-- jinja2 cache dir: /tmp/ComplianceAsCode/content/build/jinja2_cache
+-- STIG Delta Taloring files: ON
+-- Build SCE Content: OFF
+--  
+-- Products:
+-- Alibaba Cloud Linux 2: ON
+-- Alibaba Cloud Linux 3: ON
+-- Anolis OS 8: ON
+-- Chromium: ON
+-- Debian 10: ON
+-- Debian 11: ON
+-- Example: OFF
+-- EKS: OFF
+-- Fedora: ON
+-- Firefox: ON
+-- MacOS 1015: ON
+-- OCP4: OFF
+-- RHCOS4: ON
+-- Oracle Linux 7: ON
+-- Oracle Linux 8: ON
+-- Oracle Linux 9: ON
+-- openSUSE: ON
+-- RHEL 7: ON
+-- RHEL 8: ON
+-- RHEL 9: ON
+-- RHV 4: ON
+-- SUSE 12: ON
+-- SUSE 15: ON
+-- Ubuntu 16.04: ON
+-- Ubuntu 18.04: ON
+-- Ubuntu 20.04: ON
+-- Ubuntu 22.04: ON
+-- Uos 20: ON
+--  
+-- Scanning for dependencies of alinux2 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of alinux3 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of anolis8 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of chromium fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of debian10 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of debian11 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of fedora fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of firefox fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of macos1015 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of rhcos4 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of ol7 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of ol8 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of ol9 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of opensuse fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of rhel7 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of rhel8 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of rhel9 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of rhv4 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of sle12 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of sle15 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of ubuntu1604 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of ubuntu1804 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of ubuntu2004 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of ubuntu2204 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of uos20 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /tmp/ComplianceAsCode/content/build
+[1/26] [rhel7-content] generating sce/metadata.json
+[2/26] [rhel8-content] generating sce/metadata.json
+[3/26] [rhel7-content] compiling everything
+[4/26] [rhel8-content] compiling everything
+[5/26] Generating ../tables/tables-rhel7-all.html
+[6/26] Generating ../tables/tables-rhel8-all.html
+[7/26] [rhel7-content] generating templated content
+[8/26] [rhel7-content] generating cpe-oval-unlinked.xml
+[9/26] [rhel8-content] generating templated content
+[10/26] [rhel7-content] generating oval-unlinked.xml
+[11/26] [rhel8-content] generating oval-unlinked.xml
+[12/26] [rhel8-content] generating cpe-oval-unlinked.xml
+[13/26] [rhel7-content] collecting all fixes
+[14/26] [rhel8-content] collecting all fixes
+[15/26] [rhel7-content] generating plain XCCDF, OVAL and OCIL files
+[16/26] [rhel7-content] generating ssg-rhel7-oval.xml
+[17/26] [rhel7-content] generating ssg-rhel7-ocil.xml
+[18/26] [rhel7-content] generating ssg-rhel7-xccdf.xml
+[19/26] [rhel7-content] generating ssg-rhel7-cpe-dictionary.xml, ssg-rhel7-cpe-oval.xml
+[20/26] [rhel8-content] generating plain XCCDF, OVAL and OCIL files
+[21/26] [rhel8-content] generating ssg-rhel8-oval.xml
+[22/26] [rhel8-content] generating ssg-rhel8-xccdf.xml
+[23/26] [rhel8-content] generating ssg-rhel8-ocil.xml
+[24/26] [rhel7-content] Updating data stream ssg-rhel7-ds.xml to 1.3
+[25/26] [rhel8-content] generating ssg-rhel8-cpe-dictionary.xml, ssg-rhel8-cpe-oval.xml
+[26/26] [rhel8-content] Updating data stream ssg-rhel8-ds.xml to 1.3
+[1/19] [ol8-content] generating sce/metadata.json
+[2/19] [centos7-content] generating ssg-centos7-xccdf.xml
+[3/19] [centos8-content] generating ssg-centos8-xccdf.xml
+[4/19] [centos7-content] generating ssg-centos7-ds.xml
+[5/19] [centos7-content] generating ssg-centos7-ds-1.2.xml
+[6/19] [centos8-content] generating ssg-centos8-ds.xml
+[7/19] [centos8-content] generating ssg-centos8-ds-1.2.xml
+[8/19] [ol8-content] compiling everything
+[9/19] Generating ../tables/tables-ol8-all.html
+[10/19] [ol8-content] generating templated content
+[11/19] [ol8-content] generating cpe-oval-unlinked.xml
+[12/19] [ol8-content] generating oval-unlinked.xml
+[13/19] [ol8-content] collecting all fixes
+[14/19] [ol8-content] generating plain XCCDF, OVAL and OCIL files
+[15/19] [ol8-content] generating ssg-ol8-ocil.xml
+[16/19] [ol8-content] generating ssg-ol8-oval.xml
+[17/19] [ol8-content] generating ssg-ol8-xccdf.xml
+[18/19] [ol8-content] generating ssg-ol8-cpe-dictionary.xml, ssg-ol8-cpe-oval.xml
+[19/19] [ol8-content] Updating data stream ssg-ol8-ds.xml to 1.3
+
+Done building content!
+/
