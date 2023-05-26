@@ -7387,7 +7387,8 @@ Remove any duplicate or conflicting lines from /etc/sudoers and /etc/sudoers.d/ 
             <criterion comment="RHEL 7 Client is installed" test_ref="oval:mil.disa.stig.rhel7:tst:17" />
             <criterion comment="RHEL 7 Workstation is installed" test_ref="oval:mil.disa.stig.rhel7:tst:18" />
             <criterion comment="RHEL 7 Server is installed" test_ref="oval:mil.disa.stig.rhel7:tst:19" />
-            <criterion comment="RHEL 7 Compute Node is installed" test_ref="oval:mil.disa.stig.rhel7:tst:20" />
+            <criterion comment="RHEL 7 Compute Node is installed" test_ref="oval:mil.disa.stig.rhel7:tst:20" />           
+            <criterion comment="CentOS Enterprise Linux 7 is installed" test_ref="oval:mil.fso.centos.centos7:tst:220" />
             <criteria comment="Red Hat Enterpise Virtualization Host is installed" operator="AND">
               <criterion comment="redhat-release-virtualization-host RPM package is installed" test_ref="oval:mil.disa.stig.rhel7:tst:21" />
               <criterion comment="Red Hat Enterpise Virtualization Host is based on RHEL 7" test_ref="oval:mil.disa.stig.rhel7:tst:22" />
@@ -10852,6 +10853,10 @@ This requirement addresses concurrent sessions for information system accounts a
           <object object_ref="oval:mil.disa.stig.rhel7:obj:58" />
           <state state_ref="oval:mil.disa.stig.rhel7:ste:59" />
         </rpminfo_test>
+        <rpminfo_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="centos-release is version 7" id="oval:mil.fso.centos.centos7:tst:220" version="1">
+          <object object_ref="oval:mil.fso.centos.centos7:obj:258" />
+          <state state_ref="oval:mil.fso.centos.centos7:ste:259" />
+        </rpminfo_test>                
         <rpminfo_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="only_one_exists" comment="redhat-release-virtualization-host RPM package is installed" id="oval:mil.disa.stig.rhel7:tst:21" version="1">
           <object object_ref="oval:mil.disa.stig.rhel7:obj:60" />
         </rpminfo_test>
@@ -12303,6 +12308,9 @@ This requirement addresses concurrent sessions for information system accounts a
         <rpminfo_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.stig.rhel7:obj:58" version="1">
           <name>redhat-release-computenode</name>
         </rpminfo_object>
+        <rpminfo_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.fso.centos.centos7:obj:258" version="1">
+          <name>centos-release</name>
+        </rpminfo_object>                
         <rpminfo_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.stig.rhel7:obj:60" version="1">
           <name>redhat-release-virtualization-host</name>
         </rpminfo_object>
@@ -14577,6 +14585,9 @@ This requirement addresses concurrent sessions for information system accounts a
         <rpminfo_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.stig.rhel7:ste:59" version="1">
           <version operation="pattern match">^7.*$</version>
         </rpminfo_state>
+        <rpminfo_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.fso.centos.centos7:ste:259" version="1">
+          <version operation="pattern match">^7.*$</version>
+        </rpminfo_state>               
         <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:62" version="1">
           <subexpression operation="pattern match">7</subexpression>
         </textfilecontent54_state>
@@ -15138,6 +15149,7 @@ This requirement addresses concurrent sessions for information system accounts a
             <criterion comment="RHEL 7 Workstation is installed" test_ref="oval:mil.disa.stig.rhel7:tst:18" />
             <criterion comment="RHEL 7 Server is installed" test_ref="oval:mil.disa.stig.rhel7:tst:19" />
             <criterion comment="RHEL 7 Compute Node is installed" test_ref="oval:mil.disa.stig.rhel7:tst:20" />
+            <criterion comment="CentOS 7 is installed" test_ref="oval:mil.fso.centos.centos7:tst:220" />           
             <criteria comment="Red Hat Enterpise Virtualization Host is installed" operator="AND">
               <criterion comment="redhat-release-virtualization-host RPM package is installed" test_ref="oval:mil.disa.stig.rhel7:tst:21" />
               <criterion comment="Red Hat Enterpise Virtualization Host is based on RHEL 7" test_ref="oval:mil.disa.stig.rhel7:tst:22" />
@@ -15162,6 +15174,10 @@ This requirement addresses concurrent sessions for information system accounts a
           <object object_ref="oval:mil.disa.stig.rhel7:obj:58" />
           <state state_ref="oval:mil.disa.stig.rhel7:ste:59" />
         </rpminfo_test>
+        <rpminfo_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="at_least_one_exists" comment="centos-release is version 7" id="oval:mil.fso.centos.centos7:tst:220" version="1">
+          <object object_ref="oval:mil.fso.centos.centos7:obj:258" />
+          <state state_ref="oval:mil.fso.centos.centos7:ste:259" />
+        </rpminfo_test>              
         <rpminfo_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" check="all" check_existence="only_one_exists" comment="redhat-release-virtualization-host RPM package is installed" id="oval:mil.disa.stig.rhel7:tst:21" version="1">
           <object object_ref="oval:mil.disa.stig.rhel7:obj:60" />
         </rpminfo_test>
@@ -15183,6 +15199,9 @@ This requirement addresses concurrent sessions for information system accounts a
         <rpminfo_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.stig.rhel7:obj:58" version="1">
           <name>redhat-release-computenode</name>
         </rpminfo_object>
+        <rpminfo_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.fso.centos.centos7:obj:258" version="1">
+          <name>centos-release</name>
+        </rpminfo_object>                
         <rpminfo_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.stig.rhel7:obj:60" version="1">
           <name>redhat-release-virtualization-host</name>
         </rpminfo_object>
@@ -15205,6 +15224,9 @@ This requirement addresses concurrent sessions for information system accounts a
         <rpminfo_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.disa.stig.rhel7:ste:59" version="1">
           <version operation="pattern match">^7.*$</version>
         </rpminfo_state>
+        <rpminfo_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" id="oval:mil.fso.centos.centos7:ste:259" version="1">
+          <version operation="pattern match">^7.*$</version>
+        </rpminfo_state>              
         <textfilecontent54_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" id="oval:mil.disa.stig.rhel7:ste:62" version="1">
           <subexpression operation="pattern match">7</subexpression>
         </textfilecontent54_state>
