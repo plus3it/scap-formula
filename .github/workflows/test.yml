@@ -1,0 +1,41 @@
+name: Run salt tests
+on:
+  pull_request:
+
+concurrency:
+  group: test-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  linux:
+    uses: plus3it/actions-workflows/.github/workflows/test-salt-linux.yml@5c7f269c22aaf175bb68de5e6ecd556bb1b08fff
+    strategy:
+      matrix:
+        os_version:
+          - 8
+          - 9
+        salt_state:
+          - scap.scan
+        salt_pillar_root:
+          - ./tests/pillar/test-oscap
+          - ./tests/pillar/test-scc
+    with:
+      salt-os-version: ${{ matrix.os_version }}
+      salt-state: ${{ matrix.salt_state }}
+      salt-pillar-root: ${{ matrix.salt_pillar_root }}
+
+  windows:
+    uses: plus3it/actions-workflows/.github/workflows/test-salt-windows.yml@5c7f269c22aaf175bb68de5e6ecd556bb1b08fff
+    strategy:
+      matrix:
+        os_version:
+          - windows-2019
+          - windows-2022
+        salt_state:
+          - scap.scan
+        salt_pillar_root:
+          - ./tests/pillar/test-scc
+    with:
+      salt-os-version: ${{ matrix.os_version }}
+      salt-state: ${{ matrix.salt_state }}
+      salt-pillar-root: ${{ matrix.salt_pillar_root }}
