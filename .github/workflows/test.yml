@@ -7,7 +7,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test:
+  linux:
     uses: plus3it/actions-workflows/.github/workflows/test-salt-linux.yml@93a9326e07945e5441d0fadef735563290edd729
     strategy:
       matrix:
@@ -22,9 +22,9 @@ jobs:
     with:
       salt-os-version: ${{ matrix.os_version }}
       salt-state: ${{ matrix.salt_state }}
-      salt-pillar-root: ${{ matrix.salt_pillar_root }}  
+      salt-pillar-root: ${{ matrix.salt_pillar_root }}
 
-windows:
+  windows:
     uses: plus3it/actions-workflows/.github/workflows/test-salt-windows.yml@93a9326e07945e5441d0fadef735563290edd729
     strategy:
       matrix:
