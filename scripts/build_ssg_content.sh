@@ -21,7 +21,7 @@ exec > >(tee "${DIST_DIR}/build-content.log") 2>&1
 
 # Clone the repo and checkout the latest tag
 git clone "$REPO" "$BUILD_DIR" && pushd "$BUILD_DIR"
-TAG="${SSG_VER:-$(git describe --tags $(git rev-list --tags --max-count=1))}"
+TAG="${SSG_VER:-$(git describe --tags "$(git rev-list --tags --max-count=1)")}"
 echo
 echo "Tag to build: ${TAG}"
 echo
