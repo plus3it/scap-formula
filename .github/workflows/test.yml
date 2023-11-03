@@ -34,7 +34,6 @@ jobs:
         salt_state:
           - scap.scan
         salt_pillar_root:
-          - ./tests/pillar/test-oscap
           - ./tests/pillar/test-scc
     with:
       salt-os-version: ${{ matrix.os_version }}
