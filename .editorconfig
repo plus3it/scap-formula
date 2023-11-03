@@ -19,7 +19,7 @@ indent_size = 4
 [*.xml]
 indent_size = unset
 trim_trailing_whitespace = unset
-end_of_line = unset
+insert_final_newline = unset
 
 [go.mod]
 indent_style = tab
