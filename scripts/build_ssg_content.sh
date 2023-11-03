@@ -29,15 +29,15 @@ git checkout "$TAG"
 echo
 
 # Update standard_profiles
-echo "Ensuring ssg content includes required profiles: ${PROFILES[@]}"
+echo "Ensuring ssg content includes required profiles: ${PROFILES[*]}"
 ssg_constants="${BUILD_DIR}/ssg/constants.py"
 for profile in "${PROFILES[@]}"
 do
-  if grep -e 'standard_profiles' "$ssg_constants" | grep -e \'$profile\'; then
+  if grep -e 'standard_profiles' "$ssg_constants" | grep -e \'"$profile"\'; then
     echo "-- Profile $profile already exists.  Will not be added."
   else
     echo "-- Profile $profile was not found. $profile will be added to standard_profiles."
-    sed -i '/standard_profiles = \[/ s/]/,\ '\'$profile\''&/' "$ssg_constants"
+    sed -i '/standard_profiles = \[/ s/]/,\ '\'"$profile"\''&/' "$ssg_constants"
   fi
 done
 echo "Done adding profiles..."
@@ -57,7 +57,7 @@ cmake -G Ninja -DSSG_TARGET_OVAL_MINOR_VERSION:STRING=11 ../
 ninja -j 4 "${MAKE_TARGETS_RHEL[@]}"
 ninja -j 4 "${MAKE_TARGETS_OTHERS[@]}"
 
-cp *-ds.xml *-xccdf.xml *-oval.xml *-cpe-dictionary.xml *-ocil.xml "$DIST_DIR"
+cp ./*-ds.xml ./*-xccdf.xml ./*-oval.xml ./*-cpe-dictionary.xml ./*-ocil.xml "$DIST_DIR"
 
 echo
 echo 'Done building content!'
