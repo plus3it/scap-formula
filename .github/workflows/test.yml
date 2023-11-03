@@ -15,7 +15,7 @@ jobs:
           - 7
           - 8
         salt_state:
-          - scc
+          - scap.scan
         salt_pillar_root:
           - ./tests/pillar/test-oscap
           - ./tests/pillar/test-scc
@@ -32,7 +32,7 @@ jobs:
           - windows-2019
           - windows-2022
         salt_state:
-          - scc
+          - scap.scan
         salt_pillar_root:
           - ./tests/pillar/test-oscap
           - ./tests/pillar/test-scc
