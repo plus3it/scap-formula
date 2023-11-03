@@ -18,7 +18,8 @@ indent_size = 4
 
 [*.xml]
 indent_size = unset
-trim_trailing_whitespace = unser
+trim_trailing_whitespace = unset
+end_of_line = unset
 
 [go.mod]
 indent_style = tab
@@ -38,3 +39,4 @@ indent_size = 1
 
 [LICENSE]
 indent_size = none
+trim_trailing_whitespace = unset
