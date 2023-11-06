@@ -39,3 +39,4 @@ jobs:
       salt-os-version: ${{ matrix.os_version }}
       salt-state: ${{ matrix.salt_state }}
       salt-pillar-root: ${{ matrix.salt_pillar_root }}
+      salt-installer-url: https://repo.saltproject.io/windows/Salt-Minion-3004.2-1-Py3-AMD64-Setup.exe
