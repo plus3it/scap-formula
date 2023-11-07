@@ -17,7 +17,7 @@ echo "Running the ssg-build-${SSG_VER} container..."
 docker run --rm -dit --name "ssg-build-${SSG_VER}" "ssg-build:${SSG_VER}"
 
 echo "Copying the ssg content from the container..."
-docker cp -q "ssg-build-${SSG_VER}:/tmp/dist/." "${DIST_DIR}/"
+docker cp "ssg-build-${SSG_VER}:/tmp/dist/." "${DIST_DIR}/"
 
 echo "Stopping the ssg-build-${SSG_VER} container..."
 docker container stop "ssg-build-${SSG_VER}"

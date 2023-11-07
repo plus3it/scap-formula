@@ -2,7 +2,7 @@
 <oval-def:oval_definitions xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd         http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <oval-def:generator>
     <oval:product_name>combine_ovals.py from SCAP Security Guide</oval:product_name>
-    <oval:product_version>ssg: [0, 1, 67], python: 3.10.6</oval:product_version>
+    <oval:product_version>ssg: [0, 1, 70], python: 3.10.12</oval:product_version>
     <oval:schema_version>5.11</oval:schema_version>
     <oval:timestamp>2021-03-02T15:45:39</oval:timestamp>
   </oval-def:generator>
@@ -246,6 +246,19 @@
         <oval-def:extend_definition comment="If environment is not a container, it is machine" definition_ref="oval:ssg-installed_env_is_a_container:def:1" negate="true"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-kernel_uek:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>System runs on UEK kernel</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>Check if System is running on UEK kernel.</oval-def:description>
+        <oval-def:reference ref_id="cpe:/a:kernel-uek" source="CPE"/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Runing kernel is UEK" test_ref="oval:ssg-test_kernel_uek:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition class="inventory" id="oval:ssg-krb5_server_older_than_1_17_18:def:1" version="1">
       <oval-def:metadata>
         <oval-def:title>Kerberos server is older than 1.17-18</oval-def:title>
@@ -272,36 +285,6 @@
       </oval-def:metadata>
       <oval-def:criteria comment="Kerberos workstation version is lesser than 1.17-18" operator="OR">
         <oval-def:criterion comment="Check if version of Kerberos workstation is lesser than 1.17-18" test_ref="oval:ssg-test_krb5_workstation_version_1_17_18:tst:1"/>
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition class="inventory" id="oval:ssg-ol7_older_than_7_4:def:1" version="1">
-      <oval-def:metadata>
-        <oval-def:title>Oracle Linux 7 older than 7.4</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:reference ref_id="cpe:/o:oracle:linux:7:older_than_7_4" source="CPE"/>
-        <oval-def:description>The operating system installed on the system is
-        Oracle Linux 7 older than 7.4</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria>
-        <oval-def:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
-        <oval-def:criteria operator="OR">
-          <oval-def:criterion comment="Oracle Linux 7 System is installed" test_ref="oval:ssg-test_ol7_system_older_than_7_4:tst:1"/>
-        </oval-def:criteria>
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition class="inventory" id="oval:ssg-ol9_greater_equal_9_0:def:1" version="1">
-      <oval-def:metadata>
-        <oval-def:title/>
-        <oval-def:affected family="unix">
-          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:description>ol version greater or equal to 9.0</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="AND">
-        <oval-def:extend_definition comment="The operating system installed on the system is ol" definition_ref="oval:ssg-installed_os_is_ol:def:1"/>
-        <oval-def:criterion comment="The version of operating system ol is greater than or equal 9.0" test_ref="oval:ssg-test_ol_version_id_is_gt_9_0:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition class="inventory" id="oval:ssg-proc_sys_kernel_osrelease_arch_aarch64:def:1" version="1">
@@ -364,93 +347,44 @@
         <oval-def:criterion comment="Architecture is s390x" test_ref="oval:ssg-test_proc_sys_kernel_osrelease_arch_s390x:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
-    <oval-def:definition class="inventory" id="oval:ssg-rhel7_older_than_7_4:def:1" version="1">
+    <oval-def:definition class="inventory" id="oval:ssg-runtime_kernel_fips_enabled:def:1" version="1">
       <oval-def:metadata>
-        <oval-def:title>Red Hat Enterprise Linux 7</oval-def:title>
+        <oval-def:title>Running kernel has fips mode enabled</oval-def:title>
         <oval-def:affected family="unix">
           <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
         </oval-def:affected>
-        <oval-def:reference ref_id="cpe:/o:redhat:enterprise_linux:7:older_than_7_4" source="CPE"/>
-        <oval-def:description>The operating system installed on the system is
-      Red Hat Enterprise Linux 7 older than 7.4</oval-def:description>
+        <oval-def:description>Check if sysctl crypto.fips_enabled = 1</oval-def:description>
+        <oval-def:reference ref_id="cpe:/a:runtime-kernel-fips-enabled" source="CPE"/>
       </oval-def:metadata>
       <oval-def:criteria>
-        <oval-def:criterion comment="Installed operating system is part of the unix family" test_ref="oval:ssg-test_rhel7_unix_family_older_than_7_4:tst:1"/>
-        <oval-def:criteria operator="OR">
-          <oval-def:criterion comment="RHEL 7 Client is installed" test_ref="oval:ssg-test_rhel7_client_older_than_7_4:tst:1"/>
-          <oval-def:criterion comment="RHEL 7 Workstation is installed" test_ref="oval:ssg-test_rhel7_workstation_older_than_7_4:tst:1"/>
-          <oval-def:criterion comment="RHEL 7 Server is installed" test_ref="oval:ssg-test_rhel7_server_older_than_7_4:tst:1"/>
-          <oval-def:criterion comment="RHEL 7 Compute Node is installed" test_ref="oval:ssg-test_rhel7_computenode_older_than_7_4:tst:1"/>
-          <oval-def:criteria operator="AND" comment="Red Hat Enterprise Virtualization Host is installed">
-            <oval-def:criterion comment="Red Hat Virtualization Host (RHVH)" test_ref="oval:ssg-test_rhvh4_version:tst:1"/>
-            <oval-def:criterion comment="Red Hat Enterprise Virtualization Host is based on RHEL 7" test_ref="oval:ssg-test_rhevh_rhel7_version_older_than_7_4:tst:1"/>
-          </oval-def:criteria>
-        </oval-def:criteria>
+        <oval-def:criterion test_ref="oval:ssg-test_runtime_kernel_fips_enabled:tst:1" comment="check if sysctl crypto.fips_enabled = 1"/>
       </oval-def:criteria>
     </oval-def:definition>
-    <oval-def:definition class="inventory" id="oval:ssg-rhel8_greater_equal_8_7:def:1" version="1">
+    <oval-def:definition class="inventory" id="oval:ssg-secure_boot_enabled:def:1" version="1">
       <oval-def:metadata>
-        <oval-def:title/>
+        <oval-def:title>Secure Boot status check</oval-def:title>
         <oval-def:affected family="unix">
           <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
         </oval-def:affected>
-        <oval-def:description>RHEL version greater or equal to 8.7</oval-def:description>
+        <oval-def:description>Check if System has Secure Boot enabled.</oval-def:description>
+        <oval-def:reference ref_id="cpe:/a:secure-boot" source="CPE"/>
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
-        <oval-def:extend_definition comment="The operating system installed on the system is RHEL" definition_ref="oval:ssg-installed_os_is_rhel:def:1"/>
-        <oval-def:criterion comment="The version of operating system RHEL is greater than or equal 8.7" test_ref="oval:ssg-test_rhel_version_id_is_gt_8_7:tst:1"/>
+        <oval-def:extend_definition definition_ref="oval:ssg-system_boot_mode_is_uefi:def:1" comment="Pass if System boot mode is UEFI"/>
+        <oval-def:criterion comment="Scure Boot is enabled" test_ref="oval:ssg-test_secure_boot_enabled:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
-    <oval-def:definition class="inventory" id="oval:ssg-rhel8_less_equal_8_4:def:1" version="1">
+    <oval-def:definition class="inventory" id="oval:ssg-selinux_is_enabled:def:1" version="1">
       <oval-def:metadata>
-        <oval-def:title/>
+        <oval-def:title>SELinux status check</oval-def:title>
         <oval-def:affected family="unix">
           <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
         </oval-def:affected>
-        <oval-def:description>RHEL version less or equal to 8.4</oval-def:description>
+        <oval-def:description>Check if System has SELinux enabled.</oval-def:description>
+        <oval-def:reference ref_id="cpe:/a:selinux" source="CPE"/>
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
-        <oval-def:extend_definition comment="The operating system installed on the system is RHEL" definition_ref="oval:ssg-installed_os_is_rhel:def:1"/>
-        <oval-def:criterion comment="The version of operating system RHEL is less than or equal 8.4" test_ref="oval:ssg-test_rhel_version_id_is_lt_8_4:tst:1"/>
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition class="inventory" id="oval:ssg-rhel8_less_equal_8_5:def:1" version="1">
-      <oval-def:metadata>
-        <oval-def:title/>
-        <oval-def:affected family="unix">
-          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:description>RHEL version less or equal to 8.5</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="AND">
-        <oval-def:extend_definition comment="The operating system installed on the system is RHEL" definition_ref="oval:ssg-installed_os_is_rhel:def:1"/>
-        <oval-def:criterion comment="The version of operating system RHEL is less than or equal 8.5" test_ref="oval:ssg-test_rhel_version_id_is_lt_8_5:tst:1"/>
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition class="inventory" id="oval:ssg-rhel9_equals_9_0:def:1" version="1">
-      <oval-def:metadata>
-        <oval-def:title/>
-        <oval-def:affected family="unix">
-          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:description>RHEL version equals 9.0</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="AND">
-        <oval-def:extend_definition comment="The operating system installed on the system is RHEL" definition_ref="oval:ssg-installed_os_is_rhel:def:1"/>
-        <oval-def:criterion comment="The version of operating system RHEL equals 9.0" test_ref="oval:ssg-test_rhel_version_id_is_eq_9_0:tst:1"/>
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition class="inventory" id="oval:ssg-rhel9_greater_equal_9_0:def:1" version="1">
-      <oval-def:metadata>
-        <oval-def:title/>
-        <oval-def:affected family="unix">
-          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:description>RHEL version greater or equal to 9.0</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="AND">
-        <oval-def:extend_definition comment="The operating system installed on the system is RHEL" definition_ref="oval:ssg-installed_os_is_rhel:def:1"/>
-        <oval-def:criterion comment="The version of operating system RHEL is greater than or equal 9.0" test_ref="oval:ssg-test_rhel_version_id_is_gt_9_0:tst:1"/>
+        <oval-def:criterion comment="enforce is disabled" test_ref="oval:ssg-test_etc_selinux_configured:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition class="inventory" id="oval:ssg-sssd_conf_uses_ldap:def:1" version="1">
@@ -490,6 +424,20 @@
       </oval-def:metadata>
       <oval-def:criteria>
         <oval-def:criterion test_ref="oval:ssg-test_efi_dir_existence:tst:1" comment="check if /sys/firmware/efi folder exists"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-installed_OS_is_anolis23:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Anolis OS 23</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="cpe:/o:Anolis OS:23" source="CPE"/>
+        <oval-def:description>The operating system installed on the system is Anolis OS 23</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
+        <oval-def:criterion comment="Anolis OS 23 is installed" test_ref="oval:ssg-test_anolis23:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition class="inventory" id="oval:ssg-installed_OS_is_centos7:def:1" version="2">
@@ -558,10 +506,11 @@
         <oval-def:affected family="unix">
           <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
         </oval-def:affected>
-        <oval-def:reference ref_id="cpe:/o:fedoraproject:fedora:33" source="CPE"/>
-        <oval-def:reference ref_id="cpe:/o:fedoraproject:fedora:34" source="CPE"/>
-        <oval-def:reference ref_id="cpe:/o:fedoraproject:fedora:35" source="CPE"/>
         <oval-def:reference ref_id="cpe:/o:fedoraproject:fedora:36" source="CPE"/>
+        <oval-def:reference ref_id="cpe:/o:fedoraproject:fedora:37" source="CPE"/>
+        <oval-def:reference ref_id="cpe:/o:fedoraproject:fedora:38" source="CPE"/>
+        <oval-def:reference ref_id="cpe:/o:fedoraproject:fedora:39" source="CPE"/>
+        <oval-def:reference ref_id="cpe:/o:fedoraproject:fedora:40" source="CPE"/>
         <oval-def:description>The operating system installed on the system is Fedora</oval-def:description>
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
@@ -633,6 +582,20 @@
         </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-installed_OS_is_openembedded:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>OpenEmbedded</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The operating system installed is an OpenEmbedded based system</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria comment="System is OpenEmbedded based" operator="AND">
+        <oval-def:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
+        <oval-def:criterion comment="OpenEmbedded distro" test_ref="oval:ssg-test_os_openembedded:tst:1"/>
+        <oval-def:criterion comment="OpenEmbedded is installed" test_ref="oval:ssg-test_openembedded:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition class="inventory" id="oval:ssg-installed_OS_is_opensuse:def:1" version="1">
       <oval-def:metadata>
         <oval-def:title>openSUSE</oval-def:title>
@@ -656,6 +619,20 @@
       </oval-def:metadata>
       <oval-def:criteria>
         <oval-def:criterion comment="Installed operating system is part of the unix family" test_ref="oval:ssg-test_unix_family:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-installed_OS_is_poky:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Poky</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The operating system installed is a Poky based System</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria comment="System is Poky based distribution" operator="AND">
+        <oval-def:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
+        <oval-def:criterion comment="Poky based distro" test_ref="oval:ssg-test_os_poky:tst:1"/>
+        <oval-def:criterion comment="Poky based distribution is installed" test_ref="oval:ssg-test_poky:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition class="inventory" id="oval:ssg-installed_OS_is_rhcos4:def:1" version="1">
@@ -1064,6 +1041,70 @@
         <oval-def:criterion comment="Check the value of container variable" test_ref="oval:ssg-test_installed_env_is_osbuild:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-ipv6_enabled:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>IPv6 is enabled on system</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criterion test_ref="oval:ssg-test_grub2_ipv6_disable_is_correct:tst:1" comment="check if ipv6.disable argument is correct in GRUB_CMDLINE_LINUX"/>
+        <oval-def:criterion test_ref="oval:ssg-test_grub2_ipv6_disable_is_absent:tst:1" comment="check if ipv6.disable parameter is defined in /etc/default/grub"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-installed_env_mount_home:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /home is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria>
+          <oval-def:criterion comment="The path /home is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_home_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria>
+          <oval-def:criterion comment="The path /home is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_home_exists:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-installed_env_mount_opt:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /opt is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria>
+          <oval-def:criterion comment="The path /opt is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_opt_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria>
+          <oval-def:criterion comment="The path /opt is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_opt_exists:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-installed_env_mount_srv:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /srv is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria>
+          <oval-def:criterion comment="The path /srv is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_srv_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria>
+          <oval-def:criterion comment="The path /srv is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_srv_exists:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition class="inventory" id="oval:ssg-installed_env_mount_tmp:def:1" version="1">
       <oval-def:metadata>
         <oval-def:title>Mountpoint /tmp is active (mounted) or configured in /etc/fstab</oval-def:title>
@@ -1078,6 +1119,40 @@
         </oval-def:criteria>
         <oval-def:criteria>
           <oval-def:criterion comment="The path /tmp is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_tmp_exists:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-installed_env_mount_var-log-audit:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /var/log/audit is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria>
+          <oval-def:criterion comment="The path /var/log/audit is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_var_log_audit_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria>
+          <oval-def:criterion comment="The path /var/log/audit is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_var_log_audit_exists:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-installed_env_mount_var-log:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /var/log is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria>
+          <oval-def:criterion comment="The path /var/log is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_var_log_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria>
+          <oval-def:criterion comment="The path /var/log is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_var_log_exists:tst:1"/>
         </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
@@ -1098,6 +1173,153 @@
         </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-installed_env_mount_var:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /var is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria>
+          <oval-def:criterion comment="The path /var is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_var_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria>
+          <oval-def:criterion comment="The path /var is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_var_exists:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-os_linux_ol_gt_or_eq_8_7:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Operating System is ol</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The installed operating system is Oracle Linux</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="The operating system installed on the system is Oracle Linux" test_ref="oval:ssg-test_os_id_is_os_linux_ol_gt_or_eq_8_7:tst:1"/>
+        <oval-def:criterion comment="The operating system Oracle Linux of version greater than or equal 8.7 is installed" test_ref="oval:ssg-test_os_linux_ol_gt_or_eq_8_7_gt_or_eq_8_7:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-os_linux_ol_gt_or_eq_9_0:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Operating System is ol</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The installed operating system is Oracle Linux</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="The operating system installed on the system is Oracle Linux" test_ref="oval:ssg-test_os_id_is_os_linux_ol_gt_or_eq_9_0:tst:1"/>
+        <oval-def:criterion comment="The operating system Oracle Linux of version greater than or equal 9.0 is installed" test_ref="oval:ssg-test_os_linux_ol_gt_or_eq_9_0_gt_or_eq_9_0:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-os_linux_rhel_gt_or_eq_8_2:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Operating System is rhel</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The installed operating system is Red Hat Enterprise Linux</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="The operating system installed on the system is Red Hat Enterprise Linux" test_ref="oval:ssg-test_os_id_is_os_linux_rhel_gt_or_eq_8_2:tst:1"/>
+        <oval-def:criterion comment="The operating system Red Hat Enterprise Linux of version greater than or equal 8.2 is installed" test_ref="oval:ssg-test_os_linux_rhel_gt_or_eq_8_2_gt_or_eq_8_2:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-os_linux_rhel_gt_or_eq_8_7:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Operating System is rhel</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The installed operating system is Red Hat Enterprise Linux</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="The operating system installed on the system is Red Hat Enterprise Linux" test_ref="oval:ssg-test_os_id_is_os_linux_rhel_gt_or_eq_8_7:tst:1"/>
+        <oval-def:criterion comment="The operating system Red Hat Enterprise Linux of version greater than or equal 8.7 is installed" test_ref="oval:ssg-test_os_linux_rhel_gt_or_eq_8_7_gt_or_eq_8_7:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-os_linux_rhel_gt_or_eq_9:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Operating System is rhel</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The installed operating system is Red Hat Enterprise Linux</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="The operating system installed on the system is Red Hat Enterprise Linux" test_ref="oval:ssg-test_os_id_is_os_linux_rhel_gt_or_eq_9:tst:1"/>
+        <oval-def:criterion comment="The operating system Red Hat Enterprise Linux of version greater than or equal 9 is installed" test_ref="oval:ssg-test_os_linux_rhel_gt_or_eq_9_gt_or_eq_9:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-os_linux_rhel_gt_or_eq_9_0:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Operating System is rhel</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The installed operating system is Red Hat Enterprise Linux</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="The operating system installed on the system is Red Hat Enterprise Linux" test_ref="oval:ssg-test_os_id_is_os_linux_rhel_gt_or_eq_9_0:tst:1"/>
+        <oval-def:criterion comment="The operating system Red Hat Enterprise Linux of version greater than or equal 9.0 is installed" test_ref="oval:ssg-test_os_linux_rhel_gt_or_eq_9_0_gt_or_eq_9_0:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-os_linux_rhel_le_or_eq_8_3:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Operating System is rhel</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The installed operating system is Red Hat Enterprise Linux</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="The operating system installed on the system is Red Hat Enterprise Linux" test_ref="oval:ssg-test_os_id_is_os_linux_rhel_le_or_eq_8_3:tst:1"/>
+        <oval-def:criterion comment="The operating system Red Hat Enterprise Linux of version less than or equal 8.3 is installed" test_ref="oval:ssg-test_os_linux_rhel_le_or_eq_8_3_le_or_eq_8_3:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-os_linux_rhel_le_or_eq_8_4:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Operating System is rhel</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The installed operating system is Red Hat Enterprise Linux</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="The operating system installed on the system is Red Hat Enterprise Linux" test_ref="oval:ssg-test_os_id_is_os_linux_rhel_le_or_eq_8_4:tst:1"/>
+        <oval-def:criterion comment="The operating system Red Hat Enterprise Linux of version less than or equal 8.4 is installed" test_ref="oval:ssg-test_os_linux_rhel_le_or_eq_8_4_le_or_eq_8_4:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-os_linux_rhel_le_or_eq_8_5:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Operating System is rhel</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The installed operating system is Red Hat Enterprise Linux</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="The operating system installed on the system is Red Hat Enterprise Linux" test_ref="oval:ssg-test_os_id_is_os_linux_rhel_le_or_eq_8_5:tst:1"/>
+        <oval-def:criterion comment="The operating system Red Hat Enterprise Linux of version less than or equal 8.5 is installed" test_ref="oval:ssg-test_os_linux_rhel_le_or_eq_8_5_le_or_eq_8_5:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-os_linux_rhel_ne_9_0:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Operating System is rhel</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The installed operating system is Red Hat Enterprise Linux</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="The operating system installed on the system is Red Hat Enterprise Linux" test_ref="oval:ssg-test_os_id_is_os_linux_rhel_ne_9_0:tst:1"/>
+        <oval-def:criterion comment="The operating system Red Hat Enterprise Linux of version not equal 9.0 is installed" test_ref="oval:ssg-test_os_linux_rhel_ne_9_0_ne_9_0:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition class="inventory" id="oval:ssg-package_audit:def:1" version="1">
       <oval-def:metadata>
         <oval-def:title>Package audit is installed</oval-def:title>
@@ -1108,6 +1330,18 @@
       </oval-def:metadata>
       <oval-def:criteria>
         <oval-def:criterion comment="Platform package audit is installed" test_ref="oval:ssg-inventory_test_package_audit_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-package_bash:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Package bash is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package bash should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria>
+        <oval-def:criterion comment="Platform package bash is installed" test_ref="oval:ssg-inventory_test_package_bash_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition class="inventory" id="oval:ssg-package_chrony:def:1" version="1">
@@ -1122,6 +1356,18 @@
         <oval-def:criterion comment="Platform package chrony is installed" test_ref="oval:ssg-inventory_test_package_chrony_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-package_firewalld:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Package firewalld is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package firewalld should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria>
+        <oval-def:criterion comment="Platform package firewalld is installed" test_ref="oval:ssg-inventory_test_package_firewalld_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition class="inventory" id="oval:ssg-package_gdm:def:1" version="1">
       <oval-def:metadata>
         <oval-def:title>Package gdm is installed</oval-def:title>
@@ -1132,6 +1378,18 @@
       </oval-def:metadata>
       <oval-def:criteria>
         <oval-def:criterion comment="Platform package gdm is installed" test_ref="oval:ssg-inventory_test_package_gdm_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-package_iptables:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Package iptables is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package iptables should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria>
+        <oval-def:criterion comment="Platform package iptables is installed" test_ref="oval:ssg-inventory_test_package_iptables_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition class="inventory" id="oval:ssg-package_libuser:def:1" version="1">
@@ -1146,6 +1404,18 @@
         <oval-def:criterion comment="Platform package libuser is installed" test_ref="oval:ssg-inventory_test_package_libuser_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-package_logrotate:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Package logrotate is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package logrotate should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria>
+        <oval-def:criterion comment="Platform package logrotate is installed" test_ref="oval:ssg-inventory_test_package_logrotate_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition class="inventory" id="oval:ssg-package_net-snmp:def:1" version="1">
       <oval-def:metadata>
         <oval-def:title>Package net-snmp is installed</oval-def:title>
@@ -1156,6 +1426,18 @@
       </oval-def:metadata>
       <oval-def:criteria>
         <oval-def:criterion comment="Platform package net-snmp is installed" test_ref="oval:ssg-inventory_test_package_net-snmp_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-package_nftables:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Package nftables is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package nftables should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria>
+        <oval-def:criterion comment="Platform package nftables is installed" test_ref="oval:ssg-inventory_test_package_nftables_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition class="inventory" id="oval:ssg-package_nss-pam-ldapd:def:1" version="1">
@@ -1216,6 +1498,18 @@
       </oval-def:metadata>
       <oval-def:criteria>
         <oval-def:criterion comment="Platform package postfix is installed" test_ref="oval:ssg-inventory_test_package_postfix_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-package_rsh-server:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Package rsh-server is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package rsh-server should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria>
+        <oval-def:criterion comment="Platform package rsh-server is installed" test_ref="oval:ssg-inventory_test_package_rsh-server_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition class="inventory" id="oval:ssg-package_shadow-utils:def:1" version="1">
@@ -1290,6 +1584,18 @@
         <oval-def:criterion comment="Platform package tmux is installed" test_ref="oval:ssg-inventory_test_package_tmux_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-package_ufw:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>Package ufw is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package ufw should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria>
+        <oval-def:criterion comment="Platform package ufw is installed" test_ref="oval:ssg-inventory_test_package_ufw_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition class="inventory" id="oval:ssg-package_usbguard:def:1" version="1">
       <oval-def:metadata>
         <oval-def:title>Package usbguard is installed</oval-def:title>
@@ -1312,6 +1618,22 @@
       </oval-def:metadata>
       <oval-def:criteria>
         <oval-def:criterion comment="Platform package yum is installed" test_ref="oval:ssg-inventory_test_package_yum_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition class="inventory" id="oval:ssg-service_disabled_firewalld:def:1" version="1">
+      <oval-def:metadata>
+        <oval-def:title>The firewalld is disabled on the system</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The firewalld service should be disabled.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria comment="package firewalld removed or service firewalld is not configured to start" operator="OR">
+        <oval-def:criterion comment="firewalld removed" test_ref="oval:ssg-service_disabled_firewalldtest_service_firewalld_package_firewalld_removed:tst:1"/>
+        <oval-def:criteria operator="AND" comment="service firewalld is not configured to start">
+          <oval-def:criterion comment="firewalld is not running" test_ref="oval:ssg-test_service_not_running_service_disabled_firewalld_firewalld:tst:1"/>
+          <oval-def:criterion comment="Property LoadState of service firewalld is masked" test_ref="oval:ssg-test_service_loadstate_is_masked_service_disabled_firewalld_firewalld:tst:1"/>
+        </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
   </oval-def:definitions>
@@ -1377,6 +1699,10 @@
     <unix:file_test check="all" check_existence="all_exist" comment="Check if /run/.containerenv exists" id="oval:ssg-test_installed_env_is_a_podman_container:tst:1" version="1">
       <unix:object object_ref="oval:ssg-object_installed_env_is_a_podman_container:obj:1"/>
     </unix:file_test>
+    <unix:uname_test check_existence="all_exist" check="all" comment="Runing kernel is UEK" id="oval:ssg-test_kernel_uek:tst:1" version="1">
+      <unix:object object_ref="oval:ssg-obj_kernel_uek:obj:1"/>
+      <unix:state state_ref="oval:ssg-state_kernel_uek:ste:1"/>
+    </unix:uname_test>
     <linux:rpminfo_test check="all" check_existence="at_least_one_exists" comment="Kerberos server version is lesser than 1.17-18" id="oval:ssg-test_krb5_server_version_1_17_18:tst:1" version="1">
       <linux:object object_ref="oval:ssg-obj_krb5_server_version_1_17_18:obj:1"/>
       <linux:state state_ref="oval:ssg-state_krb5_server_version_1_17_18:ste:1"/>
@@ -1385,14 +1711,6 @@
       <linux:object object_ref="oval:ssg-obj_krb5_workstation_version_1_17_18:obj:1"/>
       <linux:state state_ref="oval:ssg-state_krb5_workstation_version_1_17_18:ste:1"/>
     </linux:rpminfo_test>
-    <linux:rpminfo_test check="all" check_existence="at_least_one_exists" comment="oraclelinux-release is version 7" id="oval:ssg-test_ol7_system_older_than_7_4:tst:1" version="1">
-      <linux:object object_ref="oval:ssg-obj_ol7_system_older_than_7_4:obj:1"/>
-      <linux:state state_ref="oval:ssg-state_ol7_system_older_than_7_4:ste:1"/>
-    </linux:rpminfo_test>
-    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release is greater than or equal to 9.0" id="oval:ssg-test_ol_version_id_is_gt_9_0:tst:1" version="1">
-      <ind:object object_ref="oval:ssg-obj_ol_version_id_is_gt_9_0:obj:1"/>
-      <ind:state state_ref="oval:ssg-state_ol_version_id_is_gt_9_0:ste:1"/>
-    </ind:textfilecontent54_test>
     <ind:textfilecontent54_test check="all" check_existence="all_exist" comment="proc_sys_kernel is for aarch64 architecture" id="oval:ssg-test_proc_sys_kernel_osrelease_arch_aarch64:tst:1" version="1">
       <ind:object object_ref="oval:ssg-object_proc_sys_kernel_osrelease_arch_aarch64:obj:1"/>
       <ind:state state_ref="oval:ssg-state_proc_sys_kernel_osrelease_arch_aarch64:ste:1"/>
@@ -1405,49 +1723,17 @@
       <ind:object object_ref="oval:ssg-object_proc_sys_kernel_osrelease_arch_s390x:obj:1"/>
       <ind:state state_ref="oval:ssg-state_proc_sys_kernel_osrelease_arch_s390x:ste:1"/>
     </ind:textfilecontent54_test>
-    <ind:family_test check="all" check_existence="at_least_one_exists" comment="installed OS part of unix family" id="oval:ssg-test_rhel7_unix_family_older_than_7_4:tst:1" version="1">
-      <ind:object object_ref="oval:ssg-obj_rhel7_unix_family_older_than_7_4:obj:1"/>
-      <ind:state state_ref="oval:ssg-state_rhel7_unix_family_older_than_7_4:ste:1"/>
-    </ind:family_test>
-    <linux:rpminfo_test check="all" check_existence="at_least_one_exists" comment="redhat-release-client is version 7" id="oval:ssg-test_rhel7_client_older_than_7_4:tst:1" version="1">
-      <linux:object object_ref="oval:ssg-obj_rhel7_client_older_than_7_4:obj:1"/>
-      <linux:state state_ref="oval:ssg-state_rhel7_client_older_than_7_4:ste:1"/>
-    </linux:rpminfo_test>
-    <linux:rpminfo_test check="all" check_existence="at_least_one_exists" comment="redhat-release-workstation is version 7" id="oval:ssg-test_rhel7_workstation_older_than_7_4:tst:1" version="1">
-      <linux:object object_ref="oval:ssg-obj_rhel7_workstation_older_than_7_4:obj:1"/>
-      <linux:state state_ref="oval:ssg-state_rhel7_workstation_older_than_7_4:ste:1"/>
-    </linux:rpminfo_test>
-    <linux:rpminfo_test check="all" check_existence="at_least_one_exists" comment="redhat-release-server is version 7" id="oval:ssg-test_rhel7_server_older_than_7_4:tst:1" version="1">
-      <linux:object object_ref="oval:ssg-obj_rhel7_server_older_than_7_4:obj:1"/>
-      <linux:state state_ref="oval:ssg-state_rhel7_server_older_than_7_4:ste:1"/>
-    </linux:rpminfo_test>
-    <linux:rpminfo_test check="all" check_existence="at_least_one_exists" comment="redhat-release-computenode is version 7" id="oval:ssg-test_rhel7_computenode_older_than_7_4:tst:1" version="1">
-      <linux:object object_ref="oval:ssg-obj_rhel7_computenode_older_than_7_4:obj:1"/>
-      <linux:state state_ref="oval:ssg-state_rhel7_computenode_older_than_7_4:ste:1"/>
-    </linux:rpminfo_test>
-    <ind:textfilecontent54_test check="all" comment="RHEVH base RHEL is version 7" id="oval:ssg-test_rhevh_rhel7_version_older_than_7_4:tst:1" version="1">
-      <ind:object object_ref="oval:ssg-obj_rhevh_rhel7_version_older_than_7_4:obj:1"/>
-      <ind:state state_ref="oval:ssg-state_rhevh_rhel7_version_older_than_7_4:ste:1"/>
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release is greater than or equal to 8.7" id="oval:ssg-test_rhel_version_id_is_gt_8_7:tst:1" version="1">
-      <ind:object object_ref="oval:ssg-obj_rhel_version_id_is_gt_8_7:obj:1"/>
-      <ind:state state_ref="oval:ssg-state_rhel_version_id_is_gt_8_7:ste:1"/>
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release is less than or equal to 8.4" id="oval:ssg-test_rhel_version_id_is_lt_8_4:tst:1" version="1">
-      <ind:object object_ref="oval:ssg-obj_rhel_version_id_is_lt_8_4:obj:1"/>
-      <ind:state state_ref="oval:ssg-state_rhel_version_id_is_lt_8_4:ste:1"/>
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release is less than or equal to 8.5" id="oval:ssg-test_rhel_version_id_is_lt_8_5:tst:1" version="1">
-      <ind:object object_ref="oval:ssg-obj_rhel_version_id_is_lt_8_5:obj:1"/>
-      <ind:state state_ref="oval:ssg-state_rhel_version_id_is_lt_8_5:ste:1"/>
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release equals 9.0" id="oval:ssg-test_rhel_version_id_is_eq_9_0:tst:1" version="1">
-      <ind:object object_ref="oval:ssg-obj_rhel_version_id_is_eq_9_0:obj:1"/>
-      <ind:state state_ref="oval:ssg-state_rhel_version_id_is_eq_9_0:ste:1"/>
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release is greater than or equal to 9.0" id="oval:ssg-test_rhel_version_id_is_gt_9_0:tst:1" version="1">
-      <ind:object object_ref="oval:ssg-obj_rhel_version_id_is_gt_9_0:obj:1"/>
-      <ind:state state_ref="oval:ssg-state_rhel_version_id_is_gt_9_0:ste:1"/>
+    <unix:sysctl_test check="all" check_existence="all_exist" comment="kernel runtime parameter crypto.fips_enabled set to 1" id="oval:ssg-test_runtime_kernel_fips_enabled:tst:1" version="1">
+      <unix:object object_ref="oval:ssg-obj_runtime_kernel_fips_enabled:obj:1"/>
+      <unix:state state_ref="oval:ssg-state_runtime_kernel_fips_enabled:ste:1"/>
+    </unix:sysctl_test>
+    <ind:filehash58_test check_existence="all_exist" check="all" comment="Scure Boot is enabled" id="oval:ssg-test_secure_boot_enabled:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_secure_boot_enabled:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_secure_boot_enabled:ste:1"/>
+    </ind:filehash58_test>
+    <ind:textfilecontent54_test check="all" check_existence="all_exist" comment="/selinux/enforce is 1" id="oval:ssg-test_etc_selinux_configured:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-object_etc_selinux_configured:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_etc_selinux_configured:ste:1"/>
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test check="all" check_existence="all_exist" comment="SSSD Configuration is set to use Active Directory" id="oval:ssg-test_id_provider_is_set_to_ad:tst:1" version="1">
       <ind:object object_ref="oval:ssg-object_id_provider_is_set_to_ad:obj:1"/>
@@ -1455,6 +1741,10 @@
     <unix:file_test check="all" check_existence="at_least_one_exists" comment="Verify if /sys/firmware/efi folder exists" id="oval:ssg-test_efi_dir_existence:tst:1" version="1">
       <unix:object object_ref="oval:ssg-object_file_sys_firmware_efi:obj:1"/>
     </unix:file_test>
+    <linux:rpminfo_test check="all" check_existence="at_least_one_exists" comment="anolis-release is version 23" id="oval:ssg-test_anolis23:tst:1" version="1">
+      <linux:object object_ref="oval:ssg-obj_anolis23:obj:1"/>
+      <linux:state state_ref="oval:ssg-state_anolis23:ste:1"/>
+    </linux:rpminfo_test>
     <linux:rpminfo_test check="all" check_existence="at_least_one_exists" comment="centos-release is version 7" id="oval:ssg-test_centos7:tst:1" version="1">
       <linux:object object_ref="oval:ssg-obj_centos7:obj:1"/>
       <linux:state state_ref="oval:ssg-state_centos7:ste:1"/>
@@ -1500,6 +1790,12 @@
       <linux:object object_ref="oval:ssg-obj_ol9_system:obj:1"/>
       <linux:state state_ref="oval:ssg-state_ol9_system:ste:1"/>
     </linux:rpminfo_test>
+    <unix:file_test check="all" check_existence="all_exist" comment="/etc/os-release exists" id="oval:ssg-test_os_openembedded:tst:1" version="1">
+      <unix:object object_ref="oval:ssg-obj_os_openembedded:obj:1"/>
+    </unix:file_test>
+    <ind:textfilecontent54_test check="all" check_existence="at_least_one_exists" comment="Check OpenEmbedded" id="oval:ssg-test_openembedded:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_openembedded:obj:1"/>
+    </ind:textfilecontent54_test>
     <linux:rpminfo_test check="all" check_existence="at_least_one_exists" comment="openSUSE is installed" id="oval:ssg-test_opensuse_installed:tst:1" version="1">
       <linux:object object_ref="oval:ssg-obj_opensuse_installed:obj:1"/>
       <linux:state state_ref="oval:ssg-state_opensuse_installed:ste:1"/>
@@ -1508,6 +1804,12 @@
       <ind:object object_ref="oval:ssg-object_unix_family:obj:1"/>
       <ind:state state_ref="oval:ssg-state_unix_family:ste:1"/>
     </ind:family_test>
+    <unix:file_test check="all" check_existence="all_exist" comment="/etc/os-release exists" id="oval:ssg-test_os_poky:tst:1" version="1">
+      <unix:object object_ref="oval:ssg-obj_os_poky:obj:1"/>
+    </unix:file_test>
+    <ind:textfilecontent54_test check="all" check_existence="at_least_one_exists" comment="Check OpenEmbedded" id="oval:ssg-test_poky:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_poky:obj:1"/>
+    </ind:textfilecontent54_test>
     <ind:textfilecontent54_test check="all" comment="os-release is rhcos" id="oval:ssg-test_rhcos:tst:1" version="1">
       <ind:object object_ref="oval:ssg-obj_rhcos:obj:1"/>
       <ind:state state_ref="oval:ssg-state_rhcos:ste:1"/>
@@ -1690,11 +1992,48 @@
       <unix:object object_ref="oval:ssg-object_system_info_architecture_ppcle_64:obj:1"/>
       <unix:state state_ref="oval:ssg-state_system_info_architecture_ppcle_64:ste:1"/>
     </unix:uname_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_grub2_ipv6_disable_is_correct:tst:1" version="1" check="all" check_existence="all_exist" comment="check GRUB_CMDLINE_LINUX parameters in /etc/default/grub">
+      <ind:object object_ref="oval:ssg-object_grub2_ipv6_disable_parameter:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_grub2_ipv6_disable_argument:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_grub2_ipv6_disable_is_absent:tst:1" version="1" check="all" check_existence="none_exist" comment="ipv6.disable is not defined in /etc/default/grub">
+      <ind:object object_ref="oval:ssg-object_grub2_ipv6_disable_parameter:obj:1"/>
+    </ind:textfilecontent54_test>
+    <linux:partition_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /home exists" id="oval:ssg-test_mount_active_home_exists:tst:1">
+      <linux:object object_ref="oval:ssg-object_mount_active_home_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /home is configured" id="oval:ssg-test_mount_configured_fstab_home_exists:tst:1">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_home_exists:obj:1"/>
+    </ind:textfilecontent54_test>
+    <linux:partition_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /opt exists" id="oval:ssg-test_mount_active_opt_exists:tst:1">
+      <linux:object object_ref="oval:ssg-object_mount_active_opt_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /opt is configured" id="oval:ssg-test_mount_configured_fstab_opt_exists:tst:1">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_opt_exists:obj:1"/>
+    </ind:textfilecontent54_test>
+    <linux:partition_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /srv exists" id="oval:ssg-test_mount_active_srv_exists:tst:1">
+      <linux:object object_ref="oval:ssg-object_mount_active_srv_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /srv is configured" id="oval:ssg-test_mount_configured_fstab_srv_exists:tst:1">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_srv_exists:obj:1"/>
+    </ind:textfilecontent54_test>
     <linux:partition_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /tmp exists" id="oval:ssg-test_mount_active_tmp_exists:tst:1">
       <linux:object object_ref="oval:ssg-object_mount_active_tmp_exists:obj:1"/>
     </linux:partition_test>
     <ind:textfilecontent54_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /tmp is configured" id="oval:ssg-test_mount_configured_fstab_tmp_exists:tst:1">
       <ind:object object_ref="oval:ssg-object_mount_configured_fstab_tmp_exists:obj:1"/>
+    </ind:textfilecontent54_test>
+    <linux:partition_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /var/log/audit exists" id="oval:ssg-test_mount_active_var_log_audit_exists:tst:1">
+      <linux:object object_ref="oval:ssg-object_mount_active_var_log_audit_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /var/log/audit is configured" id="oval:ssg-test_mount_configured_fstab_var_log_audit_exists:tst:1">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_var_log_audit_exists:obj:1"/>
+    </ind:textfilecontent54_test>
+    <linux:partition_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /var/log exists" id="oval:ssg-test_mount_active_var_log_exists:tst:1">
+      <linux:object object_ref="oval:ssg-object_mount_active_var_log_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /var/log is configured" id="oval:ssg-test_mount_configured_fstab_var_log_exists:tst:1">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_var_log_exists:obj:1"/>
     </ind:textfilecontent54_test>
     <linux:partition_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /var/tmp exists" id="oval:ssg-test_mount_active_var_tmp_exists:tst:1">
       <linux:object object_ref="oval:ssg-object_mount_active_var_tmp_exists:obj:1"/>
@@ -1702,20 +2041,121 @@
     <ind:textfilecontent54_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /var/tmp is configured" id="oval:ssg-test_mount_configured_fstab_var_tmp_exists:tst:1">
       <ind:object object_ref="oval:ssg-object_mount_configured_fstab_var_tmp_exists:obj:1"/>
     </ind:textfilecontent54_test>
+    <linux:partition_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /var exists" id="oval:ssg-test_mount_active_var_exists:tst:1">
+      <linux:object object_ref="oval:ssg-object_mount_active_var_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test check="all" check_existence="all_exist" version="1" comment="Mountpoint /var is configured" id="oval:ssg-test_mount_configured_fstab_var_exists:tst:1">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_var_exists:obj:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="ID in os-release is ol" id="oval:ssg-test_os_id_is_os_linux_ol_gt_or_eq_8_7:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_ol_gt_or_eq_8_7:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_ol_gt_or_eq_8_7:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release is greater than or equal 8.7" id="oval:ssg-test_os_linux_ol_gt_or_eq_8_7_gt_or_eq_8_7:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_linux_ol_gt_or_eq_8_7_gt_or_eq_8_7:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_linux_ol_gt_or_eq_8_7_gt_or_eq_8_7:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="ID in os-release is ol" id="oval:ssg-test_os_id_is_os_linux_ol_gt_or_eq_9_0:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_ol_gt_or_eq_9_0:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_ol_gt_or_eq_9_0:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release is greater than or equal 9.0" id="oval:ssg-test_os_linux_ol_gt_or_eq_9_0_gt_or_eq_9_0:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_linux_ol_gt_or_eq_9_0_gt_or_eq_9_0:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_linux_ol_gt_or_eq_9_0_gt_or_eq_9_0:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="ID in os-release is rhel" id="oval:ssg-test_os_id_is_os_linux_rhel_gt_or_eq_8_2:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_rhel_gt_or_eq_8_2:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_rhel_gt_or_eq_8_2:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release is greater than or equal 8.2" id="oval:ssg-test_os_linux_rhel_gt_or_eq_8_2_gt_or_eq_8_2:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_linux_rhel_gt_or_eq_8_2_gt_or_eq_8_2:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_linux_rhel_gt_or_eq_8_2_gt_or_eq_8_2:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="ID in os-release is rhel" id="oval:ssg-test_os_id_is_os_linux_rhel_gt_or_eq_8_7:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_rhel_gt_or_eq_8_7:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_rhel_gt_or_eq_8_7:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release is greater than or equal 8.7" id="oval:ssg-test_os_linux_rhel_gt_or_eq_8_7_gt_or_eq_8_7:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_linux_rhel_gt_or_eq_8_7_gt_or_eq_8_7:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_linux_rhel_gt_or_eq_8_7_gt_or_eq_8_7:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="ID in os-release is rhel" id="oval:ssg-test_os_id_is_os_linux_rhel_gt_or_eq_9:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_rhel_gt_or_eq_9:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_rhel_gt_or_eq_9:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release is greater than or equal 9" id="oval:ssg-test_os_linux_rhel_gt_or_eq_9_gt_or_eq_9:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_linux_rhel_gt_or_eq_9_gt_or_eq_9:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_linux_rhel_gt_or_eq_9_gt_or_eq_9:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="ID in os-release is rhel" id="oval:ssg-test_os_id_is_os_linux_rhel_gt_or_eq_9_0:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_rhel_gt_or_eq_9_0:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_rhel_gt_or_eq_9_0:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release is greater than or equal 9.0" id="oval:ssg-test_os_linux_rhel_gt_or_eq_9_0_gt_or_eq_9_0:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_linux_rhel_gt_or_eq_9_0_gt_or_eq_9_0:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_linux_rhel_gt_or_eq_9_0_gt_or_eq_9_0:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="ID in os-release is rhel" id="oval:ssg-test_os_id_is_os_linux_rhel_le_or_eq_8_3:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_rhel_le_or_eq_8_3:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_rhel_le_or_eq_8_3:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release is less than or equal 8.3" id="oval:ssg-test_os_linux_rhel_le_or_eq_8_3_le_or_eq_8_3:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_linux_rhel_le_or_eq_8_3_le_or_eq_8_3:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_linux_rhel_le_or_eq_8_3_le_or_eq_8_3:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="ID in os-release is rhel" id="oval:ssg-test_os_id_is_os_linux_rhel_le_or_eq_8_4:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_rhel_le_or_eq_8_4:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_rhel_le_or_eq_8_4:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release is less than or equal 8.4" id="oval:ssg-test_os_linux_rhel_le_or_eq_8_4_le_or_eq_8_4:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_linux_rhel_le_or_eq_8_4_le_or_eq_8_4:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_linux_rhel_le_or_eq_8_4_le_or_eq_8_4:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="ID in os-release is rhel" id="oval:ssg-test_os_id_is_os_linux_rhel_le_or_eq_8_5:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_rhel_le_or_eq_8_5:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_rhel_le_or_eq_8_5:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release is less than or equal 8.5" id="oval:ssg-test_os_linux_rhel_le_or_eq_8_5_le_or_eq_8_5:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_linux_rhel_le_or_eq_8_5_le_or_eq_8_5:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_linux_rhel_le_or_eq_8_5_le_or_eq_8_5:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="ID in os-release is rhel" id="oval:ssg-test_os_id_is_os_linux_rhel_ne_9_0:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_rhel_ne_9_0:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_rhel_ne_9_0:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test check="all" comment="VERSION_ID in os-release is not equal 9.0" id="oval:ssg-test_os_linux_rhel_ne_9_0_ne_9_0:tst:1" version="1">
+      <ind:object object_ref="oval:ssg-obj_os_linux_rhel_ne_9_0_ne_9_0:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_linux_rhel_ne_9_0_ne_9_0:ste:1"/>
+    </ind:textfilecontent54_test>
     <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_audit_installed:tst:1" version="1" comment="package audit is installed">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_audit_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_bash_installed:tst:1" version="1" comment="package bash is installed">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_bash_installed:obj:1"/>
     </linux:rpminfo_test>
     <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_chrony_installed:tst:1" version="1" comment="package chrony is installed">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_chrony_installed:obj:1"/>
     </linux:rpminfo_test>
+    <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_firewalld_installed:tst:1" version="1" comment="package firewalld is installed">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_firewalld_installed:obj:1"/>
+    </linux:rpminfo_test>
     <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_gdm_installed:tst:1" version="1" comment="package gdm is installed">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_gdm_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_iptables_installed:tst:1" version="1" comment="package iptables is installed">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_iptables_installed:obj:1"/>
     </linux:rpminfo_test>
     <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_libuser_installed:tst:1" version="1" comment="package libuser is installed">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_libuser_installed:obj:1"/>
     </linux:rpminfo_test>
+    <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_logrotate_installed:tst:1" version="1" comment="package logrotate is installed">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_logrotate_installed:obj:1"/>
+    </linux:rpminfo_test>
     <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_net-snmp_installed:tst:1" version="1" comment="package net-snmp is installed">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_net-snmp_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_nftables_installed:tst:1" version="1" comment="package nftables is installed">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_nftables_installed:obj:1"/>
     </linux:rpminfo_test>
     <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_nss-pam-ldapd_installed:tst:1" version="1" comment="package nss-pam-ldapd is installed">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_nss-pam-ldapd_installed:obj:1"/>
@@ -1731,6 +2171,9 @@
     </linux:rpminfo_test>
     <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_postfix_installed:tst:1" version="1" comment="package postfix is installed">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_postfix_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_rsh-server_installed:tst:1" version="1" comment="package rsh-server is installed">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_rsh-server_installed:obj:1"/>
     </linux:rpminfo_test>
     <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_shadow-utils_installed:tst:1" version="1" comment="package shadow-utils is installed">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_shadow-utils_installed:obj:1"/>
@@ -1750,11 +2193,25 @@
     <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_tmux_installed:tst:1" version="1" comment="package tmux is installed">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_tmux_installed:obj:1"/>
     </linux:rpminfo_test>
+    <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_ufw_installed:tst:1" version="1" comment="package ufw is installed">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_ufw_installed:obj:1"/>
+    </linux:rpminfo_test>
     <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_usbguard_installed:tst:1" version="1" comment="package usbguard is installed">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_usbguard_installed:obj:1"/>
     </linux:rpminfo_test>
     <linux:rpminfo_test check="all" check_existence="all_exist" id="oval:ssg-inventory_test_package_yum_installed:tst:1" version="1" comment="package yum is installed">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_yum_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:systemdunitproperty_test id="oval:ssg-test_service_not_running_service_disabled_firewalld_firewalld:tst:1" check="all" check_existence="any_exist" comment="Test that the firewalld service is not running" version="1">
+      <linux:object object_ref="oval:ssg-obj_service_not_running_service_disabled_firewalld_firewalld:obj:1"/>
+      <linux:state state_ref="oval:ssg-state_service_not_running_service_disabled_firewalld_firewalld:ste:1"/>
+    </linux:systemdunitproperty_test>
+    <linux:systemdunitproperty_test check="all" check_existence="any_exist" id="oval:ssg-test_service_loadstate_is_masked_service_disabled_firewalld_firewalld:tst:1" comment="Test that the property LoadState from the service firewalld is masked" version="1">
+      <linux:object object_ref="oval:ssg-obj_service_loadstate_is_masked_service_disabled_firewalld_firewalld:obj:1"/>
+      <linux:state state_ref="oval:ssg-state_service_loadstate_is_masked_service_disabled_firewalld_firewalld:ste:1"/>
+    </linux:systemdunitproperty_test>
+    <linux:rpminfo_test check="all" check_existence="none_exist" id="oval:ssg-service_disabled_firewalldtest_service_firewalld_package_firewalld_removed:tst:1" version="1" comment="package firewalld is removed">
+      <linux:object object_ref="oval:ssg-obj_service_disabled_firewalldtest_service_firewalld_package_firewalld_removed:obj:1"/>
     </linux:rpminfo_test>
   </oval-def:tests>
   <oval-def:objects>
@@ -1818,20 +2275,13 @@
     <unix:file_object comment="Check file /run/.containerenv" id="oval:ssg-object_installed_env_is_a_podman_container:obj:1" version="1">
       <unix:filepath datatype="string">/run/.containerenv</unix:filepath>
     </unix:file_object>
+    <unix:uname_object id="oval:ssg-obj_kernel_uek:obj:1" version="1"/>
     <linux:rpminfo_object id="oval:ssg-obj_krb5_server_version_1_17_18:obj:1" version="1">
       <linux:name>krb5-server</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_krb5_workstation_version_1_17_18:obj:1" version="1">
       <linux:name>krb5-workstation</linux:name>
     </linux:rpminfo_object>
-    <linux:rpminfo_object id="oval:ssg-obj_ol7_system_older_than_7_4:obj:1" version="1">
-      <linux:name>oraclelinux-release</linux:name>
-    </linux:rpminfo_object>
-    <ind:textfilecontent54_object id="oval:ssg-obj_ol_version_id_is_gt_9_0:obj:1" version="1">
-      <ind:filepath>/etc/os-release</ind:filepath>
-      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\d\.]+)["']?$</ind:pattern>
-      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_proc_sys_kernel_osrelease_arch_aarch64:obj:1" version="1">
       <ind:filepath>/proc/sys/kernel/osrelease</ind:filepath>
       <ind:pattern operation="pattern match">^.*\.(.*)$</ind:pattern>
@@ -1847,48 +2297,17 @@
       <ind:pattern operation="pattern match">^.*\.(.*)$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:family_object id="oval:ssg-obj_rhel7_unix_family_older_than_7_4:obj:1" version="1"/>
-    <linux:rpminfo_object id="oval:ssg-obj_rhel7_client_older_than_7_4:obj:1" version="1">
-      <linux:name>redhat-release-client</linux:name>
-    </linux:rpminfo_object>
-    <linux:rpminfo_object id="oval:ssg-obj_rhel7_workstation_older_than_7_4:obj:1" version="1">
-      <linux:name>redhat-release-workstation</linux:name>
-    </linux:rpminfo_object>
-    <linux:rpminfo_object id="oval:ssg-obj_rhel7_server_older_than_7_4:obj:1" version="1">
-      <linux:name>redhat-release-server</linux:name>
-    </linux:rpminfo_object>
-    <linux:rpminfo_object id="oval:ssg-obj_rhel7_computenode_older_than_7_4:obj:1" version="1">
-      <linux:name>redhat-release-computenode</linux:name>
-    </linux:rpminfo_object>
-    <ind:textfilecontent54_object id="oval:ssg-obj_rhevh_rhel7_version_older_than_7_4:obj:1" version="1">
-      <ind:filepath>/etc/redhat-release</ind:filepath>
-      <ind:pattern operation="pattern match">^Red Hat Enterprise Linux \w* release (\d\.\d+).*$</ind:pattern>
-      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-obj_rhel_version_id_is_gt_8_7:obj:1" version="1">
-      <ind:filepath>/etc/os-release</ind:filepath>
-      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\d\.]+)["']?$</ind:pattern>
-      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-obj_rhel_version_id_is_lt_8_4:obj:1" version="1">
-      <ind:filepath>/etc/os-release</ind:filepath>
-      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\d\.]+)["']?$</ind:pattern>
-      <ind:instance operation="less than or equal" datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-obj_rhel_version_id_is_lt_8_5:obj:1" version="1">
-      <ind:filepath>/etc/os-release</ind:filepath>
-      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\d\.]+)["']?$</ind:pattern>
-      <ind:instance operation="less than or equal" datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-obj_rhel_version_id_is_eq_9_0:obj:1" version="1">
-      <ind:filepath>/etc/os-release</ind:filepath>
-      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\d\.]+)["']?$</ind:pattern>
-      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-obj_rhel_version_id_is_gt_9_0:obj:1" version="1">
-      <ind:filepath>/etc/os-release</ind:filepath>
-      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\d\.]+)["']?$</ind:pattern>
-      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    <unix:sysctl_object id="oval:ssg-obj_runtime_kernel_fips_enabled:obj:1" version="1">
+      <unix:name>crypto.fips_enabled</unix:name>
+    </unix:sysctl_object>
+    <ind:filehash58_object id="oval:ssg-obj_secure_boot_enabled:obj:1" version="1">
+      <ind:filepath operation="pattern match">^/sys/firmware/efi/efivars/SecureBoot-.*</ind:filepath>
+      <ind:hash_type>SHA-256</ind:hash_type>
+    </ind:filehash58_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_etc_selinux_configured:obj:1" version="1">
+      <ind:filepath>/etc/selinux/config</ind:filepath>
+      <ind:pattern operation="pattern match">^SELINUX=(.*)$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_id_provider_is_set_to_ad:obj:1" version="1">
       <ind:filepath>/etc/sssd/sssd.conf</ind:filepath>
@@ -1899,6 +2318,9 @@
       <unix:path>/sys/firmware/efi</unix:path>
       <unix:filename xsi:nil="true"/>
     </unix:file_object>
+    <linux:rpminfo_object id="oval:ssg-obj_anolis23:obj:1" version="1">
+      <linux:name>anolis-release</linux:name>
+    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_centos7:obj:1" version="1">
       <linux:name>centos-release</linux:name>
     </linux:rpminfo_object>
@@ -1947,10 +2369,26 @@
     <linux:rpminfo_object id="oval:ssg-obj_ol9_system:obj:1" version="1">
       <linux:name>oraclelinux-release</linux:name>
     </linux:rpminfo_object>
+    <unix:file_object comment="check /etc/os-release file" id="oval:ssg-obj_os_openembedded:obj:1" version="1">
+      <unix:filepath>/etc/os-release</unix:filepath>
+    </unix:file_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_openembedded:obj:1" version="1" comment="Check OpenEmbedded">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=nodistro$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
     <linux:rpminfo_object id="oval:ssg-obj_opensuse_installed:obj:1" version="1">
       <linux:name>openSUSE-release</linux:name>
     </linux:rpminfo_object>
     <ind:family_object id="oval:ssg-object_unix_family:obj:1" version="1"/>
+    <unix:file_object comment="check /etc/os-release file" id="oval:ssg-obj_os_poky:obj:1" version="1">
+      <unix:filepath>/etc/os-release</unix:filepath>
+    </unix:file_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_poky:obj:1" version="1" comment="Check Poky">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=poky$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rhcos:obj:1" version="1">
       <ind:filepath>/etc/os-release</ind:filepath>
       <ind:pattern operation="pattern match">^ID="(\w+)"$</ind:pattern>
@@ -2103,12 +2541,57 @@
       <ind:name>container</ind:name>
     </ind:environmentvariable58_object>
     <unix:uname_object comment="64 bit architecture" id="oval:ssg-object_system_info_architecture_ppcle_64:obj:1" version="1"/>
+    <ind:textfilecontent54_object id="oval:ssg-object_grub2_ipv6_disable_parameter:obj:1" version="1">
+      <ind:filepath>/etc/default/grub</ind:filepath>
+      <ind:pattern operation="pattern match">^\s*GRUB_CMDLINE_LINUX=".*ipv6\.disable=(\d).*$</ind:pattern>
+      <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_home_exists:obj:1" version="1">
+      <linux:mount_point>/home</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_home_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/home[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_opt_exists:obj:1" version="1">
+      <linux:mount_point>/opt</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_opt_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/opt[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_srv_exists:obj:1" version="1">
+      <linux:mount_point>/srv</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_srv_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/srv[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
     <linux:partition_object id="oval:ssg-object_mount_active_tmp_exists:obj:1" version="1">
       <linux:mount_point>/tmp</linux:mount_point>
     </linux:partition_object>
     <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_tmp_exists:obj:1" version="1">
       <ind:filepath>/etc/fstab</ind:filepath>
       <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/tmp[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_var_log_audit_exists:obj:1" version="1">
+      <linux:mount_point>/var/log/audit</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_var_log_audit_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/var/log/audit[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_var_log_exists:obj:1" version="1">
+      <linux:mount_point>/var/log</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_var_log_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/var/log[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <linux:partition_object id="oval:ssg-object_mount_active_var_tmp_exists:obj:1" version="1">
@@ -2119,20 +2602,143 @@
       <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/var/tmp[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_var_exists:obj:1" version="1">
+      <linux:mount_point>/var</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_var_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/var[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_ol_gt_or_eq_8_7:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_ol_gt_or_eq_8_7_gt_or_eq_8_7:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_ol_gt_or_eq_9_0:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_ol_gt_or_eq_9_0_gt_or_eq_9_0:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_rhel_gt_or_eq_8_2:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_rhel_gt_or_eq_8_2_gt_or_eq_8_2:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_rhel_gt_or_eq_8_7:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_rhel_gt_or_eq_8_7_gt_or_eq_8_7:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_rhel_gt_or_eq_9:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_rhel_gt_or_eq_9_gt_or_eq_9:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_rhel_gt_or_eq_9_0:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_rhel_gt_or_eq_9_0_gt_or_eq_9_0:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_rhel_le_or_eq_8_3:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_rhel_le_or_eq_8_3_le_or_eq_8_3:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_rhel_le_or_eq_8_4:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_rhel_le_or_eq_8_4_le_or_eq_8_4:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_rhel_le_or_eq_8_5:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_rhel_le_or_eq_8_5_le_or_eq_8_5:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_rhel_ne_9_0:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_rhel_ne_9_0_ne_9_0:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_audit_installed:obj:1" version="1">
       <linux:name>audit</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_bash_installed:obj:1" version="1">
+      <linux:name>bash</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_chrony_installed:obj:1" version="1">
       <linux:name>chrony</linux:name>
     </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_firewalld_installed:obj:1" version="1">
+      <linux:name>firewalld</linux:name>
+    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_gdm_installed:obj:1" version="1">
       <linux:name>gdm</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_iptables_installed:obj:1" version="1">
+      <linux:name>iptables</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_libuser_installed:obj:1" version="1">
       <linux:name>libuser</linux:name>
     </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_logrotate_installed:obj:1" version="1">
+      <linux:name>logrotate</linux:name>
+    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_net-snmp_installed:obj:1" version="1">
       <linux:name>net-snmp</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_nftables_installed:obj:1" version="1">
+      <linux:name>nftables</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_nss-pam-ldapd_installed:obj:1" version="1">
       <linux:name>nss-pam-ldapd</linux:name>
@@ -2148,6 +2754,9 @@
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_postfix_installed:obj:1" version="1">
       <linux:name>postfix</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_rsh-server_installed:obj:1" version="1">
+      <linux:name>rsh-server</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_shadow-utils_installed:obj:1" version="1">
       <linux:name>shadow-utils</linux:name>
@@ -2167,11 +2776,25 @@
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_tmux_installed:obj:1" version="1">
       <linux:name>tmux</linux:name>
     </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_ufw_installed:obj:1" version="1">
+      <linux:name>ufw</linux:name>
+    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_usbguard_installed:obj:1" version="1">
       <linux:name>usbguard</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_yum_installed:obj:1" version="1">
       <linux:name>yum</linux:name>
+    </linux:rpminfo_object>
+    <linux:systemdunitproperty_object id="oval:ssg-obj_service_not_running_service_disabled_firewalld_firewalld:obj:1" comment="Retrieve the ActiveState property of firewalld" version="1">
+      <linux:unit operation="pattern match">^firewalld\.(service|socket)$</linux:unit>
+      <linux:property>ActiveState</linux:property>
+    </linux:systemdunitproperty_object>
+    <linux:systemdunitproperty_object comment="Retrieve the LoadState property of firewalld" version="1" id="oval:ssg-obj_service_loadstate_is_masked_service_disabled_firewalld_firewalld:obj:1">
+      <linux:unit operation="pattern match">^firewalld\.(service|socket)$</linux:unit>
+      <linux:property>LoadState</linux:property>
+    </linux:systemdunitproperty_object>
+    <linux:rpminfo_object id="oval:ssg-obj_service_disabled_firewalldtest_service_firewalld_package_firewalld_removed:obj:1" version="1">
+      <linux:name>firewalld</linux:name>
     </linux:rpminfo_object>
   </oval-def:objects>
   <oval-def:states>
@@ -2196,18 +2819,15 @@
     <linux:rpminfo_state id="oval:ssg-state_rhevm4_version:ste:1" version="1">
       <linux:version operation="pattern match">^4.*$</linux:version>
     </linux:rpminfo_state>
+    <unix:uname_state id="oval:ssg-state_kernel_uek:ste:1" version="1">
+      <unix:os_release operation="pattern match">^.*uek.*</unix:os_release>
+    </unix:uname_state>
     <linux:rpminfo_state id="oval:ssg-state_krb5_server_version_1_17_18:ste:1" version="1">
       <linux:evr datatype="evr_string" operation="less than">0:1.17-18</linux:evr>
     </linux:rpminfo_state>
     <linux:rpminfo_state id="oval:ssg-state_krb5_workstation_version_1_17_18:ste:1" version="1">
       <linux:evr datatype="evr_string" operation="less than">0:1.17-18</linux:evr>
     </linux:rpminfo_state>
-    <linux:rpminfo_state id="oval:ssg-state_ol7_system_older_than_7_4:ste:1" version="1">
-      <linux:version operation="less than" datatype="version">7.4</linux:version>
-    </linux:rpminfo_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_ol_version_id_is_gt_9_0:ste:1" version="1">
-      <ind:subexpression datatype="evr_string" operation="greater than or equal">9.0</ind:subexpression>
-    </ind:textfilecontent54_state>
     <ind:textfilecontent54_state id="oval:ssg-state_proc_sys_kernel_osrelease_arch_aarch64:ste:1" version="1">
       <ind:subexpression datatype="string" operation="pattern match">^aarch64$</ind:subexpression>
     </ind:textfilecontent54_state>
@@ -2217,39 +2837,18 @@
     <ind:textfilecontent54_state id="oval:ssg-state_proc_sys_kernel_osrelease_arch_s390x:ste:1" version="1">
       <ind:subexpression datatype="string" operation="pattern match">^s390x$</ind:subexpression>
     </ind:textfilecontent54_state>
-    <ind:family_state id="oval:ssg-state_rhel7_unix_family_older_than_7_4:ste:1" version="1">
-      <ind:family>unix</ind:family>
-    </ind:family_state>
-    <linux:rpminfo_state id="oval:ssg-state_rhel7_client_older_than_7_4:ste:1" version="1">
-      <linux:version operation="less than" datatype="version">7.4</linux:version>
+    <unix:sysctl_state id="oval:ssg-state_runtime_kernel_fips_enabled:ste:1" version="1">
+      <unix:value datatype="int" operation="equals">1</unix:value>
+    </unix:sysctl_state>
+    <ind:filehash58_state id="oval:ssg-state_secure_boot_enabled:ste:1" version="1">
+      <ind:hash>b401b4bd7e4f321db95fcae00d274ab8aa2cf1852d1495c382356d981f63d771</ind:hash>
+    </ind:filehash58_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_etc_selinux_configured:ste:1" version="1">
+      <ind:subexpression datatype="string" operation="pattern match">^(enforcing|permissive)$</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <linux:rpminfo_state id="oval:ssg-state_anolis23:ste:1" version="1">
+      <linux:version operation="pattern match">^23.*$</linux:version>
     </linux:rpminfo_state>
-    <linux:rpminfo_state id="oval:ssg-state_rhel7_workstation_older_than_7_4:ste:1" version="1">
-      <linux:version operation="less than" datatype="version">7.4</linux:version>
-    </linux:rpminfo_state>
-    <linux:rpminfo_state id="oval:ssg-state_rhel7_server_older_than_7_4:ste:1" version="1">
-      <linux:version operation="less than" datatype="version">7.4</linux:version>
-    </linux:rpminfo_state>
-    <linux:rpminfo_state id="oval:ssg-state_rhel7_computenode_older_than_7_4:ste:1" version="1">
-      <linux:version operation="less than" datatype="version">7.4</linux:version>
-    </linux:rpminfo_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_rhevh_rhel7_version_older_than_7_4:ste:1" version="1">
-      <ind:subexpression operation="less than" datatype="version">7.4</ind:subexpression>
-    </ind:textfilecontent54_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_rhel_version_id_is_gt_8_7:ste:1" version="1">
-      <ind:subexpression datatype="evr_string" operation="greater than or equal">8.7</ind:subexpression>
-    </ind:textfilecontent54_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_rhel_version_id_is_lt_8_4:ste:1" version="1">
-      <ind:subexpression datatype="evr_string" operation="less than or equal">8.4</ind:subexpression>
-    </ind:textfilecontent54_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_rhel_version_id_is_lt_8_5:ste:1" version="1">
-      <ind:subexpression datatype="evr_string" operation="less than or equal">8.5</ind:subexpression>
-    </ind:textfilecontent54_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_rhel_version_id_is_eq_9_0:ste:1" version="1">
-      <ind:subexpression datatype="evr_string" operation="equals">9.0</ind:subexpression>
-    </ind:textfilecontent54_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_rhel_version_id_is_gt_9_0:ste:1" version="1">
-      <ind:subexpression datatype="evr_string" operation="greater than or equal">9.0</ind:subexpression>
-    </ind:textfilecontent54_state>
     <linux:rpminfo_state id="oval:ssg-state_centos7:ste:1" version="1">
       <linux:version operation="pattern match">^7.*$</linux:version>
     </linux:rpminfo_state>
@@ -2406,5 +3005,74 @@
     <unix:uname_state comment="64 bit architecture" id="oval:ssg-state_system_info_architecture_ppcle_64:ste:1" version="1">
       <unix:processor_type operation="equals">ppc64le</unix:processor_type>
     </unix:uname_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_grub2_ipv6_disable_argument:ste:1" version="1">
+      <ind:subexpression datatype="int" operation="equals">0</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_ol_gt_or_eq_8_7:ste:1" version="1">
+      <ind:subexpression operation="pattern match">ol</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_linux_ol_gt_or_eq_8_7_gt_or_eq_8_7:ste:1" version="1">
+      <ind:subexpression operation="greater than or equal" datatype="version">8.7</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_ol_gt_or_eq_9_0:ste:1" version="1">
+      <ind:subexpression operation="pattern match">ol</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_linux_ol_gt_or_eq_9_0_gt_or_eq_9_0:ste:1" version="1">
+      <ind:subexpression operation="greater than or equal" datatype="version">9.0</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_rhel_gt_or_eq_8_2:ste:1" version="1">
+      <ind:subexpression operation="pattern match">rhel</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_linux_rhel_gt_or_eq_8_2_gt_or_eq_8_2:ste:1" version="1">
+      <ind:subexpression operation="greater than or equal" datatype="version">8.2</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_rhel_gt_or_eq_8_7:ste:1" version="1">
+      <ind:subexpression operation="pattern match">rhel</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_linux_rhel_gt_or_eq_8_7_gt_or_eq_8_7:ste:1" version="1">
+      <ind:subexpression operation="greater than or equal" datatype="version">8.7</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_rhel_gt_or_eq_9:ste:1" version="1">
+      <ind:subexpression operation="pattern match">rhel</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_linux_rhel_gt_or_eq_9_gt_or_eq_9:ste:1" version="1">
+      <ind:subexpression operation="greater than or equal" datatype="version">9</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_rhel_gt_or_eq_9_0:ste:1" version="1">
+      <ind:subexpression operation="pattern match">rhel</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_linux_rhel_gt_or_eq_9_0_gt_or_eq_9_0:ste:1" version="1">
+      <ind:subexpression operation="greater than or equal" datatype="version">9.0</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_rhel_le_or_eq_8_3:ste:1" version="1">
+      <ind:subexpression operation="pattern match">rhel</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_linux_rhel_le_or_eq_8_3_le_or_eq_8_3:ste:1" version="1">
+      <ind:subexpression operation="less than or equal" datatype="version">8.3</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_rhel_le_or_eq_8_4:ste:1" version="1">
+      <ind:subexpression operation="pattern match">rhel</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_linux_rhel_le_or_eq_8_4_le_or_eq_8_4:ste:1" version="1">
+      <ind:subexpression operation="less than or equal" datatype="version">8.4</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_rhel_le_or_eq_8_5:ste:1" version="1">
+      <ind:subexpression operation="pattern match">rhel</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_linux_rhel_le_or_eq_8_5_le_or_eq_8_5:ste:1" version="1">
+      <ind:subexpression operation="less than or equal" datatype="version">8.5</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_rhel_ne_9_0:ste:1" version="1">
+      <ind:subexpression operation="pattern match">rhel</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_linux_rhel_ne_9_0_ne_9_0:ste:1" version="1">
+      <ind:subexpression operation="not equal" datatype="version">9.0</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <linux:systemdunitproperty_state id="oval:ssg-state_service_not_running_service_disabled_firewalld_firewalld:ste:1" version="1" comment="firewalld is not running">
+      <linux:value operation="pattern match">inactive|failed</linux:value>
+    </linux:systemdunitproperty_state>
+    <linux:systemdunitproperty_state comment="LoadState is set to masked" id="oval:ssg-state_service_loadstate_is_masked_service_disabled_firewalld_firewalld:ste:1" version="1">
+      <linux:value>masked</linux:value>
+    </linux:systemdunitproperty_state>
   </oval-def:states>
 </oval-def:oval_definitions>

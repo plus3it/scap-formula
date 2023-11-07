@@ -17,7 +17,7 @@
     <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="ssg-rhel7-cpe-oval.xml">oval:ssg-installed_OS_is_rhel7:def:1</cpe-dict:check>
   </cpe-dict:cpe-item>
   <cpe-dict:cpe-item name="cpe:/o:redhat:enterprise_linux:7::workstation">
-    <cpe-dict:title xml:lang="en-us">red hat enterprise linux 7 workstation</cpe-dict:title>
+    <cpe-dict:title xml:lang="en-us">Red Hat Enterprise Linux 7 Workstation</cpe-dict:title>
     <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="ssg-rhel7-cpe-oval.xml">oval:ssg-installed_OS_is_rhel7:def:1</cpe-dict:check>
   </cpe-dict:cpe-item>
 </cpe-dict:cpe-list>
