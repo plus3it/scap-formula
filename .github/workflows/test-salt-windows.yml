@@ -1,0 +1,80 @@
+name: Run salt formula tests on Windows
+
+on:
+  workflow_call:
+    inputs:
+      salt-os-version:
+        description: Github Windows runner to run the tests on, see <https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources>
+        required: true
+        type: string
+      salt-state:
+        description: Salt state to execute
+        required: true
+        type: string
+      salt-pillar-root:
+        description: Relative paths to the salt pillar to test
+        default: ''
+        type: string
+      salt-installer-url:
+        description: URL to the salt installer
+        default: ''
+        type: string
+      salt-version:
+        description: Version of salt to install
+        default: '3006'
+        type: string
+      salt-repo-base-url:
+        description: Base url to search for the salt version; `salt-version` is appended to this url
+        default: https://repo.saltproject.io/salt/py3/windows
+        type: string
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    runs-on: ${{ inputs.salt-os-version}}
+    env:
+      LC_ALL: en_US.utf8
+      SALT_REPO_URL: https://repo.saltproject.io/salt/py3/windows/${{ inputs.salt-version }}
+    steps:
+      - name: Clone this git repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+
+      # Install salt
+      - if: inputs.salt-installer-url != ''
+        run: >
+          curl -sSL -o "${TEMP}/salt-minion-installer.exe" "${{ inputs.salt-installer-url }}"
+      - if: inputs.salt-installer-url == ''
+        run: |
+          SALT_INSTALLER="${SALT_REPO_URL}/$(curl -s "${SALT_REPO_URL}/" | grep -Po '(?<=href=")[^"]*Py3-AMD64-Setup\.exe(?=")')"
+          curl -sSL -o "${TEMP}/salt-minion-installer.exe" "$SALT_INSTALLER"
+      - run: >
+          Start-Process -FilePath "${env:temp}\salt-minion-installer.exe"
+          -ArgumentList @("/S", "/install-dir=c:\salt")
+          -NoNewWindow -PassThru -Wait
+        shell: pwsh
+      - run: C:\\salt\\salt-call.exe --versions-report
+
+      # Sync custom salt modules, if any
+      - run: >
+          C:\\salt\\salt-call.exe --local --retcode-passthrough
+          --log-file-level debug
+          --file-root="${{ github.workspace }}" --pillar-root=${{ inputs.salt-pillar-root }}
+          saltutil.sync_all
+
+      # Run tests
+      - run: >
+          C:\\salt\\salt-call.exe --local --retcode-passthrough --log-level debug
+          --log-file-level debug
+          --file-root="${{ github.workspace }}" --pillar-root=${{ inputs.salt-pillar-root }}
+          state.show_sls
+          "${{ inputs.salt-state }}"
+      - run: >
+          C:\\salt\\salt-call.exe --local --retcode-passthrough
+          --log-file-level debug
+          --file-root="${{ github.workspace }}" --pillar-root=${{ inputs.salt-pillar-root }}
+          state.sls
+          "${{ inputs.salt-state }}"
+          mock=True
