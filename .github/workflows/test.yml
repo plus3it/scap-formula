@@ -1,3 +1,4 @@
+# run already
 name: Run salt tests
 on:
   pull_request:
