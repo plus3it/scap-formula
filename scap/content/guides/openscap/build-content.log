@@ -1,5 +1,4 @@
 Cloning into '/tmp/ComplianceAsCode/content'...
-Updating files:  85% (9343/10987)Updating files:  86% (9449/10987)Updating files:  87% (9559/10987)Updating files:  88% (9669/10987)Updating files:  89% (9779/10987)Updating files:  90% (9889/10987)Updating files:  91% (9999/10987)Updating files:  92% (10109/10987)Updating files:  93% (10218/10987)Updating files:  94% (10328/10987)Updating files:  95% (10438/10987)Updating files:  96% (10548/10987)Updating files:  97% (10658/10987)Updating files:  98% (10768/10987)Updating files:  99% (10878/10987)Updating files: 100% (10987/10987)Updating files: 100% (10987/10987), done.
 /tmp/ComplianceAsCode/content /
 
 Tag to build: v0.1.70
@@ -176,8 +175,8 @@ CMake Warning at CMakeLists.txt:179 (message):
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /tmp/ComplianceAsCode/content/build
-[1/30] [rhel7-content] generating sce/metadata.json
-[2/30] [rhel8-content] generating sce/metadata.json
+[1/30] [rhel8-content] generating sce/metadata.json
+[2/30] [rhel7-content] generating sce/metadata.json
 [3/30] [rhel7-content] compiling product yaml
 [4/30] [rhel8-content] compiling product yaml
 [5/30] [rhel7-content] compiling everything
@@ -188,17 +187,17 @@ CMake Warning at CMakeLists.txt:179 (message):
 [10/30] [rhel7-content] generating cpe-oval-unlinked.xml
 [11/30] [rhel8-content] generating templated content
 [12/30] [rhel7-content] generating oval-unlinked.xml
-[13/30] [rhel8-content] generating cpe-oval-unlinked.xml
-[14/30] [rhel8-content] generating oval-unlinked.xml
+[13/30] [rhel8-content] generating oval-unlinked.xml
+[14/30] [rhel8-content] generating cpe-oval-unlinked.xml
 [15/30] [rhel7-content] collecting all fixes
 [16/30] [rhel8-content] collecting all fixes
 [17/30] [rhel7-content] generating plain XCCDF, OVAL and OCIL files
 [18/30] [rhel7-content] generating ssg-rhel7-ocil.xml
 [19/30] [rhel7-content] generating ssg-rhel7-oval.xml
 [20/30] [rhel7-content] generating ssg-rhel7-xccdf.xml
-[21/30] [rhel7-content] generating ssg-rhel7-cpe-dictionary.xml, ssg-rhel7-cpe-oval.xml
-[22/30] [rhel8-content] generating plain XCCDF, OVAL and OCIL files
-[23/30] [rhel8-content] generating ssg-rhel8-ocil.xml
+[21/30] [rhel8-content] generating plain XCCDF, OVAL and OCIL files
+[22/30] [rhel8-content] generating ssg-rhel8-ocil.xml
+[23/30] [rhel7-content] generating ssg-rhel7-cpe-dictionary.xml, ssg-rhel7-cpe-oval.xml
 [24/30] [rhel8-content] generating ssg-rhel8-oval.xml
 [25/30] [rhel8-content] generating ssg-rhel8-xccdf.xml
 [26/30] [rhel8-content] generating ssg-rhel8-cpe-dictionary.xml, ssg-rhel8-cpe-oval.xml
