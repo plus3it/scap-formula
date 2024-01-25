@@ -219,7 +219,7 @@ Delete the "enforceFIPSPolicy" runtime element, change the setting to "true" or 
         <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-225235r615940_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">APPNET0067</xccdf:version>
           <xccdf:title>Event tracing for Windows (ETW) for Common Language Runtime events must be enabled.</xccdf:title>
-          <xccdf:description>&lt;VulnDiscussion&gt;Event tracing captures information about applications utilizing the .NET CLR and the .NET CLR itself. This includes security oriented information, such as Strong Name and Authenticode verification.  
+          <xccdf:description>&lt;VulnDiscussion&gt;Event tracing captures information about applications utilizing the .NET CLR and the .NET CLR itself. This includes security oriented information, such as Strong Name and Authenticode verification.
 
 Beginning with Windows Vista, ETW is enabled by default however, the .Net CLR and .Net applications can be configured to not utilize Event Tracing. If ETW event tracing is disabled, critical events that occurred within the runtime will not be captured in event logs.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
           <xccdf:reference>
