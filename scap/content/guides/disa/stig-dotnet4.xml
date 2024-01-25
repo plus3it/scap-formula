@@ -201,7 +201,7 @@ In this tag, "location" represents a URL that point to the configuration file. T
 
 Example:
 &lt;configuration&gt; 
-  &lt;runtime&gt; 
+  &lt;runtime&gt;
                 &lt;enforceFIPSPolicy enabled="true|false" /&gt;
   &lt;/runtime&gt;
 &lt;/configuration&gt;
