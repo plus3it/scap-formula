@@ -266,7 +266,7 @@ Enable ETW Tracing by setting the etwEnable flag to "true" or obtain documented 
 For 32-bit systems:
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\
 
-For 64-bit systems: 
+For 64-bit systems:
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\
 HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319\
 
