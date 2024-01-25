@@ -174,7 +174,7 @@ Application configuration files contain settings specific to an application. If 
 
 The name and location of the application configuration file depends on the application's host, which can be one of the following:
 
-Executable–hosted application configuration files. 
+Executable–hosted application configuration files.
 
 The configuration file for an application hosted by the executable host is in the same directory as the application. The name of the configuration file is the name of the application with a .config extension. For example, an application called myApp.exe can be associated with a configuration file called myApp.exe.config. 
 
