@@ -234,7 +234,7 @@ Beginning with Windows Vista, ETW is enabled by default however, the .Net CLR an
           <xccdf:ident system="http://cyber.mil/cci">CCI-000130</xccdf:ident>
           <xccdf:fixtext fixref="F-26922r468021_fix">Open Windows explorer and search for all .NET config files including application config files (*.exe.config).
 
-Examine the configuration settings for 
+Examine the configuration settings for
 &lt;etwEnable enabled="false" /&gt;.
 
 Enable ETW Tracing by setting the etwEnable flag to "true" or obtain documented IAO approvals.</xccdf:fixtext>
