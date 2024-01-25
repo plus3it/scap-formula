@@ -166,7 +166,6 @@ Strong name assemblies that do not require verification in a development or test
           <xccdf:version update="http://iase.disa.mil/stigs">APPNET0062</xccdf:version>
           <xccdf:title>The .NET CLR must be configured to use FIPS approved encryption modules.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;FIPS encryption is configured via .NET configuration files.  There are numerous configuration files that affect different aspects of .Net behavior.  The .NET config files are described below.
- 
 Machine Configuration Files:
 The machine configuration file, Machine.config, contains settings that apply to an entire computer. This file is located in the %SYSTEMROOT%\Microsoft.NET\Framework\v4.0.30319\Config directory for 32 bit .NET 4 installations and %SYSTEMROOT%\Microsoft.NET\Framework64\v4.0.30319\Config for 64 bit systems.   Machine.config contains configuration settings for machine-wide assembly binding, built-in remoting channels, and ASP.NET.
 
