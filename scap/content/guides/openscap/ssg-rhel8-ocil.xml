@@ -2,7 +2,7 @@
 <ocil:ocil xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <ocil:generator>
     <ocil:product_name>build_shorthand.py from SCAP Security Guide</ocil:product_name>
-    <ocil:product_version>ssg: 0.1.70</ocil:product_version>
+    <ocil:product_version>ssg: 0.1.71</ocil:product_version>
     <ocil:schema_version>2.0</ocil:schema_version>
     <ocil:timestamp>2021-03-02T15:45:39</ocil:timestamp>
   </ocil:generator>
@@ -6297,7 +6297,7 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-ensure_pam_wheel_group_empty_ocil:questionnaire:1">
-      <ocil:title>Ensure the Group Used by pam_wheel Module Exists on System and is Empty</ocil:title>
+      <ocil:title>Ensure the Group Used by pam_wheel.so Module Exists on System and is Empty</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-ensure_pam_wheel_group_empty_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -23543,9 +23543,7 @@ mpd_enable_homedirs --&gt; off
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-rsyslog_files_groupownership_question:question:1">
       <ocil:question_text>The group-owner of all log files written by rsyslog should be
-
 root.
-
 These log files are determined by the second part of each Rule line in
 /etc/rsyslog.conf and typically all appear in /var/log.
 To see the group-owner of a given log file, run the following command:
@@ -26723,7 +26721,8 @@ If a line indicating yes is returned, then the required value is set.
       <ocil:question_text>To determine the config value the kernel was built with, run the following command:
     $ grep CONFIG_SECURITY_WRITABLE_HOOKS /boot/config.*
     
-    For each kernel installed, a line with value "y" should be returned.
+    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
+    lines should be returned.
     
       Is it the case that the kernel was not built with the required value?
       </ocil:question_text>
@@ -27378,12 +27377,14 @@ Typical update frequency may be overridden by Information Assurance Vulnerabilit
     <ocil:boolean_question id="ocil:ssg-firewalld_sshd_port_enabled_question:question:1">
       <ocil:question_text>
 
-To determine if firewalld is configured to allow access to ssh
-on port 22/tcp, run the following command(s):
 
+To determine if firewalld is configured to allow access
+
+on port 22/tcp, run the following command(s):
     firewall-cmd --list-ports
 
 
+to ssh
     firewall-cmd --list-services
 
 If firewalld is configured to allow access through the firewall, something similar to the following will be output:
@@ -27462,8 +27463,7 @@ If the service is running, it should return the following: active
       <ocil:question_text>To determine the config value the kernel was built with, run the following command:
     $ grep CONFIG_SECURITY_DMESG_RESTRICT /boot/config.*
     
-    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
-    lines should be returned.
+    For each kernel installed, a line with value "y" should be returned.
     
       Is it the case that the kernel was not built with the required value?
       </ocil:question_text>
@@ -29086,6 +29086,7 @@ If "gpgcheck" is not set to "1", or if the option is missing or commented out, a
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-aide_scan_notification_question:question:1">
       <ocil:question_text>To determine that periodic AIDE execution has been scheduled, run the following command:
+
 $ grep aide /etc/crontab
 The output should return something similar to the following:
 05 4 * * * root /usr/sbin/aide --check | /bin/mail -s "$(hostname) - AIDE Integrity Check" root@localhost
@@ -31463,8 +31464,7 @@ If the service is running, it should return the following: active
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-ensure_pam_wheel_group_empty_question:question:1">
-      <ocil:question_text>Run the following command to check if the group 
-exists:
+      <ocil:question_text>Run the following command to check if the  group exists:
 grep  /etc/group
 The output should contain the following line:
 :x:
@@ -32105,19 +32105,13 @@ Verify that the directive is at the bottom of the options section of the config 
 well known ports (e.g., 80 and 443) or those ports and services as registered
 and approved for use by the DoD PPSM.
 
-
-
 To configure firewalld to allow http access, run the following command(s):
 firewall-cmd --permanent --add-service=http
-
 Then run the following command to load the newly created rule(s):
 firewall-cmd --reload
 
-
-
 To configure firewalld to allow https access, run the following command(s):
 firewall-cmd --permanent --add-service=https
-
 Then run the following command to load the newly created rule(s):
 firewall-cmd --reload
       Is it the case that it is not?

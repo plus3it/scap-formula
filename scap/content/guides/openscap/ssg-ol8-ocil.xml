@@ -2,7 +2,7 @@
 <ocil:ocil xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <ocil:generator>
     <ocil:product_name>build_shorthand.py from SCAP Security Guide</ocil:product_name>
-    <ocil:product_version>ssg: 0.1.70</ocil:product_version>
+    <ocil:product_version>ssg: 0.1.71</ocil:product_version>
     <ocil:schema_version>2.0</ocil:schema_version>
     <ocil:timestamp>2021-03-02T15:45:39</ocil:timestamp>
   </ocil:generator>
@@ -47,12 +47,6 @@
       <ocil:title>Disable core dump backtraces</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-coredump_disable_backtraces_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-set_ipv6_loopback_traffic_ocil:questionnaire:1">
-      <ocil:title>Set configuration for IPv6 loopback traffic</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-set_ipv6_loopback_traffic_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-sebool_mount_anyfile_ocil:questionnaire:1">
@@ -1742,12 +1736,6 @@
         <ocil:test_action_ref>ocil:ssg-audit_rules_privileged_commands_usernetctl_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-service_ntp_enabled_ocil:questionnaire:1">
-      <ocil:title>Enable the NTP Daemon</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-service_ntp_enabled_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-kernel_config_ia32_emulation_ocil:questionnaire:1">
       <ocil:title>Disable IA32 emulation</ocil:title>
       <ocil:actions>
@@ -2810,12 +2798,6 @@
         <ocil:test_action_ref>ocil:ssg-file_groupowner_backup_etc_passwd_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-package_audit-audispd-plugins_installed_ocil:questionnaire:1">
-      <ocil:title>Ensure the default plugins for the audit dispatcher are Installed</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-package_audit-audispd-plugins_installed_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-package_sssd_installed_ocil:questionnaire:1">
       <ocil:title>Install the SSSD Package</ocil:title>
       <ocil:actions>
@@ -3420,12 +3402,6 @@
       <ocil:title>Install libreswan Package</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-package_libreswan_installed_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-set_loopback_traffic_ocil:questionnaire:1">
-      <ocil:title>Set configuration for loopback traffic</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-set_loopback_traffic_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-audit_rules_etc_passwd_openat_ocil:questionnaire:1">
@@ -6360,14 +6336,6 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-set_ipv6_loopback_traffic_action:testaction:1" question_ref="ocil:ssg-set_ipv6_loopback_traffic_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-sebool_mount_anyfile_action:testaction:1" question_ref="ocil:ssg-sebool_mount_anyfile_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -8616,14 +8584,6 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-service_ntp_enabled_action:testaction:1" question_ref="ocil:ssg-service_ntp_enabled_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-kernel_config_ia32_emulation_action:testaction:1" question_ref="ocil:ssg-kernel_config_ia32_emulation_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -10040,14 +10000,6 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-package_audit-audispd-plugins_installed_action:testaction:1" question_ref="ocil:ssg-package_audit-audispd-plugins_installed_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-package_sssd_installed_action:testaction:1" question_ref="ocil:ssg-package_sssd_installed_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -10849,14 +10801,6 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-package_libreswan_installed_action:testaction:1" question_ref="ocil:ssg-package_libreswan_installed_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-set_loopback_traffic_action:testaction:1" question_ref="ocil:ssg-set_loopback_traffic_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -14800,12 +14744,6 @@ ProcessSizeMax=0
       Is it the case that the "ProcessSizeMax" item is missing, commented out, or the value is anything other than "0" and the need for core dumps is not documented with the Information System Security Officer (ISSO) as an operational requirement for all domains that have the "core" item assigned?
       </ocil:question_text>
     </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-set_ipv6_loopback_traffic_question:question:1">
-      <ocil:question_text>Verify that the ipv6 loopback interface has required rules in order:
-$ iptables -L INPUT -v -n
-      Is it the case that ipv6 loopback traffic is not configured?
-      </ocil:question_text>
-    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sebool_mount_anyfile_question:question:1">
       <ocil:question_text>
 Run the following command to determine if the mount_anyfile SELinux boolean is enabled:
@@ -16751,9 +16689,7 @@ root
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-rsyslog_files_groupownership_question:question:1">
       <ocil:question_text>The group-owner of all log files written by rsyslog should be
-
 root.
-
 These log files are determined by the second part of each Rule line in
 /etc/rsyslog.conf and typically all appear in /var/log.
 To see the group-owner of a given log file, run the following command:
@@ -17596,16 +17532,6 @@ following command:
 $ sudo grep usernetctl /etc/audit/audit.rules /etc/audit/rules.d/*
 It should return a relevant line in the audit rules.
       Is it the case that the command does not return a line, or the line is commented out?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-service_ntp_enabled_question:question:1">
-      <ocil:question_text>
-
-Run the following command to determine the current status of the
-ntp service:
-$ sudo systemctl is-active ntp
-If the service is running, it should return the following: active
-      Is it the case that ?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-kernel_config_ia32_emulation_question:question:1">
@@ -19044,7 +18970,8 @@ If a line indicating yes is returned, then the required value is set.
       <ocil:question_text>To determine the config value the kernel was built with, run the following command:
     $ grep CONFIG_SECURITY_WRITABLE_HOOKS /boot/config.*
     
-    For each kernel installed, a line with value "y" should be returned.
+    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
+    lines should be returned.
     
       Is it the case that the kernel was not built with the required value?
       </ocil:question_text>
@@ -19415,11 +19342,6 @@ root
       Is it the case that /etc/passwd- does not have a group owner of root?
       </ocil:question_text>
     </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-package_audit-audispd-plugins_installed_question:question:1">
-      <ocil:question_text>
-      Is it the case that the package is not installed?
-      </ocil:question_text>
-    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_sssd_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the sssd package is installed: $ rpm -q sssd
       Is it the case that the package is not installed?
@@ -19480,12 +19402,14 @@ Typical update frequency may be overridden by Information Assurance Vulnerabilit
     <ocil:boolean_question id="ocil:ssg-firewalld_sshd_port_enabled_question:question:1">
       <ocil:question_text>
 
-To determine if firewalld is configured to allow access to ssh
-on port 22/tcp, run the following command(s):
 
+To determine if firewalld is configured to allow access
+
+on port 22/tcp, run the following command(s):
     firewall-cmd --list-ports
 
 
+to ssh
     firewall-cmd --list-services
 
 If firewalld is configured to allow access through the firewall, something similar to the following will be output:
@@ -19549,8 +19473,7 @@ If the service is running, it should return the following: active
       <ocil:question_text>To determine the config value the kernel was built with, run the following command:
     $ grep CONFIG_SECURITY_DMESG_RESTRICT /boot/config.*
     
-    Configs with value 'n' are not explicitly set in the file, so either commented lines or no
-    lines should be returned.
+    For each kernel installed, a line with value "y" should be returned.
     
       Is it the case that the kernel was not built with the required value?
       </ocil:question_text>
@@ -20461,20 +20384,6 @@ The user initialization files should be owned by USER.
       Is it the case that the package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-set_loopback_traffic_question:question:1">
-      <ocil:question_text>Run the following commands and verify output:
-
-# iptables -L INPUT -v -n | grep lo | grep ACCEPT
-
-
-# iptables -L INPUT -v -n | grep 127.0.0.0\/8 | grep DROP
-
-
-# iptables -L OUTPUT -v -n | grep lo | grep ACCEPT
-
-      Is it the case that loopback traffic is not configured?
-      </ocil:question_text>
-    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-audit_rules_etc_passwd_openat_question:question:1">
       <ocil:question_text>To determine if the system is configured to audit calls to the
 openat system call, run the following command:
@@ -20618,6 +20527,7 @@ If "gpgcheck" is not set to "1", or if the option is missing or commented out, a
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-aide_scan_notification_question:question:1">
       <ocil:question_text>To determine that periodic AIDE execution has been scheduled, run the following command:
+
 $ grep aide /etc/crontab
 The output should return something similar to the following:
 05 4 * * * root /usr/sbin/aide --check | /bin/mail -s "$(hostname) - AIDE Integrity Check" root@localhost
