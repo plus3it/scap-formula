@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<data-stream-collection xmlns="http://scap.nist.gov/schema/scap/source/1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="scap_mil.disa.stig_collection_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark" schematron-version="1.2" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.2 http://scap.nist.gov/schema/xccdf/1.2/xccdf_1.2.xsd http://cpe.mitre.org/dictionary/2.0 http://scap.nist.gov/schema/cpe/2.3/cpe-dictionary_2.3.xsd http://oval.mitre.org/XMLSchema/oval-common-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/windows-definitions-schema.xsd http://scap.nist.gov/schema/scap/source/1.2 http://scap.nist.gov/schema/scap/1.2/scap-source-data-stream_1.2.xsd">
-  <data-stream id="scap_mil.disa.stig_datastream_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark" use-case="CONFIGURATION" scap-version="1.2" timestamp="2021-10-06T11:10:31">
+<data-stream-collection xmlns="http://scap.nist.gov/schema/scap/source/1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="scap_mil.disa.stig_collection_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark" schematron-version="1.2" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.2 http://scap.nist.gov/schema/xccdf/1.2/xccdf_1.2.xsd http://cpe.mitre.org/dictionary/2.0 http://scap.nist.gov/schema/cpe/2.3/cpe-dictionary_2.3.xsd http://oval.mitre.org/XMLSchema/oval-common-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5 http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#windows http://oval.mitre.org/language/download/schema/version5.10.1/ovaldefinition/complete/windows-definitions-schema.xsd http://scap.nist.gov/schema/scap/source/1.2 http://scap.nist.gov/schema/scap/1.2/scap-source-data-stream_1.2.xsd">
+  <data-stream id="scap_mil.disa.stig_datastream_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark" use-case="CONFIGURATION" scap-version="1.2" timestamp="2023-08-21T12:47:02">
     <dictionaries>
-      <component-ref xmlns:xlink="http://www.w3.org/1999/xlink" id="scap_mil.disa.stig_cref_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" xlink:href="#scap_mil.disa.stig_comp_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml">
+      <component-ref xmlns:xlink="http://www.w3.org/1999/xlink" id="scap_mil.disa.stig_cref_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" xlink:href="#scap_mil.disa.stig_comp_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml">
         <cat:catalog xmlns:cat="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-          <cat:uri name="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" uri="#scap_mil.disa.stig_cref_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
+          <cat:uri name="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" uri="#scap_mil.disa.stig_cref_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
         </cat:catalog>
       </component-ref>
     </dictionaries>
     <checklists>
-      <component-ref xmlns:xlink="http://www.w3.org/1999/xlink" id="scap_mil.disa.stig_cref_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-xccdf.xml" xlink:href="#scap_mil.disa.stig_comp_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-xccdf.xml">
+      <component-ref xmlns:xlink="http://www.w3.org/1999/xlink" id="scap_mil.disa.stig_cref_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-xccdf.xml" xlink:href="#scap_mil.disa.stig_comp_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-xccdf.xml">
         <cat:catalog xmlns:cat="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-          <cat:uri name="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" uri="#scap_mil.disa.stig_cref_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+          <cat:uri name="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" uri="#scap_mil.disa.stig_cref_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
         </cat:catalog>
       </component-ref>
     </checklists>
     <checks>
-      <component-ref xmlns:xlink="http://www.w3.org/1999/xlink" id="scap_mil.disa.stig_cref_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" xlink:href="#scap_mil.disa.stig_comp_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
-      <component-ref xmlns:xlink="http://www.w3.org/1999/xlink" id="scap_mil.disa.stig_cref_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" xlink:href="#scap_mil.disa.stig_comp_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
+      <component-ref xmlns:xlink="http://www.w3.org/1999/xlink" id="scap_mil.disa.stig_cref_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" xlink:href="#scap_mil.disa.stig_comp_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
+      <component-ref xmlns:xlink="http://www.w3.org/1999/xlink" id="scap_mil.disa.stig_cref_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" xlink:href="#scap_mil.disa.stig_comp_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" />
     </checks>
   </data-stream>
-  <component id="scap_mil.disa.stig_comp_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" timestamp="2021-10-06T11:10:31">
+  <component id="scap_mil.disa.stig_comp_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-cpe-dictionary.xml" timestamp="2023-08-21T12:47:02">
     <cpe-list xmlns="http://cpe.mitre.org/dictionary/2.0">
       <cpe-item name="cpe:/a:microsoft:edge">
         <title>Microsoft Edge</title>
-        <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-cpe-oval.xml">oval:mil.disa.stig.edge:def:1</check>
+        <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-cpe-oval.xml">oval:mil.disa.stig.edge:def:1</check>
       </cpe-item>
     </cpe-list>
   </component>
-  <component id="scap_mil.disa.stig_comp_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-xccdf.xml" timestamp="2021-10-06T11:10:31">
+  <component id="scap_mil.disa.stig_comp_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-xccdf.xml" timestamp="2023-08-21T12:47:02">
     <xccdf:Benchmark xmlns:xccdf="http://checklists.nist.gov/xccdf/1.2" xmlns:cpe="http://cpe.mitre.org/language/2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xhtml="http://www.w3.org/1999/xhtml" id="xccdf_mil.disa.stig_benchmark_MS_Edge_STIG" xml:lang="en" style="SCAP_1.2">
-      <xccdf:status date="2021-09-03">accepted</xccdf:status>
-      <xccdf:title>Microsoft Edge Security Technical Implementation Guide</xccdf:title>
-      <xccdf:description>This Security Technical Implementation Guide is published as a tool to improve the security of Department of Defense (DoD) information systems. The requirements are derived from the National Institute of Standards and Technology (NIST) 800-53 and related documents. Comments or proposed revisions to this document should be sent via email to the following address: disa.stig_spt@mail.mil.</xccdf:description>
+      <xccdf:status date="2023-06-02">accepted</xccdf:status>
+      <xccdf:title>Microsoft Edge STIG SCAP Benchmark</xccdf:title>
+      <xccdf:description>This Security Technical Implementation Guide is published as a tool to improve the security of Department of Defense (DOD) information systems. The requirements are derived from the National Institute of Standards and Technology (NIST) 800-53 and related documents. Comments or proposed revisions to this document should be sent via email to the following address: disa.stig_spt@mail.mil.</xccdf:description>
       <xccdf:notice id="terms-of-use" xml:lang="en" />
       <xccdf:front-matter xml:lang="en" />
       <xccdf:rear-matter xml:lang="en" />
@@ -40,11 +40,11 @@
         <dc:publisher>DISA</dc:publisher>
         <dc:source>STIG.DOD.MIL</dc:source>
       </xccdf:reference>
-      <xccdf:plain-text id="release-info">Release: 1.1 Benchmark Date: 1 Nov 2021</xccdf:plain-text>
-      <xccdf:plain-text id="generator">3.2.2.36079</xccdf:plain-text>
+      <xccdf:plain-text id="release-info">Release: 1.3 Benchmark Date: 25 Oct 2023</xccdf:plain-text>
+      <xccdf:plain-text id="generator">3.4.0.34222</xccdf:plain-text>
       <xccdf:plain-text id="conventionsVersion">1.10.0</xccdf:plain-text>
       <xccdf:platform idref="cpe:/a:microsoft:edge" />
-      <xccdf:version update="http://iase.disa.mil/stigs">001.001</xccdf:version>
+      <xccdf:version update="http://iase.disa.mil/stigs">001.003</xccdf:version>
       <xccdf:metadata>
         <dc:creator>DISA</dc:creator>
         <dc:publisher>DISA</dc:publisher>
@@ -531,59 +531,59 @@
       <xccdf:Profile id="xccdf_mil.disa.stig_profile_CAT_I_Only">
         <xccdf:title>CAT I Only</xccdf:title>
         <xccdf:description>This profile only includes rules that are Severity Category I.</xccdf:description>
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235720r766832_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235721r766835_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235723r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235724r766838_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235725r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235727r766843_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235728r766845_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235729r766848_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235730r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235731r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235732r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235733r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235734r626540_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235735r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235736r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235737r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235738r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235739r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235740r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235741r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235742r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235743r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235744r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235745r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235746r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235747r766851_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235748r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235749r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235750r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235751r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235752r766854_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235754r799955_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235756r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235760r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235761r766865_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235763r766868_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235764r766871_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235765r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235766r766874_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235767r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235768r766877_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235769r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235770r766880_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235771r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235772r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235773r766882_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235774r626523_rule" selected="false" />
-        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-246736r766829_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235720r879550_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235721r879550_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235723r879554_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235724r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235725r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235727r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235728r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235729r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235730r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235731r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235732r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235733r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235734r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235735r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235736r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235737r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235738r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235739r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235740r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235741r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235742r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235743r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235744r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235745r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235746r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235747r879612_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235748r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235749r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235750r879554_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235751r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235752r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235754r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235756r879773_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235760r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235761r879588_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235763r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235764r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235765r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235766r879589_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235767r879590_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235768r879592_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235769r879593_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235770r879594_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235771r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235772r879587_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235773r879597_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-235774r879598_rule" selected="false" />
+        <xccdf:select idref="xccdf_mil.disa.stig_rule_SV-246736r879587_rule" selected="false" />
       </xccdf:Profile>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235720">
         <xccdf:title>SRG-APP-000073</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235720r766832_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235720r879550_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000002</xccdf:version>
           <xccdf:title>Bypassing Microsoft Defender SmartScreen prompts for sites must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This policy setting allows a decision to be made on whether users can override the Microsoft Defender SmartScreen warnings about potentially malicious websites.
@@ -602,14 +602,14 @@ If this setting is disabled or not configured, users can ignore Microsoft Defend
           <xccdf:fixtext fixref="F-38902r766831_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/SmartScreen settings/Prevent bypassing Microsoft Defender SmartScreen prompts for sites" to "Enabled".</xccdf:fixtext>
           <xccdf:fix id="F-38902r766831_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:100" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:100" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235721">
         <xccdf:title>SRG-APP-000073</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235721r766835_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235721r879550_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000003</xccdf:version>
           <xccdf:title>Bypassing of Microsoft Defender SmartScreen warnings about downloads must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This policy setting allows a decision to be made on whether users can override Microsoft Defender SmartScreen warnings about unverified downloads.
@@ -628,14 +628,14 @@ If this policy is disabled or not configured, users can ignore Microsoft Defende
           <xccdf:fixtext fixref="F-38903r766834_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/SmartScreen settings/Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads" must to "Enabled".</xccdf:fixtext>
           <xccdf:fix id="F-38903r766834_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:101" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:101" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235723">
         <xccdf:title>SRG-APP-000080</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235723r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235723r879554_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000005</xccdf:version>
           <xccdf:title>InPrivate mode must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This setting specifies whether the user can open pages in InPrivate mode in Microsoft Edge.
@@ -661,14 +661,14 @@ Policy options mapping:
           <xccdf:fixtext fixref="F-38905r626366_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Configure InPrivate mode availability" to "enabled" and select "InPrivate mode disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38905r626366_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:102" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:102" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235724">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235724r766838_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235724r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000006</xccdf:version>
           <xccdf:title>Background processing must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Background processing allows Microsoft Edge processes to start at OS sign-in and keep running after the last browser window is closed. In this scenario, background apps and the current browsing session remain active, including any session cookies. An open background process displays an icon in the system tray, and can be closed from there.
@@ -689,14 +689,14 @@ If this policy is not configured, background mode is initially turned off, and t
           <xccdf:fixtext fixref="F-38906r766837_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Continue running background apps after Microsoft Edge closes" to "Disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38906r766837_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:103" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:103" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235725">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235725r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235725r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000008</xccdf:version>
           <xccdf:title>The ability of sites to show pop-ups must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Set whether websites can show pop-up windows. Pop-ups can be allowed on all websites ("AllowPopups") or blocked on all sites ("BlockPopups").
@@ -717,14 +717,14 @@ Policy options mapping:
           <xccdf:fixtext fixref="F-38907r626372_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Content settings/Default pop-up window setting" to "Enabled" with the option value set to "Do not allow any site to show  pop-ups".</xccdf:fixtext>
           <xccdf:fix id="F-38907r626372_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:104" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:104" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235727">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235727r766843_rule" weight="10.0" severity="low">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235727r879587_rule" weight="10.0" severity="low">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000010</xccdf:version>
           <xccdf:title>Data Synchronization must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Disables data synchronization in Microsoft Edge. This policy also prevents the sync consent prompt from appearing.
@@ -741,14 +741,14 @@ If this policy is not set or applied as recommended, users will be able to turn 
           <xccdf:fixtext fixref="F-38909r766842_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Disable synchronization of data using Microsoft sync services" to "Enabled".</xccdf:fixtext>
           <xccdf:fix id="F-38909r766842_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:105" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:105" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235728">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235728r766845_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235728r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000011</xccdf:version>
           <xccdf:title>Network prediction must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Enables network prediction and prevents users from changing this setting.
@@ -772,14 +772,14 @@ Policy options mapping:
           <xccdf:fixtext fixref="F-38910r626381_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Enable network prediction" to "Enabled" with the option value set to "Don't predict network actions on any network connection".</xccdf:fixtext>
           <xccdf:fix id="F-38910r626381_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:106" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:106" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235729">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235729r766848_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235729r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000012</xccdf:version>
           <xccdf:title>Search suggestions must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Enables web search suggestions in the Microsoft Edge Address Bar and Auto-Suggest List, and prevents users from changing this policy.
@@ -800,14 +800,14 @@ If this policy is not set, search suggestions are enabled but the user can chang
           <xccdf:fixtext fixref="F-38911r766847_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Enable search suggestions" to "Disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38911r766847_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:107" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:107" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235730">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235730r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235730r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000013</xccdf:version>
           <xccdf:title>Importing of autofill form data must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Allows users to import autofill form data from another browser into Microsoft Edge.
@@ -830,14 +830,14 @@ This policy cannot be set as a recommendation. This means that Microsoft Edge wi
           <xccdf:fixtext fixref="F-38912r626387_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow importing of autofill form data" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38912r626387_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:108" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:108" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235731">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235731r626523_rule" weight="10.0" severity="low">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235731r879587_rule" weight="10.0" severity="low">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000014</xccdf:version>
           <xccdf:title>Importing of browser settings must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Allows users to import browser settings from another browser into Microsoft Edge.
@@ -858,14 +858,14 @@ If this policy is not configured, browser settings are imported at first run, an
           <xccdf:fixtext fixref="F-38913r626390_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow importing of browser settings" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38913r626390_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:109" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:109" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235732">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235732r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235732r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000015</xccdf:version>
           <xccdf:title>Importing of cookies must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Allows users to import cookies from another browser into Microsoft Edge.
@@ -884,14 +884,14 @@ If this policy is not configured, cookies are imported on first run.&lt;/VulnDis
           <xccdf:fixtext fixref="F-38914r626393_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow importing of cookies" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38914r626393_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:110" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:110" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235733">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235733r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235733r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000016</xccdf:version>
           <xccdf:title>Importing of extensions must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Allows users to import extensions from another browser into Microsoft Edge.
@@ -910,14 +910,14 @@ If this policy is disabled, extensions are not imported at first run, and users 
           <xccdf:fixtext fixref="F-38915r626396_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow importing of extensions" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38915r626396_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:111" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:111" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235734">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235734r626540_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235734r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000017</xccdf:version>
           <xccdf:title>Importing of browsing history must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Allows users to import their browsing history from another browser into Microsoft Edge.
@@ -936,14 +936,14 @@ If this policy is disabled, browsing history data is not imported at first run, 
           <xccdf:fixtext fixref="F-38916r626539_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow importing of browsing history" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38916r626539_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:112" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:112" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235735">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235735r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235735r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000018</xccdf:version>
           <xccdf:title>Importing of home page settings must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Allows users to import their home page setting from another browser into Microsoft Edge.
@@ -962,14 +962,14 @@ If this policy is disabled, the home page setting is not imported at first run, 
           <xccdf:fixtext fixref="F-38917r626402_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow importing of home page settings" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38917r626402_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:113" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:113" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235736">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235736r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235736r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000019</xccdf:version>
           <xccdf:title>Importing of open tabs must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Allows users to import open and pinned tabs from another browser into Microsoft Edge.
@@ -990,14 +990,14 @@ If this policy is not configured, open tabs are imported at first run, and users
           <xccdf:fixtext fixref="F-38918r626405_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow importing of open tabs" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38918r626405_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:114" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:114" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235737">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235737r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235737r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000020</xccdf:version>
           <xccdf:title>Importing of payment info must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Allows users to import payment info from another browser into Microsoft Edge.
@@ -1016,14 +1016,14 @@ If this policy is disabled, payment info is not imported at first run, and users
           <xccdf:fixtext fixref="F-38919r626408_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow importing of payment info" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38919r626408_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:115" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:115" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235738">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235738r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235738r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000021</xccdf:version>
           <xccdf:title>Importing of saved passwords must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Allows users to import saved passwords from another browser into Microsoft Edge.
@@ -1042,14 +1042,14 @@ If this policy is disabled, saved passwords are not imported on first run, and u
           <xccdf:fixtext fixref="F-38920r626411_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow importing of saved passwords" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38920r626411_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:116" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:116" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235739">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235739r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235739r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000022</xccdf:version>
           <xccdf:title>Importing of search engine settings must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Allows users to import search engine settings from another browser into Microsoft Edge.
@@ -1068,14 +1068,14 @@ If this policy is disabled, search engine settings are not imported at first run
           <xccdf:fixtext fixref="F-38921r626414_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow importing of search engine settings" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38921r626414_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:117" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:117" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235740">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235740r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235740r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000023</xccdf:version>
           <xccdf:title>Importing of shortcuts must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Allows users to import Shortcuts from another browser into Microsoft Edge.
@@ -1094,14 +1094,14 @@ If this policy is not configured, Shortcuts are imported on first run.&lt;/VulnD
           <xccdf:fixtext fixref="F-38922r626417_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow importing of shortcuts" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38922r626417_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:118" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:118" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235741">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235741r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235741r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000024</xccdf:version>
           <xccdf:title>Autoplay must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This policy sets the media autoplay policy for websites.
@@ -1122,14 +1122,14 @@ Setting to "Disabled" sets media autoplay to "Block". No websites are allowed to
           <xccdf:fixtext fixref="F-38923r626420_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow media autoplay for websites" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38923r626420_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:119" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:119" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235742">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235742r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235742r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000025</xccdf:version>
           <xccdf:title>WebUSB must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Set whether websites can access connected USB devices. Access can be blocked completely or the user asked each time a website wants to get access to connected USB devices.
@@ -1148,14 +1148,14 @@ If this policy is not configured, sites can ask users whether they can access th
           <xccdf:fixtext fixref="F-38924r626423_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Content settings/Control use of the WebUSB API" to enabled" and select "Do not allow any site to request access to USB devices via the WebUSB API".</xccdf:fixtext>
           <xccdf:fix id="F-38924r626423_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:120" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:120" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235743">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235743r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235743r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000026</xccdf:version>
           <xccdf:title>Google Cast must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Enable this policy to enable Google Cast. Users will be able to launch it from the app menu, page context menus, media controls on Cast-enabled websites, and (if shown) the Cast toolbar icon.
@@ -1174,14 +1174,14 @@ By default, Google Cast is enabled.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;
           <xccdf:fixtext fixref="F-38925r626426_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Cast/Enable Google Cast" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38925r626426_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:121" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:121" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235744">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235744r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235744r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000027</xccdf:version>
           <xccdf:title>Web Bluetooth API must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Control whether websites can access nearby Bluetooth devices. Access can be blocked completely or the site required to ask the user each time it wants to access a Bluetooth device.
@@ -1202,14 +1202,14 @@ Policy options mapping:
           <xccdf:fixtext fixref="F-38926r626521_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Content settings/Control use of the Web Bluetooth API" to "enabled" with the option value set to "Do not allow any site to request access to Bluetooth devices via the Web Bluetooth API.</xccdf:fixtext>
           <xccdf:fix id="F-38926r626521_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:122" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:122" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235745">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235745r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235745r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000028</xccdf:version>
           <xccdf:title>Autofill for Credit Cards must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Enables the Microsoft Edge AutoFill feature and lets users auto complete credit card information in web forms using previously stored information.
@@ -1228,14 +1228,14 @@ If this policy is enabled or not configured, users can control AutoFill for cred
           <xccdf:fixtext fixref="F-38927r626432_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Enable AutoFill for credit cards" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38927r626432_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:123" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:123" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235746">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235746r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235746r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000029</xccdf:version>
           <xccdf:title>Autofill for addresses must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Enables the AutoFill feature and allows users to auto-complete address information in web forms using previously stored information.
@@ -1254,14 +1254,14 @@ If this policy is enabled or not configured, users can control AutoFill for addr
           <xccdf:fixtext fixref="F-38928r626435_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Enable AutoFill for addresses" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38928r626435_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:124" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:124" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235747">
         <xccdf:title>SRG-APP-000175</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235747r766851_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235747r879612_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000030</xccdf:version>
           <xccdf:title>Online revocation checks must be performed.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;If you enable this policy, Microsoft Edge will perform soft-fail, online OCSP/CRL checks. "Soft fail" means that if the revocation server can't be reached, the certificate will be considered valid.
@@ -1278,14 +1278,14 @@ If you disable the policy or don't configure it, Microsoft Edge won't perform on
           <xccdf:fixtext fixref="F-38929r766850_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Enable online OCSP/CRL checks" to "Enabled".</xccdf:fixtext>
           <xccdf:fix id="F-38929r766850_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:125" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:125" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235748">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235748r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235748r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000031</xccdf:version>
           <xccdf:title>Personalization of ads, search, and news by sending browsing history to Microsoft must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This policy prevents Microsoft from collecting a user's Microsoft Edge browsing history to be used for personalizing advertising, search, news and other Microsoft services.
@@ -1304,14 +1304,14 @@ If this policy is disabled, users cannot change or override the setting. If this
           <xccdf:fixtext fixref="F-38930r626441_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow personalization of ads, search and news by sending browsing history to Microsoft" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38930r626441_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:126" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:126" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235749">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235749r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235749r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000032</xccdf:version>
           <xccdf:title>Site tracking of a user’s location must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Set whether websites can track users' physical locations. Tracking can be allowed by default ("AllowGeolocation") or denied by default ("BlockGeolocation"), or the user can be asked each time a website requests their location ("AskGeolocation").
@@ -1333,14 +1333,14 @@ Policy options mapping:
           <xccdf:fixtext fixref="F-38931r626444_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Content settings/Default geolocation setting" to "enabled" and select "Don't allow any site to track users' physical location".</xccdf:fixtext>
           <xccdf:fix id="F-38931r626444_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:127" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:127" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235750">
         <xccdf:title>SRG-APP-000080</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235750r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235750r879554_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000033</xccdf:version>
           <xccdf:title>Browser history must be saved.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This setting disables deleting browser history and download history and prevents users from changing this setting.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
@@ -1355,14 +1355,14 @@ Policy options mapping:
           <xccdf:fixtext fixref="F-38932r626447_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Enable deleting browser and download history" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38932r626447_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:128" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:128" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235751">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235751r626523_rule" weight="10.0" severity="low">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235751r879587_rule" weight="10.0" severity="low">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000034</xccdf:version>
           <xccdf:title>Edge development tools must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;While the risk associated with browser development tools is more related to the proper design of a web application, a risk vector remains within the browser. The developer tools allow end users and application developers to view and edit all types of web application-related data via the browser. Page elements, source code, javascript, API calls, application data, etc., may all be viewed and potentially manipulated. Manipulation could be useful for troubleshooting legitimate issues, and this may be performed in a development environment. Manipulation could also be malicious and must be addressed.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
@@ -1377,17 +1377,17 @@ Policy options mapping:
           <xccdf:fixtext fixref="F-38933r626450_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Control where developer tools can be used" to "enabled" and select "Don't allow using the developer tools".</xccdf:fixtext>
           <xccdf:fix id="F-38933r626450_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:129" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:129" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235752">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235752r766854_rule" weight="10.0" severity="low">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235752r879587_rule" weight="10.0" severity="low">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000036</xccdf:version>
           <xccdf:title>Download restrictions must be configured.</xccdf:title>
-          <xccdf:description>&lt;VulnDiscussion&gt;Configures the type of downloads that Microsoft Edge completely blocks, without letting users override the security decision.
+          <xccdf:description>&lt;VulnDiscussion&gt;Configure the type of downloads that Microsoft Edge completely blocks, without letting users override the security decision.
 
 Set "BlockDangerousDownloads" to allow all downloads except for those that carry Microsoft Defender SmartScreen warnings.
 
@@ -1403,9 +1403,10 @@ See https://go.microsoft.com/fwlink/?linkid=2094934 for more information on Micr
 
 Policy options mapping:
 - DefaultDownloadSecurity (0) = No special restrictions.
-- BlockDangerousDownloads (1) = Block dangerous downloads.
-- BlockPotentiallyDangerousDownloads (2) = Block potentially dangerous or unwanted downloads.
-- BlockAllDownloads (3) = Block all downloads.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
+- BlockDangerousDownloads (1) = Block malicious downloads and dangerous file types.
+- BlockPotentiallyDangerousDownloads (2) = Block potentially dangerous or unwanted downloads and dangerous file types.
+- BlockAllDownloads (3) = Block all downloads.
+- BlockMaliciousDownloads (4) = Block malicious downloads.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
           <xccdf:reference>
             <dc:title>DPMS Target Microsoft Edge</dc:title>
             <dc:publisher>DISA</dc:publisher>
@@ -1417,14 +1418,14 @@ Policy options mapping:
           <xccdf:fixtext fixref="F-38934r766853_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow download restrictions" to "Enabled" and select "BlockDangerousDownloads" or "Block potentially dangerous or unwanted downloads".</xccdf:fixtext>
           <xccdf:fix id="F-38934r766853_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:130" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:130" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235754">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235754r799955_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235754r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000041</xccdf:version>
           <xccdf:title>Extensions installation must be blocklisted by default.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;List specific extensions that users cannot install in Microsoft Edge. When this policy is deployed, any extensions on this list that were previously installed will be disabled, and the user will not be able to enable them. If an item is removed from the list of blocked extensions, the extension is automatically reenabled anywhere it was previously installed.
@@ -1443,14 +1444,14 @@ If this policy is not configured, users can install any extension in Microsoft E
           <xccdf:fixtext fixref="F-38936r766859_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Extensions/Control which extensions cannot be installed" to "Enabled". A list of blocklisted extensions may then be specified.</xccdf:fixtext>
           <xccdf:fix id="F-38936r766859_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:131" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:131" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235756">
         <xccdf:title>SRG-APP-000400</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235756r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235756r879773_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000043</xccdf:version>
           <xccdf:title>The Password Manager must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Enable Microsoft Edge to save user passwords.
@@ -1467,14 +1468,14 @@ If this policy is enabled, users can save their passwords in Microsoft Edge. The
           <xccdf:fixtext fixref="F-38938r626465_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Password manager and protection/Enable saving passwords to the password manager" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38938r626465_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:132" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:132" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235759">
         <xccdf:title>SRG-APP-000560</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235759r626523_rule" weight="10.0" severity="high">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235759r879889_rule" weight="10.0" severity="high">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000046</xccdf:version>
           <xccdf:title>Edge must be configured to allow only TLS.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Sets the minimum supported version of SSL. If this policy is not configured, Microsoft Edge uses a default minimum version, TLS 1.0.
@@ -1498,14 +1499,14 @@ NIST SP 800-52 specifies the preferred configurations for government systems.&lt
           <xccdf:fixtext fixref="F-38941r626474_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Minimum TLS version enabled" to "TLS 1.2".</xccdf:fixtext>
           <xccdf:fix id="F-38941r626474_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:134" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:134" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235760">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235760r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235760r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000047</xccdf:version>
           <xccdf:title>Site isolation for every site must be enabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;The "SitePerProcess" policy can be used to prevent users from opting out of the default behavior of isolating all sites. The "IsolateOrigins" policy can be used to isolate additional, finer-grained origins.
@@ -1524,14 +1525,14 @@ If this policy is not disabled or configured, a user can opt out of site isolati
           <xccdf:fixtext fixref="F-38942r626477_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Enable site isolation for every site" to "enabled".</xccdf:fixtext>
           <xccdf:fix id="F-38942r626477_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:135" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:135" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235761">
         <xccdf:title>SRG-APP-000142</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235761r766865_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235761r879588_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000048</xccdf:version>
           <xccdf:title>Supported authentication schemes must be configured.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This setting specifies which HTTP authentication schemes are supported.
@@ -1550,14 +1551,14 @@ If this policy is not configured, all four schemes are used.&lt;/VulnDiscussion&
           <xccdf:fixtext fixref="F-38943r626480_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/HTTP authentication/Supported authentication schemes" to "ntlm,negotiate".</xccdf:fixtext>
           <xccdf:fix id="F-38943r626480_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:136" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:136" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235763">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235763r766868_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235763r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000050</xccdf:version>
           <xccdf:title>Microsoft Defender SmartScreen must be enabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This policy setting configures Microsoft Defender SmartScreen, which provides warning messages to help protect  users from potential phishing scams and malicious software. By default, Microsoft Defender SmartScreen is turned on.
@@ -1580,14 +1581,14 @@ This policy is available only on Windows instances that are joined to a Microsof
           <xccdf:fixtext fixref="F-38945r766867_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/SmartScreen settings/Configure Microsoft Defender SmartScreen" to "Enabled".</xccdf:fixtext>
           <xccdf:fix id="F-38945r766867_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:138" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:138" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235764">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235764r766871_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235764r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000051</xccdf:version>
           <xccdf:title>Microsoft Defender SmartScreen must be configured to block potentially unwanted apps.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This policy setting configures blocking for potentially unwanted apps with Microsoft Defender SmartScreen. Potentially unwanted app blocking with Microsoft Defender SmartScreen provides warning messages to help protect users from adware, coin miners, bundleware, and other low-reputation apps that are hosted by websites. Potentially unwanted app blocking with Microsoft Defender SmartScreen is turned off by default.
@@ -1610,14 +1611,14 @@ This policy is available only on Windows instances that are joined to a Microsof
           <xccdf:fixtext fixref="F-38946r766870_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/SmartScreen settings/Configure Microsoft Defender SmartScreen to block potentially unwanted apps" to "Enabled".</xccdf:fixtext>
           <xccdf:fix id="F-38946r766870_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:139" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:139" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235765">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235765r626523_rule" weight="10.0" severity="low">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235765r879587_rule" weight="10.0" severity="low">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000052</xccdf:version>
           <xccdf:title>The download location prompt must be configured.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This setting provides positive feedback before a download starts, limiting the possibility of inadvertent downloads without notifying the user.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
@@ -1632,14 +1633,14 @@ This policy is available only on Windows instances that are joined to a Microsof
           <xccdf:fixtext fixref="F-38947r626492_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Ask where to save downloaded files" to "enabled".</xccdf:fixtext>
           <xccdf:fix id="F-38947r626492_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:140" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:140" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235766">
         <xccdf:title>SRG-APP-000148</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235766r766874_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235766r879589_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000054</xccdf:version>
           <xccdf:title>Tracking of browsing activity must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;The setting allows websites to be blocked from tracking users' web-browsing activity.
@@ -1662,14 +1663,14 @@ Policy options mapping:
           <xccdf:fixtext fixref="F-38948r766873_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Block tracking of users' web-browsing activity" to "Balanced" or "Strict".</xccdf:fixtext>
           <xccdf:fix id="F-38948r766873_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:141" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:141" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235767">
         <xccdf:title>SRG-APP-000149</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235767r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235767r879590_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000055</xccdf:version>
           <xccdf:title>A website's ability to query for payment methods must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This setting determines whether websites can check if the user has payment methods saved.
@@ -1688,14 +1689,14 @@ If this policy is enabled or is not set, websites can check to determine if the 
           <xccdf:fixtext fixref="F-38949r626498_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow websites to query for available payment methods" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38949r626498_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:142" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:142" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235768">
         <xccdf:title>SRG-APP-000151</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235768r766877_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235768r879592_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000056</xccdf:version>
           <xccdf:title>Suggestions of similar web pages in the event of a navigation error must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This setting allows Microsoft Edge to issue a connection to a web service to generate URL and search suggestions for connectivity issues such as DNS errors.
@@ -1720,14 +1721,14 @@ If this policy is disabled, the "Suggest similar pages when a webpage can't be f
           <xccdf:fixtext fixref="F-38950r766876_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Suggest similar pages when a webpage can't be found" to "Disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38950r766876_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:143" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:143" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235769">
         <xccdf:title>SRG-APP-000152</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235769r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235769r879593_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000057</xccdf:version>
           <xccdf:title>User feedback must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Microsoft Edge uses the Edge Feedback feature (enabled by default) to allow users to send feedback, suggestions, or customer surveys and to report any issues with the browser. By default, users cannot disable (turn off) the Edge Feedback feature.
@@ -1746,14 +1747,14 @@ If this policy is disabled, users cannot invoke Edge Feedback.&lt;/VulnDiscussio
           <xccdf:fixtext fixref="F-38951r626504_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow user feedback" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38951r626504_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:144" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:144" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235770">
         <xccdf:title>SRG-APP-000153</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235770r766880_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235770r879594_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000058</xccdf:version>
           <xccdf:title>The collections feature must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This setting allows users to access the Collections feature, where they can collect, organize, share, and export content more efficiently and with Office integration.
@@ -1772,14 +1773,14 @@ If this policy is disabled, users cannot access and use Collections in Microsoft
           <xccdf:fixtext fixref="F-38952r766879_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Enable the Collections feature" to "Disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38952r766879_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:145" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:145" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235771">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235771r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235771r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000059</xccdf:version>
           <xccdf:title>The Share Experience feature must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;If this policy is set to "ShareAllowed" (the default), users will be able to access the Windows 10 Share experience from the Settings and More menu in Microsoft Edge to share with other apps on the system.
@@ -1800,14 +1801,14 @@ Policy options mapping:
           <xccdf:fixtext fixref="F-38953r626510_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Configure the Share experience" to "Don't allow using the Share experience".</xccdf:fixtext>
           <xccdf:fix id="F-38953r626510_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:146" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:146" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235772">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235772r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235772r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000060</xccdf:version>
           <xccdf:title>Guest mode must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Enabling Guest mode allows the use of guest profiles in Microsoft Edge. In a guest profile, the browser does not import browsing data from existing profiles, and it deletes browsing data when all guest profiles are closed.
@@ -1826,14 +1827,14 @@ If this policy is disabled, Microsoft Edge does not let users browse in guest pr
           <xccdf:fixtext fixref="F-38954r626513_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Enable guest mode" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38954r626513_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:147" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:147" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235773">
         <xccdf:title>SRG-APP-000156</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235773r766882_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235773r879597_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000061</xccdf:version>
           <xccdf:title>Relaunch notification must be required.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;Users must be required to restart the browser to finish installation of pending updates and prevent users from continually using an old/vulnerable browser version.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</xccdf:description>
@@ -1848,14 +1849,14 @@ If this policy is disabled, Microsoft Edge does not let users browse in guest pr
           <xccdf:fixtext fixref="F-38955r626516_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Notify a user that a browser restart is recommended or required for pending updates" web-browsing activity to "Required".</xccdf:fixtext>
           <xccdf:fix id="F-38955r626516_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:148" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:148" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-235774">
         <xccdf:title>SRG-APP-000157</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235774r626523_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-235774r879598_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000062</xccdf:version>
           <xccdf:title>The built-in DNS client must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;This setting controls whether to use the built-in DNS client.
@@ -1876,14 +1877,14 @@ If this policy is disabled, the client is never used.&lt;/VulnDiscussion&gt;&lt;
           <xccdf:fixtext fixref="F-38956r626519_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Use built-in DNS client" to "disabled".</xccdf:fixtext>
           <xccdf:fix id="F-38956r626519_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:149" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:149" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
       <xccdf:Group id="xccdf_mil.disa.stig_group_V-246736">
         <xccdf:title>SRG-APP-000141</xccdf:title>
         <xccdf:description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</xccdf:description>
-        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-246736r766829_rule" weight="10.0" severity="medium">
+        <xccdf:Rule id="xccdf_mil.disa.stig_rule_SV-246736r879587_rule" weight="10.0" severity="medium">
           <xccdf:version update="http://iase.disa.mil/stigs">EDGE-00-000063</xccdf:version>
           <xccdf:title>Use of the QUIC protocol must be disabled.</xccdf:title>
           <xccdf:description>&lt;VulnDiscussion&gt;QUIC is used by more than half of all connections from the Edge web browser to Google's servers, and this activity is undesirable in the DoD.
@@ -1902,18 +1903,18 @@ If you disable this policy, the QUIC protocol is blocked.&lt;/VulnDiscussion&gt;
           <xccdf:fixtext fixref="F-50122r766828_fix">Set the policy value for "Computer Configuration/Administrative Templates/Microsoft Edge/Allow QUIC protocol" to "Disabled".</xccdf:fixtext>
           <xccdf:fix id="F-50122r766828_fix" />
           <xccdf:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
-            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:150" href="U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" />
+            <xccdf:check-content-ref name="oval:mil.disa.stig.edge:def:150" href="U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" />
           </xccdf:check>
         </xccdf:Rule>
       </xccdf:Group>
     </xccdf:Benchmark>
   </component>
-  <component id="scap_mil.disa.stig_comp_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-oval.xml" timestamp="2021-10-06T11:10:31">
+  <component id="scap_mil.disa.stig_comp_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-oval.xml" timestamp="2023-08-21T12:47:02">
     <oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5">
       <generator>
         <oval:product_name>repotool</oval:product_name>
         <oval:schema_version>5.10</oval:schema_version>
-        <oval:timestamp>2021-10-06T11:10:31</oval:timestamp>
+        <oval:timestamp>2023-08-21T12:47:02</oval:timestamp>
       </generator>
       <definitions>
         <definition class="compliance" id="oval:mil.disa.stig.edge:def:100" version="1">
@@ -2556,39 +2557,35 @@ Policy options mapping:
             <criterion comment="Edge Developer Tools Availability must be disallowed." test_ref="oval:mil.disa.stig.edge:tst:12900" />
           </criteria>
         </definition>
-        <definition class="compliance" id="oval:mil.disa.stig.edge:def:130" version="1">
+        <definition class="compliance" id="oval:mil.disa.stig.edge:def:130" version="2">
           <metadata>
             <title>EDGE-00-000036 - Download restrictions must be configured.</title>
             <affected family="windows">
-              <platform>Microsoft Windows Server 2012 R2</platform>
-              <platform>Microsoft Windows 10</platform>
-              <platform>Microsoft Windows Server 2016</platform>
-              <platform>Microsoft Windows Server 2019</platform>
               <product>Microsoft Edge</product>
             </affected>
-            <description>Configures the type of downloads that Microsoft Edge completely blocks, without letting users override the security decision.  
+            <description>Configure the type of downloads that Microsoft Edge completely blocks, without letting users override the security decision.
 
-Set "BlockDangerousDownloads" to allow all downloads except for those that carry Microsoft Defender SmartScreen warnings.  
+Set "BlockDangerousDownloads" to allow all downloads except for those that carry Microsoft Defender SmartScreen warnings.
 
-Set "BlockPotentiallyDangerousDownloads" to allow all downloads except for those that carry Microsoft Defender SmartScreen warnings of potentially dangerous or unwanted downloads.  
+Set "BlockPotentiallyDangerousDownloads" to allow all downloads except for those that carry Microsoft Defender SmartScreen warnings of potentially dangerous or unwanted downloads.
 
-Set "BlockAllDownloads" to block all downloads.  
+Set "BlockAllDownloads" to block all downloads.
 
-If this policy is not configured or the 'DefaultDownloadSecurity' option set, downloads go through the usual security restrictions based on Microsoft Defender SmartScreen analysis results.  
+If this policy is not configured or the 'DefaultDownloadSecurity' option set, downloads go through the usual security restrictions based on Microsoft Defender SmartScreen analysis results.
 
-Note that these restrictions apply to downloads from web page content, as well as the "download link..." context menu option. These restrictions do not apply to saving or downloading the currently displayed page, nor do they apply to the "Save as PDF" option from the printing options.  
+Note that these restrictions apply to downloads from web page content, as well as the "download link..." context menu option. These restrictions do not apply to saving or downloading the currently displayed page, nor do they apply to the "Save as PDF" option from the printing options.
 
-See https://go.microsoft.com/fwlink/?linkid=2094934 for more information on Microsoft Defender SmartScreen.  
+See https://go.microsoft.com/fwlink/?linkid=2094934 for more information on Microsoft Defender SmartScreen.
 
 Policy options mapping:
-- DefaultDownloadSecurity (0) = No special restrictions.  
-- BlockDangerousDownloads (1) = Block dangerous downloads.  
-- BlockPotentiallyDangerousDownloads (2) = Block potentially dangerous or unwanted downloads.  
-- BlockAllDownloads (3) = Block all downloads.</description>
+- DefaultDownloadSecurity (0) = No special restrictions.
+- BlockDangerousDownloads (1) = Block malicious downloads and dangerous file types.
+- BlockPotentiallyDangerousDownloads (2) = Block potentially dangerous or unwanted downloads and dangerous file types.
+- BlockAllDownloads (3) = Block all downloads.
+- BlockMaliciousDownloads (4) = Block malicious downloads.</description>
           </metadata>
-          <criteria operator="OR">
-            <criterion comment="MS Edge setting 'Allow download restrictions' must be enabled and set to 'Block dangerous downloads'" test_ref="oval:mil.disa.stig.edge:tst:13000" />
-            <criterion comment="MS Edge setting 'Allow download restrictions' must be enabled and set to 'Block potentially dangerous or unwanted downloads'" test_ref="oval:mil.disa.stig.edge:tst:13001" />
+          <criteria>
+            <criterion comment="Download restrictions must be configured" test_ref="oval:mil.disa.stig.edge:tst:13000" />
           </criteria>
         </definition>
         <definition class="compliance" id="oval:mil.disa.stig.edge:def:131" version="2">
@@ -3097,14 +3094,11 @@ If you disable this policy, the QUIC protocol is blocked.</description>
           <object object_ref="oval:mil.disa.stig.edge:obj:12900" />
           <state state_ref="oval:mil.disa.stig.edge:ste:12" />
         </win-def:registry_test>
-        <win-def:registry_test xmlns:win-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="'Allow download restrictions' must be enabled and set to 'Block dangerous downloads'." id="oval:mil.disa.stig.edge:tst:13000" version="1">
+        <registry_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns:win-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="none satisfy" check_existence="at_least_one_exists" comment="Download restrictions are configured" id="oval:mil.disa.stig.edge:tst:13000" version="2" state_operator="OR">
           <object object_ref="oval:mil.disa.stig.edge:obj:13000" />
-          <state state_ref="oval:mil.disa.stig.edge:ste:11" />
-        </win-def:registry_test>
-        <win-def:registry_test xmlns:win-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="'Allow download restrictions' must be enabled and set to 'Block potentially dangerous or unwanted downloads'." id="oval:mil.disa.stig.edge:tst:13001" version="1">
-          <object object_ref="oval:mil.disa.stig.edge:obj:13000" />
-          <state state_ref="oval:mil.disa.stig.edge:ste:12" />
-        </win-def:registry_test>
+          <state state_ref="oval:mil.disa.stig.edge:ste:10" />
+          <state state_ref="oval:mil.disa.stig.edge:ste:13000" />
+        </registry_test>
         <win-def:registry_test xmlns:win-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" check="all" check_existence="at_least_one_exists" comment="Enable the setting 'Control which extensions cannot be installed'" id="oval:mil.disa.stig.edge:tst:13100" version="1">
           <object object_ref="oval:mil.disa.stig.edge:obj:13100" />
           <state state_ref="oval:mil.disa.stig.edge:ste:13100" />
@@ -3331,11 +3325,11 @@ If you disable this policy, the QUIC protocol is blocked.</description>
           <win-def:key datatype="string" operation="equals">Software\Policies\Microsoft\Edge</win-def:key>
           <win-def:name datatype="string" operation="equals">DeveloperToolsAvailability</win-def:name>
         </win-def:registry_object>
-        <win-def:registry_object xmlns:win-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.edge:obj:13000" version="1">
-          <win-def:hive datatype="string" operation="equals">HKEY_LOCAL_MACHINE</win-def:hive>
-          <win-def:key datatype="string" operation="equals">Software\Policies\Microsoft\Edge</win-def:key>
-          <win-def:name datatype="string" operation="equals">DownloadRestrictions</win-def:name>
-        </win-def:registry_object>
+        <registry_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns:win-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.edge:obj:13000" version="2">
+          <hive datatype="string">HKEY_LOCAL_MACHINE</hive>
+          <key datatype="string">Software\Policies\Microsoft\Edge</key>
+          <name datatype="string">DownloadRestrictions</name>
+        </registry_object>
         <win-def:registry_object xmlns:win-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.edge:obj:13100" version="2">
           <win-def:hive datatype="string" operation="equals">HKEY_LOCAL_MACHINE</win-def:hive>
           <win-def:key datatype="string" operation="equals">SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist</win-def:key>
@@ -3440,6 +3434,10 @@ If you disable this policy, the QUIC protocol is blocked.</description>
           <type>reg_dword</type>
           <value datatype="int">2</value>
         </registry_state>
+        <registry_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.edge:ste:13000" version="1">
+          <type>reg_dword</type>
+          <value datatype="int">4</value>
+        </registry_state>
         <win-def:registry_state xmlns:win-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" id="oval:mil.disa.stig.edge:ste:13100" version="1">
           <win-def:type datatype="string" operation="equals">reg_sz</win-def:type>
           <win-def:value datatype="string" operation="equals">*</win-def:value>
@@ -3463,12 +3461,12 @@ If you disable this policy, the QUIC protocol is blocked.</description>
       </states>
     </oval_definitions>
   </component>
-  <component id="scap_mil.disa.stig_comp_U_MS_Edge_V1R1_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" timestamp="2021-10-06T11:10:31">
+  <component id="scap_mil.disa.stig_comp_U_MS_Edge_V1R3_STIG_SCAP_1-2_Benchmark-cpe-oval.xml" timestamp="2023-08-21T12:47:02">
     <oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5">
       <generator>
         <oval:product_name>repotool</oval:product_name>
         <oval:schema_version>5.10</oval:schema_version>
-        <oval:timestamp>2021-10-06T11:10:31</oval:timestamp>
+        <oval:timestamp>2023-08-21T12:47:02</oval:timestamp>
       </generator>
       <definitions>
         <definition id="oval:mil.disa.stig.edge:def:1" version="2" class="inventory">
