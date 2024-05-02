@@ -12,7 +12,7 @@ MAKE_TARGETS_RHEL=(
 MAKE_TARGETS_OTHERS=(
   centos7-content
   centos8-content
-  centos9-content
+  cs9-content
   ol8-content
   ol9-content
 )
