@@ -2,7 +2,7 @@
 <oval-def:oval_definitions xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <oval-def:generator>
     <oval:product_name>Script combine_ovals.py from SCAP Security Guide</oval:product_name>
-    <oval:product_version>ssg: [0, 1, 71], python: 3.10.12</oval:product_version>
+    <oval:product_version>ssg: [0, 1, 72], python: 3.10.12</oval:product_version>
     <oval:schema_version>5.11</oval:schema_version>
     <oval:timestamp>2021-03-02T15:45:39</oval:timestamp>
   </oval-def:generator>
@@ -545,7 +545,7 @@
         <oval-def:criterion comment="The operating system installed on the system is OL" test_ref="oval:ssg-test_os_id_is_ol:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
-    <oval-def:definition id="oval:ssg-installed_OS_is_ol7_family:def:1" version="1" class="inventory">
+    <oval-def:definition id="oval:ssg-installed_OS_is_ol7:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Oracle Linux 7</oval-def:title>
         <oval-def:affected family="unix">
@@ -562,7 +562,7 @@
         </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
-    <oval-def:definition id="oval:ssg-installed_OS_is_ol8_family:def:1" version="1" class="inventory">
+    <oval-def:definition id="oval:ssg-installed_OS_is_ol8:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Oracle Linux 8</oval-def:title>
         <oval-def:affected family="unix">
@@ -579,7 +579,7 @@
         </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
-    <oval-def:definition id="oval:ssg-installed_OS_is_ol9_family:def:1" version="1" class="inventory">
+    <oval-def:definition id="oval:ssg-installed_OS_is_ol9:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Oracle Linux 9</oval-def:title>
         <oval-def:affected family="unix">
@@ -608,6 +608,18 @@
         <oval-def:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
         <oval-def:criterion comment="OpenEmbedded distro" test_ref="oval:ssg-test_os_openembedded:tst:1"/>
         <oval-def:criterion comment="OpenEmbedded is installed" test_ref="oval:ssg-test_openembedded:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_OS_is_openeuler2203:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>openEuler 22.03 LTS</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 7</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The operating system installed on the system is openEuler 22.03 LTS.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="openEuler 22.03 LTS is installed" test_ref="oval:ssg-test_openeuler2203_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-installed_OS_is_opensuse:def:1" version="1" class="inventory">
@@ -1204,6 +1216,19 @@
         </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition id="oval:ssg-os_linux_ol_gt_or_eq_8_7:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Operating System is ol</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 7</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The installed operating system is Oracle Linux</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="The operating system installed on the system is Oracle Linux" test_ref="oval:ssg-test_os_id_is_os_linux_ol_gt_or_eq_8_7:tst:1"/>
+        <oval-def:criterion comment="The operating system Oracle Linux of version greater than or equal 8.7 is installed" test_ref="oval:ssg-test_os_linux_ol_gt_or_eq_8_7_gt_or_eq_8_7:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition id="oval:ssg-os_linux_ol_gt_or_eq_9_0:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Operating System is ol</oval-def:title>
@@ -1215,6 +1240,19 @@
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="The operating system installed on the system is Oracle Linux" test_ref="oval:ssg-test_os_id_is_os_linux_ol_gt_or_eq_9_0:tst:1"/>
         <oval-def:criterion comment="The operating system Oracle Linux of version greater than or equal 9.0 is installed" test_ref="oval:ssg-test_os_linux_ol_gt_or_eq_9_0_gt_or_eq_9_0:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-os_linux_rhel_gt_or_eq_8_7:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Operating System is rhel</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 7</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The installed operating system is Red Hat Enterprise Linux</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="The operating system installed on the system is Red Hat Enterprise Linux" test_ref="oval:ssg-test_os_id_is_os_linux_rhel_gt_or_eq_8_7:tst:1"/>
+        <oval-def:criterion comment="The operating system Red Hat Enterprise Linux of version greater than or equal 8.7 is installed" test_ref="oval:ssg-test_os_linux_rhel_gt_or_eq_8_7_gt_or_eq_8_7:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-os_linux_rhel_gt_or_eq_9:def:1" version="1" class="inventory">
@@ -1282,6 +1320,43 @@
         <oval-def:criterion comment="The operating system Red Hat Enterprise Linux of version less than or equal 8.5 is installed" test_ref="oval:ssg-test_os_linux_rhel_le_or_eq_8_5_le_or_eq_8_5:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition id="oval:ssg-os_linux_rhel_ne_9_0:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Operating System is rhel</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 7</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The installed operating system is Red Hat Enterprise Linux</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="The operating system installed on the system is Red Hat Enterprise Linux" test_ref="oval:ssg-test_os_id_is_os_linux_rhel_ne_9_0:tst:1"/>
+        <oval-def:criterion comment="The operating system Red Hat Enterprise Linux of version not equal 9.0 is installed" test_ref="oval:ssg-test_os_linux_rhel_ne_9_0_ne_9_0:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_aide:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package aide is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 7</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package aide should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package aide is installed" test_ref="oval:ssg-inventory_test_package_aide_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_apport:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package apport is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 7</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package apport should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package apport is installed" test_ref="oval:ssg-inventory_test_package_apport_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_audit:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Package audit is installed</oval-def:title>
@@ -1292,6 +1367,30 @@
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="Platform package audit is installed" test_ref="oval:ssg-inventory_test_package_audit_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_autofs:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package autofs is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 7</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package autofs should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package autofs is installed" test_ref="oval:ssg-inventory_test_package_autofs_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_avahi:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package avahi is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 7</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package avahi should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package avahi is installed" test_ref="oval:ssg-inventory_test_package_avahi_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_bash:def:1" version="1" class="inventory">
@@ -1390,6 +1489,18 @@
         <oval-def:criterion comment="Platform package net-snmp is installed" test_ref="oval:ssg-inventory_test_package_net-snmp_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_networkmanager:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package NetworkManager is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 7</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package NetworkManager should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package NetworkManager is installed" test_ref="oval:ssg-inventory_test_package_networkmanager_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_nftables:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Package nftables is installed</oval-def:title>
@@ -1436,6 +1547,18 @@
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="Platform package pam is installed" test_ref="oval:ssg-inventory_test_package_pam_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_pam_apparmor:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package pam_apparmor is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 7</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package pam_apparmor should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package pam_apparmor is installed" test_ref="oval:ssg-inventory_test_package_pam_apparmor_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_polkit:def:1" version="1" class="inventory">
@@ -1486,6 +1609,30 @@
         <oval-def:criterion comment="Platform package shadow-utils is installed" test_ref="oval:ssg-inventory_test_package_shadow-utils_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_snmpd:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package net-snmp is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 7</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package net-snmp should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package net-snmp is installed" test_ref="oval:ssg-inventory_test_package_snmpd_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_squid:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package squid is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 7</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package squid should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package squid is installed" test_ref="oval:ssg-inventory_test_package_squid_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_sssd:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Package sssd-common is installed</oval-def:title>
@@ -1522,6 +1669,18 @@
         <oval-def:criterion comment="Platform package systemd is installed" test_ref="oval:ssg-inventory_test_package_systemd_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_telnet-server:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package telnet-server is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 7</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package telnet-server should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package telnet-server is installed" test_ref="oval:ssg-inventory_test_package_telnet-server_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_tftp-server:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Package tftp-server is installed</oval-def:title>
@@ -1534,6 +1693,18 @@
         <oval-def:criterion comment="Platform package tftp-server is installed" test_ref="oval:ssg-inventory_test_package_tftp-server_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_tmux:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package tmux is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 7</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package tmux should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package tmux is installed" test_ref="oval:ssg-inventory_test_package_tmux_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_ufw:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Package ufw is installed</oval-def:title>
@@ -1544,6 +1715,18 @@
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="Platform package ufw is installed" test_ref="oval:ssg-inventory_test_package_ufw_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_usbguard:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package usbguard is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 7</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package usbguard should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package usbguard is installed" test_ref="oval:ssg-inventory_test_package_usbguard_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_yum:def:1" version="1" class="inventory">
@@ -1737,6 +1920,10 @@
     <ind:textfilecontent54_test id="oval:ssg-test_openembedded:tst:1" version="1" check="all" comment="Check OpenEmbedded" state_operator="AND">
       <ind:object object_ref="oval:ssg-obj_openembedded:obj:1"/>
     </ind:textfilecontent54_test>
+    <linux:rpminfo_test id="oval:ssg-test_openeuler2203_installed:tst:1" version="1" check="all" comment="openEuler 22.03 LTS is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_openeuler2203_installed:obj:1"/>
+      <linux:state state_ref="oval:ssg-state_openeuler2203_installed:ste:1"/>
+    </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-test_opensuse_installed:tst:1" version="1" check="all" comment="openSUSE is installed" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_opensuse_installed:obj:1"/>
       <linux:state state_ref="oval:ssg-state_opensuse_installed:ste:1"/>
@@ -1988,6 +2175,14 @@
     <ind:textfilecontent54_test id="oval:ssg-test_mount_configured_fstab_var_exists:tst:1" version="1" check="all" comment="Mountpoint /var is configured" check_existence="all_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_mount_configured_fstab_var_exists:obj:1"/>
     </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_os_id_is_os_linux_ol_gt_or_eq_8_7:tst:1" version="1" check="all" comment="ID in os-release is ol" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_ol_gt_or_eq_8_7:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_ol_gt_or_eq_8_7:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_os_linux_ol_gt_or_eq_8_7_gt_or_eq_8_7:tst:1" version="1" check="all" comment="VERSION_ID in os-release is greater than or equal 8.7" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_os_linux_ol_gt_or_eq_8_7_gt_or_eq_8_7:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_linux_ol_gt_or_eq_8_7_gt_or_eq_8_7:ste:1"/>
+    </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_os_id_is_os_linux_ol_gt_or_eq_9_0:tst:1" version="1" check="all" comment="ID in os-release is ol" state_operator="AND">
       <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_ol_gt_or_eq_9_0:obj:1"/>
       <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_ol_gt_or_eq_9_0:ste:1"/>
@@ -1995,6 +2190,14 @@
     <ind:textfilecontent54_test id="oval:ssg-test_os_linux_ol_gt_or_eq_9_0_gt_or_eq_9_0:tst:1" version="1" check="all" comment="VERSION_ID in os-release is greater than or equal 9.0" state_operator="AND">
       <ind:object object_ref="oval:ssg-obj_os_linux_ol_gt_or_eq_9_0_gt_or_eq_9_0:obj:1"/>
       <ind:state state_ref="oval:ssg-state_os_linux_ol_gt_or_eq_9_0_gt_or_eq_9_0:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_os_id_is_os_linux_rhel_gt_or_eq_8_7:tst:1" version="1" check="all" comment="ID in os-release is rhel" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_rhel_gt_or_eq_8_7:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_rhel_gt_or_eq_8_7:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_os_linux_rhel_gt_or_eq_8_7_gt_or_eq_8_7:tst:1" version="1" check="all" comment="VERSION_ID in os-release is greater than or equal 8.7" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_os_linux_rhel_gt_or_eq_8_7_gt_or_eq_8_7:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_linux_rhel_gt_or_eq_8_7_gt_or_eq_8_7:ste:1"/>
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_os_id_is_os_linux_rhel_gt_or_eq_9:tst:1" version="1" check="all" comment="ID in os-release is rhel" state_operator="AND">
       <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_rhel_gt_or_eq_9:obj:1"/>
@@ -2036,8 +2239,28 @@
       <ind:object object_ref="oval:ssg-obj_os_linux_rhel_le_or_eq_8_5_le_or_eq_8_5:obj:1"/>
       <ind:state state_ref="oval:ssg-state_os_linux_rhel_le_or_eq_8_5_le_or_eq_8_5:ste:1"/>
     </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_os_id_is_os_linux_rhel_ne_9_0:tst:1" version="1" check="all" comment="ID in os-release is rhel" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_rhel_ne_9_0:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_rhel_ne_9_0:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_os_linux_rhel_ne_9_0_ne_9_0:tst:1" version="1" check="all" comment="VERSION_ID in os-release is not equal 9.0" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_os_linux_rhel_ne_9_0_ne_9_0:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_linux_rhel_ne_9_0_ne_9_0:ste:1"/>
+    </ind:textfilecontent54_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_aide_installed:tst:1" version="1" check="all" comment="package aide is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_aide_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_apport_installed:tst:1" version="1" check="all" comment="package apport is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_apport_installed:obj:1"/>
+    </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_audit_installed:tst:1" version="1" check="all" comment="package audit is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_audit_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_autofs_installed:tst:1" version="1" check="all" comment="package autofs is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_autofs_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_avahi_installed:tst:1" version="1" check="all" comment="package avahi is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_avahi_installed:obj:1"/>
     </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_bash_installed:tst:1" version="1" check="all" comment="package bash is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_bash_installed:obj:1"/>
@@ -2063,6 +2286,9 @@
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_net-snmp_installed:tst:1" version="1" check="all" comment="package net-snmp is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_net-snmp_installed:obj:1"/>
     </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_networkmanager_installed:tst:1" version="1" check="all" comment="package NetworkManager is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_networkmanager_installed:obj:1"/>
+    </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_nftables_installed:tst:1" version="1" check="all" comment="package nftables is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_nftables_installed:obj:1"/>
     </linux:rpminfo_test>
@@ -2074,6 +2300,9 @@
     </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_pam_installed:tst:1" version="1" check="all" comment="package pam is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_pam_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_pam_apparmor_installed:tst:1" version="1" check="all" comment="package pam_apparmor is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_pam_apparmor_installed:obj:1"/>
     </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_polkit_installed:tst:1" version="1" check="all" comment="package polkit is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_polkit_installed:obj:1"/>
@@ -2087,6 +2316,12 @@
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_shadow-utils_installed:tst:1" version="1" check="all" comment="package shadow-utils is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_shadow-utils_installed:obj:1"/>
     </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_snmpd_installed:tst:1" version="1" check="all" comment="package net-snmp is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_snmpd_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_squid_installed:tst:1" version="1" check="all" comment="package squid is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_squid_installed:obj:1"/>
+    </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_sssd_installed:tst:1" version="1" check="all" comment="package sssd-common is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_sssd_installed:obj:1"/>
     </linux:rpminfo_test>
@@ -2096,11 +2331,20 @@
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_systemd_installed:tst:1" version="1" check="all" comment="package systemd is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_systemd_installed:obj:1"/>
     </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_telnet-server_installed:tst:1" version="1" check="all" comment="package telnet-server is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_telnet-server_installed:obj:1"/>
+    </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_tftp-server_installed:tst:1" version="1" check="all" comment="package tftp-server is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_tftp-server_installed:obj:1"/>
     </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_tmux_installed:tst:1" version="1" check="all" comment="package tmux is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_tmux_installed:obj:1"/>
+    </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_ufw_installed:tst:1" version="1" check="all" comment="package ufw is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_ufw_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_usbguard_installed:tst:1" version="1" check="all" comment="package usbguard is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_usbguard_installed:obj:1"/>
     </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_yum_installed:tst:1" version="1" check="all" comment="package yum is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_yum_installed:obj:1"/>
@@ -2285,6 +2529,9 @@
       <ind:pattern operation="pattern match">^ID=nodistro$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
+    <linux:rpminfo_object id="oval:ssg-obj_openeuler2203_installed:obj:1" version="1">
+      <linux:name>openEuler-release</linux:name>
+    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_opensuse_installed:obj:1" version="1">
       <linux:name>openSUSE-release</linux:name>
     </linux:rpminfo_object>
@@ -2518,12 +2765,32 @@
       <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/var[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_ol_gt_or_eq_8_7:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_ol_gt_or_eq_8_7_gt_or_eq_8_7:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_ol_gt_or_eq_9_0:obj:1" version="1">
       <ind:filepath>/etc/os-release</ind:filepath>
       <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_ol_gt_or_eq_9_0_gt_or_eq_9_0:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_rhel_gt_or_eq_8_7:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_rhel_gt_or_eq_8_7_gt_or_eq_8_7:obj:1" version="1">
       <ind:filepath>/etc/os-release</ind:filepath>
       <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
@@ -2578,8 +2845,30 @@
       <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_rhel_ne_9_0:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_rhel_ne_9_0_ne_9_0:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_aide_installed:obj:1" version="1">
+      <linux:name>aide</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_apport_installed:obj:1" version="1">
+      <linux:name>apport</linux:name>
+    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_audit_installed:obj:1" version="1">
       <linux:name>audit</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_autofs_installed:obj:1" version="1">
+      <linux:name>autofs</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_avahi_installed:obj:1" version="1">
+      <linux:name>avahi</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_bash_installed:obj:1" version="1">
       <linux:name>bash</linux:name>
@@ -2605,6 +2894,9 @@
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_net-snmp_installed:obj:1" version="1">
       <linux:name>net-snmp</linux:name>
     </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_networkmanager_installed:obj:1" version="1">
+      <linux:name>NetworkManager</linux:name>
+    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_nftables_installed:obj:1" version="1">
       <linux:name>nftables</linux:name>
     </linux:rpminfo_object>
@@ -2616,6 +2908,9 @@
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_pam_installed:obj:1" version="1">
       <linux:name>pam</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_pam_apparmor_installed:obj:1" version="1">
+      <linux:name>pam_apparmor</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_polkit_installed:obj:1" version="1">
       <linux:name>polkit</linux:name>
@@ -2629,6 +2924,12 @@
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_shadow-utils_installed:obj:1" version="1">
       <linux:name>shadow-utils</linux:name>
     </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_snmpd_installed:obj:1" version="1">
+      <linux:name>net-snmp</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_squid_installed:obj:1" version="1">
+      <linux:name>squid</linux:name>
+    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_sssd_installed:obj:1" version="1">
       <linux:name>sssd-common</linux:name>
     </linux:rpminfo_object>
@@ -2638,11 +2939,20 @@
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_systemd_installed:obj:1" version="1">
       <linux:name>systemd</linux:name>
     </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_telnet-server_installed:obj:1" version="1">
+      <linux:name>telnet-server</linux:name>
+    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_tftp-server_installed:obj:1" version="1">
       <linux:name>tftp-server</linux:name>
     </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_tmux_installed:obj:1" version="1">
+      <linux:name>tmux</linux:name>
+    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_ufw_installed:obj:1" version="1">
       <linux:name>ufw</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_usbguard_installed:obj:1" version="1">
+      <linux:name>usbguard</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_yum_installed:obj:1" version="1">
       <linux:name>yum</linux:name>
@@ -2737,6 +3047,9 @@
     </linux:rpminfo_state>
     <linux:rpminfo_state id="oval:ssg-state_ol9_system:ste:1" version="1" operator="AND">
       <linux:version operation="pattern match">^9.*$</linux:version>
+    </linux:rpminfo_state>
+    <linux:rpminfo_state id="oval:ssg-state_openeuler2203_installed:ste:1" version="1" operator="AND">
+      <linux:version operation="pattern match">^22\.03.*$</linux:version>
     </linux:rpminfo_state>
     <linux:rpminfo_state id="oval:ssg-state_opensuse_installed:ste:1" version="1" operator="AND">
       <linux:name operation="pattern match">openSUSE-release</linux:name>
@@ -2870,11 +3183,23 @@
     <ind:textfilecontent54_state id="oval:ssg-state_grub2_ipv6_disable_argument:ste:1" version="1" operator="AND">
       <ind:subexpression datatype="int" operation="equals">0</ind:subexpression>
     </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_ol_gt_or_eq_8_7:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="pattern match">ol</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_linux_ol_gt_or_eq_8_7_gt_or_eq_8_7:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="greater than or equal" datatype="version">8.7</ind:subexpression>
+    </ind:textfilecontent54_state>
     <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_ol_gt_or_eq_9_0:ste:1" version="1" operator="AND">
       <ind:subexpression operation="pattern match">ol</ind:subexpression>
     </ind:textfilecontent54_state>
     <ind:textfilecontent54_state id="oval:ssg-state_os_linux_ol_gt_or_eq_9_0_gt_or_eq_9_0:ste:1" version="1" operator="AND">
       <ind:subexpression operation="greater than or equal" datatype="version">9.0</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_rhel_gt_or_eq_8_7:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="pattern match">rhel</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_linux_rhel_gt_or_eq_8_7_gt_or_eq_8_7:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="greater than or equal" datatype="version">8.7</ind:subexpression>
     </ind:textfilecontent54_state>
     <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_rhel_gt_or_eq_9:ste:1" version="1" operator="AND">
       <ind:subexpression operation="pattern match">rhel</ind:subexpression>
@@ -2905,6 +3230,12 @@
     </ind:textfilecontent54_state>
     <ind:textfilecontent54_state id="oval:ssg-state_os_linux_rhel_le_or_eq_8_5_le_or_eq_8_5:ste:1" version="1" operator="AND">
       <ind:subexpression operation="less than or equal" datatype="version">8.5</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_rhel_ne_9_0:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="pattern match">rhel</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_linux_rhel_ne_9_0_ne_9_0:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="not equal" datatype="version">9.0</ind:subexpression>
     </ind:textfilecontent54_state>
     <linux:systemdunitproperty_state id="oval:ssg-state_service_not_running_service_disabled_firewalld_firewalld:ste:1" version="1" operator="AND" comment="firewalld is not running">
       <linux:value operation="pattern match">inactive|failed</linux:value>

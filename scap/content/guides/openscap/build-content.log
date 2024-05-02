@@ -1,9 +1,10 @@
 Cloning into '/tmp/ComplianceAsCode/content'...
+Updating files:  11% (1300/11534)Updating files:  12% (1385/11534)Updating files:  13% (1500/11534)Updating files:  14% (1615/11534)Updating files:  15% (1731/11534)Updating files:  16% (1846/11534)Updating files:  17% (1961/11534)Updating files:  18% (2077/11534)Updating files:  19% (2192/11534)Updating files:  20% (2307/11534)Updating files:  21% (2423/11534)Updating files:  22% (2538/11534)Updating files:  23% (2653/11534)Updating files:  23% (2658/11534)Updating files:  24% (2769/11534)Updating files:  25% (2884/11534)Updating files:  26% (2999/11534)Updating files:  27% (3115/11534)Updating files:  28% (3230/11534)Updating files:  29% (3345/11534)Updating files:  30% (3461/11534)Updating files:  31% (3576/11534)Updating files:  32% (3691/11534)Updating files:  33% (3807/11534)Updating files:  33% (3912/11534)Updating files:  34% (3922/11534)Updating files:  35% (4037/11534)Updating files:  36% (4153/11534)Updating files:  37% (4268/11534)Updating files:  38% (4383/11534)Updating files:  39% (4499/11534)Updating files:  40% (4614/11534)Updating files:  41% (4729/11534)Updating files:  42% (4845/11534)Updating files:  43% (4960/11534)Updating files:  44% (5075/11534)Updating files:  45% (5191/11534)Updating files:  46% (5306/11534)Updating files:  46% (5320/11534)Updating files:  47% (5421/11534)Updating files:  48% (5537/11534)Updating files:  49% (5652/11534)Updating files:  50% (5767/11534)Updating files:  51% (5883/11534)Updating files:  52% (5998/11534)Updating files:  53% (6114/11534)Updating files:  54% (6229/11534)Updating files:  55% (6344/11534)Updating files:  56% (6460/11534)Updating files:  57% (6575/11534)Updating files:  58% (6690/11534)Updating files:  58% (6782/11534)Updating files:  59% (6806/11534)Updating files:  60% (6921/11534)Updating files:  61% (7036/11534)Updating files:  62% (7152/11534)Updating files:  63% (7267/11534)Updating files:  64% (7382/11534)Updating files:  65% (7498/11534)Updating files:  66% (7613/11534)Updating files:  67% (7728/11534)Updating files:  68% (7844/11534)Updating files:  69% (7959/11534)Updating files:  70% (8074/11534)Updating files:  70% (8081/11534)Updating files:  71% (8190/11534)Updating files:  72% (8305/11534)Updating files:  73% (8420/11534)Updating files:  74% (8536/11534)Updating files:  75% (8651/11534)Updating files:  76% (8766/11534)Updating files:  77% (8882/11534)Updating files:  78% (8997/11534)Updating files:  79% (9112/11534)Updating files:  80% (9228/11534)Updating files:  81% (9343/11534)Updating files:  82% (9458/11534)Updating files:  83% (9574/11534)Updating files:  83% (9647/11534)Updating files:  84% (9689/11534)Updating files:  85% (9804/11534)Updating files:  86% (9920/11534)Updating files:  87% (10035/11534)Updating files:  88% (10150/11534)Updating files:  89% (10266/11534)Updating files:  90% (10381/11534)Updating files:  91% (10496/11534)Updating files:  92% (10612/11534)Updating files:  92% (10720/11534)Updating files:  93% (10727/11534)Updating files:  94% (10842/11534)Updating files:  95% (10958/11534)Updating files:  96% (11073/11534)Updating files:  97% (11188/11534)Updating files:  98% (11304/11534)Updating files:  99% (11419/11534)Updating files: 100% (11534/11534)Updating files: 100% (11534/11534), done.
 /tmp/ComplianceAsCode/content /
 
-Tag to build: v0.1.71
+Tag to build: v0.1.72
 
-Note: switching to 'v0.1.71'.
+Note: switching to 'v0.1.72'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
@@ -20,7 +21,7 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-HEAD is now at 459f0abf2a Merge pull request #11353 from vojtapolasek/remove_obsolete_packages_from_pcidss_stabilizaton
+HEAD is now at 7fb44f78bf Merge pull request #11538 from marcusburghardt/sysctl_fqcn_stab
 
 Ensuring ssg content includes required profiles: C2S stig
 -- Profile C2S was not found. C2S will be added to standard_profiles.
@@ -30,7 +31,7 @@ Done adding profiles...
 Building ssg xml content...
 
 -- Setting build type to 'Release' as none was specified.
--- SCAP Security Guide 0.1.71
+-- SCAP Security Guide 0.1.72
 -- (see /tmp/ComplianceAsCode/content/docs/manual/developer_guide.adoc for build instructions)
 -- 
 -- Found PythonInterp: /usr/bin/python3 (found version "3.10.12") 
@@ -50,14 +51,16 @@ Building ssg xml content...
 -- Could NOT find PY_sphinx_rtd_theme (missing: PY_SPHINX_RTD_THEME) 
 -- Could NOT find PY_myst_parser (missing: PY_MYST_PARSER) 
 -- Could NOT find PY_prometheus_client (missing: PY_PROMETHEUS_CLIENT) 
-CMake Warning at CMakeLists.txt:178 (message):
+-- Could NOT find PY_trestle (missing: PY_TRESTLE) 
+-- Could NOT find PY_requests (missing: PY_REQUESTS) 
+CMake Warning at CMakeLists.txt:183 (message):
   Won't build OCP4 content as it requires an OpenSCAP version with OCP4
   support.  See also:
   https://github.com/ComplianceAsCode/content/issues/6798.  n.b.: if 1.3.4
   fails to build OCP4 content, please update to 1.3.5
 
 
-CMake Warning at CMakeLists.txt:185 (message):
+CMake Warning at CMakeLists.txt:190 (message):
   Won't build EKS content as it requires an OpenSCAP version with EKS
   support.  See also:
   https://github.com/ComplianceAsCode/content/issues/6798.  n.b.: if 1.3.4
@@ -97,6 +100,7 @@ CMake Warning at CMakeLists.txt:185 (message):
 -- python pcre2 module (optional): 
 -- python lxml module (optional): 
 -- python prometheus-client module (optional): 
+-- python compliance-trestle module (optional): 
 --  
 -- Build options:
 -- SSG vendor string: ssgproject
@@ -133,6 +137,7 @@ CMake Warning at CMakeLists.txt:185 (message):
 -- Oracle Linux 7: ON
 -- Oracle Linux 8: ON
 -- Oracle Linux 9: ON
+-- openEuler 22.03 LTS: ON
 -- openSUSE: ON
 -- RHEL 7: ON
 -- RHEL 8: ON
@@ -162,6 +167,7 @@ CMake Warning at CMakeLists.txt:185 (message):
 -- Scanning for dependencies of ol7 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
 -- Scanning for dependencies of ol8 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
 -- Scanning for dependencies of ol9 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Scanning for dependencies of openeuler2203 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
 -- Scanning for dependencies of opensuse fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
 -- Scanning for dependencies of rhel7 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
 -- Scanning for dependencies of rhel8 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
@@ -178,57 +184,90 @@ CMake Warning at CMakeLists.txt:185 (message):
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /tmp/ComplianceAsCode/content/build
-[1/30] [rhel8-content] generating sce/metadata.json
-[2/30] [rhel7-content] generating sce/metadata.json
-[3/30] [rhel7-content] compiling product yaml
-[4/30] [rhel8-content] compiling product yaml
-[5/30] [rhel7-content] compiling everything
-[6/30] [rhel8-content] compiling everything
-[7/30] Generating ../tables/tables-rhel7-all.html
-[8/30] Generating ../tables/tables-rhel8-all.html
-[9/30] [rhel7-content] generating templated content
-[10/30] [rhel7-content] generating cpe-oval-unlinked.xml
-[11/30] [rhel8-content] generating templated content
-[12/30] [rhel8-content] generating oval-unlinked.xml
-[13/30] [rhel7-content] generating oval-unlinked.xml
-[14/30] [rhel8-content] generating cpe-oval-unlinked.xml
-[15/30] [rhel7-content] collecting all fixes
-[16/30] [rhel8-content] collecting all fixes
-[17/30] [rhel7-content] generating plain XCCDF, OVAL and OCIL files
-[18/30] [rhel7-content] generating ssg-rhel7-ocil.xml
-[19/30] [rhel7-content] generating ssg-rhel7-oval.xml
-[20/30] [rhel7-content] generating ssg-rhel7-xccdf.xml
-[21/30] [rhel7-content] generating ssg-rhel7-cpe-dictionary.xml, ssg-rhel7-cpe-oval.xml
-[22/30] [rhel8-content] generating plain XCCDF, OVAL and OCIL files
-[23/30] [rhel8-content] generating ssg-rhel8-ocil.xml
-[24/30] [rhel8-content] generating ssg-rhel8-oval.xml
-[25/30] [rhel8-content] generating ssg-rhel8-xccdf.xml
-[26/30] [rhel7-content] Updating data stream ssg-rhel7-ds.xml to 1.3
-[27/30] [rhel8-content] generating ssg-rhel8-cpe-dictionary.xml, ssg-rhel8-cpe-oval.xml
-[28/30] [rhel8-content] Updating data stream ssg-rhel8-ds.xml to 1.3
-[29/30] [rhel7-content] generating JSON manifest
-[30/30] [rhel8-content] generating JSON manifest
-[1/21] [ol8-content] generating sce/metadata.json
-[2/21] [ol8-content] compiling product yaml
-[3/21] [centos7-content] generating ssg-centos7-xccdf.xml
-[4/21] [centos8-content] generating ssg-centos8-xccdf.xml
-[5/21] [centos7-content] generating ssg-centos7-ds-1.2.xml
-[6/21] [centos7-content] generating ssg-centos7-ds.xml
-[7/21] [centos8-content] generating ssg-centos8-ds.xml
-[8/21] [centos8-content] generating ssg-centos8-ds-1.2.xml
-[9/21] [ol8-content] compiling everything
-[10/21] Generating ../tables/tables-ol8-all.html
-[11/21] [ol8-content] generating templated content
-[12/21] [ol8-content] generating cpe-oval-unlinked.xml
-[13/21] [ol8-content] generating oval-unlinked.xml
-[14/21] [ol8-content] collecting all fixes
-[15/21] [ol8-content] generating plain XCCDF, OVAL and OCIL files
-[16/21] [ol8-content] generating ssg-ol8-ocil.xml
-[17/21] [ol8-content] generating ssg-ol8-oval.xml
-[18/21] [ol8-content] generating ssg-ol8-xccdf.xml
-[19/21] [ol8-content] generating ssg-ol8-cpe-dictionary.xml, ssg-ol8-cpe-oval.xml
-[20/21] [ol8-content] Updating data stream ssg-ol8-ds.xml to 1.3
-[21/21] [ol8-content] generating JSON manifest
+[1/45] [rhel7-content] generating sce/metadata.json
+[2/45] [rhel8-content] generating sce/metadata.json
+[3/45] [rhel9-content] generating sce/metadata.json
+[4/45] [rhel9-content] compiling product yaml
+[5/45] [rhel7-content] compiling product yaml
+[6/45] [rhel8-content] compiling product yaml
+[7/45] [rhel9-content] compiling everything
+[8/45] [rhel7-content] compiling everything
+[9/45] [rhel8-content] compiling everything
+[10/45] Generating ../tables/tables-rhel9-all.html
+[11/45] Generating ../tables/tables-rhel7-all.html
+[12/45] Generating ../tables/tables-rhel8-all.html
+[13/45] [rhel9-content] generating templated content
+[14/45] [rhel7-content] generating templated content
+[15/45] [rhel8-content] generating templated content
+[16/45] [rhel9-content] generating oval-unlinked.xml
+[17/45] [rhel7-content] generating cpe-oval-unlinked.xml
+[18/45] [rhel7-content] generating oval-unlinked.xml
+[19/45] [rhel7-content] collecting all fixes
+[20/45] [rhel9-content] collecting all fixes
+[21/45] [rhel8-content] generating cpe-oval-unlinked.xml
+[22/45] [rhel8-content] generating oval-unlinked.xml
+[23/45] [rhel9-content] generating cpe-oval-unlinked.xml
+[24/45] [rhel8-content] collecting all fixes
+[25/45] [rhel7-content] generating plain XCCDF, OVAL and OCIL files
+[26/45] [rhel7-content] generating ssg-rhel7-ocil.xml
+[27/45] [rhel7-content] generating ssg-rhel7-oval.xml
+[28/45] [rhel7-content] generating ssg-rhel7-xccdf.xml
+[29/45] [rhel9-content] generating plain XCCDF, OVAL and OCIL files
+[30/45] [rhel9-content] generating ssg-rhel9-ocil.xml
+[31/45] [rhel9-content] generating ssg-rhel9-oval.xml
+[32/45] [rhel7-content] generating ssg-rhel7-cpe-dictionary.xml, ssg-rhel7-cpe-oval.xml
+[33/45] [rhel9-content] generating ssg-rhel9-xccdf.xml
+[34/45] [rhel9-content] generating ssg-rhel9-cpe-dictionary.xml, ssg-rhel9-cpe-oval.xml
+[35/45] [rhel7-content] Updating data stream ssg-rhel7-ds.xml to 1.3
+[36/45] [rhel9-content] Updating data stream ssg-rhel9-ds.xml to 1.3
+[37/45] [rhel7-content] generating JSON manifest
+[38/45] [rhel9-content] generating JSON manifest
+[39/45] [rhel8-content] generating plain XCCDF, OVAL and OCIL files
+[40/45] [rhel8-content] generating ssg-rhel8-ocil.xml
+[41/45] [rhel8-content] generating ssg-rhel8-oval.xml
+[42/45] [rhel8-content] generating ssg-rhel8-xccdf.xml
+[43/45] [rhel8-content] generating ssg-rhel8-cpe-dictionary.xml, ssg-rhel8-cpe-oval.xml
+[44/45] [rhel8-content] Updating data stream ssg-rhel8-ds.xml to 1.3
+[45/45] [rhel8-content] generating JSON manifest
+[1/39] [ol8-content] generating sce/metadata.json
+[2/39] [ol9-content] generating sce/metadata.json
+[3/39] [ol8-content] compiling product yaml
+[4/39] [ol9-content] compiling product yaml
+[5/39] [centos7-content] generating ssg-centos7-xccdf.xml
+[6/39] [centos7-content] generating ssg-centos7-ds.xml
+[7/39] [centos7-content] generating ssg-centos7-ds-1.2.xml
+[8/39] [centos8-content] generating ssg-centos8-xccdf.xml
+[9/39] [centos8-content] generating ssg-centos8-ds.xml
+[10/39] [centos8-content] generating ssg-centos8-ds-1.2.xml
+[11/39] [cs9-content] generating ssg-cs9-xccdf.xml
+[12/39] [cs9-content] generating ssg-cs9-ds.xml
+[13/39] [cs9-content] generating ssg-cs9-ds-1.2.xml
+[14/39] [ol8-content] compiling everything
+[15/39] [ol9-content] compiling everything
+[16/39] Generating ../tables/tables-ol8-all.html
+[17/39] Generating ../tables/tables-ol9-all.html
+[18/39] [ol8-content] generating templated content
+[19/39] [ol9-content] generating templated content
+[20/39] [ol8-content] generating cpe-oval-unlinked.xml
+[21/39] [ol8-content] generating oval-unlinked.xml
+[22/39] [ol9-content] generating cpe-oval-unlinked.xml
+[23/39] [ol9-content] generating oval-unlinked.xml
+[24/39] [ol8-content] collecting all fixes
+[25/39] [ol9-content] collecting all fixes
+[26/39] [ol9-content] generating plain XCCDF, OVAL and OCIL files
+[27/39] [ol9-content] generating ssg-ol9-ocil.xml
+[28/39] [ol9-content] generating ssg-ol9-oval.xml
+[29/39] [ol9-content] generating ssg-ol9-xccdf.xml
+[30/39] [ol8-content] generating plain XCCDF, OVAL and OCIL files
+[31/39] [ol8-content] generating ssg-ol8-ocil.xml
+[32/39] [ol8-content] generating ssg-ol8-oval.xml
+[33/39] [ol9-content] generating ssg-ol9-cpe-dictionary.xml, ssg-ol9-cpe-oval.xml
+[34/39] [ol8-content] generating ssg-ol8-xccdf.xml
+[35/39] [ol8-content] generating ssg-ol8-cpe-dictionary.xml, ssg-ol8-cpe-oval.xml
+[36/39] [ol9-content] Updating data stream ssg-ol9-ds.xml to 1.3
+[37/39] [ol8-content] Updating data stream ssg-ol8-ds.xml to 1.3
+[38/39] [ol9-content] generating JSON manifest
+[39/39] [ol8-content] generating JSON manifest
 
 Done building content!
 /
