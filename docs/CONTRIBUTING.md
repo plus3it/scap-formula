@@ -81,7 +81,7 @@ To set up the `scap-formula` content for local modifications:
     * If the `make` command fails, executing `bash ./scripts/build_in_docker.sh`
         from the root of your local repository can be substituted
 
-    This will result in output similar to the [linked log-file](docs/build-log_example.txt)
+    This will result in output similar to the [linked log-file](build-log_example.txt)
 
 1. If the preceding step succeeds, submit a PR containing both your
    content-modifications and the fruits of the build-actions
