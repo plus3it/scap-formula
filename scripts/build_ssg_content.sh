@@ -4,8 +4,18 @@ set -e
 # Set vars
 REPO=https://github.com/ComplianceAsCode/content.git
 PROFILES=( C2S stig )
-MAKE_TARGETS_RHEL=( rhel7-content rhel8-content )
-MAKE_TARGETS_OTHERS=( centos7-content centos8-content ol8-content )
+MAKE_TARGETS_RHEL=(
+  rhel7-content
+  rhel8-content
+  rhel9-content
+)
+MAKE_TARGETS_OTHERS=(
+  centos7-content
+  centos8-content
+  cs9-content
+  ol8-content
+  ol9-content
+)
 TMPDIR="${TMPDIR:-/tmp}"
 BUILD_DIR="${TMPDIR}/ComplianceAsCode/content"
 DIST_DIR="${TMPDIR}/dist"
