@@ -117,3 +117,7 @@ scap:
         # a scap scan using scc.
         - disa/stig-el6
 ```
+
+# Contributions
+
+See the [contribution-guide](docs/CONTRIBUTING.md) for instructions on how to update this project's contents
