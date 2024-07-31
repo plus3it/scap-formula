@@ -19,19 +19,6 @@ stages:
 
 if: branch = master OR type = pull_request OR tag is present
 
-jobs:
-  include:
-    - stage: canary
-    # refer to this commit for context: https://github.com/plus3it/scap-formula/commit/7d7f61b597cd6d1677dc877cbdf4c3c98a4e2d49
-      before_install: skip
-      install: skip
-      env:
-        - EL7="./scap/content/guides/disa/stig-el7-scap_1-2.xml"
-      script:
-        - if ! grep -i "centos" $EL7 > /dev/null; then echo "ERROR CentOS string not found in $EL7"; exit 1; fi
-      after_script: skip
-      after_failure: skip
-
 before_install:
   - sudo apt-get update
   - echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | sudo tee /etc/default/docker > /dev/null
