@@ -5,7 +5,6 @@ set -e
 REPO=https://github.com/ComplianceAsCode/content.git
 PROFILES=( C2S stig )
 MAKE_TARGETS_RHEL=(
-  rhel7-content
   rhel8-content
   rhel9-content
 )
