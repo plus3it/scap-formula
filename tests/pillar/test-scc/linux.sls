@@ -26,6 +26,5 @@ scap:
         # List of path-patterns relative to content.source. These patterns will
         # be matched by globbing '*' to the end, and every match will result in
         # a scap scan using scc.
-        - disa/stig-el7
         - disa/stig-el8
         - disa/stig-ol8
