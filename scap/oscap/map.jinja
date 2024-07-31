@@ -3,15 +3,21 @@
 {%- set osrel = salt.grains.get('osmajorrelease') %}
 
 {%- set os = salt.grains.filter_by({
-    'AlmaLinux': 'cs',
+    'AlmaLinux': salt.grains.filter_by({
+        8: 'centos',
+        9: 'cs',
+    }, grain='osmajorrelease'),
     'CentOS': 'centos',
     'CentOS Stream': salt.grains.filter_by({
-      8: 'centos',
-      9: 'cs',
+        8: 'centos',
+        9: 'cs',
     }, grain='osmajorrelease'),
     'OEL': 'ol',
     'RedHat': 'rhel',
-    'Rocky': 'cs',
+    'Rocky': salt.grains.filter_by({
+        8: 'centos',
+        9: 'cs',
+    }, grain='osmajorrelease'),
 }, grain='os') %}
 
 {#- Initialize oscap dictionary with defaults and pillar data #}
