@@ -28,3 +28,5 @@ scap:
         # a scap scan using scc.
         - disa/stig-el8
         - disa/stig-ol8
+        - disa/stig-el9
+        - disa/stig-ol9

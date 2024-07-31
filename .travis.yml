@@ -10,6 +10,8 @@ env:
   matrix:
     - OS_VERSION=8 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-scc
     - OS_VERSION=8 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-oscap
+    - OS_VERSION=9 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-scc
+    - OS_VERSION=9 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-oscap
 
 stages:
   - canary
