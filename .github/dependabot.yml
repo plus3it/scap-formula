@@ -8,3 +8,6 @@ updates:
   directory: "/scripts"
   schedule:
     interval: monthly
+  ignore:
+    - dependency-name: "ubuntu"
+      update-types: ["version-update:semver-major"]
