@@ -6,7 +6,7 @@ install scc:
   pkg.installed:
     - name: {{ scc.name }}
 {%- if scc.version %}
-    - version: {{ scc.version }}
+    - version: '{{ scc.version }}'
 {%- endif %}
 {%- if scc.pkg %}
     - sources:

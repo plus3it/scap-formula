@@ -6,7 +6,7 @@
     with 'base', and merged with the pillar dictionary 'scap:lookup:scc'.
 -#}
 
-{%- set version = salt.pillar.get('scap:lookup:scc:version', '') -%}
+{%- set version = salt.pillar.get('scap:lookup:scc:version', '') | string -%}
 
 {%- set scc = salt.grains.filter_by({
     'base': {
