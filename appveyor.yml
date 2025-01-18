@@ -6,7 +6,7 @@ environment:
   global:
     SALT_FILEROOT: '%APPVEYOR_BUILD_FOLDER%'
     SALT_STATE: scap.scan
-    SALT_URL: https://repo.saltproject.io/windows/Salt-Minion-3004.2-1-Py3-AMD64-Setup.exe
+    SALT_URL: https://packages.broadcom.com/artifactory/saltproject-generic/windows/3006.6/Salt-Minion-3006.6-Py3-AMD64-Setup.exe
   matrix:
     - SALT_PILLARROOT: '%APPVEYOR_BUILD_FOLDER%\tests\pillar\test-scc'
 
@@ -22,29 +22,24 @@ install:
       $null = `
         Start-Process -FilePath "${env:temp}\salt-minion.exe" `
         -ArgumentList @("/S", "/install-dir=c:\salt") -NoNewWindow -PassThru -Wait
-  - ps: C:\salt\salt-call.bat --versions-report
+  - ps: C:\salt\salt-call.exe --versions-report
 
 test_script:
   - ps: |
-      C:\salt\salt-call.bat --local --retcode-passthrough `
+      C:\salt\salt-call.exe --local --retcode-passthrough `
         --log-file-level debug `
         --file-root="${env:SALT_FILEROOT}" `
         --pillar-root="${env:SALT_PILLARROOT}" `
         state.show_sls `
         "${env:SALT_STATE}"
   - ps: |
-      C:\salt\salt-call.bat --local --retcode-passthrough `
+      C:\salt\salt-call.exe --local --retcode-passthrough `
         --log-file-level debug `
         --file-root="${env:SALT_FILEROOT}" `
         --pillar-root="${env:SALT_PILLARROOT}" `
         state.sls `
         "${env:SALT_STATE}" `
         mock=True
-
-on_failure:
-  - ps: C:\salt\salt-call.bat --local grains.items
-  - ps: dir "env:"
-  - ps: get-content C:\salt\var\log\salt\*
 
 notifications:
   - provider: Email
