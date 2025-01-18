@@ -22,4 +22,4 @@ jobs:
     steps:
       # Keep these sorted alphabetically by <user>/<repo>, separated by an empty line
 
-      - uses: ComplianceAsCode/content@v0.1.72
+      - uses: ComplianceAsCode/content@v0.1.75
