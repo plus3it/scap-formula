@@ -4,7 +4,6 @@ language: shell
 env:
   global:
     - SALT_STATE=scap.scan
-    - SALT_VERSION=3006
   matrix:
     - OS_VERSION=8 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-scc
     - OS_VERSION=8 SALT_PILLARROOT=$TRAVIS_BUILD_DIR/tests/pillar/test-oscap
@@ -25,8 +24,8 @@ install:
   - sudo docker run --detach --privileged
       --volume="${TRAVIS_BUILD_DIR}":"${TRAVIS_BUILD_DIR}":ro
       --name alma-${OS_VERSION} local/alma:${OS_VERSION} init
-  - sudo docker exec alma-${OS_VERSION} rpm --import https://repo.saltproject.io/salt/py3/redhat/${OS_VERSION}/x86_64/${SALT_VERSION}/SALT-PROJECT-GPG-PUBKEY-2023.pub
-  - sudo docker exec alma-${OS_VERSION} curl -sSL -o /etc/yum.repos.d/salt.repo https://repo.saltproject.io/salt/py3/redhat/${OS_VERSION}/x86_64/${SALT_VERSION}.repo
+  - sudo docker exec alma-${OS_VERSION} rpm --import https://packages.broadcom.com/artifactory/api/security/keypair/SaltProjectKey/public
+  - sudo docker exec alma-${OS_VERSION} curl -sSL -o /etc/yum.repos.d/salt.repo https://github.com/saltstack/salt-install-guide/releases/download/v1.3.2/salt.repo
   - sudo docker exec alma-${OS_VERSION} yum -y install salt-minion util-linux-ng
   - sudo docker exec alma-${OS_VERSION} salt-call --versions-report
 
