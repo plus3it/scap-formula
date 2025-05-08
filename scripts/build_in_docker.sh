@@ -1,3 +1,4 @@
+#!/bin/bash
 set -eu -o pipefail
 
 SCRIPT_DIR="${BASH_SOURCE[0]}"

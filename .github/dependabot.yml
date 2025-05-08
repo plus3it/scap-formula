@@ -1,15 +1,15 @@
 version: 2
 updates:
-- package-ecosystem: github-actions
-  directory: "/"
-  schedule:
-    interval: monthly
-- package-ecosystem: docker
-  directory: "/scripts"
-  schedule:
-    interval: monthly
-  ignore:
-    - dependency-name: "ubuntu"
-      update-types:
-        - "version-update:semver-major"
-        - "version-update:semver-minor"
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+  - package-ecosystem: docker
+    directory: "/scripts"
+    schedule:
+      interval: monthly
+    ignore:
+      - dependency-name: "ubuntu"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
