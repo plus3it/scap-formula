@@ -2,7 +2,7 @@
 <oval-def:oval_definitions xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <oval-def:generator>
     <oval:product_name>build_cpe.py from SCAP Security Guide</oval:product_name>
-    <oval:product_version>ssg: [0, 1, 75], python: 3.10.12</oval:product_version>
+    <oval:product_version>ssg: [0, 1, 76], python: 3.10.12</oval:product_version>
     <oval:schema_version>5.11</oval:schema_version>
     <oval:timestamp>2021-03-02T15:45:39</oval:timestamp>
   </oval-def:generator>
@@ -19,6 +19,7 @@
         <oval-def:criterion comment="kernel is installed" test_ref="oval:ssg-bootc_platform_test_kernel_installed:tst:1"/>
         <oval-def:criterion comment="rpm-ostree is installed" test_ref="oval:ssg-bootc_platform_test_rpm_ostree_installed:tst:1"/>
         <oval-def:criterion comment="bootc is installed" test_ref="oval:ssg-bootc_platform_test_bootc_installed:tst:1"/>
+        <oval-def:criterion comment="openshift-kubelet is not installed" test_ref="oval:ssg-bootc_platform_test_openshift_kubelet_removed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-installed_env_has_grub2_package:def:1" version="1" class="inventory">
@@ -138,7 +139,7 @@
         <oval-def:affected family="unix">
           <oval-def:platform>Oracle Linux 8</oval-def:platform>
         </oval-def:affected>
-        <oval-def:description>Check that architecture of kernel in /proc/sys/kernel/osrelease is aarch64</oval-def:description>
+        <oval-def:description>Check that architecture of kernel in /proc/sys/kernel is aarch64</oval-def:description>
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="Architecture is aarch64" test_ref="oval:ssg-test_proc_sys_kernel_osrelease_arch_aarch64:tst:1"/>
@@ -162,7 +163,7 @@
         <oval-def:affected family="unix">
           <oval-def:platform>Oracle Linux 8</oval-def:platform>
         </oval-def:affected>
-        <oval-def:description>Check that architecture of kernel in /proc/sys/kernel/osrelease is ppc64le</oval-def:description>
+        <oval-def:description>Check that architecture of kernel in /proc/sys/kernel is ppc64le</oval-def:description>
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="Architecture is ppc64le" test_ref="oval:ssg-test_proc_sys_kernel_osrelease_arch_ppc64le:tst:1"/>
@@ -174,7 +175,7 @@
         <oval-def:affected family="unix">
           <oval-def:platform>Oracle Linux 8</oval-def:platform>
         </oval-def:affected>
-        <oval-def:description>Check that architecture of kernel in /proc/sys/kernel/osrelease is s390x</oval-def:description>
+        <oval-def:description>Check that architecture of kernel in /proc/sys/kernel is s390x</oval-def:description>
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="Architecture is s390x" test_ref="oval:ssg-test_proc_sys_kernel_osrelease_arch_s390x:tst:1"/>
@@ -186,7 +187,7 @@
         <oval-def:affected family="unix">
           <oval-def:platform>Oracle Linux 8</oval-def:platform>
         </oval-def:affected>
-        <oval-def:description>Check that architecture of kernel in /proc/sys/kernel/osrelease is x86_64</oval-def:description>
+        <oval-def:description>Check that architecture of kernel in /proc/sys/kernel is x86_64</oval-def:description>
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="Architecture is x86_64" test_ref="oval:ssg-test_proc_sys_kernel_osrelease_arch_x86_64:tst:1"/>
@@ -280,8 +281,9 @@
         </oval-def:affected>
         <oval-def:description>The kernel is installed</oval-def:description>
       </oval-def:metadata>
-      <oval-def:criteria operator="AND">
+      <oval-def:criteria operator="OR">
         <oval-def:criterion comment="kernel is installed" test_ref="oval:ssg-inventory_test_kernel_installed:tst:1"/>
+        <oval-def:criterion comment="kernel-uek is installed" test_ref="oval:ssg-inventory_test_kernel_uek_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-installed_OS_is_ol8:def:1" version="1" class="inventory">
@@ -580,18 +582,6 @@
         <oval-def:criterion comment="The operating system Red Hat Enterprise Linux of version not equal 9.0 is installed" test_ref="oval:ssg-test_os_linux_rhel_ne_9_0_ne_9_0:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
-    <oval-def:definition id="oval:ssg-package_apparmor:def:1" version="1" class="inventory">
-      <oval-def:metadata>
-        <oval-def:title>Package apparmor is installed</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>Oracle Linux 8</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:description>The RPM package apparmor should be installed.</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="AND">
-        <oval-def:criterion comment="Platform package apparmor is installed" test_ref="oval:ssg-inventory_test_package_apparmor_installed:tst:1"/>
-      </oval-def:criteria>
-    </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_audit:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Package audit is installed</oval-def:title>
@@ -832,6 +822,18 @@
         <oval-def:criterion comment="Platform package rsh-server is installed" test_ref="oval:ssg-inventory_test_package_rsh-server_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_rsyslog:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package rsyslog is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Oracle Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package rsyslog should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package rsyslog is installed" test_ref="oval:ssg-inventory_test_package_rsyslog_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_shadow-utils:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Package shadow-utils is installed</oval-def:title>
@@ -1051,6 +1053,9 @@
     <linux:rpminfo_test id="oval:ssg-bootc_platform_test_bootc_installed:tst:1" version="1" check="all" comment="package bootc is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_bootc_platform_test_bootc_installed:obj:1"/>
     </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-bootc_platform_test_openshift_kubelet_removed:tst:1" version="1" check="all" comment="package openshift-kubelet is removed" check_existence="none_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_bootc_platform_test_openshift_kubelet_removed:obj:1"/>
+    </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-test_env_has_grub2_installed:tst:1" version="1" check="all" comment="system has package grub2-common installed" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_env_has_grub2_installed:obj:1"/>
     </linux:rpminfo_test>
@@ -1081,21 +1086,17 @@
     <ind:textfilecontent54_test id="oval:ssg-test_nfs_mount_exists:tst:1" version="1" check="all" comment="at least one nfs is defined" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_nfs_mount_defined:obj:1"/>
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_proc_sys_kernel_osrelease_arch_aarch64:tst:1" version="1" check="all" comment="proc_sys_kernel is for aarch64 architecture" check_existence="all_exist" state_operator="AND">
+    <ind:textfilecontent54_test id="oval:ssg-test_proc_sys_kernel_osrelease_arch_aarch64:tst:1" version="1" check="all" comment="proc_sys_kernel is for aarch64 architecture" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_proc_sys_kernel_osrelease_arch_aarch64:obj:1"/>
-      <ind:state state_ref="oval:ssg-state_proc_sys_kernel_osrelease_arch_aarch64:ste:1"/>
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_proc_sys_kernel_osrelease_arch_ppc64le:tst:1" version="1" check="all" comment="proc_sys_kernel is for ppc64le architecture" check_existence="all_exist" state_operator="AND">
+    <ind:textfilecontent54_test id="oval:ssg-test_proc_sys_kernel_osrelease_arch_ppc64le:tst:1" version="1" check="all" comment="proc_sys_kernel is for ppc64le architecture" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_proc_sys_kernel_osrelease_arch_ppc64le:obj:1"/>
-      <ind:state state_ref="oval:ssg-state_proc_sys_kernel_osrelease_arch_ppc64le:ste:1"/>
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_proc_sys_kernel_osrelease_arch_s390x:tst:1" version="1" check="all" comment="proc_sys_kernel is for s390x architecture" check_existence="all_exist" state_operator="AND">
+    <ind:textfilecontent54_test id="oval:ssg-test_proc_sys_kernel_osrelease_arch_s390x:tst:1" version="1" check="all" comment="proc_sys_kernel is for s390x architecture" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_proc_sys_kernel_osrelease_arch_s390x:obj:1"/>
-      <ind:state state_ref="oval:ssg-state_proc_sys_kernel_osrelease_arch_s390x:ste:1"/>
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_proc_sys_kernel_osrelease_arch_x86_64:tst:1" version="1" check="all" comment="proc_sys_kernel is for x86_64 architecture" check_existence="all_exist" state_operator="AND">
+    <ind:textfilecontent54_test id="oval:ssg-test_proc_sys_kernel_osrelease_arch_x86_64:tst:1" version="1" check="all" comment="proc_sys_kernel is for x86_64 architecture" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_proc_sys_kernel_osrelease_arch_x86_64:obj:1"/>
-      <ind:state state_ref="oval:ssg-state_proc_sys_kernel_osrelease_arch_x86_64:ste:1"/>
     </ind:textfilecontent54_test>
     <unix:sysctl_test id="oval:ssg-test_runtime_kernel_fips_enabled:tst:1" version="1" check="all" comment="kernel runtime parameter crypto.fips_enabled set to 1" check_existence="all_exist" state_operator="AND">
       <unix:object object_ref="oval:ssg-obj_runtime_kernel_fips_enabled:obj:1"/>
@@ -1120,6 +1121,9 @@
     </unix:file_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_kernel_installed:tst:1" version="1" check="all" comment="package kernel is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_kernel_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_kernel_uek_installed:tst:1" version="1" check="all" comment="package kernel-uek is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_kernel_uek_installed:obj:1"/>
     </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-test_ol8_system:tst:1" version="1" check="all" comment="oraclelinux-release is version 8" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_ol8_system:obj:1"/>
@@ -1252,9 +1256,6 @@
       <ind:object object_ref="oval:ssg-obj_os_linux_rhel_ne_9_0_ne_9_0:obj:1"/>
       <ind:state state_ref="oval:ssg-state_os_linux_rhel_ne_9_0_ne_9_0:ste:1"/>
     </ind:textfilecontent54_test>
-    <linux:rpminfo_test id="oval:ssg-inventory_test_package_apparmor_installed:tst:1" version="1" check="all" comment="package apparmor is installed" check_existence="all_exist" state_operator="AND">
-      <linux:object object_ref="oval:ssg-obj_inventory_test_package_apparmor_installed:obj:1"/>
-    </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_audit_installed:tst:1" version="1" check="all" comment="package audit is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_audit_installed:obj:1"/>
     </linux:rpminfo_test>
@@ -1314,6 +1315,9 @@
     </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_rsh-server_installed:tst:1" version="1" check="all" comment="package rsh-server is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_rsh-server_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_rsyslog_installed:tst:1" version="1" check="all" comment="package rsyslog is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_rsyslog_installed:obj:1"/>
     </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_shadow-utils_installed:tst:1" version="1" check="all" comment="package shadow-utils is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_shadow-utils_installed:obj:1"/>
@@ -1406,6 +1410,9 @@
     <linux:rpminfo_object id="oval:ssg-obj_bootc_platform_test_bootc_installed:obj:1" version="1">
       <linux:name>bootc</linux:name>
     </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_bootc_platform_test_openshift_kubelet_removed:obj:1" version="1">
+      <linux:name>openshift-kubelet</linux:name>
+    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_env_has_grub2_installed:obj:1" version="1">
       <linux:name>grub2-common</linux:name>
     </linux:rpminfo_object>
@@ -1434,23 +1441,23 @@
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_proc_sys_kernel_osrelease_arch_aarch64:obj:1" version="1">
-      <ind:filepath>/proc/sys/kernel/osrelease</ind:filepath>
-      <ind:pattern operation="pattern match">^.*\.(.*)$</ind:pattern>
+      <ind:filepath operation="pattern match">/proc/sys/kernel/(osrelease|arch)</ind:filepath>
+      <ind:pattern operation="pattern match">^.*\.aarch64$|^aarch64$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_proc_sys_kernel_osrelease_arch_ppc64le:obj:1" version="1">
-      <ind:filepath>/proc/sys/kernel/osrelease</ind:filepath>
-      <ind:pattern operation="pattern match">^.*\.(.*)$</ind:pattern>
+      <ind:filepath operation="pattern match">/proc/sys/kernel/(osrelease|arch)</ind:filepath>
+      <ind:pattern operation="pattern match">^.*\.ppc64le$|^ppc64le$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_proc_sys_kernel_osrelease_arch_s390x:obj:1" version="1">
-      <ind:filepath>/proc/sys/kernel/osrelease</ind:filepath>
-      <ind:pattern operation="pattern match">^.*\.(.*)$</ind:pattern>
+      <ind:filepath operation="pattern match">/proc/sys/kernel/(osrelease|arch)</ind:filepath>
+      <ind:pattern operation="pattern match">^.*\.s390x$|^s390x$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_proc_sys_kernel_osrelease_arch_x86_64:obj:1" version="1">
-      <ind:filepath>/proc/sys/kernel/osrelease</ind:filepath>
-      <ind:pattern operation="pattern match">^.*\.(.*)$</ind:pattern>
+      <ind:filepath operation="pattern match">/proc/sys/kernel/(osrelease|arch)</ind:filepath>
+      <ind:pattern operation="pattern match">^.*\.x86_64$|^x86_64$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
     <unix:sysctl_object id="oval:ssg-obj_runtime_kernel_fips_enabled:obj:1" version="1">
@@ -1480,6 +1487,9 @@
     </unix:file_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_kernel_installed:obj:1" version="1">
       <linux:name>kernel</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_kernel_uek_installed:obj:1" version="1">
+      <linux:name>kernel-uek</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_ol8_system:obj:1" version="1">
       <linux:name>oraclelinux-release</linux:name>
@@ -1634,9 +1644,6 @@
       <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_apparmor_installed:obj:1" version="1">
-      <linux:name>apparmor</linux:name>
-    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_audit_installed:obj:1" version="1">
       <linux:name>audit</linux:name>
     </linux:rpminfo_object>
@@ -1696,6 +1703,9 @@
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_rsh-server_installed:obj:1" version="1">
       <linux:name>rsh-server</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_rsyslog_installed:obj:1" version="1">
+      <linux:name>rsyslog</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_shadow-utils_installed:obj:1" version="1">
       <linux:name>shadow-utils</linux:name>
@@ -1788,18 +1798,6 @@
     <linux:rpminfo_state id="oval:ssg-state_krb5_workstation_version_1_17_18:ste:1" version="1" operator="AND">
       <linux:evr datatype="evr_string" operation="less than">0:1.17-18</linux:evr>
     </linux:rpminfo_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_proc_sys_kernel_osrelease_arch_aarch64:ste:1" version="1" operator="AND">
-      <ind:subexpression datatype="string" operation="pattern match">^aarch64$</ind:subexpression>
-    </ind:textfilecontent54_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_proc_sys_kernel_osrelease_arch_ppc64le:ste:1" version="1" operator="AND">
-      <ind:subexpression datatype="string" operation="pattern match">^ppc64le$</ind:subexpression>
-    </ind:textfilecontent54_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_proc_sys_kernel_osrelease_arch_s390x:ste:1" version="1" operator="AND">
-      <ind:subexpression datatype="string" operation="pattern match">^s390x$</ind:subexpression>
-    </ind:textfilecontent54_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_proc_sys_kernel_osrelease_arch_x86_64:ste:1" version="1" operator="AND">
-      <ind:subexpression datatype="string" operation="pattern match">^x86_64$</ind:subexpression>
-    </ind:textfilecontent54_state>
     <unix:sysctl_state id="oval:ssg-state_runtime_kernel_fips_enabled:ste:1" version="1" operator="AND">
       <unix:value datatype="int" operation="equals">1</unix:value>
     </unix:sysctl_state>

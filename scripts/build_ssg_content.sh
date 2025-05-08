@@ -8,9 +8,12 @@ MAKE_TARGETS_RHEL=(
   rhel8-content
   rhel9-content
 )
-MAKE_TARGETS_OTHERS=(
+MAKE_TARGETS_DERIVATIVES=(
   centos8-content
   cs9-content
+)
+MAKE_TARGETS_OTHERS=(
+  almalinux9-content
   ol8-content
   ol9-content
 )
@@ -42,11 +45,26 @@ ssg_constants="${BUILD_DIR}/ssg/constants.py"
 for profile in "${PROFILES[@]}"
 do
   if grep -e 'standard_profiles' "$ssg_constants" | grep -e \'"$profile"\'; then
-    echo "-- Profile $profile already exists.  Will not be added."
+    echo "-- Profile '$profile' already exists.  Will not be added."
   else
-    echo "-- Profile $profile was not found. $profile will be added to standard_profiles."
+    echo "-- Profile '$profile' was not found. Profile '$profile' will be added to standard_profiles..."
     sed -i '/standard_profiles = \[/ s/]/,\ '\'"$profile"\''&/' "$ssg_constants"
   fi
+
+  for target in "${MAKE_TARGETS_OTHERS[@]//-content/}"
+  do
+    elver="${target: -1}"
+    if [[ -e "${BUILD_DIR}/products/${target}/profiles/${profile}.profile" ]]
+    then
+      echo "-- Profile '$profile' already exists for target '$target'. Will not be added..."
+    elif [[ -e "${BUILD_DIR}/products/rhel${elver}/profiles/${profile}.profile" ]]
+    then
+      echo "-- Profile '$profile' was found for 'rhel${elver}'. Adding profile '$profile' to target '${target}'..."
+      cp -n "${BUILD_DIR}/products/rhel${elver}/profiles/${profile}.profile" "${BUILD_DIR}/products/${target}/profiles/${profile}.profile"
+    else
+      echo "-- Profile '$profile' does not exist for 'rhel${elver}'. Skipping target '${target}'..."
+    fi
+  done
 done
 echo "Done adding profiles..."
 echo
@@ -61,8 +79,9 @@ cd build
 
 cmake -G Ninja -DSSG_TARGET_OVAL_MINOR_VERSION:STRING=11 ../
 
-# Build RHEL first to generate dependencies for CentOS and Oracle Linux
+# Build RHEL first to generate dependencies for CentOS and Other targets
 ninja -j 4 "${MAKE_TARGETS_RHEL[@]}"
+ninja -j 4 "${MAKE_TARGETS_DERIVATIVES[@]}"
 ninja -j 4 "${MAKE_TARGETS_OTHERS[@]}"
 
 cp ./*-ds.xml ./*-xccdf.xml ./*-oval.xml ./*-cpe-dictionary.xml ./*-ocil.xml "$DIST_DIR"
