@@ -25,7 +25,7 @@ jobs:
       salt-pillar-root: ${{ matrix.salt_pillar_root }}
 
   windows:
-    uses: plus3it/actions-workflows/.github/workflows/test-salt-windows.yml@8dbdaec548e7ccadb978c6a2fbc05e5c64625935
+    uses: lorengordon/actions-workflows/.github/workflows/test-salt-windows.yml@390b0e345b2e9cd476cfd0b636c69e40ff25a44d
     strategy:
       matrix:
         os_version:
