@@ -15,6 +15,7 @@ MAKE_TARGETS_DERIVATIVES=(
   cs10-content
 )
 MAKE_TARGETS_OTHERS=(
+  al2023-content
   almalinux9-content
   ol8-content
   ol9-content

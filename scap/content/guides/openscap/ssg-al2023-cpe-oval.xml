@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="utf-8"?>
+<oval-def:oval_definitions xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
+  <oval-def:generator>
+    <oval:product_name>build_cpe.py from SCAP Security Guide</oval:product_name>
+    <oval:product_version>ssg: [0, 1, 77], python: 3.10.12</oval:product_version>
+    <oval:schema_version>5.11</oval:schema_version>
+    <oval:timestamp>2021-03-02T15:45:39</oval:timestamp>
+  </oval-def:generator>
+  <oval-def:definitions>
+    <oval-def:definition id="oval:ssg-bootc:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title/>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>Bootable container or bootc system</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="kernel is installed" test_ref="oval:ssg-bootc_platform_test_kernel_installed:tst:1"/>
+        <oval-def:criterion comment="rpm-ostree is installed" test_ref="oval:ssg-bootc_platform_test_rpm_ostree_installed:tst:1"/>
+        <oval-def:criterion comment="bootc is installed" test_ref="oval:ssg-bootc_platform_test_bootc_installed:tst:1"/>
+        <oval-def:criterion comment="openshift-kubelet is not installed" test_ref="oval:ssg-bootc_platform_test_openshift_kubelet_removed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_env_has_grub2_package:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package grub2 is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="cpe:/a:grub2" source="CPE"/>
+        <oval-def:description>Checks if package grub2-common is installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Package grub2-common is installed" test_ref="oval:ssg-test_env_has_grub2_installed:tst:1"/>
+        <oval-def:criteria operator="OR">
+          <oval-def:criterion negate="true" comment="Test for ppcle64 architecture" test_ref="oval:ssg-test_system_info_architecture_ppcle_64:tst:1"/>
+          <oval-def:criterion negate="true" comment="Test if OPAL is not used" test_ref="oval:ssg-test_system_using_opal:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_env_is_a_container:def:1" version="2" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Check if the scan target is a container</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="cpe:/a:container" source="CPE"/>
+        <oval-def:description>Check for presence of files characterizing container filesystems.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criterion comment="Check if /.dockerenv exists" test_ref="oval:ssg-test_installed_env_is_a_docker_container:tst:1"/>
+        <oval-def:criterion comment="Check if /run/.containerenv exists" test_ref="oval:ssg-test_installed_env_is_a_podman_container:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-proc_sys_kernel_osrelease_arch_aarch64:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Test that the architecture is aarch64</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>Check that architecture of kernel in /proc/sys/kernel is aarch64</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Architecture is aarch64" test_ref="oval:ssg-test_proc_sys_kernel_osrelease_arch_aarch64:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-proc_sys_kernel_osrelease_arch_s390x:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Test that the architecture is s390x</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>Check that architecture of kernel in /proc/sys/kernel is s390x</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Architecture is s390x" test_ref="oval:ssg-test_proc_sys_kernel_osrelease_arch_s390x:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-system_boot_mode_is_non_uefi:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Non-UEFI system boot mode check</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="cpe:/a:non-uefi" source="CPE"/>
+        <oval-def:description>Check if System boot mode is non-UEFI.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:extend_definition negate="true" comment="Pass if System boot mode is non-UEFI" definition_ref="oval:ssg-system_boot_mode_is_uefi:def:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-system_boot_mode_is_uefi:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>UEFI system boot mode check</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="cpe:/a:uefi" source="CPE"/>
+        <oval-def:description>Check if system boot mode is UEFI.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="check if /sys/firmware/efi folder exists" test_ref="oval:ssg-test_efi_dir_existence:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-system_with_kernel:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title/>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The kernel is installed</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criterion comment="kernel is installed" test_ref="oval:ssg-inventory_test_kernel_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_OS_is_al2023:def:1" version="2" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Amazon Linux 2023</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="cpe:/o:amazon:amazon_linux:2023" source="CPE"/>
+        <oval-def:description>The operating system installed on the system is Amazon Linux 2023</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1"/>
+        <oval-def:criterion comment="OS is Amazon Linux 2023" test_ref="oval:ssg-test_al2023_name:tst:1"/>
+        <oval-def:criterion comment="OS version is 2023" test_ref="oval:ssg-test_al2023_version:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_OS_is_part_of_Unix_family:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Installed operating system is part of the Unix family</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The operating system installed on the system is part of the Unix OS family</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Installed operating system is part of the unix family" test_ref="oval:ssg-test_unix_family:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-ipv6_enabled:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>IPv6 is enabled on system</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criterion comment="check if ipv6.disable argument is correct in GRUB_CMDLINE_LINUX" test_ref="oval:ssg-test_grub2_ipv6_disable_is_correct:tst:1"/>
+        <oval-def:criterion comment="check if ipv6.disable parameter is defined in /etc/default/grub" test_ref="oval:ssg-test_grub2_ipv6_disable_is_absent:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_env_mount_home:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /home is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /home is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_home_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /home is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_home_exists:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_env_mount_tmp:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /tmp is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /tmp is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_tmp_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /tmp is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_tmp_exists:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_env_mount_var-log-audit:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /var/log/audit is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /var/log/audit is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_var_log_audit_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /var/log/audit is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_var_log_audit_exists:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_env_mount_var-log:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /var/log is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /var/log is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_var_log_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /var/log is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_var_log_exists:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_env_mount_var-tmp:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /var/tmp is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /var/tmp is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_var_tmp_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /var/tmp is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_var_tmp_exists:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_env_mount_var:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /var is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /var is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_var_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /var is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_var_exists:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_audit:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package audit is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package audit should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package audit is installed" test_ref="oval:ssg-inventory_test_package_audit_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_bash:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package bash is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package bash should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package bash is installed" test_ref="oval:ssg-inventory_test_package_bash_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_chrony:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package chrony is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package chrony should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package chrony is installed" test_ref="oval:ssg-inventory_test_package_chrony_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_dnf:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package dnf is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package dnf should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package dnf is installed" test_ref="oval:ssg-inventory_test_package_dnf_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_firewalld:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package firewalld is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package firewalld should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package firewalld is installed" test_ref="oval:ssg-inventory_test_package_firewalld_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_libpwquality:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package libpwquality is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package libpwquality should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package libpwquality is installed" test_ref="oval:ssg-inventory_test_package_libpwquality_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_nftables:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package nftables is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package nftables should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package nftables is installed" test_ref="oval:ssg-inventory_test_package_nftables_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_pam:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package pam is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package pam should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package pam is installed" test_ref="oval:ssg-inventory_test_package_pam_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_postfix:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package postfix is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package postfix should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package postfix is installed" test_ref="oval:ssg-inventory_test_package_postfix_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_rsh-server:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package rsh-server is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package rsh-server should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package rsh-server is installed" test_ref="oval:ssg-inventory_test_package_rsh-server_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_rsyslog:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package rsyslog is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package rsyslog should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package rsyslog is installed" test_ref="oval:ssg-inventory_test_package_rsyslog_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_shadow-utils:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package shadow-utils is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package shadow-utils should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package shadow-utils is installed" test_ref="oval:ssg-inventory_test_package_shadow-utils_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_snmpd:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package net-snmp is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package net-snmp should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package net-snmp is installed" test_ref="oval:ssg-inventory_test_package_snmpd_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_sudo:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package sudo is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package sudo should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package sudo is installed" test_ref="oval:ssg-inventory_test_package_sudo_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_systemd:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package systemd is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package systemd should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package systemd is installed" test_ref="oval:ssg-inventory_test_package_systemd_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-service_disabled_iptables:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>The iptables is disabled on the system</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The iptables service should be disabled.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria comment="package iptables removed or service iptables is not configured to start" operator="OR">
+        <oval-def:criterion comment="iptables removed" test_ref="oval:ssg-service_disabled_iptablestest_service_iptables_package_iptables_removed:tst:1"/>
+        <oval-def:criteria comment="service iptables is not configured to start" operator="AND">
+          <oval-def:criterion comment="iptables is not running" test_ref="oval:ssg-test_service_not_running_service_disabled_iptables_iptables:tst:1"/>
+          <oval-def:criterion comment="Property LoadState of service iptables is masked" test_ref="oval:ssg-test_service_loadstate_is_masked_service_disabled_iptables_iptables:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-service_disabled_ufw:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>The ufw is disabled on the system</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The ufw service should be disabled.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria comment="package ufw removed or service ufw is not configured to start" operator="OR">
+        <oval-def:criterion comment="ufw removed" test_ref="oval:ssg-service_disabled_ufwtest_service_ufw_package_ufw_removed:tst:1"/>
+        <oval-def:criteria comment="service ufw is not configured to start" operator="AND">
+          <oval-def:criterion comment="ufw is not running" test_ref="oval:ssg-test_service_not_running_service_disabled_ufw_ufw:tst:1"/>
+          <oval-def:criterion comment="Property LoadState of service ufw is masked" test_ref="oval:ssg-test_service_loadstate_is_masked_service_disabled_ufw_ufw:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+  </oval-def:definitions>
+  <oval-def:tests>
+    <linux:rpminfo_test id="oval:ssg-bootc_platform_test_kernel_installed:tst:1" version="1" check="all" comment="package kernel is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_bootc_platform_test_kernel_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-bootc_platform_test_rpm_ostree_installed:tst:1" version="1" check="all" comment="package rpm-ostree is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_bootc_platform_test_rpm_ostree_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-bootc_platform_test_bootc_installed:tst:1" version="1" check="all" comment="package bootc is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_bootc_platform_test_bootc_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-bootc_platform_test_openshift_kubelet_removed:tst:1" version="1" check="all" comment="package openshift-kubelet is removed" check_existence="none_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_bootc_platform_test_openshift_kubelet_removed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-test_env_has_grub2_installed:tst:1" version="1" check="all" comment="system has package grub2-common installed" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_env_has_grub2_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <unix:file_test id="oval:ssg-test_system_using_opal:tst:1" version="1" check="all" comment="Check if /sys/firmware/opal exists" check_existence="all_exist" state_operator="AND">
+      <unix:object object_ref="oval:ssg-object_system_using_opal:obj:1"/>
+    </unix:file_test>
+    <unix:file_test id="oval:ssg-test_installed_env_is_a_docker_container:tst:1" version="1" check="all" comment="Check if /.dockerenv exists" check_existence="all_exist" state_operator="AND">
+      <unix:object object_ref="oval:ssg-object_installed_env_is_a_docker_container:obj:1"/>
+    </unix:file_test>
+    <unix:file_test id="oval:ssg-test_installed_env_is_a_podman_container:tst:1" version="1" check="all" comment="Check if /run/.containerenv exists" check_existence="all_exist" state_operator="AND">
+      <unix:object object_ref="oval:ssg-object_installed_env_is_a_podman_container:obj:1"/>
+    </unix:file_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_proc_sys_kernel_osrelease_arch_aarch64:tst:1" version="1" check="all" comment="proc_sys_kernel is for aarch64 architecture" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_proc_sys_kernel_osrelease_arch_aarch64:obj:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_proc_sys_kernel_osrelease_arch_s390x:tst:1" version="1" check="all" comment="proc_sys_kernel is for s390x architecture" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_proc_sys_kernel_osrelease_arch_s390x:obj:1"/>
+    </ind:textfilecontent54_test>
+    <unix:file_test id="oval:ssg-test_efi_dir_existence:tst:1" version="1" check="all" comment="Verify if /sys/firmware/efi folder exists" state_operator="AND">
+      <unix:object object_ref="oval:ssg-object_file_sys_firmware_efi:obj:1"/>
+    </unix:file_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_kernel_installed:tst:1" version="1" check="all" comment="package kernel is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_kernel_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_al2023_name:tst:1" version="1" check="all" comment="Check os-release ID" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_name_al2023:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_name_al2023:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_al2023_version:tst:1" version="1" check="all" comment="Check os-release VERSION_ID" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_version_al2023:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_version_al2023:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:family_test id="oval:ssg-test_unix_family:tst:1" version="1" check="all" comment="Test installed OS is part of the unix family" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_unix_family:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_unix_family:ste:1"/>
+    </ind:family_test>
+    <unix:uname_test id="oval:ssg-test_system_info_architecture_ppcle_64:tst:1" version="1" check="all" comment="64 bit architecture" state_operator="AND">
+      <unix:object object_ref="oval:ssg-object_system_info_architecture_ppcle_64:obj:1"/>
+      <unix:state state_ref="oval:ssg-state_system_info_architecture_ppcle_64:ste:1"/>
+    </unix:uname_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_grub2_ipv6_disable_is_correct:tst:1" version="1" check="all" comment="check GRUB_CMDLINE_LINUX parameters in /etc/default/grub" check_existence="all_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_grub2_ipv6_disable_parameter:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_grub2_ipv6_disable_argument:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_grub2_ipv6_disable_is_absent:tst:1" version="1" check="all" comment="ipv6.disable is not defined in /etc/default/grub" check_existence="none_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_grub2_ipv6_disable_parameter:obj:1"/>
+    </ind:textfilecontent54_test>
+    <linux:partition_test id="oval:ssg-test_mount_active_home_exists:tst:1" version="1" check="all" comment="Mountpoint /home exists" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-object_mount_active_home_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_mount_configured_fstab_home_exists:tst:1" version="1" check="all" comment="Mountpoint /home is configured" check_existence="all_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_home_exists:obj:1"/>
+    </ind:textfilecontent54_test>
+    <linux:partition_test id="oval:ssg-test_mount_active_tmp_exists:tst:1" version="1" check="all" comment="Mountpoint /tmp exists" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-object_mount_active_tmp_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_mount_configured_fstab_tmp_exists:tst:1" version="1" check="all" comment="Mountpoint /tmp is configured" check_existence="all_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_tmp_exists:obj:1"/>
+    </ind:textfilecontent54_test>
+    <linux:partition_test id="oval:ssg-test_mount_active_var_log_audit_exists:tst:1" version="1" check="all" comment="Mountpoint /var/log/audit exists" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-object_mount_active_var_log_audit_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_mount_configured_fstab_var_log_audit_exists:tst:1" version="1" check="all" comment="Mountpoint /var/log/audit is configured" check_existence="all_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_var_log_audit_exists:obj:1"/>
+    </ind:textfilecontent54_test>
+    <linux:partition_test id="oval:ssg-test_mount_active_var_log_exists:tst:1" version="1" check="all" comment="Mountpoint /var/log exists" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-object_mount_active_var_log_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_mount_configured_fstab_var_log_exists:tst:1" version="1" check="all" comment="Mountpoint /var/log is configured" check_existence="all_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_var_log_exists:obj:1"/>
+    </ind:textfilecontent54_test>
+    <linux:partition_test id="oval:ssg-test_mount_active_var_tmp_exists:tst:1" version="1" check="all" comment="Mountpoint /var/tmp exists" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-object_mount_active_var_tmp_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_mount_configured_fstab_var_tmp_exists:tst:1" version="1" check="all" comment="Mountpoint /var/tmp is configured" check_existence="all_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_var_tmp_exists:obj:1"/>
+    </ind:textfilecontent54_test>
+    <linux:partition_test id="oval:ssg-test_mount_active_var_exists:tst:1" version="1" check="all" comment="Mountpoint /var exists" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-object_mount_active_var_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_mount_configured_fstab_var_exists:tst:1" version="1" check="all" comment="Mountpoint /var is configured" check_existence="all_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_var_exists:obj:1"/>
+    </ind:textfilecontent54_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_audit_installed:tst:1" version="1" check="all" comment="package audit is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_audit_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_bash_installed:tst:1" version="1" check="all" comment="package bash is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_bash_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_chrony_installed:tst:1" version="1" check="all" comment="package chrony is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_chrony_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_dnf_installed:tst:1" version="1" check="all" comment="package dnf is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_dnf_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_firewalld_installed:tst:1" version="1" check="all" comment="package firewalld is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_firewalld_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_libpwquality_installed:tst:1" version="1" check="all" comment="package libpwquality is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_libpwquality_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_nftables_installed:tst:1" version="1" check="all" comment="package nftables is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_nftables_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_pam_installed:tst:1" version="1" check="all" comment="package pam is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_pam_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_postfix_installed:tst:1" version="1" check="all" comment="package postfix is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_postfix_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_rsh-server_installed:tst:1" version="1" check="all" comment="package rsh-server is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_rsh-server_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_rsyslog_installed:tst:1" version="1" check="all" comment="package rsyslog is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_rsyslog_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_shadow-utils_installed:tst:1" version="1" check="all" comment="package shadow-utils is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_shadow-utils_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_snmpd_installed:tst:1" version="1" check="all" comment="package net-snmp is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_snmpd_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_sudo_installed:tst:1" version="1" check="all" comment="package sudo is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_sudo_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_systemd_installed:tst:1" version="1" check="all" comment="package systemd is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_systemd_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:systemdunitproperty_test id="oval:ssg-test_service_not_running_service_disabled_iptables_iptables:tst:1" version="1" check="all" comment="Test that the iptables service is not running" check_existence="any_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_service_not_running_service_disabled_iptables_iptables:obj:1"/>
+      <linux:state state_ref="oval:ssg-state_service_not_running_service_disabled_iptables_iptables:ste:1"/>
+    </linux:systemdunitproperty_test>
+    <linux:systemdunitproperty_test id="oval:ssg-test_service_loadstate_is_masked_service_disabled_iptables_iptables:tst:1" version="1" check="all" comment="Test that the property LoadState from the service iptables is masked" check_existence="any_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_service_loadstate_is_masked_service_disabled_iptables_iptables:obj:1"/>
+      <linux:state state_ref="oval:ssg-state_service_loadstate_is_masked_service_disabled_iptables_iptables:ste:1"/>
+    </linux:systemdunitproperty_test>
+    <linux:rpminfo_test id="oval:ssg-service_disabled_iptablestest_service_iptables_package_iptables_removed:tst:1" version="1" check="all" comment="package iptables is removed" check_existence="none_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_service_disabled_iptablestest_service_iptables_package_iptables_removed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:systemdunitproperty_test id="oval:ssg-test_service_not_running_service_disabled_ufw_ufw:tst:1" version="1" check="all" comment="Test that the ufw service is not running" check_existence="any_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_service_not_running_service_disabled_ufw_ufw:obj:1"/>
+      <linux:state state_ref="oval:ssg-state_service_not_running_service_disabled_ufw_ufw:ste:1"/>
+    </linux:systemdunitproperty_test>
+    <linux:systemdunitproperty_test id="oval:ssg-test_service_loadstate_is_masked_service_disabled_ufw_ufw:tst:1" version="1" check="all" comment="Test that the property LoadState from the service ufw is masked" check_existence="any_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_service_loadstate_is_masked_service_disabled_ufw_ufw:obj:1"/>
+      <linux:state state_ref="oval:ssg-state_service_loadstate_is_masked_service_disabled_ufw_ufw:ste:1"/>
+    </linux:systemdunitproperty_test>
+    <linux:rpminfo_test id="oval:ssg-service_disabled_ufwtest_service_ufw_package_ufw_removed:tst:1" version="1" check="all" comment="package ufw is removed" check_existence="none_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_service_disabled_ufwtest_service_ufw_package_ufw_removed:obj:1"/>
+    </linux:rpminfo_test>
+  </oval-def:tests>
+  <oval-def:objects>
+    <linux:rpminfo_object id="oval:ssg-obj_bootc_platform_test_kernel_installed:obj:1" version="1">
+      <linux:name>kernel</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_bootc_platform_test_rpm_ostree_installed:obj:1" version="1">
+      <linux:name>rpm-ostree</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_bootc_platform_test_bootc_installed:obj:1" version="1">
+      <linux:name>bootc</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_bootc_platform_test_openshift_kubelet_removed:obj:1" version="1">
+      <linux:name>openshift-kubelet</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_env_has_grub2_installed:obj:1" version="1">
+      <linux:name>grub2-common</linux:name>
+    </linux:rpminfo_object>
+    <unix:file_object id="oval:ssg-object_system_using_opal:obj:1" version="1">
+      <unix:filepath>/sys/firmware/opal</unix:filepath>
+    </unix:file_object>
+    <unix:file_object id="oval:ssg-object_installed_env_is_a_docker_container:obj:1" version="1" comment="Check file /.dockerenv">
+      <unix:filepath datatype="string">/.dockerenv</unix:filepath>
+    </unix:file_object>
+    <unix:file_object id="oval:ssg-object_installed_env_is_a_podman_container:obj:1" version="1" comment="Check file /run/.containerenv">
+      <unix:filepath datatype="string">/run/.containerenv</unix:filepath>
+    </unix:file_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_proc_sys_kernel_osrelease_arch_aarch64:obj:1" version="1">
+      <ind:filepath operation="pattern match">^/proc/sys/kernel/(osrelease|arch)</ind:filepath>
+      <ind:pattern operation="pattern match">^.*\.aarch64$|^aarch64$</ind:pattern>
+      <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_proc_sys_kernel_osrelease_arch_s390x:obj:1" version="1">
+      <ind:filepath operation="pattern match">^/proc/sys/kernel/(osrelease|arch)</ind:filepath>
+      <ind:pattern operation="pattern match">^.*\.s390x$|^s390x$</ind:pattern>
+      <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <unix:file_object id="oval:ssg-object_file_sys_firmware_efi:obj:1" version="1" comment="/sys/firmware/efi">
+      <unix:path>/sys/firmware/efi</unix:path>
+      <unix:filename xsi:nil="true"/>
+    </unix:file_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_kernel_installed:obj:1" version="1">
+      <linux:name>kernel</linux:name>
+    </linux:rpminfo_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_name_al2023:obj:1" version="1" comment="Check os-release ID">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=\"(\w+)\"$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_version_al2023:obj:1" version="1" comment="Check os-release VERSION_ID">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=\"(\w+)\"$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:family_object id="oval:ssg-object_unix_family:obj:1" version="1"/>
+    <unix:uname_object id="oval:ssg-object_system_info_architecture_ppcle_64:obj:1" version="1" comment="64 bit architecture"/>
+    <ind:textfilecontent54_object id="oval:ssg-object_grub2_ipv6_disable_parameter:obj:1" version="1">
+      <ind:filepath>/etc/default/grub</ind:filepath>
+      <ind:pattern operation="pattern match">^\s*GRUB_CMDLINE_LINUX=".*ipv6\.disable=(\d).*$</ind:pattern>
+      <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_home_exists:obj:1" version="1">
+      <linux:mount_point>/home</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_home_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/home[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_tmp_exists:obj:1" version="1">
+      <linux:mount_point>/tmp</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_tmp_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/tmp[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_var_log_audit_exists:obj:1" version="1">
+      <linux:mount_point>/var/log/audit</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_var_log_audit_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/var/log/audit[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_var_log_exists:obj:1" version="1">
+      <linux:mount_point>/var/log</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_var_log_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/var/log[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_var_tmp_exists:obj:1" version="1">
+      <linux:mount_point>/var/tmp</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_var_tmp_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/var/tmp[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_var_exists:obj:1" version="1">
+      <linux:mount_point>/var</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_var_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/var[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_audit_installed:obj:1" version="1">
+      <linux:name>audit</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_bash_installed:obj:1" version="1">
+      <linux:name>bash</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_chrony_installed:obj:1" version="1">
+      <linux:name>chrony</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_dnf_installed:obj:1" version="1">
+      <linux:name>dnf</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_firewalld_installed:obj:1" version="1">
+      <linux:name>firewalld</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_libpwquality_installed:obj:1" version="1">
+      <linux:name>libpwquality</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_nftables_installed:obj:1" version="1">
+      <linux:name>nftables</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_pam_installed:obj:1" version="1">
+      <linux:name>pam</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_postfix_installed:obj:1" version="1">
+      <linux:name>postfix</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_rsh-server_installed:obj:1" version="1">
+      <linux:name>rsh-server</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_rsyslog_installed:obj:1" version="1">
+      <linux:name>rsyslog</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_shadow-utils_installed:obj:1" version="1">
+      <linux:name>shadow-utils</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_snmpd_installed:obj:1" version="1">
+      <linux:name>net-snmp</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_sudo_installed:obj:1" version="1">
+      <linux:name>sudo</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_systemd_installed:obj:1" version="1">
+      <linux:name>systemd</linux:name>
+    </linux:rpminfo_object>
+    <linux:systemdunitproperty_object id="oval:ssg-obj_service_not_running_service_disabled_iptables_iptables:obj:1" version="1" comment="Retrieve the ActiveState property of iptables">
+      <linux:unit operation="pattern match">^iptables\.(service|socket)$</linux:unit>
+      <linux:property>ActiveState</linux:property>
+    </linux:systemdunitproperty_object>
+    <linux:systemdunitproperty_object id="oval:ssg-obj_service_loadstate_is_masked_service_disabled_iptables_iptables:obj:1" version="1" comment="Retrieve the LoadState property of iptables">
+      <linux:unit operation="pattern match">^iptables\.(service|socket)$</linux:unit>
+      <linux:property>LoadState</linux:property>
+    </linux:systemdunitproperty_object>
+    <linux:rpminfo_object id="oval:ssg-obj_service_disabled_iptablestest_service_iptables_package_iptables_removed:obj:1" version="1">
+      <linux:name>iptables</linux:name>
+    </linux:rpminfo_object>
+    <linux:systemdunitproperty_object id="oval:ssg-obj_service_not_running_service_disabled_ufw_ufw:obj:1" version="1" comment="Retrieve the ActiveState property of ufw">
+      <linux:unit operation="pattern match">^ufw\.(service|socket)$</linux:unit>
+      <linux:property>ActiveState</linux:property>
+    </linux:systemdunitproperty_object>
+    <linux:systemdunitproperty_object id="oval:ssg-obj_service_loadstate_is_masked_service_disabled_ufw_ufw:obj:1" version="1" comment="Retrieve the LoadState property of ufw">
+      <linux:unit operation="pattern match">^ufw\.(service|socket)$</linux:unit>
+      <linux:property>LoadState</linux:property>
+    </linux:systemdunitproperty_object>
+    <linux:rpminfo_object id="oval:ssg-obj_service_disabled_ufwtest_service_ufw_package_ufw_removed:obj:1" version="1">
+      <linux:name>ufw</linux:name>
+    </linux:rpminfo_object>
+  </oval-def:objects>
+  <oval-def:states>
+    <ind:textfilecontent54_state id="oval:ssg-state_name_al2023:ste:1" version="1" operator="AND">
+      <ind:subexpression>amzn</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_version_al2023:ste:1" version="1" operator="AND">
+      <ind:subexpression>2023</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:family_state id="oval:ssg-state_unix_family:ste:1" version="1" operator="AND">
+      <ind:family>unix</ind:family>
+    </ind:family_state>
+    <unix:uname_state id="oval:ssg-state_system_info_architecture_ppcle_64:ste:1" version="1" operator="AND" comment="64 bit architecture">
+      <unix:processor_type operation="equals">ppc64le</unix:processor_type>
+    </unix:uname_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_grub2_ipv6_disable_argument:ste:1" version="1" operator="AND">
+      <ind:subexpression datatype="int" operation="equals">0</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <linux:systemdunitproperty_state id="oval:ssg-state_service_not_running_service_disabled_iptables_iptables:ste:1" version="1" operator="AND" comment="iptables is not running">
+      <linux:value operation="pattern match">inactive|failed</linux:value>
+    </linux:systemdunitproperty_state>
+    <linux:systemdunitproperty_state id="oval:ssg-state_service_loadstate_is_masked_service_disabled_iptables_iptables:ste:1" version="1" operator="AND" comment="LoadState is set to masked">
+      <linux:value>masked</linux:value>
+    </linux:systemdunitproperty_state>
+    <linux:systemdunitproperty_state id="oval:ssg-state_service_not_running_service_disabled_ufw_ufw:ste:1" version="1" operator="AND" comment="ufw is not running">
+      <linux:value operation="pattern match">inactive|failed</linux:value>
+    </linux:systemdunitproperty_state>
+    <linux:systemdunitproperty_state id="oval:ssg-state_service_loadstate_is_masked_service_disabled_ufw_ufw:ste:1" version="1" operator="AND" comment="LoadState is set to masked">
+      <linux:value>masked</linux:value>
+    </linux:systemdunitproperty_state>
+  </oval-def:states>
+</oval-def:oval_definitions>
