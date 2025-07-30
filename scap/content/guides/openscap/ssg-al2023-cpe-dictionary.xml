@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<cpe-dict:cpe-list xmlns:cpe-dict="http://cpe.mitre.org/dictionary/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cpe.mitre.org/dictionary/2.0 http://cpe.mitre.org/files/cpe-dictionary_2.1.xsd">
+  <cpe-dict:cpe-item name="cpe:/o:amazon:amazon_linux:2023">
+    <cpe-dict:title xml:lang="en-us">Amazon Linux 2023</cpe-dict:title>
+    <cpe-dict:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" href="ssg-al2023-cpe-oval.xml">oval:ssg-installed_OS_is_al2023:def:1</cpe-dict:check>
+  </cpe-dict:cpe-item>
+</cpe-dict:cpe-list>

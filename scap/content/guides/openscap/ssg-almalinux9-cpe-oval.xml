@@ -2,7 +2,7 @@
 <oval-def:oval_definitions xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <oval-def:generator>
     <oval:product_name>build_cpe.py from SCAP Security Guide</oval:product_name>
-    <oval:product_version>ssg: [0, 1, 76], python: 3.10.12</oval:product_version>
+    <oval:product_version>ssg: [0, 1, 77], python: 3.10.12</oval:product_version>
     <oval:schema_version>5.11</oval:schema_version>
     <oval:timestamp>2021-03-02T15:45:39</oval:timestamp>
   </oval-def:generator>
@@ -77,34 +77,6 @@
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:extend_definition negate="true" comment="If environment is not a container, it is machine" definition_ref="oval:ssg-installed_env_is_a_container:def:1"/>
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition id="oval:ssg-krb5_server_older_than_1_17_18:def:1" version="1" class="inventory">
-      <oval-def:metadata>
-        <oval-def:title>Kerberos server is older than 1.17-18</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:reference ref_id="cpe:/a:krb5_server_older_than_1_17-18" source="CPE"/>
-        <oval-def:description>Check if version of Kerberos server is lesser than 1.17-18
-            </oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria comment="Kerberos server version is lesser than 1.17-18" operator="OR">
-        <oval-def:criterion comment="Check if version of Kerberos server is lesser than 1.17-18" test_ref="oval:ssg-test_krb5_server_version_1_17_18:tst:1"/>
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition id="oval:ssg-krb5_workstation_older_than_1_17_18:def:1" version="1" class="inventory">
-      <oval-def:metadata>
-        <oval-def:title>Kerberos workstation is older than 1.17-18</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:reference ref_id="cpe:/a:krb5_workstation_older_than_1_17-18" source="CPE"/>
-        <oval-def:description>Check if version of Kerberos workstation is lesser than 1.17-18
-            </oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria comment="Kerberos workstation version is lesser than 1.17-18" operator="OR">
-        <oval-def:criterion comment="Check if version of Kerberos workstation is lesser than 1.17-18" test_ref="oval:ssg-test_krb5_workstation_version_1_17_18:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-nfs_mount_defined:def:1" version="1" class="inventory">
@@ -207,6 +179,19 @@
         <oval-def:criterion comment="/sys/fs/selinux is present" test_ref="oval:ssg-test_selinux_sys_fs_exist:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition id="oval:ssg-sssd_conf_uses_ldap:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>SSSD is configured to use LDAP</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="cpe:/a:sssd-ldap" source="CPE"/>
+        <oval-def:description>Identification provider is not set to ad within /etc/sssd/sssd.conf</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Identification provider is set to ldap within /etc/sssd/sssd.conf" test_ref="oval:ssg-test_id_provider_is_set_to_ldap:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition id="oval:ssg-system_boot_mode_is_non_uefi:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Non-UEFI system boot mode check</oval-def:title>
@@ -298,6 +283,23 @@
         <oval-def:criterion comment="check if ipv6.disable parameter is defined in /etc/default/grub" test_ref="oval:ssg-test_grub2_ipv6_disable_is_absent:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_env_mount_boot-efi:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /boot/efi is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /boot/efi is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_boot_efi_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /boot/efi is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_boot_efi_exists:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition id="oval:ssg-installed_env_mount_home:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Mountpoint /home is active (mounted) or configured in /etc/fstab</oval-def:title>
@@ -312,6 +314,40 @@
         </oval-def:criteria>
         <oval-def:criteria operator="AND">
           <oval-def:criterion comment="The path /home is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_home_exists:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_env_mount_opt:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /opt is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /opt is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_opt_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /opt is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_opt_exists:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_env_mount_srv:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /srv is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /srv is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_srv_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /srv is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_srv_exists:tst:1"/>
         </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
@@ -559,6 +595,30 @@
         <oval-def:criterion comment="Platform package iptables is installed" test_ref="oval:ssg-inventory_test_package_iptables_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_libpwquality:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package libpwquality is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package libpwquality should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package libpwquality is installed" test_ref="oval:ssg-inventory_test_package_libpwquality_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_libreswan:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package libreswan is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package libreswan should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package libreswan is installed" test_ref="oval:ssg-inventory_test_package_libreswan_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_libuser:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Package libuser is installed</oval-def:title>
@@ -653,6 +713,18 @@
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="Platform package postfix is installed" test_ref="oval:ssg-inventory_test_package_postfix_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_rootfiles:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package rootfiles is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package rootfiles should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package rootfiles is installed" test_ref="oval:ssg-inventory_test_package_rootfiles_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_rsh-server:def:1" version="1" class="inventory">
@@ -824,14 +896,6 @@
     <unix:file_test id="oval:ssg-test_installed_env_is_a_podman_container:tst:1" version="1" check="all" comment="Check if /run/.containerenv exists" check_existence="all_exist" state_operator="AND">
       <unix:object object_ref="oval:ssg-object_installed_env_is_a_podman_container:obj:1"/>
     </unix:file_test>
-    <linux:rpminfo_test id="oval:ssg-test_krb5_server_version_1_17_18:tst:1" version="1" check="all" comment="Kerberos server version is lesser than 1.17-18" state_operator="AND">
-      <linux:object object_ref="oval:ssg-obj_krb5_server_version_1_17_18:obj:1"/>
-      <linux:state state_ref="oval:ssg-state_krb5_server_version_1_17_18:ste:1"/>
-    </linux:rpminfo_test>
-    <linux:rpminfo_test id="oval:ssg-test_krb5_workstation_version_1_17_18:tst:1" version="1" check="all" comment="Kerberos workstation version is lesser than 1.17-18" state_operator="AND">
-      <linux:object object_ref="oval:ssg-obj_krb5_workstation_version_1_17_18:obj:1"/>
-      <linux:state state_ref="oval:ssg-state_krb5_workstation_version_1_17_18:ste:1"/>
-    </linux:rpminfo_test>
     <ind:textfilecontent54_test id="oval:ssg-test_nfs_mount_exists:tst:1" version="1" check="all" comment="at least one nfs is defined" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_nfs_mount_defined:obj:1"/>
     </ind:textfilecontent54_test>
@@ -858,6 +922,9 @@
     <unix:file_test id="oval:ssg-test_selinux_sys_fs_exist:tst:1" version="1" check="all" comment="check if /sys/fs/selinux exists" check_existence="all_exist" state_operator="AND">
       <unix:object object_ref="oval:ssg-object_selinux_sys_fs_exist:obj:1"/>
     </unix:file_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_id_provider_is_set_to_ldap:tst:1" version="1" check="all" comment="SSSD Configuration is set to use LDAP" check_existence="all_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_id_provider_is_set_to_ldap:obj:1"/>
+    </ind:textfilecontent54_test>
     <unix:file_test id="oval:ssg-test_efi_dir_existence:tst:1" version="1" check="all" comment="Verify if /sys/firmware/efi folder exists" state_operator="AND">
       <unix:object object_ref="oval:ssg-object_file_sys_firmware_efi:obj:1"/>
     </unix:file_test>
@@ -889,11 +956,29 @@
     <ind:textfilecontent54_test id="oval:ssg-test_grub2_ipv6_disable_is_absent:tst:1" version="1" check="all" comment="ipv6.disable is not defined in /etc/default/grub" check_existence="none_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_grub2_ipv6_disable_parameter:obj:1"/>
     </ind:textfilecontent54_test>
+    <linux:partition_test id="oval:ssg-test_mount_active_boot_efi_exists:tst:1" version="1" check="all" comment="Mountpoint /boot/efi exists" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-object_mount_active_boot_efi_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_mount_configured_fstab_boot_efi_exists:tst:1" version="1" check="all" comment="Mountpoint /boot/efi is configured" check_existence="all_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_boot_efi_exists:obj:1"/>
+    </ind:textfilecontent54_test>
     <linux:partition_test id="oval:ssg-test_mount_active_home_exists:tst:1" version="1" check="all" comment="Mountpoint /home exists" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-object_mount_active_home_exists:obj:1"/>
     </linux:partition_test>
     <ind:textfilecontent54_test id="oval:ssg-test_mount_configured_fstab_home_exists:tst:1" version="1" check="all" comment="Mountpoint /home is configured" check_existence="all_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_mount_configured_fstab_home_exists:obj:1"/>
+    </ind:textfilecontent54_test>
+    <linux:partition_test id="oval:ssg-test_mount_active_opt_exists:tst:1" version="1" check="all" comment="Mountpoint /opt exists" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-object_mount_active_opt_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_mount_configured_fstab_opt_exists:tst:1" version="1" check="all" comment="Mountpoint /opt is configured" check_existence="all_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_opt_exists:obj:1"/>
+    </ind:textfilecontent54_test>
+    <linux:partition_test id="oval:ssg-test_mount_active_srv_exists:tst:1" version="1" check="all" comment="Mountpoint /srv exists" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-object_mount_active_srv_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_mount_configured_fstab_srv_exists:tst:1" version="1" check="all" comment="Mountpoint /srv is configured" check_existence="all_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_srv_exists:obj:1"/>
     </ind:textfilecontent54_test>
     <linux:partition_test id="oval:ssg-test_mount_active_tmp_exists:tst:1" version="1" check="all" comment="Mountpoint /tmp exists" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-object_mount_active_tmp_exists:obj:1"/>
@@ -979,6 +1064,12 @@
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_iptables_installed:tst:1" version="1" check="all" comment="package iptables is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_iptables_installed:obj:1"/>
     </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_libpwquality_installed:tst:1" version="1" check="all" comment="package libpwquality is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_libpwquality_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_libreswan_installed:tst:1" version="1" check="all" comment="package libreswan is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_libreswan_installed:obj:1"/>
+    </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_libuser_installed:tst:1" version="1" check="all" comment="package libuser is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_libuser_installed:obj:1"/>
     </linux:rpminfo_test>
@@ -1002,6 +1093,9 @@
     </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_postfix_installed:tst:1" version="1" check="all" comment="package postfix is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_postfix_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_rootfiles_installed:tst:1" version="1" check="all" comment="package rootfiles is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_rootfiles_installed:obj:1"/>
     </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_rsh-server_installed:tst:1" version="1" check="all" comment="package rsh-server is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_rsh-server_installed:obj:1"/>
@@ -1081,34 +1175,28 @@
     <unix:file_object id="oval:ssg-object_installed_env_is_a_podman_container:obj:1" version="1" comment="Check file /run/.containerenv">
       <unix:filepath datatype="string">/run/.containerenv</unix:filepath>
     </unix:file_object>
-    <linux:rpminfo_object id="oval:ssg-obj_krb5_server_version_1_17_18:obj:1" version="1">
-      <linux:name>krb5-server</linux:name>
-    </linux:rpminfo_object>
-    <linux:rpminfo_object id="oval:ssg-obj_krb5_workstation_version_1_17_18:obj:1" version="1">
-      <linux:name>krb5-workstation</linux:name>
-    </linux:rpminfo_object>
     <ind:textfilecontent54_object id="oval:ssg-object_nfs_mount_defined:obj:1" version="1">
       <ind:filepath>/etc/fstab</ind:filepath>
       <ind:pattern operation="pattern match">^\s*\[?[\.\w:-]+\]?[:=][/\w-]+\s+[/\w\\-]+\s+nfs[4]?\s+(.*)$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_proc_sys_kernel_osrelease_arch_aarch64:obj:1" version="1">
-      <ind:filepath operation="pattern match">/proc/sys/kernel/(osrelease|arch)</ind:filepath>
+      <ind:filepath operation="pattern match">^/proc/sys/kernel/(osrelease|arch)</ind:filepath>
       <ind:pattern operation="pattern match">^.*\.aarch64$|^aarch64$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_proc_sys_kernel_osrelease_arch_ppc64le:obj:1" version="1">
-      <ind:filepath operation="pattern match">/proc/sys/kernel/(osrelease|arch)</ind:filepath>
+      <ind:filepath operation="pattern match">^/proc/sys/kernel/(osrelease|arch)</ind:filepath>
       <ind:pattern operation="pattern match">^.*\.ppc64le$|^ppc64le$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_proc_sys_kernel_osrelease_arch_s390x:obj:1" version="1">
-      <ind:filepath operation="pattern match">/proc/sys/kernel/(osrelease|arch)</ind:filepath>
+      <ind:filepath operation="pattern match">^/proc/sys/kernel/(osrelease|arch)</ind:filepath>
       <ind:pattern operation="pattern match">^.*\.s390x$|^s390x$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_proc_sys_kernel_osrelease_arch_x86_64:obj:1" version="1">
-      <ind:filepath operation="pattern match">/proc/sys/kernel/(osrelease|arch)</ind:filepath>
+      <ind:filepath operation="pattern match">^/proc/sys/kernel/(osrelease|arch)</ind:filepath>
       <ind:pattern operation="pattern match">^.*\.x86_64$|^x86_64$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
@@ -1124,6 +1212,11 @@
       <unix:path>/sys/fs/selinux</unix:path>
       <unix:filename xsi:nil="true"/>
     </unix:file_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_id_provider_is_set_to_ldap:obj:1" version="1">
+      <ind:filepath>/etc/sssd/sssd.conf</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*\[domain\/[^]]*]([^\n\[\]]*\n+)+?[\s]*id_provider[ \t]*=[ \t]*((?i)ldap)[ \t]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
     <unix:file_object id="oval:ssg-object_file_sys_firmware_efi:obj:1" version="1" comment="/sys/firmware/efi">
       <unix:path>/sys/firmware/efi</unix:path>
       <unix:filename xsi:nil="true"/>
@@ -1150,12 +1243,36 @@
       <ind:pattern operation="pattern match">^\s*GRUB_CMDLINE_LINUX=".*ipv6\.disable=(\d).*$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_boot_efi_exists:obj:1" version="1">
+      <linux:mount_point>/boot/efi</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_boot_efi_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/boot/efi[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
     <linux:partition_object id="oval:ssg-object_mount_active_home_exists:obj:1" version="1">
       <linux:mount_point>/home</linux:mount_point>
     </linux:partition_object>
     <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_home_exists:obj:1" version="1">
       <ind:filepath>/etc/fstab</ind:filepath>
       <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/home[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_opt_exists:obj:1" version="1">
+      <linux:mount_point>/opt</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_opt_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/opt[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_srv_exists:obj:1" version="1">
+      <linux:mount_point>/srv</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_srv_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/srv[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <linux:partition_object id="oval:ssg-object_mount_active_tmp_exists:obj:1" version="1">
@@ -1258,6 +1375,12 @@
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_iptables_installed:obj:1" version="1">
       <linux:name>iptables</linux:name>
     </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_libpwquality_installed:obj:1" version="1">
+      <linux:name>libpwquality</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_libreswan_installed:obj:1" version="1">
+      <linux:name>libreswan</linux:name>
+    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_libuser_installed:obj:1" version="1">
       <linux:name>libuser</linux:name>
     </linux:rpminfo_object>
@@ -1281,6 +1404,9 @@
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_postfix_installed:obj:1" version="1">
       <linux:name>postfix</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_rootfiles_installed:obj:1" version="1">
+      <linux:name>rootfiles</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_rsh-server_installed:obj:1" version="1">
       <linux:name>rsh-server</linux:name>
@@ -1333,12 +1459,6 @@
     </linux:rpminfo_object>
   </oval-def:objects>
   <oval-def:states>
-    <linux:rpminfo_state id="oval:ssg-state_krb5_server_version_1_17_18:ste:1" version="1" operator="AND">
-      <linux:evr datatype="evr_string" operation="less than">0:1.17-18</linux:evr>
-    </linux:rpminfo_state>
-    <linux:rpminfo_state id="oval:ssg-state_krb5_workstation_version_1_17_18:ste:1" version="1" operator="AND">
-      <linux:evr datatype="evr_string" operation="less than">0:1.17-18</linux:evr>
-    </linux:rpminfo_state>
     <unix:sysctl_state id="oval:ssg-state_runtime_kernel_fips_enabled:ste:1" version="1" operator="AND">
       <unix:value datatype="int" operation="equals">1</unix:value>
     </unix:sysctl_state>

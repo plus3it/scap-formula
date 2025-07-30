@@ -10,11 +10,21 @@
         'Rocky': 'centos8',
     }, grain='os'),
     9: salt.grains.filter_by({
-        'AlmaLinux': 'cs9',
+        'AlmaLinux': 'almalinux9',
         'CentOS Stream': 'cs9',
         'OEL': 'ol9',
         'RedHat': 'rhel9',
         'Rocky': 'cs9',
+    }, grain='os'),
+    10: salt.grains.filter_by({
+        'AlmaLinux': 'almalinux10',
+        'CentOS Stream': 'cs10',
+        'OEL': 'ol10',
+        'RedHat': 'rhel10',
+        'Rocky': 'cs10',
+    }, grain='os'),
+    2023: salt.grains.filter_by({
+        'Amazon Linux': 'al2023',
     }, grain='os'),
 }, grain='osmajorrelease')%}
 
