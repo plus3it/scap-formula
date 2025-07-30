@@ -2,7 +2,7 @@
 <oval-def:oval_definitions xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <oval-def:generator>
     <oval:product_name>build_cpe.py from SCAP Security Guide</oval:product_name>
-    <oval:product_version>ssg: [0, 1, 76], python: 3.10.12</oval:product_version>
+    <oval:product_version>ssg: [0, 1, 77], python: 3.10.12</oval:product_version>
     <oval:schema_version>5.11</oval:schema_version>
     <oval:timestamp>2021-03-02T15:45:39</oval:timestamp>
   </oval-def:generator>
@@ -284,6 +284,23 @@
       <oval-def:criteria operator="OR">
         <oval-def:criterion comment="check if ipv6.disable argument is correct in GRUB_CMDLINE_LINUX" test_ref="oval:ssg-test_grub2_ipv6_disable_is_correct:tst:1"/>
         <oval-def:criterion comment="check if ipv6.disable parameter is defined in /etc/default/grub" test_ref="oval:ssg-test_grub2_ipv6_disable_is_absent:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_env_mount_boot-efi:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /boot/efi is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Oracle Linux 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /boot/efi is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_boot_efi_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /boot/efi is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_boot_efi_exists:tst:1"/>
+        </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-installed_env_mount_home:def:1" version="1" class="inventory">
@@ -621,6 +638,18 @@
         <oval-def:criterion comment="Platform package iptables is installed" test_ref="oval:ssg-inventory_test_package_iptables_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_libpwquality:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package libpwquality is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Oracle Linux 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package libpwquality should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package libpwquality is installed" test_ref="oval:ssg-inventory_test_package_libpwquality_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_libreswan:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Package libreswan is installed</oval-def:title>
@@ -861,18 +890,6 @@
         <oval-def:criterion comment="Platform package tftp-server is installed" test_ref="oval:ssg-inventory_test_package_tftp-server_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
-    <oval-def:definition id="oval:ssg-package_tmux:def:1" version="1" class="inventory">
-      <oval-def:metadata>
-        <oval-def:title>Package tmux is installed</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>Oracle Linux 9</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:description>The RPM package tmux should be installed.</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="AND">
-        <oval-def:criterion comment="Platform package tmux is installed" test_ref="oval:ssg-inventory_test_package_tmux_installed:tst:1"/>
-      </oval-def:criteria>
-    </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_ufw:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Package ufw is installed</oval-def:title>
@@ -1047,6 +1064,12 @@
     <ind:textfilecontent54_test id="oval:ssg-test_grub2_ipv6_disable_is_absent:tst:1" version="1" check="all" comment="ipv6.disable is not defined in /etc/default/grub" check_existence="none_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_grub2_ipv6_disable_parameter:obj:1"/>
     </ind:textfilecontent54_test>
+    <linux:partition_test id="oval:ssg-test_mount_active_boot_efi_exists:tst:1" version="1" check="all" comment="Mountpoint /boot/efi exists" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-object_mount_active_boot_efi_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_mount_configured_fstab_boot_efi_exists:tst:1" version="1" check="all" comment="Mountpoint /boot/efi is configured" check_existence="all_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_boot_efi_exists:obj:1"/>
+    </ind:textfilecontent54_test>
     <linux:partition_test id="oval:ssg-test_mount_active_home_exists:tst:1" version="1" check="all" comment="Mountpoint /home exists" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-object_mount_active_home_exists:obj:1"/>
     </linux:partition_test>
@@ -1178,6 +1201,9 @@
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_iptables_installed:tst:1" version="1" check="all" comment="package iptables is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_iptables_installed:obj:1"/>
     </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_libpwquality_installed:tst:1" version="1" check="all" comment="package libpwquality is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_libpwquality_installed:obj:1"/>
+    </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_libreswan_installed:tst:1" version="1" check="all" comment="package libreswan is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_libreswan_installed:obj:1"/>
     </linux:rpminfo_test>
@@ -1237,9 +1263,6 @@
     </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_tftp-server_installed:tst:1" version="1" check="all" comment="package tftp-server is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_tftp-server_installed:obj:1"/>
-    </linux:rpminfo_test>
-    <linux:rpminfo_test id="oval:ssg-inventory_test_package_tmux_installed:tst:1" version="1" check="all" comment="package tmux is installed" check_existence="all_exist" state_operator="AND">
-      <linux:object object_ref="oval:ssg-obj_inventory_test_package_tmux_installed:obj:1"/>
     </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_ufw_installed:tst:1" version="1" check="all" comment="package ufw is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_ufw_installed:obj:1"/>
@@ -1318,22 +1341,22 @@
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_proc_sys_kernel_osrelease_arch_aarch64:obj:1" version="1">
-      <ind:filepath operation="pattern match">/proc/sys/kernel/(osrelease|arch)</ind:filepath>
+      <ind:filepath operation="pattern match">^/proc/sys/kernel/(osrelease|arch)</ind:filepath>
       <ind:pattern operation="pattern match">^.*\.aarch64$|^aarch64$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_proc_sys_kernel_osrelease_arch_ppc64le:obj:1" version="1">
-      <ind:filepath operation="pattern match">/proc/sys/kernel/(osrelease|arch)</ind:filepath>
+      <ind:filepath operation="pattern match">^/proc/sys/kernel/(osrelease|arch)</ind:filepath>
       <ind:pattern operation="pattern match">^.*\.ppc64le$|^ppc64le$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_proc_sys_kernel_osrelease_arch_s390x:obj:1" version="1">
-      <ind:filepath operation="pattern match">/proc/sys/kernel/(osrelease|arch)</ind:filepath>
+      <ind:filepath operation="pattern match">^/proc/sys/kernel/(osrelease|arch)</ind:filepath>
       <ind:pattern operation="pattern match">^.*\.s390x$|^s390x$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_proc_sys_kernel_osrelease_arch_x86_64:obj:1" version="1">
-      <ind:filepath operation="pattern match">/proc/sys/kernel/(osrelease|arch)</ind:filepath>
+      <ind:filepath operation="pattern match">^/proc/sys/kernel/(osrelease|arch)</ind:filepath>
       <ind:pattern operation="pattern match">^.*\.x86_64$|^x86_64$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
@@ -1377,6 +1400,14 @@
       <ind:filepath>/etc/default/grub</ind:filepath>
       <ind:pattern operation="pattern match">^\s*GRUB_CMDLINE_LINUX=".*ipv6\.disable=(\d).*$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_boot_efi_exists:obj:1" version="1">
+      <linux:mount_point>/boot/efi</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_boot_efi_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/boot/efi[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <linux:partition_object id="oval:ssg-object_mount_active_home_exists:obj:1" version="1">
       <linux:mount_point>/home</linux:mount_point>
@@ -1539,6 +1570,9 @@
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_iptables_installed:obj:1" version="1">
       <linux:name>iptables</linux:name>
     </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_libpwquality_installed:obj:1" version="1">
+      <linux:name>libpwquality</linux:name>
+    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_libreswan_installed:obj:1" version="1">
       <linux:name>libreswan</linux:name>
     </linux:rpminfo_object>
@@ -1598,9 +1632,6 @@
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_tftp-server_installed:obj:1" version="1">
       <linux:name>tftp-server</linux:name>
-    </linux:rpminfo_object>
-    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_tmux_installed:obj:1" version="1">
-      <linux:name>tmux</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_ufw_installed:obj:1" version="1">
       <linux:name>ufw</linux:name>
