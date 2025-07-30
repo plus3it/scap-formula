@@ -7,15 +7,18 @@ PROFILES=( C2S stig )
 MAKE_TARGETS_RHEL=(
   rhel8-content
   rhel9-content
+  rhel10-content
 )
 MAKE_TARGETS_DERIVATIVES=(
   centos8-content
   cs9-content
+  cs10-content
 )
 MAKE_TARGETS_OTHERS=(
   almalinux9-content
   ol8-content
   ol9-content
+  ol10-content
 )
 TMPDIR="${TMPDIR:-/tmp}"
 BUILD_DIR="${TMPDIR}/ComplianceAsCode/content"
