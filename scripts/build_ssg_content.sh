@@ -58,6 +58,10 @@ do
   for target in "${MAKE_TARGETS_OTHERS[@]//-content/}"
   do
     elver="${target//[!0-9]/}"
+    if [[ "$target" == "al2023" ]]
+    then
+      elver=9
+    fi
     if [[ -e "${BUILD_DIR}/products/${target}/profiles/${profile}.profile" ]]
     then
       echo "-- Profile '$profile' already exists for target '$target'. Will not be added..."
