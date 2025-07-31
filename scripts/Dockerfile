@@ -10,6 +10,7 @@ ENV TZ=Etc/UTC
 RUN apt-get update -y && apt-get install -y \
     git \
     cmake \
+    curl \
     make \
     libopenscap8 \
     libxml2-utils \
