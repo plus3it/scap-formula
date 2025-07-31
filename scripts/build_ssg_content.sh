@@ -13,6 +13,9 @@ MAKE_TARGETS_DERIVATIVES=(
   centos8-content
   cs9-content
   cs10-content
+  rl8-content
+  rl9-content
+  rl10-content
 )
 MAKE_TARGETS_OTHERS=(
   al2023-content
@@ -25,11 +28,15 @@ TMPDIR="${TMPDIR:-/tmp}"
 BUILD_DIR="${TMPDIR}/ComplianceAsCode/content"
 DIST_DIR="${TMPDIR}/dist"
 
+RL_PATCH_URL="https://git.rockylinux.org/staging/patch/scap-security-guide/-/raw/r10/ROCKY/_supporting/0001-Add-Rocky-Linux-as-a-derivative-of-RHEL.patch"
+RL_PATCH_FILE="${TMPDIR}/0001-Add-Rocky-Linux-as-a-derivative-of-RHEL.patch"
+
 export SOURCE_DATE_EPOCH=1614699939
 
 # Remove old SSG build directory
 echo "Removing directory ${BUILD_DIR}..."
 rm -rf "$BUILD_DIR" "$DIST_DIR"
+rm -rf "$RL_PATCH_FILE"
 
 mkdir -p "$DIST_DIR"
 exec > >(tee "${DIST_DIR}/build-content.log") 2>&1
@@ -42,6 +49,10 @@ echo "Tag to build: ${TAG}"
 echo
 git checkout "$TAG"
 echo
+
+# Apply Rocky Linux patch
+curl -sSL "$RL_PATCH_URL" -o "$RL_PATCH_FILE"
+git apply "$RL_PATCH_FILE"
 
 # Update standard_profiles
 echo "Ensuring ssg content includes required profiles: ${PROFILES[*]}"
