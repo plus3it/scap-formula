@@ -2,7 +2,7 @@
 <oval-def:oval_definitions xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <oval-def:generator>
     <oval:product_name>build_cpe.py from SCAP Security Guide</oval:product_name>
-    <oval:product_version>ssg: [0, 1, 77], python: 3.10.12</oval:product_version>
+    <oval:product_version>ssg: [0, 1, 78], python: 3.10.12</oval:product_version>
     <oval:schema_version>5.11</oval:schema_version>
     <oval:timestamp>2021-03-02T15:45:39</oval:timestamp>
   </oval-def:generator>
@@ -190,32 +190,6 @@
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="Identification provider is set to ldap within /etc/sssd/sssd.conf" test_ref="oval:ssg-test_id_provider_is_set_to_ldap:tst:1"/>
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition id="oval:ssg-system_boot_mode_is_non_uefi:def:1" version="1" class="inventory">
-      <oval-def:metadata>
-        <oval-def:title>Non-UEFI system boot mode check</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>Oracle Linux 9</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:reference ref_id="cpe:/a:non-uefi" source="CPE"/>
-        <oval-def:description>Check if System boot mode is non-UEFI.</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="AND">
-        <oval-def:extend_definition negate="true" comment="Pass if System boot mode is non-UEFI" definition_ref="oval:ssg-system_boot_mode_is_uefi:def:1"/>
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition id="oval:ssg-system_boot_mode_is_uefi:def:1" version="1" class="inventory">
-      <oval-def:metadata>
-        <oval-def:title>UEFI system boot mode check</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>Oracle Linux 9</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:reference ref_id="cpe:/a:uefi" source="CPE"/>
-        <oval-def:description>Check if system boot mode is UEFI.</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="AND">
-        <oval-def:criterion comment="check if /sys/firmware/efi folder exists" test_ref="oval:ssg-test_efi_dir_existence:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-system_with_kernel:def:1" version="1" class="inventory">
@@ -936,9 +910,12 @@
       </oval-def:metadata>
       <oval-def:criteria comment="package firewalld removed or service firewalld is not configured to start" operator="OR">
         <oval-def:criterion comment="firewalld removed" test_ref="oval:ssg-service_disabled_firewalldtest_service_firewalld_package_firewalld_removed:tst:1"/>
-        <oval-def:criteria comment="service firewalld is not configured to start" operator="AND">
-          <oval-def:criterion comment="firewalld is not running" test_ref="oval:ssg-test_service_not_running_service_disabled_firewalld_firewalld:tst:1"/>
-          <oval-def:criterion comment="Property LoadState of service firewalld is masked" test_ref="oval:ssg-test_service_loadstate_is_masked_service_disabled_firewalld_firewalld:tst:1"/>
+        <oval-def:criteria comment="service is not present or not configured" operator="OR">
+          <oval-def:criteria comment="service firewalld is not configured to start" operator="AND">
+            <oval-def:criterion comment="firewalld is not running" test_ref="oval:ssg-test_service_not_running_service_disabled_firewalld_firewalld:tst:1"/>
+            <oval-def:criterion comment="Property LoadState of service firewalld is masked" test_ref="oval:ssg-test_service_loadstate_is_masked_service_disabled_firewalld_firewalld:tst:1"/>
+          </oval-def:criteria>
+          <oval-def:criterion comment="firewalld is not found" test_ref="oval:ssg-test_service_not_found_service_disabled_firewalld_firewalld:tst:1"/>
         </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
@@ -952,9 +929,12 @@
       </oval-def:metadata>
       <oval-def:criteria comment="package iptables removed or service iptables is not configured to start" operator="OR">
         <oval-def:criterion comment="iptables removed" test_ref="oval:ssg-service_disabled_iptablestest_service_iptables_package_iptables_removed:tst:1"/>
-        <oval-def:criteria comment="service iptables is not configured to start" operator="AND">
-          <oval-def:criterion comment="iptables is not running" test_ref="oval:ssg-test_service_not_running_service_disabled_iptables_iptables:tst:1"/>
-          <oval-def:criterion comment="Property LoadState of service iptables is masked" test_ref="oval:ssg-test_service_loadstate_is_masked_service_disabled_iptables_iptables:tst:1"/>
+        <oval-def:criteria comment="service is not present or not configured" operator="OR">
+          <oval-def:criteria comment="service iptables is not configured to start" operator="AND">
+            <oval-def:criterion comment="iptables is not running" test_ref="oval:ssg-test_service_not_running_service_disabled_iptables_iptables:tst:1"/>
+            <oval-def:criterion comment="Property LoadState of service iptables is masked" test_ref="oval:ssg-test_service_loadstate_is_masked_service_disabled_iptables_iptables:tst:1"/>
+          </oval-def:criteria>
+          <oval-def:criterion comment="iptables is not found" test_ref="oval:ssg-test_service_not_found_service_disabled_iptables_iptables:tst:1"/>
         </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
@@ -968,9 +948,12 @@
       </oval-def:metadata>
       <oval-def:criteria comment="package ufw removed or service ufw is not configured to start" operator="OR">
         <oval-def:criterion comment="ufw removed" test_ref="oval:ssg-service_disabled_ufwtest_service_ufw_package_ufw_removed:tst:1"/>
-        <oval-def:criteria comment="service ufw is not configured to start" operator="AND">
-          <oval-def:criterion comment="ufw is not running" test_ref="oval:ssg-test_service_not_running_service_disabled_ufw_ufw:tst:1"/>
-          <oval-def:criterion comment="Property LoadState of service ufw is masked" test_ref="oval:ssg-test_service_loadstate_is_masked_service_disabled_ufw_ufw:tst:1"/>
+        <oval-def:criteria comment="service is not present or not configured" operator="OR">
+          <oval-def:criteria comment="service ufw is not configured to start" operator="AND">
+            <oval-def:criterion comment="ufw is not running" test_ref="oval:ssg-test_service_not_running_service_disabled_ufw_ufw:tst:1"/>
+            <oval-def:criterion comment="Property LoadState of service ufw is masked" test_ref="oval:ssg-test_service_loadstate_is_masked_service_disabled_ufw_ufw:tst:1"/>
+          </oval-def:criteria>
+          <oval-def:criterion comment="ufw is not found" test_ref="oval:ssg-test_service_not_found_service_disabled_ufw_ufw:tst:1"/>
         </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
@@ -1032,10 +1015,7 @@
     <ind:textfilecontent54_test id="oval:ssg-test_id_provider_is_set_to_ldap:tst:1" version="1" check="all" comment="SSSD Configuration is set to use LDAP" check_existence="all_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_id_provider_is_set_to_ldap:obj:1"/>
     </ind:textfilecontent54_test>
-    <unix:file_test id="oval:ssg-test_efi_dir_existence:tst:1" version="1" check="all" comment="Verify if /sys/firmware/efi folder exists" state_operator="AND">
-      <unix:object object_ref="oval:ssg-object_file_sys_firmware_efi:obj:1"/>
-    </unix:file_test>
-    <linux:rpminfo_test id="oval:ssg-inventory_test_kernel_installed:tst:1" version="1" check="all" comment="package kernel is installed" check_existence="all_exist" state_operator="AND">
+    <linux:rpminfo_test id="oval:ssg-inventory_test_kernel_installed:tst:1" version="1" check="all" comment="package kernel-core is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_kernel_installed:obj:1"/>
     </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_kernel_uek_installed:tst:1" version="1" check="all" comment="package kernel-uek is installed" check_existence="all_exist" state_operator="AND">
@@ -1281,6 +1261,10 @@
       <linux:object object_ref="oval:ssg-obj_service_loadstate_is_masked_service_disabled_firewalld_firewalld:obj:1"/>
       <linux:state state_ref="oval:ssg-state_service_loadstate_is_masked_service_disabled_firewalld_firewalld:ste:1"/>
     </linux:systemdunitproperty_test>
+    <linux:systemdunitproperty_test id="oval:ssg-test_service_not_found_service_disabled_firewalld_firewalld:tst:1" version="1" check="all" comment="Test that the service firewalld is not found" check_existence="any_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_service_loadstate_is_masked_service_disabled_firewalld_firewalld:obj:1"/>
+      <linux:state state_ref="oval:ssg-state_service_is_not_found_service_disabled_firewalld_firewalld:ste:1"/>
+    </linux:systemdunitproperty_test>
     <linux:rpminfo_test id="oval:ssg-service_disabled_firewalldtest_service_firewalld_package_firewalld_removed:tst:1" version="1" check="all" comment="package firewalld is removed" check_existence="none_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_service_disabled_firewalldtest_service_firewalld_package_firewalld_removed:obj:1"/>
     </linux:rpminfo_test>
@@ -1292,6 +1276,10 @@
       <linux:object object_ref="oval:ssg-obj_service_loadstate_is_masked_service_disabled_iptables_iptables:obj:1"/>
       <linux:state state_ref="oval:ssg-state_service_loadstate_is_masked_service_disabled_iptables_iptables:ste:1"/>
     </linux:systemdunitproperty_test>
+    <linux:systemdunitproperty_test id="oval:ssg-test_service_not_found_service_disabled_iptables_iptables:tst:1" version="1" check="all" comment="Test that the service iptables is not found" check_existence="any_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_service_loadstate_is_masked_service_disabled_iptables_iptables:obj:1"/>
+      <linux:state state_ref="oval:ssg-state_service_is_not_found_service_disabled_iptables_iptables:ste:1"/>
+    </linux:systemdunitproperty_test>
     <linux:rpminfo_test id="oval:ssg-service_disabled_iptablestest_service_iptables_package_iptables_removed:tst:1" version="1" check="all" comment="package iptables is removed" check_existence="none_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_service_disabled_iptablestest_service_iptables_package_iptables_removed:obj:1"/>
     </linux:rpminfo_test>
@@ -1302,6 +1290,10 @@
     <linux:systemdunitproperty_test id="oval:ssg-test_service_loadstate_is_masked_service_disabled_ufw_ufw:tst:1" version="1" check="all" comment="Test that the property LoadState from the service ufw is masked" check_existence="any_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_service_loadstate_is_masked_service_disabled_ufw_ufw:obj:1"/>
       <linux:state state_ref="oval:ssg-state_service_loadstate_is_masked_service_disabled_ufw_ufw:ste:1"/>
+    </linux:systemdunitproperty_test>
+    <linux:systemdunitproperty_test id="oval:ssg-test_service_not_found_service_disabled_ufw_ufw:tst:1" version="1" check="all" comment="Test that the service ufw is not found" check_existence="any_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_service_loadstate_is_masked_service_disabled_ufw_ufw:obj:1"/>
+      <linux:state state_ref="oval:ssg-state_service_is_not_found_service_disabled_ufw_ufw:ste:1"/>
     </linux:systemdunitproperty_test>
     <linux:rpminfo_test id="oval:ssg-service_disabled_ufwtest_service_ufw_package_ufw_removed:tst:1" version="1" check="all" comment="package ufw is removed" check_existence="none_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_service_disabled_ufwtest_service_ufw_package_ufw_removed:obj:1"/>
@@ -1377,12 +1369,8 @@
       <ind:pattern operation="pattern match">^[\s]*\[domain\/[^]]*]([^\n\[\]]*\n+)+?[\s]*id_provider[ \t]*=[ \t]*((?i)ldap)[ \t]*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <unix:file_object id="oval:ssg-object_file_sys_firmware_efi:obj:1" version="1" comment="/sys/firmware/efi">
-      <unix:path>/sys/firmware/efi</unix:path>
-      <unix:filename xsi:nil="true"/>
-    </unix:file_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_kernel_installed:obj:1" version="1">
-      <linux:name>kernel</linux:name>
+      <linux:name>kernel-core</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_kernel_uek_installed:obj:1" version="1">
       <linux:name>kernel-uek</linux:name>
@@ -1746,17 +1734,26 @@
     <linux:systemdunitproperty_state id="oval:ssg-state_service_loadstate_is_masked_service_disabled_firewalld_firewalld:ste:1" version="1" operator="AND" comment="LoadState is set to masked">
       <linux:value>masked</linux:value>
     </linux:systemdunitproperty_state>
+    <linux:systemdunitproperty_state id="oval:ssg-state_service_is_not_found_service_disabled_firewalld_firewalld:ste:1" version="1" operator="AND" comment="Service is not found">
+      <linux:value>not-found</linux:value>
+    </linux:systemdunitproperty_state>
     <linux:systemdunitproperty_state id="oval:ssg-state_service_not_running_service_disabled_iptables_iptables:ste:1" version="1" operator="AND" comment="iptables is not running">
       <linux:value operation="pattern match">inactive|failed</linux:value>
     </linux:systemdunitproperty_state>
     <linux:systemdunitproperty_state id="oval:ssg-state_service_loadstate_is_masked_service_disabled_iptables_iptables:ste:1" version="1" operator="AND" comment="LoadState is set to masked">
       <linux:value>masked</linux:value>
     </linux:systemdunitproperty_state>
+    <linux:systemdunitproperty_state id="oval:ssg-state_service_is_not_found_service_disabled_iptables_iptables:ste:1" version="1" operator="AND" comment="Service is not found">
+      <linux:value>not-found</linux:value>
+    </linux:systemdunitproperty_state>
     <linux:systemdunitproperty_state id="oval:ssg-state_service_not_running_service_disabled_ufw_ufw:ste:1" version="1" operator="AND" comment="ufw is not running">
       <linux:value operation="pattern match">inactive|failed</linux:value>
     </linux:systemdunitproperty_state>
     <linux:systemdunitproperty_state id="oval:ssg-state_service_loadstate_is_masked_service_disabled_ufw_ufw:ste:1" version="1" operator="AND" comment="LoadState is set to masked">
       <linux:value>masked</linux:value>
+    </linux:systemdunitproperty_state>
+    <linux:systemdunitproperty_state id="oval:ssg-state_service_is_not_found_service_disabled_ufw_ufw:ste:1" version="1" operator="AND" comment="Service is not found">
+      <linux:value>not-found</linux:value>
     </linux:systemdunitproperty_state>
   </oval-def:states>
 </oval-def:oval_definitions>
