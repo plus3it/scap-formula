@@ -15,11 +15,14 @@ on:
     branches:
       - never-trigger-this-dependabot-hack-workflow
 
+permissions:
+  contents: read
+
 jobs:
   dependabot_hack:
     name: Track project/tool versions with Dependabot
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       # Keep these sorted alphabetically by <user>/<repo>, separated by an empty line
 
-      - uses: ComplianceAsCode/content@v0.1.77
+      - uses: ComplianceAsCode/content@v0.1.78
