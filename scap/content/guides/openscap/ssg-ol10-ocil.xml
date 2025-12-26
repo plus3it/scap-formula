@@ -2,7 +2,7 @@
 <ocil:ocil xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <ocil:generator>
     <ocil:product_name>build_shorthand.py from SCAP Security Guide</ocil:product_name>
-    <ocil:product_version>ssg: 0.1.78</ocil:product_version>
+    <ocil:product_version>ssg: 0.1.79</ocil:product_version>
     <ocil:schema_version>2.0</ocil:schema_version>
     <ocil:timestamp>2021-03-02T15:45:39</ocil:timestamp>
   </ocil:generator>
@@ -1795,6 +1795,12 @@
         <ocil:test_action_ref>ocil:ssg-dnf-automatic_security_updates_only_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-enable_authselect_ocil:questionnaire:1">
+      <ocil:title>Enable authselect</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-enable_authselect_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-enable_fips_mode_ocil:questionnaire:1">
       <ocil:title>Enable FIPS Mode</ocil:title>
       <ocil:actions>
@@ -1853,6 +1859,12 @@
       <ocil:title>Ensure the Group Used by pam_wheel.so Module Exists on System and is Empty</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-ensure_pam_wheel_group_empty_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-ensure_redhat_gpgkey_installed_ocil:questionnaire:1">
+      <ocil:title>Ensure Red Hat GPG Key Installed</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-ensure_redhat_gpgkey_installed_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-ensure_root_password_configured_ocil:questionnaire:1">
@@ -3182,7 +3194,7 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-kernel_config_stackprotector_ocil:questionnaire:1">
-      <ocil:title>Stack Protector buffer overlow detection</ocil:title>
+      <ocil:title>Stack Protector buffer overflow detection</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-kernel_config_stackprotector_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -4256,6 +4268,12 @@
         <ocil:test_action_ref>ocil:ssg-service_usbguard_enabled_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-service_xinetd_disabled_ocil:questionnaire:1">
+      <ocil:title>Disable xinetd Service</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-service_xinetd_disabled_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-set_firewalld_default_zone_ocil:questionnaire:1">
       <ocil:title>Set Default firewalld Zone for Incoming Packets</ocil:title>
       <ocil:actions>
@@ -4809,7 +4827,7 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-sysctl_net_ipv4_conf_all_drop_gratuitous_arp_ocil:questionnaire:1">
-      <ocil:title>Drop Gratuitious ARP frames on All IPv4 Interfaces</ocil:title>
+      <ocil:title>Drop Gratuitous ARP frames on All IPv4 Interfaces</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-sysctl_net_ipv4_conf_all_drop_gratuitous_arp_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -7512,6 +7530,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-enable_authselect_action:testaction:1" question_ref="ocil:ssg-enable_authselect_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-enable_fips_mode_action:testaction:1" question_ref="ocil:ssg-enable_fips_mode_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -7585,6 +7611,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-ensure_pam_wheel_group_empty_action:testaction:1" question_ref="ocil:ssg-ensure_pam_wheel_group_empty_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-ensure_redhat_gpgkey_installed_action:testaction:1" question_ref="ocil:ssg-ensure_redhat_gpgkey_installed_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -10785,6 +10819,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-service_usbguard_enabled_action:testaction:1" question_ref="ocil:ssg-service_usbguard_enabled_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-service_xinetd_disabled_action:testaction:1" question_ref="ocil:ssg-service_xinetd_disabled_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -14328,7 +14370,7 @@ If the plugin is active, the output will show yes.
 $ sudo grep action_mail_acct /etc/audit/auditd.conf
 
 action_mail_acct = 
-      Is it the case that the value of the "action_mail_acct" keyword is not set to "&lt;sub idref="var_auditd_action_mail_acct" /&gt;" and/or other accounts for security personnel, the "action_mail_acct" keyword is missing, or the retuned line is commented out, ask the system administrator to indicate how they and the ISSO are notified of an audit process failure. If there is no evidence of the proper personnel being notified of an audit processing failure?
+      Is it the case that the value of the "action_mail_acct" keyword is not set to "&lt;sub idref="var_auditd_action_mail_acct" /&gt;" and/or other accounts for security personnel, the "action_mail_acct" keyword is missing, or the returned line is commented out, ask the system administrator to indicate how they and the ISSO are notified of an audit process failure. If there is no evidence of the proper personnel being notified of an audit processing failure?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-auditd_data_retention_admin_space_left_action_question:question:1">
@@ -14389,7 +14431,7 @@ max_log_file_action =
       <ocil:question_text>Inspect /etc/audit/auditd.conf and locate the following line to
 determine if the system is configured correctly:
 space_left SIZE_in_MB
-      Is it the case that the system is not configured a specfic size in MB to notify administrators of an issue?
+      Is it the case that the system is not configured a specific size in MB to notify administrators of an issue?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-auditd_data_retention_space_left_action_question:question:1">
@@ -14592,7 +14634,7 @@ Ask the System Administrator for the site or program Ports, Protocols, and Servi
     <ocil:boolean_question id="ocil:ssg-configure_kerberos_crypto_policy_question:question:1">
       <ocil:question_text>Check that the symlink exists and target the correct Kerberos crypto policy, with the following command:
 file /etc/krb5.conf.d/crypto-policies
-If command ouput shows the following line, Kerberos is configured to use the system-wide crypto policy.
+If command output shows the following line, Kerberos is configured to use the system-wide crypto policy.
 /etc/krb5.conf.d/crypto-policies: symbolic link to /etc/crypto-policies/back-ends/krb5.config
       Is it the case that the symlink does not exist or points to a different target?
       </ocil:question_text>
@@ -14971,7 +15013,7 @@ run the command:
 $ ls -lL /etc/ipsec.d
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ipsec.d does not have a group owner of
 root
@@ -14984,7 +15026,7 @@ run the command:
 $ ls -lL /etc/iptables
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/iptables does not have a group owner of
 root
@@ -14997,7 +15039,7 @@ run the command:
 $ ls -lL /etc/nftables
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/nftables does not have a group owner of
 root
@@ -15010,7 +15052,7 @@ run the command:
 $ ls -lL /etc/selinux
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/selinux does not have a group owner of
 root
@@ -15023,7 +15065,7 @@ run the command:
 $ ls -lL /etc/sudoers.d
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/sudoers.d does not have a group owner of
 root
@@ -15036,7 +15078,7 @@ run the command:
 $ ls -lL /etc/sysctl.d
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/sysctl.d does not have a group owner of
 root
@@ -15292,6 +15334,13 @@ upgrade_type = security
       Is it the case that the upgrade_type is not set to security?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-enable_authselect_question:question:1">
+      <ocil:question_text>Verify that authselect is enabled by running
+authselect current
+If authselect is enabled on the system, the output should show the ID of the profile which is currently in use.
+      Is it the case that authselect is not used to manage user authentication setup on the system?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-enable_fips_mode_question:question:1">
       <ocil:question_text>To verify that FIPS mode is enabled properly, run the following command:
 cat /proc/sys/crypto/fips_enabled
@@ -15388,6 +15437,14 @@ The output should contain the following line:
       Is it the case that group  exists and has no user members?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-ensure_redhat_gpgkey_installed_question:question:1">
+      <ocil:question_text>To ensure that the GPG key is installed, run:
+$ rpm -q --queryformat "%{SUMMARY}\n" gpg-pubkey
+The command should return the string below:
+gpg(Red Hat, Inc. (release key 2)  &lt;security@redhat.com&gt;
+      Is it the case that the Red Hat GPG Key is not installed?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-ensure_root_password_configured_question:question:1">
       <ocil:question_text>root password is not set
       Is it the case that Perform the following to determine if a password is set for the
@@ -15475,7 +15532,7 @@ $ sudo stat -c "%U %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrac
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_cron_deny_not_exist_question:question:1">
       <ocil:question_text>The file /etc/cron.deny should not exist.
-This can be checked by runnig the following
+This can be checked by running the following
 
 stat /etc/cron.deny
 
@@ -15518,7 +15575,7 @@ run the command:
 $ ls -lL /etc/at.allow
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/at.allow does not have a group owner of
 root
@@ -15531,7 +15588,7 @@ run the command:
 $ ls -lL /etc/group-
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/group- does not have a group owner of
 root
@@ -15544,7 +15601,7 @@ run the command:
 $ ls -lL /etc/gshadow-
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/gshadow- does not have a group owner of
 root
@@ -15557,7 +15614,7 @@ run the command:
 $ ls -lL /etc/passwd-
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/passwd- does not have a group owner of
 root
@@ -15570,7 +15627,7 @@ run the command:
 $ ls -lL /etc/shadow-
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/shadow- does not have a group owner of
 root
@@ -15583,7 +15640,7 @@ run the command:
 $ ls -lL /etc/cron.allow
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.allow does not have a group owner of
 root
@@ -15596,7 +15653,7 @@ run the command:
 $ ls -lL /etc/cron.d
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.d does not have a group owner of
 root
@@ -15609,7 +15666,7 @@ run the command:
 $ ls -lL /etc/cron.daily
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.daily does not have a group owner of
 root
@@ -15622,7 +15679,7 @@ run the command:
 $ ls -lL /etc/cron.deny
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.deny does not have a group owner of
 root
@@ -15635,7 +15692,7 @@ run the command:
 $ ls -lL /etc/cron.hourly
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.hourly does not have a group owner of
 root
@@ -15648,7 +15705,7 @@ run the command:
 $ ls -lL /etc/cron.monthly
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.monthly does not have a group owner of
 root
@@ -15661,7 +15718,7 @@ run the command:
 $ ls -lL /etc/cron.weekly
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.weekly does not have a group owner of
 root
@@ -15674,7 +15731,7 @@ run the command:
 $ ls -lL /etc/crontab
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/crontab does not have a group owner of
 root
@@ -15687,7 +15744,7 @@ run the command:
 $ ls -lL /etc/chrony.keys
 If properly configured, the output should indicate the following group-owner:
 
-  chrony 
+  chrony
   
       Is it the case that /etc/chrony.keys does not have a group owner of
 chrony
@@ -15700,7 +15757,7 @@ run the command:
 $ ls -lL /etc/crypttab
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/crypttab does not have a group owner of
 root
@@ -15713,7 +15770,7 @@ run the command:
 $ ls -lL /etc/group
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/group does not have a group owner of
 root
@@ -15726,7 +15783,7 @@ run the command:
 $ ls -lL /etc/gshadow
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/gshadow does not have a group owner of
 root
@@ -15739,7 +15796,7 @@ run the command:
 $ ls -lL /etc/ipsec.conf
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ipsec.conf does not have a group owner of
 root
@@ -15752,7 +15809,7 @@ run the command:
 $ ls -lL /etc/ipsec.secrets
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ipsec.secrets does not have a group owner of
 root
@@ -15765,7 +15822,7 @@ run the command:
 $ ls -lL /etc/issue.net
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/issue.net does not have a group owner of
 root
@@ -15778,7 +15835,7 @@ run the command:
 $ ls -lL /etc/passwd
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/passwd does not have a group owner of
 root
@@ -15791,7 +15848,7 @@ run the command:
 $ ls -lL /etc/sestatus.conf
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/sestatus.conf does not have a group owner of
 root
@@ -15804,7 +15861,7 @@ run the command:
 $ ls -lL /etc/shadow
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/shadow does not have a group owner of
 root
@@ -15817,7 +15874,7 @@ run the command:
 $ ls -lL /etc/shells
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/shells does not have a group owner of
 root
@@ -15830,7 +15887,7 @@ run the command:
 $ ls -lL /etc/sudoers
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/sudoers does not have a group owner of
 root
@@ -15843,7 +15900,7 @@ run the command:
 $ ls -lL /boot/grub2/grub.cfg
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /boot/grub2/grub.cfg does not have a group owner of
 root
@@ -15856,7 +15913,7 @@ run the command:
 $ ls -lL /etc/ssh/sshd_config
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ssh/sshd_config does not have a group owner of
 root
@@ -15878,7 +15935,7 @@ run the command:
 $ ls -lL /boot/System.map*
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /boot/System.map* does not have a group owner of
 root
@@ -15891,7 +15948,7 @@ run the command:
 $ ls -lL /boot/grub2/user.cfg
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /boot/grub2/user.cfg does not have a group owner of
 root
@@ -15904,7 +15961,7 @@ run the command:
 $ ls -lL /var/log
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /var/log does not have a group owner of
 root
@@ -15917,7 +15974,7 @@ run the command:
 $ ls -lL /var/log/messages
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /var/log/messages does not have a group owner of
 root
@@ -15952,7 +16009,7 @@ run the command:
 $ ls -lL /etc/ssh/*_key
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ssh/*_key does not have a group owner of
 root
@@ -15965,7 +16022,7 @@ run the command:
 $ ls -lL /etc/ssh/*.pub
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ssh/*.pub does not have a group owner of
 root
@@ -16885,9 +16942,9 @@ Fill in GRUBENV_FILE_LOCATION based on information above.
     <ocil:boolean_question id="ocil:ssg-grub2_audit_backlog_limit_argument_question:question:1">
       <ocil:question_text>Inspect the form of default GRUB 2 command line for the Linux operating system
 in /boot/grub2/grubenv.
-If they include audit_backlog_limit=8192, then the parameter
+If they include audit_backlog_limit=, then the parameter
 is configured at boot time.
-$ sudo grep 'kernelopts.*audit_backlog_limit=8192.*' GRUBENV_FILE_LOCATION
+$ sudo grep 'kernelopts.*audit_backlog_limit=.*' GRUBENV_FILE_LOCATION
 Fill in GRUBENV_FILE_LOCATION based on information above.
       Is it the case that audit backlog limit is not configured?
       </ocil:question_text>
@@ -17079,7 +17136,7 @@ Fill in GRUBENV_FILE_LOCATION based on information above.
       <ocil:question_text>Ensure that debug-shell service is not enabled with the following command:
 grep systemd\.debug-shell=1 /boot/grub2/grubenv /etc/default/grub
 If the command returns a line, it means that debug-shell service is being enabled.
-      Is it the case that the comand returns a line?
+      Is it the case that the command returns a line?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-grub2_vsyscall_argument_question:question:1">
@@ -19354,6 +19411,33 @@ If the service is running, it should return the following: active
       Is it the case that the service is not enabled?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-service_xinetd_disabled_question:question:1">
+      <ocil:question_text>If network services are using the xinetd service, this is not applicable.
+
+To check that the xinetd service is disabled in system boot configuration,
+run the following command:
+$ sudo systemctl is-enabled xinetd
+Output should indicate the xinetd service has either not been installed,
+or has been disabled at all runlevels, as shown in the example below:
+$ sudo systemctl is-enabled xinetd disabled
+
+Run the following command to verify xinetd is not active (i.e. not running) through current runtime configuration:
+$ sudo systemctl is-active xinetd
+
+If the service is not running the command will return the following output:
+inactive
+
+The service will also be masked, to check that the xinetd is masked, run the following command:
+$ sudo systemctl show xinetd | grep "LoadState\|UnitFileState"
+
+If the service is masked the command will return the following outputs:
+
+LoadState=masked
+
+UnitFileState=masked
+      Is it the case that the "xinetd" is loaded and not masked?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-set_firewalld_default_zone_question:question:1">
       <ocil:question_text>Inspect the file /etc/firewalld/firewalld.conf to determine
 the default zone for the firewalld. It should be set to DefaultZone=drop:
@@ -19852,7 +19936,7 @@ run the command:
 $ ls -lL /usr/bin/sudo
 If properly configured, the output should indicate the following group-owner:
 
-   
+  
   
       Is it the case that /usr/bin/sudo does not have a group owner of
 &lt;sub idref="var_sudo_dedicated_group" /&gt;
@@ -20659,7 +20743,7 @@ If the mount unit is running, it should return the following: active
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-tftp_uses_secure_mode_systemd_question:question:1">
-      <ocil:question_text>Use udo systemctl show tftp to verify that tftp service is using secure mode.
+      <ocil:question_text>Use sudo systemctl show tftp to verify that tftp service is using secure mode.
 $ sudo systemctl show tftp | grep ExecStart=
 ExecStart={ path=/usr/sbin/in.tftpd ; argv[]=/usr/sbin/in.tftpd -s /var/lib/tftpboot ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }e
 

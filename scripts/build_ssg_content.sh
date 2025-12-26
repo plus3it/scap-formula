@@ -54,13 +54,34 @@ echo
 curl -sSL "$RL_PATCH_URL" -o "$RL_PATCH_FILE"
 git apply "$RL_PATCH_FILE"
 
+# If controls not present for target, use rhel controls
+echo "Ensuring controls directory exists for all 'other' targets: ${MAKE_TARGETS_OTHERS[*]//-content/}"
+for target in "${MAKE_TARGETS_OTHERS[@]//-content/}"
+do
+  elver="${target//[!0-9]/}"
+  if [[ "$target" == "al2023" ]]
+  then
+    elver=9
+  fi
+  if [[ -d "${BUILD_DIR}/products/${target}/controls" ]]
+  then
+    echo "-- Control directory for target '$target' already exists. Will not be added."
+  elif [[ -d "${BUILD_DIR}/products/rhel${elver}/controls" ]]
+  then
+      echo "-- Control directory for target '$target' was not found. Control directory will be copied from 'rhel${elver}' to target '${target}'..."
+      cp -r "${BUILD_DIR}/products/rhel${elver}/controls" "${BUILD_DIR}/products/${target}/controls"
+  else
+    echo "-- Control directory for 'rhel${elver}' does not exist. Skipping controls for target '${target}'..."
+  fi
+done
+
 # Update standard_profiles
 echo "Ensuring ssg content includes required profiles: ${PROFILES[*]}"
 ssg_constants="${BUILD_DIR}/ssg/constants.py"
 for profile in "${PROFILES[@]}"
 do
   if grep -e 'standard_profiles' "$ssg_constants" | grep -e \'"$profile"\'; then
-    echo "-- Profile '$profile' already exists.  Will not be added."
+    echo "-- Profile '$profile' already exists. Will not be added."
   else
     echo "-- Profile '$profile' was not found. Profile '$profile' will be added to standard_profiles..."
     sed -i '/standard_profiles = \[/ s/]/,\ '\'"$profile"\''&/' "$ssg_constants"
@@ -81,7 +102,7 @@ do
       echo "-- Profile '$profile' was found for 'rhel${elver}'. Adding profile '$profile' to target '${target}'..."
       cp -n "${BUILD_DIR}/products/rhel${elver}/profiles/${profile}.profile" "${BUILD_DIR}/products/${target}/profiles/${profile}.profile"
     else
-      echo "-- Profile '$profile' does not exist for 'rhel${elver}'. Skipping target '${target}'..."
+      echo "-- Profile '$profile' does not exist for 'rhel${elver}'. Skipping profile for target '${target}'..."
     fi
   done
 done

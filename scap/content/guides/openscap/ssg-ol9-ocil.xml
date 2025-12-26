@@ -2,7 +2,7 @@
 <ocil:ocil xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <ocil:generator>
     <ocil:product_name>build_shorthand.py from SCAP Security Guide</ocil:product_name>
-    <ocil:product_version>ssg: 0.1.78</ocil:product_version>
+    <ocil:product_version>ssg: 0.1.79</ocil:product_version>
     <ocil:schema_version>2.0</ocil:schema_version>
     <ocil:timestamp>2021-03-02T15:45:39</ocil:timestamp>
   </ocil:generator>
@@ -221,6 +221,12 @@
       <ocil:title>Ensure PAM password complexity module is enabled in password-auth</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-accounts_password_pam_pwquality_password_auth_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-accounts_password_pam_pwquality_retry_ocil:questionnaire:1">
+      <ocil:title>Ensure PAM Enforces Password Requirements - Authentication Retry Prompts Permitted Per-Session in /etc/security/pwquality.conf</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-accounts_password_pam_pwquality_retry_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-accounts_password_pam_pwquality_system_auth_ocil:questionnaire:1">
@@ -1999,12 +2005,6 @@
         <ocil:test_action_ref>ocil:ssg-file_groupowner_crontab_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-file_groupowner_efi_grub2_cfg_ocil:questionnaire:1">
-      <ocil:title>Verify the UEFI Boot Loader grub.cfg Group Ownership</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-file_groupowner_efi_grub2_cfg_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_groupowner_efi_user_cfg_ocil:questionnaire:1">
       <ocil:title>Verify /boot/grub2/user.cfg Group Ownership</ocil:title>
       <ocil:actions>
@@ -2225,18 +2225,6 @@
       <ocil:title>Verify Owner on crontab</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-file_owner_crontab_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-file_owner_efi_grub2_cfg_ocil:questionnaire:1">
-      <ocil:title>Verify the UEFI Boot Loader grub.cfg User Ownership</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-file_owner_efi_grub2_cfg_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-file_owner_efi_user_cfg_ocil:questionnaire:1">
-      <ocil:title>Verify /boot/grub2/user.cfg User Ownership</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-file_owner_efi_user_cfg_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_owner_etc_chrony_keys_ocil:questionnaire:1">
@@ -2477,18 +2465,6 @@
       <ocil:title>Verify Permissions on crontab</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-file_permissions_crontab_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-file_permissions_efi_grub2_cfg_ocil:questionnaire:1">
-      <ocil:title>Verify the UEFI Boot Loader grub.cfg Permissions</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-file_permissions_efi_grub2_cfg_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-file_permissions_efi_user_cfg_ocil:questionnaire:1">
-      <ocil:title>Verify /boot/grub2/user.cfg Permissions</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-file_permissions_efi_user_cfg_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_permissions_etc_audit_auditd_ocil:questionnaire:1">
@@ -2867,12 +2843,6 @@
       <ocil:title>Ensure debug-shell service is not enabled during boot</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-grub2_systemd_debug-shell_argument_absent_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-grub2_uefi_password_ocil:questionnaire:1">
-      <ocil:title>Set the UEFI Boot Loader Password</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-grub2_uefi_password_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-grub2_vsyscall_argument_ocil:questionnaire:1">
@@ -3284,7 +3254,7 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-kernel_config_stackprotector_ocil:questionnaire:1">
-      <ocil:title>Stack Protector buffer overlow detection</ocil:title>
+      <ocil:title>Stack Protector buffer overflow detection</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-kernel_config_stackprotector_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -3961,12 +3931,6 @@
         <ocil:test_action_ref>ocil:ssg-package_rsh-server_removed_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-package_rsh_removed_ocil:questionnaire:1">
-      <ocil:title>Uninstall rsh Package</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-package_rsh_removed_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-package_rsyslog-gnutls_installed_ocil:questionnaire:1">
       <ocil:title>Ensure rsyslog-gnutls is installed</ocil:title>
       <ocil:actions>
@@ -4031,18 +3995,6 @@
       <ocil:title>Ensure syslog-ng is Installed</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-package_syslogng_installed_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-package_talk-server_removed_ocil:questionnaire:1">
-      <ocil:title>Uninstall talk-server Package</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-package_talk-server_removed_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-package_talk_removed_ocil:questionnaire:1">
-      <ocil:title>Uninstall talk Package</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-package_talk_removed_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-package_telnet-server_removed_ocil:questionnaire:1">
@@ -5205,7 +5157,7 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-sysctl_net_ipv4_conf_all_drop_gratuitous_arp_ocil:questionnaire:1">
-      <ocil:title>Drop Gratuitious ARP frames on All IPv4 Interfaces</ocil:title>
+      <ocil:title>Drop Gratuitous ARP frames on All IPv4 Interfaces</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-sysctl_net_ipv4_conf_all_drop_gratuitous_arp_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -5265,7 +5217,7 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-sysctl_net_ipv4_conf_default_log_martians_ocil:questionnaire:1">
-      <ocil:title>Enable Kernel Paremeter to Log Martian Packets on all IPv4 Interfaces by Default</ocil:title>
+      <ocil:title>Enable Kernel Parameter to Log Martian Packets on all IPv4 Interfaces by Default</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-sysctl_net_ipv4_conf_default_log_martians_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -5823,6 +5775,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-accounts_password_pam_pwquality_password_auth_action:testaction:1" question_ref="ocil:ssg-accounts_password_pam_pwquality_password_auth_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-accounts_password_pam_pwquality_retry_action:testaction:1" question_ref="ocil:ssg-accounts_password_pam_pwquality_retry_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -8198,14 +8158,6 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-file_groupowner_efi_grub2_cfg_action:testaction:1" question_ref="ocil:ssg-file_groupowner_efi_grub2_cfg_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_groupowner_efi_user_cfg_action:testaction:1" question_ref="ocil:ssg-file_groupowner_efi_user_cfg_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -8495,22 +8447,6 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_owner_crontab_action:testaction:1" question_ref="ocil:ssg-file_owner_crontab_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-file_owner_efi_grub2_cfg_action:testaction:1" question_ref="ocil:ssg-file_owner_efi_grub2_cfg_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-file_owner_efi_user_cfg_action:testaction:1" question_ref="ocil:ssg-file_owner_efi_user_cfg_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -8831,22 +8767,6 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_crontab_action:testaction:1" question_ref="ocil:ssg-file_permissions_crontab_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_efi_grub2_cfg_action:testaction:1" question_ref="ocil:ssg-file_permissions_efi_grub2_cfg_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_efi_user_cfg_action:testaction:1" question_ref="ocil:ssg-file_permissions_efi_user_cfg_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -9351,14 +9271,6 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-grub2_systemd_debug-shell_argument_absent_action:testaction:1" question_ref="ocil:ssg-grub2_systemd_debug-shell_argument_absent_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-grub2_uefi_password_action:testaction:1" question_ref="ocil:ssg-grub2_uefi_password_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -10814,14 +10726,6 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-package_rsh_removed_action:testaction:1" question_ref="ocil:ssg-package_rsh_removed_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-package_rsyslog-gnutls_installed_action:testaction:1" question_ref="ocil:ssg-package_rsyslog-gnutls_installed_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -10903,22 +10807,6 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-package_syslogng_installed_action:testaction:1" question_ref="ocil:ssg-package_syslogng_installed_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-package_talk-server_removed_action:testaction:1" question_ref="ocil:ssg-package_talk-server_removed_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-package_talk_removed_action:testaction:1" question_ref="ocil:ssg-package_talk_removed_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -13303,6 +13191,14 @@ password requisite pam_pwquality.so
       Is it the case that pam_pwquality.so is not enabled in password-auth?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-accounts_password_pam_pwquality_retry_question:question:1">
+      <ocil:question_text>Verify Oracle Linux 9 is configured to limit the "pwquality" retry option to .
+
+Check for the use of the "pwquality" retry option in the pwquality.conf file with the following command:
+$ grep retry /etc/security/pwquality.conf
+      Is it the case that the value of "retry" is set to "0" or greater than "&lt;sub idref="var_password_pam_retry" /&gt;", or is missing?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-accounts_password_pam_pwquality_system_auth_question:question:1">
       <ocil:question_text>To check if pam_pwquality.so is enabled in system-auth, run the following command:
 $ grep pam_pwquality /etc/pam.d/system-auth
@@ -15157,7 +15053,7 @@ If the value of the "disk_full_action" option is not "SYSLOG", "SINGLE", or "HAL
 $ sudo grep action_mail_acct /etc/audit/auditd.conf
 
 action_mail_acct = 
-      Is it the case that the value of the "action_mail_acct" keyword is not set to "&lt;sub idref="var_auditd_action_mail_acct" /&gt;" and/or other accounts for security personnel, the "action_mail_acct" keyword is missing, or the retuned line is commented out, ask the system administrator to indicate how they and the ISSO are notified of an audit process failure. If there is no evidence of the proper personnel being notified of an audit processing failure?
+      Is it the case that the value of the "action_mail_acct" keyword is not set to "&lt;sub idref="var_auditd_action_mail_acct" /&gt;" and/or other accounts for security personnel, the "action_mail_acct" keyword is missing, or the returned line is commented out, ask the system administrator to indicate how they and the ISSO are notified of an audit process failure. If there is no evidence of the proper personnel being notified of an audit processing failure?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-auditd_data_retention_admin_space_left_action_question:question:1">
@@ -15218,7 +15114,7 @@ max_log_file_action =
       <ocil:question_text>Inspect /etc/audit/auditd.conf and locate the following line to
 determine if the system is configured correctly:
 space_left SIZE_in_MB
-      Is it the case that the system is not configured a specfic size in MB to notify administrators of an issue?
+      Is it the case that the system is not configured a specific size in MB to notify administrators of an issue?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-auditd_data_retention_space_left_action_question:question:1">
@@ -15433,7 +15329,7 @@ Ask the System Administrator for the site or program Ports, Protocols, and Servi
     <ocil:boolean_question id="ocil:ssg-configure_kerberos_crypto_policy_question:question:1">
       <ocil:question_text>Check that the symlink exists and target the correct Kerberos crypto policy, with the following command:
 file /etc/krb5.conf.d/crypto-policies
-If command ouput shows the following line, Kerberos is configured to use the system-wide crypto policy.
+If command output shows the following line, Kerberos is configured to use the system-wide crypto policy.
 /etc/krb5.conf.d/crypto-policies: symbolic link to /etc/crypto-policies/back-ends/krb5.config
       Is it the case that the symlink does not exist or points to a different target?
       </ocil:question_text>
@@ -15861,7 +15757,7 @@ run the command:
 $ ls -lL /etc/ipsec.d
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ipsec.d does not have a group owner of
 root
@@ -15874,7 +15770,7 @@ run the command:
 $ ls -lL /etc/iptables
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/iptables does not have a group owner of
 root
@@ -15887,7 +15783,7 @@ run the command:
 $ ls -lL /etc/nftables
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/nftables does not have a group owner of
 root
@@ -15900,7 +15796,7 @@ run the command:
 $ ls -lL /etc/selinux
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/selinux does not have a group owner of
 root
@@ -15913,7 +15809,7 @@ run the command:
 $ ls -lL /etc/sudoers.d
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/sudoers.d does not have a group owner of
 root
@@ -15926,7 +15822,7 @@ run the command:
 $ ls -lL /etc/sysctl.d
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/sysctl.d does not have a group owner of
 root
@@ -16358,7 +16254,7 @@ $ sudo stat -c "%U %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrac
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_cron_deny_not_exist_question:question:1">
       <ocil:question_text>The file /etc/cron.deny should not exist.
-This can be checked by runnig the following
+This can be checked by running the following
 
 stat /etc/cron.deny
 
@@ -16401,7 +16297,7 @@ run the command:
 $ ls -lL /etc/at.allow
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/at.allow does not have a group owner of
 root
@@ -16414,7 +16310,7 @@ run the command:
 $ ls -lL /etc/group-
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/group- does not have a group owner of
 root
@@ -16427,7 +16323,7 @@ run the command:
 $ ls -lL /etc/gshadow-
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/gshadow- does not have a group owner of
 root
@@ -16440,7 +16336,7 @@ run the command:
 $ ls -lL /etc/passwd-
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/passwd- does not have a group owner of
 root
@@ -16453,7 +16349,7 @@ run the command:
 $ ls -lL /etc/shadow-
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/shadow- does not have a group owner of
 root
@@ -16466,7 +16362,7 @@ run the command:
 $ ls -lL /etc/cron.allow
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.allow does not have a group owner of
 root
@@ -16479,7 +16375,7 @@ run the command:
 $ ls -lL /etc/cron.d
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.d does not have a group owner of
 root
@@ -16492,7 +16388,7 @@ run the command:
 $ ls -lL /etc/cron.daily
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.daily does not have a group owner of
 root
@@ -16505,7 +16401,7 @@ run the command:
 $ ls -lL /etc/cron.deny
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.deny does not have a group owner of
 root
@@ -16518,7 +16414,7 @@ run the command:
 $ ls -lL /etc/cron.hourly
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.hourly does not have a group owner of
 root
@@ -16531,7 +16427,7 @@ run the command:
 $ ls -lL /etc/cron.monthly
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.monthly does not have a group owner of
 root
@@ -16544,7 +16440,7 @@ run the command:
 $ ls -lL /etc/cron.weekly
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.weekly does not have a group owner of
 root
@@ -16557,22 +16453,9 @@ run the command:
 $ ls -lL /etc/crontab
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/crontab does not have a group owner of
-root
-?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-file_groupowner_efi_grub2_cfg_question:question:1">
-      <ocil:question_text>To check the group ownership of /boot/grub2/grub.cfg,
-run the command:
-$ ls -lL /boot/grub2/grub.cfg
-If properly configured, the output should indicate the following group-owner:
-
-  root 
-  
-      Is it the case that /boot/grub2/grub.cfg does not have a group owner of
 root
 ?
       </ocil:question_text>
@@ -16583,7 +16466,7 @@ run the command:
 $ ls -lL /boot/grub2/user.cfg
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /boot/grub2/user.cfg does not have a group owner of
 root
@@ -16596,7 +16479,7 @@ run the command:
 $ ls -lL /etc/chrony.keys
 If properly configured, the output should indicate the following group-owner:
 
-  chrony 
+  chrony
   
       Is it the case that /etc/chrony.keys does not have a group owner of
 chrony
@@ -16609,7 +16492,7 @@ run the command:
 $ ls -lL /etc/crypttab
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/crypttab does not have a group owner of
 root
@@ -16622,7 +16505,7 @@ run the command:
 $ ls -lL /etc/group
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/group does not have a group owner of
 root
@@ -16635,7 +16518,7 @@ run the command:
 $ ls -lL /etc/gshadow
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/gshadow does not have a group owner of
 root
@@ -16648,7 +16531,7 @@ run the command:
 $ ls -lL /etc/ipsec.conf
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ipsec.conf does not have a group owner of
 root
@@ -16661,7 +16544,7 @@ run the command:
 $ ls -lL /etc/ipsec.secrets
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ipsec.secrets does not have a group owner of
 root
@@ -16674,7 +16557,7 @@ run the command:
 $ ls -lL /etc/issue.net
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/issue.net does not have a group owner of
 root
@@ -16687,7 +16570,7 @@ run the command:
 $ ls -lL /etc/passwd
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/passwd does not have a group owner of
 root
@@ -16700,7 +16583,7 @@ run the command:
 $ ls -lL /etc/sestatus.conf
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/sestatus.conf does not have a group owner of
 root
@@ -16713,7 +16596,7 @@ run the command:
 $ ls -lL /etc/shadow
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/shadow does not have a group owner of
 root
@@ -16726,7 +16609,7 @@ run the command:
 $ ls -lL /etc/shells
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/shells does not have a group owner of
 root
@@ -16739,7 +16622,7 @@ run the command:
 $ ls -lL /etc/sudoers
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/sudoers does not have a group owner of
 root
@@ -16752,7 +16635,7 @@ run the command:
 $ ls -lL /boot/grub2/grub.cfg
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /boot/grub2/grub.cfg does not have a group owner of
 root
@@ -16765,7 +16648,7 @@ run the command:
 $ ls -lL /etc/ssh/sshd_config
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ssh/sshd_config does not have a group owner of
 root
@@ -16778,7 +16661,7 @@ run the command:
 $ ls -lL /boot/System.map*
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /boot/System.map* does not have a group owner of
 root
@@ -16791,7 +16674,7 @@ run the command:
 $ ls -lL /boot/grub2/user.cfg
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /boot/grub2/user.cfg does not have a group owner of
 root
@@ -16804,7 +16687,7 @@ run the command:
 $ ls -lL /var/log
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /var/log does not have a group owner of
 root
@@ -16817,7 +16700,7 @@ run the command:
 $ ls -lL /var/log/messages
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /var/log/messages does not have a group owner of
 root
@@ -16830,7 +16713,7 @@ run the command:
 $ ls -lL /var/log/syslog
 If properly configured, the output should indicate the following group-owner:
 
-  adm 
+  adm
   
       Is it the case that /var/log/syslog does not have a group owner of
 adm
@@ -16865,7 +16748,7 @@ run the command:
 $ ls -lL /etc/ssh/*_key
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ssh/*_key does not have a group owner of
 root
@@ -16878,7 +16761,7 @@ run the command:
 $ ls -lL /etc/ssh/*.pub
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ssh/*.pub does not have a group owner of
 root
@@ -16998,24 +16881,6 @@ $ ls -lL /etc/crontab
 If properly configured, the output should indicate the following owner:
 root
       Is it the case that /etc/crontab does not have an owner of root?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-file_owner_efi_grub2_cfg_question:question:1">
-      <ocil:question_text>To check the ownership of /boot/grub2/grub.cfg,
-run the command:
-$ ls -lL /boot/grub2/grub.cfg
-If properly configured, the output should indicate the following owner:
-root
-      Is it the case that /boot/grub2/grub.cfg does not have an owner of root?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-file_owner_efi_user_cfg_question:question:1">
-      <ocil:question_text>To check the ownership of /boot/grub2/user.cfg,
-run the command:
-$ ls -lL /boot/grub2/user.cfg
-If properly configured, the output should indicate the following owner:
-root
-      Is it the case that /boot/grub2/user.cfg does not have an owner of root?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_owner_etc_chrony_keys_question:question:1">
@@ -17384,23 +17249,6 @@ If properly configured, the output should indicate the following permissions:
       Is it the case that /etc/crontab does not have unix mode -rw-------?
       </ocil:question_text>
     </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-file_permissions_efi_grub2_cfg_question:question:1">
-      <ocil:question_text>To check the permissions of /boot/grub2/grub.cfg, run the command:
-$ sudo ls -lL /boot/grub2/grub.cfg
-If properly configured, the output should indicate the following
-permissions: -rwx------
-      Is it the case that it does not?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-file_permissions_efi_user_cfg_question:question:1">
-      <ocil:question_text>To check the permissions of /boot/grub2/user.cfg,
-run the command:
-$ ls -l /boot/grub2/user.cfg
-If properly configured, the output should indicate the following permissions:
--rw-------
-      Is it the case that /boot/grub2/user.cfg does not have unix mode -rw-------?
-      </ocil:question_text>
-    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_permissions_etc_audit_auditd_question:question:1">
       <ocil:question_text>To check the permissions of /etc/audit/auditd.conf,
 run the command:
@@ -17670,7 +17518,7 @@ If properly configured, the output should indicate the following permissions:
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-fips_crypto_policy_symlinks_question:question:1">
-      <ocil:question_text>Validate all files are symlinks to ponting to /usr/share/crypto-policies/FIPS/ except for
+      <ocil:question_text>Validate all files are symlinks to pointing to /usr/share/crypto-policies/FIPS/ except for
 nss.config:
 
 $ stat -c%N /etc/crypto-policies/back-ends/*
@@ -17820,16 +17668,16 @@ The command should not return any output.
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-grub2_audit_backlog_limit_argument_question:question:1">
       <ocil:question_text>Inspect the form of default GRUB 2 command line for the Linux operating system
-in /etc/default/grub. If it includes audit_backlog_limit=8192,
+in /etc/default/grub. If it includes audit_backlog_limit=,
 then the parameter will be configured for newly installed kernels.
 First check if the GRUB recovery is enabled:
 $ sudo grep 'GRUB_DISABLE_RECOVERY' /etc/default/grub
 If this option is set to true, then check that a line is output by the following command:
-$ sudo grep 'GRUB_CMDLINE_LINUX_DEFAULT.*audit_backlog_limit=8192.*' /etc/default/grub
+$ sudo grep 'GRUB_CMDLINE_LINUX_DEFAULT.*audit_backlog_limit=.*' /etc/default/grub
 If the recovery is disabled, check the line with
-$ sudo grep 'GRUB_CMDLINE_LINUX.*audit_backlog_limit=8192.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
+$ sudo grep 'GRUB_CMDLINE_LINUX.*audit_backlog_limit=.*' /etc/default/grub.Moreover, command line parameters for currently installed kernels should be checked as well.
 Run the following command:
-$ sudo grubby --info=ALL | grep args | grep -v 'audit_backlog_limit=8192'
+$ sudo grubby --info=ALL | grep args | grep -v 'audit_backlog_limit='
 The command should not return any output.
       Is it the case that audit backlog limit is not configured?
       </ocil:question_text>
@@ -18099,18 +17947,7 @@ The command should not return any output.
       <ocil:question_text>Ensure that debug-shell service is not enabled with the following command:
 grep systemd\.debug-shell=1 /boot/grub2/grubenv /etc/default/grub
 If the command returns a line, it means that debug-shell service is being enabled.
-      Is it the case that the comand returns a line?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-grub2_uefi_password_question:question:1">
-      <ocil:question_text>To verify the boot loader superuser password has been set, run the following command:
-$ sudo grep "^[\s]*GRUB2_PASSWORD=grub\.pbkdf2\.sha512.*$" /boot/grub2/user.cfg
-The output should be similar to:
-GRUB2_PASSWORD=grub.pbkdf2.sha512.10000.C4E08AC72FBFF7E837FD267BFAD7AEB3D42DDC
-2C99F2A94DD5E2E75C2DC331B719FE55D9411745F82D1B6CFD9E927D61925F9BBDD1CFAA0080E0
-916F7AB46E0D.1302284FCCC52CD73BA3671C6C12C26FF50BA873293B24EE2A96EE3B57963E6D7
-0C83964B473EC8F93B07FE749AA6710269E904A9B08A6BBACB00A2D242AD828
-      Is it the case that no password is set?
+      Is it the case that the command returns a line?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-grub2_vsyscall_argument_question:question:1">
@@ -19693,11 +19530,6 @@ $ rpm -q rsh-server
       Is it the case that the package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-package_rsh_removed_question:question:1">
-      <ocil:question_text>The rsh package can be removed with the following command:  $ sudo yum erase rsh
-      Is it the case that ?
-      </ocil:question_text>
-    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_rsyslog-gnutls_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the rsyslog-gnutls package is installed:
 $ rpm -q rsyslog-gnutls
@@ -19756,18 +19588,6 @@ $ rpm -q squid
     <ocil:boolean_question id="ocil:ssg-package_syslogng_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the syslog-ng-core package is installed: $ rpm -q syslog-ng-core
       Is it the case that the package is not installed?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-package_talk-server_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the talk-server package is installed:
-$ rpm -q talk-server
-      Is it the case that the package is installed?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-package_talk_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the talk package is installed:
-$ rpm -q talk
-      Is it the case that the package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_telnet-server_removed_question:question:1">
@@ -19928,7 +19748,7 @@ If the output is i686 or i386 the operating system is 32-bit.
 Check if the installed CPU supports 64-bit operating systems by running the following command:
 $ lscpu | grep "CPU op-mode"
 If the output contains 64bit, the CPU supports 64-bit operating systems.
-      Is it the case that the installed operating sytem is 32-bit but the CPU supports operation in 64-bit?
+      Is it the case that the installed operating system is 32-bit but the CPU supports operation in 64-bit?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-require_emergency_target_auth_question:question:1">
@@ -21548,7 +21368,7 @@ run the command:
 $ ls -lL /usr/bin/sudo
 If properly configured, the output should indicate the following group-owner:
 
-   
+  
   
       Is it the case that /usr/bin/sudo does not have a group owner of
 &lt;sub idref="var_sudo_dedicated_group" /&gt;
@@ -22393,7 +22213,7 @@ If the mount unit is running, it should return the following: active
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-tftp_uses_secure_mode_systemd_question:question:1">
-      <ocil:question_text>Use udo systemctl show tftp to verify that tftp service is using secure mode.
+      <ocil:question_text>Use sudo systemctl show tftp to verify that tftp service is using secure mode.
 $ sudo systemctl show tftp | grep ExecStart=
 ExecStart={ path=/usr/sbin/in.tftpd ; argv[]=/usr/sbin/in.tftpd -s /var/lib/tftpboot ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }e
 
