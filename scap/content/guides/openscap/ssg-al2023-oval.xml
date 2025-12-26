@@ -2,7 +2,7 @@
 <oval-def:oval_definitions xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <oval-def:generator>
     <oval:product_name>OVALFileLinker from SCAP Security Guide</oval:product_name>
-    <oval:product_version>ssg: [0, 1, 78], python: 3.10.12</oval:product_version>
+    <oval:product_version>ssg: [0, 1, 79], python: 3.10.12</oval:product_version>
     <oval:schema_version>5.11</oval:schema_version>
     <oval:timestamp>2021-03-02T15:45:39</oval:timestamp>
   </oval-def:generator>
@@ -60,19 +60,19 @@
       <oval-def:criteria operator="OR">
         <oval-def:criteria operator="AND">
           <oval-def:extend_definition comment="audit augenrules" definition_ref="oval:ssg-audit_rules_augenrules:def:1" />
-          <oval-def:criterion comment="audit /etc/issue augenrules" test_ref="oval:ssg-test_arnm_etc_issue_augenrules:tst:1" />
-          <oval-def:criterion comment="audit /etc/issue.net augenrules" test_ref="oval:ssg-test_arnm_etc_issue_net_augenrules:tst:1" />
-          <oval-def:criterion comment="audit /etc/hosts augenrules" test_ref="oval:ssg-test_arnm_etc_hosts_augenrules:tst:1" />
-          <oval-def:criterion comment="audit /etc/sysconfig/network augenrules" test_ref="oval:ssg-test_arnm_etc_sysconfig_network_augenrules:tst:1" />
+          <oval-def:criterion comment="audit /etc/issue augenrules" test_ref="oval:ssg-test_arnm_common_etc_issue_augenrules:tst:1" />
+          <oval-def:criterion comment="audit /etc/issue.net augenrules" test_ref="oval:ssg-test_arnm_common_etc_issue_net_augenrules:tst:1" />
+          <oval-def:criterion comment="audit /etc/hosts augenrules" test_ref="oval:ssg-test_arnm_common_etc_hosts_augenrules:tst:1" />
+          <oval-def:criterion comment="audit /etc/sysconfig/network augenrules" test_ref="oval:ssg-test_arnm_common_etc_sysconfig_network_augenrules:tst:1" />
           <oval-def:extend_definition comment="audit augenrules sethostname" definition_ref="oval:ssg-audit_rules_networkconfig_modification_hostname:def:1" />
           <oval-def:extend_definition comment="audit augenrules setdomainname" definition_ref="oval:ssg-audit_rules_networkconfig_modification_domainname:def:1" />
         </oval-def:criteria>
         <oval-def:criteria operator="AND">
           <oval-def:extend_definition comment="audit auditctl" definition_ref="oval:ssg-audit_rules_auditctl:def:1" />
-          <oval-def:criterion comment="audit /etc/issue auditctl" test_ref="oval:ssg-test_arnm_etc_issue_auditctl:tst:1" />
-          <oval-def:criterion comment="audit /etc/issue.net auditctl" test_ref="oval:ssg-test_arnm_etc_issue_net_auditctl:tst:1" />
-          <oval-def:criterion comment="audit /etc/hosts auditctl" test_ref="oval:ssg-test_arnm_etc_hosts_auditctl:tst:1" />
-          <oval-def:criterion comment="audit /etc/sysconfig/network auditctl" test_ref="oval:ssg-test_arnm_etc_sysconfig_network_auditctl:tst:1" />
+          <oval-def:criterion comment="audit /etc/issue auditctl" test_ref="oval:ssg-test_arnm_common_etc_issue_auditctl:tst:1" />
+          <oval-def:criterion comment="audit /etc/issue.net auditctl" test_ref="oval:ssg-test_arnm_common_etc_issue_net_auditctl:tst:1" />
+          <oval-def:criterion comment="audit /etc/hosts auditctl" test_ref="oval:ssg-test_arnm_common_etc_hosts_auditctl:tst:1" />
+          <oval-def:criterion comment="audit /etc/sysconfig/network auditctl" test_ref="oval:ssg-test_arnm_common_etc_sysconfig_network_auditctl:tst:1" />
           <oval-def:extend_definition comment="audit augenrules sethostname" definition_ref="oval:ssg-audit_rules_networkconfig_modification_hostname:def:1" />
           <oval-def:extend_definition comment="audit augenrules setdomainname" definition_ref="oval:ssg-audit_rules_networkconfig_modification_domainname:def:1" />
         </oval-def:criteria>
@@ -338,146 +338,6 @@
         <oval-def:criteria operator="AND">
           <oval-def:extend_definition comment="audit auditctl" definition_ref="oval:ssg-audit_rules_auditctl:def:1" />
           <oval-def:criterion comment="audit auditctl 32-bit umount" test_ref="oval:ssg-test_32bit_ardm_umount_auditctl:tst:1" />
-        </oval-def:criteria>
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition id="oval:ssg-audit_rules_kernel_module_loading_create:def:1" version="1" class="compliance">
-      <oval-def:metadata>
-        <oval-def:title>Ensure auditd Collects Information on Kernel Module Unloading - create_module</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:reference ref_id="audit_rules_kernel_module_loading_create" source="ssg" />
-        <oval-def:description>The audit rules should be configured to log information about kernel module loading and unloading.</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="OR">
-        <oval-def:criteria operator="AND">
-          <oval-def:extend_definition comment="audit augenrules" definition_ref="oval:ssg-audit_rules_augenrules:def:1" />
-          <oval-def:criterion comment="audit augenrules 32-bit create_module" test_ref="oval:ssg-test_32bit_ardm_create_module_augenrules:tst:1" />
-          <oval-def:criteria operator="OR">
-            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
-            <oval-def:criterion comment="audit augenrules 64-bit create_module" test_ref="oval:ssg-test_64bit_ardm_create_module_augenrules:tst:1" />
-          </oval-def:criteria>
-        </oval-def:criteria>
-        <oval-def:criteria operator="AND">
-          <oval-def:extend_definition comment="audit auditctl" definition_ref="oval:ssg-audit_rules_auditctl:def:1" />
-          <oval-def:criterion comment="audit auditctl 32-bit create_module" test_ref="oval:ssg-test_32bit_ardm_create_module_auditctl:tst:1" />
-          <oval-def:criteria operator="OR">
-            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
-            <oval-def:criterion comment="audit auditctl 64-bit create_module" test_ref="oval:ssg-test_64bit_ardm_create_module_auditctl:tst:1" />
-          </oval-def:criteria>
-        </oval-def:criteria>
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition id="oval:ssg-audit_rules_kernel_module_loading_delete:def:1" version="1" class="compliance">
-      <oval-def:metadata>
-        <oval-def:title>Ensure auditd Collects Information on Kernel Module Unloading - delete_module</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:reference ref_id="audit_rules_kernel_module_loading_delete" source="ssg" />
-        <oval-def:description>The audit rules should be configured to log information about kernel module loading and unloading.</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="OR">
-        <oval-def:criteria operator="AND">
-          <oval-def:extend_definition comment="audit augenrules" definition_ref="oval:ssg-audit_rules_augenrules:def:1" />
-          <oval-def:criterion comment="audit augenrules 32-bit delete_module" test_ref="oval:ssg-test_32bit_ardm_delete_module_augenrules:tst:1" />
-          <oval-def:criteria operator="OR">
-            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
-            <oval-def:criterion comment="audit augenrules 64-bit delete_module" test_ref="oval:ssg-test_64bit_ardm_delete_module_augenrules:tst:1" />
-          </oval-def:criteria>
-        </oval-def:criteria>
-        <oval-def:criteria operator="AND">
-          <oval-def:extend_definition comment="audit auditctl" definition_ref="oval:ssg-audit_rules_auditctl:def:1" />
-          <oval-def:criterion comment="audit auditctl 32-bit delete_module" test_ref="oval:ssg-test_32bit_ardm_delete_module_auditctl:tst:1" />
-          <oval-def:criteria operator="OR">
-            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
-            <oval-def:criterion comment="audit auditctl 64-bit delete_module" test_ref="oval:ssg-test_64bit_ardm_delete_module_auditctl:tst:1" />
-          </oval-def:criteria>
-        </oval-def:criteria>
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition id="oval:ssg-audit_rules_kernel_module_loading_finit:def:1" version="1" class="compliance">
-      <oval-def:metadata>
-        <oval-def:title>Ensure auditd Collects Information on Kernel Module Loading and Unloading - finit_module</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:reference ref_id="audit_rules_kernel_module_loading_finit" source="ssg" />
-        <oval-def:description>The audit rules should be configured to log information about kernel module loading and unloading.</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="OR">
-        <oval-def:criteria operator="AND">
-          <oval-def:extend_definition comment="audit augenrules" definition_ref="oval:ssg-audit_rules_augenrules:def:1" />
-          <oval-def:criterion comment="audit augenrules 32-bit finit_module" test_ref="oval:ssg-test_32bit_ardm_finit_module_augenrules:tst:1" />
-          <oval-def:criteria operator="OR">
-            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
-            <oval-def:criterion comment="audit augenrules 64-bit finit_module" test_ref="oval:ssg-test_64bit_ardm_finit_module_augenrules:tst:1" />
-          </oval-def:criteria>
-        </oval-def:criteria>
-        <oval-def:criteria operator="AND">
-          <oval-def:extend_definition comment="audit auditctl" definition_ref="oval:ssg-audit_rules_auditctl:def:1" />
-          <oval-def:criterion comment="audit auditctl 32-bit finit_module" test_ref="oval:ssg-test_32bit_ardm_finit_module_auditctl:tst:1" />
-          <oval-def:criteria operator="OR">
-            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
-            <oval-def:criterion comment="audit auditctl 64-bit finit_module" test_ref="oval:ssg-test_64bit_ardm_finit_module_auditctl:tst:1" />
-          </oval-def:criteria>
-        </oval-def:criteria>
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition id="oval:ssg-audit_rules_kernel_module_loading_init:def:1" version="1" class="compliance">
-      <oval-def:metadata>
-        <oval-def:title>Ensure auditd Collects Information on Kernel Module Loading - init_module</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:reference ref_id="audit_rules_kernel_module_loading_init" source="ssg" />
-        <oval-def:description>The audit rules should be configured to log information about kernel module loading and unloading.</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="OR">
-        <oval-def:criteria operator="AND">
-          <oval-def:extend_definition comment="audit augenrules" definition_ref="oval:ssg-audit_rules_augenrules:def:1" />
-          <oval-def:criterion comment="audit augenrules 32-bit init_module" test_ref="oval:ssg-test_32bit_ardm_init_module_augenrules:tst:1" />
-          <oval-def:criteria operator="OR">
-            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
-            <oval-def:criterion comment="audit augenrules 64-bit init_module" test_ref="oval:ssg-test_64bit_ardm_init_module_augenrules:tst:1" />
-          </oval-def:criteria>
-        </oval-def:criteria>
-        <oval-def:criteria operator="AND">
-          <oval-def:extend_definition comment="audit auditctl" definition_ref="oval:ssg-audit_rules_auditctl:def:1" />
-          <oval-def:criterion comment="audit auditctl 32-bit init_module" test_ref="oval:ssg-test_32bit_ardm_init_module_auditctl:tst:1" />
-          <oval-def:criteria operator="OR">
-            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
-            <oval-def:criterion comment="audit auditctl 64-bit init_module" test_ref="oval:ssg-test_64bit_ardm_init_module_auditctl:tst:1" />
-          </oval-def:criteria>
-        </oval-def:criteria>
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition id="oval:ssg-audit_rules_kernel_module_loading_query:def:1" version="1" class="compliance">
-      <oval-def:metadata>
-        <oval-def:title>Ensure auditd Collects Information on Kernel Module Loading and Unloading - query_module</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:reference ref_id="audit_rules_kernel_module_loading_query" source="ssg" />
-        <oval-def:description>The audit rules should be configured to log information about kernel module loading and unloading.</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="OR">
-        <oval-def:criteria operator="AND">
-          <oval-def:extend_definition comment="audit augenrules" definition_ref="oval:ssg-audit_rules_augenrules:def:1" />
-          <oval-def:criterion comment="audit augenrules 32-bit query_module" test_ref="oval:ssg-test_32bit_ardm_query_module_augenrules:tst:1" />
-          <oval-def:criteria operator="OR">
-            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
-            <oval-def:criterion comment="audit augenrules 64-bit query_module" test_ref="oval:ssg-test_64bit_ardm_query_module_augenrules:tst:1" />
-          </oval-def:criteria>
-        </oval-def:criteria>
-        <oval-def:criteria operator="AND">
-          <oval-def:extend_definition comment="audit auditctl" definition_ref="oval:ssg-audit_rules_auditctl:def:1" />
-          <oval-def:criterion comment="audit auditctl 32-bit query_module" test_ref="oval:ssg-test_32bit_ardm_query_module_auditctl:tst:1" />
-          <oval-def:criteria operator="OR">
-            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
-            <oval-def:criterion comment="audit auditctl 64-bit query_module" test_ref="oval:ssg-test_64bit_ardm_query_module_auditctl:tst:1" />
-          </oval-def:criteria>
         </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
@@ -2576,7 +2436,7 @@
       </oval-def:metadata>
       <oval-def:criteria operator="OR">
         <oval-def:criteria operator="AND">
-          <oval-def:criteria comment="check both files to account for procedure change in documenation" operator="OR">
+          <oval-def:criteria comment="check both files to account for procedure change in documentation" operator="OR">
             <oval-def:criterion comment="make sure a password is defined in /boot/grub2/user.cfg" test_ref="oval:ssg-test_grub2_password_usercfg:tst:1" />
             <oval-def:criterion comment="make sure a password is defined in /boot/grub2/grub.cfg" test_ref="oval:ssg-test_grub2_password_grubcfg:tst:1" />
           </oval-def:criteria>
@@ -3351,6 +3211,7 @@
         <oval-def:extend_definition comment="Installed OS is OL9" definition_ref="oval:ssg-installed_OS_is_ol9:def:1" />
         <oval-def:extend_definition comment="Installed OS is SLE12" definition_ref="oval:ssg-installed_OS_is_sle12:def:1" />
         <oval-def:extend_definition comment="Installed OS is SLE15" definition_ref="oval:ssg-installed_OS_is_sle15:def:1" />
+        <oval-def:extend_definition comment="Installed OS is SLE16" definition_ref="oval:ssg-installed_OS_is_sle16:def:1" />
         <oval-def:extend_definition comment="Installed OS is SLE Micro 5" definition_ref="oval:ssg-installed_OS_is_slmicro5:def:1" />
         <oval-def:extend_definition comment="Installed OS is SLE Micro 6" definition_ref="oval:ssg-installed_OS_is_slmicro6:def:1" />
         <oval-def:extend_definition comment="Installed OS is Ubuntu 24.04" definition_ref="oval:ssg-installed_OS_is_ubuntu2404:def:1" />
@@ -4835,6 +4696,146 @@
         </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition id="oval:ssg-audit_rules_kernel_module_loading_create:def:1" version="1" class="compliance">
+      <oval-def:metadata>
+        <oval-def:title>Ensure auditd Collects Information on Kernel Module Unloading - create_module</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="audit_rules_kernel_module_loading_create" source="ssg" />
+        <oval-def:description>The audit rules should be configured to log information about kernel module loading and unloading.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:extend_definition comment="audit augenrules" definition_ref="oval:ssg-audit_rules_augenrules:def:1" />
+          <oval-def:criterion comment="audit augenrules 32-bit create_module" test_ref="oval:ssg-test_32bit_arkml_create_module_augenrules:tst:1" />
+          <oval-def:criteria operator="OR">
+            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
+            <oval-def:criterion comment="audit augenrules 64-bit create_module" test_ref="oval:ssg-test_64bit_arkml_create_module_augenrules:tst:1" />
+          </oval-def:criteria>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:extend_definition comment="audit auditctl" definition_ref="oval:ssg-audit_rules_auditctl:def:1" />
+          <oval-def:criterion comment="audit auditctl 32-bit create_module" test_ref="oval:ssg-test_32bit_arkml_create_module_auditctl:tst:1" />
+          <oval-def:criteria operator="OR">
+            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
+            <oval-def:criterion comment="audit auditctl 64-bit create_module" test_ref="oval:ssg-test_64bit_arkml_create_module_auditctl:tst:1" />
+          </oval-def:criteria>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-audit_rules_kernel_module_loading_delete:def:1" version="1" class="compliance">
+      <oval-def:metadata>
+        <oval-def:title>Ensure auditd Collects Information on Kernel Module Unloading - delete_module</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="audit_rules_kernel_module_loading_delete" source="ssg" />
+        <oval-def:description>The audit rules should be configured to log information about kernel module loading and unloading.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:extend_definition comment="audit augenrules" definition_ref="oval:ssg-audit_rules_augenrules:def:1" />
+          <oval-def:criterion comment="audit augenrules 32-bit delete_module" test_ref="oval:ssg-test_32bit_arkml_delete_module_augenrules:tst:1" />
+          <oval-def:criteria operator="OR">
+            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
+            <oval-def:criterion comment="audit augenrules 64-bit delete_module" test_ref="oval:ssg-test_64bit_arkml_delete_module_augenrules:tst:1" />
+          </oval-def:criteria>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:extend_definition comment="audit auditctl" definition_ref="oval:ssg-audit_rules_auditctl:def:1" />
+          <oval-def:criterion comment="audit auditctl 32-bit delete_module" test_ref="oval:ssg-test_32bit_arkml_delete_module_auditctl:tst:1" />
+          <oval-def:criteria operator="OR">
+            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
+            <oval-def:criterion comment="audit auditctl 64-bit delete_module" test_ref="oval:ssg-test_64bit_arkml_delete_module_auditctl:tst:1" />
+          </oval-def:criteria>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-audit_rules_kernel_module_loading_finit:def:1" version="1" class="compliance">
+      <oval-def:metadata>
+        <oval-def:title>Ensure auditd Collects Information on Kernel Module Loading and Unloading - finit_module</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="audit_rules_kernel_module_loading_finit" source="ssg" />
+        <oval-def:description>The audit rules should be configured to log information about kernel module loading and unloading.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:extend_definition comment="audit augenrules" definition_ref="oval:ssg-audit_rules_augenrules:def:1" />
+          <oval-def:criterion comment="audit augenrules 32-bit finit_module" test_ref="oval:ssg-test_32bit_arkml_finit_module_augenrules:tst:1" />
+          <oval-def:criteria operator="OR">
+            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
+            <oval-def:criterion comment="audit augenrules 64-bit finit_module" test_ref="oval:ssg-test_64bit_arkml_finit_module_augenrules:tst:1" />
+          </oval-def:criteria>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:extend_definition comment="audit auditctl" definition_ref="oval:ssg-audit_rules_auditctl:def:1" />
+          <oval-def:criterion comment="audit auditctl 32-bit finit_module" test_ref="oval:ssg-test_32bit_arkml_finit_module_auditctl:tst:1" />
+          <oval-def:criteria operator="OR">
+            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
+            <oval-def:criterion comment="audit auditctl 64-bit finit_module" test_ref="oval:ssg-test_64bit_arkml_finit_module_auditctl:tst:1" />
+          </oval-def:criteria>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-audit_rules_kernel_module_loading_init:def:1" version="1" class="compliance">
+      <oval-def:metadata>
+        <oval-def:title>Ensure auditd Collects Information on Kernel Module Loading - init_module</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="audit_rules_kernel_module_loading_init" source="ssg" />
+        <oval-def:description>The audit rules should be configured to log information about kernel module loading and unloading.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:extend_definition comment="audit augenrules" definition_ref="oval:ssg-audit_rules_augenrules:def:1" />
+          <oval-def:criterion comment="audit augenrules 32-bit init_module" test_ref="oval:ssg-test_32bit_arkml_init_module_augenrules:tst:1" />
+          <oval-def:criteria operator="OR">
+            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
+            <oval-def:criterion comment="audit augenrules 64-bit init_module" test_ref="oval:ssg-test_64bit_arkml_init_module_augenrules:tst:1" />
+          </oval-def:criteria>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:extend_definition comment="audit auditctl" definition_ref="oval:ssg-audit_rules_auditctl:def:1" />
+          <oval-def:criterion comment="audit auditctl 32-bit init_module" test_ref="oval:ssg-test_32bit_arkml_init_module_auditctl:tst:1" />
+          <oval-def:criteria operator="OR">
+            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
+            <oval-def:criterion comment="audit auditctl 64-bit init_module" test_ref="oval:ssg-test_64bit_arkml_init_module_auditctl:tst:1" />
+          </oval-def:criteria>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-audit_rules_kernel_module_loading_query:def:1" version="1" class="compliance">
+      <oval-def:metadata>
+        <oval-def:title>Ensure auditd Collects Information on Kernel Module Loading and Unloading - query_module</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="audit_rules_kernel_module_loading_query" source="ssg" />
+        <oval-def:description>The audit rules should be configured to log information about kernel module loading and unloading.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:extend_definition comment="audit augenrules" definition_ref="oval:ssg-audit_rules_augenrules:def:1" />
+          <oval-def:criterion comment="audit augenrules 32-bit query_module" test_ref="oval:ssg-test_32bit_arkml_query_module_augenrules:tst:1" />
+          <oval-def:criteria operator="OR">
+            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
+            <oval-def:criterion comment="audit augenrules 64-bit query_module" test_ref="oval:ssg-test_64bit_arkml_query_module_augenrules:tst:1" />
+          </oval-def:criteria>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:extend_definition comment="audit auditctl" definition_ref="oval:ssg-audit_rules_auditctl:def:1" />
+          <oval-def:criterion comment="audit auditctl 32-bit query_module" test_ref="oval:ssg-test_32bit_arkml_query_module_auditctl:tst:1" />
+          <oval-def:criteria operator="OR">
+            <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
+            <oval-def:criterion comment="audit auditctl 64-bit query_module" test_ref="oval:ssg-test_64bit_arkml_query_module_auditctl:tst:1" />
+          </oval-def:criteria>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition id="oval:ssg-audit_rules_login_events_faillock:def:1" version="1" class="compliance">
       <oval-def:metadata>
         <oval-def:title>Record Attempts to Alter Logon and Logout Events - faillock</oval-def:title>
@@ -4945,7 +4946,7 @@
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-audit_rules_networkconfig_modification_network_scripts:def:1" version="1" class="compliance">
       <oval-def:metadata>
-        <oval-def:title>Record Events that Modify the System's Network Environment</oval-def:title>
+        <oval-def:title>Record Events that Modify the System's Network Environment - /etc/sysconfig/network-scripts</oval-def:title>
         <oval-def:affected family="unix">
           <oval-def:platform>Amazon Linux 2023</oval-def:platform>
         </oval-def:affected>
@@ -6020,8 +6021,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the HostbasedAuthentication in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_disable_host_auth:tst:1" />
-              <oval-def:criterion comment="Check the HostbasedAuthentication in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_disable_host_auth_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the HostbasedAuthentication in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_disable_host_auth:tst:1" />
+              <oval-def:criterion comment="Check the HostbasedAuthentication in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_disable_host_auth_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_HostbasedAuthentication_present_disable_host_auth:tst:1" />
           </oval-def:criteria>
@@ -7454,17 +7455,17 @@
           <oval-def:platform>Amazon Linux 2023</oval-def:platform>
         </oval-def:affected>
         <oval-def:reference ref_id="grub2_audit_backlog_limit_argument" source="ssg" />
-        <oval-def:description>Ensure audit_backlog_limit=8192 is configured in the kernel line in /etc/default/grub.</oval-def:description>
+        <oval-def:description>Ensure audit_backlog_limit is configured in the kernel line in /etc/default/grub.</oval-def:description>
       </oval-def:metadata>
       <oval-def:criteria operator="OR">
         <oval-def:criteria operator="AND">
           <oval-def:criteria operator="OR">
             <oval-def:criteria operator="OR">
-              <oval-def:criterion comment="check for audit_backlog_limit=8192 in /etc/default/grub via GRUB_CMDLINE_LINUX" test_ref="oval:ssg-test_grub2_audit_backlog_limit_argument:tst:1" />
+              <oval-def:criterion comment="check for audit_backlog_limit in /etc/default/grub via GRUB_CMDLINE_LINUX" test_ref="oval:ssg-test_grub2_audit_backlog_limit_argument:tst:1" />
             </oval-def:criteria>
             <oval-def:criteria operator="AND">
               <oval-def:criteria operator="OR">
-                <oval-def:criterion comment="check for audit_backlog_limit=8192 in /etc/default/grub via GRUB_CMDLINE_LINUX_DEFAULT" test_ref="oval:ssg-test_grub2_audit_backlog_limit_argument_default:tst:1" />
+                <oval-def:criterion comment="check for audit_backlog_limit in /etc/default/grub via GRUB_CMDLINE_LINUX_DEFAULT" test_ref="oval:ssg-test_grub2_audit_backlog_limit_argument_default:tst:1" />
               </oval-def:criteria>
               <oval-def:extend_definition comment="Check GRUB_DISABLE_RECOVERY=true in /etc/default/grub" definition_ref="oval:ssg-bootloader_disable_recovery_set_to_true:def:1" />
             </oval-def:criteria>
@@ -9774,8 +9775,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the Compression in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_disable_compression:tst:1" />
-              <oval-def:criterion comment="Check the Compression in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_disable_compression_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the Compression in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_disable_compression:tst:1" />
+              <oval-def:criterion comment="Check the Compression in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_disable_compression_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_Compression_present_sshd_disable_compression:tst:1" />
           </oval-def:criteria>
@@ -9801,8 +9802,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the PermitEmptyPasswords in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_disable_empty_passwords:tst:1" />
-              <oval-def:criterion comment="Check the PermitEmptyPasswords in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_disable_empty_passwords_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the PermitEmptyPasswords in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_disable_empty_passwords:tst:1" />
+              <oval-def:criterion comment="Check the PermitEmptyPasswords in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_disable_empty_passwords_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_PermitEmptyPasswords_present_sshd_disable_empty_passwords:tst:1" />
           </oval-def:criteria>
@@ -9828,8 +9829,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the GSSAPIAuthentication in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_disable_gssapi_auth:tst:1" />
-              <oval-def:criterion comment="Check the GSSAPIAuthentication in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_disable_gssapi_auth_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the GSSAPIAuthentication in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_disable_gssapi_auth:tst:1" />
+              <oval-def:criterion comment="Check the GSSAPIAuthentication in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_disable_gssapi_auth_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_GSSAPIAuthentication_present_sshd_disable_gssapi_auth:tst:1" />
           </oval-def:criteria>
@@ -9855,8 +9856,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the KerberosAuthentication in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_disable_kerb_auth:tst:1" />
-              <oval-def:criterion comment="Check the KerberosAuthentication in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_disable_kerb_auth_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the KerberosAuthentication in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_disable_kerb_auth:tst:1" />
+              <oval-def:criterion comment="Check the KerberosAuthentication in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_disable_kerb_auth_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_KerberosAuthentication_present_sshd_disable_kerb_auth:tst:1" />
           </oval-def:criteria>
@@ -9882,8 +9883,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the IgnoreRhosts in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_disable_rhosts:tst:1" />
-              <oval-def:criterion comment="Check the IgnoreRhosts in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_disable_rhosts_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the IgnoreRhosts in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_disable_rhosts:tst:1" />
+              <oval-def:criterion comment="Check the IgnoreRhosts in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_disable_rhosts_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_IgnoreRhosts_present_sshd_disable_rhosts:tst:1" />
           </oval-def:criteria>
@@ -9909,8 +9910,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the PermitRootLogin in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_disable_root_login:tst:1" />
-              <oval-def:criterion comment="Check the PermitRootLogin in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_disable_root_login_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the PermitRootLogin in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_disable_root_login:tst:1" />
+              <oval-def:criterion comment="Check the PermitRootLogin in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_disable_root_login_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_PermitRootLogin_present_sshd_disable_root_login:tst:1" />
           </oval-def:criteria>
@@ -9936,8 +9937,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the AllowTcpForwarding in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_disable_tcp_forwarding:tst:1" />
-              <oval-def:criterion comment="Check the AllowTcpForwarding in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_disable_tcp_forwarding_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the AllowTcpForwarding in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_disable_tcp_forwarding:tst:1" />
+              <oval-def:criterion comment="Check the AllowTcpForwarding in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_disable_tcp_forwarding_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_AllowTcpForwarding_present_sshd_disable_tcp_forwarding:tst:1" />
           </oval-def:criteria>
@@ -9963,8 +9964,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the IgnoreUserKnownHosts in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_disable_user_known_hosts:tst:1" />
-              <oval-def:criterion comment="Check the IgnoreUserKnownHosts in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_disable_user_known_hosts_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the IgnoreUserKnownHosts in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_disable_user_known_hosts:tst:1" />
+              <oval-def:criterion comment="Check the IgnoreUserKnownHosts in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_disable_user_known_hosts_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_IgnoreUserKnownHosts_present_sshd_disable_user_known_hosts:tst:1" />
           </oval-def:criteria>
@@ -9990,8 +9991,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the X11Forwarding in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_disable_x11_forwarding:tst:1" />
-              <oval-def:criterion comment="Check the X11Forwarding in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_disable_x11_forwarding_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the X11Forwarding in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_disable_x11_forwarding:tst:1" />
+              <oval-def:criterion comment="Check the X11Forwarding in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_disable_x11_forwarding_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_X11Forwarding_present_sshd_disable_x11_forwarding:tst:1" />
           </oval-def:criteria>
@@ -10017,8 +10018,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the PermitUserEnvironment in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_do_not_permit_user_env:tst:1" />
-              <oval-def:criterion comment="Check the PermitUserEnvironment in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_do_not_permit_user_env_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the PermitUserEnvironment in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_do_not_permit_user_env:tst:1" />
+              <oval-def:criterion comment="Check the PermitUserEnvironment in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_do_not_permit_user_env_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_PermitUserEnvironment_present_sshd_do_not_permit_user_env:tst:1" />
           </oval-def:criteria>
@@ -10044,8 +10045,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the UsePAM in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_enable_pam:tst:1" />
-              <oval-def:criterion comment="Check the UsePAM in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_enable_pam_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the UsePAM in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_enable_pam:tst:1" />
+              <oval-def:criterion comment="Check the UsePAM in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_enable_pam_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_UsePAM_present_sshd_enable_pam:tst:1" />
           </oval-def:criteria>
@@ -10071,8 +10072,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the PubkeyAuthentication in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_enable_pubkey_auth:tst:1" />
-              <oval-def:criterion comment="Check the PubkeyAuthentication in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_enable_pubkey_auth_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the PubkeyAuthentication in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_enable_pubkey_auth:tst:1" />
+              <oval-def:criterion comment="Check the PubkeyAuthentication in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_enable_pubkey_auth_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_PubkeyAuthentication_present_sshd_enable_pubkey_auth:tst:1" />
           </oval-def:criteria>
@@ -10098,8 +10099,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the StrictModes in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_enable_strictmodes:tst:1" />
-              <oval-def:criterion comment="Check the StrictModes in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_enable_strictmodes_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the StrictModes in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_enable_strictmodes:tst:1" />
+              <oval-def:criterion comment="Check the StrictModes in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_enable_strictmodes_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_StrictModes_present_sshd_enable_strictmodes:tst:1" />
           </oval-def:criteria>
@@ -10125,8 +10126,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the Banner in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_enable_warning_banner:tst:1" />
-              <oval-def:criterion comment="Check the Banner in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_enable_warning_banner_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the Banner in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_enable_warning_banner:tst:1" />
+              <oval-def:criterion comment="Check the Banner in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_enable_warning_banner_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_Banner_present_sshd_enable_warning_banner:tst:1" />
           </oval-def:criteria>
@@ -10152,8 +10153,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the Banner in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_enable_warning_banner_net:tst:1" />
-              <oval-def:criterion comment="Check the Banner in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_enable_warning_banner_net_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the Banner in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_enable_warning_banner_net:tst:1" />
+              <oval-def:criterion comment="Check the Banner in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_enable_warning_banner_net_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_Banner_present_sshd_enable_warning_banner_net:tst:1" />
           </oval-def:criteria>
@@ -10179,8 +10180,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the PrintLastLog in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_print_last_log:tst:1" />
-              <oval-def:criterion comment="Check the PrintLastLog in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_print_last_log_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the PrintLastLog in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_print_last_log:tst:1" />
+              <oval-def:criterion comment="Check the PrintLastLog in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_print_last_log_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_PrintLastLog_present_sshd_print_last_log:tst:1" />
           </oval-def:criteria>
@@ -10206,8 +10207,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the ClientAliveCountMax in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_set_keepalive:tst:1" />
-              <oval-def:criterion comment="Check the ClientAliveCountMax in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_set_keepalive_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the ClientAliveCountMax in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_set_keepalive:tst:1" />
+              <oval-def:criterion comment="Check the ClientAliveCountMax in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_set_keepalive_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_ClientAliveCountMax_present_sshd_set_keepalive:tst:1" />
           </oval-def:criteria>
@@ -10233,8 +10234,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the LogLevel in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_set_loglevel_verbose:tst:1" />
-              <oval-def:criterion comment="Check the LogLevel in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_set_loglevel_verbose_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the LogLevel in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_set_loglevel_verbose:tst:1" />
+              <oval-def:criterion comment="Check the LogLevel in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_set_loglevel_verbose_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_LogLevel_present_sshd_set_loglevel_verbose:tst:1" />
           </oval-def:criteria>
@@ -10260,8 +10261,8 @@
           <oval-def:extend_definition comment="rpm package openssh-server installed" definition_ref="oval:ssg-package_openssh-server_installed:def:1" />
           <oval-def:criteria comment="sshd is configured correctly" operator="AND">
             <oval-def:criteria comment="the configuration is correct if it exists" operator="AND">
-              <oval-def:criterion comment="Check the X11UseLocalhost in /etc/ssh/sshd_configif any" test_ref="oval:ssg-test_sshd_x11_use_localhost:tst:1" />
-              <oval-def:criterion comment="Check the X11UseLocalhost in /etc/ssh/sshd_config.dif any" test_ref="oval:ssg-test_sshd_x11_use_localhost_config_dir:tst:1" />
+              <oval-def:criterion comment="Check the X11UseLocalhost in /etc/ssh/sshd_config if any" test_ref="oval:ssg-test_sshd_x11_use_localhost:tst:1" />
+              <oval-def:criterion comment="Check the X11UseLocalhost in /etc/ssh/sshd_config.d if any" test_ref="oval:ssg-test_sshd_x11_use_localhost_config_dir:tst:1" />
             </oval-def:criteria>
             <oval-def:criterion comment="the configuration exists" test_ref="oval:ssg-test_X11UseLocalhost_present_sshd_x11_use_localhost:tst:1" />
           </oval-def:criteria>
@@ -11189,7 +11190,7 @@
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-sysctl_net_ipv4_conf_default_log_martians:def:1" version="3" class="compliance">
       <oval-def:metadata>
-        <oval-def:title>Enable Kernel Paremeter to Log Martian Packets on all IPv4 Interfaces by Default</oval-def:title>
+        <oval-def:title>Enable Kernel Parameter to Log Martian Packets on all IPv4 Interfaces by Default</oval-def:title>
         <oval-def:affected family="unix">
           <oval-def:platform>Amazon Linux 2023</oval-def:platform>
         </oval-def:affected>
@@ -11203,7 +11204,7 @@
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-sysctl_net_ipv4_conf_default_log_martians_runtime:def:1" version="3" class="compliance">
       <oval-def:metadata>
-        <oval-def:title>Enable Kernel Paremeter to Log Martian Packets on all IPv4 Interfaces by Default</oval-def:title>
+        <oval-def:title>Enable Kernel Parameter to Log Martian Packets on all IPv4 Interfaces by Default</oval-def:title>
         <oval-def:affected family="unix">
           <oval-def:platform>Amazon Linux 2023</oval-def:platform>
         </oval-def:affected>
@@ -11216,7 +11217,7 @@
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-sysctl_net_ipv4_conf_default_log_martians_static:def:1" version="3" class="compliance">
       <oval-def:metadata>
-        <oval-def:title>Enable Kernel Paremeter to Log Martian Packets on all IPv4 Interfaces by Default</oval-def:title>
+        <oval-def:title>Enable Kernel Parameter to Log Martian Packets on all IPv4 Interfaces by Default</oval-def:title>
         <oval-def:affected family="unix">
           <oval-def:platform>Amazon Linux 2023</oval-def:platform>
         </oval-def:affected>
@@ -11994,18 +11995,18 @@
       <oval-def:criteria operator="OR">
         <oval-def:criteria operator="AND">
           <oval-def:extend_definition comment="audit augenrules" definition_ref="oval:ssg-audit_rules_augenrules:def:1" />
-          <oval-def:criterion comment="audit augenrules 32-bit setdomainname" test_ref="oval:ssg-test_32bit_ardm_setdomainname_augenrules:tst:1" />
+          <oval-def:criterion comment="audit augenrules 32-bit setdomainname" test_ref="oval:ssg-test_32bit_setdomainname_augenrules:tst:1" />
           <oval-def:criteria operator="OR">
             <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
-            <oval-def:criterion comment="audit augenrules 64-bit setdomainname" test_ref="oval:ssg-test_64bit_ardm_setdomainname_augenrules:tst:1" />
+            <oval-def:criterion comment="audit augenrules 64-bit setdomainname" test_ref="oval:ssg-test_64bit_setdomainname_augenrules:tst:1" />
           </oval-def:criteria>
         </oval-def:criteria>
         <oval-def:criteria operator="AND">
           <oval-def:extend_definition comment="audit auditctl" definition_ref="oval:ssg-audit_rules_auditctl:def:1" />
-          <oval-def:criterion comment="audit auditctl 32-bit setdomainname" test_ref="oval:ssg-test_32bit_ardm_setdomainname_auditctl:tst:1" />
+          <oval-def:criterion comment="audit auditctl 32-bit setdomainname" test_ref="oval:ssg-test_32bit_setdomainname_auditctl:tst:1" />
           <oval-def:criteria operator="OR">
             <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
-            <oval-def:criterion comment="audit auditctl 64-bit setdomainname" test_ref="oval:ssg-test_64bit_ardm_setdomainname_auditctl:tst:1" />
+            <oval-def:criterion comment="audit auditctl 64-bit setdomainname" test_ref="oval:ssg-test_64bit_setdomainname_auditctl:tst:1" />
           </oval-def:criteria>
         </oval-def:criteria>
       </oval-def:criteria>
@@ -12023,18 +12024,18 @@
       <oval-def:criteria operator="OR">
         <oval-def:criteria operator="AND">
           <oval-def:extend_definition comment="audit augenrules" definition_ref="oval:ssg-audit_rules_augenrules:def:1" />
-          <oval-def:criterion comment="audit augenrules 32-bit sethostname" test_ref="oval:ssg-test_32bit_ardm_sethostname_augenrules:tst:1" />
+          <oval-def:criterion comment="audit augenrules 32-bit sethostname" test_ref="oval:ssg-test_32bit_sethostname_augenrules:tst:1" />
           <oval-def:criteria operator="OR">
             <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
-            <oval-def:criterion comment="audit augenrules 64-bit sethostname" test_ref="oval:ssg-test_64bit_ardm_sethostname_augenrules:tst:1" />
+            <oval-def:criterion comment="audit augenrules 64-bit sethostname" test_ref="oval:ssg-test_64bit_sethostname_augenrules:tst:1" />
           </oval-def:criteria>
         </oval-def:criteria>
         <oval-def:criteria operator="AND">
           <oval-def:extend_definition comment="audit auditctl" definition_ref="oval:ssg-audit_rules_auditctl:def:1" />
-          <oval-def:criterion comment="audit auditctl 32-bit sethostname" test_ref="oval:ssg-test_32bit_ardm_sethostname_auditctl:tst:1" />
+          <oval-def:criterion comment="audit auditctl 32-bit sethostname" test_ref="oval:ssg-test_32bit_sethostname_auditctl:tst:1" />
           <oval-def:criteria operator="OR">
             <oval-def:extend_definition negate="true" comment="64-bit system" definition_ref="oval:ssg-system_info_architecture_64bit:def:1" />
-            <oval-def:criterion comment="audit auditctl 64-bit sethostname" test_ref="oval:ssg-test_64bit_ardm_sethostname_auditctl:tst:1" />
+            <oval-def:criterion comment="audit auditctl 64-bit sethostname" test_ref="oval:ssg-test_64bit_sethostname_auditctl:tst:1" />
           </oval-def:criteria>
         </oval-def:criteria>
       </oval-def:criteria>
@@ -12080,6 +12081,10 @@
         <oval-def:criterion comment="kernel is installed" test_ref="oval:ssg-bootc_platform_test_kernel_installed:tst:1" />
         <oval-def:criterion comment="rpm-ostree is installed" test_ref="oval:ssg-bootc_platform_test_rpm_ostree_installed:tst:1" />
         <oval-def:criterion comment="bootc is installed" test_ref="oval:ssg-bootc_platform_test_bootc_installed:tst:1" />
+        <oval-def:criteria operator="OR">
+          <oval-def:criterion comment="/run/ostree-booted exists, suggesting that we are in a running bootc environment" test_ref="oval:ssg-bootc_platform_test_run_ostree_booted_exists:tst:1" />
+          <oval-def:criterion comment="/ostree symlink exists, suggesting that we are in a bootc environment being built and hardened" test_ref="oval:ssg-bootc_platform_test_ostree_symlink_exists:tst:1" />
+        </oval-def:criteria>
         <oval-def:criterion comment="openshift-kubelet is not installed" test_ref="oval:ssg-bootc_platform_test_openshift_kubelet_removed:tst:1" />
       </oval-def:criteria>
     </oval-def:definition>
@@ -12293,6 +12298,25 @@
           <oval-def:criterion comment="SLES 15 for SAP Applications is installed" test_ref="oval:ssg-test_sles_15_for_sap:tst:1" />
           <oval-def:criterion comment="SUSE Manager 4 is installed" test_ref="oval:ssg-test_suma_4:tst:1" />
           <oval-def:criterion comment="SLE HPC is installed" test_ref="oval:ssg-test_sle_hpc:tst:1" />
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_OS_is_sle16:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>SUSE Linux Enterprise 16</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="cpe:/o:suse:linux_enterprise_server:16" source="CPE" />
+        <oval-def:reference ref_id="installed_OS_is_sle16" source="ssg" />
+        <oval-def:description>The operating system installed on the system is SUSE Linux Enterprise Server 16.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Installed operating system is part of the unix family" test_ref="oval:ssg-test_sle16_unix_family:tst:1" />
+        <oval-def:criteria operator="OR">
+          <oval-def:criterion comment="SLE 16 Server is installed" test_ref="oval:ssg-test_sle16_server:tst:1" />
+          <oval-def:criterion comment="SLES 16 for SAP Applications is installed" test_ref="oval:ssg-test_sles_16_for_sap:tst:1" />
+          <oval-def:criterion comment="SLES 16 for High Availability Extension is installed" test_ref="oval:ssg-test_sles_16_for_ha:tst:1" />
         </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
@@ -12588,29 +12612,29 @@
     <ind:textfilecontent54_test id="oval:ssg-test_armm_selinux_watch_auditctl:tst:1" version="1" check="all" comment="audit selinux changes auditctl" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_armm_selinux_watch_auditctl:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_arnm_etc_issue_augenrules:tst:1" version="1" check="all" comment="audit /etc/issue augenrules" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_arnm_etc_issue_augenrules:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_arnm_common_etc_issue_augenrules:tst:1" version="1" check="all" comment="audit /etc/issue augenrules" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_arnm_common_etc_issue_augenrules:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_arnm_etc_issue_net_augenrules:tst:1" version="1" check="all" comment="audit /etc/issue.net augenrules" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_arnm_etc_issue_net_augenrules:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_arnm_common_etc_issue_net_augenrules:tst:1" version="1" check="all" comment="audit /etc/issue.net augenrules" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_arnm_common_etc_issue_net_augenrules:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_arnm_etc_hosts_augenrules:tst:1" version="1" check="all" comment="audit /etc/hosts augenrules" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_arnm_etc_hosts_augenrules:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_arnm_common_etc_hosts_augenrules:tst:1" version="1" check="all" comment="audit /etc/hosts augenrules" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_arnm_common_etc_hosts_augenrules:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_arnm_etc_sysconfig_network_augenrules:tst:1" version="1" check="all" comment="audit /etc/sysconfig/network augenrules" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_arnm_etc_sysconfig_network_augenrules:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_arnm_common_etc_sysconfig_network_augenrules:tst:1" version="1" check="all" comment="audit /etc/sysconfig/network augenrules" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_arnm_common_etc_sysconfig_network_augenrules:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_arnm_etc_issue_auditctl:tst:1" version="1" check="all" comment="audit /etc/issue auditctl" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_arnm_etc_issue_auditctl:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_arnm_common_etc_issue_auditctl:tst:1" version="1" check="all" comment="audit /etc/issue auditctl" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_arnm_common_etc_issue_auditctl:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_arnm_etc_issue_net_auditctl:tst:1" version="1" check="all" comment="audit /etc/issue.net auditctl" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_arnm_etc_issue_net_auditctl:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_arnm_common_etc_issue_net_auditctl:tst:1" version="1" check="all" comment="audit /etc/issue.net auditctl" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_arnm_common_etc_issue_net_auditctl:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_arnm_etc_hosts_auditctl:tst:1" version="1" check="all" comment="audit /etc/hosts auditctl" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_arnm_etc_hosts_auditctl:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_arnm_common_etc_hosts_auditctl:tst:1" version="1" check="all" comment="audit /etc/hosts auditctl" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_arnm_common_etc_hosts_auditctl:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_arnm_etc_sysconfig_network_auditctl:tst:1" version="1" check="all" comment="audit /etc/sysconfig/network auditctl" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_arnm_etc_sysconfig_network_auditctl:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_arnm_common_etc_sysconfig_network_auditctl:tst:1" version="1" check="all" comment="audit /etc/sysconfig/network auditctl" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_arnm_common_etc_sysconfig_network_auditctl:obj:1" />
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_arse_utmp_augenrules:tst:1" version="1" check="all" comment="audit augenrules utmp" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_arse_utmp_augenrules:obj:1" />
@@ -12738,66 +12762,6 @@
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_32bit_ardm_umount_auditctl:tst:1" version="1" check="all" comment="audit auditctl 32-bit umount" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_32bit_ardm_umount_auditctl:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_32bit_ardm_create_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 32-bit create_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_32bit_ardm_create_module_augenrules:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_64bit_ardm_create_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 64-bit create_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_64bit_ardm_create_module_augenrules:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_32bit_ardm_create_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 32-bit create_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_32bit_ardm_create_module_auditctl:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_64bit_ardm_create_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 64-bit create_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_64bit_ardm_create_module_auditctl:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_32bit_ardm_delete_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 32-bit delete_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_32bit_ardm_delete_module_augenrules:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_64bit_ardm_delete_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 64-bit delete_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_64bit_ardm_delete_module_augenrules:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_32bit_ardm_delete_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 32-bit delete_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_32bit_ardm_delete_module_auditctl:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_64bit_ardm_delete_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 64-bit delete_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_64bit_ardm_delete_module_auditctl:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_32bit_ardm_finit_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 32-bit finit_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_32bit_ardm_finit_module_augenrules:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_64bit_ardm_finit_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 64-bit finit_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_64bit_ardm_finit_module_augenrules:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_32bit_ardm_finit_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 32-bit finit_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_32bit_ardm_finit_module_auditctl:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_64bit_ardm_finit_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 64-bit finit_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_64bit_ardm_finit_module_auditctl:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_32bit_ardm_init_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 32-bit init_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_32bit_ardm_init_module_augenrules:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_64bit_ardm_init_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 64-bit init_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_64bit_ardm_init_module_augenrules:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_32bit_ardm_init_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 32-bit init_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_32bit_ardm_init_module_auditctl:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_64bit_ardm_init_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 64-bit init_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_64bit_ardm_init_module_auditctl:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_32bit_ardm_query_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 32-bit query_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_32bit_ardm_query_module_augenrules:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_64bit_ardm_query_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 64-bit query_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_64bit_ardm_query_module_augenrules:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_32bit_ardm_query_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 32-bit query_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_32bit_ardm_query_module_auditctl:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_64bit_ardm_query_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 64-bit query_module" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_64bit_ardm_query_module_auditctl:obj:1" />
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_augenrules_all_priv_cmds_covered:tst:1" version="1" check="all" comment="There is one augenrules rule for each privileged command on the system." check_existence="all_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_priv_cmds_from_augenrules:obj:1" />
@@ -13033,7 +12997,7 @@
       <ind:object object_ref="oval:ssg-object_firewalld_sshd_port_enabled_custom_zone_files_with_ssh_count:obj:1" />
       <ind:state state_ref="oval:ssg-state_firewalld_sshd_port_enabled_custom_zone_files_count:ste:1" />
     </ind:variable_test>
-    <ind:xmlfilecontent_test id="oval:ssg-test_firewalld_sshd_port_enabled_ssh_service_usr:tst:1" version="1" check="all" comment="SSH service is interger in the /usr/lib/firewalld/services dir" check_existence="all_exist" state_operator="AND">
+    <ind:xmlfilecontent_test id="oval:ssg-test_firewalld_sshd_port_enabled_ssh_service_usr:tst:1" version="1" check="all" comment="SSH service is integer in the /usr/lib/firewalld/services dir" check_existence="all_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_firewalld_sshd_port_enabled_ssh_service_file_usr:obj:1" />
     </ind:xmlfilecontent_test>
     <ind:textfilecontent54_test id="oval:ssg-test_firewalld_sshd_port_enabled_ssh_service_etc:tst:1" version="1" check="all" comment="SSH service is properly configured in /etc/firewalld/services dir" check_existence="any_exist" state_operator="AND">
@@ -13944,7 +13908,7 @@
       <ind:object object_ref="oval:ssg-object_core_dumps_limits_d:obj:1" />
       <ind:state state_ref="oval:ssg-state_core_dumps_limits_d:ste:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_core_dumps_limits_d_exists:tst:1" version="1" check="all" comment="Tests for existance of the ^[\s]*\*[\s]+(hard|-)[\s]+core setting in the /etc/security/limits.d directory" state_operator="AND">
+    <ind:textfilecontent54_test id="oval:ssg-test_core_dumps_limits_d_exists:tst:1" version="1" check="all" comment="Tests for existence of the ^[\s]*\*[\s]+(hard|-)[\s]+core setting in the /etc/security/limits.d directory" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_core_dumps_limits_d_exists:obj:1" />
     </ind:textfilecontent54_test>
     <unix:sysctl_test id="oval:ssg-test_runtime_sysctl_kernel_exec_shield:tst:1" version="1" check="all" comment="kernel runtime parameter kernel.exec-shield set to 1" check_existence="all_exist" state_operator="AND">
@@ -14729,6 +14693,66 @@
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_64bit_ardm_unlinkat_auditctl:tst:1" version="1" check="all" comment="audit auditctl 64-bit unlinkat" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_64bit_ardm_unlinkat_auditctl:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_32bit_arkml_create_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 32-bit create_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_32bit_arkml_create_module_augenrules:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_64bit_arkml_create_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 64-bit create_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_64bit_arkml_create_module_augenrules:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_32bit_arkml_create_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 32-bit create_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_32bit_arkml_create_module_auditctl:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_64bit_arkml_create_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 64-bit create_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_64bit_arkml_create_module_auditctl:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_32bit_arkml_delete_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 32-bit delete_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_32bit_arkml_delete_module_augenrules:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_64bit_arkml_delete_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 64-bit delete_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_64bit_arkml_delete_module_augenrules:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_32bit_arkml_delete_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 32-bit delete_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_32bit_arkml_delete_module_auditctl:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_64bit_arkml_delete_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 64-bit delete_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_64bit_arkml_delete_module_auditctl:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_32bit_arkml_finit_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 32-bit finit_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_32bit_arkml_finit_module_augenrules:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_64bit_arkml_finit_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 64-bit finit_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_64bit_arkml_finit_module_augenrules:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_32bit_arkml_finit_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 32-bit finit_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_32bit_arkml_finit_module_auditctl:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_64bit_arkml_finit_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 64-bit finit_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_64bit_arkml_finit_module_auditctl:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_32bit_arkml_init_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 32-bit init_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_32bit_arkml_init_module_augenrules:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_64bit_arkml_init_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 64-bit init_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_64bit_arkml_init_module_augenrules:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_32bit_arkml_init_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 32-bit init_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_32bit_arkml_init_module_auditctl:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_64bit_arkml_init_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 64-bit init_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_64bit_arkml_init_module_auditctl:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_32bit_arkml_query_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 32-bit query_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_32bit_arkml_query_module_augenrules:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_64bit_arkml_query_module_augenrules:tst:1" version="1" check="all" comment="audit augenrules 64-bit query_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_64bit_arkml_query_module_augenrules:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_32bit_arkml_query_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 32-bit query_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_32bit_arkml_query_module_auditctl:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_64bit_arkml_query_module_auditctl:tst:1" version="1" check="all" comment="audit auditctl 64-bit query_module" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_64bit_arkml_query_module_auditctl:obj:1" />
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_audit_rules_login_events_faillock_augenrules:tst:1" version="1" check="all" comment="audit augenrules var_accounts_passwords_pam_faillock_dir" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_audit_rules_login_events_faillock_augenrules:obj:1" />
@@ -15648,11 +15672,11 @@
       <ind:object object_ref="oval:ssg-object_grub2_audit_argument_default:obj:1" />
       <ind:state state_ref="oval:ssg-state_grub2_audit_argument:ste:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_grub2_audit_backlog_limit_argument:tst:1" version="1" check="all" comment="check for audit_backlog_limit=8192 in /etc/default/grub via GRUB_CMDLINE_LINUX" check_existence="all_exist" state_operator="AND">
+    <ind:textfilecontent54_test id="oval:ssg-test_grub2_audit_backlog_limit_argument:tst:1" version="1" check="all" comment="check for audit_backlog_limit in /etc/default/grub via GRUB_CMDLINE_LINUX" check_existence="all_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_grub2_audit_backlog_limit_argument:obj:1" />
       <ind:state state_ref="oval:ssg-state_grub2_audit_backlog_limit_argument:ste:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_grub2_audit_backlog_limit_argument_default:tst:1" version="1" check="all" comment="check for audit_backlog_limit=8192 in /etc/default/grub via GRUB_CMDLINE_LINUX_DEFAULT" check_existence="all_exist" state_operator="AND">
+    <ind:textfilecontent54_test id="oval:ssg-test_grub2_audit_backlog_limit_argument_default:tst:1" version="1" check="all" comment="check for audit_backlog_limit in /etc/default/grub via GRUB_CMDLINE_LINUX_DEFAULT" check_existence="all_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_grub2_audit_backlog_limit_argument_default:obj:1" />
       <ind:state state_ref="oval:ssg-state_grub2_audit_backlog_limit_argument:ste:1" />
     </ind:textfilecontent54_test>
@@ -17443,29 +17467,29 @@
     <ind:textfilecontent54_test id="oval:ssg-test_audit_rules_augenrules:tst:1" version="1" check="all" comment="audit augenrules" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_audit_rules_augenrules:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_32bit_ardm_setdomainname_augenrules:tst:1" version="1" check="all" comment="audit augenrules 32-bit setdomainname" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_32bit_ardm_setdomainname_augenrules:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_32bit_setdomainname_augenrules:tst:1" version="1" check="all" comment="audit augenrules 32-bit setdomainname" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_32bit_setdomainname_augenrules:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_64bit_ardm_setdomainname_augenrules:tst:1" version="1" check="all" comment="audit augenrules 64-bit setdomainname" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_64bit_ardm_setdomainname_augenrules:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_64bit_setdomainname_augenrules:tst:1" version="1" check="all" comment="audit augenrules 64-bit setdomainname" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_64bit_setdomainname_augenrules:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_32bit_ardm_setdomainname_auditctl:tst:1" version="1" check="all" comment="audit auditctl 32-bit setdomainname" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_32bit_ardm_setdomainname_auditctl:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_32bit_setdomainname_auditctl:tst:1" version="1" check="all" comment="audit auditctl 32-bit setdomainname" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_32bit_setdomainname_auditctl:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_64bit_ardm_setdomainname_auditctl:tst:1" version="1" check="all" comment="audit auditctl 64-bit setdomainname" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_64bit_ardm_setdomainname_auditctl:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_64bit_setdomainname_auditctl:tst:1" version="1" check="all" comment="audit auditctl 64-bit setdomainname" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_64bit_setdomainname_auditctl:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_32bit_ardm_sethostname_augenrules:tst:1" version="1" check="all" comment="audit augenrules 32-bit sethostname" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_32bit_ardm_sethostname_augenrules:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_32bit_sethostname_augenrules:tst:1" version="1" check="all" comment="audit augenrules 32-bit sethostname" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_32bit_sethostname_augenrules:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_64bit_ardm_sethostname_augenrules:tst:1" version="1" check="all" comment="audit augenrules 64-bit sethostname" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_64bit_ardm_sethostname_augenrules:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_64bit_sethostname_augenrules:tst:1" version="1" check="all" comment="audit augenrules 64-bit sethostname" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_64bit_sethostname_augenrules:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_32bit_ardm_sethostname_auditctl:tst:1" version="1" check="all" comment="audit auditctl 32-bit sethostname" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_32bit_ardm_sethostname_auditctl:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_32bit_sethostname_auditctl:tst:1" version="1" check="all" comment="audit auditctl 32-bit sethostname" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_32bit_sethostname_auditctl:obj:1" />
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_64bit_ardm_sethostname_auditctl:tst:1" version="1" check="all" comment="audit auditctl 64-bit sethostname" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_64bit_ardm_sethostname_auditctl:obj:1" />
+    <ind:textfilecontent54_test id="oval:ssg-test_64bit_sethostname_auditctl:tst:1" version="1" check="all" comment="audit auditctl 64-bit sethostname" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_64bit_sethostname_auditctl:obj:1" />
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_auditd_conf_log_file_not_set:tst:1" version="1" check="all" comment="log_file not set" check_existence="none_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_auditd_conf_log_file:obj:1" />
@@ -17488,6 +17512,13 @@
     <linux:rpminfo_test id="oval:ssg-bootc_platform_test_openshift_kubelet_removed:tst:1" version="1" check="all" comment="package openshift-kubelet is removed" check_existence="none_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_bootc_platform_test_openshift_kubelet_removed:obj:1" />
     </linux:rpminfo_test>
+    <unix:file_test id="oval:ssg-bootc_platform_test_run_ostree_booted_exists:tst:1" version="1" check="all" comment="The file /run/ostree-booted exists" check_existence="all_exist" state_operator="AND">
+      <unix:object object_ref="oval:ssg-bootc_platform_obj_run_ostree_booted_exists:obj:1" />
+    </unix:file_test>
+    <unix:file_test id="oval:ssg-bootc_platform_test_ostree_symlink_exists:tst:1" version="1" check="all" comment="The file /ostree is a symlink" check_existence="all_exist" state_operator="AND">
+      <unix:object object_ref="oval:ssg-bootc_platform_obj_ostree_symlink_exists:obj:1" />
+      <unix:state state_ref="oval:ssg-bootc_platform_ste_ostree_symlink_exists:ste:1" />
+    </unix:file_test>
     <ind:textfilecontent54_test id="oval:ssg-test_bootloader_disable_recovery_set_to_true:tst:1" version="1" check="all" comment="Check for GRUB_DISABLE_RECOVERY=true in /etc/default/grub" check_existence="all_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_bootloader_disable_recovery_argument:obj:1" />
       <ind:state state_ref="oval:ssg-state_bootloader_disable_recovery_argument:ste:1" />
@@ -17594,6 +17625,22 @@
       <linux:object object_ref="oval:ssg-obj_sle_hpc:obj:1" />
       <linux:state state_ref="oval:ssg-state_sle_hpc:ste:1" />
     </linux:rpminfo_test>
+    <ind:family_test id="oval:ssg-test_sle16_unix_family:tst:1" version="1" check="all" comment="installed OS part of unix family" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_sle16_unix_family:obj:1" />
+      <ind:state state_ref="oval:ssg-state_sle16_unix_family:ste:1" />
+    </ind:family_test>
+    <linux:rpminfo_test id="oval:ssg-test_sle16_server:tst:1" version="1" check="all" comment="SLES-release is version 16" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_sle16_server:obj:1" />
+      <linux:state state_ref="oval:ssg-state_sle16_server:ste:1" />
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-test_sles_16_for_sap:tst:1" version="1" check="all" comment="SLES_SAP-release is version 16" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_sles_16_for_sap:obj:1" />
+      <linux:state state_ref="oval:ssg-state_sles_16_for_sap:ste:1" />
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-test_sles_16_for_ha:tst:1" version="1" check="all" comment="sle-ha-release is version 16" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_sles_16_for_ha:obj:1" />
+      <linux:state state_ref="oval:ssg-state_sles_16_for_ha:ste:1" />
+    </linux:rpminfo_test>
     <ind:family_test id="oval:ssg-test_slmicro5_unix_family:tst:1" version="1" check="all" comment="installed OS part of unix family" state_operator="AND">
       <ind:object object_ref="oval:ssg-obj_slmicro5_unix_family:obj:1" />
       <ind:state state_ref="oval:ssg-state_slmicro5_unix_family:ste:1" />
@@ -17697,42 +17744,42 @@
       <ind:pattern operation="pattern match">^\-w[\s]+/etc/selinux/[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b.*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_arnm_etc_issue_augenrules:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_arnm_common_etc_issue_augenrules:obj:1" version="1">
       <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
       <ind:pattern operation="pattern match">^\-w[\s]+/etc/issue[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b.*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_arnm_etc_issue_net_augenrules:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_arnm_common_etc_issue_net_augenrules:obj:1" version="1">
       <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
       <ind:pattern operation="pattern match">^\-w[\s]+/etc/issue\.net[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b.*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_arnm_etc_hosts_augenrules:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_arnm_common_etc_hosts_augenrules:obj:1" version="1">
       <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
       <ind:pattern operation="pattern match">^\-w[\s]+/etc/hosts[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b.*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_arnm_etc_sysconfig_network_augenrules:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_arnm_common_etc_sysconfig_network_augenrules:obj:1" version="1">
       <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
       <ind:pattern operation="pattern match">^\-w[\s]+/etc/sysconfig/network[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b.*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_arnm_etc_issue_auditctl:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_arnm_common_etc_issue_auditctl:obj:1" version="1">
       <ind:filepath>/etc/audit/audit.rules</ind:filepath>
       <ind:pattern operation="pattern match">^\-w[\s]+/etc/issue[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b.*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_arnm_etc_issue_net_auditctl:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_arnm_common_etc_issue_net_auditctl:obj:1" version="1">
       <ind:filepath>/etc/audit/audit.rules</ind:filepath>
       <ind:pattern operation="pattern match">^\-w[\s]+/etc/issue\.net[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b.*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_arnm_etc_hosts_auditctl:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_arnm_common_etc_hosts_auditctl:obj:1" version="1">
       <ind:filepath>/etc/audit/audit.rules</ind:filepath>
       <ind:pattern operation="pattern match">^\-w[\s]+/etc/hosts[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b.*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_arnm_etc_sysconfig_network_auditctl:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_arnm_common_etc_sysconfig_network_auditctl:obj:1" version="1">
       <ind:filepath>/etc/audit/audit.rules</ind:filepath>
       <ind:pattern operation="pattern match">^\-w[\s]+/etc/sysconfig/network[\s]+\-p[\s]+\b([rx]*w[rx]*a[rx]*|[rx]*a[rx]*w[rx]*)\b.*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
@@ -17938,106 +17985,6 @@
     <ind:textfilecontent54_object id="oval:ssg-object_32bit_ardm_umount_auditctl:obj:1" version="1">
       <ind:filepath>/etc/audit/audit.rules</ind:filepath>
       <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+umount[\s]+|([\s]+|[,])umount([\s]+|[,])))(?:.*-F\s+auid&gt;=1000[\s]+)(?:.*-F\s+auid!=(?:4294967295|unset)[\s]+).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_32bit_ardm_create_module_augenrules:obj:1" version="1">
-      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+create_module[\s]+|([\s]+|[,])create_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_64bit_ardm_create_module_augenrules:obj:1" version="1">
-      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+create_module[\s]+|([\s]+|[,])create_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_32bit_ardm_create_module_auditctl:obj:1" version="1">
-      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+create_module[\s]+|([\s]+|[,])create_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_64bit_ardm_create_module_auditctl:obj:1" version="1">
-      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+create_module[\s]+|([\s]+|[,])create_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_32bit_ardm_delete_module_augenrules:obj:1" version="1">
-      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+delete_module[\s]+|([\s]+|[,])delete_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_64bit_ardm_delete_module_augenrules:obj:1" version="1">
-      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+delete_module[\s]+|([\s]+|[,])delete_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_32bit_ardm_delete_module_auditctl:obj:1" version="1">
-      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+delete_module[\s]+|([\s]+|[,])delete_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_64bit_ardm_delete_module_auditctl:obj:1" version="1">
-      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+delete_module[\s]+|([\s]+|[,])delete_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_32bit_ardm_finit_module_augenrules:obj:1" version="1">
-      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+finit_module[\s]+|([\s]+|[,])finit_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_64bit_ardm_finit_module_augenrules:obj:1" version="1">
-      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+finit_module[\s]+|([\s]+|[,])finit_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_32bit_ardm_finit_module_auditctl:obj:1" version="1">
-      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+finit_module[\s]+|([\s]+|[,])finit_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_64bit_ardm_finit_module_auditctl:obj:1" version="1">
-      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+finit_module[\s]+|([\s]+|[,])finit_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_32bit_ardm_init_module_augenrules:obj:1" version="1">
-      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+init_module[\s]+|([\s]+|[,])init_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_64bit_ardm_init_module_augenrules:obj:1" version="1">
-      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+init_module[\s]+|([\s]+|[,])init_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_32bit_ardm_init_module_auditctl:obj:1" version="1">
-      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+init_module[\s]+|([\s]+|[,])init_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_64bit_ardm_init_module_auditctl:obj:1" version="1">
-      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+init_module[\s]+|([\s]+|[,])init_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_32bit_ardm_query_module_augenrules:obj:1" version="1">
-      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+query_module[\s]+|([\s]+|[,])query_module([\s]+|[,]))).*(?:-F\s+auid&gt;=1000[\s]+)(?:-F\s+auid!=(unset|4294967295))\s+(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_64bit_ardm_query_module_augenrules:obj:1" version="1">
-      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+query_module[\s]+|([\s]+|[,])query_module([\s]+|[,]))).*(?:-F\s+auid&gt;=1000[\s]+)(?:-F\s+auid!=(unset|4294967295))\s+(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_32bit_ardm_query_module_auditctl:obj:1" version="1">
-      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+query_module[\s]+|([\s]+|[,])query_module([\s]+|[,]))).*(?:-F\s+auid&gt;=1000[\s]+)(?:-F\s+auid!=(unset|4294967295))\s+(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_64bit_ardm_query_module_auditctl:obj:1" version="1">
-      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+query_module[\s]+|([\s]+|[,])query_module([\s]+|[,]))).*(?:-F\s+auid&gt;=1000[\s]+)(?:-F\s+auid!=(unset|4294967295))\s+(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <linux:partition_object id="oval:ssg-object_audit_rules_privileged_commands_exec_partitions:obj:1" version="1">
@@ -18303,7 +18250,7 @@
       <ind:pattern operation="pattern match">^[\s]*server.*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_chronyd_no_pool_directive:obj:1" version="1" comment="Matches pool entires in Chrony conf files">
+    <ind:textfilecontent54_object id="oval:ssg-object_chronyd_no_pool_directive:obj:1" version="1" comment="Matches pool entries in Chrony conf files">
       <ind:filepath operation="pattern match">^(/etc/chrony\.conf|/etc/chrony\.d/.+\.conf)$</ind:filepath>
       <ind:pattern operation="pattern match">^[\s]+pool.*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
@@ -19511,7 +19458,7 @@
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_cron_logging_rsyslog_rainer:obj:1" version="1">
       <ind:filepath>/etc/rsyslog.conf</ind:filepath>
-      <ind:pattern operation="pattern match">(?m)^\s*cron\.\*\s+action\(\s*.*(?i)\btype\b(?-i)="omfile"\s*.*(?i)\bfile\b(?-i)="/var/log/cron"\s*.*\)\s*$</ind:pattern>
+      <ind:pattern operation="pattern match">(?ms)^\s*cron\.\*\s+action\(\s*.*(?i)\btype\b(?-i)="omfile"\s*.*(?i)\bfile\b(?-i)="/var/log/cron"\s*.*\)\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_cron_logging_rsyslog_dir:obj:1" version="1">
@@ -19523,7 +19470,7 @@
     <ind:textfilecontent54_object id="oval:ssg-obj_cron_logging_rsyslog_dir_rainer:obj:1" version="1">
       <ind:path>/etc/rsyslog.d</ind:path>
       <ind:filename operation="pattern match">^.*$</ind:filename>
-      <ind:pattern operation="pattern match">(?m)^\s*cron\.\*\s+action\(\s*.*(?i)\btype\b(?-i)="omfile"\s*.*(?i)\bfile\b(?-i)="/var/log/cron"\s*.*\)\s*$</ind:pattern>
+      <ind:pattern operation="pattern match">(?ms)^\s*cron\.\*\s+action\(\s*.*(?i)\btype\b(?-i)="omfile"\s*.*(?i)\bfile\b(?-i)="/var/log/cron"\s*.*\)\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdriverauthmode_action_send_stream_driver_auth_mode:obj:1" version="1" comment="Check if  $ActionSendStreamDriverAuthMode x509/name is set in /etc/rsyslog.conf">
@@ -19533,7 +19480,7 @@
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdriverauthmode_action_send_stream_driver_auth_mode_rainer:obj:1" version="1" comment="Check if StreamDriverAuthMode is set to x509/name in /etc/rsyslog.conf using RainerScript">
       <ind:filepath>/etc/rsyslog.conf</ind:filepath>
-      <ind:pattern operation="pattern match">^\s*action\(.*(?i)\btype\b(?-i)="omfwd".*(?i)\bStreamDriverAuthMode\b(?-i)="x509/name".*\)\s*$</ind:pattern>
+      <ind:pattern operation="pattern match">(?ms)^\s*action\(.*(?i)\btype\b(?-i)="omfwd".*(?i)\bStreamDriverAuthMode\b(?-i)="x509/name".*\)\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdriverauthmode_action_send_stream_driver_auth_mode_dir:obj:1" version="1" comment="Check if $ActionSendStreamDriverAuthMode x509/name is set in /etc/rsyslog.d">
@@ -19545,7 +19492,7 @@
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdriverauthmode_action_send_stream_driver_auth_mode_dir_rainer:obj:1" version="1" comment="Check if StreamDriverAuthMode is set to x509/name in files in /etc/rsyslog.d using RainerScript">
       <ind:path>/etc/rsyslog.d</ind:path>
       <ind:filename operation="pattern match">^.*conf$</ind:filename>
-      <ind:pattern operation="pattern match">^\s*action\(.*(?i)\btype\b(?-i)="omfwd".*(?i)\bStreamDriverAuthMode\b(?-i)="x509/name".*\)\s*$</ind:pattern>
+      <ind:pattern operation="pattern match">(?ms)^\s*action\(.*(?i)\btype\b(?-i)="omfwd".*(?i)\bStreamDriverAuthMode\b(?-i)="x509/name".*\)\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdrivermode_action_send_stream_driver_mode_rsyslog:obj:1" version="1" comment="Check if  $ActionSendStreamDriverMode 1 is set in /etc/rsyslog.conf">
@@ -19555,7 +19502,7 @@
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdrivermode_action_send_stream_driver_mode_rsyslog_rainer:obj:1" version="1" comment="Check if StreamDriverMode is set to 1 in /etc/rsyslog.conf using RainerScript">
       <ind:filepath>/etc/rsyslog.conf</ind:filepath>
-      <ind:pattern operation="pattern match">^\s*action\(.*(?i)\btype\b(?-i)="omfwd".*(?i)\bStreamDriverMode\b(?-i)="1".*\)\s*$</ind:pattern>
+      <ind:pattern operation="pattern match">(?ms)^\s*action\(.*(?i)\btype\b(?-i)="omfwd".*(?i)\bStreamDriverMode\b(?-i)="1".*\)\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdrivermode_action_send_stream_driver_mode_rsyslog_dir:obj:1" version="1" comment="Check if $ActionSendStreamDriverMode 1 is set in /etc/rsyslog.d">
@@ -19567,7 +19514,7 @@
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdrivermode_action_send_stream_driver_mode_rsyslog_dir_rainer:obj:1" version="1" comment="Check if StreamDriverMode is set to 1 in files in /etc/rsyslog.d using RainerScript">
       <ind:path>/etc/rsyslog.d</ind:path>
       <ind:filename operation="pattern match">^.*conf$</ind:filename>
-      <ind:pattern operation="pattern match">^\s*action\(.*(?i)\btype\b(?-i)="omfwd".*(?i)\bStreamDriverMode\b(?-i)="1".*\)\s*$</ind:pattern>
+      <ind:pattern operation="pattern match">(?ms)^\s*action\(.*(?i)\btype\b(?-i)="omfwd".*(?i)\bStreamDriverMode\b(?-i)="1".*\)\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_defaultnetstreamdriver_default_netstream_rsyslog:obj:1" version="1" comment="Check if  $DefaultNetstreamDriver gtls is set in /etc/rsyslog.conf">
@@ -19577,7 +19524,7 @@
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_defaultnetstreamdriver_default_netstream_rsyslog_rainer:obj:1" version="1" comment="Check if DefaultNetstreamDriver is set to gtls in /etc/rsyslog.conf using RainerScript">
       <ind:filepath>/etc/rsyslog.conf</ind:filepath>
-      <ind:pattern operation="pattern match">^\s*global\(.*(?i)\bDefaultNetStreamDriver\b(?-i)="gtls".*\)\s*$</ind:pattern>
+      <ind:pattern operation="pattern match">(?ms)^\s*global\(.*(?i)\bDefaultNetStreamDriver\b(?-i)="gtls".*\)\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_defaultnetstreamdriver_default_netstream_rsyslog_dir:obj:1" version="1" comment="Check if $DefaultNetstreamDriver gtls is set in /etc/rsyslog.d">
@@ -19589,7 +19536,7 @@
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_defaultnetstreamdriver_default_netstream_rsyslog_dir_rainer:obj:1" version="1" comment="Check if DefaultNetstreamDriver is set to gtls in files in /etc/rsyslog.d using RainerScript">
       <ind:path>/etc/rsyslog.d</ind:path>
       <ind:filename operation="pattern match">^.*conf$</ind:filename>
-      <ind:pattern operation="pattern match">^\s*global\(.*(?i)\bDefaultNetStreamDriver\b(?-i)="gtls".*\)\s*$</ind:pattern>
+      <ind:pattern operation="pattern match">(?ms)^\s*global\(.*(?i)\bDefaultNetStreamDriver\b(?-i)="gtls".*\)\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_remote_method_monitoring_auth:obj:1" version="1">
@@ -19630,13 +19577,13 @@
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_remote_loghost_rsyslog_conf_rainer:obj:1" version="1">
       <ind:filepath>/etc/rsyslog.conf</ind:filepath>
-      <ind:pattern operation="pattern match">(?m)^\s*\*\.\*\s+action\(\s*.*(?i)\btype\b(?-i)="omfwd"\s*.*(?i)\btarget\b(?-i)="\S+"\s*.*\)\s*$</ind:pattern>
+      <ind:pattern operation="pattern match">(?ms)^\s*\*\.\*\s+action\(\s*.*(?i)\btype\b(?-i)="omfwd"\s*.*(?i)\btarget\b(?-i)="\S+"\s*.*\)\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_remote_loghost_rsyslog_d_rainer:obj:1" version="1">
       <ind:path>/etc/rsyslog.d</ind:path>
       <ind:filename operation="pattern match">^.+\.conf$</ind:filename>
-      <ind:pattern operation="pattern match">(?m)^\s*\*\.\*\s+action\(\s*.*(?i)\btype\b(?-i)="omfwd"\s*.*(?i)\btarget\b(?-i)="\S+"\s*.*\)\s*$</ind:pattern>
+      <ind:pattern operation="pattern match">(?ms)^\s*\*\.\*\s+action\(\s*.*(?i)\btype\b(?-i)="omfwd"\s*.*(?i)\btarget\b(?-i)="\S+"\s*.*\)\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_network_configure_name_resolution:obj:1" version="1">
@@ -20165,7 +20112,7 @@
     </unix:sysctl_object>
     <ind:textfilecontent54_object id="oval:ssg-object_aide_operational_database_filename:obj:1" version="1">
       <ind:filepath>/etc/aide.conf</ind:filepath>
-      <ind:pattern operation="pattern match">^database=file:@@{DBDIR}/([a-z.]+)$</ind:pattern>
+      <ind:pattern operation="pattern match">^database=file:(?:@@{DBDIR})?/(?:[a-z.]+/)*([a-z.]+)$</ind:pattern>
       <ind:instance operation="equals" datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_aide_build_database_dirpath:obj:1" version="1">
@@ -20178,37 +20125,37 @@
     </unix:file_object>
     <ind:textfilecontent54_object id="oval:ssg-object_aide_verify_auditctl:obj:1" version="1">
       <ind:filepath>/etc/aide.conf</ind:filepath>
-      <ind:pattern operation="pattern match">^\/usr\/sbin\/auditctl\s+([^\n]+)$</ind:pattern>
+      <ind:pattern operation="pattern match">^(?:/usr)?/sbin/auditctl\s+([^\n]+)$</ind:pattern>
       <ind:instance datatype="int" operation="equals">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_aide_verify_auditd:obj:1" version="1">
       <ind:filepath>/etc/aide.conf</ind:filepath>
-      <ind:pattern operation="pattern match">^/usr/sbin/auditd\s+([^\n]+)$</ind:pattern>
+      <ind:pattern operation="pattern match">^(?:/usr)?/sbin/auditd\s+([^\n]+)$</ind:pattern>
       <ind:instance datatype="int" operation="equals">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_aide_verify_ausearch:obj:1" version="1">
       <ind:filepath>/etc/aide.conf</ind:filepath>
-      <ind:pattern operation="pattern match">^/usr/sbin/ausearch\s+([^\n]+)$</ind:pattern>
+      <ind:pattern operation="pattern match">^(?:/usr)?/sbin/ausearch\s+([^\n]+)$</ind:pattern>
       <ind:instance datatype="int" operation="equals">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_aide_verify_aureport:obj:1" version="1">
       <ind:filepath>/etc/aide.conf</ind:filepath>
-      <ind:pattern operation="pattern match">^/usr/sbin/aureport\s+([^\n]+)$</ind:pattern>
+      <ind:pattern operation="pattern match">^(?:/usr)?/sbin/aureport\s+([^\n]+)$</ind:pattern>
       <ind:instance datatype="int" operation="equals">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_aide_verify_autrace:obj:1" version="1">
       <ind:filepath>/etc/aide.conf</ind:filepath>
-      <ind:pattern operation="pattern match">^/usr/sbin/autrace\s+([^\n]+)$</ind:pattern>
+      <ind:pattern operation="pattern match">^(?:/usr)?/sbin/autrace\s+([^\n]+)$</ind:pattern>
       <ind:instance datatype="int" operation="equals">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_aide_verify_audispd:obj:1" version="1">
       <ind:filepath>/etc/aide.conf</ind:filepath>
-      <ind:pattern operation="pattern match">^/usr/sbin/audispd\s+([^\n]+)$</ind:pattern>
+      <ind:pattern operation="pattern match">^(?:/usr)?/sbin/audispd\s+([^\n]+)$</ind:pattern>
       <ind:instance datatype="int" operation="equals">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_aide_verify_augenrules:obj:1" version="1">
       <ind:filepath>/etc/aide.conf</ind:filepath>
-      <ind:pattern operation="pattern match">^/usr/sbin/augenrules\s+([^\n]+)$</ind:pattern>
+      <ind:pattern operation="pattern match">^(?:/usr)?/sbin/augenrules\s+([^\n]+)$</ind:pattern>
       <ind:instance datatype="int" operation="equals">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_test_aide_periodic_cron_checking:obj:1" version="1" comment="run aide with cron">
@@ -21040,6 +20987,106 @@
     <ind:textfilecontent54_object id="oval:ssg-object_64bit_ardm_unlinkat_auditctl:obj:1" version="1">
       <ind:filepath>/etc/audit/audit.rules</ind:filepath>
       <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+unlinkat[\s]+|([\s]+|[,])unlinkat([\s]+|[,])))(?:.*-F\s+auid&gt;=1000[\s]+)(?:.*-F\s+auid!=(?:4294967295|unset)[\s]+).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_32bit_arkml_create_module_augenrules:obj:1" version="1">
+      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+create_module[\s]+|([\s]+|[,])create_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_64bit_arkml_create_module_augenrules:obj:1" version="1">
+      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+create_module[\s]+|([\s]+|[,])create_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_32bit_arkml_create_module_auditctl:obj:1" version="1">
+      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+create_module[\s]+|([\s]+|[,])create_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_64bit_arkml_create_module_auditctl:obj:1" version="1">
+      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+create_module[\s]+|([\s]+|[,])create_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_32bit_arkml_delete_module_augenrules:obj:1" version="1">
+      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+delete_module[\s]+|([\s]+|[,])delete_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_64bit_arkml_delete_module_augenrules:obj:1" version="1">
+      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+delete_module[\s]+|([\s]+|[,])delete_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_32bit_arkml_delete_module_auditctl:obj:1" version="1">
+      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+delete_module[\s]+|([\s]+|[,])delete_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_64bit_arkml_delete_module_auditctl:obj:1" version="1">
+      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+delete_module[\s]+|([\s]+|[,])delete_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_32bit_arkml_finit_module_augenrules:obj:1" version="1">
+      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+finit_module[\s]+|([\s]+|[,])finit_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_64bit_arkml_finit_module_augenrules:obj:1" version="1">
+      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+finit_module[\s]+|([\s]+|[,])finit_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_32bit_arkml_finit_module_auditctl:obj:1" version="1">
+      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+finit_module[\s]+|([\s]+|[,])finit_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_64bit_arkml_finit_module_auditctl:obj:1" version="1">
+      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+finit_module[\s]+|([\s]+|[,])finit_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_32bit_arkml_init_module_augenrules:obj:1" version="1">
+      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+init_module[\s]+|([\s]+|[,])init_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_64bit_arkml_init_module_augenrules:obj:1" version="1">
+      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+init_module[\s]+|([\s]+|[,])init_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_32bit_arkml_init_module_auditctl:obj:1" version="1">
+      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+init_module[\s]+|([\s]+|[,])init_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_64bit_arkml_init_module_auditctl:obj:1" version="1">
+      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+init_module[\s]+|([\s]+|[,])init_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_32bit_arkml_query_module_augenrules:obj:1" version="1">
+      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+query_module[\s]+|([\s]+|[,])query_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_64bit_arkml_query_module_augenrules:obj:1" version="1">
+      <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+query_module[\s]+|([\s]+|[,])query_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_32bit_arkml_query_module_auditctl:obj:1" version="1">
+      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+query_module[\s]+|([\s]+|[,])query_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_64bit_arkml_query_module_auditctl:obj:1" version="1">
+      <ind:filepath>/etc/audit/audit.rules</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+query_module[\s]+|([\s]+|[,])query_module([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_audit_rules_login_events_faillock_augenrules:obj:1" version="1">
@@ -26314,42 +26361,42 @@
       <ind:pattern operation="pattern match">^(ExecStartPost=\-\/sbin\/augenrules.*$|Requires=augenrules.service)</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_32bit_ardm_setdomainname_augenrules:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_32bit_setdomainname_augenrules:obj:1" version="1">
       <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
       <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+setdomainname[\s]+|([\s]+|[,])setdomainname([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_64bit_ardm_setdomainname_augenrules:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_64bit_setdomainname_augenrules:obj:1" version="1">
       <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
       <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+setdomainname[\s]+|([\s]+|[,])setdomainname([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_32bit_ardm_setdomainname_auditctl:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_32bit_setdomainname_auditctl:obj:1" version="1">
       <ind:filepath>/etc/audit/audit.rules</ind:filepath>
       <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+setdomainname[\s]+|([\s]+|[,])setdomainname([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_64bit_ardm_setdomainname_auditctl:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_64bit_setdomainname_auditctl:obj:1" version="1">
       <ind:filepath>/etc/audit/audit.rules</ind:filepath>
       <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+setdomainname[\s]+|([\s]+|[,])setdomainname([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_32bit_ardm_sethostname_augenrules:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_32bit_sethostname_augenrules:obj:1" version="1">
       <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
       <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+sethostname[\s]+|([\s]+|[,])sethostname([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_64bit_ardm_sethostname_augenrules:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_64bit_sethostname_augenrules:obj:1" version="1">
       <ind:filepath operation="pattern match">^/etc/audit/rules\.d/.*\.rules$</ind:filepath>
       <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+sethostname[\s]+|([\s]+|[,])sethostname([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_32bit_ardm_sethostname_auditctl:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_32bit_sethostname_auditctl:obj:1" version="1">
       <ind:filepath>/etc/audit/audit.rules</ind:filepath>
       <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b32[\s]+)(?:.*(-S[\s]+sethostname[\s]+|([\s]+|[,])sethostname([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_64bit_ardm_sethostname_auditctl:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_64bit_sethostname_auditctl:obj:1" version="1">
       <ind:filepath>/etc/audit/audit.rules</ind:filepath>
       <ind:pattern operation="pattern match">^[\s]*-a[\s]+always,exit[\s]+(?:.*-F[\s]+arch=b64[\s]+)(?:.*(-S[\s]+sethostname[\s]+|([\s]+|[,])sethostname([\s]+|[,]))).*(-k[\s]+|-F[\s]+key=)[\S]+[\s]*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
@@ -26381,6 +26428,12 @@
     <linux:rpminfo_object id="oval:ssg-obj_bootc_platform_test_openshift_kubelet_removed:obj:1" version="1">
       <linux:name>openshift-kubelet</linux:name>
     </linux:rpminfo_object>
+    <unix:file_object id="oval:ssg-bootc_platform_obj_run_ostree_booted_exists:obj:1" version="1" comment="The file /run/ostree-booted exists">
+      <unix:filepath operation="equals">/run/ostree-booted</unix:filepath>
+    </unix:file_object>
+    <unix:file_object id="oval:ssg-bootc_platform_obj_ostree_symlink_exists:obj:1" version="1" comment="The file /ostree exists">
+      <unix:filepath operation="equals">/ostree</unix:filepath>
+    </unix:file_object>
     <ind:textfilecontent54_object id="oval:ssg-object_bootloader_disable_recovery_argument:obj:1" version="1">
       <ind:filepath>/etc/default/grub</ind:filepath>
       <ind:pattern operation="pattern match">^\s*GRUB_DISABLE_RECOVERY=(.*)$</ind:pattern>
@@ -26459,6 +26512,16 @@
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_sle_hpc:obj:1" version="1">
       <linux:name>SLE_HPC-release</linux:name>
+    </linux:rpminfo_object>
+    <ind:family_object id="oval:ssg-obj_sle16_unix_family:obj:1" version="1" />
+    <linux:rpminfo_object id="oval:ssg-obj_sle16_server:obj:1" version="1">
+      <linux:name>SLES-release</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_sles_16_for_sap:obj:1" version="1">
+      <linux:name>SLES_SAP-release</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_sles_16_for_ha:obj:1" version="1">
+      <linux:name>sle-ha-release</linux:name>
     </linux:rpminfo_object>
     <ind:family_object id="oval:ssg-obj_slmicro5_unix_family:obj:1" version="1" />
     <linux:rpminfo_object id="oval:ssg-obj_slmicroos5:obj:1" version="1">
@@ -26966,7 +27029,7 @@
       <unix:username datatype="string" operation="pattern match">^(nobody|nfsnobody)$</unix:username>
     </unix:password_state>
     <unix:password_state id="oval:ssg-state_no_forward_files_users_nologin_shell:ste:1" version="1" operator="AND">
-      <unix:login_shell datatype="string" operation="pattern match">^/sbin/nologin$</unix:login_shell>
+      <unix:login_shell datatype="string" operation="pattern match">^(?:/usr)?/sbin/nologin$</unix:login_shell>
     </unix:password_state>
     <ind:textfilecontent54_state id="oval:ssg-state_accounts_root_gid_zero:ste:1" version="1" operator="AND" comment="root account's gid is equal to 0">
       <ind:subexpression operation="equals" datatype="int">0</ind:subexpression>
@@ -27032,7 +27095,7 @@
       <unix:username datatype="string" operation="pattern match">^(nobody|nfsnobody)$</unix:username>
     </unix:password_state>
     <unix:password_state id="oval:ssg-state_accounts_user_dot_no_world_writable_programs_users_nologin_shell:ste:1" version="1" operator="AND">
-      <unix:login_shell datatype="string" operation="pattern match">^/sbin/nologin$</unix:login_shell>
+      <unix:login_shell datatype="string" operation="pattern match">^(?:/usr)?/sbin/nologin$</unix:login_shell>
     </unix:password_state>
     <unix:file_state id="oval:ssg-state_world_writable_programs:ste:1" version="1" operator="AND">
       <unix:type>regular</unix:type>
@@ -27054,7 +27117,7 @@
       <unix:username datatype="string" operation="pattern match">^(nobody|nfsnobody)$</unix:username>
     </unix:password_state>
     <unix:password_state id="oval:ssg-state_accounts_user_interactive_home_directory_defined_users_nologin_shell:ste:1" version="1" operator="AND">
-      <unix:login_shell datatype="string" operation="pattern match">^/sbin/nologin$</unix:login_shell>
+      <unix:login_shell datatype="string" operation="pattern match">^(?:/usr)?/sbin/nologin$</unix:login_shell>
     </unix:password_state>
     <unix:password_state id="oval:ssg-state_accounts_user_interactive_home_directory_defined:ste:1" version="1" operator="AND">
       <unix:home_dir operation="pattern match">^\/[^\/\n]*\/[^\/\n]{1,}.*$</unix:home_dir>
@@ -27072,7 +27135,7 @@
       <unix:username datatype="string" operation="pattern match">^(nobody|nfsnobody)$</unix:username>
     </unix:password_state>
     <unix:password_state id="oval:ssg-state_accounts_users_netrc_file_permissions_users_nologin_shell:ste:1" version="1" operator="AND">
-      <unix:login_shell datatype="string" operation="pattern match">^/sbin/nologin$</unix:login_shell>
+      <unix:login_shell datatype="string" operation="pattern match">^(?:/usr)?/sbin/nologin$</unix:login_shell>
     </unix:password_state>
     <unix:file_state id="oval:ssg-state_accounts_users_home_netrc_file_permissions_gread:ste:1" version="1" operator="AND">
       <unix:gread datatype="boolean">false</unix:gread>
@@ -27130,7 +27193,7 @@
       <unix:username datatype="string" operation="pattern match">^(nobody|nfsnobody)$</unix:username>
     </unix:password_state>
     <unix:password_state id="oval:ssg-state_file_permission_user_init_files_users_nologin_shell:ste:1" version="1" operator="AND">
-      <unix:login_shell datatype="string" operation="pattern match">^/sbin/nologin$</unix:login_shell>
+      <unix:login_shell datatype="string" operation="pattern match">^(?:/usr)?/sbin/nologin$</unix:login_shell>
     </unix:password_state>
     <unix:file_state id="oval:ssg-state_file_permission_user_init_files_root:ste:1" version="1" operator="AND">
       <unix:suid datatype="boolean">false</unix:suid>
@@ -27149,7 +27212,7 @@
       <unix:username datatype="string" operation="pattern match">^(nobody|nfsnobody)$</unix:username>
     </unix:password_state>
     <unix:password_state id="oval:ssg-state_file_permission_user_init_files_root_users_nologin_shell:ste:1" version="1" operator="AND">
-      <unix:login_shell datatype="string" operation="pattern match">^/sbin/nologin$</unix:login_shell>
+      <unix:login_shell datatype="string" operation="pattern match">^(?:/usr)?/sbin/nologin$</unix:login_shell>
     </unix:password_state>
     <ind:textfilecontent54_state id="oval:ssg-state_object_file_permissions_home_directories_objects_users_ignored:ste:1" version="1" operator="AND">
       <ind:subexpression operation="pattern match">^(nobody|nfsnobody)$</ind:subexpression>
@@ -28266,7 +28329,7 @@
       <ind:subexpression datatype="string" operation="pattern match">^(?:.*\s)?audit=1(?:\s.*)?$</ind:subexpression>
     </ind:textfilecontent54_state>
     <ind:textfilecontent54_state id="oval:ssg-state_grub2_audit_backlog_limit_argument:ste:1" version="1" operator="AND">
-      <ind:subexpression datatype="string" operation="pattern match">^(?:.*\s)?audit_backlog_limit=8192(?:\s.*)?$</ind:subexpression>
+      <ind:subexpression datatype="string" operation="pattern match" var_ref="oval:ssg-local_var_regex_audit_backlog_limit_var_audit_backlog_limit:var:1" />
     </ind:textfilecontent54_state>
     <ind:textfilecontent54_state id="oval:ssg-state_grub2_init_on_free_argument:ste:1" version="1" operator="AND">
       <ind:subexpression datatype="string" operation="pattern match">^(?:.*\s)?init_on_free=1(?:\s.*)?$</ind:subexpression>
@@ -29025,6 +29088,10 @@
     <ind:textfilecontent54_state id="oval:ssg-state_static_sysctld_sysctl_user_max_user_namespaces_no_remediation:ste:1" version="1" operator="AND">
       <ind:subexpression operation="equals" datatype="int">0</ind:subexpression>
     </ind:textfilecontent54_state>
+    <unix:file_state id="oval:ssg-bootc_platform_ste_ostree_symlink_exists:ste:1" version="1" operator="AND" comment="The file /ostree is a symlink">
+      <unix:filepath operation="equals">/ostree</unix:filepath>
+      <unix:type operation="equals">symbolic link</unix:type>
+    </unix:file_state>
     <ind:textfilecontent54_state id="oval:ssg-state_bootloader_disable_recovery_argument:ste:1" version="1" operator="AND">
       <ind:subexpression datatype="string" operation="pattern match">^(true|"true")$</ind:subexpression>
     </ind:textfilecontent54_state>
@@ -29099,6 +29166,18 @@
     </linux:rpminfo_state>
     <linux:rpminfo_state id="oval:ssg-state_sle_hpc:ste:1" version="1" operator="AND">
       <linux:version operation="pattern match">^15.*$</linux:version>
+    </linux:rpminfo_state>
+    <ind:family_state id="oval:ssg-state_sle16_unix_family:ste:1" version="1" operator="AND">
+      <ind:family>unix</ind:family>
+    </ind:family_state>
+    <linux:rpminfo_state id="oval:ssg-state_sle16_server:ste:1" version="1" operator="AND">
+      <linux:version operation="pattern match">^16.*$</linux:version>
+    </linux:rpminfo_state>
+    <linux:rpminfo_state id="oval:ssg-state_sles_16_for_sap:ste:1" version="1" operator="AND">
+      <linux:version operation="pattern match">^16.*$</linux:version>
+    </linux:rpminfo_state>
+    <linux:rpminfo_state id="oval:ssg-state_sles_16_for_ha:ste:1" version="1" operator="AND">
+      <linux:version operation="pattern match">^16.*$</linux:version>
     </linux:rpminfo_state>
     <ind:family_state id="oval:ssg-state_slmicro5_unix_family:ste:1" version="1" operator="AND">
       <ind:family>unix</ind:family>
@@ -29310,10 +29389,10 @@
       </oval-def:split>
     </oval-def:local_variable>
     <oval-def:external_variable id="oval:ssg-var_password_pam_remember_control_flag:var:1" version="1" datatype="string" comment="control flag for pwhistory module" />
-    <oval-def:local_variable id="oval:ssg-var_accounts_password_pam_pwhistory_remember_password_auth_pam_param_regex:var:1" version="1" datatype="string" comment="The regex is to collect the pam_pwhistory.so remember paramerter from PAM files">
+    <oval-def:local_variable id="oval:ssg-var_accounts_password_pam_pwhistory_remember_password_auth_pam_param_regex:var:1" version="1" datatype="string" comment="The regex is to collect the pam_pwhistory.so remember parameter from PAM files">
       <oval-def:literal_component>^\s*password\b.*\bpam_pwhistory\.so\b.*\bremember=([0-9]*).*$</oval-def:literal_component>
     </oval-def:local_variable>
-    <oval-def:local_variable id="oval:ssg-var_accounts_password_pam_pwhistory_remember_password_auth_conf_param_regex:var:1" version="1" datatype="string" comment="The regex is to collect the pam_pwhistory.so remember paramerter in pwhistory.conf">
+    <oval-def:local_variable id="oval:ssg-var_accounts_password_pam_pwhistory_remember_password_auth_conf_param_regex:var:1" version="1" datatype="string" comment="The regex is to collect the pam_pwhistory.so remember parameter in pwhistory.conf">
       <oval-def:literal_component>^\s*remember\s*=\s*([0-9]+)</oval-def:literal_component>
     </oval-def:local_variable>
     <oval-def:local_variable id="oval:ssg-var_accounts_password_pam_pwhistory_remember_system_auth_module_regex:var:1" version="1" datatype="string" comment="The regex is to confirm the pam_pwhistory.so module is enabled">
@@ -29328,10 +29407,10 @@
         <oval-def:variable_component var_ref="oval:ssg-var_password_pam_remember_control_flag:var:1" />
       </oval-def:split>
     </oval-def:local_variable>
-    <oval-def:local_variable id="oval:ssg-var_accounts_password_pam_pwhistory_remember_system_auth_pam_param_regex:var:1" version="1" datatype="string" comment="The regex is to collect the pam_pwhistory.so remember paramerter from PAM files">
+    <oval-def:local_variable id="oval:ssg-var_accounts_password_pam_pwhistory_remember_system_auth_pam_param_regex:var:1" version="1" datatype="string" comment="The regex is to collect the pam_pwhistory.so remember parameter from PAM files">
       <oval-def:literal_component>^\s*password\b.*\bpam_pwhistory\.so\b.*\bremember=([0-9]*).*$</oval-def:literal_component>
     </oval-def:local_variable>
-    <oval-def:local_variable id="oval:ssg-var_accounts_password_pam_pwhistory_remember_system_auth_conf_param_regex:var:1" version="1" datatype="string" comment="The regex is to collect the pam_pwhistory.so remember paramerter in pwhistory.conf">
+    <oval-def:local_variable id="oval:ssg-var_accounts_password_pam_pwhistory_remember_system_auth_conf_param_regex:var:1" version="1" datatype="string" comment="The regex is to collect the pam_pwhistory.so remember parameter in pwhistory.conf">
       <oval-def:literal_component>^\s*remember\s*=\s*([0-9]+)</oval-def:literal_component>
     </oval-def:local_variable>
     <oval-def:constant_variable id="oval:ssg-var_pam_faillock_audit_parameter_regex:var:1" version="1" datatype="string" comment="regex to identify audit parameter in pam files">
@@ -29950,7 +30029,6 @@
       <oval-def:value>^[\s]*fail_interval[\s]*=[\s]*([0-9]+)</oval-def:value>
     </oval-def:constant_variable>
     <oval-def:external_variable id="oval:ssg-var_accounts_passwords_pam_faillock_fail_interval:var:1" version="1" datatype="int" comment="external variable to use" />
-    <oval-def:external_variable id="oval:ssg-var_accounts_passwords_pam_faillock_unlock_time:var:1" version="1" datatype="int" comment="external variable to use" />
     <oval-def:constant_variable id="oval:ssg-var_accounts_passwords_pam_faillock_unlock_time_pam_unix_regex:var:1" version="2" datatype="string" comment="regex to identify pam_unix.so in auth section of pam files">
       <oval-def:value>^\s*auth\N+pam_unix\.so</oval-def:value>
     </oval-def:constant_variable>
@@ -29966,6 +30044,7 @@
     <oval-def:constant_variable id="oval:ssg-var_accounts_passwords_pam_faillock_unlock_time_faillock_conf_unlock_time_parameter_regex:var:1" version="1" datatype="string" comment="regex to identify unlock_time entry in /etc/security/faillock.conf">
       <oval-def:value>^[\s]*unlock_time[\s]*=[\s]*([0-9]+)</oval-def:value>
     </oval-def:constant_variable>
+    <oval-def:external_variable id="oval:ssg-var_accounts_passwords_pam_faillock_unlock_time:var:1" version="1" datatype="int" comment="external variable to use" />
     <oval-def:local_variable id="oval:ssg-audit_rules_etc_cron_d_path_pattern:var:1" version="1" datatype="string" comment="The composite pattern used to detect if audit as been configured">
       <oval-def:concat>
         <oval-def:literal_component>^\-w[\s]+</oval-def:literal_component>
@@ -30503,6 +30582,14 @@
     <oval-def:local_variable id="oval:ssg-var_file_ownership_sshd_pub_key_0_uid:var:1" version="1" datatype="int" comment="Set the uid to 0">
       <oval-def:literal_component datatype="int">0</oval-def:literal_component>
     </oval-def:local_variable>
+    <oval-def:local_variable id="oval:ssg-local_var_regex_audit_backlog_limit_var_audit_backlog_limit:var:1" version="1" datatype="string" comment="Regex that matches audit_backlog_limit with value var_audit_backlog_limit">
+      <oval-def:concat>
+        <oval-def:literal_component>^(?:.*\s)?audit_backlog_limit=</oval-def:literal_component>
+        <oval-def:variable_component var_ref="oval:ssg-var_audit_backlog_limit:var:1" />
+        <oval-def:literal_component>(?:\s.*)?$</oval-def:literal_component>
+      </oval-def:concat>
+    </oval-def:local_variable>
+    <oval-def:external_variable id="oval:ssg-var_audit_backlog_limit:var:1" version="1" datatype="string" comment="Variable defining the value the argument should have" />
     <oval-def:constant_variable id="oval:ssg-var_kernel_module_atm_paths:var:1" version="1" datatype="string" comment="Other paths where kernel modules can be configured">
       <oval-def:value>/etc/modprobe.d</oval-def:value>
       <oval-def:value>/etc/modules-load.d</oval-def:value>

@@ -2,7 +2,7 @@
 <ocil:ocil xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <ocil:generator>
     <ocil:product_name>build_shorthand.py from SCAP Security Guide</ocil:product_name>
-    <ocil:product_version>ssg: 0.1.78</ocil:product_version>
+    <ocil:product_version>ssg: 0.1.79</ocil:product_version>
     <ocil:schema_version>2.0</ocil:schema_version>
     <ocil:timestamp>2021-03-02T15:45:39</ocil:timestamp>
   </ocil:generator>
@@ -740,7 +740,7 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-audit_rules_networkconfig_modification_network_scripts_ocil:questionnaire:1">
-      <ocil:title>Record Events that Modify the System's Network Environment</ocil:title>
+      <ocil:title>Record Events that Modify the System's Network Environment - /etc/sysconfig/network-scripts</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-audit_rules_networkconfig_modification_network_scripts_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -3206,7 +3206,7 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-kernel_config_stackprotector_ocil:questionnaire:1">
-      <ocil:title>Stack Protector buffer overlow detection</ocil:title>
+      <ocil:title>Stack Protector buffer overflow detection</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-kernel_config_stackprotector_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -4965,7 +4965,7 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-sysctl_net_ipv4_conf_all_drop_gratuitous_arp_ocil:questionnaire:1">
-      <ocil:title>Drop Gratuitious ARP frames on All IPv4 Interfaces</ocil:title>
+      <ocil:title>Drop Gratuitous ARP frames on All IPv4 Interfaces</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-sysctl_net_ipv4_conf_all_drop_gratuitous_arp_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -5025,7 +5025,7 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-sysctl_net_ipv4_conf_default_log_martians_ocil:questionnaire:1">
-      <ocil:title>Enable Kernel Paremeter to Log Martian Packets on all IPv4 Interfaces by Default</ocil:title>
+      <ocil:title>Enable Kernel Parameter to Log Martian Packets on all IPv4 Interfaces by Default</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-sysctl_net_ipv4_conf_default_log_martians_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -14136,7 +14136,7 @@ If the value of the "disk_full_action" option is not "SYSLOG", "SINGLE", or "HAL
 $ sudo grep action_mail_acct /etc/audit/auditd.conf
 
 action_mail_acct = 
-      Is it the case that the value of the "action_mail_acct" keyword is not set to "&lt;sub idref="var_auditd_action_mail_acct" /&gt;" and/or other accounts for security personnel, the "action_mail_acct" keyword is missing, or the retuned line is commented out, ask the system administrator to indicate how they and the ISSO are notified of an audit process failure. If there is no evidence of the proper personnel being notified of an audit processing failure?
+      Is it the case that the value of the "action_mail_acct" keyword is not set to "&lt;sub idref="var_auditd_action_mail_acct" /&gt;" and/or other accounts for security personnel, the "action_mail_acct" keyword is missing, or the returned line is commented out, ask the system administrator to indicate how they and the ISSO are notified of an audit process failure. If there is no evidence of the proper personnel being notified of an audit processing failure?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-auditd_data_retention_admin_space_left_action_question:question:1">
@@ -14205,7 +14205,7 @@ max_log_file_action =
       <ocil:question_text>Inspect /etc/audit/auditd.conf and locate the following line to
 determine if the system is configured correctly:
 space_left SIZE_in_MB
-      Is it the case that the system is not configured a specfic size in MB to notify administrators of an issue?
+      Is it the case that the system is not configured a specific size in MB to notify administrators of an issue?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-auditd_data_retention_space_left_action_question:question:1">
@@ -14423,7 +14423,7 @@ Ask the System Administrator for the site or program Ports, Protocols, and Servi
     <ocil:boolean_question id="ocil:ssg-configure_kerberos_crypto_policy_question:question:1">
       <ocil:question_text>Check that the symlink exists and target the correct Kerberos crypto policy, with the following command:
 file /etc/krb5.conf.d/crypto-policies
-If command ouput shows the following line, Kerberos is configured to use the system-wide crypto policy.
+If command output shows the following line, Kerberos is configured to use the system-wide crypto policy.
 /etc/krb5.conf.d/crypto-policies: symbolic link to /etc/crypto-policies/back-ends/krb5.config
       Is it the case that the symlink does not exist or points to a different target?
       </ocil:question_text>
@@ -14807,7 +14807,7 @@ run the command:
 $ ls -lL /etc/ipsec.d
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ipsec.d does not have a group owner of
 root
@@ -14820,7 +14820,7 @@ run the command:
 $ ls -lL /etc/iptables
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/iptables does not have a group owner of
 root
@@ -14833,7 +14833,7 @@ run the command:
 $ ls -lL /etc/nftables
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/nftables does not have a group owner of
 root
@@ -14846,7 +14846,7 @@ run the command:
 $ ls -lL /etc/selinux
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/selinux does not have a group owner of
 root
@@ -14859,7 +14859,7 @@ run the command:
 $ ls -lL /etc/sudoers.d
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/sudoers.d does not have a group owner of
 root
@@ -14872,7 +14872,7 @@ run the command:
 $ ls -lL /etc/sysctl.d
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/sysctl.d does not have a group owner of
 root
@@ -15340,7 +15340,7 @@ and the output should list the file.
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_cron_deny_not_exist_question:question:1">
       <ocil:question_text>The file /etc/cron.deny should not exist.
-This can be checked by runnig the following
+This can be checked by running the following
 
 stat /etc/cron.deny
 
@@ -15362,7 +15362,7 @@ run the command:
 $ ls -lL /etc/security/opasswd
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
 
 To check the permissions of /etc/security/opasswd,
@@ -15407,7 +15407,7 @@ run the command:
 $ ls -lL /etc/at.allow
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/at.allow does not have a group owner of
 root
@@ -15420,7 +15420,7 @@ run the command:
 $ ls -lL /etc/group-
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/group- does not have a group owner of
 root
@@ -15433,7 +15433,7 @@ run the command:
 $ ls -lL /etc/gshadow-
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/gshadow- does not have a group owner of
 root
@@ -15446,7 +15446,7 @@ run the command:
 $ ls -lL /etc/passwd-
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/passwd- does not have a group owner of
 root
@@ -15459,7 +15459,7 @@ run the command:
 $ ls -lL /etc/shadow-
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/shadow- does not have a group owner of
 root
@@ -15472,7 +15472,7 @@ run the command:
 $ ls -lL /etc/cron.allow
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.allow does not have a group owner of
 root
@@ -15485,7 +15485,7 @@ run the command:
 $ ls -lL /etc/cron.d
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.d does not have a group owner of
 root
@@ -15498,7 +15498,7 @@ run the command:
 $ ls -lL /etc/cron.daily
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.daily does not have a group owner of
 root
@@ -15511,7 +15511,7 @@ run the command:
 $ ls -lL /etc/cron.deny
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.deny does not have a group owner of
 root
@@ -15524,7 +15524,7 @@ run the command:
 $ ls -lL /etc/cron.hourly
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.hourly does not have a group owner of
 root
@@ -15537,7 +15537,7 @@ run the command:
 $ ls -lL /etc/cron.monthly
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.monthly does not have a group owner of
 root
@@ -15550,7 +15550,7 @@ run the command:
 $ ls -lL /etc/cron.weekly
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/cron.weekly does not have a group owner of
 root
@@ -15563,7 +15563,7 @@ run the command:
 $ ls -lL /etc/crontab
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/crontab does not have a group owner of
 root
@@ -15576,7 +15576,7 @@ run the command:
 $ ls -lL /boot/grub2/grub.cfg
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /boot/grub2/grub.cfg does not have a group owner of
 root
@@ -15589,7 +15589,7 @@ run the command:
 $ ls -lL /boot/grub2/user.cfg
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /boot/grub2/user.cfg does not have a group owner of
 root
@@ -15602,7 +15602,7 @@ run the command:
 $ ls -lL /etc/chrony.keys
 If properly configured, the output should indicate the following group-owner:
 
-  chrony 
+  chrony
   
       Is it the case that /etc/chrony.keys does not have a group owner of
 chrony
@@ -15615,7 +15615,7 @@ run the command:
 $ ls -lL /etc/crypttab
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/crypttab does not have a group owner of
 root
@@ -15628,7 +15628,7 @@ run the command:
 $ ls -lL /etc/group
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/group does not have a group owner of
 root
@@ -15641,7 +15641,7 @@ run the command:
 $ ls -lL /etc/gshadow
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/gshadow does not have a group owner of
 root
@@ -15654,7 +15654,7 @@ run the command:
 $ ls -lL /etc/ipsec.conf
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ipsec.conf does not have a group owner of
 root
@@ -15667,7 +15667,7 @@ run the command:
 $ ls -lL /etc/ipsec.secrets
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ipsec.secrets does not have a group owner of
 root
@@ -15680,7 +15680,7 @@ run the command:
 $ ls -lL /etc/issue
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/issue does not have a group owner of
 root
@@ -15693,7 +15693,7 @@ run the command:
 $ ls -lL /etc/issue.net
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/issue.net does not have a group owner of
 root
@@ -15706,7 +15706,7 @@ run the command:
 $ ls -lL /etc/motd
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/motd does not have a group owner of
 root
@@ -15719,7 +15719,7 @@ run the command:
 $ ls -lL /etc/passwd
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/passwd does not have a group owner of
 root
@@ -15732,7 +15732,7 @@ run the command:
 $ ls -lL /etc/sestatus.conf
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/sestatus.conf does not have a group owner of
 root
@@ -15745,7 +15745,7 @@ run the command:
 $ ls -lL /etc/shadow
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/shadow does not have a group owner of
 root
@@ -15758,7 +15758,7 @@ run the command:
 $ ls -lL /etc/shells
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/shells does not have a group owner of
 root
@@ -15771,7 +15771,7 @@ run the command:
 $ ls -lL /etc/sudoers
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/sudoers does not have a group owner of
 root
@@ -15784,7 +15784,7 @@ run the command:
 $ ls -lL /boot/grub2/grub.cfg
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /boot/grub2/grub.cfg does not have a group owner of
 root
@@ -15797,7 +15797,7 @@ run the command:
 $ ls -lL /etc/ssh/sshd_config
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ssh/sshd_config does not have a group owner of
 root
@@ -15819,7 +15819,7 @@ run the command:
 $ ls -lL /boot/System.map*
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /boot/System.map* does not have a group owner of
 root
@@ -15832,7 +15832,7 @@ run the command:
 $ ls -lL /boot/grub2/user.cfg
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /boot/grub2/user.cfg does not have a group owner of
 root
@@ -15845,7 +15845,7 @@ run the command:
 $ ls -lL /var/log
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /var/log does not have a group owner of
 root
@@ -15858,7 +15858,7 @@ run the command:
 $ ls -lL /var/log/messages
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /var/log/messages does not have a group owner of
 root
@@ -15867,14 +15867,20 @@ root
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_groupownership_audit_binaries_question:question:1">
       <ocil:question_text>Verify it by running the following command:
-$ stat -c "%n %G" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/audispd /sbin/augenrules /sbin/audisp-syslog
+$ stat -c "%n %G" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/audispd /sbin/augenrules
 
 /sbin/auditctl root
+
 /sbin/aureport root
+
 /sbin/ausearch root
+
 /sbin/autrace root
+
 /sbin/auditd root
+
 /sbin/audispd root
+
 /sbin/augenrules root
 
 
@@ -15918,7 +15924,7 @@ run the command:
 $ ls -lL /etc/ssh/*_key
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ssh/*_key does not have a group owner of
 root
@@ -15931,7 +15937,7 @@ run the command:
 $ ls -lL /etc/ssh/*.pub
 If properly configured, the output should indicate the following group-owner:
 
-  root 
+  root
   
       Is it the case that /etc/ssh/*.pub does not have a group owner of
 root
@@ -16265,11 +16271,17 @@ root
 $ stat -c "%n %U" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/audispd /sbin/augenrules
 
 /sbin/auditctl root
+
 /sbin/aureport root
+
 /sbin/ausearch root
+
 /sbin/autrace root
+
 /sbin/auditd root
+
 /sbin/audispd root
+
 /sbin/augenrules root
 
 
@@ -16387,11 +16399,17 @@ If properly configured, the output should indicate the following permissions:
 $ stat -c "%n %a" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/audispd /sbin/augenrules
 
 /sbin/auditctl 755
+
 /sbin/aureport 755
+
 /sbin/ausearch 755
+
 /sbin/autrace 755
+
 /sbin/auditd 755
+
 /sbin/audispd 755
+
 /sbin/augenrules 755
 
 
@@ -16952,9 +16970,9 @@ Fill in GRUBENV_FILE_LOCATION based on information above.
     <ocil:boolean_question id="ocil:ssg-grub2_audit_backlog_limit_argument_question:question:1">
       <ocil:question_text>Inspect the form of default GRUB 2 command line for the Linux operating system
 in /boot/grub2/grubenv.
-If they include audit_backlog_limit=8192, then the parameter
+If they include audit_backlog_limit=, then the parameter
 is configured at boot time.
-$ sudo grep 'kernelopts.*audit_backlog_limit=8192.*' GRUBENV_FILE_LOCATION
+$ sudo grep 'kernelopts.*audit_backlog_limit=.*' GRUBENV_FILE_LOCATION
 Fill in GRUBENV_FILE_LOCATION based on information above.
       Is it the case that audit backlog limit is not configured?
       </ocil:question_text>
@@ -18907,7 +18925,7 @@ If the output is i686 or i386 the operating system is 32-bit.
 Check if the installed CPU supports 64-bit operating systems by running the following command:
 $ lscpu | grep "CPU op-mode"
 If the output contains 64bit, the CPU supports 64-bit operating systems.
-      Is it the case that the installed operating sytem is 32-bit but the CPU supports operation in 64-bit?
+      Is it the case that the installed operating system is 32-bit but the CPU supports operation in 64-bit?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-require_emergency_target_auth_question:question:1">
@@ -20187,7 +20205,7 @@ run the command:
 $ ls -lL /usr/bin/sudo
 If properly configured, the output should indicate the following group-owner:
 
-   
+  
   
       Is it the case that /usr/bin/sudo does not have a group owner of
 &lt;sub idref="var_sudo_dedicated_group" /&gt;

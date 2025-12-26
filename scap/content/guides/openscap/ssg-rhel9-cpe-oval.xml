@@ -2,7 +2,7 @@
 <oval-def:oval_definitions xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <oval-def:generator>
     <oval:product_name>build_cpe.py from SCAP Security Guide</oval:product_name>
-    <oval:product_version>ssg: [0, 1, 78], python: 3.10.12</oval:product_version>
+    <oval:product_version>ssg: [0, 1, 79], python: 3.10.12</oval:product_version>
     <oval:schema_version>5.11</oval:schema_version>
     <oval:timestamp>2021-03-02T15:45:39</oval:timestamp>
   </oval-def:generator>
@@ -19,6 +19,10 @@
         <oval-def:criterion comment="kernel is installed" test_ref="oval:ssg-bootc_platform_test_kernel_installed:tst:1"/>
         <oval-def:criterion comment="rpm-ostree is installed" test_ref="oval:ssg-bootc_platform_test_rpm_ostree_installed:tst:1"/>
         <oval-def:criterion comment="bootc is installed" test_ref="oval:ssg-bootc_platform_test_bootc_installed:tst:1"/>
+        <oval-def:criteria operator="OR">
+          <oval-def:criterion comment="/run/ostree-booted exists, suggesting that we are in a running bootc environment" test_ref="oval:ssg-bootc_platform_test_run_ostree_booted_exists:tst:1"/>
+          <oval-def:criterion comment="/ostree symlink exists, suggesting that we are in a bootc environment being built and hardened" test_ref="oval:ssg-bootc_platform_test_ostree_symlink_exists:tst:1"/>
+        </oval-def:criteria>
         <oval-def:criterion comment="openshift-kubelet is not installed" test_ref="oval:ssg-bootc_platform_test_openshift_kubelet_removed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
@@ -244,6 +248,32 @@
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="Identification provider is set to ldap within /etc/sssd/sssd.conf" test_ref="oval:ssg-test_id_provider_is_set_to_ldap:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-system_boot_mode_is_non_uefi:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Non-UEFI system boot mode check</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="cpe:/a:non-uefi" source="CPE"/>
+        <oval-def:description>Check if System boot mode is non-UEFI.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:extend_definition negate="true" comment="Pass if System boot mode is non-UEFI" definition_ref="oval:ssg-system_boot_mode_is_uefi:def:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-system_boot_mode_is_uefi:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>UEFI system boot mode check</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="cpe:/a:uefi" source="CPE"/>
+        <oval-def:description>Check if system boot mode is UEFI.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="check if /sys/firmware/efi folder exists" test_ref="oval:ssg-test_efi_dir_existence:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-system_with_kernel:def:1" version="1" class="inventory">
@@ -1060,7 +1090,7 @@
     </oval-def:definition>
   </oval-def:definitions>
   <oval-def:tests>
-    <linux:rpminfo_test id="oval:ssg-bootc_platform_test_kernel_installed:tst:1" version="1" check="all" comment="package kernel is installed" check_existence="all_exist" state_operator="AND">
+    <linux:rpminfo_test id="oval:ssg-bootc_platform_test_kernel_installed:tst:1" version="1" check="all" comment="package kernel-core is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_bootc_platform_test_kernel_installed:obj:1"/>
     </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-bootc_platform_test_rpm_ostree_installed:tst:1" version="1" check="all" comment="package rpm-ostree is installed" check_existence="all_exist" state_operator="AND">
@@ -1072,6 +1102,13 @@
     <linux:rpminfo_test id="oval:ssg-bootc_platform_test_openshift_kubelet_removed:tst:1" version="1" check="all" comment="package openshift-kubelet is removed" check_existence="none_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_bootc_platform_test_openshift_kubelet_removed:obj:1"/>
     </linux:rpminfo_test>
+    <unix:file_test id="oval:ssg-bootc_platform_test_run_ostree_booted_exists:tst:1" version="1" check="all" comment="The file /run/ostree-booted exists" check_existence="all_exist" state_operator="AND">
+      <unix:object object_ref="oval:ssg-bootc_platform_obj_run_ostree_booted_exists:obj:1"/>
+    </unix:file_test>
+    <unix:file_test id="oval:ssg-bootc_platform_test_ostree_symlink_exists:tst:1" version="1" check="all" comment="The file /ostree is a symlink" check_existence="all_exist" state_operator="AND">
+      <unix:object object_ref="oval:ssg-bootc_platform_obj_ostree_symlink_exists:obj:1"/>
+      <unix:state state_ref="oval:ssg-bootc_platform_ste_ostree_symlink_exists:ste:1"/>
+    </unix:file_test>
     <linux:rpminfo_test id="oval:ssg-test_env_has_grub2_installed:tst:1" version="1" check="all" comment="system has package grub2-common installed" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_env_has_grub2_installed:obj:1"/>
     </linux:rpminfo_test>
@@ -1130,6 +1167,9 @@
     <ind:textfilecontent54_test id="oval:ssg-test_id_provider_is_set_to_ldap:tst:1" version="1" check="all" comment="SSSD Configuration is set to use LDAP" check_existence="all_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_id_provider_is_set_to_ldap:obj:1"/>
     </ind:textfilecontent54_test>
+    <unix:file_test id="oval:ssg-test_efi_dir_existence:tst:1" version="1" check="all" comment="Verify if /sys/firmware/efi folder exists" state_operator="AND">
+      <unix:object object_ref="oval:ssg-object_file_sys_firmware_efi:obj:1"/>
+    </unix:file_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_kernel_installed:tst:1" version="1" check="all" comment="package kernel-core is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_kernel_installed:obj:1"/>
     </linux:rpminfo_test>
@@ -1435,7 +1475,7 @@
   </oval-def:tests>
   <oval-def:objects>
     <linux:rpminfo_object id="oval:ssg-obj_bootc_platform_test_kernel_installed:obj:1" version="1">
-      <linux:name>kernel</linux:name>
+      <linux:name>kernel-core</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_bootc_platform_test_rpm_ostree_installed:obj:1" version="1">
       <linux:name>rpm-ostree</linux:name>
@@ -1446,6 +1486,12 @@
     <linux:rpminfo_object id="oval:ssg-obj_bootc_platform_test_openshift_kubelet_removed:obj:1" version="1">
       <linux:name>openshift-kubelet</linux:name>
     </linux:rpminfo_object>
+    <unix:file_object id="oval:ssg-bootc_platform_obj_run_ostree_booted_exists:obj:1" version="1" comment="The file /run/ostree-booted exists">
+      <unix:filepath operation="equals">/run/ostree-booted</unix:filepath>
+    </unix:file_object>
+    <unix:file_object id="oval:ssg-bootc_platform_obj_ostree_symlink_exists:obj:1" version="1" comment="The file /ostree exists">
+      <unix:filepath operation="equals">/ostree</unix:filepath>
+    </unix:file_object>
     <linux:rpminfo_object id="oval:ssg-obj_env_has_grub2_installed:obj:1" version="1">
       <linux:name>grub2-common</linux:name>
     </linux:rpminfo_object>
@@ -1515,6 +1561,10 @@
       <ind:pattern operation="pattern match">^[\s]*\[domain\/[^]]*]([^\n\[\]]*\n+)+?[\s]*id_provider[ \t]*=[ \t]*((?i)ldap)[ \t]*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
+    <unix:file_object id="oval:ssg-object_file_sys_firmware_efi:obj:1" version="1" comment="/sys/firmware/efi">
+      <unix:path>/sys/firmware/efi</unix:path>
+      <unix:filename xsi:nil="true"/>
+    </unix:file_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_kernel_installed:obj:1" version="1">
       <linux:name>kernel-core</linux:name>
     </linux:rpminfo_object>
@@ -1826,6 +1876,10 @@
     </linux:rpminfo_object>
   </oval-def:objects>
   <oval-def:states>
+    <unix:file_state id="oval:ssg-bootc_platform_ste_ostree_symlink_exists:ste:1" version="1" operator="AND" comment="The file /ostree is a symlink">
+      <unix:filepath operation="equals">/ostree</unix:filepath>
+      <unix:type operation="equals">symbolic link</unix:type>
+    </unix:file_state>
     <linux:rpminfo_state id="oval:ssg-state_krb5_server_version_1_17_18:ste:1" version="1" operator="AND">
       <linux:evr datatype="evr_string" operation="less than">0:1.17-18</linux:evr>
     </linux:rpminfo_state>
