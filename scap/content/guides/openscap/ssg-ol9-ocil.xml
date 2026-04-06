@@ -2,7 +2,7 @@
 <ocil:ocil xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <ocil:generator>
     <ocil:product_name>build_shorthand.py from SCAP Security Guide</ocil:product_name>
-    <ocil:product_version>ssg: 0.1.79</ocil:product_version>
+    <ocil:product_version>ssg: 0.1.80</ocil:product_version>
     <ocil:schema_version>2.0</ocil:schema_version>
     <ocil:timestamp>2021-03-02T15:45:39</ocil:timestamp>
   </ocil:generator>
@@ -709,6 +709,12 @@
         <ocil:test_action_ref>ocil:ssg-audit_rules_dac_modification_umount2_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-audit_rules_etc_cron_d_ocil:questionnaire:1">
+      <ocil:title>Ensure auditd Collects Changes to Cron Jobs - /etc/cron.d/</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-audit_rules_etc_cron_d_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-audit_rules_execution_chacl_ocil:questionnaire:1">
       <ocil:title>Record Any Attempts to Run chacl</ocil:title>
       <ocil:actions>
@@ -1175,6 +1181,12 @@
       <ocil:title>Record Events that Modify User/Group Information - /etc/shadow</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-audit_rules_usergroup_modification_shadow_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-audit_rules_var_spool_cron_ocil:questionnaire:1">
+      <ocil:title>Ensure auditd Collects Changes to Cron Jobs - /var/spool/cron</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-audit_rules_var_spool_cron_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-audit_sudo_log_events_ocil:questionnaire:1">
@@ -1675,6 +1687,12 @@
         <ocil:test_action_ref>ocil:ssg-directory_groupowner_etc_sysctld_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-directory_groupowner_sshd_config_d_ocil:questionnaire:1">
+      <ocil:title>Verify Group Who Owns SSH Server Configuration Files</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-directory_groupowner_sshd_config_d_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-directory_owner_etc_ipsecd_ocil:questionnaire:1">
       <ocil:title>Verify User Who Owns /etc/ipsec.d Directory</ocil:title>
       <ocil:actions>
@@ -1709,6 +1727,12 @@
       <ocil:title>Verify User Who Owns /etc/sysctl.d Directory</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-directory_owner_etc_sysctld_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-directory_owner_sshd_config_d_ocil:questionnaire:1">
+      <ocil:title>Verify Owner on SSH Server Configuration Files</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-directory_owner_sshd_config_d_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-directory_ownership_var_log_audit_ocil:questionnaire:1">
@@ -1751,6 +1775,12 @@
       <ocil:title>Verify Permissions On /etc/sysctl.d Directory</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-directory_permissions_etc_sysctld_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-directory_permissions_sshd_config_d_ocil:questionnaire:1">
+      <ocil:title>Verify Permissions on SSH Server Config File</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-directory_permissions_sshd_config_d_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-directory_permissions_var_log_audit_ocil:questionnaire:1">
@@ -1835,6 +1865,12 @@
       <ocil:title>Encrypt Partitions</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-encrypt_partitions_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-ensure_epel_repos_disabled_ocil:questionnaire:1">
+      <ocil:title>Ensure EPEL Repository is Disabled</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-ensure_epel_repos_disabled_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-ensure_gpgcheck_globally_activated_ocil:questionnaire:1">
@@ -2095,6 +2131,12 @@
         <ocil:test_action_ref>ocil:ssg-file_groupowner_sshd_config_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_groupowner_sshd_drop_in_config_ocil:questionnaire:1">
+      <ocil:title>Verify Group Who Owns SSH Server Configuration Files</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_groupowner_sshd_drop_in_config_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_groupowner_systemmap_ocil:questionnaire:1">
       <ocil:title>Verify Group Who Owns System.map Files</ocil:title>
       <ocil:actions>
@@ -2311,6 +2353,12 @@
         <ocil:test_action_ref>ocil:ssg-file_owner_sshd_config_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_owner_sshd_drop_in_config_ocil:questionnaire:1">
+      <ocil:title>Verify Owner on SSH Server Configuration Files</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_owner_sshd_drop_in_config_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_owner_systemmap_ocil:questionnaire:1">
       <ocil:title>Verify User Who Owns System.map Files</ocil:title>
       <ocil:actions>
@@ -2381,6 +2429,12 @@
       <ocil:title>Ensure All User Initialization Files Have Mode 0740 Or Less Permissive</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-file_permission_user_init_files_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_permission_user_init_files_root_ocil:questionnaire:1">
+      <ocil:title>Ensure All User Initialization Files Have Mode 0740 Or Less Permissive</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_permission_user_init_files_root_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_permissions_at_allow_ocil:questionnaire:1">
@@ -2471,12 +2525,6 @@
       <ocil:title>Verify Permissions on /etc/audit/auditd.conf</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-file_permissions_etc_audit_auditd_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-file_permissions_etc_audit_rulesd_ocil:questionnaire:1">
-      <ocil:title>Verify Permissions on /etc/audit/rules.d/*.rules</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-file_permissions_etc_audit_rulesd_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_permissions_etc_chrony_keys_ocil:questionnaire:1">
@@ -2579,6 +2627,12 @@
       <ocil:title>Verify Permissions on SSH Server config file</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-file_permissions_sshd_config_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_permissions_sshd_drop_in_config_ocil:questionnaire:1">
+      <ocil:title>Verify Permissions on SSH Server Config File</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_permissions_sshd_drop_in_config_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_permissions_sshd_private_key_ocil:questionnaire:1">
@@ -3925,12 +3979,6 @@
         <ocil:test_action_ref>ocil:ssg-package_rng-tools_installed_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-package_rsh-server_removed_ocil:questionnaire:1">
-      <ocil:title>Uninstall rsh-server Package</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-package_rsh-server_removed_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-package_rsyslog-gnutls_installed_ocil:questionnaire:1">
       <ocil:title>Ensure rsyslog-gnutls is installed</ocil:title>
       <ocil:actions>
@@ -4152,6 +4200,12 @@
 "/lib", "/lib64", "/usr/lib/" and "/usr/lib64" are group-owned by root.</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-root_permissions_syslibrary_files_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-rootfiles_configured_ocil:questionnaire:1">
+      <ocil:title>Ensure rootfiles tmpfile.d is Configured Correctly</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-rootfiles_configured_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-rpm_verify_crypto_policies_ocil:questionnaire:1">
@@ -4587,13 +4641,13 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-set_password_hashing_algorithm_passwordauth_ocil:questionnaire:1">
-      <ocil:title>Set PAM''s Password Hashing Algorithm - password-auth</ocil:title>
+      <ocil:title>Set PAM Password Hashing Algorithm - password-auth</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-set_password_hashing_algorithm_passwordauth_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-set_password_hashing_algorithm_systemauth_ocil:questionnaire:1">
-      <ocil:title>Set PAM''s Password Hashing Algorithm</ocil:title>
+      <ocil:title>Set PAM Password Hashing Algorithm - system-auth</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-set_password_hashing_algorithm_systemauth_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -5412,6 +5466,12 @@
       <ocil:title>Disable the use of user namespaces</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-sysctl_user_max_user_namespaces_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-sysctl_user_max_user_namespaces_no_remediation_ocil:questionnaire:1">
+      <ocil:title>Disable the use of user namespaces</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-sysctl_user_max_user_namespaces_no_remediation_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-sysctl_vm_mmap_min_addr_ocil:questionnaire:1">
@@ -6430,6 +6490,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-audit_rules_etc_cron_d_action:testaction:1" question_ref="ocil:ssg-audit_rules_etc_cron_d_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-audit_rules_execution_chacl_action:testaction:1" question_ref="ocil:ssg-audit_rules_execution_chacl_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -7047,6 +7115,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-audit_rules_usergroup_modification_shadow_action:testaction:1" question_ref="ocil:ssg-audit_rules_usergroup_modification_shadow_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-audit_rules_var_spool_cron_action:testaction:1" question_ref="ocil:ssg-audit_rules_var_spool_cron_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -7718,6 +7794,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-directory_groupowner_sshd_config_d_action:testaction:1" question_ref="ocil:ssg-directory_groupowner_sshd_config_d_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-directory_owner_etc_ipsecd_action:testaction:1" question_ref="ocil:ssg-directory_owner_etc_ipsecd_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -7759,6 +7843,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-directory_owner_etc_sysctld_action:testaction:1" question_ref="ocil:ssg-directory_owner_etc_sysctld_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-directory_owner_sshd_config_d_action:testaction:1" question_ref="ocil:ssg-directory_owner_sshd_config_d_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -7815,6 +7907,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-directory_permissions_etc_sysctld_action:testaction:1" question_ref="ocil:ssg-directory_permissions_etc_sysctld_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-directory_permissions_sshd_config_d_action:testaction:1" question_ref="ocil:ssg-directory_permissions_sshd_config_d_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -7927,6 +8027,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-encrypt_partitions_action:testaction:1" question_ref="ocil:ssg-encrypt_partitions_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-ensure_epel_repos_disabled_action:testaction:1" question_ref="ocil:ssg-ensure_epel_repos_disabled_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -8278,6 +8386,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_groupowner_sshd_drop_in_config_action:testaction:1" question_ref="ocil:ssg-file_groupowner_sshd_drop_in_config_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_groupowner_systemmap_action:testaction:1" question_ref="ocil:ssg-file_groupowner_systemmap_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -8566,6 +8682,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_owner_sshd_drop_in_config_action:testaction:1" question_ref="ocil:ssg-file_owner_sshd_drop_in_config_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_owner_systemmap_action:testaction:1" question_ref="ocil:ssg-file_owner_systemmap_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -8655,6 +8779,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_permission_user_init_files_action:testaction:1" question_ref="ocil:ssg-file_permission_user_init_files_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_permission_user_init_files_root_action:testaction:1" question_ref="ocil:ssg-file_permission_user_init_files_root_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -8775,14 +8907,6 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_etc_audit_auditd_action:testaction:1" question_ref="ocil:ssg-file_permissions_etc_audit_auditd_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_etc_audit_rulesd_action:testaction:1" question_ref="ocil:ssg-file_permissions_etc_audit_rulesd_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -8919,6 +9043,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_sshd_config_action:testaction:1" question_ref="ocil:ssg-file_permissions_sshd_config_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_sshd_drop_in_config_action:testaction:1" question_ref="ocil:ssg-file_permissions_sshd_drop_in_config_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -10718,14 +10850,6 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-package_rsh-server_removed_action:testaction:1" question_ref="ocil:ssg-package_rsh-server_removed_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-package_rsyslog-gnutls_installed_action:testaction:1" question_ref="ocil:ssg-package_rsyslog-gnutls_installed_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -11015,6 +11139,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-root_permissions_syslibrary_files_action:testaction:1" question_ref="ocil:ssg-root_permissions_syslibrary_files_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-rootfiles_configured_action:testaction:1" question_ref="ocil:ssg-rootfiles_configured_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -12702,6 +12834,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-sysctl_user_max_user_namespaces_no_remediation_action:testaction:1" question_ref="ocil:ssg-sysctl_user_max_user_namespaces_no_remediation_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-sysctl_vm_mmap_min_addr_action:testaction:1" question_ref="ocil:ssg-sysctl_vm_mmap_min_addr_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -13211,7 +13351,7 @@ password requisite pam_pwquality.so
       <ocil:question_text>Verify Oracle Linux 9 is configured to limit the "pwquality" retry option to .
 
 
-Check for the use of the "pwquality" retry option in the pwquality.conf file with the following command:
+Check for the use of the "pwquality" retry option in the /etc/security/pwquality.conf file with the following command:
 $ grep retry /etc/security/pwquality.conf
       Is it the case that the value of "retry" is set to "0" or greater than "&lt;sub idref="var_password_pam_retry" /&gt;", or is missing?
       </ocil:question_text>
@@ -13375,13 +13515,13 @@ The output should return the following:
     <ocil:boolean_question id="ocil:ssg-accounts_root_gid_zero_question:question:1">
       <ocil:question_text>To verify that root's primary group is zero run the following command:
 
-    grep '^root:' /etc/passwd | cut -d : -f 4
+    awk -F: '($1 !~ /^(sync|shutdown|halt|operator)/ &amp;&amp; $4=="0") {print $1":"$4}' /etc/passwd
 
 The command should return:
 
-0
+    root:0
 
-      Is it the case that root has a primary gid not equal to zero?
+      Is it the case that root has a primary gid not equal to zero or other non-system accounts has a primary gid equal to zero?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-accounts_root_path_dirs_no_write_question:question:1">
@@ -14111,6 +14251,16 @@ $ sudo grep "umount2" /etc/audit/audit.*
 If the system is configured to audit this activity, it will return a line.
 
       Is it the case that no line is returned?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-audit_rules_etc_cron_d_question:question:1">
+      <ocil:question_text>
+Verify Oracle Linux 9 generates audit records for all events that affect "/etc/cron.d/" with the following command:
+
+$ sudo auditctl -l | grep /etc/cron.d/
+
+-w /etc/cron.d/ -p wa -k cronjobs
+      Is it the case that the command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-audit_rules_execution_chacl_question:question:1">
@@ -14954,6 +15104,16 @@ $ sudo auditctl -l | grep /etc/shadow
       Is it the case that command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-audit_rules_var_spool_cron_question:question:1">
+      <ocil:question_text>
+Verify Oracle Linux 9 generates audit records for all events that affect "/var/spool/cron" with the following command:
+
+$ sudo auditctl -l | grep /var/spool/cron
+
+-w /var/spool/cron -p wa -k cronjobs
+      Is it the case that command does not return a line, or the line is commented out?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-audit_sudo_log_events_question:question:1">
       <ocil:question_text>
 Verify Oracle Linux 9 generates audit records for all events that affect "/var/log/sudo.log" with the following command:
@@ -15275,8 +15435,16 @@ A line with the appropriate server should be returned, any line returned startin
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-chronyd_specify_remote_server_question:question:1">
-      <ocil:question_text>Run the following command and verify remote server is configured properly:
+      <ocil:question_text>Verify that a remote time server is configured. First, check the main configuration file:
 # grep -E "^(server|pool)" /etc/chrony.conf
+If no server or pool directive is found, check for sourcedir or confdir directives:
+# grep -E "^(sourcedir|confdir)" /etc/chrony.conf
+For each sourcedir found, check .sources files in that directory:
+# grep -E "^(server|pool)" /path/to/sourcedir/*.sources
+For each confdir found, check .conf files in that directory:
+# grep -E "^(server|pool)" /path/to/confdir/*.conf
+At least one server or pool directive must be present in the main configuration file
+or in files within directories specified by sourcedir or confdir directives.
       Is it the case that a remote time server is not configured?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -15829,6 +15997,15 @@ root
 ?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-directory_groupowner_sshd_config_d_question:question:1">
+      <ocil:question_text>To check the group ownership of /etc/ssh/sshd_config.d directory,
+run the command:
+$ ls -ldL /etc/ssh/sshd_config.d
+If properly configured, the output should indicate the following group-owner:
+root
+      Is it the case that /etc/ssh/sshd_config.d directory does not have a group owner of root?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-directory_owner_etc_ipsecd_question:question:1">
       <ocil:question_text>To check the ownership of /etc/ipsec.d,
 run the command:
@@ -15881,6 +16058,15 @@ $ ls -lL /etc/sysctl.d
 If properly configured, the output should indicate the following owner:
 root
       Is it the case that /etc/sysctl.d does not have an owner of root?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-directory_owner_sshd_config_d_question:question:1">
+      <ocil:question_text>To check the ownership of /etc/ssh/sshd_config.d directory,
+run the command:
+$ ls -ldL /etc/ssh/sshd_config.d
+If properly configured, the output should indicate the following owner:
+root
+      Is it the case that /etc/ssh/sshd_config.d directory does not have a owner owner of root?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-directory_ownership_var_log_audit_question:question:1">
@@ -15956,6 +16142,15 @@ If properly configured, the output should indicate the following permissions:
       Is it the case that /etc/sysctl.d does not have unix mode 0755?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-directory_permissions_sshd_config_d_question:question:1">
+      <ocil:question_text>To check the permissionsship of /etc/ssh/sshd_config.d directory,
+run the command:
+$ ls -ldL /etc/ssh/sshd_config.d
+If properly configured, the output should indicate the following permissions:
+-rwx------
+      Is it the case that /etc/ssh/sshd_config.d directory does not have unix mode ?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-directory_permissions_var_log_audit_question:question:1">
       <ocil:question_text>Verify the audit log directories have a correct mode or less permissive mode.
 
@@ -15963,18 +16158,15 @@ Find the location of the audit logs:
 
 $ sudo grep "^log_file" /etc/audit/auditd.conf
 
-
 Find the group that owns audit logs:
 
 $ sudo grep "^log_group" /etc/audit/auditd.conf
-
 
 Run the following command to check the mode of the system audit logs:
 
 $ sudo stat -c "%a %n" [audit_log_directory]
 
 Replace "[audit_log_directory]" to the correct audit log directory path, by default this location is "/var/log/audit".
-
 
 If the log_group is "root" or is not set, the correct permissions are 0700, otherwise they are 0750.
       Is it the case that audit logs have a more permissive mode?
@@ -16101,6 +16293,16 @@ Output will be similar to:
 The boot partition and pseudo-file systems, such as /proc, /sys, and tmpfs,
 are not required to use disk encryption and are not a finding.
       Is it the case that partitions do not have a type of crypto_LUKS?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-ensure_epel_repos_disabled_question:question:1">
+      <ocil:question_text>To verify that EPEL repository is not enabled, run the following commands:
+$ grep -r "^\[.*epel.*\]" /etc/yum.repos.d/
+For each EPEL repository found, check if it is enabled:
+$ grep -A 5 "^\[.*epel.*\]" /etc/yum.repos.d/*.repo | grep "enabled"
+The output should show enabled=0 for all EPEL repositories, or no EPEL repositories
+should be present.
+      Is it the case that EPEL repository is enabled?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-ensure_gpgcheck_globally_activated_question:question:1">
@@ -16655,6 +16857,15 @@ root
 ?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_groupowner_sshd_drop_in_config_question:question:1">
+      <ocil:question_text>To check the group ownership of files in the /etc/ssh/sshd_config.d directory,
+run the command:
+$ ls -lL /etc/ssh/sshd_config.d
+If properly configured, the output should indicate the following group-owner:
+root
+      Is it the case that files in the /etc/ssh/sshd_config.d directory do not have a group owner of root?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_groupowner_systemmap_question:question:1">
       <ocil:question_text>To check the group ownership of /boot/System.map*,
 run the command:
@@ -17009,6 +17220,15 @@ root
       Is it the case that /etc/ssh/sshd_config does not have an owner of root?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_owner_sshd_drop_in_config_question:question:1">
+      <ocil:question_text>To check the ownership of files in the /etc/ssh/sshd_config.d directory,
+run the command:
+$ ls -lL /etc/ssh/sshd_config.d
+If properly configured, the output should indicate the following owner:
+root
+      Is it the case that files in the /etc/ssh/sshd_config.d directory do not have a owner of root?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_owner_systemmap_question:question:1">
       <ocil:question_text>To check the ownership of /boot/System.map*,
 run the command:
@@ -17117,6 +17337,14 @@ To properly set the owner of /var/log/audit/*, run the command:
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_permission_user_init_files_question:question:1">
+      <ocil:question_text>To verify that all user initialization files have a mode of 0740 or
+less permissive, run the following command:
+$ sudo find /home -type f -name '\.*' \( -perm -0002 -o -perm -0020 \)
+There should be no output.
+      Is it the case that they are not 0740 or more permissive?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_permission_user_init_files_root_question:question:1">
       <ocil:question_text>To verify that all user initialization files have a mode of 0740 or
 less permissive, run the following command:
 $ sudo find /home -type f -name '\.*' \( -perm -0002 -o -perm -0020 \)
@@ -17256,15 +17484,6 @@ $ ls -l /etc/audit/auditd.conf
 If properly configured, the output should indicate the following permissions:
 -rw-r-----
       Is it the case that /etc/audit/auditd.conf does not have unix mode -rw-r-----?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-file_permissions_etc_audit_rulesd_question:question:1">
-      <ocil:question_text>To check the permissions of /etc/audit/rules.d/*.rules,
-run the command:
-$ ls -l /etc/audit/rules.d/*.rules
-If properly configured, the output should indicate the following permissions:
--rw-------
-      Is it the case that /etc/audit/rules.d/*.rules does not have unix mode -rw-------?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_permissions_etc_chrony_keys_question:question:1">
@@ -17411,6 +17630,15 @@ $ ls -l /etc/ssh/sshd_config
 If properly configured, the output should indicate the following permissions:
 -rw-------
       Is it the case that /etc/ssh/sshd_config does not have unix mode -rw-------?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_permissions_sshd_drop_in_config_question:question:1">
+      <ocil:question_text>To check the permissions of files in the /etc/ssh/sshd_config.d directory,
+run the command:
+$ ls -lL /etc/ssh/sshd_config.d
+If properly configured, the output should indicate the following permissions:
+-rw-------
+      Is it the case that files in the /etc/ssh/sshd_config.d directory do not have unix mode -rw-------?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_permissions_sshd_private_key_question:question:1">
@@ -18837,7 +19065,10 @@ install uvcvideo /bin/true
 libreswan.x86-64 3.20-5.el7_4
 
 
+
 If "libreswan" is installed, check to see if the "IPsec" service is active with the following command:
+
+
 
 # systemctl status ipsec
 ipsec.service - Internet Key Exchange (IKE) Protocol Daemon for IPsec
@@ -18845,8 +19076,11 @@ Loaded: loaded (/usr/lib/systemd/system/ipsec.service; disabled)
 Active: inactive (dead)
 
 
+
 If the "IPsec" service is active, check for configured IPsec connections (conn), perform the following:
 grep -rni conn /etc/ipsec.conf /etc/ipsec.d/
+
+
 Verify any returned results for organizational approval.
       Is it the case that the IPSec tunnels are not approved?
       </ocil:question_text>
@@ -19524,12 +19758,6 @@ $ rpm -q quagga
       Is it the case that the package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-package_rsh-server_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the rsh-server package is installed:
-$ rpm -q rsh-server
-      Is it the case that the package is installed?
-      </ocil:question_text>
-    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_rsyslog-gnutls_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the rsyslog-gnutls package is installed:
 $ rpm -q rsyslog-gnutls
@@ -19822,6 +20050,19 @@ If any output is returned, then root login over serial ports is permitted.
 
 $ sudo find -L /lib /lib64 /usr/lib /usr/lib64 ! -group root -exec ls -l {} \;
       Is it the case that any system wide shared library file is returned and is not group-owned by root?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-rootfiles_configured_question:question:1">
+      <ocil:question_text>Check the all files from /usr/share/rootfiles/ are overridden correctly.
+
+    $ grep /usr/share/rootfiles/.bash_logout *.conf
+    C /root/.bash_logout   600 root root - /usr/share/rootfiles/.bash_logout
+    C /root/.bash_profile  600 root root - /usr/share/rootfiles/.bash_profile
+    C /root/.bashrc        600 root root - /usr/share/rootfiles/.bashrc
+    C /root/.cshrc         600 root root - /usr/share/rootfiles/.cshrc
+    C /root/.tcshrc        600 root root - /usr/share/rootfiles/.tcshrc
+
+      Is it the case that that rootfiles are not configured correctly?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-rpm_verify_crypto_policies_question:question:1">
@@ -22182,6 +22423,19 @@ $ sysctl net.ipv6.conf.default.router_solicitations
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sysctl_user_max_user_namespaces_question:question:1">
+      <ocil:question_text>Verify that Oracle Linux 9 disables the use of user namespaces with the following commands:
+
+Note: User namespaces are used primarily for Linux containers. If containers are in use, this requirement is not applicable.
+
+The runtime status of the user.max_user_namespaces kernel parameter can be queried
+by running the following command:
+$ sysctl user.max_user_namespaces
+0.
+
+      Is it the case that the correct value is not returned?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-sysctl_user_max_user_namespaces_no_remediation_question:question:1">
       <ocil:question_text>Verify that Oracle Linux 9 disables the use of user namespaces with the following commands:
 
 Note: User namespaces are used primarily for Linux containers. If containers are in use, this requirement is not applicable.

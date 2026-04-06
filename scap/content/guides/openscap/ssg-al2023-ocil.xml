@@ -2,7 +2,7 @@
 <ocil:ocil xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <ocil:generator>
     <ocil:product_name>build_shorthand.py from SCAP Security Guide</ocil:product_name>
-    <ocil:product_version>ssg: 0.1.79</ocil:product_version>
+    <ocil:product_version>ssg: 0.1.80</ocil:product_version>
     <ocil:schema_version>2.0</ocil:schema_version>
     <ocil:timestamp>2021-03-02T15:45:39</ocil:timestamp>
   </ocil:generator>
@@ -343,12 +343,6 @@
         <ocil:test_action_ref>ocil:ssg-accounts_user_dot_group_ownership_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-accounts_user_dot_no_world_writable_programs_ocil:questionnaire:1">
-      <ocil:title>User Initialization Files Must Not Run World-Writable Programs</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-accounts_user_dot_no_world_writable_programs_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-accounts_user_dot_user_ownership_ocil:questionnaire:1">
       <ocil:title>User Initialization Files Must Be Owned By the Primary User</ocil:title>
       <ocil:actions>
@@ -653,12 +647,6 @@
       <ocil:title>Record Attempts to Alter Logon and Logout Events - lastlog</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-audit_rules_login_events_lastlog_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-audit_rules_login_events_tallylog_ocil:questionnaire:1">
-      <ocil:title>Record Attempts to Alter Logon and Logout Events - tallylog</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-audit_rules_login_events_tallylog_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-audit_rules_mac_modification_ocil:questionnaire:1">
@@ -1141,12 +1129,6 @@
         <ocil:test_action_ref>ocil:ssg-configure_crypto_policy_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-configure_kerberos_crypto_policy_ocil:questionnaire:1">
-      <ocil:title>Configure Kerberos to use System Crypto Policy</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-configure_kerberos_crypto_policy_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-configure_libreswan_crypto_policy_ocil:questionnaire:1">
       <ocil:title>Configure Libreswan to use System Crypto Policy</ocil:title>
       <ocil:actions>
@@ -1297,16 +1279,16 @@
         <ocil:test_action_ref>ocil:ssg-dir_permissions_library_dirs_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-dir_perms_world_writable_root_owned_ocil:questionnaire:1">
-      <ocil:title>Ensure All World-Writable Directories Are Owned by root User</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-dir_perms_world_writable_root_owned_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-dir_perms_world_writable_sticky_bits_ocil:questionnaire:1">
       <ocil:title>Verify that All World-Writable Directories Have Sticky Bits Set</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-dir_perms_world_writable_sticky_bits_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-dir_perms_world_writable_system_owned_ocil:questionnaire:1">
+      <ocil:title>Ensure All World-Writable Directories Are Owned by a System Account</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-dir_perms_world_writable_system_owned_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-directory_group_ownership_var_log_audit_ocil:questionnaire:1">
@@ -1375,12 +1357,6 @@
         <ocil:test_action_ref>ocil:ssg-disallow_bypass_password_sudo_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-display_login_attempts_ocil:questionnaire:1">
-      <ocil:title>Ensure PAM Displays Last Logon/Access Notification</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-display_login_attempts_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-enable_authselect_ocil:questionnaire:1">
       <ocil:title>Enable authselect</ocil:title>
       <ocil:actions>
@@ -1403,6 +1379,12 @@
       <ocil:title>Encrypt Partitions</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-encrypt_partitions_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-ensure_epel_repos_disabled_ocil:questionnaire:1">
+      <ocil:title>Ensure EPEL Repository is Disabled</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-ensure_epel_repos_disabled_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-ensure_gpgcheck_globally_activated_ocil:questionnaire:1">
@@ -3249,13 +3231,13 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-set_password_hashing_algorithm_passwordauth_ocil:questionnaire:1">
-      <ocil:title>Set PAM''s Password Hashing Algorithm - password-auth</ocil:title>
+      <ocil:title>Set PAM Password Hashing Algorithm - password-auth</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-set_password_hashing_algorithm_passwordauth_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-set_password_hashing_algorithm_systemauth_ocil:questionnaire:1">
-      <ocil:title>Set PAM''s Password Hashing Algorithm</ocil:title>
+      <ocil:title>Set PAM Password Hashing Algorithm - system-auth</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-set_password_hashing_algorithm_systemauth_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -4214,14 +4196,6 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-accounts_user_dot_no_world_writable_programs_action:testaction:1" question_ref="ocil:ssg-accounts_user_dot_no_world_writable_programs_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-accounts_user_dot_user_ownership_action:testaction:1" question_ref="ocil:ssg-accounts_user_dot_user_ownership_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -4623,14 +4597,6 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-audit_rules_login_events_lastlog_action:testaction:1" question_ref="ocil:ssg-audit_rules_login_events_lastlog_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-audit_rules_login_events_tallylog_action:testaction:1" question_ref="ocil:ssg-audit_rules_login_events_tallylog_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -5278,14 +5244,6 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-configure_kerberos_crypto_policy_action:testaction:1" question_ref="ocil:ssg-configure_kerberos_crypto_policy_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-configure_libreswan_crypto_policy_action:testaction:1" question_ref="ocil:ssg-configure_libreswan_crypto_policy_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -5486,7 +5444,7 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-dir_perms_world_writable_root_owned_action:testaction:1" question_ref="ocil:ssg-dir_perms_world_writable_root_owned_question:question:1">
+    <ocil:boolean_question_test_action id="ocil:ssg-dir_perms_world_writable_sticky_bits_action:testaction:1" question_ref="ocil:ssg-dir_perms_world_writable_sticky_bits_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -5494,7 +5452,7 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-dir_perms_world_writable_sticky_bits_action:testaction:1" question_ref="ocil:ssg-dir_perms_world_writable_sticky_bits_question:question:1">
+    <ocil:boolean_question_test_action id="ocil:ssg-dir_perms_world_writable_system_owned_action:testaction:1" question_ref="ocil:ssg-dir_perms_world_writable_system_owned_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -5590,14 +5548,6 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-display_login_attempts_action:testaction:1" question_ref="ocil:ssg-display_login_attempts_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-enable_authselect_action:testaction:1" question_ref="ocil:ssg-enable_authselect_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -5623,6 +5573,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-encrypt_partitions_action:testaction:1" question_ref="ocil:ssg-encrypt_partitions_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-ensure_epel_repos_disabled_action:testaction:1" question_ref="ocil:ssg-ensure_epel_repos_disabled_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -9247,13 +9205,13 @@ the line is missing, or commented out?
     <ocil:boolean_question id="ocil:ssg-accounts_root_gid_zero_question:question:1">
       <ocil:question_text>To verify that root's primary group is zero run the following command:
 
-    grep '^root:' /etc/passwd | cut -d : -f 4
+    awk -F: '($1 !~ /^(sync|shutdown|halt|operator)/ &amp;&amp; $4=="0") {print $1":"$4}' /etc/passwd
 
 The command should return:
 
-0
+    root:0
 
-      Is it the case that root has a primary gid not equal to zero?
+      Is it the case that root has a primary gid not equal to zero or other non-system accounts has a primary gid equal to zero?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-accounts_root_path_dirs_no_write_question:question:1">
@@ -9341,15 +9299,6 @@ users in /etc/passwd and verify all initialization files under the
 respective users home directory. Check the group owner of all local interactive users
 initialization files.
       Is it the case that they are not?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-accounts_user_dot_no_world_writable_programs_question:question:1">
-      <ocil:question_text>Verify that local initialization files do not execute world-writable programs with the following command:
-
-Note: The example will be for a system that is configured to create user home directories in the "/home" directory.
-
-$ sudo find /home -perm -002 -type f -name ".[^.]*" -exec ls -ld {} \;
-      Is it the case that any local initialization files are found to reference world-writable files?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-accounts_user_dot_user_ownership_question:question:1">
@@ -9821,16 +9770,6 @@ Verify Amazon Linux 2023 generates audit records for all events that affect "/va
 $ sudo auditctl -l | grep /var/log/lastlog
 
 -w /var/log/lastlog -p wa -k logins
-      Is it the case that the command does not return a line, or the line is commented out?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-audit_rules_login_events_tallylog_question:question:1">
-      <ocil:question_text>
-Verify Amazon Linux 2023 generates audit records for all events that affect "/var/log/tallylog" with the following command:
-
-$ sudo auditctl -l | grep /var/log/tallylog
-
--w /var/log/tallylog -p wa -k logins
       Is it the case that the command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -10650,8 +10589,16 @@ A line with the appropriate server should be returned, any line returned startin
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-chronyd_specify_remote_server_question:question:1">
-      <ocil:question_text>Run the following command and verify remote server is configured properly:
+      <ocil:question_text>Verify that a remote time server is configured. First, check the main configuration file:
 # grep -E "^(server|pool)" /etc/chrony.conf
+If no server or pool directive is found, check for sourcedir or confdir directives:
+# grep -E "^(sourcedir|confdir)" /etc/chrony.conf
+For each sourcedir found, check .sources files in that directory:
+# grep -E "^(server|pool)" /path/to/sourcedir/*.sources
+For each confdir found, check .conf files in that directory:
+# grep -E "^(server|pool)" /path/to/confdir/*.conf
+At least one server or pool directive must be present in the main configuration file
+or in files within directories specified by sourcedir or confdir directives.
       Is it the case that a remote time server is not configured?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -10689,14 +10636,6 @@ Subsequently, check if matching libraries have drop in files in the /etc/crypto-
 $ ls /etc/crypto-policies/local.d/ | awk -F'-' '{print $1}' | uniq | sort
 Outputs of two previous commands should match.
       Is it the case that cryptographic policy is not configured or is configured incorrectly?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-configure_kerberos_crypto_policy_question:question:1">
-      <ocil:question_text>Check that the symlink exists and target the correct Kerberos crypto policy, with the following command:
-file /etc/krb5.conf.d/crypto-policies
-If command output shows the following line, Kerberos is configured to use the system-wide crypto policy.
-/etc/krb5.conf.d/crypto-policies: symbolic link to /etc/crypto-policies/back-ends/krb5.config
-      Is it the case that the symlink does not exist or points to a different target?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-configure_libreswan_crypto_policy_question:question:1">
@@ -10958,13 +10897,6 @@ $ sudo find -L DIR -perm /022 -type d
       Is it the case that any of these files are group-writable or world-writable?
       </ocil:question_text>
     </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-dir_perms_world_writable_root_owned_question:question:1">
-      <ocil:question_text>The following command will discover and print world-writable directories that
-are not owned by root. Run it once for each local partition PART:
-$ sudo find PART -xdev -type d -perm -0002 -uid +0 -print
-      Is it the case that there are world-writable directories not owned by root?
-      </ocil:question_text>
-    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-dir_perms_world_writable_sticky_bits_question:question:1">
       <ocil:question_text>To find world-writable directories that lack the sticky bit, run the following command:
 $ sudo find / -type d \( -perm -0002 -a ! -perm -1000 \) -print 2&gt;/dev/null
@@ -10977,6 +10909,14 @@ $ chmod a+t [World-Writable Directory]
 srg_requirement:
 A sticky bit must be set on all Amazon Linux 2023 public directories to prevent unauthorized and unintended information transferred via shared system resources.
       Is it the case that any world-writable directories are missing the sticky bit?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-dir_perms_world_writable_system_owned_question:question:1">
+      <ocil:question_text>The following command will discover and print world-writable directories that are not owned by
+a system account, given the assumption that only system accounts have a uid lower than 500.
+Run it once for each local partition PART:
+$ sudo find PART -xdev -type d -perm -0002 -uid +1000 -print
+      Is it the case that there is output?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-directory_group_ownership_var_log_audit_question:question:1">
@@ -11047,18 +10987,15 @@ Find the location of the audit logs:
 
 $ sudo grep "^log_file" /etc/audit/auditd.conf
 
-
 Find the group that owns audit logs:
 
 $ sudo grep "^log_group" /etc/audit/auditd.conf
-
 
 Run the following command to check the mode of the system audit logs:
 
 $ sudo stat -c "%a %n" [audit_log_directory]
 
 Replace "[audit_log_directory]" to the correct audit log directory path, by default this location is "/var/log/audit".
-
 
 If the log_group is "root" or is not set, the correct permissions are 0700, otherwise they are 0750.
       Is it the case that audit logs have a more permissive mode?
@@ -11111,15 +11048,6 @@ $ sudo grep pam_succeed_if /etc/pam.d/sudo
       Is it the case that system is configured to bypass password requirements for privilege escalation?
       </ocil:question_text>
     </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-display_login_attempts_question:question:1">
-      <ocil:question_text>Verify users are provided with feedback on when account accesses last occurred with the following command:
-
-$ sudo grep pam_lastlog /etc/pam.d/postlogin
-
-session [default=1] pam_lastlog.so showfailed
-      Is it the case that "pam_lastlog.so" is not properly configured in "/etc/pam.d/postlogin" file?
-      </ocil:question_text>
-    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-enable_authselect_question:question:1">
       <ocil:question_text>Verify that authselect is enabled by running
 authselect current
@@ -11156,6 +11084,16 @@ Output will be similar to:
 The boot partition and pseudo-file systems, such as /proc, /sys, and tmpfs,
 are not required to use disk encryption and are not a finding.
       Is it the case that partitions do not have a type of crypto_LUKS?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-ensure_epel_repos_disabled_question:question:1">
+      <ocil:question_text>To verify that EPEL repository is not enabled, run the following commands:
+$ grep -r "^\[.*epel.*\]" /etc/yum.repos.d/
+For each EPEL repository found, check if it is enabled:
+$ grep -A 5 "^\[.*epel.*\]" /etc/yum.repos.d/*.repo | grep "enabled"
+The output should show enabled=0 for all EPEL repositories, or no EPEL repositories
+should be present.
+      Is it the case that EPEL repository is enabled?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-ensure_gpgcheck_globally_activated_question:question:1">
@@ -12868,7 +12806,10 @@ $ grep -r usb-storage /etc/modprobe.conf /etc/modprobe.d
 
 
 
+
 If "libreswan" is installed, check to see if the "IPsec" service is active with the following command:
+
+
 
 # systemctl status ipsec
 ipsec.service - Internet Key Exchange (IKE) Protocol Daemon for IPsec
@@ -12876,8 +12817,11 @@ Loaded: loaded (/usr/lib/systemd/system/ipsec.service; disabled)
 Active: inactive (dead)
 
 
+
 If the "IPsec" service is active, check for configured IPsec connections (conn), perform the following:
 grep -rni conn /etc/ipsec.conf /etc/ipsec.d/
+
+
 Verify any returned results for organizational approval.
       Is it the case that the IPSec tunnels are not approved?
       </ocil:question_text>

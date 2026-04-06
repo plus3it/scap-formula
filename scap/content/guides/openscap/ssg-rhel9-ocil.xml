@@ -2,7 +2,7 @@
 <ocil:ocil xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <ocil:generator>
     <ocil:product_name>build_shorthand.py from SCAP Security Guide</ocil:product_name>
-    <ocil:product_version>ssg: 0.1.79</ocil:product_version>
+    <ocil:product_version>ssg: 0.1.80</ocil:product_version>
     <ocil:schema_version>2.0</ocil:schema_version>
     <ocil:timestamp>2021-03-02T15:45:39</ocil:timestamp>
   </ocil:generator>
@@ -199,6 +199,12 @@
         <ocil:test_action_ref>ocil:ssg-accounts_password_pam_minlen_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-accounts_password_pam_modules_in_authselect_profile_ocil:questionnaire:1">
+      <ocil:title>Ensure Active Authselect Profile Includes PAM Modules</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-accounts_password_pam_modules_in_authselect_profile_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-accounts_password_pam_ocredit_ocil:questionnaire:1">
       <ocil:title>Ensure PAM Enforces Password Requirements - Minimum Special Characters</ocil:title>
       <ocil:actions>
@@ -245,6 +251,12 @@
       <ocil:title>Ensure PAM Enforces Password Requirements - Minimum Uppercase Characters</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-accounts_password_pam_ucredit_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-accounts_password_pam_unix_no_remember_ocil:questionnaire:1">
+      <ocil:title>Avoid using remember in pam_unix module</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-accounts_password_pam_unix_no_remember_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-accounts_password_pam_unix_remember_ocil:questionnaire:1">
@@ -2437,6 +2449,12 @@
         <ocil:test_action_ref>ocil:ssg-dir_perms_world_writable_sticky_bits_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-dir_perms_world_writable_system_owned_ocil:questionnaire:1">
+      <ocil:title>Ensure All World-Writable Directories Are Owned by a System Account</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-dir_perms_world_writable_system_owned_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-dir_system_commands_group_root_owned_ocil:questionnaire:1">
       <ocil:title>Verify that system commands directories have root as a group owner</ocil:title>
       <ocil:actions>
@@ -2675,6 +2693,12 @@
       <ocil:title>Encrypt Partitions</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-encrypt_partitions_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-ensure_epel_repos_disabled_ocil:questionnaire:1">
+      <ocil:title>Ensure EPEL Repository is Disabled</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-ensure_epel_repos_disabled_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-ensure_gpgcheck_globally_activated_ocil:questionnaire:1">
@@ -7845,13 +7869,13 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-set_password_hashing_algorithm_passwordauth_ocil:questionnaire:1">
-      <ocil:title>Set PAM''s Password Hashing Algorithm - password-auth</ocil:title>
+      <ocil:title>Set PAM Password Hashing Algorithm - password-auth</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-set_password_hashing_algorithm_passwordauth_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-set_password_hashing_algorithm_systemauth_ocil:questionnaire:1">
-      <ocil:title>Set PAM''s Password Hashing Algorithm</ocil:title>
+      <ocil:title>Set PAM Password Hashing Algorithm - system-auth</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-set_password_hashing_algorithm_systemauth_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -9158,6 +9182,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-accounts_password_pam_modules_in_authselect_profile_action:testaction:1" question_ref="ocil:ssg-accounts_password_pam_modules_in_authselect_profile_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-accounts_password_pam_ocredit_action:testaction:1" question_ref="ocil:ssg-accounts_password_pam_ocredit_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -9215,6 +9247,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-accounts_password_pam_ucredit_action:testaction:1" question_ref="ocil:ssg-accounts_password_pam_ucredit_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-accounts_password_pam_unix_no_remember_action:testaction:1" question_ref="ocil:ssg-accounts_password_pam_unix_no_remember_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -12142,6 +12182,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-dir_perms_world_writable_system_owned_action:testaction:1" question_ref="ocil:ssg-dir_perms_world_writable_system_owned_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-dir_system_commands_group_root_owned_action:testaction:1" question_ref="ocil:ssg-dir_system_commands_group_root_owned_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -12455,6 +12503,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-encrypt_partitions_action:testaction:1" question_ref="ocil:ssg-encrypt_partitions_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-ensure_epel_repos_disabled_action:testaction:1" question_ref="ocil:ssg-ensure_epel_repos_disabled_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -21074,6 +21130,16 @@ minlen =
       Is it the case that the command does not return a "minlen" value of "&lt;sub idref="var_password_pam_minlen" /&gt;" or greater, does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-accounts_password_pam_modules_in_authselect_profile_question:question:1">
+      <ocil:question_text>Run the following command to verify the active authselect profile includes lines for the
+pwquality, pwhistory, faillock, and unix modules:
+
+# grep -P '\b(pam_pwquality\.so|pam_pwhistory\.so|pam_faillock\.so|pam_unix\.so)\b' /etc/authselect/"$(head -1 /etc/authselect/authselect.conf)"/{system,password}-auth
+
+The output should show entries for all four modules in both system-auth and password-auth files.
+      Is it the case that the active authselect profile does not include all required PAM modules?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-accounts_password_pam_ocredit_question:question:1">
       <ocil:question_text>Verify that Red Hat Enterprise Linux 9 enforces password complexity by requiring that at least one special character with the following command:
 
@@ -21155,7 +21221,7 @@ password requisite pam_pwquality.so
       <ocil:question_text>Verify Red Hat Enterprise Linux 9 is configured to limit the "pwquality" retry option to .
 
 
-Check for the use of the "pwquality" retry option in the pwquality.conf file with the following command:
+Check for the use of the "pwquality" retry option in the /etc/security/pwquality.conf file with the following command:
 $ grep retry /etc/security/pwquality.conf
       Is it the case that the value of "retry" is set to "0" or greater than "&lt;sub idref="var_password_pam_retry" /&gt;", or is missing?
       </ocil:question_text>
@@ -21169,6 +21235,17 @@ $ sudo grep ucredit /etc/security/pwquality.conf /etc/security/pwquality.conf.d/
 
 ucredit = -1
       Is it the case that the value of "ucredit" is a positive number or is commented out?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-accounts_password_pam_unix_no_remember_question:question:1">
+      <ocil:question_text>To verify that the remember option is not present in pam_unix.so configuration,
+run the following command:
+
+$ grep -E "^\s*password\s+.*pam_unix\.so.*\bremember=" /etc/pam.d/system-auth /etc/pam.d/password-auth
+
+The command should not return any output. If any lines are returned, it means the remember
+option is configured in pam_unix.so, which is not compliant with this requirement.
+      Is it the case that the remember option is found in pam_unix.so configuration?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-accounts_password_pam_unix_remember_question:question:1">
@@ -21334,13 +21411,13 @@ The output should return the following:
     <ocil:boolean_question id="ocil:ssg-accounts_root_gid_zero_question:question:1">
       <ocil:question_text>To verify that root's primary group is zero run the following command:
 
-    grep '^root:' /etc/passwd | cut -d : -f 4
+    awk -F: '($1 !~ /^(sync|shutdown|halt|operator)/ &amp;&amp; $4=="0") {print $1":"$4}' /etc/passwd
 
 The command should return:
 
-0
+    root:0
 
-      Is it the case that root has a primary gid not equal to zero?
+      Is it the case that root has a primary gid not equal to zero or other non-system accounts has a primary gid equal to zero?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-accounts_root_path_dirs_no_write_question:question:1">
@@ -24678,8 +24755,16 @@ A line with the appropriate server should be returned, any line returned startin
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-chronyd_specify_remote_server_question:question:1">
-      <ocil:question_text>Run the following command and verify remote server is configured properly:
+      <ocil:question_text>Verify that a remote time server is configured. First, check the main configuration file:
 # grep -E "^(server|pool)" /etc/chrony.conf
+If no server or pool directive is found, check for sourcedir or confdir directives:
+# grep -E "^(sourcedir|confdir)" /etc/chrony.conf
+For each sourcedir found, check .sources files in that directory:
+# grep -E "^(server|pool)" /path/to/sourcedir/*.sources
+For each confdir found, check .conf files in that directory:
+# grep -E "^(server|pool)" /path/to/confdir/*.conf
+At least one server or pool directive must be present in the main configuration file
+or in files within directories specified by sourcedir or confdir directives.
       Is it the case that a remote time server is not configured?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -24800,6 +24885,13 @@ mac@SSH = -HMAC-MD5* -UMAC-64* -UMAC-128*
 Verify that /etc/crypto-policies/policies/modules/NO-WEAKMAC.pmod exists and has the following content:
 
 mac = -*-128*
+
+
+
+
+Verify that /etc/crypto-policies/policies/modules/NO-RPMSHA1.pmod exists and has the following content:
+
+hash@rpm = -SHA1
 
       Is it the case that the custom crypto policy modules do not exist?
       </ocil:question_text>
@@ -25368,6 +25460,14 @@ A sticky bit must be set on all Red Hat Enterprise Linux 9 public directories to
       Is it the case that any world-writable directories are missing the sticky bit?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-dir_perms_world_writable_system_owned_question:question:1">
+      <ocil:question_text>The following command will discover and print world-writable directories that are not owned by
+a system account, given the assumption that only system accounts have a uid lower than 500.
+Run it once for each local partition PART:
+$ sudo find PART -xdev -type d -perm -0002 -uid +1000 -print
+      Is it the case that there is output?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-dir_system_commands_group_root_owned_question:question:1">
       <ocil:question_text>System commands are stored in the following directories:
 /bin 
@@ -25658,18 +25758,15 @@ Find the location of the audit logs:
 
 $ sudo grep "^log_file" /etc/audit/auditd.conf
 
-
 Find the group that owns audit logs:
 
 $ sudo grep "^log_group" /etc/audit/auditd.conf
-
 
 Run the following command to check the mode of the system audit logs:
 
 $ sudo stat -c "%a %n" [audit_log_directory]
 
 Replace "[audit_log_directory]" to the correct audit log directory path, by default this location is "/var/log/audit".
-
 
 If the log_group is "root" or is not set, the correct permissions are 0700, otherwise they are 0750.
       Is it the case that audit logs have a more permissive mode?
@@ -25796,6 +25893,16 @@ Output will be similar to:
 The boot partition and pseudo-file systems, such as /proc, /sys, and tmpfs,
 are not required to use disk encryption and are not a finding.
       Is it the case that partitions do not have a type of crypto_LUKS?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-ensure_epel_repos_disabled_question:question:1">
+      <ocil:question_text>To verify that EPEL repository is not enabled, run the following commands:
+$ grep -r "^\[.*epel.*\]" /etc/yum.repos.d/
+For each EPEL repository found, check if it is enabled:
+$ grep -A 5 "^\[.*epel.*\]" /etc/yum.repos.d/*.repo | grep "enabled"
+The output should show enabled=0 for all EPEL repositories, or no EPEL repositories
+should be present.
+      Is it the case that EPEL repository is enabled?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-ensure_gpgcheck_globally_activated_question:question:1">
@@ -27149,8 +27256,8 @@ $ sudo find -L /bin /sbin /usr/bin /usr/sbin /usr/libexec /usr/local/bin /usr/lo
 run the command:
 $ ls -l /etc/cron.allow
 If properly configured, the output should indicate the following permissions:
--rw-------
-      Is it the case that /etc/cron.allow does not have unix mode -rw-------?
+-rw-r-----
+      Is it the case that /etc/cron.allow does not have unix mode -rw-r-----?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_permissions_cron_d_question:question:1">
@@ -29076,7 +29183,10 @@ install uvcvideo /bin/true
 libreswan.x86-64 3.20-5.el7_4
 
 
+
 If "libreswan" is installed, check to see if the "IPsec" service is active with the following command:
+
+
 
 # systemctl status ipsec
 ipsec.service - Internet Key Exchange (IKE) Protocol Daemon for IPsec
@@ -29084,8 +29194,11 @@ Loaded: loaded (/usr/lib/systemd/system/ipsec.service; disabled)
 Active: inactive (dead)
 
 
+
 If the "IPsec" service is active, check for configured IPsec connections (conn), perform the following:
 grep -rni conn /etc/ipsec.conf /etc/ipsec.d/
+
+
 Verify any returned results for organizational approval.
       Is it the case that the IPSec tunnels are not approved?
       </ocil:question_text>

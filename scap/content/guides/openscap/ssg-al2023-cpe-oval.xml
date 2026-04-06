@@ -2,7 +2,7 @@
 <oval-def:oval_definitions xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <oval-def:generator>
     <oval:product_name>build_cpe.py from SCAP Security Guide</oval:product_name>
-    <oval:product_version>ssg: [0, 1, 79], python: 3.10.12</oval:product_version>
+    <oval:product_version>ssg: [0, 1, 80], python: 3.12.3</oval:product_version>
     <oval:schema_version>5.11</oval:schema_version>
     <oval:timestamp>2021-03-02T15:45:39</oval:timestamp>
   </oval-def:generator>
@@ -378,6 +378,19 @@
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="The operating system installed on the system is Red Hat Enterprise Linux" test_ref="oval:ssg-test_os_id_is_os_linux_rhel_ne_9_0:tst:1"/>
         <oval-def:criterion comment="The operating system Red Hat Enterprise Linux of version not equal 9.0 is installed" test_ref="oval:ssg-test_os_linux_rhel_ne_9_0_ne_9_0:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-os_linux_sles_gt_or_eq_15:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Operating System is sles</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Amazon Linux 2023</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The installed operating system is SUSE Linux Enterprise Server</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="The operating system installed on the system is SUSE Linux Enterprise Server" test_ref="oval:ssg-test_os_id_is_os_linux_sles_gt_or_eq_15:tst:1"/>
+        <oval-def:criterion comment="The operating system SUSE Linux Enterprise Server of version greater than or equal 15 is installed" test_ref="oval:ssg-test_os_linux_sles_gt_or_eq_15_gt_or_eq_15:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_audit:def:1" version="1" class="inventory">
@@ -854,6 +867,14 @@
       <ind:object object_ref="oval:ssg-obj_os_linux_rhel_ne_9_0_ne_9_0:obj:1"/>
       <ind:state state_ref="oval:ssg-state_os_linux_rhel_ne_9_0_ne_9_0:ste:1"/>
     </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_os_id_is_os_linux_sles_gt_or_eq_15:tst:1" version="1" check="all" comment="ID in os-release is sles" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_sles_gt_or_eq_15:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_sles_gt_or_eq_15:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_os_linux_sles_gt_or_eq_15_gt_or_eq_15:tst:1" version="1" check="all" comment="VERSION_ID in os-release is greater than or equal 15" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_os_linux_sles_gt_or_eq_15_gt_or_eq_15:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_linux_sles_gt_or_eq_15_gt_or_eq_15:ste:1"/>
+    </ind:textfilecontent54_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_audit_installed:tst:1" version="1" check="all" comment="package audit is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_audit_installed:obj:1"/>
     </linux:rpminfo_test>
@@ -1124,6 +1145,16 @@
       <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_sles_gt_or_eq_15:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_sles_gt_or_eq_15_gt_or_eq_15:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_audit_installed:obj:1" version="1">
       <linux:name>audit</linux:name>
     </linux:rpminfo_object>
@@ -1262,6 +1293,12 @@
     </ind:textfilecontent54_state>
     <ind:textfilecontent54_state id="oval:ssg-state_os_linux_rhel_ne_9_0_ne_9_0:ste:1" version="1" operator="AND">
       <ind:subexpression operation="not equal" datatype="version">9.0</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_sles_gt_or_eq_15:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="pattern match">sles</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_linux_sles_gt_or_eq_15_gt_or_eq_15:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="greater than or equal" datatype="version">15</ind:subexpression>
     </ind:textfilecontent54_state>
     <linux:systemdunitproperty_state id="oval:ssg-state_service_not_running_service_disabled_iptables_iptables:ste:1" version="1" operator="AND" comment="iptables is not running">
       <linux:value operation="pattern match">inactive|failed</linux:value>

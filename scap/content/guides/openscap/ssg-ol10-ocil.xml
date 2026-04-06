@@ -2,7 +2,7 @@
 <ocil:ocil xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <ocil:generator>
     <ocil:product_name>build_shorthand.py from SCAP Security Guide</ocil:product_name>
-    <ocil:product_version>ssg: 0.1.79</ocil:product_version>
+    <ocil:product_version>ssg: 0.1.80</ocil:product_version>
     <ocil:schema_version>2.0</ocil:schema_version>
     <ocil:timestamp>2021-03-02T15:45:39</ocil:timestamp>
   </ocil:generator>
@@ -1859,12 +1859,6 @@
       <ocil:title>Ensure the Group Used by pam_wheel.so Module Exists on System and is Empty</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-ensure_pam_wheel_group_empty_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-ensure_redhat_gpgkey_installed_ocil:questionnaire:1">
-      <ocil:title>Ensure Red Hat GPG Key Installed</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-ensure_redhat_gpgkey_installed_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-ensure_root_password_configured_ocil:questionnaire:1">
@@ -4293,13 +4287,13 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-set_password_hashing_algorithm_passwordauth_ocil:questionnaire:1">
-      <ocil:title>Set PAM''s Password Hashing Algorithm - password-auth</ocil:title>
+      <ocil:title>Set PAM Password Hashing Algorithm - password-auth</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-set_password_hashing_algorithm_passwordauth_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-set_password_hashing_algorithm_systemauth_ocil:questionnaire:1">
-      <ocil:title>Set PAM''s Password Hashing Algorithm</ocil:title>
+      <ocil:title>Set PAM Password Hashing Algorithm - system-auth</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-set_password_hashing_algorithm_systemauth_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -7611,14 +7605,6 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-ensure_pam_wheel_group_empty_action:testaction:1" question_ref="ocil:ssg-ensure_pam_wheel_group_empty_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-ensure_redhat_gpgkey_installed_action:testaction:1" question_ref="ocil:ssg-ensure_redhat_gpgkey_installed_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -12503,13 +12489,13 @@ The output should return the following:
     <ocil:boolean_question id="ocil:ssg-accounts_root_gid_zero_question:question:1">
       <ocil:question_text>To verify that root's primary group is zero run the following command:
 
-    grep '^root:' /etc/passwd | cut -d : -f 4
+    awk -F: '($1 !~ /^(sync|shutdown|halt|operator)/ &amp;&amp; $4=="0") {print $1":"$4}' /etc/passwd
 
 The command should return:
 
-0
+    root:0
 
-      Is it the case that root has a primary gid not equal to zero?
+      Is it the case that root has a primary gid not equal to zero or other non-system accounts has a primary gid equal to zero?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-accounts_set_post_pw_existing_question:question:1">
@@ -14580,8 +14566,16 @@ A line with the appropriate server should be returned, any line returned startin
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-chronyd_specify_remote_server_question:question:1">
-      <ocil:question_text>Run the following command and verify remote server is configured properly:
+      <ocil:question_text>Verify that a remote time server is configured. First, check the main configuration file:
 # grep -E "^(server|pool)" /etc/chrony.conf
+If no server or pool directive is found, check for sourcedir or confdir directives:
+# grep -E "^(sourcedir|confdir)" /etc/chrony.conf
+For each sourcedir found, check .sources files in that directory:
+# grep -E "^(server|pool)" /path/to/sourcedir/*.sources
+For each confdir found, check .conf files in that directory:
+# grep -E "^(server|pool)" /path/to/confdir/*.conf
+At least one server or pool directive must be present in the main configuration file
+or in files within directories specified by sourcedir or confdir directives.
       Is it the case that a remote time server is not configured?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -15246,18 +15240,15 @@ Find the location of the audit logs:
 
 $ sudo grep "^log_file" /etc/audit/auditd.conf
 
-
 Find the group that owns audit logs:
 
 $ sudo grep "^log_group" /etc/audit/auditd.conf
-
 
 Run the following command to check the mode of the system audit logs:
 
 $ sudo stat -c "%a %n" [audit_log_directory]
 
 Replace "[audit_log_directory]" to the correct audit log directory path, by default this location is "/var/log/audit".
-
 
 If the log_group is "root" or is not set, the correct permissions are 0700, otherwise they are 0750.
       Is it the case that audit logs have a more permissive mode?
@@ -15435,14 +15426,6 @@ grep  /etc/group
 The output should contain the following line:
 :x:
       Is it the case that group  exists and has no user members?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-ensure_redhat_gpgkey_installed_question:question:1">
-      <ocil:question_text>To ensure that the GPG key is installed, run:
-$ rpm -q --queryformat "%{SUMMARY}\n" gpg-pubkey
-The command should return the string below:
-gpg(Red Hat, Inc. (release key 2)  &lt;security@redhat.com&gt;
-      Is it the case that the Red Hat GPG Key is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-ensure_root_password_configured_question:question:1">
@@ -17818,7 +17801,10 @@ $ grep -r usb-storage /etc/modprobe.conf /etc/modprobe.d
 libreswan.x86-64 3.20-5.el7_4
 
 
+
 If "libreswan" is installed, check to see if the "IPsec" service is active with the following command:
+
+
 
 # systemctl status ipsec
 ipsec.service - Internet Key Exchange (IKE) Protocol Daemon for IPsec
@@ -17826,8 +17812,11 @@ Loaded: loaded (/usr/lib/systemd/system/ipsec.service; disabled)
 Active: inactive (dead)
 
 
+
 If the "IPsec" service is active, check for configured IPsec connections (conn), perform the following:
 grep -rni conn /etc/ipsec.conf /etc/ipsec.d/
+
+
 Verify any returned results for organizational approval.
       Is it the case that the IPSec tunnels are not approved?
       </ocil:question_text>

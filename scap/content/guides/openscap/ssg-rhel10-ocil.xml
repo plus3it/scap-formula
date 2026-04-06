@@ -2,7 +2,7 @@
 <ocil:ocil xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <ocil:generator>
     <ocil:product_name>build_shorthand.py from SCAP Security Guide</ocil:product_name>
-    <ocil:product_version>ssg: 0.1.79</ocil:product_version>
+    <ocil:product_version>ssg: 0.1.80</ocil:product_version>
     <ocil:schema_version>2.0</ocil:schema_version>
     <ocil:timestamp>2021-03-02T15:45:39</ocil:timestamp>
   </ocil:generator>
@@ -163,6 +163,12 @@
         <ocil:test_action_ref>ocil:ssg-accounts_password_pam_minlen_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-accounts_password_pam_modules_in_authselect_profile_ocil:questionnaire:1">
+      <ocil:title>Ensure Active Authselect Profile Includes PAM Modules</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-accounts_password_pam_modules_in_authselect_profile_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-accounts_password_pam_ocredit_ocil:questionnaire:1">
       <ocil:title>Ensure PAM Enforces Password Requirements - Minimum Special Characters</ocil:title>
       <ocil:actions>
@@ -209,6 +215,12 @@
       <ocil:title>Require use_authtok for pam_unix.so</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-accounts_password_pam_unix_authtok_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-accounts_password_pam_unix_no_remember_ocil:questionnaire:1">
+      <ocil:title>Avoid using remember in pam_unix module</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-accounts_password_pam_unix_no_remember_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-accounts_password_pam_unix_remember_ocil:questionnaire:1">
@@ -293,6 +305,12 @@
       <ocil:title>Set Lockout Time for Failed Password Attempts</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-accounts_passwords_pam_faillock_unlock_time_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-accounts_passwords_pam_faillock_unlock_time_with_zero_ocil:questionnaire:1">
+      <ocil:title>Set Lockout Time for Failed Password Attempts</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-accounts_passwords_pam_faillock_unlock_time_with_zero_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-accounts_polyinstantiated_tmp_ocil:questionnaire:1">
@@ -2119,6 +2137,12 @@
         <ocil:test_action_ref>ocil:ssg-disable_users_coredumps_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-disable_weak_deps_ocil:questionnaire:1">
+      <ocil:title>Disable Installation of Weak Dependencies in DNF</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-disable_weak_deps_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-disallow_bypass_password_sudo_ocil:questionnaire:1">
       <ocil:title>Disallow Configuration to Bypass Password Requirements for Privilege Escalation</ocil:title>
       <ocil:actions>
@@ -2195,6 +2219,12 @@
       <ocil:title>Ensure gpgcheck Enabled for Repository Metadata</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-ensure_gpgcheck_repo_metadata_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-ensure_journald_and_rsyslog_not_active_together_ocil:questionnaire:1">
+      <ocil:title>Ensure journald and rsyslog Are Not Active Together</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-ensure_journald_and_rsyslog_not_active_together_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-ensure_logrotate_activated_ocil:questionnaire:1">
@@ -2363,6 +2393,18 @@
       <ocil:title>Verify Group Who Owns Crontab</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-file_groupowner_crontab_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_groupowner_efi_grub2_cfg_ocil:questionnaire:1">
+      <ocil:title>Verify the UEFI Boot Loader grub.cfg Group Ownership</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_groupowner_efi_grub2_cfg_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_groupowner_efi_user_cfg_ocil:questionnaire:1">
+      <ocil:title>Verify /boot/grub2/user.cfg Group Ownership</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_groupowner_efi_user_cfg_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_groupowner_etc_chrony_keys_ocil:questionnaire:1">
@@ -2621,6 +2663,18 @@
       <ocil:title>Verify Owner on crontab</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-file_owner_crontab_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_owner_efi_grub2_cfg_ocil:questionnaire:1">
+      <ocil:title>Verify the UEFI Boot Loader grub.cfg User Ownership</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_owner_efi_grub2_cfg_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_owner_efi_user_cfg_ocil:questionnaire:1">
+      <ocil:title>Verify /boot/grub2/user.cfg User Ownership</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_owner_efi_user_cfg_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_owner_etc_chrony_keys_ocil:questionnaire:1">
@@ -2927,6 +2981,18 @@
       <ocil:title>Verify Permissions on crontab</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-file_permissions_crontab_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_permissions_efi_grub2_cfg_ocil:questionnaire:1">
+      <ocil:title>Verify the UEFI Boot Loader grub.cfg Permissions</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_permissions_efi_grub2_cfg_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_permissions_efi_user_cfg_ocil:questionnaire:1">
+      <ocil:title>Verify /boot/grub2/user.cfg Permissions</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_permissions_efi_user_cfg_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_permissions_etc_audit_auditd_ocil:questionnaire:1">
@@ -3391,6 +3457,18 @@
         <ocil:test_action_ref>ocil:ssg-has_nonlocal_mta_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-install_antivirus_ocil:questionnaire:1">
+      <ocil:title>Install Virus Scanning Software</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-install_antivirus_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-install_hids_ocil:questionnaire:1">
+      <ocil:title>Install Intrusion Detection Software</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-install_hids_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-install_smartcard_packages_ocil:questionnaire:1">
       <ocil:title>Install Smart Card Packages For Multifactor Authentication</ocil:title>
       <ocil:actions>
@@ -3799,6 +3877,12 @@
         <ocil:test_action_ref>ocil:ssg-kernel_module_can_disabled_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-kernel_module_cfg80211_disabled_ocil:questionnaire:1">
+      <ocil:title>Disable Kernel cfg80211 Module</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-kernel_module_cfg80211_disabled_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-kernel_module_cramfs_disabled_ocil:questionnaire:1">
       <ocil:title>Disable Mounting of cramfs</ocil:title>
       <ocil:actions>
@@ -3815,6 +3899,24 @@
       <ocil:title>Disable IEEE 1394 (FireWire) Support</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-kernel_module_firewire-core_disabled_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-kernel_module_iwlmvm_disabled_ocil:questionnaire:1">
+      <ocil:title>Disable Kernel iwlmvm Module</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-kernel_module_iwlmvm_disabled_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-kernel_module_iwlwifi_disabled_ocil:questionnaire:1">
+      <ocil:title>Disable Kernel iwlwifi Module</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-kernel_module_iwlwifi_disabled_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-kernel_module_mac80211_disabled_ocil:questionnaire:1">
+      <ocil:title>Disable Kernel mac80211 Module</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-kernel_module_mac80211_disabled_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-kernel_module_rds_disabled_ocil:questionnaire:1">
@@ -3851,6 +3953,12 @@
       <ocil:title>Configure Logind to terminate idle sessions after certain time of inactivity</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-logind_session_timeout_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-mask_nonessential_services_ocil:questionnaire:1">
+      <ocil:title>Ensure nonessential services are removed or masked</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-mask_nonessential_services_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-mount_option_boot_nodev_ocil:questionnaire:1">
@@ -4171,6 +4279,12 @@
         <ocil:test_action_ref>ocil:ssg-no_user_host_based_files_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-only_allow_specific_certs_ocil:questionnaire:1">
+      <ocil:title>Only Allow specific PKI-established CAs</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-only_allow_specific_certs_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-package_aide_installed_ocil:questionnaire:1">
       <ocil:title>Install AIDE</ocil:title>
       <ocil:actions>
@@ -4451,6 +4565,12 @@
       <ocil:title>Install scap-security-guide Package</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-package_scap-security-guide_installed_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-package_sequoia-sq_installed_ocil:questionnaire:1">
+      <ocil:title>Install sequoia-sq Package</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-package_sequoia-sq_installed_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-package_setroubleshoot-plugins_removed_ocil:questionnaire:1">
@@ -5048,6 +5168,12 @@
         <ocil:test_action_ref>ocil:ssg-service_usbguard_enabled_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-set_firewalld_appropriate_zone_ocil:questionnaire:1">
+      <ocil:title>Ensure network interfaces are assigned to appropriate zone</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-set_firewalld_appropriate_zone_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-set_firewalld_default_zone_ocil:questionnaire:1">
       <ocil:title>Set Default firewalld Zone for Incoming Packets</ocil:title>
       <ocil:actions>
@@ -5067,13 +5193,13 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-set_password_hashing_algorithm_passwordauth_ocil:questionnaire:1">
-      <ocil:title>Set PAM''s Password Hashing Algorithm - password-auth</ocil:title>
+      <ocil:title>Set PAM Password Hashing Algorithm - password-auth</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-set_password_hashing_algorithm_passwordauth_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-set_password_hashing_algorithm_systemauth_ocil:questionnaire:1">
-      <ocil:title>Set PAM''s Password Hashing Algorithm</ocil:title>
+      <ocil:title>Set PAM Password Hashing Algorithm - system-auth</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-set_password_hashing_algorithm_systemauth_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -5112,6 +5238,12 @@
       <ocil:title>Verify the SSH Private Key Files Have a Passcode</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-ssh_keys_passphrase_protected_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-sshd_allow_only_protocol2_ocil:questionnaire:1">
+      <ocil:title>Allow Only SSH Protocol 2</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-sshd_allow_only_protocol2_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-sshd_disable_compression_ocil:questionnaire:1">
@@ -5160,6 +5292,12 @@
       <ocil:title>Disable SSH Root Login</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-sshd_disable_root_login_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-sshd_disable_root_password_login_ocil:questionnaire:1">
+      <ocil:title>Disable SSH root Login with a Password (Insecure)</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-sshd_disable_root_password_login_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-sshd_disable_tcp_forwarding_ocil:questionnaire:1">
@@ -5924,6 +6062,12 @@
         <ocil:test_action_ref>ocil:ssg-timer_logrotate_enabled_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-unnecessary_firewalld_services_ports_disabled_ocil:questionnaire:1">
+      <ocil:title>Ensure Unnecessary Services and Ports Are Not Accepted</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-unnecessary_firewalld_services_ports_disabled_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-usbguard_allow_hid_and_hub_ocil:questionnaire:1">
       <ocil:title>Authorize Human Interface Devices and USB hubs in USBGuard daemon</ocil:title>
       <ocil:actions>
@@ -5958,6 +6102,12 @@
       <ocil:title>Deactivate Wireless Network Interfaces</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-wireless_disable_interfaces_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-xwayland_disabled_ocil:questionnaire:1">
+      <ocil:title>Disable XWayland</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-xwayland_disabled_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-xwindows_runlevel_target_ocil:questionnaire:1">
@@ -6218,6 +6368,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-accounts_password_pam_modules_in_authselect_profile_action:testaction:1" question_ref="ocil:ssg-accounts_password_pam_modules_in_authselect_profile_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-accounts_password_pam_ocredit_action:testaction:1" question_ref="ocil:ssg-accounts_password_pam_ocredit_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -6275,6 +6433,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-accounts_password_pam_unix_authtok_action:testaction:1" question_ref="ocil:ssg-accounts_password_pam_unix_authtok_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-accounts_password_pam_unix_no_remember_action:testaction:1" question_ref="ocil:ssg-accounts_password_pam_unix_no_remember_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -6387,6 +6553,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-accounts_passwords_pam_faillock_unlock_time_action:testaction:1" question_ref="ocil:ssg-accounts_passwords_pam_faillock_unlock_time_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-accounts_passwords_pam_faillock_unlock_time_with_zero_action:testaction:1" question_ref="ocil:ssg-accounts_passwords_pam_faillock_unlock_time_with_zero_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -8826,6 +9000,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-disable_weak_deps_action:testaction:1" question_ref="ocil:ssg-disable_weak_deps_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-disallow_bypass_password_sudo_action:testaction:1" question_ref="ocil:ssg-disallow_bypass_password_sudo_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -8923,6 +9105,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-ensure_gpgcheck_repo_metadata_action:testaction:1" question_ref="ocil:ssg-ensure_gpgcheck_repo_metadata_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-ensure_journald_and_rsyslog_not_active_together_action:testaction:1" question_ref="ocil:ssg-ensure_journald_and_rsyslog_not_active_together_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -9147,6 +9337,22 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_groupowner_crontab_action:testaction:1" question_ref="ocil:ssg-file_groupowner_crontab_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_groupowner_efi_grub2_cfg_action:testaction:1" question_ref="ocil:ssg-file_groupowner_efi_grub2_cfg_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_groupowner_efi_user_cfg_action:testaction:1" question_ref="ocil:ssg-file_groupowner_efi_user_cfg_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -9491,6 +9697,22 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_owner_crontab_action:testaction:1" question_ref="ocil:ssg-file_owner_crontab_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_owner_efi_grub2_cfg_action:testaction:1" question_ref="ocil:ssg-file_owner_efi_grub2_cfg_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_owner_efi_user_cfg_action:testaction:1" question_ref="ocil:ssg-file_owner_efi_user_cfg_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -9899,6 +10121,22 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_crontab_action:testaction:1" question_ref="ocil:ssg-file_permissions_crontab_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_efi_grub2_cfg_action:testaction:1" question_ref="ocil:ssg-file_permissions_efi_grub2_cfg_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_efi_user_cfg_action:testaction:1" question_ref="ocil:ssg-file_permissions_efi_user_cfg_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -10522,6 +10760,22 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-install_antivirus_action:testaction:1" question_ref="ocil:ssg-install_antivirus_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-install_hids_action:testaction:1" question_ref="ocil:ssg-install_hids_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-install_smartcard_packages_action:testaction:1" question_ref="ocil:ssg-install_smartcard_packages_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -11066,6 +11320,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-kernel_module_cfg80211_disabled_action:testaction:1" question_ref="ocil:ssg-kernel_module_cfg80211_disabled_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-kernel_module_cramfs_disabled_action:testaction:1" question_ref="ocil:ssg-kernel_module_cramfs_disabled_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -11083,6 +11345,30 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-kernel_module_firewire-core_disabled_action:testaction:1" question_ref="ocil:ssg-kernel_module_firewire-core_disabled_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-kernel_module_iwlmvm_disabled_action:testaction:1" question_ref="ocil:ssg-kernel_module_iwlmvm_disabled_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-kernel_module_iwlwifi_disabled_action:testaction:1" question_ref="ocil:ssg-kernel_module_iwlwifi_disabled_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-kernel_module_mac80211_disabled_action:testaction:1" question_ref="ocil:ssg-kernel_module_mac80211_disabled_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -11131,6 +11417,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-logind_session_timeout_action:testaction:1" question_ref="ocil:ssg-logind_session_timeout_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-mask_nonessential_services_action:testaction:1" question_ref="ocil:ssg-mask_nonessential_services_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -11562,6 +11856,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-only_allow_specific_certs_action:testaction:1" question_ref="ocil:ssg-only_allow_specific_certs_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-package_aide_installed_action:testaction:1" question_ref="ocil:ssg-package_aide_installed_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -11931,6 +12233,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-package_scap-security-guide_installed_action:testaction:1" question_ref="ocil:ssg-package_scap-security-guide_installed_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-package_sequoia-sq_installed_action:testaction:1" question_ref="ocil:ssg-package_sequoia-sq_installed_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -12730,6 +13040,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-set_firewalld_appropriate_zone_action:testaction:1" question_ref="ocil:ssg-set_firewalld_appropriate_zone_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-set_firewalld_default_zone_action:testaction:1" question_ref="ocil:ssg-set_firewalld_default_zone_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -12818,6 +13136,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-sshd_allow_only_protocol2_action:testaction:1" question_ref="ocil:ssg-sshd_allow_only_protocol2_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-sshd_disable_compression_action:testaction:1" question_ref="ocil:ssg-sshd_disable_compression_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -12875,6 +13201,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-sshd_disable_root_login_action:testaction:1" question_ref="ocil:ssg-sshd_disable_root_login_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-sshd_disable_root_password_login_action:testaction:1" question_ref="ocil:ssg-sshd_disable_root_password_login_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -13898,6 +14232,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-unnecessary_firewalld_services_ports_disabled_action:testaction:1" question_ref="ocil:ssg-unnecessary_firewalld_services_ports_disabled_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-usbguard_allow_hid_and_hub_action:testaction:1" question_ref="ocil:ssg-usbguard_allow_hid_and_hub_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -13939,6 +14281,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-wireless_disable_interfaces_action:testaction:1" question_ref="ocil:ssg-wireless_disable_interfaces_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-xwayland_disabled_action:testaction:1" question_ref="ocil:ssg-xwayland_disabled_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -14270,6 +14620,16 @@ minlen =
       Is it the case that the command does not return a "minlen" value of "&lt;sub idref="var_password_pam_minlen" /&gt;" or greater, does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-accounts_password_pam_modules_in_authselect_profile_question:question:1">
+      <ocil:question_text>Run the following command to verify the active authselect profile includes lines for the
+pwquality, pwhistory, faillock, and unix modules:
+
+# grep -P '\b(pam_pwquality\.so|pam_pwhistory\.so|pam_faillock\.so|pam_unix\.so)\b' /etc/authselect/"$(head -1 /etc/authselect/authselect.conf)"/{system,password}-auth
+
+The output should show entries for all four modules in both system-auth and password-auth files.
+      Is it the case that the active authselect profile does not include all required PAM modules?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-accounts_password_pam_ocredit_question:question:1">
       <ocil:question_text>Verify that Red Hat Enterprise Linux 10 enforces password complexity by requiring that at least one special character with the following command:
 
@@ -14363,6 +14723,17 @@ ucredit = -1
 $ grep use_authtok /etc/pam.d/common-password
 The output should show use_authtok on the line.
       Is it the case that Usage of use_authtok for pam_unix.so is required?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-accounts_password_pam_unix_no_remember_question:question:1">
+      <ocil:question_text>To verify that the remember option is not present in pam_unix.so configuration,
+run the following command:
+
+$ grep -E "^\s*password\s+.*pam_unix\.so.*\bremember=" /etc/pam.d/system-auth /etc/pam.d/password-auth
+
+The command should not return any output. If any lines are returned, it means the remember
+option is configured in pam_unix.so, which is not compliant with this requirement.
+      Is it the case that the remember option is found in pam_unix.so configuration?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-accounts_password_pam_unix_remember_question:question:1">
@@ -14492,6 +14863,17 @@ unlock_time =
 the line is missing, or commented out?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-accounts_passwords_pam_faillock_unlock_time_with_zero_question:question:1">
+      <ocil:question_text>Verify Red Hat Enterprise Linux 10 is configured to lock an account until released by an administrator
+after  unsuccessful logon
+attempts with the command:
+
+$ grep 'unlock_time =' /etc/security/faillock.conf
+unlock_time = 
+      Is it the case that the "unlock_time" option is not set to "0" or is not set to "&lt;sub idref="var_accounts_passwords_pam_faillock_unlock_time" /&gt;",
+the line is missing, or commented out?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-accounts_polyinstantiated_tmp_question:question:1">
       <ocil:question_text>Run the following command to ensure that /tmp is configured as a
 polyinstantiated directory:
@@ -14513,13 +14895,13 @@ The output should return the following:
     <ocil:boolean_question id="ocil:ssg-accounts_root_gid_zero_question:question:1">
       <ocil:question_text>To verify that root's primary group is zero run the following command:
 
-    grep '^root:' /etc/passwd | cut -d : -f 4
+    awk -F: '($1 !~ /^(sync|shutdown|halt|operator)/ &amp;&amp; $4=="0") {print $1":"$4}' /etc/passwd
 
 The command should return:
 
-0
+    root:0
 
-      Is it the case that root has a primary gid not equal to zero?
+      Is it the case that root has a primary gid not equal to zero or other non-system accounts has a primary gid equal to zero?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-accounts_root_path_dirs_no_write_question:question:1">
@@ -17414,8 +17796,16 @@ A line with the appropriate server should be returned, any line returned startin
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-chronyd_specify_remote_server_question:question:1">
-      <ocil:question_text>Run the following command and verify remote server is configured properly:
+      <ocil:question_text>Verify that a remote time server is configured. First, check the main configuration file:
 # grep -E "^(server|pool)" /etc/chrony.conf
+If no server or pool directive is found, check for sourcedir or confdir directives:
+# grep -E "^(sourcedir|confdir)" /etc/chrony.conf
+For each sourcedir found, check .sources files in that directory:
+# grep -E "^(server|pool)" /path/to/sourcedir/*.sources
+For each confdir found, check .conf files in that directory:
+# grep -E "^(server|pool)" /path/to/confdir/*.conf
+At least one server or pool directive must be present in the main configuration file
+or in files within directories specified by sourcedir or confdir directives.
       Is it the case that a remote time server is not configured?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -18160,18 +18550,15 @@ Find the location of the audit logs:
 
 $ sudo grep "^log_file" /etc/audit/auditd.conf
 
-
 Find the group that owns audit logs:
 
 $ sudo grep "^log_group" /etc/audit/auditd.conf
-
 
 Run the following command to check the mode of the system audit logs:
 
 $ sudo stat -c "%a %n" [audit_log_directory]
 
 Replace "[audit_log_directory]" to the correct audit log directory path, by default this location is "/var/log/audit".
-
 
 If the log_group is "root" or is not set, the correct permissions are 0700, otherwise they are 0750.
       Is it the case that audit logs have a more permissive mode?
@@ -18215,6 +18602,14 @@ If a line indicating no is returned, then the required value is set.
 $ grep core /etc/security/limits.conf
 *     hard   core    0
       Is it the case that the "core" item is missing, commented out, or the value is anything other than "0" and the need for core dumps is not documented with the Information System Security Officer (ISSO) as an operational requirement for all domains that have the "core"?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-disable_weak_deps_question:question:1">
+      <ocil:question_text>To verify that weak dependencies are disabled, run the following command:
+# grep -Pi -- '^\h*install_weak_deps\h*=\h*(0|false|no)\b' /etc/dnf/dnf.conf
+The output should return the following:
+install_weak_deps = 0
+      Is it the case that the install_weak_deps option is not set to 0?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-disallow_bypass_password_sudo_question:question:1">
@@ -18335,6 +18730,15 @@ $ grep repo_gpgcheck /etc/dnf/dnf.conf
 The output should return something similar to:
 repo_gpgcheck=1
       Is it the case that gpgcheck is not enabled or configured correctly to verify repository metadata?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-ensure_journald_and_rsyslog_not_active_together_question:question:1">
+      <ocil:question_text>To verify that exactly one logging system is active, run the following command:
+systemctl is-active rsyslog systemd-journald | grep -c active
+The output should be exactly 1. If the output is 0, no logging is active.
+If the output is 2, both logging systems are active simultaneously. Both
+cases are findings.
+      Is it the case that both rsyslog and systemd-journald services are active, or neither service is active?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-ensure_logrotate_activated_question:question:1">
@@ -18707,6 +19111,32 @@ If properly configured, the output should indicate the following group-owner:
   root
   
       Is it the case that /etc/crontab does not have a group owner of
+root
+?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_groupowner_efi_grub2_cfg_question:question:1">
+      <ocil:question_text>To check the group ownership of /boot/grub2/grub.cfg,
+run the command:
+$ ls -lL /boot/grub2/grub.cfg
+If properly configured, the output should indicate the following group-owner:
+
+  root
+  
+      Is it the case that /boot/grub2/grub.cfg does not have a group owner of
+root
+?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_groupowner_efi_user_cfg_question:question:1">
+      <ocil:question_text>To check the group ownership of /boot/grub2/user.cfg,
+run the command:
+$ ls -lL /boot/grub2/user.cfg
+If properly configured, the output should indicate the following group-owner:
+
+  root
+  
+      Is it the case that /boot/grub2/user.cfg does not have a group owner of
 root
 ?
       </ocil:question_text>
@@ -19216,6 +19646,24 @@ root
       Is it the case that /etc/crontab does not have an owner of root?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_owner_efi_grub2_cfg_question:question:1">
+      <ocil:question_text>To check the ownership of /boot/grub2/grub.cfg,
+run the command:
+$ ls -lL /boot/grub2/grub.cfg
+If properly configured, the output should indicate the following owner:
+root
+      Is it the case that /boot/grub2/grub.cfg does not have an owner of root?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_owner_efi_user_cfg_question:question:1">
+      <ocil:question_text>To check the ownership of /boot/grub2/user.cfg,
+run the command:
+$ ls -lL /boot/grub2/user.cfg
+If properly configured, the output should indicate the following owner:
+root
+      Is it the case that /boot/grub2/user.cfg does not have an owner of root?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_owner_etc_chrony_keys_question:question:1">
       <ocil:question_text>To check the ownership of /etc/chrony.keys,
 run the command:
@@ -19650,8 +20098,8 @@ $ sudo find -L /bin /sbin /usr/bin /usr/sbin /usr/libexec /usr/local/bin /usr/lo
 run the command:
 $ ls -l /etc/cron.allow
 If properly configured, the output should indicate the following permissions:
--rw-------
-      Is it the case that /etc/cron.allow does not have unix mode -rw-------?
+-rw-r-----
+      Is it the case that /etc/cron.allow does not have unix mode -rw-r-----?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_permissions_cron_d_question:question:1">
@@ -19715,6 +20163,23 @@ $ ls -l /etc/crontab
 If properly configured, the output should indicate the following permissions:
 -rw-------
       Is it the case that /etc/crontab does not have unix mode -rw-------?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_permissions_efi_grub2_cfg_question:question:1">
+      <ocil:question_text>To check the permissions of /boot/grub2/grub.cfg, run the command:
+$ sudo ls -lL /boot/grub2/grub.cfg
+If properly configured, the output should indicate the following
+permissions: -rwx------
+      Is it the case that it does not?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_permissions_efi_user_cfg_question:question:1">
+      <ocil:question_text>To check the permissions of /boot/grub2/user.cfg,
+run the command:
+$ ls -l /boot/grub2/user.cfg
+If properly configured, the output should indicate the following permissions:
+-rw-------
+      Is it the case that /boot/grub2/user.cfg does not have unix mode -rw-------?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_permissions_etc_audit_auditd_question:question:1">
@@ -20547,6 +21012,18 @@ Nothing should be returned
       Is it the case that MTA is listening on any non-loopback address?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-install_antivirus_question:question:1">
+      <ocil:question_text>Verify an anti-virus solution is installed on the system. The anti-virus solution may be
+bundled with an approved host-based security solution.
+      Is it the case that there is no anti-virus solution installed on the system?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-install_hids_question:question:1">
+      <ocil:question_text>Inspect the system to determine if intrusion detection software has been installed.
+Verify this intrusion detection software is active.
+      Is it the case that no host-based intrusion detection tools are installed?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-install_smartcard_packages_question:question:1">
       <ocil:question_text>Check that Red Hat Enterprise Linux 10 has the packages for smart card support installed.
 
@@ -21194,6 +21671,17 @@ $ grep -r can /etc/modprobe.conf /etc/modprobe.d
       Is it the case that no line is returned?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-kernel_module_cfg80211_disabled_question:question:1">
+      <ocil:question_text>
+If the system is configured to prevent the loading of the cfg80211 kernel module,
+it will contain lines inside any file in /etc/modprobe.d or the deprecated /etc/modprobe.conf.
+These lines instruct the module loading system to run another program (such as /bin/false) upon a module install event.
+
+Run the following command to search for such lines in all files in /etc/modprobe.d and the deprecated /etc/modprobe.conf:
+$ grep -r cfg80211 /etc/modprobe.conf /etc/modprobe.d
+      Is it the case that no line is returned?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-kernel_module_cramfs_disabled_question:question:1">
       <ocil:question_text>
 If the system is configured to prevent the loading of the cramfs kernel module,
@@ -21224,6 +21712,39 @@ These lines instruct the module loading system to run another program (such as /
 
 Run the following command to search for such lines in all files in /etc/modprobe.d and the deprecated /etc/modprobe.conf:
 $ grep -r firewire-core /etc/modprobe.conf /etc/modprobe.d
+      Is it the case that no line is returned?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-kernel_module_iwlmvm_disabled_question:question:1">
+      <ocil:question_text>
+If the system is configured to prevent the loading of the iwlmvm kernel module,
+it will contain lines inside any file in /etc/modprobe.d or the deprecated /etc/modprobe.conf.
+These lines instruct the module loading system to run another program (such as /bin/false) upon a module install event.
+
+Run the following command to search for such lines in all files in /etc/modprobe.d and the deprecated /etc/modprobe.conf:
+$ grep -r iwlmvm /etc/modprobe.conf /etc/modprobe.d
+      Is it the case that no line is returned?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-kernel_module_iwlwifi_disabled_question:question:1">
+      <ocil:question_text>
+If the system is configured to prevent the loading of the iwlwifi kernel module,
+it will contain lines inside any file in /etc/modprobe.d or the deprecated /etc/modprobe.conf.
+These lines instruct the module loading system to run another program (such as /bin/false) upon a module install event.
+
+Run the following command to search for such lines in all files in /etc/modprobe.d and the deprecated /etc/modprobe.conf:
+$ grep -r iwlwifi /etc/modprobe.conf /etc/modprobe.d
+      Is it the case that no line is returned?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-kernel_module_mac80211_disabled_question:question:1">
+      <ocil:question_text>
+If the system is configured to prevent the loading of the mac80211 kernel module,
+it will contain lines inside any file in /etc/modprobe.d or the deprecated /etc/modprobe.conf.
+These lines instruct the module loading system to run another program (such as /bin/false) upon a module install event.
+
+Run the following command to search for such lines in all files in /etc/modprobe.d and the deprecated /etc/modprobe.conf:
+$ grep -r mac80211 /etc/modprobe.conf /etc/modprobe.d
       Is it the case that no line is returned?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -21279,7 +21800,10 @@ $ grep -r usb-storage /etc/modprobe.conf /etc/modprobe.d
 libreswan.x86-64 3.20-5.el7_4
 
 
+
 If "libreswan" is installed, check to see if the "IPsec" service is active with the following command:
+
+
 
 # systemctl status ipsec
 ipsec.service - Internet Key Exchange (IKE) Protocol Daemon for IPsec
@@ -21287,8 +21811,11 @@ Loaded: loaded (/usr/lib/systemd/system/ipsec.service; disabled)
 Active: inactive (dead)
 
 
+
 If the "IPsec" service is active, check for configured IPsec connections (conn), perform the following:
 grep -rni conn /etc/ipsec.conf /etc/ipsec.d/
+
+
 Verify any returned results for organizational approval.
       Is it the case that the IPSec tunnels are not approved?
       </ocil:question_text>
@@ -21299,6 +21826,16 @@ cat /etc/systemd/logind.conf
 Ensure that there is a section [login] which contains the
 configuration StopIdleSessionSec=.
       Is it the case that the option is not configured?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-mask_nonessential_services_question:question:1">
+      <ocil:question_text>Run the following command:
+# lsof -i -P -n | grep -v "(ESTABLISHED)"
+Review the output to ensure that all services listed are required 
+on the system. If a listed service is not required, remove the 
+package containing the service. If the package containing the 
+service is required, stop and mask the service
+      Is it the case that nonessential service is present and unmasked?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-mount_option_boot_nodev_question:question:1">
@@ -21781,6 +22318,15 @@ $ sudo find / -name '.shosts'
       Is it the case that .shosts files exist?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-only_allow_specific_certs_question:question:1">
+      <ocil:question_text>To check which CAs are trusted in your system, use
+
+$ trust list --filter ca-anchors  on the Operating System
+
+and manually compare the supplied list with your internal list of allowed Certificate Authorities
+      Is it the case that non-trusted CA is installed in the system?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_aide_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the aide package is installed: $ rpm -q aide
       Is it the case that the package is not installed?
@@ -22033,6 +22579,11 @@ $ rpm -q samba
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_scap-security-guide_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the scap-security-guide package is installed: $ rpm -q scap-security-guide
+      Is it the case that the package is not installed?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-package_sequoia-sq_installed_question:question:1">
+      <ocil:question_text>Run the following command to determine if the sequoia-sq package is installed: $ rpm -q sequoia-sq
       Is it the case that the package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -23287,6 +23838,16 @@ If the service is running, it should return the following: active
       Is it the case that the service is not enabled?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-set_firewalld_appropriate_zone_question:question:1">
+      <ocil:question_text>To verify that the interface(s) follow site policy for zone assignment run the 
+following command: 
+$ sudo nmcli -t connection show | awk -F: '{if($4){print $4}}' | while read INT;
+do firewall-cmd --get-active-zones | grep -B1 $INT; done
+If your have to assign an interface to the appropriate zone run the following command: 
+$ sudo firewall-cmd --zone= --change-interface=
+      Is it the case that Your system accepts all incoming packets for unnecessary services and ports?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-set_firewalld_default_zone_question:question:1">
       <ocil:question_text>Inspect the file /etc/firewalld/firewalld.conf to determine
 the default zone for the firewalld. It should be set to DefaultZone=drop:
@@ -23403,6 +23964,18 @@ If the contents of the key are displayed, this is a finding.
       Is it the case that no ssh private key is accessible without a passcode?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-sshd_allow_only_protocol2_question:question:1">
+      <ocil:question_text>To check which SSH protocol version is allowed, check version of openssh-server with following command:
+
+$ rpm -qi openssh-server | grep Version
+
+Versions equal to or higher than 7.4 only allow Protocol 2.
+If version is lower than 7.4, run the following command to check configuration:
+$ sudo grep Protocol /etc/ssh/sshd_config
+If configured properly, output should be Protocol 2
+      Is it the case that it is commented out or is not set correctly to Protocol 2?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_disable_compression_question:question:1">
       <ocil:question_text>To check if compression is enabled or set correctly, run the
 following command:
@@ -23490,6 +24063,16 @@ $ sudo grep -i PermitRootLogin /etc/ssh/sshd_config.d/00-complianceascode-harden
 If a line indicating no is returned, then the required value is set.
 
       Is it the case that the required value is not set?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-sshd_disable_root_password_login_question:question:1">
+      <ocil:question_text>To determine how the SSH daemon's PermitRootLogin option is set, run the following command:
+
+$ sudo grep -i PermitRootLogin /etc/ssh/sshd_config.d/00-complianceascode-hardening.conf
+
+
+If a line indicating prohibit-password is returned, then the required value is set.
+      Is it the case that it is commented out or not configured properly?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_disable_tcp_forwarding_question:question:1">
@@ -24742,6 +25325,18 @@ ExecStart=/usr/sbin/in.tftpd -s
       Is it the case that logrotate timer is not enabled?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-unnecessary_firewalld_services_ports_disabled_question:question:1">
+      <ocil:question_text>To review and to ensure that listed services and ports follow site policy run the
+following command:
+$ sudo firewall-cmd --get-active-zones | awk '!/:/ {print $1}' | while read ZN; do
+firewall-cmd --list-all --zone=$ZN; done
+To remove an unnecessary service, run the following command:
+$ sudo firewall-cmd --remove-service=
+To remove an unnecessary port, run the following command:
+$ sudo firewall-cmd --remove-port=/
+      Is it the case that the system accepts incoming packets for unnecessary services and ports?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-usbguard_allow_hid_and_hub_question:question:1">
       <ocil:question_text>To verify that USB Human Interface Devices and hubs will be authorized by the USBGuard daemon,
 run the following command:
@@ -24801,6 +25396,17 @@ p2p-dev-wlp7s0  wifi-p2p  disconnected  --
 lo              loopback  unmanaged     --
 virbr0-nic      tun       unmanaged     --
       Is it the case that a wireless interface is configured and has not been documented and approved by the Information System Security Officer (ISSO)?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-xwayland_disabled_question:question:1">
+      <ocil:question_text>To verify that XWayland is disabled, run the following command:
+sed -n '/\[daemon\]/,/\[/p' /etc/gdm/custom.conf | grep -Psi '^\h*waylandenable\b'
+The output should return the following:
+
+[daemon]
+WaylandEnable=false
+
+      Is it the case that The WaylandEnable parameter is not set to false in the [daemon] section of the /etc/gdm/custom.conf file.?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-xwindows_runlevel_target_question:question:1">

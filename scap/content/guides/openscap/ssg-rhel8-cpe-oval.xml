@@ -2,7 +2,7 @@
 <oval-def:oval_definitions xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <oval-def:generator>
     <oval:product_name>build_cpe.py from SCAP Security Guide</oval:product_name>
-    <oval:product_version>ssg: [0, 1, 79], python: 3.10.12</oval:product_version>
+    <oval:product_version>ssg: [0, 1, 80], python: 3.12.3</oval:product_version>
     <oval:schema_version>5.11</oval:schema_version>
     <oval:timestamp>2021-03-02T15:45:39</oval:timestamp>
   </oval-def:generator>
@@ -315,8 +315,16 @@
         <oval-def:description>The operating system installed on the system is
       Red Hat Enterprise Linux CoreOS RHEL9 Based</oval-def:description>
       </oval-def:metadata>
-      <oval-def:criteria operator="AND">
-        <oval-def:criterion comment="RHCOS RHEL 9 is installed" test_ref="oval:ssg-test_rhcos4_rhel9:tst:1"/>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria comment="Old format: ID=rhcos with RHEL_VERSION=9.x" operator="AND">
+          <oval-def:criterion comment="ID is rhcos" test_ref="oval:ssg-test_rhcos:tst:1"/>
+          <oval-def:criterion comment="RHEL_VERSION is 9" test_ref="oval:ssg-test_rhcos4_rhel9_rhel_version:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria comment="New format: ID=rhel with VERSION_ID=9.x" operator="AND">
+          <oval-def:criterion comment="ID is rhel" test_ref="oval:ssg-test_rhel_id:tst:1"/>
+          <oval-def:criterion comment="CoreOS variant" test_ref="oval:ssg-test_rhel_coreos_variant:tst:1"/>
+          <oval-def:criterion comment="VERSION_ID is 9.x" test_ref="oval:ssg-test_rhel_coreos_version9:tst:1"/>
+        </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-installed_OS_is_rhel8:def:1" version="1" class="inventory">
@@ -795,6 +803,19 @@
         <oval-def:criterion comment="The operating system Red Hat Enterprise Linux of version not equal 9.0 is installed" test_ref="oval:ssg-test_os_linux_rhel_ne_9_0_ne_9_0:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition id="oval:ssg-os_linux_sles_gt_or_eq_15:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Operating System is sles</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The installed operating system is SUSE Linux Enterprise Server</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="The operating system installed on the system is SUSE Linux Enterprise Server" test_ref="oval:ssg-test_os_id_is_os_linux_sles_gt_or_eq_15:tst:1"/>
+        <oval-def:criterion comment="The operating system SUSE Linux Enterprise Server of version greater than or equal 15 is installed" test_ref="oval:ssg-test_os_linux_sles_gt_or_eq_15_gt_or_eq_15:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_audit:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Package audit is installed</oval-def:title>
@@ -999,6 +1020,30 @@
         <oval-def:criterion comment="Platform package ntp is installed" test_ref="oval:ssg-inventory_test_package_ntp_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_openssh-server_le_7_0:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package openssh-server is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package openssh-server version less than 7.0 should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package openssh-server of version less than 7.0 is installed" test_ref="oval:ssg-inventory_test_package_openssh-server_le_7_0_le_7_0_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_openssh-server_le_7_5:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package openssh-server is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package openssh-server version less than 7.5 should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package openssh-server of version less than 7.5 is installed" test_ref="oval:ssg-inventory_test_package_openssh-server_le_7_5_le_7_5_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_openssh:def:1" version="1" class="inventory">
       <oval-def:metadata>
         <oval-def:title>Package openssh is installed</oval-def:title>
@@ -1141,6 +1186,18 @@
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="Platform package sudo is installed" test_ref="oval:ssg-inventory_test_package_sudo_installed:tst:1"/>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-package_systemd-journal-remote:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Package systemd-journal-remote is installed</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description>The RPM package systemd-journal-remote should be installed.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:criterion comment="Platform package systemd-journal-remote is installed" test_ref="oval:ssg-inventory_test_package_systemd-journal-remote_installed:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_systemd:def:1" version="1" class="inventory">
@@ -1393,9 +1450,25 @@
       <ind:object object_ref="oval:ssg-object_unix_family:obj:1"/>
       <ind:state state_ref="oval:ssg-state_unix_family:ste:1"/>
     </ind:family_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_rhcos4_rhel9:tst:1" version="1" check="all" comment="rhcoreos is rhel9 based" state_operator="AND">
-      <ind:object object_ref="oval:ssg-obj_rhcos4_rhel9:obj:1"/>
-      <ind:state state_ref="oval:ssg-state_rhcos4_rhel9:ste:1"/>
+    <ind:textfilecontent54_test id="oval:ssg-test_rhcos:tst:1" version="1" check="all" comment="os-release is rhcos" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_rhcos:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_rhcos:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_rhel_coreos_variant:tst:1" version="1" check="all" comment="Check for variant=CoreOS" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_rhel_coreos_variant:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_rhel_coreos_variant:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_rhel_coreos_version9:tst:1" version="1" check="all" comment="Check if VERSION_ID=9.x" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_rhel_coreos_version9:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_rhel_coreos_version9:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_rhel_id:tst:1" version="1" check="all" comment="ID is rhel" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_rhel_id:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_rhel_id:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_rhcos4_rhel9_rhel_version:tst:1" version="1" check="all" comment="rhcoreos RHEL_VERSION is 9 (old format)" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_rhcos4_rhel9_rhel_version:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_rhcos4_rhel9_rhel_version:ste:1"/>
     </ind:textfilecontent54_test>
     <ind:family_test id="oval:ssg-test_rhel8_unix_family:tst:1" version="1" check="all" comment="installed OS part of unix family" state_operator="AND">
       <ind:object object_ref="oval:ssg-obj_rhel8_unix_family:obj:1"/>
@@ -1606,6 +1679,14 @@
       <ind:object object_ref="oval:ssg-obj_os_linux_rhel_ne_9_0_ne_9_0:obj:1"/>
       <ind:state state_ref="oval:ssg-state_os_linux_rhel_ne_9_0_ne_9_0:ste:1"/>
     </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_os_id_is_os_linux_sles_gt_or_eq_15:tst:1" version="1" check="all" comment="ID in os-release is sles" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_os_id_is_os_linux_sles_gt_or_eq_15:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_id_is_os_linux_sles_gt_or_eq_15:ste:1"/>
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_os_linux_sles_gt_or_eq_15_gt_or_eq_15:tst:1" version="1" check="all" comment="VERSION_ID in os-release is greater than or equal 15" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_os_linux_sles_gt_or_eq_15_gt_or_eq_15:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_os_linux_sles_gt_or_eq_15_gt_or_eq_15:ste:1"/>
+    </ind:textfilecontent54_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_audit_installed:tst:1" version="1" check="all" comment="package audit is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_audit_installed:obj:1"/>
     </linux:rpminfo_test>
@@ -1657,6 +1738,14 @@
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_ntp_installed:tst:1" version="1" check="all" comment="package ntp is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_ntp_installed:obj:1"/>
     </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_openssh-server_le_7_0_le_7_0_installed:tst:1" version="1" check="all" comment="package openssh-server is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_openssh-server_le_7_0_le_7_0_installed:obj:1"/>
+      <linux:state state_ref="oval:ssg-ste_inventory_test_package_openssh-server_le_7_0_le_7_0_installed:ste:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_openssh-server_le_7_5_le_7_5_installed:tst:1" version="1" check="all" comment="package openssh-server is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_openssh-server_le_7_5_le_7_5_installed:obj:1"/>
+      <linux:state state_ref="oval:ssg-ste_inventory_test_package_openssh-server_le_7_5_le_7_5_installed:ste:1"/>
+    </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_openssh_installed:tst:1" version="1" check="all" comment="package openssh is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_openssh_installed:obj:1"/>
     </linux:rpminfo_test>
@@ -1692,6 +1781,9 @@
     </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_sudo_installed:tst:1" version="1" check="all" comment="package sudo is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_sudo_installed:obj:1"/>
+    </linux:rpminfo_test>
+    <linux:rpminfo_test id="oval:ssg-inventory_test_package_systemd-journal-remote_installed:tst:1" version="1" check="all" comment="package systemd-journal-remote is installed" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-obj_inventory_test_package_systemd-journal-remote_installed:obj:1"/>
     </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-inventory_test_package_systemd_installed:tst:1" version="1" check="all" comment="package systemd is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_inventory_test_package_systemd_installed:obj:1"/>
@@ -1869,9 +1961,29 @@
       <linux:name>oraclelinux-release</linux:name>
     </linux:rpminfo_object>
     <ind:family_object id="oval:ssg-object_unix_family:obj:1" version="1"/>
-    <ind:textfilecontent54_object id="oval:ssg-obj_rhcos4_rhel9:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-obj_rhcos:obj:1" version="1">
       <ind:filepath>/etc/os-release</ind:filepath>
-      <ind:pattern operation="pattern match">^RHEL_VERSION="(\d).*"$</ind:pattern>
+      <ind:pattern operation="pattern match">^ID="(\w+)"$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_rhel_coreos_variant:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VARIANT_ID=(\S+)$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_rhel_coreos_version9:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID="(\d+\.\d+)"$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_rhel_id:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID="(\w+)"$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_rhcos4_rhel9_rhel_version:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^RHEL_VERSION="?(\d+\.?\d*)"?$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:family_object id="oval:ssg-obj_rhel8_unix_family:obj:1" version="1"/>
@@ -2101,6 +2213,16 @@
       <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_id_is_os_linux_sles_gt_or_eq_15:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^ID=["']?(\w+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_os_linux_sles_gt_or_eq_15_gt_or_eq_15:obj:1" version="1">
+      <ind:filepath>/etc/os-release</ind:filepath>
+      <ind:pattern operation="pattern match">^VERSION_ID=["']?([\w.]+)["']?$</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_audit_installed:obj:1" version="1">
       <linux:name>audit</linux:name>
     </linux:rpminfo_object>
@@ -2152,6 +2274,12 @@
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_ntp_installed:obj:1" version="1">
       <linux:name>ntp</linux:name>
     </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_openssh-server_le_7_0_le_7_0_installed:obj:1" version="1">
+      <linux:name>openssh-server</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_openssh-server_le_7_5_le_7_5_installed:obj:1" version="1">
+      <linux:name>openssh-server</linux:name>
+    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_openssh_installed:obj:1" version="1">
       <linux:name>openssh</linux:name>
     </linux:rpminfo_object>
@@ -2187,6 +2315,9 @@
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_sudo_installed:obj:1" version="1">
       <linux:name>sudo</linux:name>
+    </linux:rpminfo_object>
+    <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_systemd-journal-remote_installed:obj:1" version="1">
+      <linux:name>systemd-journal-remote</linux:name>
     </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_inventory_test_package_systemd_installed:obj:1" version="1">
       <linux:name>systemd</linux:name>
@@ -2277,8 +2408,20 @@
     <ind:family_state id="oval:ssg-state_unix_family:ste:1" version="1" operator="AND">
       <ind:family>unix</ind:family>
     </ind:family_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_rhcos4_rhel9:ste:1" version="1" operator="AND">
-      <ind:subexpression operation="pattern match">9</ind:subexpression>
+    <ind:textfilecontent54_state id="oval:ssg-state_rhcos:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="pattern match">rhcos</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_rhel_coreos_variant:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="pattern match">coreos</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_rhel_coreos_version9:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="pattern match">^9\.</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_rhel_id:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="pattern match">rhel</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_rhcos4_rhel9_rhel_version:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="pattern match">^9\.</ind:subexpression>
     </ind:textfilecontent54_state>
     <ind:family_state id="oval:ssg-state_rhel8_unix_family:ste:1" version="1" operator="AND">
       <ind:family>unix</ind:family>
@@ -2394,6 +2537,18 @@
     <ind:textfilecontent54_state id="oval:ssg-state_os_linux_rhel_ne_9_0_ne_9_0:ste:1" version="1" operator="AND">
       <ind:subexpression operation="not equal" datatype="version">9.0</ind:subexpression>
     </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_sles_gt_or_eq_15:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="pattern match">sles</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_os_linux_sles_gt_or_eq_15_gt_or_eq_15:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="greater than or equal" datatype="version">15</ind:subexpression>
+    </ind:textfilecontent54_state>
+    <linux:rpminfo_state id="oval:ssg-ste_inventory_test_package_openssh-server_le_7_0_le_7_0_installed:ste:1" version="1" operator="AND">
+      <linux:evr datatype="evr_string" operation="less than">0:7.0-0</linux:evr>
+    </linux:rpminfo_state>
+    <linux:rpminfo_state id="oval:ssg-ste_inventory_test_package_openssh-server_le_7_5_le_7_5_installed:ste:1" version="1" operator="AND">
+      <linux:evr datatype="evr_string" operation="less than">0:7.5-0</linux:evr>
+    </linux:rpminfo_state>
     <linux:systemdunitproperty_state id="oval:ssg-state_service_not_running_service_disabled_firewalld_firewalld:ste:1" version="1" operator="AND" comment="firewalld is not running">
       <linux:value operation="pattern match">inactive|failed</linux:value>
     </linux:systemdunitproperty_state>
