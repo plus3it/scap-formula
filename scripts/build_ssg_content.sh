@@ -28,7 +28,7 @@ TMPDIR="${TMPDIR:-/tmp}"
 BUILD_DIR="${TMPDIR}/ComplianceAsCode/content"
 DIST_DIR="${TMPDIR}/dist"
 
-RL_PATCH_URL="https://git.rockylinux.org/staging/patch/scap-security-guide/-/raw/r10/ROCKY/_supporting/0001-Add-Rocky-Linux-as-a-derivative-of-RHEL.patch"
+RL_PATCH_URL="https://git.rockylinux.org/staging/patch/scap-security-guide/-/raw/r8/ROCKY/_supporting/0001-Add-Rocky-Linux-as-a-derivative-of-RHEL.patch"
 RL_PATCH_FILE="${TMPDIR}/0001-Add-Rocky-Linux-as-a-derivative-of-RHEL.patch"
 
 export SOURCE_DATE_EPOCH=1614699939
@@ -117,7 +117,7 @@ cd build
 # Build SCAP 1.3 content
 # more info here: https://complianceascode.readthedocs.io/en/latest/manual/developer/02_building_complianceascode.html#building
 
-cmake -G Ninja -DSSG_TARGET_OVAL_MINOR_VERSION:STRING=11 ../
+cmake -G Ninja ../
 
 # Build RHEL first to generate dependencies for CentOS and Other targets
 ninja -j 4 "${MAKE_TARGETS_RHEL[@]}"
