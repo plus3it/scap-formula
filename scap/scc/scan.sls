@@ -24,11 +24,13 @@ create scc output directory:
 
 'uninstall all content before analyzing {{ pattern }}':
   cmd.run:
-    - name: '"{{ scc.cmd }}" -ua -q'
+    - name: '{{ scc.cmd }} -ua -q'
+    - shell: {{ scc.shell }}
 
 'analyze {{ pattern }}':
   cmd.run:
-    - name: '"{{ scc.cmd }}" -isr {{ archive }} -q -u "{{ scc.output_dir }}"'
+    - name: '{{ scc.cmd }} -isr "{{ archive }}" -q -u "{{ scc.output_dir }}"'
+    - shell: {{ scc.shell }}
     - require:
       - cmd: 'uninstall all content before analyzing {{ pattern }}'
       - file: 'create scc output directory'
