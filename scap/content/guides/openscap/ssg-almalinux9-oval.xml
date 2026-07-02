@@ -2,7 +2,7 @@
 <oval-def:oval_definitions xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <oval-def:generator>
     <oval:product_name>OVALFileLinker from SCAP Security Guide</oval:product_name>
-    <oval:product_version>ssg: [0, 1, 80], python: 3.12.3</oval:product_version>
+    <oval:product_version>ssg: [0, 1, 81], python: 3.12.3</oval:product_version>
     <oval:schema_version>5.11</oval:schema_version>
     <oval:timestamp>2021-03-02T15:45:39</oval:timestamp>
   </oval-def:generator>
@@ -909,6 +909,21 @@
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="check if port is 0 in /etc/chrony.conf" test_ref="oval:ssg-test_chronyd_client_only:tst:1" />
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-chronyd_configure_local_socket:def:1" version="1" class="compliance">
+      <oval-def:metadata>
+        <oval-def:title>Configure chrony-wait.service to use Unix socket</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="chronyd_configure_local_socket" source="ssg" />
+        <oval-def:description>Ensure chrony-wait.service is configured to use Unix socket
+      instead of network addresses.</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criterion comment="chrony-wait.service is not installed" test_ref="oval:ssg-test_chrony_wait_service_not_installed:tst:1" />
+        <oval-def:criterion comment="check if chrony-wait.service has been fixed (KCS 7064388)" test_ref="oval:ssg-test_chrony_wait_service_fixed:tst:1" />
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-chronyd_no_chronyc_network:def:1" version="1" class="compliance">
@@ -1829,10 +1844,10 @@
           <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
         </oval-def:affected>
         <oval-def:reference ref_id="set_password_hashing_algorithm_logindefs" source="ssg" />
-        <oval-def:description>The password hashing algorithm should be set correctly in /usr/etc/login.defs.</oval-def:description>
+        <oval-def:description>The password hashing algorithm should be set correctly in /etc/login.defs.</oval-def:description>
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
-        <oval-def:criterion test_ref="oval:ssg-test_set_password_hashing_algorithm_logindefs:tst:1" />
+        <oval-def:criterion test_ref="oval:ssg-test_password_hashing_algorithm_logindefs:tst:1" />
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-set_password_hashing_algorithm_passwordauth:def:1" version="1" class="compliance">
@@ -2304,7 +2319,7 @@
           <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
         </oval-def:affected>
         <oval-def:reference ref_id="accounts_no_uid_except_zero" source="ssg" />
-        <oval-def:description>Only the root account should be assigned a user id of 0.</oval-def:description>
+        <oval-def:description>Only the root account should be assigned a user id of 0, or the account must be locked.</oval-def:description>
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="tests that there are no accounts with UID 0 except root in the /etc/passwd file" test_ref="oval:ssg-test_accounts_no_uid_except_root:tst:1" />
@@ -2430,32 +2445,6 @@
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="virtual consoles /etc/securetty" test_ref="oval:ssg-test_virtual_consoles_etc_securetty:tst:1" />
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition id="oval:ssg-use_pam_wheel_for_su:def:1" version="1" class="compliance">
-      <oval-def:metadata>
-        <oval-def:title>Enforce usage of pam_wheel for su authentication</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:reference ref_id="use_pam_wheel_for_su" source="ssg" />
-        <oval-def:description>Only members of the wheel group should be able to authenticate through the su command.</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="AND">
-        <oval-def:criterion test_ref="oval:ssg-test_use_pam_wheel_for_su:tst:1" />
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition id="oval:ssg-use_pam_wheel_group_for_su:def:1" version="1" class="compliance">
-      <oval-def:metadata>
-        <oval-def:title>Enforce Usage of pam_wheel with Group Parameter for su Authentication</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:reference ref_id="use_pam_wheel_group_for_su" source="ssg" />
-        <oval-def:description>Only members of the group set in variable 'var_pam_wheel_group_for_su' should be able to authenticate through the su command.</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="AND">
-        <oval-def:criterion test_ref="oval:ssg-test_use_pam_wheel_group_for_su:tst:1" />
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-accounts_have_homedir_login_defs:def:1" version="1" class="compliance">
@@ -3892,6 +3881,7 @@
         <oval-def:extend_definition comment="Installed OS is RHEL8" definition_ref="oval:ssg-installed_OS_is_rhel8:def:1" />
         <oval-def:extend_definition comment="Installed OS is RHEL9" definition_ref="oval:ssg-installed_OS_is_rhel9:def:1" />
         <oval-def:extend_definition comment="Installed OS is RHEL10" definition_ref="oval:ssg-installed_OS_is_rhel10:def:1" />
+        <oval-def:extend_definition comment="Installed OS is Hummingbird" definition_ref="oval:ssg-installed_OS_is_hummingbird:def:1" />
         <oval-def:extend_definition comment="Installed OS is OL7" definition_ref="oval:ssg-installed_OS_is_ol7:def:1" />
         <oval-def:extend_definition comment="Installed OS is OL8" definition_ref="oval:ssg-installed_OS_is_ol8:def:1" />
         <oval-def:extend_definition comment="Installed OS is OL9" definition_ref="oval:ssg-installed_OS_is_ol9:def:1" />
@@ -3900,6 +3890,7 @@
         <oval-def:extend_definition comment="Installed OS is SLE16" definition_ref="oval:ssg-installed_OS_is_sle16:def:1" />
         <oval-def:extend_definition comment="Installed OS is SLE Micro 5" definition_ref="oval:ssg-installed_OS_is_slmicro5:def:1" />
         <oval-def:extend_definition comment="Installed OS is SLE Micro 6" definition_ref="oval:ssg-installed_OS_is_slmicro6:def:1" />
+        <oval-def:extend_definition comment="Installed OS is Ubuntu 22.04" definition_ref="oval:ssg-installed_OS_is_ubuntu2204:def:1" />
         <oval-def:extend_definition comment="Installed OS is Ubuntu 24.04" definition_ref="oval:ssg-installed_OS_is_ubuntu2404:def:1" />
       </oval-def:criteria>
     </oval-def:definition>
@@ -4010,36 +4001,6 @@
       </oval-def:metadata>
       <oval-def:criteria comment="Test conditions - presence of the file plus." operator="AND">
         <oval-def:criterion comment="Check that /etc/crypto-policies/back-ends/opensshserver.config contains FIPS-approved SSHD MACs" test_ref="oval:ssg-test_harden_sshd_macs_opensshserver_conf_crypto_policy:tst:1" />
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition id="oval:ssg-enable_dracut_fips_module:def:1" version="1" class="compliance">
-      <oval-def:metadata>
-        <oval-def:title>Enable Dracut FIPS Module</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:reference ref_id="enable_dracut_fips_module" source="ssg" />
-        <oval-def:description>fips module should be enabled in Dracut configuration</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="AND">
-        <oval-def:criterion comment="dracut fips module is enabled" test_ref="oval:ssg-test_enable_dracut_fips_module:tst:1" />
-      </oval-def:criteria>
-    </oval-def:definition>
-    <oval-def:definition id="oval:ssg-enable_fips_mode:def:1" version="1" class="compliance">
-      <oval-def:metadata>
-        <oval-def:title>Enable FIPS Mode</oval-def:title>
-        <oval-def:affected family="unix">
-          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
-        </oval-def:affected>
-        <oval-def:reference ref_id="enable_fips_mode" source="ssg" />
-        <oval-def:description>Check if FIPS mode is enabled on the system</oval-def:description>
-      </oval-def:metadata>
-      <oval-def:criteria operator="AND">
-        <oval-def:criterion comment="check contents of /proc/sys/crypto/fips_enabled" test_ref="oval:ssg-test_proc_sys_crypto_fips_enabled:tst:1" />
-        <oval-def:extend_definition comment="check option crypto.fips_enabled = 1 in sysctl" definition_ref="oval:ssg-sysctl_crypto_fips_enabled:def:1" />
-        <oval-def:extend_definition comment="dracut FIPS module is enabled" definition_ref="oval:ssg-enable_dracut_fips_module:def:1" />
-        <oval-def:extend_definition comment="system cryptography policy is configured" definition_ref="oval:ssg-configure_crypto_policy:def:1" />
-        <oval-def:criterion comment="check if var_system_crypto_policy variable selection is set to FIPS" test_ref="oval:ssg-test_system_crypto_policy_value:tst:1" />
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-fips_crypto_subpolicy:def:1" version="1" class="compliance">
@@ -6858,6 +6819,20 @@
       </oval-def:metadata>
       <oval-def:criteria comment="check" operator="AND">
         <oval-def:criterion comment="Check /etc/motd does not contain OS and version information" test_ref="oval:ssg-test_banner_etc_motd_cis:tst:1" />
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-configure_custom_crypto_policy_cis:def:1" version="1" class="compliance">
+      <oval-def:metadata>
+        <oval-def:title>Implement Custom Crypto Policy Modules for CIS Benchmark</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="configure_custom_crypto_policy_cis" source="ssg" />
+        <oval-def:description>Ensure that the custom crypto policy module is configured</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria comment="Ensure that all of the correct lines are in the file." operator="AND">
+        <oval-def:criterion comment="Check that mac is configured in NO-WEAKMAC.pmod" test_ref="oval:ssg-test_configure_custom_crypto_policy_cis_NO-WEAKMAC:tst:1" />
+        <oval-def:criterion comment="Check that cipher@SSH is configured in NO-SSHCBC.pmod" test_ref="oval:ssg-test_configure_custom_crypto_policy_cis_NO-SSHCBC:tst:1" />
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-configure_usbguard_auditbackend:def:1" version="1" class="compliance">
@@ -12410,7 +12385,7 @@
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-package_xinetd_removed:def:1" version="1" class="compliance">
       <oval-def:metadata>
-        <oval-def:title>Uninstall xinetd Package</oval-def:title>
+        <oval-def:title>Uninstall xinetd package if not used by network services</oval-def:title>
         <oval-def:affected family="unix">
           <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
         </oval-def:affected>
@@ -16966,6 +16941,33 @@
         </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
+    <oval-def:definition id="oval:ssg-use_pam_wheel_for_su:def:1" version="3" class="compliance">
+      <oval-def:metadata>
+        <oval-def:title>Enforce usage of pam_wheel for su authentication</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="use_pam_wheel_for_su" source="ssg" />
+        <oval-def:description>Configure PAM module</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria comment="Make sure arguments are properly configured in /etc/pam.d/su" operator="AND">
+        <oval-def:criterion comment="Verify use_uid is set to the desired state" test_ref="oval:ssg-test_pam_auth_pam_wheel_use_uid:tst:1" />
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-use_pam_wheel_group_for_su:def:1" version="3" class="compliance">
+      <oval-def:metadata>
+        <oval-def:title>Enforce Usage of pam_wheel with Group Parameter for su Authentication</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="use_pam_wheel_group_for_su" source="ssg" />
+        <oval-def:description>Configure PAM module</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria comment="Make sure arguments are properly configured in /etc/pam.d/su" operator="AND">
+        <oval-def:criterion comment="Verify group is set to the desired state" test_ref="oval:ssg-test_pam_auth_pam_wheel_group:tst:1" />
+        <oval-def:criterion comment="Verify use_uid is set to the desired state" test_ref="oval:ssg-test_pam_auth_pam_wheel_use_uid:tst:1" />
+      </oval-def:criteria>
+    </oval-def:definition>
     <oval-def:definition id="oval:ssg-accounts_password_pam_pwquality:def:1" version="1" class="compliance">
       <oval-def:metadata>
         <oval-def:title>Check pam_pwquality Existence in system-auth</oval-def:title>
@@ -17139,6 +17141,22 @@
         <oval-def:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1" />
         <oval-def:criterion comment="AlmaLinux OS is installed" test_ref="oval:ssg-test_almalinux:tst:1" />
         <oval-def:criterion comment="AlmaLinux OS 9 is installed" test_ref="oval:ssg-test_almalinux9:tst:1" />
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_OS_is_hummingbird:def:1" version="3" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Installed operating system is hummingbird</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="cpe:/a:redhat:hummingbird" source="CPE" />
+        <oval-def:reference ref_id="installed_OS_is_hummingbird" source="ssg" />
+        <oval-def:description>The operating system installed on the system is hummingbird</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria operator="AND">
+        <oval-def:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1" />
+        <oval-def:criterion comment="hummingbird-release RPM packages are installed" test_ref="oval:ssg-test_hummingbird_release_rpm:tst:1" />
+        <oval-def:criterion comment="CPE vendor is 'redhat' and product is 'hummingbird'" test_ref="oval:ssg-test_hummingbird_vendor_product:tst:1" />
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-installed_OS_is_ol7:def:1" version="1" class="inventory">
@@ -17397,6 +17415,21 @@
         <oval-def:extend_definition comment="Installed OS is part of the Unix family" definition_ref="oval:ssg-installed_OS_is_part_of_Unix_family:def:1" />
         <oval-def:criterion comment="lsb-based distrib" test_ref="oval:ssg-test_lsb:tst:1" />
         <oval-def:criterion comment="Ubuntu is installed" test_ref="oval:ssg-test_ubuntu:tst:1" />
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_OS_is_ubuntu2204:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Ubuntu 22.04 LTS</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>AlmaLinux OS 9</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:reference ref_id="cpe:/o:canonical:ubuntu_linux:22.04" source="CPE" />
+        <oval-def:reference ref_id="installed_OS_is_ubuntu2204" source="ssg" />
+        <oval-def:description>The operating system installed on the system is Ubuntu 22.04 LTS</oval-def:description>
+      </oval-def:metadata>
+      <oval-def:criteria comment="current Ubuntu version is Jammy" operator="AND">
+        <oval-def:extend_definition comment="Ubuntu is installed" definition_ref="oval:ssg-installed_OS_is_ubuntu:def:1" />
+        <oval-def:criterion comment="Jammy is installed" test_ref="oval:ssg-test_ubuntu_jammy:tst:1" />
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-installed_OS_is_ubuntu2404:def:1" version="1" class="inventory">
@@ -18014,6 +18047,13 @@
       <ind:object object_ref="oval:ssg-obj_chronyd_port_value:obj:1" />
       <ind:state state_ref="oval:ssg-state_chronyd_port_value_0:ste:1" />
     </ind:textfilecontent54_test>
+    <unix:file_test id="oval:ssg-test_chrony_wait_service_not_installed:tst:1" version="1" check="all" comment="check if /usr/lib/systemd/system/chrony-wait.service does not exist" check_existence="none_exist" state_operator="AND">
+      <unix:object object_ref="oval:ssg-obj_chrony_wait_service_package:obj:1" />
+    </unix:file_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_chrony_wait_service_fixed:tst:1" version="1" check="all" comment="check if chrony-wait.service ExecStart does not use -h flag for network addresses" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_chrony_wait_service_execstart:obj:1" />
+      <ind:state state_ref="oval:ssg-state_chrony_wait_execstart_no_h_flag:ste:1" />
+    </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_chronyd_no_chronyc_network:tst:1" version="1" check="all" comment="check if cmdport is 0 in /etc/chrony.conf" check_existence="all_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-obj_chronyd_cmdport_value:obj:1" />
       <ind:state state_ref="oval:ssg-state_chronyd_cmdport_value_0:ste:1" />
@@ -18451,9 +18491,9 @@
       <ind:object object_ref="oval:ssg-object_set_password_hashing_algorithm_libuserconf:obj:1" />
       <ind:state state_ref="oval:ssg-state_set_password_hashing_algorithm_libuserconf:ste:1" />
     </ind:textfilecontent54_test>
-    <ind:variable_test id="oval:ssg-test_set_password_hashing_algorithm_logindefs:tst:1" version="1" check="all" comment="The value of ENCRYPT_METHOD should be set appropriately in /etc/login.defs" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_set_password_hashing_algorithm_logindefs:obj:1" />
-      <ind:state state_ref="oval:ssg-state_set_password_hashing_algorithm_logindefs:ste:1" />
+    <ind:variable_test id="oval:ssg-test_password_hashing_algorithm_logindefs:tst:1" version="1" check="all" comment="The value of ENCRYPT_METHOD should be set appropriately in /etc/login.defs" state_operator="AND">
+      <ind:object object_ref="oval:ssg-variable_object_test_password_hashing_algorithm_logindefs:obj:1" />
+      <ind:state state_ref="oval:ssg-state_test_password_hashing_algorithm_logindefs:ste:1" />
     </ind:variable_test>
     <ind:textfilecontent54_test id="oval:ssg-test_set_password_hashing_algorithm_passwordauth:tst:1" version="2" check="all" comment="check if pam_unix.so hashing algorithm option is correct and specified only once in /etc/pam.d/password-auth" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_set_password_hashing_algorithm_passwordauth:obj:1" />
@@ -18589,8 +18629,8 @@
       <ind:object object_ref="oval:ssg-object_accounts_password_set_warn_age_existing_no_pass:obj:1" />
     </ind:textfilecontent54_test>
     <ind:variable_test id="oval:ssg-test_pass_warn_age:tst:1" version="1" check="all" comment="The value of PASS_WARN_AGE should be set appropriately in /etc/login.defs" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_last_pass_warn_age_instance_value:obj:1" />
-      <ind:state state_ref="oval:ssg-state_last_pass_warn_age_instance_value:ste:1" />
+      <ind:object object_ref="oval:ssg-variable_object_test_pass_warn_age:obj:1" />
+      <ind:state state_ref="oval:ssg-state_test_pass_warn_age:ste:1" />
     </ind:variable_test>
     <ind:textfilecontent54_test id="oval:ssg-test_accounts_set_post_pw_existing:tst:1" version="1" check="all" comment="Compares a specific field in /etc/shadow with a specific variable value" check_existence="any_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_test_accounts_set_post_pw_existing:obj:1" />
@@ -18638,8 +18678,9 @@
     <unix:file_test id="oval:ssg-test_no_netrc_files_home:tst:1" version="1" check="all" comment="look for .netrc in /home" state_operator="AND">
       <unix:object object_ref="oval:ssg-object_no_netrc_files_home:obj:1" />
     </unix:file_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_accounts_no_uid_except_root:tst:1" version="1" check="all" comment="test that there are no accounts with UID 0 except root in the /etc/passwd file" check_existence="none_exist" state_operator="AND">
+    <ind:textfilecontent54_test id="oval:ssg-test_accounts_no_uid_except_root:tst:1" version="1" check="all" comment="test that there are no accounts with UID 0 except root in the /etc/passwd file" check_existence="any_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_accounts_no_uid_except_root:obj:1" />
+      <ind:state state_ref="oval:ssg-state_is_locked_in_shadow:ste:1" />
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_accounts_root_gid_zero:tst:1" version="1" check="all" comment="test that the root user has GID 0 in the /etc/passwd file" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_accounts_root_gid_zero:obj:1" />
@@ -18690,13 +18731,6 @@
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_virtual_consoles_etc_securetty:tst:1" version="1" check="all" comment="virtual consoles /etc/securetty" check_existence="none_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_virtual_consoles_etc_securetty:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_use_pam_wheel_for_su:tst:1" version="1" check="all" comment="check existence of use_uid option for pam_wheel.so in /etc/pam.d/su" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_use_pam_wheel_for_su:obj:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_use_pam_wheel_group_for_su:tst:1" version="1" check="all" comment="check /etc/pam.d/su for correct setting" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_use_pam_wheel_group_for_su:obj:1" />
-      <ind:state state_ref="oval:ssg-state_use_pam_wheel_group_for_su:ste:1" />
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_accounts_have_homedir_login_defs:tst:1" version="1" check="all" comment="Check value of CREATE_HOME in /etc/login.defs" check_existence="all_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-obj_accounts_have_homedir_login_defs:obj:1" />
@@ -19344,17 +19378,6 @@
     <ind:textfilecontent54_test id="oval:ssg-test_harden_sshd_macs_opensshserver_conf_crypto_policy:tst:1" version="1" check="all" comment="test the value of MACs setting in the /etc/crypto-policies/back-ends/opensshserver.config file" state_operator="AND">
       <ind:object object_ref="oval:ssg-obj_harden_sshd_macs_opensshserver_conf_crypto_policy:obj:1" />
       <ind:state state_ref="oval:ssg-ste_harden_sshd_macs_opensshserver_conf_crypto_policy:ste:1" />
-    </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_enable_dracut_fips_module:tst:1" version="1" check="all" comment="add_dracutmodules contains fips" check_existence="all_exist" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_enable_dracut_fips_module:obj:1" />
-      <ind:state state_ref="oval:ssg-state_enable_dracut_fips_module:ste:1" />
-    </ind:textfilecontent54_test>
-    <ind:variable_test id="oval:ssg-test_system_crypto_policy_value:tst:1" version="1" check="at least one" comment="test if var_system_crypto_policy selection is set to FIPS" state_operator="AND">
-      <ind:object object_ref="oval:ssg-obj_system_crypto_policy_value:obj:1" />
-      <ind:state state_ref="oval:ssg-ste_system_crypto_policy_value:ste:1" />
-    </ind:variable_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_proc_sys_crypto_fips_enabled:tst:1" version="1" check="all" comment="kernel runtime parameter crypto.fips_enabled set to 1" check_existence="all_exist" state_operator="AND">
-      <ind:object object_ref="oval:ssg-obj_proc_sys_crypto_fips_enabled:obj:1" />
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_fips_crypto_subpolicy:tst:1" version="1" check="all" comment="Correct sub policy enabled" check_existence="all_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_fips_crypto_subpolicy:obj:1" />
@@ -20506,6 +20529,12 @@
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_banner_etc_motd_cis:tst:1" version="1" check="all" comment="Check that the given object does not exist" check_existence="none_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-obj_banner_etc_motd_cis:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_configure_custom_crypto_policy_cis_NO-WEAKMAC:tst:1" version="1" check="all" comment="Tests that mac is configured correctly." state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_configure_custom_crypto_policy_cis_NO-WEAKMAC:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_configure_custom_crypto_policy_cis_NO-SSHCBC:tst:1" version="1" check="all" comment="Tests that cipher@SSH is configured correctly." state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_configure_custom_crypto_policy_cis_NO-SSHCBC:obj:1" />
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_configure_usbguard_auditbackend:tst:1" version="1" check="all" comment="tests the value of AuditBackend setting in the /etc/usbguard/usbguard-daemon.conf file" check_existence="all_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-obj_configure_usbguard_auditbackend:obj:1" />
@@ -22002,7 +22031,6 @@
     </ind:textfilecontent54_test>
     <linux:partition_test id="oval:ssg-test_boot_efi_partition_nosuid_optional_exist:tst:1" version="1" check="all" comment="/boot/efi exists" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-object_boot_efi_partition_nosuid_optional:obj:1" />
-      <linux:state state_ref="oval:ssg-state_boot_efi_partition_nosuid_optional_exist:ste:1" />
     </linux:partition_test>
     <ind:textfilecontent54_test id="oval:ssg-test_boot_efi_partition_nosuid_optional_exist_in_fstab:tst:1" version="1" check="all" comment="/boot/efi exists in /etc/fstab" check_existence="all_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_boot_efi_partition_nosuid_optional_in_fstab:obj:1" />
@@ -24263,6 +24291,13 @@
       <linux:object object_ref="oval:ssg-obj_timer_running_logrotate:obj:1" />
       <linux:state state_ref="oval:ssg-state_timer_running_logrotate:ste:1" />
     </linux:systemdunitproperty_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_pam_auth_pam_wheel_use_uid:tst:1" version="1" check="all" comment="Verify use_uid configuation of pam_wheel.so" check_existence="all_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_pam_auth_pam_wheel_use_uid:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_pam_auth_pam_wheel_group:tst:1" version="1" check="all" comment="Verify group configuation of pam_wheel.so" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_pam_auth_pam_wheel_group:obj:1" />
+      <ind:state state_ref="oval:ssg-state_pam_auth_pam_wheel_group:ste:1" />
+    </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_password_pam_pwquality:tst:1" version="1" check="all" comment="check the configuration of /etc/pam.d/system-auth" state_operator="AND">
       <ind:object object_ref="oval:ssg-obj_password_pam_pwquality:obj:1" />
     </ind:textfilecontent54_test>
@@ -24333,6 +24368,12 @@
     </unix:file_test>
     <ind:textfilecontent54_test id="oval:ssg-test_almalinux9:tst:1" version="1" check="all" comment="Check Custom OS version" state_operator="AND">
       <ind:object object_ref="oval:ssg-obj_almalinux9:obj:1" />
+    </ind:textfilecontent54_test>
+    <linux:rpminfo_test id="oval:ssg-test_hummingbird_release_rpm:tst:1" version="1" check="all" comment="hummingbird-release RPM packages are installed" state_operator="AND">
+      <linux:object object_ref="oval:ssg-object_hummingbird_release_rpm:obj:1" />
+    </linux:rpminfo_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_hummingbird_vendor_product:tst:1" version="1" check="all" comment="CPE vendor is 'redhat' and 'product' is hummingbird" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_hummingbird_vendor_product:obj:1" />
     </ind:textfilecontent54_test>
     <linux:rpminfo_test id="oval:ssg-test_ol7_system:tst:1" version="1" check="all" comment="oraclelinux-release is version 7" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_ol7_system:obj:1" />
@@ -24471,6 +24512,9 @@
     </unix:file_test>
     <ind:textfilecontent54_test id="oval:ssg-test_ubuntu:tst:1" version="1" check="all" comment="Check Ubuntu" state_operator="AND">
       <ind:object object_ref="oval:ssg-obj_ubuntu:obj:1" />
+    </ind:textfilecontent54_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_ubuntu_jammy:tst:1" version="1" check="all" comment="Check Ubuntu version" state_operator="AND">
+      <ind:object object_ref="oval:ssg-obj_ubuntu_jammy:obj:1" />
     </ind:textfilecontent54_test>
     <ind:textfilecontent54_test id="oval:ssg-test_ubuntu_noble:tst:1" version="1" check="all" comment="Check Ubuntu version" state_operator="AND">
       <ind:object object_ref="oval:ssg-obj_ubuntu_noble:obj:1" />
@@ -24837,14 +24881,14 @@
     <unix:file_object id="oval:ssg-object_audit_rules_privileged_commands:obj:1" version="1" comment="Files with setuid or setgid permission in file systems that allow their execution">
       <unix:behaviors recurse="directories" recurse_direction="down" recurse_file_system="defined" max_depth="-1" />
       <unix:path operation="equals" var_check="at least one" var_ref="oval:ssg-var_audit_rules_privileged_commands_exec_mountpoints:var:1" />
-      <unix:filename operation="pattern match">^\w+</unix:filename>
+      <unix:filename operation="not equal">/</unix:filename>
       <oval-def:filter action="include">oval:ssg-state_setuid_or_setgid_set:ste:1</oval-def:filter>
       <oval-def:filter action="exclude">oval:ssg-state_dracut_tmp_files:ste:1</oval-def:filter>
     </unix:file_object>
     <unix:file_object id="oval:ssg-object_audit_rules_privileged_commands_bootc:obj:1" version="1" comment="Files with setuid or setgid permission in file systems that allow their execution">
       <unix:behaviors recurse="directories" recurse_direction="down" recurse_file_system="defined" max_depth="-1" />
       <unix:path operation="equals">/</unix:path>
-      <unix:filename operation="pattern match">^\w+</unix:filename>
+      <unix:filename operation="not equal">/</unix:filename>
       <oval-def:filter action="include">oval:ssg-state_setuid_or_setgid_set:ste:1</oval-def:filter>
       <oval-def:filter action="exclude">oval:ssg-state_dracut_tmp_files:ste:1</oval-def:filter>
       <oval-def:filter action="exclude">oval:ssg-state_audit_rules_privileged_commands_sysroot:ste:1</oval-def:filter>
@@ -25036,12 +25080,12 @@
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_fapolicy_default_deny_policy_compiled_rules:obj:1" version="1">
       <ind:filepath>/etc/fapolicyd/compiled.rules</ind:filepath>
-      <ind:pattern operation="pattern match">^\s*deny\s*perm=any\s*all\s*:\s*all\s*\z</ind:pattern>
+      <ind:pattern operation="pattern match">^\s*deny(_log|_audit)?\s*perm=any\s*all\s*:\s*all\s*\z</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_fapolicy_default_deny_policy_fapolicyd_rules:obj:1" version="2">
       <ind:filepath>/etc/fapolicyd/fapolicyd.rules</ind:filepath>
-      <ind:pattern operation="pattern match">^\s*deny\s*perm=any\s*all\s*:\s*all\s*\z</ind:pattern>
+      <ind:pattern operation="pattern match">^\s*deny(_log|_audit)?\s*perm=any\s*all\s*:\s*all\s*\z</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_fapolicy_default_deny_permissive_mode:obj:1" version="2">
@@ -25092,6 +25136,14 @@
     <ind:textfilecontent54_object id="oval:ssg-obj_chronyd_port_value:obj:1" version="1">
       <ind:filepath>/etc/chrony.conf</ind:filepath>
       <ind:pattern operation="pattern match">^\s*port[\s]+(\S+)</ind:pattern>
+      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <unix:file_object id="oval:ssg-obj_chrony_wait_service_package:obj:1" version="1">
+      <unix:filepath>/usr/lib/systemd/system/chrony-wait.service</unix:filepath>
+    </unix:file_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_chrony_wait_service_execstart:obj:1" version="1">
+      <ind:filepath>/etc/systemd/system/chrony-wait.service</ind:filepath>
+      <ind:pattern operation="pattern match">^ExecStart=(.*)$</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_chronyd_cmdport_value:obj:1" version="1">
@@ -25258,32 +25310,32 @@
       <ind:instance datatype="int" operation="equals">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_sshd_include_crypto_policy_include_sshd_drop_in:obj:1" version="1">
-      <ind:filepath operation="pattern match">/etc/ssh/sshd_config</ind:filepath>
-      <ind:pattern operation="pattern match">^[ \t]*(?i)Include(?-i)[ \t]+/etc/ssh/sshd_config\.d/\*.conf$</ind:pattern>
+      <ind:filepath>/etc/ssh/sshd_config</ind:filepath>
+      <ind:pattern operation="pattern match">^[ \t]*(?i)Include(?-i)[ \t]+/etc/ssh/sshd_config\.d/\*\.conf$</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_sshd_include_crypto_policy_include_sshd_include_system_crypto:obj:1" version="1">
-      <ind:filepath operation="pattern match">/etc/ssh/(sshd_config|sshd_config\.d/.*\.conf)</ind:filepath>
+      <ind:filepath operation="pattern match">^(/etc/ssh/sshd_config|/etc/ssh/sshd_config\.d/.*\.conf)$</ind:filepath>
       <ind:pattern operation="pattern match">^[ \t]*(?i)Include(?-i)[ \t]+/etc/crypto-policies/back-ends/opensshserver\.config$</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_allow_user:obj:1" version="1">
-      <ind:filepath operation="pattern match">^\/etc\/ssh\/sshd_config.*$</ind:filepath>
+      <ind:filepath operation="pattern match">^(/etc/ssh/sshd_config|/etc/ssh/sshd_config\.d/.*\.conf)$</ind:filepath>
       <ind:pattern operation="pattern match" datatype="string">(?i)^[ ]*AllowUsers[ ]+((?:[^ \n]+[ ]*)+)$</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_allow_group:obj:1" version="1">
-      <ind:filepath operation="pattern match">^/etc/ssh/sshd_config.*$</ind:filepath>
+      <ind:filepath operation="pattern match">^(/etc/ssh/sshd_config|/etc/ssh/sshd_config\.d/.*\.conf)$</ind:filepath>
       <ind:pattern operation="pattern match" datatype="string">(?i)^[ ]*AllowGroups[ ]+((?:[^ \n]+[ ]*)+)$</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_deny_user:obj:1" version="1">
-      <ind:filepath operation="pattern match">^/etc/ssh/sshd_config.*$</ind:filepath>
+      <ind:filepath operation="pattern match">^(/etc/ssh/sshd_config|/etc/ssh/sshd_config\.d/.*\.conf)$</ind:filepath>
       <ind:pattern operation="pattern match" datatype="string">(?i)^[ ]*DenyUsers[ ]+((?:[^ \n]+[ ]*)+)$</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_deny_group:obj:1" version="1">
-      <ind:filepath operation="pattern match">^/etc/ssh/sshd_config.*$</ind:filepath>
+      <ind:filepath operation="pattern match">^(/etc/ssh/sshd_config|/etc/ssh/sshd_config\.d/.*\.conf)$</ind:filepath>
       <ind:pattern operation="pattern match" datatype="string">(?i)^[ ]*DenyGroups[ ]+((?:[^ \n]+[ ]*)+)$</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
@@ -25686,14 +25738,13 @@
       <ind:pattern operation="pattern match">^[\s]*crypt_style[\s]*=[\s]*(\w*)[\s]*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_last_encrypt_method_from_etc_login_defs:obj:1" version="1">
-      <ind:behaviors singleline="true" />
+    <ind:textfilecontent54_object id="oval:ssg-object_test_password_hashing_algorithm_logindefs:obj:1" version="1">
       <ind:filepath>/etc/login.defs</ind:filepath>
-      <ind:pattern operation="pattern match">.*\n[^#]*(ENCRYPT_METHOD\s+\w+)\s*\n</ind:pattern>
+      <ind:pattern operation="pattern match">^[\s]*(?i)(ENCRYPT_METHOD[\s]+\w+)[\s]*(?:#.*)?$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:variable_object id="oval:ssg-object_set_password_hashing_algorithm_logindefs:obj:1" version="1">
-      <ind:var_ref>oval:ssg-variable_last_encrypt_method_instance_value:var:1</ind:var_ref>
+    <ind:variable_object id="oval:ssg-variable_object_test_password_hashing_algorithm_logindefs:obj:1" version="1">
+      <ind:var_ref>oval:ssg-local_variable_test_password_hashing_algorithm_logindefs:var:1</ind:var_ref>
     </ind:variable_object>
     <ind:textfilecontent54_object id="oval:ssg-object_set_password_hashing_algorithm_passwordauth:obj:1" version="1" comment="only one hashing algorithm option for pam_unix.so is found in /etc/pam.d/password-auth">
       <ind:filepath>/etc/pam.d/password-auth</ind:filepath>
@@ -25889,14 +25940,13 @@
       <ind:pattern operation="pattern match">^(?:[^:]*:)(?:[^\!\*:]*:)(?:[^:]*:){3}(\d+):(?:[^:]*:){2}(?:[^:]*)$</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_last_pass_warn_age_from_etc_login_defs:obj:1" version="1">
-      <ind:behaviors singleline="true" />
+    <ind:textfilecontent54_object id="oval:ssg-object_test_pass_warn_age:obj:1" version="1">
       <ind:filepath>/etc/login.defs</ind:filepath>
-      <ind:pattern operation="pattern match">.*\n[^#]*(PASS_WARN_AGE\s+\d+)\s*\n</ind:pattern>
+      <ind:pattern operation="pattern match">^[\s]*(?i)(PASS_WARN_AGE[\s]+\d+)[\s]*(?:#.*)?$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:variable_object id="oval:ssg-object_last_pass_warn_age_instance_value:obj:1" version="1">
-      <ind:var_ref>oval:ssg-variable_last_pass_warn_age_instance_value:var:1</ind:var_ref>
+    <ind:variable_object id="oval:ssg-variable_object_test_pass_warn_age:obj:1" version="1">
+      <ind:var_ref>oval:ssg-local_variable_test_pass_warn_age:var:1</ind:var_ref>
     </ind:variable_object>
     <ind:textfilecontent54_object id="oval:ssg-object_test_accounts_set_post_pw_existing:obj:1" version="1">
       <ind:filepath>/etc/shadow</ind:filepath>
@@ -25976,8 +26026,13 @@
     </unix:file_object>
     <ind:textfilecontent54_object id="oval:ssg-object_accounts_no_uid_except_root:obj:1" version="1">
       <ind:filepath>/etc/passwd</ind:filepath>
-      <ind:pattern operation="pattern match">^(?!root:)[^:]*:[^:]*:0</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
+      <ind:pattern operation="pattern match">^(?!root:)([^:]+):[^:]+:0:.*$</ind:pattern>
+      <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_shadow_locked_users:obj:1" version="1">
+      <ind:filepath>/etc/shadow</ind:filepath>
+      <ind:pattern operation="pattern match">^([^:]+):[!*][^:]*:.*$</ind:pattern>
+      <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_accounts_root_gid_zero:obj:1" version="1">
       <ind:filepath>/etc/passwd</ind:filepath>
@@ -26045,16 +26100,6 @@
       <ind:filepath>/etc/securetty</ind:filepath>
       <ind:pattern operation="pattern match">^vc/[0-9]+$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_use_pam_wheel_for_su:obj:1" version="1" comment="collect pam_wheel.so line in /etc/pam.d/su if use_uid option is present in the line">
-      <ind:filepath>/etc/pam.d/su</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*auth[\s]+required[\s]+pam_wheel\.so[\s]+\buse_uid\b</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_use_pam_wheel_group_for_su:obj:1" version="1" comment="check /etc/pam.d/su for correct setting">
-      <ind:filepath>/etc/pam.d/su</ind:filepath>
-      <ind:pattern operation="pattern match">^\s*auth\s+required\s+pam_wheel\.so\s+(?=[^#]*\buse_uid\b)[^#]*\bgroup=([_a-z][-0-9_a-z]*)</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_accounts_have_homedir_login_defs:obj:1" version="2">
       <ind:filepath>/etc/login.defs</ind:filepath>
@@ -26255,7 +26300,7 @@
     <unix:file_object id="oval:ssg-object_accounts_users_home_files_groupownership_dirs:obj:1" version="1">
       <unix:behaviors recurse="directories" recurse_direction="down" max_depth="-1" recurse_file_system="local" />
       <unix:path var_ref="oval:ssg-var_accounts_users_home_files_groupownership_dirs:var:1" var_check="at least one" />
-      <unix:filename operation="pattern match">.*</unix:filename>
+      <unix:filename operation="not equal">/</unix:filename>
     </unix:file_object>
     <ind:textfilecontent54_object id="oval:ssg-object_accounts_users_home_files_ownership_home_dirs:obj:1" version="1">
       <ind:filepath>/etc/passwd</ind:filepath>
@@ -26282,7 +26327,7 @@
     <unix:file_object id="oval:ssg-object_accounts_users_home_files_ownership_dirs:obj:1" version="1">
       <unix:behaviors recurse="directories" recurse_direction="down" max_depth="-1" recurse_file_system="local" />
       <unix:path var_ref="oval:ssg-var_accounts_users_home_files_ownership_dirs:var:1" var_check="at least one" />
-      <unix:filename operation="pattern match">.*</unix:filename>
+      <unix:filename operation="not equal">/</unix:filename>
     </unix:file_object>
     <ind:textfilecontent54_object id="oval:ssg-object_accounts_users_home_files_permissions_home_dirs:obj:1" version="1">
       <ind:filepath>/etc/passwd</ind:filepath>
@@ -26520,7 +26565,7 @@
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdriverauthmode_action_send_stream_driver_auth_mode:obj:1" version="1" comment="Check if  $ActionSendStreamDriverAuthMode x509/name is set in /etc/rsyslog.conf">
       <ind:filepath>/etc/rsyslog.conf</ind:filepath>
-      <ind:pattern operation="pattern match">^\$ActionSendStreamDriverAuthMode x509/name$</ind:pattern>
+      <ind:pattern operation="pattern match">^\s*\$ActionSendStreamDriverAuthMode\s+x509/name\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdriverauthmode_action_send_stream_driver_auth_mode_rainer:obj:1" version="1" comment="Check if StreamDriverAuthMode is set to x509/name in /etc/rsyslog.conf using RainerScript">
@@ -26531,7 +26576,7 @@
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdriverauthmode_action_send_stream_driver_auth_mode_dir:obj:1" version="1" comment="Check if $ActionSendStreamDriverAuthMode x509/name is set in /etc/rsyslog.d">
       <ind:path>/etc/rsyslog.d</ind:path>
       <ind:filename operation="pattern match">^.*conf$</ind:filename>
-      <ind:pattern operation="pattern match">^\$ActionSendStreamDriverAuthMode x509/name$</ind:pattern>
+      <ind:pattern operation="pattern match">^\s*\$ActionSendStreamDriverAuthMode\s+x509/name\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdriverauthmode_action_send_stream_driver_auth_mode_dir_rainer:obj:1" version="1" comment="Check if StreamDriverAuthMode is set to x509/name in files in /etc/rsyslog.d using RainerScript">
@@ -26542,7 +26587,7 @@
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdrivermode_action_send_stream_driver_mode_rsyslog:obj:1" version="1" comment="Check if  $ActionSendStreamDriverMode 1 is set in /etc/rsyslog.conf">
       <ind:filepath>/etc/rsyslog.conf</ind:filepath>
-      <ind:pattern operation="pattern match">^\$ActionSendStreamDriverMode 1$</ind:pattern>
+      <ind:pattern operation="pattern match">^\s*\$ActionSendStreamDriverMode\s+1\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdrivermode_action_send_stream_driver_mode_rsyslog_rainer:obj:1" version="1" comment="Check if StreamDriverMode is set to 1 in /etc/rsyslog.conf using RainerScript">
@@ -26553,7 +26598,7 @@
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdrivermode_action_send_stream_driver_mode_rsyslog_dir:obj:1" version="1" comment="Check if $ActionSendStreamDriverMode 1 is set in /etc/rsyslog.d">
       <ind:path>/etc/rsyslog.d</ind:path>
       <ind:filename operation="pattern match">^.*conf$</ind:filename>
-      <ind:pattern operation="pattern match">^\$ActionSendStreamDriverMode 1$</ind:pattern>
+      <ind:pattern operation="pattern match">^\s*\$ActionSendStreamDriverMode\s+1\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_actionsendstreamdrivermode_action_send_stream_driver_mode_rsyslog_dir_rainer:obj:1" version="1" comment="Check if StreamDriverMode is set to 1 in files in /etc/rsyslog.d using RainerScript">
@@ -26564,7 +26609,7 @@
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_defaultnetstreamdriver_default_netstream_rsyslog:obj:1" version="1" comment="Check if  $DefaultNetstreamDriver gtls is set in /etc/rsyslog.conf">
       <ind:filepath>/etc/rsyslog.conf</ind:filepath>
-      <ind:pattern operation="pattern match">^\$DefaultNetstreamDriver gtls$</ind:pattern>
+      <ind:pattern operation="pattern match">^\s*\$DefaultNetstreamDriver\s+gtls\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_defaultnetstreamdriver_default_netstream_rsyslog_rainer:obj:1" version="1" comment="Check if DefaultNetstreamDriver is set to gtls in /etc/rsyslog.conf using RainerScript">
@@ -26575,7 +26620,7 @@
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_defaultnetstreamdriver_default_netstream_rsyslog_dir:obj:1" version="1" comment="Check if $DefaultNetstreamDriver gtls is set in /etc/rsyslog.d">
       <ind:path>/etc/rsyslog.d</ind:path>
       <ind:filename operation="pattern match">^.*conf$</ind:filename>
-      <ind:pattern operation="pattern match">^\$DefaultNetstreamDriver gtls$</ind:pattern>
+      <ind:pattern operation="pattern match">^\s*\$DefaultNetstreamDriver\s+gtls\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_rsyslog_encrypt_offload_defaultnetstreamdriver_default_netstream_rsyslog_dir_rainer:obj:1" version="1" comment="Check if DefaultNetstreamDriver is set to gtls in files in /etc/rsyslog.d using RainerScript">
@@ -26586,17 +26631,17 @@
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_remote_method_monitoring_auth:obj:1" version="1">
       <ind:filepath operation="pattern match">^/etc/rsyslog\.(conf|d/.+\.conf)$</ind:filepath>
-      <ind:pattern operation="pattern match">^[ \t]*(?:(?:\w+,)*auth(?:,\w+)*\.\*|\S+;auth\.\*|auth\.\*;\S+|\S+;auth\.\*;\S+)[ \t]+(?:(?!action\()\S+|action\([^)]*file\s*=\s*["'][^"']+["'][^)]*\))\s*$</ind:pattern>
+      <ind:pattern operation="pattern match">^[ \t]*(?:(?:\w+,)*auth(?:,\w+)*\.\*|\S+;auth\.\*|auth\.\*;\S+|\S+;auth\.\*;\S+)[ \t]+(?:(?!(?i)action(?-i)\()\S+|(?i)action(?-i)\([^)]*(?i)file(?-i)\s*=\s*["'][^"']+["'][^)]*\))\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_remote_method_monitoring_authpriv:obj:1" version="1">
       <ind:filepath operation="pattern match">^/etc/rsyslog\.(conf|d/.+\.conf)$</ind:filepath>
-      <ind:pattern operation="pattern match">^[ \t]*(?:(?:\w+,)*authpriv(?:,\w+)*\.\*|\S+;authpriv\.\*|authpriv\.\*;\S+|\S+;authpriv\.\*;\S+)[ \t]+(?:(?!action\()\S+|action\([^)]*file\s*=\s*["'][^"']+["'][^)]*\))\s*$</ind:pattern>
+      <ind:pattern operation="pattern match">^[ \t]*(?:(?:\w+,)*authpriv(?:,\w+)*\.\*|\S+;authpriv\.\*|authpriv\.\*;\S+|\S+;authpriv\.\*;\S+)[ \t]+(?:(?!(?i)action(?-i)\()\S+|(?i)action(?-i)\([^)]*(?i)file(?-i)\s*=\s*["'][^"']+["'][^)]*\))\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_remote_method_monitoring_daemon:obj:1" version="1">
       <ind:filepath operation="pattern match">^/etc/rsyslog\.(conf|d/.+\.conf)$</ind:filepath>
-      <ind:pattern operation="pattern match">^[ \t]*(?:(?:\w+,)*daemon(?:,\w+)*\.\*|\S+;daemon\.\*|daemon\.\*;\S+|\S+;daemon\.\*;\S+)[ \t]+(?:(?!action\()\S+|action\([^)]*file\s*=\s*["'][^"']+["'][^)]*\))\s*$</ind:pattern>
+      <ind:pattern operation="pattern match">^[ \t]*(?:(?:\w+,)*daemon(?:,\w+)*\.\*|\S+;daemon\.\*|daemon\.\*;\S+|\S+;daemon\.\*;\S+)[ \t]+(?:(?!(?i)action(?-i)\()\S+|(?i)action(?-i)\([^)]*(?i)file(?-i)\s*=\s*["'][^"']+["'][^)]*\))\s*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_logrotate_conf_daily_setting:obj:1" version="2">
@@ -26783,7 +26828,7 @@
     <unix:file_object id="oval:ssg-object_file_permissions_unauthorized_sgid_all_sgid_files:obj:1" version="1" comment="all files with sgid set">
       <unix:behaviors recurse="directories" recurse_direction="down" max_depth="-1" recurse_file_system="defined" />
       <unix:path operation="equals" var_check="at least one" var_ref="oval:ssg-var_file_permissions_unauthorized_sgid_local_mountpoints:var:1" />
-      <unix:filename operation="pattern match">^.*$</unix:filename>
+      <unix:filename operation="not equal">/</unix:filename>
       <oval-def:filter action="include">oval:ssg-state_file_permissions_unauthorized_sgid_set:ste:1</oval-def:filter>
       <oval-def:filter action="exclude">oval:ssg-state_file_permissions_unauthorized_sgid_sysroot:ste:1</oval-def:filter>
     </unix:file_object>
@@ -26807,7 +26852,7 @@
     <unix:file_object id="oval:ssg-object_file_permissions_unauthorized_suid_all_suid_files:obj:1" version="1" comment="all files with suid set">
       <unix:behaviors recurse="directories" recurse_direction="down" max_depth="-1" recurse_file_system="defined" />
       <unix:path operation="equals" var_check="at least one" var_ref="oval:ssg-var_file_permissions_unauthorized_suid_local_mountpoints:var:1" />
-      <unix:filename operation="pattern match">^.*$</unix:filename>
+      <unix:filename operation="not equal">/</unix:filename>
       <oval-def:filter action="include">oval:ssg-state_file_permissions_unauthorized_suid_set:ste:1</oval-def:filter>
       <oval-def:filter action="exclude">oval:ssg-state_file_permissions_unauthorized_suid_sysroot:ste:1</oval-def:filter>
     </unix:file_object>
@@ -26831,7 +26876,7 @@
     <unix:file_object id="oval:ssg-object_file_permissions_unauthorized_world_write:obj:1" version="1" comment="All files with world-write permission.">
       <unix:behaviors recurse="directories" recurse_direction="down" max_depth="-1" recurse_file_system="defined" />
       <unix:path operation="equals" var_check="at least one" var_ref="oval:ssg-var_file_permissions_unauthorized_world_writable_local_mountpoints:var:1" />
-      <unix:filename operation="pattern match">^.*$</unix:filename>
+      <unix:filename operation="not equal">/</unix:filename>
       <oval-def:filter action="include">oval:ssg-state_file_permissions_unauthorized_world_write:ste:1</oval-def:filter>
       <oval-def:filter action="exclude">oval:ssg-state_file_permissions_unauthorized_world_write_special_selinux_files:ste:1</oval-def:filter>
       <oval-def:filter action="exclude">oval:ssg-state_file_permissions_unauthorized_world_write_sysroot:ste:1</oval-def:filter>
@@ -26859,14 +26904,14 @@
     <unix:file_object id="oval:ssg-object_file_permissions_ungroupowned:obj:1" version="2" comment="all local files without a known group owner">
       <unix:behaviors recurse="directories" recurse_direction="down" recurse_file_system="defined" max_depth="-1" />
       <unix:path operation="equals" var_check="at least one" var_ref="oval:ssg-var_file_permissions_ungroupowned_local_mountpoints:var:1" />
-      <unix:filename operation="pattern match">.*</unix:filename>
+      <unix:filename operation="not equal">/</unix:filename>
       <oval-def:filter action="exclude">oval:ssg-state_file_permissions_ungroupowned_local_group_owner:ste:1</oval-def:filter>
       <oval-def:filter action="exclude">oval:ssg-state_file_permissions_ungroupowned_sysroot:ste:1</oval-def:filter>
     </unix:file_object>
     <unix:file_object id="oval:ssg-object_file_permissions_ungroupowned_with_usrlib:obj:1" version="2" comment="all local files without a known group owner">
       <unix:behaviors recurse="directories" recurse_direction="down" recurse_file_system="defined" max_depth="-1" />
       <unix:path operation="equals" var_check="at least one" var_ref="oval:ssg-var_file_permissions_ungroupowned_local_mountpoints:var:1" />
-      <unix:filename operation="pattern match">.*</unix:filename>
+      <unix:filename operation="not equal">/</unix:filename>
       <oval-def:filter action="exclude">oval:ssg-state_file_permissions_ungroupowned_local_group_owner_with_usrlib:ste:1</oval-def:filter>
       <oval-def:filter action="exclude">oval:ssg-state_file_permissions_ungroupowned_sysroot:ste:1</oval-def:filter>
     </unix:file_object>
@@ -26888,7 +26933,7 @@
     <unix:file_object id="oval:ssg-object_no_files_unowned_by_user:obj:1" version="2" comment="all local files without a known owner">
       <unix:behaviors recurse="directories" recurse_direction="down" recurse_file_system="defined" max_depth="-1" />
       <unix:path operation="equals" var_check="at least one" var_ref="oval:ssg-var_no_files_unowned_by_user_local_mountpoints:var:1" />
-      <unix:filename operation="pattern match">.*</unix:filename>
+      <unix:filename operation="not equal">/</unix:filename>
       <oval-def:filter action="exclude">oval:ssg-state_no_files_unowned_by_user_uids_list:ste:1</oval-def:filter>
     </unix:file_object>
     <unix:file_object id="oval:ssg-object_file_etc_security_opasswd:obj:1" version="1">
@@ -26896,7 +26941,7 @@
     </unix:file_object>
     <unix:file_object id="oval:ssg-object_groupownership_system_commands_dirs:obj:1" version="1" comment="system commands files">
       <unix:path operation="pattern match">^\/s?bin|^\/usr\/s?bin|^\/usr\/local\/s?bin</unix:path>
-      <unix:filename operation="pattern match">^.*$</unix:filename>
+      <unix:filename operation="not equal">/</unix:filename>
       <oval-def:filter action="include">oval:ssg-state_groupowner_system_commands_dirs_not_root_or_system_account:ste:1</oval-def:filter>
       <oval-def:filter action="exclude">oval:ssg-state_groupowner_system_commands_dirs_symlink:ste:1</oval-def:filter>
     </unix:file_object>
@@ -26907,12 +26952,12 @@
     </unix:file_object>
     <unix:file_object id="oval:ssg-object_file_ownership_binary_files:obj:1" version="1" comment="binary files">
       <unix:path operation="pattern match">^\/(|s)bin|^\/usr\/(|local\/)(|s)bin|^\/usr\/libexec</unix:path>
-      <unix:filename operation="pattern match">^.*$</unix:filename>
+      <unix:filename operation="not equal">/</unix:filename>
       <oval-def:filter action="include">oval:ssg-state_owner_binaries_not_root:ste:1</oval-def:filter>
     </unix:file_object>
     <unix:file_object id="oval:ssg-object_file_permissions_binary_files:obj:1" version="1" comment="binary files">
       <unix:path operation="pattern match">^\/(|s)bin|^\/usr\/(|local\/)(|s)bin|^\/usr\/libexec</unix:path>
-      <unix:filename operation="pattern match">^.*$</unix:filename>
+      <unix:filename operation="not equal">/</unix:filename>
       <oval-def:filter action="include">oval:ssg-state_perms_binary_files_nogroupwrite_noworldwrite:ste:1</oval-def:filter>
       <oval-def:filter action="exclude">oval:ssg-state_perms_binary_files_symlink:ste:1</oval-def:filter>
     </unix:file_object>
@@ -26952,7 +26997,7 @@
     </linux:partition_object>
     <ind:textfilecontent54_object id="oval:ssg-object_non_root_partitions_in_fstab:obj:1" version="1">
       <ind:filepath>/etc/fstab</ind:filepath>
-      <ind:pattern operation="pattern match">^\s*(?!#)(?:/dev/\S+|UUID=\S+)\s+/(?!boot|efi)\w\S*\s+(?!vfat\s)\S+\s+(\S+)</ind:pattern>
+      <ind:pattern operation="pattern match">^\s*(?!#)(?:/dev/\S+|UUID=\S+)\s+/(?!boot|efi)\w\S*\s+\S+\s+(\S+)</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_core_dumps_limitsconf:obj:1" version="1">
@@ -27325,19 +27370,6 @@
       <ind:pattern operation="pattern match">^(?!#).*MACs\s+([^\s']+).*$</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">-1</ind:instance>
     </ind:textfilecontent54_object>
-    <ind:textfilecontent54_object id="oval:ssg-object_enable_dracut_fips_module:obj:1" version="1">
-      <ind:filepath>/etc/dracut.conf.d/40-fips.conf</ind:filepath>
-      <ind:pattern operation="pattern match">^\s*add_dracutmodules\+="\s*(\w*)\s*"\s*(?:#.*)?$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <ind:variable_object id="oval:ssg-obj_system_crypto_policy_value:obj:1" version="1">
-      <ind:var_ref>oval:ssg-var_system_crypto_policy:var:1</ind:var_ref>
-    </ind:variable_object>
-    <ind:textfilecontent54_object id="oval:ssg-obj_proc_sys_crypto_fips_enabled:obj:1" version="1">
-      <ind:filepath>/proc/sys/crypto/fips_enabled</ind:filepath>
-      <ind:pattern operation="pattern match">^1$</ind:pattern>
-      <ind:instance datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_fips_crypto_subpolicy:obj:1" version="1">
       <ind:filepath>/etc/crypto-policies/config</ind:filepath>
       <ind:pattern operation="pattern match">^FIPS$|^FIPS:(OSPP|NO-SHA1|NO-CAMELLIA|ECDHE-ONLY|STIG)$</ind:pattern>
@@ -27556,12 +27588,12 @@
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-root_or_ALL_in_runas_spec:obj:1" version="1">
       <ind:filepath operation="pattern match">^/etc/sudoers(\.d/.*)?$</ind:filepath>
-      <ind:pattern operation="pattern match">^\s*((?!root\b)[\w]+)\s*(\w+)\s*=\s*(.*,)?\s*\([\w\s]*\b(root|ALL)\b[\w\s]*\)</ind:pattern>
+      <ind:pattern operation="pattern match">^\s*((?!(root|Defaults)\b)[\w]+)\s*(\w+)\s*=\s*(.*,)?\s*\([\w\s]*\b(root|ALL)\b[\w\s]*\)</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_no_runas_spec:obj:1" version="1">
       <ind:filepath operation="pattern match">^/etc/sudoers(\.d/.*)?$</ind:filepath>
-      <ind:pattern operation="pattern match">^\s*((?!root\b)[\w]+)\s*(\w+)\s*=\s*(.*,)?\s*[^\(\s]</ind:pattern>
+      <ind:pattern operation="pattern match">^\s*((?!(root|Defaults)\b)[\w]+)\s*(\w+)\s*=\s*(.*,)?\s*[^\(\s]</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-object_test_sudoers_targetpw_config:obj:1" version="1">
@@ -29146,6 +29178,18 @@
       <ind:filepath>/etc/motd</ind:filepath>
       <ind:pattern operation="pattern match">(\\v|\\r|\\m|\\s|almalinux9)</ind:pattern>
       <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_configure_custom_crypto_policy_cis_NO-WEAKMAC:obj:1" version="1">
+      <ind:path>/etc/crypto-policies/policies/modules/</ind:path>
+      <ind:filename>NO-WEAKMAC.pmod</ind:filename>
+      <ind:pattern operation="pattern match">^mac = \-\*\-64\*$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_configure_custom_crypto_policy_cis_NO-SSHCBC:obj:1" version="1">
+      <ind:path>/etc/crypto-policies/policies/modules/</ind:path>
+      <ind:filename>NO-SSHCBC.pmod</ind:filename>
+      <ind:pattern operation="pattern match">^cipher@SSH = \-\*\-CBC$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_configure_usbguard_auditbackend:obj:1" version="1">
       <ind:filepath>/etc/usbguard/usbguard-daemon.conf</ind:filepath>
@@ -31675,7 +31719,7 @@
     </linux:partition_object>
     <ind:textfilecontent54_object id="oval:ssg-object_boot_efi_partition_nosuid_optional_in_fstab:obj:1" version="1">
       <ind:filepath>/etc/fstab</ind:filepath>
-      <ind:pattern operation="pattern match">^[\s]*(?!#)[\S]+[\s]+/boot/efi[\s]+(?!vfat)[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:pattern operation="pattern match">^[\s]*(?!#)[\S]+[\s]+/boot/efi[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <linux:partition_object id="oval:ssg-object_boot_partition_nodev_optional:obj:1" version="1">
@@ -37084,6 +37128,16 @@
       <linux:unit operation="pattern match">logrotate\.timer</linux:unit>
       <linux:property>ActiveState</linux:property>
     </linux:systemdunitproperty_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_pam_auth_pam_wheel_use_uid:obj:1" version="1" comment="Check use_uid configuration of PAM pam_wheel.so module">
+      <ind:filepath>/etc/pam.d/su</ind:filepath>
+      <ind:pattern operation="pattern match">^\s*auth(?:(?!\n)\s)+required(?:(?!\n)\s)+pam_wheel.so((?!\n)\s[^\n]+)?(?!\n)\s+use_uid((\s+\S+)*\s*\\*\s*)$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_pam_auth_pam_wheel_group:obj:1" version="1" comment="Check group configuration of PAM pam_wheel.so module">
+      <ind:filepath>/etc/pam.d/su</ind:filepath>
+      <ind:pattern operation="pattern match">^\s*auth\s+required\s+pam_wheel.so.*\sgroup=(-?[a-zA-Z0-9]+)(?:\s+.*)?</ind:pattern>
+      <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
+    </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_password_pam_pwquality:obj:1" version="1">
       <ind:filepath var_ref="oval:ssg-var_pam_pwquality_config_path:var:1" var_check="at least one" />
       <ind:pattern operation="pattern match">^\s*password\s+(?:(?:required)|(?:requisite))\s+pam_pwquality\.so.*$</ind:pattern>
@@ -37185,6 +37239,14 @@
       <ind:pattern operation="pattern match">^AlmaLinux release 9.[0-9]+ .*$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
+    <linux:rpminfo_object id="oval:ssg-object_hummingbird_release_rpm:obj:1" version="1">
+      <linux:name operation="pattern match">hummingbird-release.*</linux:name>
+    </linux:rpminfo_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_hummingbird_vendor_product:obj:1" version="1">
+      <ind:filepath>/etc/system-release-cpe</ind:filepath>
+      <ind:pattern operation="pattern match">^cpe:\/a:redhat:hummingbird:[\d]+$</ind:pattern>
+      <ind:instance datatype="int" operation="equals">1</ind:instance>
+    </ind:textfilecontent54_object>
     <linux:rpminfo_object id="oval:ssg-obj_ol7_system:obj:1" version="1">
       <linux:name>oraclelinux-release</linux:name>
     </linux:rpminfo_object>
@@ -37278,6 +37340,11 @@
     <ind:textfilecontent54_object id="oval:ssg-obj_ubuntu:obj:1" version="1" comment="Check Ubuntu">
       <ind:filepath>/etc/lsb-release</ind:filepath>
       <ind:pattern operation="pattern match">^DISTRIB_ID=Ubuntu$</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-obj_ubuntu_jammy:obj:1" version="1" comment="Check Ubuntu version">
+      <ind:filepath>/etc/lsb-release</ind:filepath>
+      <ind:pattern operation="pattern match">^DISTRIB_CODENAME=jammy$</ind:pattern>
       <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <ind:textfilecontent54_object id="oval:ssg-obj_ubuntu_noble:obj:1" version="1" comment="Check Ubuntu version">
@@ -37531,6 +37598,9 @@
     <ind:textfilecontent54_state id="oval:ssg-state_chronyd_port_value_0:ste:1" version="1" operator="AND">
       <ind:subexpression>0</ind:subexpression>
     </ind:textfilecontent54_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_chrony_wait_execstart_no_h_flag:ste:1" version="1" operator="AND">
+      <ind:subexpression operation="pattern match">^/usr/bin/chronyc\s+waitsync\s+\d+\s+[\d.]+\s+[\d.]+\s+\d+\s*$</ind:subexpression>
+    </ind:textfilecontent54_state>
     <ind:textfilecontent54_state id="oval:ssg-state_chronyd_cmdport_value_0:ste:1" version="1" operator="AND">
       <ind:subexpression>0</ind:subexpression>
     </ind:textfilecontent54_state>
@@ -37668,7 +37738,7 @@
       <ind:subexpression datatype="string" var_ref="oval:ssg-login_banner_text:var:1" operation="pattern match" />
     </ind:textfilecontent54_state>
     <ind:textfilecontent54_state id="oval:ssg-state_gdm_login_banner_text_setting:ste:1" version="1" operator="AND">
-      <ind:subexpression datatype="string" operation="pattern match" var_ref="oval:ssg-login_banner_text:var:1" />
+      <ind:subexpression datatype="string" operation="pattern match" var_ref="oval:ssg-dconf_login_banner_text:var:1" />
     </ind:textfilecontent54_state>
     <linux:selinuxsecuritycontext_state id="oval:ssg-state_account_password_selinux_faillock_dir:ste:1" version="1" operator="AND" comment="faillog_t context is set">
       <linux:type datatype="string" operation="equals">faillog_t</linux:type>
@@ -37700,8 +37770,8 @@
     <ind:textfilecontent54_state id="oval:ssg-state_set_password_hashing_algorithm_libuserconf:ste:1" version="1" operator="AND">
       <ind:subexpression operation="equals" datatype="string" var_ref="oval:ssg-var_password_hashing_algorithm_pam:var:1" />
     </ind:textfilecontent54_state>
-    <ind:variable_state id="oval:ssg-state_set_password_hashing_algorithm_logindefs:ste:1" version="1" operator="AND">
-      <ind:value operation="pattern match" datatype="string" var_ref="oval:ssg-var_password_hashing_algorithm_regex:var:1" />
+    <ind:variable_state id="oval:ssg-state_test_password_hashing_algorithm_logindefs:ste:1" version="1" operator="AND">
+      <ind:value operation="pattern match" var_ref="oval:ssg-var_password_hashing_algorithm:var:1" datatype="string" var_check="at least one" />
     </ind:variable_state>
     <ind:textfilecontent54_state id="oval:ssg-state_set_password_hashing_algorithm_passwordauth:ste:1" version="2" operator="AND">
       <ind:subexpression operation="pattern match" datatype="string" var_ref="oval:ssg-var_password_hashing_algorithm_pam_regex:var:1" />
@@ -37770,7 +37840,7 @@
     <ind:textfilecontent54_state id="oval:ssg-state_test_accounts_password_set_warn_age_existing:ste:1" version="1" operator="AND">
       <ind:subexpression datatype="int" operation="greater than or equal" var_check="all" var_ref="oval:ssg-var_accounts_password_warn_age_login_defs:var:1" />
     </ind:textfilecontent54_state>
-    <ind:variable_state id="oval:ssg-state_last_pass_warn_age_instance_value:ste:1" version="1" operator="AND">
+    <ind:variable_state id="oval:ssg-state_test_pass_warn_age:ste:1" version="1" operator="AND">
       <ind:value operation="greater than or equal" var_ref="oval:ssg-var_accounts_password_warn_age_login_defs:var:1" datatype="int" var_check="at least one" />
     </ind:variable_state>
     <ind:textfilecontent54_state id="oval:ssg-state_test_accounts_set_post_pw_existing:ste:1" version="1" operator="AND">
@@ -37815,6 +37885,9 @@
     <unix:password_state id="oval:ssg-state_no_forward_files_users_nologin_shell:ste:1" version="1" operator="AND">
       <unix:login_shell datatype="string" operation="pattern match">^(?:/usr)?/sbin/nologin$</unix:login_shell>
     </unix:password_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_is_locked_in_shadow:ste:1" version="1" operator="AND">
+      <ind:subexpression datatype="string" operation="equals" var_check="at least one" var_ref="oval:ssg-var_locked_users:var:1" />
+    </ind:textfilecontent54_state>
     <ind:textfilecontent54_state id="oval:ssg-state_accounts_root_gid_zero:ste:1" version="1" operator="AND" comment="root account's gid is equal to 0">
       <ind:subexpression operation="equals" datatype="int">0</ind:subexpression>
     </ind:textfilecontent54_state>
@@ -37844,9 +37917,6 @@
     </ind:textfilecontent54_state>
     <ind:textfilecontent54_state id="oval:ssg-state_uid_greater_than_or_equal_sys_uid_max:ste:1" version="1" operator="AND">
       <ind:subexpression datatype="int" operation="greater than or equal" var_ref="oval:ssg-variable_sys_uid_max_value:var:1" />
-    </ind:textfilecontent54_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_use_pam_wheel_group_for_su:ste:1" version="1" operator="AND" comment="group name must be valid">
-      <ind:subexpression operation="equals" datatype="string" var_ref="oval:ssg-var_pam_wheel_group_for_su:var:1" />
     </ind:textfilecontent54_state>
     <ind:textfilecontent54_state id="oval:ssg-state_accounts_logon_fail_delay:ste:1" version="1" operator="AND">
       <ind:subexpression operation="greater than or equal" var_ref="oval:ssg-var_accounts_fail_delay:var:1" datatype="int" />
@@ -38251,7 +38321,7 @@
     </ind:textfilecontent54_state>
     <linux:partition_state id="oval:ssg-state_local_nodev:ste:1" version="1" operator="AND">
       <linux:device operation="pattern match">^/dev/.*$</linux:device>
-      <linux:fs_type operation="pattern match">^(?!afs$|autofs$|ceph$|cifs$|smb3$|smbfs$|sshfs$|ncpfs$|ncp$|nfs$|nfs4$|gfs$|gfs2$|glusterfs$|gpfs$|pvfs2$|ocfs2$|lustre$|davfs$|fuse\.sshfs$|vfat$).+</linux:fs_type>
+      <linux:fs_type operation="pattern match">^(?!afs$|autofs$|ceph$|cifs$|smb3$|smbfs$|sshfs$|ncpfs$|ncp$|nfs$|nfs4$|gfs$|gfs2$|glusterfs$|gpfs$|pvfs2$|ocfs2$|lustre$|davfs$|fuse\.sshfs$).+</linux:fs_type>
       <linux:mount_options datatype="string" entity_check="all" operation="not equal">nodev</linux:mount_options>
     </linux:partition_state>
     <ind:textfilecontent54_state id="oval:ssg-state_non_root_partitions_in_fstab:ste:1" version="1" operator="AND">
@@ -38339,12 +38409,6 @@
     <ind:textfilecontent54_state id="oval:ssg-ste_harden_sshd_macs_opensshserver_conf_crypto_policy:ste:1" version="1" operator="AND">
       <ind:subexpression var_ref="oval:ssg-sshd_approved_macs:var:1" operation="equals" />
     </ind:textfilecontent54_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_enable_dracut_fips_module:ste:1" version="1" operator="AND">
-      <ind:subexpression datatype="string" operation="equals">fips</ind:subexpression>
-    </ind:textfilecontent54_state>
-    <ind:variable_state id="oval:ssg-ste_system_crypto_policy_value:ste:1" version="2" operator="AND" comment="variable value is set to 'FIPS' or 'FIPS:modifier', where the modifier corresponds to a crypto policy module that further restricts the modified crypto policy.">
-      <ind:value operation="pattern match" datatype="string">^FIPS(:(OSPP|NO-SHA1|NO-CAMELLIA|STIG))?$</ind:value>
-    </ind:variable_state>
     <unix:sysctl_state id="oval:ssg-state_sysctl_crypto_fips_enabled:ste:1" version="1" operator="AND">
       <unix:value datatype="int" operation="equals">1</unix:value>
     </unix:sysctl_state>
@@ -40026,11 +40090,7 @@
       <ind:value operation="equals" datatype="int" var_ref="oval:ssg-local_var_config_x86_vsyscall_emulation_count_compliant_configs:var:1" />
     </ind:variable_state>
     <linux:partition_state id="oval:ssg-state_boot_efi_partition_nosuid_optional:ste:1" version="1" operator="AND">
-      <linux:fs_type operation="not equal">vfat</linux:fs_type>
       <linux:mount_options datatype="string" entity_check="at least one" operation="equals">nosuid</linux:mount_options>
-    </linux:partition_state>
-    <linux:partition_state id="oval:ssg-state_boot_efi_partition_nosuid_optional_exist:ste:1" version="1" operator="AND">
-      <linux:fs_type operation="not equal">vfat</linux:fs_type>
     </linux:partition_state>
     <ind:textfilecontent54_state id="oval:ssg-state_boot_efi_partition_nosuid_optional_in_fstab:ste:1" version="1" operator="AND">
       <ind:instance datatype="int">1</ind:instance>
@@ -41018,6 +41078,9 @@
     <linux:systemdunitproperty_state id="oval:ssg-state_timer_running_logrotate:ste:1" version="1" operator="AND" comment="logrotate is running">
       <linux:value>active</linux:value>
     </linux:systemdunitproperty_state>
+    <ind:textfilecontent54_state id="oval:ssg-state_pam_auth_pam_wheel_group:ste:1" version="3" operator="AND">
+      <ind:subexpression datatype="string" operation="equals" var_ref="oval:ssg-var_pam_wheel_group_for_su:var:1" />
+    </ind:textfilecontent54_state>
     <unix:file_state id="oval:ssg-bootc_platform_ste_ostree_symlink_exists:ste:1" version="1" operator="AND" comment="The file /ostree is a symlink">
       <unix:filepath operation="equals">/ostree</unix:filepath>
       <unix:type operation="equals">symbolic link</unix:type>
@@ -41356,6 +41419,7 @@
     <oval-def:external_variable id="oval:ssg-sshd_strong_macs:var:1" version="1" datatype="string" comment="SSH MAC algorithms considered strong" />
     <oval-def:external_variable id="oval:ssg-var_sssd_certificate_verification_digest_function:var:1" version="1" datatype="string" comment="certificate_verification value" />
     <oval-def:external_variable id="oval:ssg-login_banner_text:var:1" version="1" datatype="string" comment="warning banner text variable" />
+    <oval-def:external_variable id="oval:ssg-dconf_login_banner_text:var:1" version="1" datatype="string" comment="warning banner text variable" />
     <oval-def:constant_variable id="oval:ssg-var_pam_faillock_password_auth_pam_faillock_auth_regex:var:1" version="1" datatype="string" comment="regex to identify pam_faillock.so entries in auth section of pam files">
       <oval-def:value>^[\s]*auth[\s]+(required|\[(?=.*?\bsuccess=ok\b)(?=.*?\bnew_authtok_reqd=ok\b)(?=.*?\bignore=ignore\b)(?=.*?\bdefault=bad\b).*\])[\s]+pam_faillock\.so[\s\w\d=]+preauth[\s\S]*^[\s]*auth[\s]+(sufficient|\[(?=.*\bsuccess=done\b)(?=.*?\bnew_authtok_reqd=done\b)(?=.*?\bdefault=ignore\b).*\])[\s]+pam_unix\.so[\s\S]*^[\s]*auth[\s]+(required|\[(?=.*?\bsuccess=ok\b)(?=.*?\bnew_authtok_reqd=ok\b)(?=.*?\bignore=ignore\b)(?=.*?\bdefault=bad\b).*\])[\s]+pam_faillock\.so[\s\w\d=]+authfail</oval-def:value>
     </oval-def:constant_variable>
@@ -41474,19 +41538,12 @@
     <oval-def:external_variable id="oval:ssg-var_accounts_passwords_pam_faillock_unlock_time:var:1" version="1" datatype="int" comment="external variable to use" />
     <oval-def:external_variable id="oval:ssg-var_password_pam_retry:var:1" version="1" datatype="int" comment="External variable for pam_pwquality retry" />
     <oval-def:external_variable id="oval:ssg-var_password_hashing_algorithm_pam:var:1" version="1" datatype="string" comment="hashing algorithm for pam_unix.so" />
-    <oval-def:local_variable id="oval:ssg-variable_last_encrypt_method_instance_value:var:1" version="1" datatype="string" comment="The value of last ENCRYPT_METHOD directive in /etc/login.defs">
+    <oval-def:local_variable id="oval:ssg-local_variable_test_password_hashing_algorithm_logindefs:var:1" version="1" datatype="string" comment="The value of ENCRYPT_METHOD in /etc/login.defs">
       <oval-def:regex_capture pattern="ENCRYPT_METHOD\s+(\w+)">
-        <oval-def:object_component item_field="subexpression" object_ref="oval:ssg-object_last_encrypt_method_from_etc_login_defs:obj:1" />
+        <oval-def:object_component item_field="subexpression" object_ref="oval:ssg-object_test_password_hashing_algorithm_logindefs:obj:1" />
       </oval-def:regex_capture>
     </oval-def:local_variable>
-    <oval-def:local_variable id="oval:ssg-var_password_hashing_algorithm_regex:var:1" version="1" datatype="string" comment="Limit regex">
-      <oval-def:concat>
-        <oval-def:literal_component>^</oval-def:literal_component>
-        <oval-def:variable_component var_ref="oval:ssg-var_password_hashing_algorithm:var:1" />
-        <oval-def:literal_component>$</oval-def:literal_component>
-      </oval-def:concat>
-    </oval-def:local_variable>
-    <oval-def:external_variable id="oval:ssg-var_password_hashing_algorithm:var:1" version="1" datatype="string" comment="hashing algorithm for /etc/login.defs" />
+    <oval-def:external_variable id="oval:ssg-var_password_hashing_algorithm:var:1" version="1" datatype="string" comment="External variable var_password_hashing_algorithm" />
     <oval-def:local_variable id="oval:ssg-var_password_hashing_algorithm_pam_regex:var:1" version="1" datatype="string" comment="Limit regex">
       <oval-def:concat>
         <oval-def:literal_component>^</oval-def:literal_component>
@@ -41554,9 +41611,9 @@
     <oval-def:external_variable id="oval:ssg-var_accounts_password_minlen_login_defs:var:1" version="1" datatype="int" comment="Password minimum length" />
     <oval-def:external_variable id="oval:ssg-var_accounts_maximum_age_root:var:1" version="1" datatype="int" comment="maximum password age in days" />
     <oval-def:external_variable id="oval:ssg-var_accounts_password_warn_age_login_defs:var:1" version="1" datatype="int" comment="External variable" />
-    <oval-def:local_variable id="oval:ssg-variable_last_pass_warn_age_instance_value:var:1" version="1" datatype="int" comment="The value of last PASS_WARN_AGE directive in /etc/login.defs">
+    <oval-def:local_variable id="oval:ssg-local_variable_test_pass_warn_age:var:1" version="1" datatype="int" comment="The value of PASS_WARN_AGE in /etc/login.defs">
       <oval-def:regex_capture pattern="PASS_WARN_AGE\s+(\d+)">
-        <oval-def:object_component item_field="subexpression" object_ref="oval:ssg-object_last_pass_warn_age_from_etc_login_defs:obj:1" />
+        <oval-def:object_component item_field="subexpression" object_ref="oval:ssg-object_test_pass_warn_age:obj:1" />
       </oval-def:regex_capture>
     </oval-def:local_variable>
     <oval-def:local_variable id="oval:ssg-var_accounts_password_last_change_is_in_past_time_in_secs:var:1" version="1" datatype="int" comment="last change field of shadow entry in seconds">
@@ -41581,6 +41638,9 @@
     </oval-def:local_variable>
     <oval-def:local_variable id="oval:ssg-var_accounts_users_home_forward_file_existance_dirs:var:1" version="1" datatype="string" comment="Variable including all home dirs from interactive users">
       <oval-def:object_component item_field="home_dir" object_ref="oval:ssg-object_no_forward_files_objects:obj:1" />
+    </oval-def:local_variable>
+    <oval-def:local_variable id="oval:ssg-var_locked_users:var:1" version="1" datatype="string" comment="Variable containing all locked users">
+      <oval-def:object_component item_field="subexpression" object_ref="oval:ssg-object_shadow_locked_users:obj:1" />
     </oval-def:local_variable>
     <oval-def:local_variable id="oval:ssg-var_ensure_pam_wheel_group_regex:var:1" version="1" datatype="string" comment="Regex to match the whole group line in /etc/group">
       <oval-def:concat>
