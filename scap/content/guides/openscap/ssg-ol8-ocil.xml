@@ -2,7 +2,7 @@
 <ocil:ocil xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <ocil:generator>
     <ocil:product_name>build_shorthand.py from SCAP Security Guide</ocil:product_name>
-    <ocil:product_version>ssg: 0.1.80</ocil:product_version>
+    <ocil:product_version>ssg: 0.1.81</ocil:product_version>
     <ocil:schema_version>2.0</ocil:schema_version>
     <ocil:timestamp>2021-03-02T15:45:39</ocil:timestamp>
   </ocil:generator>
@@ -401,12 +401,6 @@
       <ocil:title>User Initialization Files Must Be Group-Owned By The Primary Group</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-accounts_user_dot_group_ownership_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-accounts_user_dot_no_world_writable_programs_ocil:questionnaire:1">
-      <ocil:title>User Initialization Files Must Not Run World-Writable Programs</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-accounts_user_dot_no_world_writable_programs_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-accounts_user_dot_user_ownership_ocil:questionnaire:1">
@@ -1801,6 +1795,12 @@
         <ocil:test_action_ref>ocil:ssg-chronyd_client_only_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-chronyd_configure_local_socket_ocil:questionnaire:1">
+      <ocil:title>Configure chrony-wait.service to use Unix socket</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-chronyd_configure_local_socket_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-chronyd_configure_pool_and_server_ocil:questionnaire:1">
       <ocil:title>Chrony Configure Pool and Server</ocil:title>
       <ocil:actions>
@@ -2399,6 +2399,12 @@
       <ocil:title>Enable FIPS Mode</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-enable_fips_mode_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-enable_gpgcheck_for_all_repositories_ocil:questionnaire:1">
+      <ocil:title>Ensure gpgcheck Is Enabled for All Package Repositories</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-enable_gpgcheck_for_all_repositories_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-enable_ldap_client_ocil:questionnaire:1">
@@ -4976,7 +4982,7 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-package_xinetd_removed_ocil:questionnaire:1">
-      <ocil:title>Uninstall xinetd Package</ocil:title>
+      <ocil:title>Uninstall xinetd package if not used by network services</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-package_xinetd_removed_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -7468,14 +7474,6 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-accounts_user_dot_no_world_writable_programs_action:testaction:1" question_ref="ocil:ssg-accounts_user_dot_no_world_writable_programs_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-accounts_user_dot_user_ownership_action:testaction:1" question_ref="ocil:ssg-accounts_user_dot_user_ownership_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -9332,6 +9330,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-chronyd_configure_local_socket_action:testaction:1" question_ref="ocil:ssg-chronyd_configure_local_socket_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-chronyd_configure_pool_and_server_action:testaction:1" question_ref="ocil:ssg-chronyd_configure_pool_and_server_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -10125,6 +10131,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-enable_fips_mode_action:testaction:1" question_ref="ocil:ssg-enable_fips_mode_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-enable_gpgcheck_for_all_repositories_action:testaction:1" question_ref="ocil:ssg-enable_gpgcheck_for_all_repositories_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -16374,6 +16388,8 @@ PASS_MIN_DAYS
 following command:
 $ awk -F: '$3 == 0 {print $1}' /etc/passwd
 root
+Also make sure that if non-root account with UID "0" exist, it is locked:
+$ grep -E '^[^:]+:[!*][^:]*:.*$' /etc/shadow
       Is it the case that any accounts other than "root" have a UID of "0"?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -16840,15 +16856,6 @@ users in /etc/passwd and verify all initialization files under the
 respective users home directory. Check the group owner of all local interactive users
 initialization files.
       Is it the case that they are not?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-accounts_user_dot_no_world_writable_programs_question:question:1">
-      <ocil:question_text>Verify that local initialization files do not execute world-writable programs with the following command:
-
-Note: The example will be for a system that is configured to create user home directories in the "/home" directory.
-
-$ sudo find /home -perm -002 -type f -name ".[^.]*" -exec ls -ld {} \;
-      Is it the case that any local initialization files are found to reference world-writable files?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-accounts_user_dot_user_ownership_question:question:1">
@@ -19461,6 +19468,15 @@ port 0
       Is it the case that the "port" option is not set to "0", is commented out, or is missing?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-chronyd_configure_local_socket_question:question:1">
+      <ocil:question_text>Verify Oracle Linux 8 configures chrony-wait.service to use Unix socket with the following command:
+$ systemctl cat chrony-wait.service | grep ExecStart
+ExecStart=/usr/bin/chronyc waitsync 0 0.1 0.0 1
+
+The ExecStart line should not contain -h 127.0.0.1,::1 or similar network address specifications.
+      Is it the case that chrony-wait.service uses network addresses?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-chronyd_configure_pool_and_server_question:question:1">
       <ocil:question_text>Run the following command and verify remote servers are configured properly:
 # grep -E "^(server|pool)" /etc/chrony.conf
@@ -19598,9 +19614,9 @@ If command output shows the following line, Kerberos is configured to use the sy
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-configure_libreswan_crypto_policy_question:question:1">
-      <ocil:question_text>Verify that the IPSec service uses the system crypto policy.
+      <ocil:question_text>Verify that the IPsec service uses the system crypto policy.
 
-If the ipsec service is not installed is not applicable.
+If the IPsec service is not installed, this requirement is not applicable.
 
 Check to see if the "IPsec" service is active with the following command:
 
@@ -19654,7 +19670,7 @@ Check that the CRYPTO_POLICY variable is not set or is commented out in the
 Run the following command:
 
 $ sudo grep CRYPTO_POLICY /etc/sysconfig/sshd
-      Is it the case that the CRYPTO_POLICY variable is set or is not commented out in the /etc/sysconfig/sshd?
+      Is it the case that the CRYPTO_POLICY variable is set or is not commented out in /etc/sysconfig/sshd?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-configure_tmux_lock_after_time_question:question:1">
@@ -20432,7 +20448,10 @@ Active: inactive (dead)
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-disable_host_auth_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's HostbasedAuthentication option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's HostbasedAuthentication option is set, run the following command:
 
 $ sudo grep -i HostbasedAuthentication /etc/ssh/sshd_config
 
@@ -20514,6 +20533,16 @@ cat /proc/sys/crypto/fips_enabled
 The output be must:
 1
       Is it the case that FIPS mode is not enabled?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-enable_gpgcheck_for_all_repositories_question:question:1">
+      <ocil:question_text>To determine whether yum has been configured to disable
+gpgcheck for any repos, inspect all files in
+ and ensure the following does not appear in any
+sections:
+gpgcheck=0
+A value of 0 indicates that gpgcheck has been disabled for that repo.
+      Is it the case that GPG checking is disabled?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-enable_ldap_client_question:question:1">
@@ -20662,6 +20691,9 @@ $ sudo tail /etc/fapolicyd/compiled.rules
 allow exe=/usr/bin/python3.7 : ftype=text/x-python
 deny_audit perm=any pattern=ld_so : all
 deny perm=any all : all
+
+Note: The "deny_log" and "deny_audit" actions also meet the security requirements as they deny
+execution while additionally providing logging.
       Is it the case that fapolicyd is not running in enforcement mode with a deny-all, permit-by-exception policy?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -21212,12 +21244,10 @@ adm
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_groupownership_audit_configuration_question:question:1">
-      <ocil:question_text>
-To properly set the group owner of /etc/audit/, run the command:
+      <ocil:question_text>To properly set the group owner of /etc/audit/, run the command:
 
   $ sudo chgrp root /etc/audit/
   
-
 
 To properly set the group owner of /etc/audit/rules.d/, run the command:
 
@@ -21274,7 +21304,6 @@ root
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_groupownership_system_commands_dirs_question:question:1">
       <ocil:question_text>Verify the system commands contained in the following directories are group-owned by "root", or a required system account, with the following command:
-
 $ sudo find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin ! -group root -exec ls -l {} \;
       Is it the case that any system commands are returned and is not group-owned by a required system account?
       </ocil:question_text>
@@ -21586,12 +21615,10 @@ syslog
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_ownership_audit_configuration_question:question:1">
-      <ocil:question_text>
-To properly set the owner of /etc/audit/, run the command:
+      <ocil:question_text>To properly set the owner of /etc/audit/, run the command:
 
   $ sudo chown root /etc/audit/ 
   
-
 
 To properly set the owner of /etc/audit/rules.d/, run the command:
 
@@ -21648,12 +21675,10 @@ root
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_ownership_var_log_audit_question:question:1">
-      <ocil:question_text>
-To properly set the owner of /var/log/audit, run the command:
+      <ocil:question_text>To properly set the owner of /var/log/audit, run the command:
 
   $ sudo chown root /var/log/audit 
   
-
 
 To properly set the owner of /var/log/audit/*, run the command:
 
@@ -21699,10 +21724,8 @@ If properly configured, the output should indicate the following permissions:
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_permissions_audit_configuration_question:question:1">
-      <ocil:question_text>
-To properly set the permissions of /etc/audit/, run the command:
+      <ocil:question_text>To properly set the permissions of /etc/audit/, run the command:
 $ sudo chmod 0640 /etc/audit/
-
 To properly set the permissions of /etc/audit/rules.d/, run the command:
 $ sudo chmod 0640 /etc/audit/rules.d/
       Is it the case that ?
@@ -22691,8 +22714,8 @@ $ sudo ls /opt/McAfee/auditengine/bin/auditmanager
     <ocil:boolean_question id="ocil:ssg-install_smartcard_packages_question:question:1">
       <ocil:question_text>Check that Oracle Linux 8 has the packages for smart card support installed.
 
-Run the following command to determine if the openssl-pkcs11 package is installed:
-$ rpm -q openssl-pkcs11
+
+Run the following command to determine if the openssl-pkcs11 package is installed: $ rpm -q openssl-pkcs11
       Is it the case that smartcard software is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -23505,7 +23528,7 @@ $ grep -r usb-storage /etc/modprobe.conf /etc/modprobe.d
     <ocil:boolean_question id="ocil:ssg-kernel_module_uvcvideo_disabled_question:question:1">
       <ocil:question_text>If the device or Oracle Linux 8 does not have a camera installed, this requirement is not applicable.
 
-This requirement is not applicable to mobile devices (smartphones and tablets), where the use of the camera is a local AO decision.
+This requirement is not applicable to mobile devices (smartphones and tablets), where the use of the camera is a local Authorizing Official (AO) decision.
 
 This requirement is not applicable to dedicated VTC suites located in approved VTC locations that are centrally managed.
 
@@ -23513,13 +23536,14 @@ For an external camera, if there is not a method for the operator to manually di
 
 For a built-in camera, the camera must be protected by a camera cover (e.g., laptop camera cover slide) when not in use. If the built-in camera is not protected with a camera cover, or is not physically disabled, this is a finding.
 
-If the camera is not disconnected, covered, or physically disabled, determine if it is being disabled via software with the following commands:
+If the camera is not disconnected, covered, or physically disabled, determine if it is being disabled via software.
 
-Verify the operating system disables the ability to load the uvcvideo kernel module.
+Verify the operating system disables the ability to load the uvcvideo kernel module and ensure that the uvcvideo protocol module is disabled with the following command:
 
-$ sudo grep -r uvcvideo /etc/modprobe.d/* | grep "/bin/true"
+$ sudo grep -r uvcvideo /etc/modprobe.d/
 
-install uvcvideo /bin/true
+/etc/modprobe.d/uvcvideo-blacklist.conf:install uvcvideo /bin/false
+/etc/modprobe.d/uvcvideo-blacklist.conf:blacklist uvcvideo
       Is it the case that the command does not return any output, or the line is commented out, and the collaborative computing device has not been authorized for use?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -23699,9 +23723,11 @@ This is not applicable if NFS is not implemented.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-mount_option_nodev_nonroot_local_partitions_question:question:1">
-      <ocil:question_text>To verify the nodev option is configured for non-root local partitions, run the following command:
+      <ocil:question_text>To verify the nodev option is configured for non-root local partitions,
+run the following command:
 $ sudo mount | grep '^/dev\S* on /\S' | grep --invert-match 'nodev'
-The output shows local non-root partitions mounted without the nodev option, and there should be no output at all.
+The output shows local non-root partitions mounted without the nodev option,
+and there should be no output at all.
 
       Is it the case that some mounts appear among output lines?
       </ocil:question_text>
@@ -24110,73 +24136,63 @@ $ rpm -q MFEhiplsm
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_abrt-addon-ccpp_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the abrt-addon-ccpp package is installed:
-$ rpm -q abrt-addon-ccpp
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the abrt-addon-ccpp package is installed: $ rpm -q abrt-addon-ccpp
+      Is it the case that the abrt-addon-ccpp package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_abrt-addon-kerneloops_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the abrt-addon-kerneloops package is installed:
-$ rpm -q abrt-addon-kerneloops
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the abrt-addon-kerneloops package is installed: $ rpm -q abrt-addon-kerneloops
+      Is it the case that the abrt-addon-kerneloops package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_abrt-addon-python_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the abrt-addon-python package is installed:
-$ rpm -q abrt-addon-python
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the abrt-addon-python package is installed: $ rpm -q abrt-addon-python
+      Is it the case that the abrt-addon-python package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_abrt-cli_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the abrt-cli package is installed:
-$ rpm -q abrt-cli
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the abrt-cli package is installed: $ rpm -q abrt-cli
+      Is it the case that the abrt-cli package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_abrt-libs_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the abrt-libs package is installed:
-$ rpm -q abrt-libs
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the abrt-libs package is installed: $ rpm -q abrt-libs
+      Is it the case that the abrt-libs package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_abrt-plugin-logger_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the abrt-plugin-logger package is installed:
-$ rpm -q abrt-plugin-logger
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the abrt-plugin-logger package is installed: $ rpm -q abrt-plugin-logger
+      Is it the case that the abrt-plugin-logger package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_abrt-plugin-rhtsupport_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the abrt-plugin-rhtsupport package is installed:
-$ rpm -q abrt-plugin-rhtsupport
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the abrt-plugin-rhtsupport package is installed: $ rpm -q abrt-plugin-rhtsupport
+      Is it the case that the abrt-plugin-rhtsupport package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_abrt-plugin-sosreport_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the abrt-plugin-sosreport package is installed:
-$ rpm -q abrt-plugin-sosreport
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the abrt-plugin-sosreport package is installed: $ rpm -q abrt-plugin-sosreport
+      Is it the case that the abrt-plugin-sosreport package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_abrt-server-info-page_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the abrt-server-info-page package is installed:
-$ rpm -q abrt-server-info-page
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the abrt-server-info-page package is installed: $ rpm -q abrt-server-info-page
+      Is it the case that the abrt-server-info-page package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_abrt_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the abrt package is installed:
-$ rpm -q abrt
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the abrt package is installed: $ rpm -q abrt
+      Is it the case that the abrt package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_aide_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the aide package is installed: $ rpm -q aide
-      Is it the case that the package is not installed?
+      Is it the case that the aide package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_audispd-plugins_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the audispd-plugins package is installed: $ rpm -q audispd-plugins
-      Is it the case that the package is not installed?
+      Is it the case that the audispd-plugins package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_audit_installed_question:question:1">
@@ -24185,41 +24201,38 @@ $ rpm -q abrt
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_bind_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the bind package is installed:
-$ rpm -q bind
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the bind package is installed: $ rpm -q bind
+      Is it the case that the bind package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_binutils_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the binutils package is installed: $ rpm -q binutils
-      Is it the case that the package is not installed?
+      Is it the case that the binutils package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_chrony_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the chrony package is installed: $ rpm -q chrony
-      Is it the case that the package is not installed?
+      Is it the case that the chrony package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_cron_installed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the cron package is installed:
-$ rpm -q cron
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the cron package is installed: $ rpm -q cron
+      Is it the case that the cron package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_crypto-policies_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the crypto-policies package is installed: $ rpm -q crypto-policies
-      Is it the case that the package is not installed?
+      Is it the case that the crypto-policies package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_dhcp_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the dhcp-server package is installed:
-$ rpm -q dhcp-server
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the dhcp-server package is installed: $ rpm -q dhcp-server
+      Is it the case that the dhcp-server package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_dnf-automatic_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the dnf-automatic package is installed: $ rpm -q dnf-automatic
-      Is it the case that the package is not installed?
+      Is it the case that the dnf-automatic package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_fapolicyd_installed_question:question:1">
@@ -24229,12 +24242,12 @@ $ rpm -q dhcp-server
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_firewalld_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the firewalld package is installed: $ rpm -q firewalld
-      Is it the case that the package is not installed?
+      Is it the case that the firewalld package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_freeradius_removed_question:question:1">
       <ocil:question_text>Run the following command to determine if the freeradius package is installed: $ rpm -q freeradius
-      Is it the case that the package is installed?
+      Is it the case that the freeradius package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_ftp_removed_question:question:1">
@@ -24243,143 +24256,133 @@ $ rpm -q dhcp-server
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_geolite2-city_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the geolite2-city package is installed:
-$ rpm -q geolite2-city
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the geolite2-city package is installed: $ rpm -q geolite2-city
+      Is it the case that the geolite2-city package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_geolite2-country_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the geolite2-country package is installed:
-$ rpm -q geolite2-country
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the geolite2-country package is installed: $ rpm -q geolite2-country
+      Is it the case that the geolite2-country package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_gnutls-utils_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the gnutls-utils package is installed: $ rpm -q gnutls-utils
-      Is it the case that the package is not installed?
+      Is it the case that the gnutls-utils package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_gssproxy_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the gssproxy package is installed:
-$ rpm -q gssproxy
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the gssproxy package is installed: $ rpm -q gssproxy
+      Is it the case that the gssproxy package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_iprutils_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the iprutils package is installed:
-$ rpm -q iprutils
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the iprutils package is installed: $ rpm -q iprutils
+      Is it the case that the iprutils package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_iptables_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the iptables package is installed: $ rpm -q iptables
-      Is it the case that the package is not installed?
+      Is it the case that the iptables package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_krb5-server_removed_question:question:1">
       <ocil:question_text>Run the following command to determine if the krb5-server package is installed: $ rpm -q krb5-server
-      Is it the case that the package is installed?
+      Is it the case that the krb5-server package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_krb5-workstation_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the krb5-workstation package is installed:
-$ rpm -q krb5-workstation
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the krb5-workstation package is installed: $ rpm -q krb5-workstation
+      Is it the case that the krb5-workstation package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_libcap-ng-utils_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the libcap-ng-utils package is installed: $ rpm -q libcap-ng-utils
-      Is it the case that the package is not installed?
+      Is it the case that the libcap-ng-utils package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_libreport-plugin-logger_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the libreport-plugin-logger package is installed:
-$ rpm -q libreport-plugin-logger
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the libreport-plugin-logger package is installed: $ rpm -q libreport-plugin-logger
+      Is it the case that the libreport-plugin-logger package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_libselinux_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the libselinux package is installed: $ rpm -q libselinux
-      Is it the case that the package is not installed?
+      Is it the case that the libselinux package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_logrotate_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the logrotate package is installed: $ rpm -q logrotate
-      Is it the case that the package is not installed?
+      Is it the case that the logrotate package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_mailx_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the mailx package is installed: $ rpm -q mailx
-      Is it the case that the package is not installed?
+      Is it the case that the mailx package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_net-snmp_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the net-snmp package is installed:
-$ rpm -q net-snmp
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the net-snmp package is installed: $ rpm -q net-snmp
+      Is it the case that the net-snmp package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_nfs-utils_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the nfs-utils package is installed:
-$ rpm -q nfs-utils
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the nfs-utils package is installed: $ rpm -q nfs-utils
+      Is it the case that the nfs-utils package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_nftables_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the nftables package is installed: $ rpm -q nftables
-      Is it the case that the package is not installed?
+      Is it the case that the nftables package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_nss-tools_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the nss-tools package is installed: $ rpm -q nss-tools
-      Is it the case that the package is not installed?
+      Is it the case that the nss-tools package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_openldap-clients_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the openldap-clients package is installed:
-$ rpm -q openldap-clients
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the openldap-clients package is installed: $ rpm -q openldap-clients
+      Is it the case that the openldap-clients package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_opensc_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the opensc package is installed: $ rpm -q opensc
-      Is it the case that the package is not installed?
+      Is it the case that the opensc package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_openscap-scanner_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the openscap-scanner package is installed: $ rpm -q openscap-scanner
-      Is it the case that the package is not installed?
+      Is it the case that the openscap-scanner package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_openssh-clients_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the openssh-clients package is installed: $ rpm -q openssh-clients
-      Is it the case that the package is not installed?
+      Is it the case that the openssh-clients package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_openssh-server_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the openssh-server package is installed: $ rpm -q openssh-server
-      Is it the case that the package is not installed?
+      Is it the case that the openssh-server package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_openssh-server_removed_question:question:1">
       <ocil:question_text>Run the following command to determine if the openssh-server package is installed: $ rpm -q openssh-server
-      Is it the case that the package is installed?
+      Is it the case that the openssh-server package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_pcsc-lite_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the pcsc-lite package is installed: $ rpm -q pcsc-lite
-      Is it the case that the package is not installed?
+      Is it the case that the pcsc-lite package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_pigz_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the pigz package is installed:
-$ rpm -q pigz
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the pigz package is installed: $ rpm -q pigz
+      Is it the case that the pigz package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_policycoreutils-python-utils_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the policycoreutils-python-utils package is installed: $ rpm -q policycoreutils-python-utils
-      Is it the case that the package is not installed?
+      Is it the case that the policycoreutils-python-utils package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_policycoreutils_installed_question:question:1">
@@ -24389,29 +24392,27 @@ $ rpm -q pigz
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_postfix_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the postfix package is installed: $ rpm -q postfix
-      Is it the case that the package is not installed?
+      Is it the case that the postfix package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_python3-abrt-addon_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the python3-abrt-addon package is installed:
-$ rpm -q python3-abrt-addon
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the python3-abrt-addon package is installed: $ rpm -q python3-abrt-addon
+      Is it the case that the python3-abrt-addon package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_rear_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the rear package is installed: $ rpm -q rear
-      Is it the case that the package is not installed?
+      Is it the case that the rear package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_rng-tools_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the rng-tools package is installed: $ rpm -q rng-tools
-      Is it the case that the package is not installed?
+      Is it the case that the rng-tools package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_rsh-server_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the rsh-server package is installed:
-$ rpm -q rsh-server
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the rsh-server package is installed: $ rpm -q rsh-server
+      Is it the case that the rsh-server package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_rsh_removed_question:question:1">
@@ -24420,74 +24421,68 @@ $ rpm -q rsh-server
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_rsyslog-gnutls_installed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the rsyslog-gnutls package is installed:
-$ rpm -q rsyslog-gnutls
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the rsyslog-gnutls package is installed: $ rpm -q rsyslog-gnutls
+      Is it the case that the rsyslog-gnutls package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_rsyslog_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the rsyslog package is installed: $ rpm -q rsyslog
-      Is it the case that the package is not installed?
+      Is it the case that the rsyslog package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_scap-security-guide_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the scap-security-guide package is installed: $ rpm -q scap-security-guide
-      Is it the case that the package is not installed?
+      Is it the case that the scap-security-guide package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_sendmail_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the sendmail package is installed:
-$ rpm -q sendmail
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the sendmail package is installed: $ rpm -q sendmail
+      Is it the case that the sendmail package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_setroubleshoot-plugins_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the setroubleshoot-plugins package is installed:
-$ rpm -q setroubleshoot-plugins
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the setroubleshoot-plugins package is installed: $ rpm -q setroubleshoot-plugins
+      Is it the case that the setroubleshoot-plugins package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_setroubleshoot-server_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the setroubleshoot-server package is installed:
-$ rpm -q setroubleshoot-server
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the setroubleshoot-server package is installed: $ rpm -q setroubleshoot-server
+      Is it the case that the setroubleshoot-server package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_squid_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the squid package is installed:
-$ rpm -q squid
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the squid package is installed: $ rpm -q squid
+      Is it the case that the squid package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_sssd-ipa_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the sssd-ipa package is installed: $ rpm -q sssd-ipa
-      Is it the case that the package is not installed?
+      Is it the case that the sssd-ipa package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_sssd_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the sssd package is installed: $ rpm -q sssd
-      Is it the case that the package is not installed?
+      Is it the case that the sssd package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_sudo_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the sudo package is installed: $ rpm -q sudo
-      Is it the case that the package is not installed?
+      Is it the case that the sudo package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_syslogng_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the syslog-ng-core package is installed: $ rpm -q syslog-ng-core
-      Is it the case that the package is not installed?
+      Is it the case that the syslog-ng-core package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_tar_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the tar package is installed: $ rpm -q tar
-      Is it the case that the package is not installed?
+      Is it the case that the tar package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_telnet-server_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the telnet-server package is installed:
-$ rpm -q telnet-server
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the telnet-server package is installed: $ rpm -q telnet-server
+      Is it the case that the telnet-server package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_telnet_removed_question:question:1">
@@ -24496,9 +24491,8 @@ $ rpm -q telnet-server
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_tftp-server_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the tftp-server package is installed:
-$ rpm -q tftp-server
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the tftp-server package is installed: $ rpm -q tftp-server
+      Is it the case that the tftp-server package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_tftp_removed_question:question:1">
@@ -24508,35 +24502,32 @@ $ rpm -q tftp-server
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_tmux_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the tmux package is installed: $ rpm -q tmux
-      Is it the case that the package is not installed?
+      Is it the case that the tmux package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_tuned_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the tuned package is installed:
-$ rpm -q tuned
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the tuned package is installed: $ rpm -q tuned
+      Is it the case that the tuned package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_usbguard_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the usbguard package is installed: $ rpm -q usbguard
-      Is it the case that the package is not installed?
+      Is it the case that the usbguard package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_vim_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the vim-enhanced package is installed: $ rpm -q vim-enhanced
-      Is it the case that the package is not installed?
+      Is it the case that the vim-enhanced package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_vsftpd_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the vsftpd package is installed:
-$ rpm -q vsftpd
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the vsftpd package is installed: $ rpm -q vsftpd
+      Is it the case that the vsftpd package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_xinetd_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the xinetd package is installed:
-$ rpm -q xinetd
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the xinetd package is installed: $ rpm -q xinetd
+      Is it the case that the xinetd package is installed and the network services are not using the xinetd service?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_xorg-x11-server-common_removed_question:question:1">
@@ -24553,9 +24544,8 @@ package xorg-x11-server-common is not installed
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_ypserv_removed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the ypserv package is installed:
-$ rpm -q ypserv
-      Is it the case that the package is installed?
+      <ocil:question_text>Run the following command to determine if the ypserv package is installed: $ rpm -q ypserv
+      Is it the case that the ypserv package is installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-partition_for_boot_question:question:1">
@@ -26545,7 +26535,10 @@ If configured properly, output should be no or delayed.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_disable_empty_passwords_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's PermitEmptyPasswords option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's PermitEmptyPasswords option is set, run the following command:
 
 $ sudo grep -i PermitEmptyPasswords /etc/ssh/sshd_config
 
@@ -26555,7 +26548,10 @@ If a line indicating no is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_disable_gssapi_auth_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's GSSAPIAuthentication option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's GSSAPIAuthentication option is set, run the following command:
 
 $ sudo grep -i GSSAPIAuthentication /etc/ssh/sshd_config
 
@@ -26565,7 +26561,10 @@ If a line indicating no is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_disable_kerb_auth_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's KerberosAuthentication option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's KerberosAuthentication option is set, run the following command:
 
 $ sudo grep -i KerberosAuthentication /etc/ssh/sshd_config
 
@@ -26575,7 +26574,10 @@ If a line indicating no is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_disable_pubkey_auth_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's PubkeyAuthentication option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's PubkeyAuthentication option is set, run the following command:
 
 $ sudo grep -i PubkeyAuthentication /etc/ssh/sshd_config
 
@@ -26585,7 +26587,10 @@ If a line indicating no is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_disable_rhosts_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's IgnoreRhosts option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's IgnoreRhosts option is set, run the following command:
 
 $ sudo grep -i IgnoreRhosts /etc/ssh/sshd_config
 
@@ -26600,6 +26605,9 @@ openssh-server with following command:
 $ rpm -qi openssh-server | grep Version
 Versions equal to or higher than 7.4 have deprecated the RhostsRSAAuthentication option.
 If version is lower than 7.4, run the following command to check configuration:
+
+
+
 To determine how the SSH daemon's RhostsRSAAuthentication option is set, run the following command:
 
 $ sudo grep -i RhostsRSAAuthentication /etc/ssh/sshd_config
@@ -26610,7 +26618,10 @@ If a line indicating no is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_disable_root_login_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's PermitRootLogin option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's PermitRootLogin option is set, run the following command:
 
 $ sudo grep -i PermitRootLogin /etc/ssh/sshd_config
 
@@ -26620,7 +26631,10 @@ If a line indicating no is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_disable_root_password_login_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's PermitRootLogin option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's PermitRootLogin option is set, run the following command:
 
 $ sudo grep -i PermitRootLogin /etc/ssh/sshd_config
 
@@ -26629,7 +26643,10 @@ If a line indicating prohibit-password is returned, then the required value is s
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_disable_tcp_forwarding_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's AllowTcpForwarding option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's AllowTcpForwarding option is set, run the following command:
 
 $ sudo grep -i AllowTcpForwarding /etc/ssh/sshd_config
 
@@ -26638,7 +26655,10 @@ If a line indicating no is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_disable_user_known_hosts_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's IgnoreUserKnownHosts option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's IgnoreUserKnownHosts option is set, run the following command:
 
 $ sudo grep -i IgnoreUserKnownHosts /etc/ssh/sshd_config
 
@@ -26648,7 +26668,10 @@ If a line indicating yes is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_disable_x11_forwarding_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's X11Forwarding option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's X11Forwarding option is set, run the following command:
 
 $ sudo grep -i X11Forwarding /etc/ssh/sshd_config
 
@@ -26658,7 +26681,10 @@ If a line indicating no is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_do_not_permit_user_env_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's PermitUserEnvironment option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's PermitUserEnvironment option is set, run the following command:
 
 $ sudo grep -i PermitUserEnvironment /etc/ssh/sshd_config
 
@@ -26668,7 +26694,10 @@ If a line indicating no is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_enable_gssapi_auth_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's GSSAPIAuthentication option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's GSSAPIAuthentication option is set, run the following command:
 
 $ sudo grep -i GSSAPIAuthentication /etc/ssh/sshd_config
 
@@ -26678,7 +26707,10 @@ If a line indicating yes is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_enable_pam_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's UsePAM option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's UsePAM option is set, run the following command:
 
 $ sudo grep -i UsePAM /etc/ssh/sshd_config
 
@@ -26688,7 +26720,10 @@ If a line indicating yes is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_enable_pubkey_auth_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's PubkeyAuthentication option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's PubkeyAuthentication option is set, run the following command:
 
 $ sudo grep -i PubkeyAuthentication /etc/ssh/sshd_config
 
@@ -26698,7 +26733,10 @@ If a line indicating yes is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_enable_strictmodes_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's StrictModes option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's StrictModes option is set, run the following command:
 
 $ sudo grep -i StrictModes /etc/ssh/sshd_config
 
@@ -26708,7 +26746,10 @@ If a line indicating yes is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_enable_warning_banner_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's Banner option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's Banner option is set, run the following command:
 
 $ sudo grep -i Banner /etc/ssh/sshd_config
 
@@ -26718,7 +26759,10 @@ If a line indicating /etc/issue is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_enable_warning_banner_net_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's Banner option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's Banner option is set, run the following command:
 
 $ sudo grep -i Banner /etc/ssh/sshd_config
 
@@ -26728,7 +26772,10 @@ If a line indicating /etc/issue.net is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_enable_x11_forwarding_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's X11Forwarding option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's X11Forwarding option is set, run the following command:
 
 $ sudo grep -i X11Forwarding /etc/ssh/sshd_config
 
@@ -26746,7 +26793,10 @@ groups allowed to log in to this system.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_print_last_log_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's PrintLastLog option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's PrintLastLog option is set, run the following command:
 
 $ sudo grep -i PrintLastLog /etc/ssh/sshd_config
 
@@ -26811,7 +26861,10 @@ after the configured number seconds.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_set_loglevel_info_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's LogLevel option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's LogLevel option is set, run the following command:
 
 $ sudo grep -i LogLevel /etc/ssh/sshd_config
 
@@ -26821,7 +26874,10 @@ If a line indicating INFO is returned, then the required value is set.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_set_loglevel_verbose_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's LogLevel option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's LogLevel option is set, run the following command:
 
 $ sudo grep -i LogLevel /etc/ssh/sshd_config
 
@@ -26898,7 +26954,10 @@ then the option is set correctly.
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_x11_use_localhost_question:question:1">
-      <ocil:question_text>To determine how the SSH daemon's X11UseLocalhost option is set, run the following command:
+      <ocil:question_text>
+
+
+To determine how the SSH daemon's X11UseLocalhost option is set, run the following command:
 
 $ sudo grep -i X11UseLocalhost /etc/ssh/sshd_config
 
@@ -27288,10 +27347,12 @@ $ sysctl kernel.kexec_load_disabled
       <ocil:question_text>The runtime status of the kernel.kptr_restrict kernel parameter can be queried
 by running the following command:
 $ sysctl kernel.kptr_restrict
-The output of the command should indicate either:
+The output of the command should indicate:
 kernel.kptr_restrict = 1
+
 or:
 kernel.kptr_restrict = 2
+
 The output of the command should not indicate:
 kernel.kptr_restrict = 0
 
@@ -27304,8 +27365,10 @@ Verify that there is not any existing incorrect configuration by executing the f
 $ grep -r '^\s*kernel.kptr_restrict\s*=' /etc/sysctl.conf /etc/sysctl.d
 The command should not find any assignments other than:
 kernel.kptr_restrict = 1
+
 or:
 kernel.kptr_restrict = 2
+
 
 Conflicting assignments are not allowed.
       Is it the case that the kernel.kptr_restrict is not set to 1 or 2 or is configured to be 0?
@@ -28017,10 +28080,8 @@ auth required pam_wheel.so use_uid group=
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-vlock_installed_question:question:1">
-      <ocil:question_text>
-Run the following command to determine if the kbd package is installed:
-$ rpm -q kbd
-      Is it the case that the package is not installed?
+      <ocil:question_text>Run the following command to determine if the kbd package is installed: $ rpm -q kbd
+      Is it the case that the kbd package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-wireless_disable_interfaces_question:question:1">
