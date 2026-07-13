@@ -26,6 +26,8 @@ create scc output directory:
   cmd.run:
     - name: '{{ scc.cmd }} -ua -q'
     - shell: {{ scc.shell }}
+    - require:
+      - pkg: 'install scc'
 
 'analyze {{ pattern }}':
   cmd.run:
