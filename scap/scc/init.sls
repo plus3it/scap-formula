@@ -14,6 +14,10 @@ install scc:
 {%- endif %}
     - allow_updates: True
     - skip_verify: True
+    - retry:
+        attempts: 3
+        interval: 5
+        splay: 10
 
 {%- if os_family == 'Windows' %}
 set permissions option:
