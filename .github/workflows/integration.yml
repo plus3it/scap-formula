@@ -1,0 +1,41 @@
+name: Run terrafirm integration tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      watchmaker-git-url:
+        description: Watchmaker git clone URL
+        required: false
+        default: https://github.com/plus3it/watchmaker.git
+        type: string
+      watchmaker-git-ref:
+        description: Watchmaker git ref
+        required: false
+        default: main
+        type: string
+      formula-archive-url:
+        description: Optional URL to the salt formula zip archive
+        required: false
+        default: ""
+        type: string
+
+  pull_request_review:
+    types: [submitted]
+
+permissions:
+  contents: read
+
+jobs:
+  integration:
+    if: contains(github.event.review.body, '/build') || github.event_name == 'workflow_dispatch'
+    strategy:
+      fail-fast: false
+      matrix:
+        source-build:
+          - win22
+    uses: plus3it/actions-workflows/.github/workflows/test-terrafirm-integration.yml@0a03f75193a010b3532cc90e8ad0b15a09ed33c1
+    with:
+      source-build: ${{ matrix.source-build }}
+      watchmaker-git-url: ${{ github.event.inputs.watchmaker-git-url }}
+      watchmaker-git-ref: ${{ github.event.inputs.watchmaker-git-ref }}
+      formula-archive-url: ${{ github.event.inputs.formula-archive-url }}
