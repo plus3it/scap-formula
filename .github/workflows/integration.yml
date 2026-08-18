@@ -32,7 +32,14 @@ jobs:
       fail-fast: false
       matrix:
         source-build:
+          - al2023
+          - centos9stream
+          - rhel8
           - rhel9
+          - ol8
+          - ol9
+          - win16
+          - win19
           - win22
     uses: plus3it/actions-workflows/.github/workflows/test-terrafirm-integration.yml@0a03f75193a010b3532cc90e8ad0b15a09ed33c1
     with:
