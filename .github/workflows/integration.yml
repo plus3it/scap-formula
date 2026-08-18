@@ -36,7 +36,8 @@ jobs:
           - centos9stream
           - rhel8
           - rhel9
-          - ol8
+          # fails due to lack of disk space in rootVol
+          # - ol8
           - ol9
           - win16
           - win19
