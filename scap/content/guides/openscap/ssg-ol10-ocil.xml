@@ -2,7 +2,7 @@
 <ocil:ocil xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <ocil:generator>
     <ocil:product_name>build_shorthand.py from SCAP Security Guide</ocil:product_name>
-    <ocil:product_version>ssg: 0.1.81</ocil:product_version>
+    <ocil:product_version>ssg: 0.1.82</ocil:product_version>
     <ocil:schema_version>2.0</ocil:schema_version>
     <ocil:timestamp>2021-03-02T15:45:39</ocil:timestamp>
   </ocil:generator>
@@ -95,6 +95,12 @@
       <ocil:title>Verify All Account Password Hashes are Shadowed</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-accounts_password_all_shadowed_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-accounts_password_all_shadowed_sha512_ocil:questionnaire:1">
+      <ocil:title>Verify All Account Password Hashes are Shadowed with SHA512</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-accounts_password_all_shadowed_sha512_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-accounts_password_last_change_is_in_past_ocil:questionnaire:1">
@@ -569,6 +575,12 @@
       <ocil:title>Ensure auditd Collects Information on the Use of Privileged Commands - shutdown</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-audit_privileged_commands_shutdown_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-audit_rules_cron_execution_ocil:questionnaire:1">
+      <ocil:title>Audit Any Script or Executable Called by Cron as Root or by Any Privileged User</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-audit_rules_cron_execution_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-audit_rules_dac_modification_chmod_ocil:questionnaire:1">
@@ -1441,6 +1453,12 @@
         <ocil:test_action_ref>ocil:ssg-coredump_disable_storage_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-crypto_policy_not_overridden_ocil:questionnaire:1">
+      <ocil:title>Ensure System Cryptographic Policy Is Not Overridden</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-crypto_policy_not_overridden_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-dconf_db_up_to_date_ocil:questionnaire:1">
       <ocil:title>Make sure that the dconf databases are up-to-date with regards to respective keyfiles</ocil:title>
       <ocil:actions>
@@ -1799,6 +1817,12 @@
       <ocil:title>Enable FIPS Mode</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-enable_fips_mode_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-enable_gpgcheck_for_all_repositories_ocil:questionnaire:1">
+      <ocil:title>Ensure gpgcheck Is Enabled for All Package Repositories</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-enable_gpgcheck_for_all_repositories_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-enable_pam_namespace_ocil:questionnaire:1">
@@ -2443,6 +2467,12 @@
         <ocil:test_action_ref>ocil:ssg-file_permissions_cron_monthly_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_permissions_cron_not_modified_ocil:questionnaire:1">
+      <ocil:title>Verify Permissions on Cron Configuration Files Are Not Modified</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_permissions_cron_not_modified_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_permissions_cron_weekly_ocil:questionnaire:1">
       <ocil:title>Verify Permissions on cron.weekly</ocil:title>
       <ocil:actions>
@@ -2561,6 +2591,12 @@
       <ocil:title>Verify Permissions on SSH Server config file</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-file_permissions_sshd_config_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_permissions_sshd_config_not_modified_ocil:questionnaire:1">
+      <ocil:title>Verify Permissions on SSH Server Configuration Files Are Not Modified</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_permissions_sshd_config_not_modified_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_permissions_sshd_drop_in_config_ocil:questionnaire:1">
@@ -3269,6 +3305,12 @@
       <ocil:title>Configure Logind to terminate idle sessions after certain time of inactivity</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-logind_session_timeout_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-mount_option_boot_efi_nosuid_ocil:questionnaire:1">
+      <ocil:title>Add nosuid Option to /boot/efi</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-mount_option_boot_efi_nosuid_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-mount_option_boot_nodev_ocil:questionnaire:1">
@@ -3980,6 +4022,12 @@
         <ocil:test_action_ref>ocil:ssg-rsyslog_encrypt_offload_defaultnetstreamdriver_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-rsyslog_filecreatemode_ocil:questionnaire:1">
+      <ocil:title>Ensure rsyslog Default File Permissions Configured</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-rsyslog_filecreatemode_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-rsyslog_files_groupownership_ocil:questionnaire:1">
       <ocil:title>Ensure Log Files Are Owned By Appropriate Group</ocil:title>
       <ocil:actions>
@@ -4002,6 +4050,24 @@
       <ocil:title>Ensure rsyslog Does Not Accept Remote Messages Unless Acting As Log Server</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-rsyslog_nolisten_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-rsyslog_omfwd_authmode_ocil:questionnaire:1">
+      <ocil:title>Ensure Rsyslog omfwd Action Authenticates Remote Logging Server</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-rsyslog_omfwd_authmode_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-rsyslog_omfwd_streamdriver_ocil:questionnaire:1">
+      <ocil:title>Ensure Rsyslog omfwd Action Defines Explicit TLS Stream Driver</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-rsyslog_omfwd_streamdriver_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-rsyslog_omfwd_tls_ocil:questionnaire:1">
+      <ocil:title>Ensure Rsyslog omfwd Action Enables TLS Encryption</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-rsyslog_omfwd_tls_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-rsyslog_remote_access_monitoring_ocil:questionnaire:1">
@@ -4308,6 +4374,12 @@
       <ocil:title>Configure SNMP Service to Use Only SNMPv3 or Newer</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-snmpd_use_newer_protocol_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-socket_pcscd_enabled_ocil:questionnaire:1">
+      <ocil:title>Enable the pcscd Socket</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-socket_pcscd_enabled_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-ssh_client_rekey_limit_ocil:questionnaire:1">
@@ -4832,6 +4904,12 @@
         <ocil:test_action_ref>ocil:ssg-sysctl_net_ipv4_conf_all_forwarding_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-sysctl_net_ipv4_conf_all_log_martians_ocil:questionnaire:1">
+      <ocil:title>Enable Kernel Parameter to Log Martian Packets on all IPv4 Interfaces</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-sysctl_net_ipv4_conf_all_log_martians_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-sysctl_net_ipv4_conf_all_route_localnet_ocil:questionnaire:1">
       <ocil:title>Prevent Routing External Traffic to Local Loopback on All IPv4 Interfaces</ocil:title>
       <ocil:actions>
@@ -4872,6 +4950,12 @@
       <ocil:title>Disable Kernel Parameter for Accepting Source-Routed Packets on IPv4 Interfaces by Default</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-sysctl_net_ipv4_conf_default_accept_source_route_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-sysctl_net_ipv4_conf_default_log_martians_ocil:questionnaire:1">
+      <ocil:title>Enable Kernel Parameter to Log Martian Packets on all IPv4 Interfaces by Default</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-sysctl_net_ipv4_conf_default_log_martians_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-sysctl_net_ipv4_conf_default_rp_filter_ocil:questionnaire:1">
@@ -5253,6 +5337,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-accounts_password_all_shadowed_action:testaction:1" question_ref="ocil:ssg-accounts_password_all_shadowed_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-accounts_password_all_shadowed_sha512_action:testaction:1" question_ref="ocil:ssg-accounts_password_all_shadowed_sha512_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -5885,6 +5977,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-audit_privileged_commands_shutdown_action:testaction:1" question_ref="ocil:ssg-audit_privileged_commands_shutdown_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-audit_rules_cron_execution_action:testaction:1" question_ref="ocil:ssg-audit_rules_cron_execution_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -7052,6 +7152,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-crypto_policy_not_overridden_action:testaction:1" question_ref="ocil:ssg-crypto_policy_not_overridden_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-dconf_db_up_to_date_action:testaction:1" question_ref="ocil:ssg-dconf_db_up_to_date_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -7525,6 +7633,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-enable_fips_mode_action:testaction:1" question_ref="ocil:ssg-enable_fips_mode_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-enable_gpgcheck_for_all_repositories_action:testaction:1" question_ref="ocil:ssg-enable_gpgcheck_for_all_repositories_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -8388,6 +8504,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_cron_not_modified_action:testaction:1" question_ref="ocil:ssg-file_permissions_cron_not_modified_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_cron_weekly_action:testaction:1" question_ref="ocil:ssg-file_permissions_cron_weekly_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -8541,6 +8665,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_sshd_config_action:testaction:1" question_ref="ocil:ssg-file_permissions_sshd_config_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_sshd_config_not_modified_action:testaction:1" question_ref="ocil:ssg-file_permissions_sshd_config_not_modified_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -9492,6 +9624,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-mount_option_boot_efi_nosuid_action:testaction:1" question_ref="ocil:ssg-mount_option_boot_efi_nosuid_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-mount_option_boot_nodev_action:testaction:1" question_ref="ocil:ssg-mount_option_boot_nodev_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -10436,6 +10576,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-rsyslog_filecreatemode_action:testaction:1" question_ref="ocil:ssg-rsyslog_filecreatemode_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-rsyslog_files_groupownership_action:testaction:1" question_ref="ocil:ssg-rsyslog_files_groupownership_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -10461,6 +10609,30 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-rsyslog_nolisten_action:testaction:1" question_ref="ocil:ssg-rsyslog_nolisten_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-rsyslog_omfwd_authmode_action:testaction:1" question_ref="ocil:ssg-rsyslog_omfwd_authmode_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-rsyslog_omfwd_streamdriver_action:testaction:1" question_ref="ocil:ssg-rsyslog_omfwd_streamdriver_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-rsyslog_omfwd_tls_action:testaction:1" question_ref="ocil:ssg-rsyslog_omfwd_tls_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -10869,6 +11041,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-snmpd_use_newer_protocol_action:testaction:1" question_ref="ocil:ssg-snmpd_use_newer_protocol_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-socket_pcscd_enabled_action:testaction:1" question_ref="ocil:ssg-socket_pcscd_enabled_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -11572,6 +11752,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-sysctl_net_ipv4_conf_all_log_martians_action:testaction:1" question_ref="ocil:ssg-sysctl_net_ipv4_conf_all_log_martians_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-sysctl_net_ipv4_conf_all_route_localnet_action:testaction:1" question_ref="ocil:ssg-sysctl_net_ipv4_conf_all_route_localnet_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -11621,6 +11809,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-sysctl_net_ipv4_conf_default_accept_source_route_action:testaction:1" question_ref="ocil:ssg-sysctl_net_ipv4_conf_default_accept_source_route_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-sysctl_net_ipv4_conf_default_log_martians_action:testaction:1" question_ref="ocil:ssg-sysctl_net_ipv4_conf_default_log_martians_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -12135,6 +12331,19 @@ awk '!/\S:x|\*/ {print}' /etc/passwd
 If it produces any output, then a password hash is
 stored in /etc/passwd.
       Is it the case that any stored hashes are found in /etc/passwd?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-accounts_password_all_shadowed_sha512_question:question:1">
+      <ocil:question_text>Verify that the interactive user account passwords are using a strong
+password hash with the following command:
+
+$ sudo cut -d: -f1,2 /etc/shadow
+
+nsauser:$6$kcOnRq/5$NUEYPuyL.wghQwWssXRcLRFiiru7f5JPV6GaJhNC2aK5F3PZpE/BCCtwrxRc/AInKMNX3CdMw11m9STiql12f/
+
+Password hashes ! or * indicate inactive accounts not
+available for logon and are not evaluated.
+      Is it the case that any interactive user password hash does not begin with "$6"?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-accounts_password_last_change_is_in_past_question:question:1">
@@ -12665,10 +12874,9 @@ audit tools by running the following command:
 /usr/sbin/auditd p+i+n+u+g+s+b+acl+xattrs+sha512
 /usr/sbin/ausearch p+i+n+u+g+s+b+acl+xattrs+sha512
 /usr/sbin/aureport p+i+n+u+g+s+b+acl+xattrs+sha512
-/usr/sbin/autrace p+i+n+u+g+s+b+acl+xattrs+sha512
-
 /usr/sbin/rsyslogd p+i+n+u+g+s+b+acl+xattrs+sha512
 /usr/sbin/augenrules p+i+n+u+g+s+b+acl+xattrs+sha512
+
 
 
 If AIDE is configured properly to protect the integrity of the audit tools,
@@ -13077,6 +13285,19 @@ $ sudo auditctl -l | grep shutdown
 
 -a always,exit -F path={{{ path }}}/shutdown -F perm=x -F auid&gt;=1000 -F auid!=unset -k privileged-shutdown
       Is it the case that the command does not return a line, or the line is commented out?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-audit_rules_cron_execution_question:question:1">
+      <ocil:question_text>Verify Oracle Linux 10 is configured to audit the execution of any system call made by cron as root or by any privileged user with the following command:
+
+$ sudo auditctl -l | grep crond_t
+-a always,exit -F arch=b64 -S execve -F subj_type=crond_t -F euid=0 -k cron_exec
+-a always,exit -F arch=b32 -S execve -F subj_type=crond_t -F euid=0 -k cron_exec
+-a always,exit -F arch=b64 -S execve -F subj_type=crond_t -F auid&gt;=1000 -F auid!=unset -k cron_exec
+-a always,exit -F arch=b32 -S execve -F subj_type=crond_t -F auid&gt;=1000 -F auid!=unset -k cron_exec
+
+If this command does not return the expected output, or the lines are commented out, this is a finding.
+      Is it the case that the command does not return the expected output, or the lines are commented out?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-audit_rules_dac_modification_chmod_question:question:1">
@@ -14720,6 +14941,13 @@ Storage=none
       Is it the case that Storage is not set to none or is commented out and the need for core dumps is not documented with the Information System Security Officer (ISSO) as an operational requirement for all domains that have the "core" item assigned?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-crypto_policy_not_overridden_question:question:1">
+      <ocil:question_text>Verify that the cryptographic policy has not been overridden by running:
+$ sudo update-crypto-policies --check
+If compliant, the output confirms the configured policy matches the generated policy.
+      Is it the case that the configured policy does not match the generated policy?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-dconf_db_up_to_date_question:question:1">
       <ocil:question_text>In order to be sure that the databases are up-to-date, run the
 dconf update
@@ -14942,11 +15170,11 @@ A sticky bit must be set on all Oracle Linux 10 public directories to prevent un
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-dir_system_commands_group_root_owned_question:question:1">
       <ocil:question_text>System commands are stored in the following directories:
-/bin 
-/sbin 
-/usr/bin 
-/usr/sbin 
-/usr/local/bin 
+/bin
+/sbin
+/usr/bin
+/usr/sbin
+/usr/local/bin
 /usr/local/sbin
 For each of these directories, run the following command to find directories not
 owned by root:
@@ -14956,11 +15184,11 @@ $ sudo find -L $DIR ! -group root -type d -exec chgrp root {} \;
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-dir_system_commands_root_owned_question:question:1">
       <ocil:question_text>System commands are stored in the following directories:
-/bin 
-/sbin 
-/usr/bin 
-/usr/sbin 
-/usr/local/bin 
+/bin
+/sbin
+/usr/bin
+/usr/sbin
+/usr/local/bin
 /usr/local/sbin
 For each of these directories, run the following command to find directories not
 owned by root:
@@ -15333,6 +15561,16 @@ The output be must:
       Is it the case that FIPS mode is not enabled?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-enable_gpgcheck_for_all_repositories_question:question:1">
+      <ocil:question_text>To determine whether dnf has been configured to disable
+gpgcheck for any repos, inspect all files in
+ and ensure the following does not appear in any
+sections:
+gpgcheck=0
+A value of 0 indicates that gpgcheck has been disabled for that repo.
+      Is it the case that GPG checking is disabled?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-enable_pam_namespace_question:question:1">
       <ocil:question_text>To check if pam_namespace.so is required for user login, run the following command:
 $ grep pam_namespace.so /etc/pam.d/login
@@ -15374,7 +15612,7 @@ $ grep localpkg_gpgcheck /etc/dnf/dnf.conf
 
 localpkg_gpgcheck=1
 
-If "localpkg_gpgcheck" is not set to "1", or if the option is missing or commented out, ask the System Administrator how the certificates for patches and other operating system components are verified.
+If "localpkg_gpgcheck" is not set to "1", "True", or "yes", or if the option is missing or commented out, ask the System Administrator how the certificates for patches and other operating system components are verified.
       Is it the case that there is no process to validate certificates for local packages that is approved by the organization?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -15471,12 +15709,14 @@ stat: cannot stat `/etc/at.deny': No such file or directory
 
 Check the group-owner of each audit tool by running the following command:
 
-$ sudo stat -c "%G %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/rsyslogd /sbin/augenrules
+
+$ sudo stat -c "%G %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/auditd /sbin/rsyslogd /sbin/augenrules
+
 
 root /sbin/auditctl
 root /sbin/aureport
 root /sbin/ausearch
-root /sbin/autrace
+
 root /sbin/auditd
 root /sbin/rsyslogd
 root /sbin/augenrules
@@ -15488,12 +15728,14 @@ root /sbin/augenrules
 
 Check the owner of each audit tool by running the following command:
 
-$ sudo stat -c "%U %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/rsyslogd /sbin/augenrules
+
+$ sudo stat -c "%U %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/auditd /sbin/rsyslogd /sbin/augenrules
+
 
 root /sbin/auditctl
 root /sbin/aureport
 root /sbin/ausearch
-root /sbin/autrace
+
 root /sbin/auditd
 root /sbin/rsyslogd
 root /sbin/augenrules
@@ -15505,7 +15747,8 @@ root /sbin/augenrules
 
 Check the octal permission of each audit tool by running the following command:
 
-$ sudo stat -c "%U %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/rsyslogd /sbin/augenrules
+
+$ sudo stat -c "%U %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/auditd /sbin/rsyslogd /sbin/augenrules
       Is it the case that any of these files have more permissive permissions than 0755?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -15975,8 +16218,12 @@ To properly set the group owner of /etc/audit/rules.d/, run the command:
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_groupownership_home_directories_question:question:1">
       <ocil:question_text>To verify the assigned home directory of all interactive users is group-
-owned by that users primary GID, run the following command:
-# ls -ld $(awk -F: '($3&gt;=1000)&amp;&amp;($7 !~ /nologin/){print $6}' /etc/passwd)
+owned by that user's primary GID, run the following command:
+# ls -ld $(getent passwd | awk -F: '($3&gt;=1000)&amp;&amp;($7 !~ /nologin/)&amp;&amp;($7 !~ /\/false$/){print $6}')
+
+This should return a list of home directories with group ownership matching each user's primary group.
+Using getent passwd instead of reading /etc/passwd directly ensures that remote users
+(LDAP, SSSD, NIS, etc.) are also checked.
       Is it the case that the group ownership is incorrect?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -16380,7 +16627,7 @@ There should be no output.
     <ocil:boolean_question id="ocil:ssg-file_permission_user_init_files_root_question:question:1">
       <ocil:question_text>To verify that all user initialization files have a mode of 0740 or
 less permissive, run the following command:
-$ sudo find /home -type f -name '\.*' \( -perm -0002 -o -perm -0020 \)
+$ sudo find /root /home -type f -name '\.*' \( -perm -0002 -o -perm -0020 \)
 There should be no output.
       Is it the case that they are not 0740 or more permissive?
       </ocil:question_text>
@@ -16488,6 +16735,19 @@ $ ls -l /etc/cron.monthly
 If properly configured, the output should indicate the following permissions:
 -rwx------
       Is it the case that /etc/cron.monthly does not have unix mode -rwx------?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_permissions_cron_not_modified_question:question:1">
+      <ocil:question_text>Verify Oracle Linux 10 is configured so that the permissions
+of cron configuration files and directories are not modified.
+
+Check the permissions of the cron configuration files and directories
+with the following command:
+
+$ rpm --verify cronie crontabs | awk '! ($2 == "c" &amp;&amp; $1 ~ /^.\..\.\.\.\..\./) {print $0}'
+
+If the command returns any output, this is a finding.
+      Is it the case that the command returns any output?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_permissions_cron_weekly_question:question:1">
@@ -16666,6 +16926,19 @@ If properly configured, the output should indicate the following permissions:
       Is it the case that /etc/ssh/sshd_config does not have unix mode -rw-------?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_permissions_sshd_config_not_modified_question:question:1">
+      <ocil:question_text>Verify Oracle Linux 10 is configured so that SSH server configuration
+files' permissions are not modified.
+
+Check the permissions of the SSH server configuration files with the
+following command:
+
+$ sudo rpm --verify openssh-server | awk '! ($2 == "c" &amp;&amp; $1 ~ /^.\..\.\.\.\..\./) {print $0}'
+
+If the command returns any output, this is a finding.
+      Is it the case that the command returns any output?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_permissions_sshd_drop_in_config_question:question:1">
       <ocil:question_text>To check the permissions of files in the /etc/ssh/sshd_config.d directory,
 run the command:
@@ -16799,7 +17072,7 @@ $ sudo firewall-cmd --list-rich-rules --zone=trusted
 The following rich-rules should be listed:
 
 rule family="ipv4" source address="127.0.0.1" destination not address="127.0.0.1" drop
-rule family="ipv6" source address="::1" destination not address="127.0.0.1" drop
+rule family="ipv6" source address="::1" destination not address="::1" drop
 
       Is it the case that loopback traffic is not restricted?
       </ocil:question_text>
@@ -17816,6 +18089,15 @@ configuration StopIdleSessionSec=.
       Is it the case that the option is not configured?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-mount_option_boot_efi_nosuid_question:question:1">
+      <ocil:question_text>Verify the nosuid option is configured for the /boot/efi mount point,
+    run the following command:
+    $ sudo mount | grep '\s/boot/efi\s'
+    . . . /boot/efi . . . nosuid . . .
+
+      Is it the case that the "/boot/efi" file system does not have the "nosuid" option set?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-mount_option_boot_nodev_question:question:1">
       <ocil:question_text>Verify the nodev option is configured for the /boot mount point,
     run the following command:
@@ -18731,6 +19013,16 @@ The output should be:
       Is it the case that rsyslogd DefaultNetstreamDriver not set to gtls?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-rsyslog_filecreatemode_question:question:1">
+      <ocil:question_text>Run the following command:
+# grep ^\$FileCreateMode /etc/rsyslog.conf /etc/rsyslog.d/*.conf
+Verify the output matches:
+$FileCreateMode 0640
+Should a site policy dictate less restrictive permissions, ensure to follow
+said policy.
+      Is it the case that $FileCreateMode is not set or is more permissive than 0640?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-rsyslog_files_groupownership_question:question:1">
       <ocil:question_text>The group-owner of all log files written by rsyslog should be
 root.
@@ -18788,6 +19080,57 @@ input(type="imtcp" port="514")
 input(type="imudp" port="514")
 
       Is it the case that rsyslog accepts remote messages and is not documented as a log aggregation system?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-rsyslog_omfwd_authmode_question:question:1">
+      <ocil:question_text>Verify Oracle Linux 10 authenticates the remote logging server for
+off-loading audit records via rsyslog using the modern "omfwd" action.
+
+Search for active authmode and permittedpeer configurations within
+"omfwd" action blocks with the following command:
+
+$ sudo grep -rE 'streamdriver.authmode|streamdriver.permittedpeer|tls.authmode|tls.permittedpeer' /etc/rsyslog.conf /etc/rsyslog.d/
+
+If an active TCP-based "omfwd" forwarding rule exists on the system
+but the command above returns no active configuration lines with
+a value of "x509/name" for authmode, or if all results are commented
+out, this is a finding.
+
+Additionally, if the permittedpeer is not specified in either of the
+following formats, this is a finding:
+streamdriver.permittedpeer=""
+tls.permittedpeer=""
+      Is it the case that authentication mode is not set to x509/name or permittedpeer is not configured within omfwd action blocks?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-rsyslog_omfwd_streamdriver_question:question:1">
+      <ocil:question_text>Verify Oracle Linux 10 explicitly defines a TLS driver (gtls or ossl)
+for encrypted rsyslog off-loading.
+
+Search for an explicitly defined stream driver within "omfwd" action
+blocks with the following command:
+
+$ sudo grep -rE 'StreamDriver\s*=\s*"(gtls|ossl)"' /etc/rsyslog.conf /etc/rsyslog.d/
+
+If TLS-based "omfwd" forwarding is configured, but the command above
+returns no active configuration lines specifying either "gtls" or "ossl"
+within the action block, this is a finding.
+      Is it the case that no StreamDriver is explicitly defined within omfwd action blocks?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-rsyslog_omfwd_tls_question:question:1">
+      <ocil:question_text>Verify Oracle Linux 10 encrypts audit records offloaded onto a
+different system via rsyslog using the modern "omfwd" action.
+
+Search for active TLS-enabling configurations within "omfwd" action
+blocks with the following command:
+
+$ sudo grep -rE 'tls="on"|StreamDriverMode\s*=\s*"1"' /etc/rsyslog.conf /etc/rsyslog.d/
+
+If an active TCP-based "omfwd" forwarding rule exists on the system
+but the command above returns no active configuration lines, or if
+all results are commented out, this is a finding.
+      Is it the case that TLS encryption is not enabled within omfwd action blocks?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-rsyslog_remote_access_monitoring_question:question:1">
@@ -19471,6 +19814,14 @@ are set, they must have the minimum value of .
 $ sudo grep 'rocommunity\|rwcommunity\|com2sec' /etc/snmp/snmpd.conf | grep -v "^#"
 There should be no output.
       Is it the case that there is output?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-socket_pcscd_enabled_question:question:1">
+      <ocil:question_text>Verify Oracle Linux 10 has the "pcscd" socket set to active with the following command:
+$ systemctl is-active pcscd.socket
+active
+If the "pcscd" socket is not active, this is a finding.
+      Is it the case that the pcscd socket is not enabled or active?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-ssh_client_rekey_limit_question:question:1">
@@ -20375,6 +20726,15 @@ The ability to forward packets is only appropriate for routers.
       Is it the case that IP forwarding value is "1" and the system is not router?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-sysctl_net_ipv4_conf_all_log_martians_question:question:1">
+      <ocil:question_text>The runtime status of the net.ipv4.conf.all.log_martians kernel parameter can be queried
+by running the following command:
+$ sysctl net.ipv4.conf.all.log_martians
+1.
+
+      Is it the case that the correct value is not returned?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sysctl_net_ipv4_conf_all_route_localnet_question:question:1">
       <ocil:question_text>The runtime status of the net.ipv4.conf.all.route_localnet kernel parameter can be queried
 by running the following command:
@@ -20454,6 +20814,15 @@ $ sysctl net.ipv4.conf.default.accept_redirects
 by running the following command:
 $ sysctl net.ipv4.conf.default.accept_source_route
 0.
+
+      Is it the case that the correct value is not returned?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-sysctl_net_ipv4_conf_default_log_martians_question:question:1">
+      <ocil:question_text>The runtime status of the net.ipv4.conf.default.log_martians kernel parameter can be queried
+by running the following command:
+$ sysctl net.ipv4.conf.default.log_martians
+1.
 
       Is it the case that the correct value is not returned?
       </ocil:question_text>

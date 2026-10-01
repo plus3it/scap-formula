@@ -2,7 +2,7 @@
 <ocil:ocil xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <ocil:generator>
     <ocil:product_name>build_shorthand.py from SCAP Security Guide</ocil:product_name>
-    <ocil:product_version>ssg: 0.1.81</ocil:product_version>
+    <ocil:product_version>ssg: 0.1.82</ocil:product_version>
     <ocil:schema_version>2.0</ocil:schema_version>
     <ocil:timestamp>2021-03-02T15:45:39</ocil:timestamp>
   </ocil:generator>
@@ -809,6 +809,12 @@
       <ocil:title>Ensure auditd Collects Information on the Use of Privileged Commands - shutdown</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-audit_privileged_commands_shutdown_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-audit_rules_cron_execution_ocil:questionnaire:1">
+      <ocil:title>Audit Any Script or Executable Called by Cron as Root or by Any Privileged User</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-audit_rules_cron_execution_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-audit_rules_dac_modification_chmod_ocil:questionnaire:1">
@@ -2150,7 +2156,7 @@
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-configure_gnutls_tls_crypto_policy_ocil:questionnaire:1">
-      <ocil:title>Configure GnuTLS library to use DoD-approved TLS Encryption</ocil:title>
+      <ocil:title>Configure GnuTLS library to use Approved TLS Encryption</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-configure_gnutls_tls_crypto_policy_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
@@ -2243,6 +2249,12 @@
       <ocil:title>Ensure SELinux Not Disabled in the kernel arguments</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-coreos_enable_selinux_kernel_argument_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-crypto_policy_not_overridden_ocil:questionnaire:1">
+      <ocil:title>Ensure System Cryptographic Policy Is Not Overridden</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-crypto_policy_not_overridden_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-dconf_db_up_to_date_ocil:questionnaire:1">
@@ -2735,6 +2747,12 @@
       <ocil:title>Ensure gpgcheck Enabled for All dnf Package Repositories</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-ensure_gpgcheck_never_disabled_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-ensure_journald_and_rsyslog_not_active_together_ocil:questionnaire:1">
+      <ocil:title>Ensure journald and rsyslog Are Not Active Together</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-ensure_journald_and_rsyslog_not_active_together_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-ensure_logrotate_activated_ocil:questionnaire:1">
@@ -3391,6 +3409,12 @@
         <ocil:test_action_ref>ocil:ssg-file_permissions_audit_configuration_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_permissions_audit_configuration_stig_ocil:questionnaire:1">
+      <ocil:title>Audit Configuration Files Permissions are 600 or More Restrictive</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_permissions_audit_configuration_stig_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_permissions_backup_etc_group_ocil:questionnaire:1">
       <ocil:title>Verify Permissions on Backup group File</ocil:title>
       <ocil:actions>
@@ -3451,6 +3475,12 @@
         <ocil:test_action_ref>ocil:ssg-file_permissions_cron_monthly_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_permissions_cron_not_modified_ocil:questionnaire:1">
+      <ocil:title>Verify Permissions on Cron Configuration Files Are Not Modified</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_permissions_cron_not_modified_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_permissions_cron_weekly_ocil:questionnaire:1">
       <ocil:title>Verify Permissions on cron.weekly</ocil:title>
       <ocil:actions>
@@ -3479,6 +3509,12 @@
       <ocil:title>Verify Permissions on /etc/audit/auditd.conf</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-file_permissions_etc_audit_auditd_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_permissions_etc_audit_auditd_stig_ocil:questionnaire:1">
+      <ocil:title>Verify Permissions on /etc/audit/auditd.conf</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_permissions_etc_audit_auditd_stig_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_permissions_etc_audit_rulesd_ocil:questionnaire:1">
@@ -4019,6 +4055,12 @@
       <ocil:title>Ensure journald is configured to compress large log files</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-journald_compress_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-journald_disable_forward_to_syslog_ocil:questionnaire:1">
+      <ocil:title>Ensure journald ForwardToSyslog is disabled</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-journald_disable_forward_to_syslog_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-journald_forward_to_syslog_ocil:questionnaire:1">
@@ -7784,6 +7826,12 @@
         <ocil:test_action_ref>ocil:ssg-service_systemd-coredump_disabled_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-service_systemd-journal-upload_enabled_ocil:questionnaire:1">
+      <ocil:title>Enable systemd-journal-upload Service</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-service_systemd-journal-upload_enabled_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-service_systemd-journald_enabled_ocil:questionnaire:1">
       <ocil:title>Enable systemd-journald Service</ocil:title>
       <ocil:actions>
@@ -10022,6 +10070,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-audit_rules_cron_execution_action:testaction:1" question_ref="ocil:ssg-audit_rules_cron_execution_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-audit_rules_dac_modification_chmod_action:testaction:1" question_ref="ocil:ssg-audit_rules_dac_modification_chmod_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -11934,6 +11990,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-crypto_policy_not_overridden_action:testaction:1" question_ref="ocil:ssg-crypto_policy_not_overridden_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-dconf_db_up_to_date_action:testaction:1" question_ref="ocil:ssg-dconf_db_up_to_date_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -12583,6 +12647,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-ensure_gpgcheck_never_disabled_action:testaction:1" question_ref="ocil:ssg-ensure_gpgcheck_never_disabled_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-ensure_journald_and_rsyslog_not_active_together_action:testaction:1" question_ref="ocil:ssg-ensure_journald_and_rsyslog_not_active_together_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -13462,6 +13534,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_audit_configuration_stig_action:testaction:1" question_ref="ocil:ssg-file_permissions_audit_configuration_stig_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_backup_etc_group_action:testaction:1" question_ref="ocil:ssg-file_permissions_backup_etc_group_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -13542,6 +13622,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_cron_not_modified_action:testaction:1" question_ref="ocil:ssg-file_permissions_cron_not_modified_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_cron_weekly_action:testaction:1" question_ref="ocil:ssg-file_permissions_cron_weekly_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -13575,6 +13663,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_etc_audit_auditd_action:testaction:1" question_ref="ocil:ssg-file_permissions_etc_audit_auditd_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_etc_audit_auditd_stig_action:testaction:1" question_ref="ocil:ssg-file_permissions_etc_audit_auditd_stig_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -14295,6 +14391,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-journald_compress_action:testaction:1" question_ref="ocil:ssg-journald_compress_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-journald_disable_forward_to_syslog_action:testaction:1" question_ref="ocil:ssg-journald_disable_forward_to_syslog_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -19318,6 +19422,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-service_systemd-journal-upload_enabled_action:testaction:1" question_ref="ocil:ssg-service_systemd-journal-upload_enabled_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-service_systemd-journald_enabled_action:testaction:1" question_ref="ocil:ssg-service_systemd-journald_enabled_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -21067,9 +21179,9 @@ stored in /etc/passwd.
       <ocil:question_text>Verify that the interactive user account passwords are using a strong
 password hash with the following command:
 
-$ sudo cut -d: -f2 /etc/shadow
+$ sudo cut -d: -f1,2 /etc/shadow
 
-$6$kcOnRq/5$NUEYPuyL.wghQwWssXRcLRFiiru7f5JPV6GaJhNC2aK5F3PZpE/BCCtwrxRc/AInKMNX3CdMw11m9STiql12f/
+nsauser:$6$kcOnRq/5$NUEYPuyL.wghQwWssXRcLRFiiru7f5JPV6GaJhNC2aK5F3PZpE/BCCtwrxRc/AInKMNX3CdMw11m9STiql12f/
 
 Password hashes ! or * indicate inactive accounts not
 available for logon and are not evaluated.
@@ -21665,9 +21777,8 @@ audit tools by running the following command:
 /usr/sbin/ausearch p+i+n+u+g+s+b+acl+xattrs+sha512
 /usr/sbin/aureport p+i+n+u+g+s+b+acl+xattrs+sha512
 /usr/sbin/autrace p+i+n+u+g+s+b+acl+xattrs+sha512
-
-
 /usr/sbin/augenrules p+i+n+u+g+s+b+acl+xattrs+sha512
+
 
 
 If AIDE is configured properly to protect the integrity of the audit tools,
@@ -22577,6 +22688,19 @@ $ sudo auditctl -l | grep shutdown
       Is it the case that the command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-audit_rules_cron_execution_question:question:1">
+      <ocil:question_text>Verify Red Hat Enterprise Linux 9 is configured to audit the execution of any system call made by cron as root or by any privileged user with the following command:
+
+$ sudo auditctl -l | grep crond_t
+-a always,exit -F arch=b64 -S execve -F subj_type=crond_t -F euid=0 -k cron_exec
+-a always,exit -F arch=b32 -S execve -F subj_type=crond_t -F euid=0 -k cron_exec
+-a always,exit -F arch=b64 -S execve -F subj_type=crond_t -F auid&gt;=1000 -F auid!=unset -k cron_exec
+-a always,exit -F arch=b32 -S execve -F subj_type=crond_t -F auid&gt;=1000 -F auid!=unset -k cron_exec
+
+If this command does not return the expected output, or the lines are commented out, this is a finding.
+      Is it the case that the command does not return the expected output, or the lines are commented out?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-audit_rules_dac_modification_chmod_question:question:1">
       <ocil:question_text>To determine if the system is configured to audit calls to the
 chmod system call, run the following command:
@@ -22719,7 +22843,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /etc/cron.d/
 
--w /etc/cron.d/ -p wa -k cronjobs
+
+
+
+-a always,exit -F arch=b32 -F dir=/etc/cron.d/ -F perm=wa -F key=cronjobs
+-a always,exit -F arch=b64 -F dir=/etc/cron.d/ -F perm=wa -F key=cronjobs
       Is it the case that the command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -23059,7 +23187,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep 
 
--w  -p wa -k logins
+
+
+
+-a always,exit -F arch=b32 -F path= -F perm=wa -F key=logins
+-a always,exit -F arch=b64 -F path= -F perm=wa -F key=logins
       Is it the case that the command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -23069,7 +23201,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /var/log/lastlog
 
--w /var/log/lastlog -p wa -k logins
+
+
+
+-a always,exit -F arch=b32 -F path=/var/log/lastlog -F perm=wa -F key=logins
+-a always,exit -F arch=b64 -F path=/var/log/lastlog -F perm=wa -F key=logins
       Is it the case that the command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -23079,7 +23215,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /var/log/tallylog
 
--w /var/log/tallylog -p wa -k logins
+
+
+
+-a always,exit -F arch=b32 -F path=/var/log/tallylog -F perm=wa -F key=logins
+-a always,exit -F arch=b64 -F path=/var/log/tallylog -F perm=wa -F key=logins
       Is it the case that the command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -23403,7 +23543,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /var/log/btmp
 
--w /var/log/btmp -p wa -k session
+
+
+
+-a always,exit -F arch=b32 -F path=/var/log/btmp -F perm=wa -F key=session
+-a always,exit -F arch=b64 -F path=/var/log/btmp -F perm=wa -F key=session
       Is it the case that Audit rule is not present?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -23413,7 +23557,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /var/run/utmp
 
--w /var/run/utmp -p wa -k session
+
+
+
+-a always,exit -F arch=b32 -F path=/var/run/utmp -F perm=wa -F key=session
+-a always,exit -F arch=b64 -F path=/var/run/utmp -F perm=wa -F key=session
       Is it the case that Audit rule is not present?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -23423,7 +23571,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /var/log/wtmp
 
--w /var/log/wtmp -p wa -k session
+
+
+
+-a always,exit -F arch=b32 -F path=/var/log/wtmp -F perm=wa -F key=session
+-a always,exit -F arch=b64 -F path=/var/log/wtmp -F perm=wa -F key=session
       Is it the case that Audit rule is not present?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -23694,7 +23846,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /etc/sudoers
 
--w /etc/sudoers -p wa -k actions
+
+
+
+-a always,exit -F arch=b32 -F path=/etc/sudoers -F perm=wa -F key=actions
+-a always,exit -F arch=b64 -F path=/etc/sudoers -F perm=wa -F key=actions
       Is it the case that the command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -23704,7 +23860,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /etc/sudoers.d/
 
--w /etc/sudoers.d/ -p wa -k actions
+
+
+
+-a always,exit -F arch=b32 -F dir=/etc/sudoers.d/ -F perm=wa -F key=actions
+-a always,exit -F arch=b64 -F dir=/etc/sudoers.d/ -F perm=wa -F key=actions
       Is it the case that the command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -23745,7 +23905,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /etc/sudoers
 
--w /etc/sudoers -p wa -k actions
+
+
+
+-a always,exit -F arch=b32 -F path=/etc/sudoers -F perm=wa -F key=actions
+-a always,exit -F arch=b64 -F path=/etc/sudoers -F perm=wa -F key=actions
 
 
 
@@ -23753,7 +23917,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /etc/sudoers.d/
 
--w /etc/sudoers.d/ -p wa -k actions
+
+
+
+-a always,exit -F arch=b32 -F dir=/etc/sudoers.d/ -F perm=wa -F key=actions
+-a always,exit -F arch=b64 -F dir=/etc/sudoers.d/ -F perm=wa -F key=actions
       Is it the case that there is not output?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -23810,7 +23978,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /etc/localtime
 
--w /etc/localtime -p wa -k audit_time_rules
+
+
+
+-a always,exit -F arch=b32 -F path=/etc/localtime -F perm=wa -F key=audit_time_rules
+-a always,exit -F arch=b64 -F path=/etc/localtime -F perm=wa -F key=audit_time_rules
       Is it the case that the system is not configured to audit time changes?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -24345,7 +24517,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /etc/group
 
--w /etc/group -p wa -k audit_rules_usergroup_modification
+
+
+
+-a always,exit -F arch=b32 -F path=/etc/group -F perm=wa -F key=audit_rules_usergroup_modification
+-a always,exit -F arch=b64 -F path=/etc/group -F perm=wa -F key=audit_rules_usergroup_modification
       Is it the case that the command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -24355,7 +24531,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /etc/gshadow
 
--w /etc/gshadow -p wa -k audit_rules_usergroup_modification
+
+
+
+-a always,exit -F arch=b32 -F path=/etc/gshadow -F perm=wa -F key=audit_rules_usergroup_modification
+-a always,exit -F arch=b64 -F path=/etc/gshadow -F perm=wa -F key=audit_rules_usergroup_modification
       Is it the case that the system is not configured to audit account changes?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -24365,7 +24545,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /etc/group
 
--w /etc/group -p wa -k audit_rules_usergroup_modification
+
+
+
+-a always,exit -F arch=b32 -F path=/etc/group -F perm=wa -F key=audit_rules_usergroup_modification
+-a always,exit -F arch=b64 -F path=/etc/group -F perm=wa -F key=audit_rules_usergroup_modification
       Is it the case that ?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -24375,7 +24559,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /etc/security/opasswd
 
--w /etc/security/opasswd -p wa -k audit_rules_usergroup_modification
+
+
+
+-a always,exit -F arch=b32 -F path=/etc/security/opasswd -F perm=wa -F key=audit_rules_usergroup_modification
+-a always,exit -F arch=b64 -F path=/etc/security/opasswd -F perm=wa -F key=audit_rules_usergroup_modification
       Is it the case that the command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -24385,7 +24573,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /etc/pam.conf
 
--w /etc/pam.conf -p wa -k audit_rules_usergroup_modification
+
+
+
+-a always,exit -F arch=b32 -F path=/etc/pam.conf -F perm=wa -F key=audit_rules_usergroup_modification
+-a always,exit -F arch=b64 -F path=/etc/pam.conf -F perm=wa -F key=audit_rules_usergroup_modification
       Is it the case that ?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -24395,7 +24587,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /etc/pam.conf
 
--w /etc/pam.conf -p wa -k audit_rules_usergroup_modification
+
+
+
+-a always,exit -F arch=b32 -F path=/etc/pam.conf -F perm=wa -F key=audit_rules_usergroup_modification
+-a always,exit -F arch=b64 -F path=/etc/pam.conf -F perm=wa -F key=audit_rules_usergroup_modification
       Is it the case that ?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -24405,7 +24601,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /etc/passwd
 
--w /etc/passwd -p wa -k audit_rules_usergroup_modification
+
+
+
+-a always,exit -F arch=b32 -F path=/etc/passwd -F perm=wa -F key=audit_rules_usergroup_modification
+-a always,exit -F arch=b64 -F path=/etc/passwd -F perm=wa -F key=audit_rules_usergroup_modification
       Is it the case that the command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -24415,7 +24615,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /etc/shadow
 
--w /etc/shadow -p wa -k audit_rules_usergroup_modification
+
+
+
+-a always,exit -F arch=b32 -F path=/etc/shadow -F perm=wa -F key=audit_rules_usergroup_modification
+-a always,exit -F arch=b64 -F path=/etc/shadow -F perm=wa -F key=audit_rules_usergroup_modification
       Is it the case that command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -24425,7 +24629,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /var/spool/cron
 
--w /var/spool/cron -p wa -k cronjobs
+
+
+
+-a always,exit -F arch=b32 -F path=/var/spool/cron -F perm=wa -F key=cronjobs
+-a always,exit -F arch=b64 -F path=/var/spool/cron -F perm=wa -F key=cronjobs
       Is it the case that command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -24435,7 +24643,11 @@ Verify Red Hat Enterprise Linux 9 generates audit records for all events that af
 
 $ sudo auditctl -l | grep /var/log/sudo.log
 
--w /var/log/sudo.log -p wa -k maintenance
+
+
+
+-a always,exit -F arch=b32 -F path=/var/log/sudo.log -F perm=wa -F key=maintenance
+-a always,exit -F arch=b64 -F path=/var/log/sudo.log -F perm=wa -F key=maintenance
       Is it the case that Audit rule is not present?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -24989,7 +25201,7 @@ Ask the System Administrator for the site or program Ports, Protocols, and Servi
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-configure_gnutls_tls_crypto_policy_question:question:1">
-      <ocil:question_text>To verify if GnuTLS uses defined DoD-approved TLS Crypto Policy, run:
+      <ocil:question_text>To verify if GnuTLS uses the defined approved TLS Crypto Policy, run:
 $ sudo grep
 '+VERS-ALL:-VERS-DTLS0.9:-VERS-TLS1.1:-VERS-TLS1.0:-VERS-SSL3.0:-VERS-DTLS1.0'
 /etc/crypto-policies/back-ends/gnutls.config and verify that a match exists.
@@ -25163,6 +25375,13 @@ that SELinux is disabled at boot time.
 If it would be disabled anywhere, make sure to enable it via a
 MachineConfig object.
       Is it the case that SELinux is disabled at boot time?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-crypto_policy_not_overridden_question:question:1">
+      <ocil:question_text>Verify that the cryptographic policy has not been overridden by running:
+$ sudo update-crypto-policies --check
+If compliant, the output confirms the configured policy matches the generated policy.
+      Is it the case that the configured policy does not match the generated policy?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-dconf_db_up_to_date_question:question:1">
@@ -25552,11 +25771,11 @@ $ sudo find PART -xdev -type d -perm -0002 -uid +1000 -print
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-dir_system_commands_group_root_owned_question:question:1">
       <ocil:question_text>System commands are stored in the following directories:
-/bin 
-/sbin 
-/usr/bin 
-/usr/sbin 
-/usr/local/bin 
+/bin
+/sbin
+/usr/bin
+/usr/sbin
+/usr/local/bin
 /usr/local/sbin
 For each of these directories, run the following command to find directories not
 owned by root:
@@ -25566,11 +25785,11 @@ $ sudo find -L $DIR ! -group root -type d -exec chgrp root {} \;
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-dir_system_commands_root_owned_question:question:1">
       <ocil:question_text>System commands are stored in the following directories:
-/bin 
-/sbin 
-/usr/bin 
-/usr/sbin 
-/usr/local/bin 
+/bin
+/sbin
+/usr/bin
+/usr/sbin
+/usr/local/bin
 /usr/local/sbin
 For each of these directories, run the following command to find directories not
 owned by root:
@@ -26008,7 +26227,7 @@ $ grep localpkg_gpgcheck /etc/dnf/dnf.conf
 
 localpkg_gpgcheck=1
 
-If "localpkg_gpgcheck" is not set to "1", or if the option is missing or commented out, ask the System Administrator how the certificates for patches and other operating system components are verified.
+If "localpkg_gpgcheck" is not set to "1", "True", or "yes", or if the option is missing or commented out, ask the System Administrator how the certificates for patches and other operating system components are verified.
       Is it the case that there is no process to validate certificates for local packages that is approved by the organization?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -26020,6 +26239,15 @@ sections:
 gpgcheck=0
 A value of 0 indicates that gpgcheck has been disabled for that repo.
       Is it the case that GPG checking is disabled?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-ensure_journald_and_rsyslog_not_active_together_question:question:1">
+      <ocil:question_text>To verify that exactly one logging system is active, run the following command:
+systemctl is-active rsyslog systemd-journald | grep -c active
+The output should be exactly 1. If the output is 0, no logging is active.
+If the output is 2, both logging systems are active simultaneously. Both
+cases are findings.
+      Is it the case that both rsyslog and systemd-journald services are active, or neither service is active?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-ensure_logrotate_activated_question:question:1">
@@ -26114,12 +26342,16 @@ stat: cannot stat `/etc/at.deny': No such file or directory
 
 Check the group-owner of each audit tool by running the following command:
 
+
 $ sudo stat -c "%G %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/rsyslogd /sbin/augenrules
+
 
 root /sbin/auditctl
 root /sbin/aureport
 root /sbin/ausearch
+
 root /sbin/autrace
+
 root /sbin/auditd
 root /sbin/rsyslogd
 root /sbin/augenrules
@@ -26131,12 +26363,16 @@ root /sbin/augenrules
 
 Check the owner of each audit tool by running the following command:
 
+
 $ sudo stat -c "%U %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/rsyslogd /sbin/augenrules
+
 
 root /sbin/auditctl
 root /sbin/aureport
 root /sbin/ausearch
+
 root /sbin/autrace
+
 root /sbin/auditd
 root /sbin/rsyslogd
 root /sbin/augenrules
@@ -26147,6 +26383,7 @@ root /sbin/augenrules
       <ocil:question_text>Verify the audit tools are protected from unauthorized access, deletion, or modification by checking the permissive mode.
 
 Check the octal permission of each audit tool by running the following command:
+
 
 $ sudo stat -c "%U %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/rsyslogd /sbin/augenrules
       Is it the case that any of these files have more permissive permissions than 0755?
@@ -26748,8 +26985,12 @@ To properly set the group owner of /etc/audit/rules.d/, run the command:
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_groupownership_home_directories_question:question:1">
       <ocil:question_text>To verify the assigned home directory of all interactive users is group-
-owned by that users primary GID, run the following command:
-# ls -ld $(awk -F: '($3&gt;=1000)&amp;&amp;($7 !~ /nologin/){print $6}' /etc/passwd)
+owned by that user's primary GID, run the following command:
+# ls -ld $(getent passwd | awk -F: '($3&gt;=1000)&amp;&amp;($7 !~ /nologin/)&amp;&amp;($7 !~ /\/false$/){print $6}')
+
+This should return a list of home directories with group ownership matching each user's primary group.
+Using getent passwd instead of reading /etc/passwd directly ensures that remote users
+(LDAP, SSSD, NIS, etc.) are also checked.
       Is it the case that the group ownership is incorrect?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -27234,7 +27475,7 @@ There should be no output.
     <ocil:boolean_question id="ocil:ssg-file_permission_user_init_files_root_question:question:1">
       <ocil:question_text>To verify that all user initialization files have a mode of 0740 or
 less permissive, run the following command:
-$ sudo find /home -type f -name '\.*' \( -perm -0002 -o -perm -0020 \)
+$ sudo find /root /home -type f -name '\.*' \( -perm -0002 -o -perm -0020 \)
 There should be no output.
       Is it the case that they are not 0740 or more permissive?
       </ocil:question_text>
@@ -27284,6 +27525,14 @@ correct permissions.
 $ sudo chmod 0640 /etc/audit/
 To properly set the permissions of /etc/audit/rules.d/, run the command:
 $ sudo chmod 0640 /etc/audit/rules.d/
+      Is it the case that ?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_permissions_audit_configuration_stig_question:question:1">
+      <ocil:question_text>To properly set the permissions of /etc/audit/, run the command:
+$ sudo chmod 0600 /etc/audit/
+To properly set the permissions of /etc/audit/rules.d/, run the command:
+$ sudo chmod 0600 /etc/audit/rules.d/
       Is it the case that ?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -27375,6 +27624,19 @@ If properly configured, the output should indicate the following permissions:
       Is it the case that /etc/cron.monthly does not have unix mode -rwx------?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_permissions_cron_not_modified_question:question:1">
+      <ocil:question_text>Verify Red Hat Enterprise Linux 9 is configured so that the permissions
+of cron configuration files and directories are not modified.
+
+Check the permissions of the cron configuration files and directories
+with the following command:
+
+$ rpm --verify cronie crontabs | awk '! ($2 == "c" &amp;&amp; $1 ~ /^.\..\.\.\.\..\./) {print $0}'
+
+If the command returns any output, this is a finding.
+      Is it the case that the command returns any output?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_permissions_cron_weekly_question:question:1">
       <ocil:question_text>To check the permissions of /etc/cron.weekly,
 run the command:
@@ -27417,6 +27679,15 @@ $ ls -l /etc/audit/auditd.conf
 If properly configured, the output should indicate the following permissions:
 -rw-r-----
       Is it the case that /etc/audit/auditd.conf does not have unix mode -rw-r-----?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_permissions_etc_audit_auditd_stig_question:question:1">
+      <ocil:question_text>To check the permissions of /etc/audit/auditd.conf,
+run the command:
+$ ls -l /etc/audit/auditd.conf
+If properly configured, the output should indicate the following permissions:
+-rw-------
+      Is it the case that /etc/audit/auditd.conf does not have unix mode -rw-------?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_permissions_etc_audit_rulesd_question:question:1">
@@ -27770,7 +28041,7 @@ $ sudo firewall-cmd --list-rich-rules --zone=trusted
 The following rich-rules should be listed:
 
 rule family="ipv4" source address="127.0.0.1" destination not address="127.0.0.1" drop
-rule family="ipv6" source address="::1" destination not address="127.0.0.1" drop
+rule family="ipv6" source address="::1" destination not address="::1" drop
 
       Is it the case that loopback traffic is not restricted?
       </ocil:question_text>
@@ -28390,6 +28661,19 @@ grep "^\sCompress" /etc/systemd/journald.conf /etc/systemd/journald.conf.d/*.con
 and it should return
 
 Compress=yes
+
+      Is it the case that is commented out or not configured correctly?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-journald_disable_forward_to_syslog_question:question:1">
+      <ocil:question_text>Run the following command to verify that journald is not forwarding logs to syslog.
+
+grep "^\sForwardToSyslog" /etc/systemd/journald.conf /etc/systemd/journald.conf.d/*.conf
+
+
+and it should return
+
+ForwardToSyslog=no
 
       Is it the case that is commented out or not configured correctly?
       </ocil:question_text>
@@ -34315,6 +34599,16 @@ The output should be similar to:
    Active: inactive (dead) ...
 
       Is it the case that unit systemd-coredump.socket is not masked or running?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-service_systemd-journal-upload_enabled_question:question:1">
+      <ocil:question_text>
+
+Run the following command to determine the current status of the
+systemd-journal-upload service:
+$ sudo systemctl is-active systemd-journal-upload
+If the service is running, it should return the following: active
+      Is it the case that the systemd-journal-upload service is not running?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-service_systemd-journald_enabled_question:question:1">
