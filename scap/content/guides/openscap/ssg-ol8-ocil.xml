@@ -2,7 +2,7 @@
 <ocil:ocil xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <ocil:generator>
     <ocil:product_name>build_shorthand.py from SCAP Security Guide</ocil:product_name>
-    <ocil:product_version>ssg: 0.1.81</ocil:product_version>
+    <ocil:product_version>ssg: 0.1.82</ocil:product_version>
     <ocil:schema_version>2.0</ocil:schema_version>
     <ocil:timestamp>2021-03-02T15:45:39</ocil:timestamp>
   </ocil:generator>
@@ -1867,12 +1867,6 @@
         <ocil:test_action_ref>ocil:ssg-configure_firewalld_ports_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-configure_gnutls_tls_crypto_policy_ocil:questionnaire:1">
-      <ocil:title>Configure GnuTLS library to use DoD-approved TLS Encryption</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-configure_gnutls_tls_crypto_policy_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-configure_kerberos_crypto_policy_ocil:questionnaire:1">
       <ocil:title>Configure Kerberos to use System Crypto Policy</ocil:title>
       <ocil:actions>
@@ -1895,12 +1889,6 @@
       <ocil:title>Configure OpenSSL library to use System Crypto Policy</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-configure_openssl_crypto_policy_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-configure_openssl_tls_crypto_policy_ocil:questionnaire:1">
-      <ocil:title>Configure OpenSSL library to use TLS Encryption</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-configure_openssl_tls_crypto_policy_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-configure_ssh_crypto_policy_ocil:questionnaire:1">
@@ -3343,6 +3331,18 @@
         <ocil:test_action_ref>ocil:ssg-file_permissions_var_log_syslog_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-fips_crypto_subpolicy_ocil:questionnaire:1">
+      <ocil:title>FIPS Must Use a Supported Subpolicy</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-fips_crypto_subpolicy_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-fips_custom_stig_sub_policy_ocil:questionnaire:1">
+      <ocil:title>Implement STIG Sub Crypto Policy</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-fips_custom_stig_sub_policy_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-firewalld-backend_ocil:questionnaire:1">
       <ocil:title>Configure Firewalld to Use the Nftables Backend</ocil:title>
       <ocil:actions>
@@ -3581,6 +3581,12 @@
       <ocil:title>Harden SSHD Crypto Policy</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-harden_sshd_crypto_policy_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-harden_sshd_macs_openssh_conf_crypto_policy_ocil:questionnaire:1">
+      <ocil:title>Configure SSH Client to Use FIPS 140-2 Validated MACs: openssh.config</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-harden_sshd_macs_openssh_conf_crypto_policy_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-harden_sshd_macs_opensshserver_conf_crypto_policy_ocil:questionnaire:1">
@@ -5192,6 +5198,12 @@
         <ocil:test_action_ref>ocil:ssg-rsyslog_encrypt_offload_defaultnetstreamdriver_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-rsyslog_filecreatemode_ocil:questionnaire:1">
+      <ocil:title>Ensure rsyslog Default File Permissions Configured</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-rsyslog_filecreatemode_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-rsyslog_files_groupownership_ocil:questionnaire:1">
       <ocil:title>Ensure Log Files Are Owned By Appropriate Group</ocil:title>
       <ocil:actions>
@@ -5640,6 +5652,12 @@
       <ocil:title>Ensure No Daemons are Unconfined by SELinux</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-selinux_confinement_of_daemons_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-selinux_context_elevation_for_sudo_ocil:questionnaire:1">
+      <ocil:title>Elevate The SELinux Context When An Administrator Calls The Sudo Command</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-selinux_context_elevation_for_sudo_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-selinux_not_disabled_ocil:questionnaire:1">
@@ -6198,12 +6216,6 @@
       <ocil:title>Use Only FIPS 140-2 Validated Ciphers</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-sshd_use_approved_ciphers_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-sshd_use_approved_kex_ordered_stig_ocil:questionnaire:1">
-      <ocil:title>Use Only FIPS 140-2 Validated Key Exchange Algorithms</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-sshd_use_approved_kex_ordered_stig_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-sshd_use_approved_macs_ocil:questionnaire:1">
@@ -9426,14 +9438,6 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-configure_gnutls_tls_crypto_policy_action:testaction:1" question_ref="ocil:ssg-configure_gnutls_tls_crypto_policy_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-configure_kerberos_crypto_policy_action:testaction:1" question_ref="ocil:ssg-configure_kerberos_crypto_policy_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -9459,14 +9463,6 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-configure_openssl_crypto_policy_action:testaction:1" question_ref="ocil:ssg-configure_openssl_crypto_policy_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-configure_openssl_tls_crypto_policy_action:testaction:1" question_ref="ocil:ssg-configure_openssl_tls_crypto_policy_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -11394,6 +11390,22 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-fips_crypto_subpolicy_action:testaction:1" question_ref="ocil:ssg-fips_crypto_subpolicy_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-fips_custom_stig_sub_policy_action:testaction:1" question_ref="ocil:ssg-fips_custom_stig_sub_policy_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-firewalld-backend_action:testaction:1" question_ref="ocil:ssg-firewalld-backend_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -11707,6 +11719,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-harden_sshd_crypto_policy_action:testaction:1" question_ref="ocil:ssg-harden_sshd_crypto_policy_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-harden_sshd_macs_openssh_conf_crypto_policy_action:testaction:1" question_ref="ocil:ssg-harden_sshd_macs_openssh_conf_crypto_policy_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -13858,6 +13878,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-rsyslog_filecreatemode_action:testaction:1" question_ref="ocil:ssg-rsyslog_filecreatemode_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-rsyslog_files_groupownership_action:testaction:1" question_ref="ocil:ssg-rsyslog_files_groupownership_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -14451,6 +14479,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-selinux_confinement_of_daemons_action:testaction:1" question_ref="ocil:ssg-selinux_confinement_of_daemons_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-selinux_context_elevation_for_sudo_action:testaction:1" question_ref="ocil:ssg-selinux_context_elevation_for_sudo_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -15195,14 +15231,6 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-sshd_use_approved_ciphers_action:testaction:1" question_ref="ocil:ssg-sshd_use_approved_ciphers_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-sshd_use_approved_kex_ordered_stig_action:testaction:1" question_ref="ocil:ssg-sshd_use_approved_kex_ordered_stig_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -16406,9 +16434,9 @@ stored in /etc/passwd.
       <ocil:question_text>Verify that the interactive user account passwords are using a strong
 password hash with the following command:
 
-$ sudo cut -d: -f2 /etc/shadow
+$ sudo cut -d: -f1,2 /etc/shadow
 
-$6$kcOnRq/5$NUEYPuyL.wghQwWssXRcLRFiiru7f5JPV6GaJhNC2aK5F3PZpE/BCCtwrxRc/AInKMNX3CdMw11m9STiql12f/
+nsauser:$6$kcOnRq/5$NUEYPuyL.wghQwWssXRcLRFiiru7f5JPV6GaJhNC2aK5F3PZpE/BCCtwrxRc/AInKMNX3CdMw11m9STiql12f/
 
 Password hashes ! or * indicate inactive accounts not
 available for logon and are not evaluated.
@@ -16935,9 +16963,9 @@ audit tools by running the following command:
 /usr/sbin/ausearch p+i+n+u+g+s+b+acl+xattrs+sha512
 /usr/sbin/aureport p+i+n+u+g+s+b+acl+xattrs+sha512
 /usr/sbin/autrace p+i+n+u+g+s+b+acl+xattrs+sha512
-
 /usr/sbin/rsyslogd p+i+n+u+g+s+b+acl+xattrs+sha512
 /usr/sbin/augenrules p+i+n+u+g+s+b+acl+xattrs+sha512
+
 
 
 If AIDE is configured properly to protect the integrity of the audit tools,
@@ -19597,14 +19625,6 @@ Ask the System Administrator for the site or program Ports, Protocols, and Servi
       Is it the case that there are additional ports, protocols, or services that are not in the PPSM CLSA, or there are ports, protocols, or services that are prohibited by the PPSM Category Assurance List (CAL), or there are no firewall rules configured?
       </ocil:question_text>
     </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-configure_gnutls_tls_crypto_policy_question:question:1">
-      <ocil:question_text>To verify if GnuTLS uses defined DoD-approved TLS Crypto Policy, run:
-$ sudo grep
-'+VERS-ALL:-VERS-DTLS0.9:-VERS-TLS1.1:-VERS-TLS1.0:-VERS-SSL3.0:-VERS-DTLS1.0'
-/etc/crypto-policies/back-ends/gnutls.config and verify that a match exists.
-      Is it the case that cryptographic policy for gnutls is not configured or is configured incorrectly?
-      </ocil:question_text>
-    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-configure_kerberos_crypto_policy_question:question:1">
       <ocil:question_text>Check that the symlink exists and target the correct Kerberos crypto policy, with the following command:
 file /etc/krb5.conf.d/crypto-policies
@@ -19651,14 +19671,6 @@ card_drivers = ;
 $ sudo grep '\.include\s* /etc/crypto-policies/back-ends/opensslcnf.config$' /etc/pki/tls/openssl.cnf.
       Is it the case that the OpenSSL config file doesn't contain the whole section,
 or the section doesn't contain the &lt;pre&gt;.include /etc/crypto-policies/back-ends/opensslcnf.config&lt;/pre&gt; directive?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-configure_openssl_tls_crypto_policy_question:question:1">
-      <ocil:question_text>To verify if the OpenSSL uses defined TLS Crypto Policy, run:
-$ grep -P '^(TLS\.)?MinProtocol' /etc/crypto-policies/back-ends/opensslcnf.config
-and verify that the value is
-TLSv1.2
-      Is it the case that cryptographic policy for openssl is not configured or is configured incorrectly?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-configure_ssh_crypto_policy_question:question:1">
@@ -20145,11 +20157,11 @@ $ sudo find PART -xdev -type d -perm -0002 -gid +999 -print
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-dir_system_commands_group_root_owned_question:question:1">
       <ocil:question_text>System commands are stored in the following directories:
-/bin 
-/sbin 
-/usr/bin 
-/usr/sbin 
-/usr/local/bin 
+/bin
+/sbin
+/usr/bin
+/usr/sbin
+/usr/local/bin
 /usr/local/sbin
 For each of these directories, run the following command to find directories not
 owned by root:
@@ -20159,11 +20171,11 @@ $ sudo find -L $DIR ! -group root -type d -exec chgrp root {} \;
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-dir_system_commands_root_owned_question:question:1">
       <ocil:question_text>System commands are stored in the following directories:
-/bin 
-/sbin 
-/usr/bin 
-/usr/sbin 
-/usr/local/bin 
+/bin
+/sbin
+/usr/bin
+/usr/sbin
+/usr/local/bin
 /usr/local/sbin
 For each of these directories, run the following command to find directories not
 owned by root:
@@ -20605,7 +20617,7 @@ $ grep localpkg_gpgcheck /etc/yum.conf
 
 localpkg_gpgcheck=1
 
-If "localpkg_gpgcheck" is not set to "1", or if the option is missing or commented out, ask the System Administrator how the certificates for patches and other operating system components are verified.
+If "localpkg_gpgcheck" is not set to "1", "True", or "yes", or if the option is missing or commented out, ask the System Administrator how the certificates for patches and other operating system components are verified.
       Is it the case that there is no process to validate certificates for local packages that is approved by the organization?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -20715,12 +20727,16 @@ stat: cannot stat `/etc/at.deny': No such file or directory
 
 Check the group-owner of each audit tool by running the following command:
 
+
 $ sudo stat -c "%G %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/rsyslogd /sbin/augenrules
+
 
 root /sbin/auditctl
 root /sbin/aureport
 root /sbin/ausearch
+
 root /sbin/autrace
+
 root /sbin/auditd
 root /sbin/rsyslogd
 root /sbin/augenrules
@@ -20732,12 +20748,16 @@ root /sbin/augenrules
 
 Check the owner of each audit tool by running the following command:
 
+
 $ sudo stat -c "%U %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/rsyslogd /sbin/augenrules
+
 
 root /sbin/auditctl
 root /sbin/aureport
 root /sbin/ausearch
+
 root /sbin/autrace
+
 root /sbin/auditd
 root /sbin/rsyslogd
 root /sbin/augenrules
@@ -20748,6 +20768,7 @@ root /sbin/augenrules
       <ocil:question_text>Verify the audit tools are protected from unauthorized access, deletion, or modification by checking the permissive mode.
 
 Check the octal permission of each audit tool by running the following command:
+
 
 $ sudo stat -c "%U %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/rsyslogd /sbin/augenrules
       Is it the case that any of these files have more permissive permissions than 0755?
@@ -21258,8 +21279,12 @@ To properly set the group owner of /etc/audit/rules.d/, run the command:
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_groupownership_home_directories_question:question:1">
       <ocil:question_text>To verify the assigned home directory of all interactive users is group-
-owned by that users primary GID, run the following command:
-# ls -ld $(awk -F: '($3&gt;=1000)&amp;&amp;($7 !~ /nologin/){print $6}' /etc/passwd)
+owned by that user's primary GID, run the following command:
+# ls -ld $(getent passwd | awk -F: '($3&gt;=1000)&amp;&amp;($7 !~ /nologin/)&amp;&amp;($7 !~ /\/false$/){print $6}')
+
+This should return a list of home directories with group ownership matching each user's primary group.
+Using getent passwd instead of reading /etc/passwd directly ensures that remote users
+(LDAP, SSSD, NIS, etc.) are also checked.
       Is it the case that the group ownership is incorrect?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -21709,7 +21734,7 @@ There should be no output.
     <ocil:boolean_question id="ocil:ssg-file_permission_user_init_files_root_question:question:1">
       <ocil:question_text>To verify that all user initialization files have a mode of 0740 or
 less permissive, run the following command:
-$ sudo find /home -type f -name '\.*' \( -perm -0002 -o -perm -0020 \)
+$ sudo find /root /home -type f -name '\.*' \( -perm -0002 -o -perm -0020 \)
 There should be no output.
       Is it the case that they are not 0740 or more permissive?
       </ocil:question_text>
@@ -22149,6 +22174,23 @@ If properly configured, the output should indicate the following permissions:
       Is it the case that /var/log/syslog does not have unix mode -rw-r-----?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-fips_crypto_subpolicy_question:question:1">
+      <ocil:question_text>Show the configured systemwide cryptographic policy by running the following command:
+
+$ sudo update-crypto-policies --show
+FIPS
+      Is it the case that using an insecure sub-policy?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-fips_custom_stig_sub_policy_question:question:1">
+      <ocil:question_text>Verify that /etc/crypto-policies/policies/modules/STIG.pmod exists and has the following content:
+
+cipher@SSH=AES-256-GCM AES-256-CTR AES-128-GCM AES-128-CTR
+mac@SSH=HMAC-SHA2-512 HMAC-SHA2-256
+
+      Is it the case that the STIG subpolicy does not exist?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-firewalld-backend_question:question:1">
       <ocil:question_text>Verify "nftables" is configured to allow rate limits on any connection to the system with the following command:
 
@@ -22170,7 +22212,7 @@ $ sudo firewall-cmd --list-rich-rules --zone=trusted
 The following rich-rules should be listed:
 
 rule family="ipv4" source address="127.0.0.1" destination not address="127.0.0.1" drop
-rule family="ipv6" source address="::1" destination not address="127.0.0.1" drop
+rule family="ipv6" source address="::1" destination not address="::1" drop
 
       Is it the case that loopback traffic is not restricted?
       </ocil:question_text>
@@ -22667,6 +22709,14 @@ $ grep 'CRYPTO_POLICY' /etc/crypto-policies/back-ends/opensshserver.config | tai
 and verify that the line matches
 CRYPTO_POLICY='-oCiphers=aes256-ctr,aes128-ctr,aes256-cbc,aes128-cbc -oMACs=hmac-sha2-512,hmac-sha2-256 -oGSSAPIKeyExchange=no -oKexAlgorithms=ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group14-sha1 -oHostKeyAlgorithms=ssh-rsa,ecdsa-sha2-nistp384,ecdsa-sha2-nistp256 -oPubkeyAcceptedKeyTypes=rsa-sha2-512,rsa-sha2-256,ssh-rsa,ecdsa-sha2-nistp384,ecdsa-sha2-nistp256'
       Is it the case that Crypto Policy for OpenSSH Server is not configured according to CC requirements?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-harden_sshd_macs_openssh_conf_crypto_policy_question:question:1">
+      <ocil:question_text>To verify if the OpenSSH client uses defined MACs in the Crypto Policy, run:
+$ grep -i macs /etc/crypto-policies/back-ends/openssh.config
+and verify that the line matches:
+MACs 
+      Is it the case that Crypto Policy for OpenSSH client is not configured correctly?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-harden_sshd_macs_opensshserver_conf_crypto_policy_question:question:1">
@@ -24835,6 +24885,16 @@ The output should be:
       Is it the case that rsyslogd DefaultNetstreamDriver not set to gtls?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-rsyslog_filecreatemode_question:question:1">
+      <ocil:question_text>Run the following command:
+# grep ^\$FileCreateMode /etc/rsyslog.conf /etc/rsyslog.d/*.conf
+Verify the output matches:
+$FileCreateMode 0640
+Should a site policy dictate less restrictive permissions, ensure to follow
+said policy.
+      Is it the case that $FileCreateMode is not set or is more permissive than 0640?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-rsyslog_files_groupownership_question:question:1">
       <ocil:question_text>The group-owner of all log files written by rsyslog should be
 root.
@@ -25546,6 +25606,17 @@ It should produce no output in a well-configured system.
 the following command should produce no output:
 $ sudo ps -eZ | grep "unconfined_service_t"
       Is it the case that There are unconfined daemons running on the system?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-selinux_context_elevation_for_sudo_question:question:1">
+      <ocil:question_text>Verify the operating system elevates the SELinux context when an administrator calls the
+sudo command with the following command:
+
+This command must be ran as root:
+grep sysadm_r /etc/sudoers.d/*
+%wheel ALL=(ALL) TYPE=sysadm_t ROLE=sysadm_r ALL
+
+      Is it the case that selinux context does not elevate when running sudo command?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-selinux_not_disabled_question:question:1">
@@ -26915,15 +26986,6 @@ ciphers are in use, run the following command:
 $ sudo grep Ciphers /etc/ssh/sshd_config
 The output should contain only those ciphers which are FIPS-approved.
       Is it the case that FIPS ciphers are not configured or the enabled ciphers are not FIPS-approved?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-sshd_use_approved_kex_ordered_stig_question:question:1">
-      <ocil:question_text>Only FIPS-approved key exchange algorithms must be used. To verify that only FIPS-approved
-key exchange algorithms are in use, run the following command:
-$ sudo grep -i kexalgorithms /etc/crypto-policies/back-ends/opensshserver.config
-The output should contain only following algorithms (or a subset) in the exact order:
-CRYPTO_POLICY='-oKexAlgorithms=ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512'
-      Is it the case that KexAlgorithms option is commented out, contains non-approved algorithms, or the FIPS-approved algorithms are not in the exact order?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_use_approved_macs_question:question:1">

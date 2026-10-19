@@ -2,7 +2,7 @@
 <ocil:ocil xmlns:ocil="http://scap.nist.gov/schema/ocil/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <ocil:generator>
     <ocil:product_name>build_shorthand.py from SCAP Security Guide</ocil:product_name>
-    <ocil:product_version>ssg: 0.1.81</ocil:product_version>
+    <ocil:product_version>ssg: 0.1.82</ocil:product_version>
     <ocil:schema_version>2.0</ocil:schema_version>
     <ocil:timestamp>2021-03-02T15:45:39</ocil:timestamp>
   </ocil:generator>
@@ -439,6 +439,12 @@
         <ocil:test_action_ref>ocil:ssg-audit_privileged_commands_shutdown_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-audit_rules_cron_execution_ocil:questionnaire:1">
+      <ocil:title>Audit Any Script or Executable Called by Cron as Root or by Any Privileged User</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-audit_rules_cron_execution_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-audit_rules_dac_modification_chmod_ocil:questionnaire:1">
       <ocil:title>Record Events that Modify the System's Discretionary Access Controls - chmod</ocil:title>
       <ocil:actions>
@@ -527,12 +533,6 @@
       <ocil:title>Record Events that Modify the System's Discretionary Access Controls - umount2</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-audit_rules_dac_modification_umount2_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-audit_rules_etc_cron_d_ocil:questionnaire:1">
-      <ocil:title>Ensure auditd Collects Changes to Cron Jobs - /etc/cron.d/</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-audit_rules_etc_cron_d_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-audit_rules_execution_chacl_ocil:questionnaire:1">
@@ -943,12 +943,6 @@
         <ocil:test_action_ref>ocil:ssg-audit_rules_usergroup_modification_shadow_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-audit_rules_var_spool_cron_ocil:questionnaire:1">
-      <ocil:title>Ensure auditd Collects Changes to Cron Jobs - /var/spool/cron</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-audit_rules_var_spool_cron_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-audit_sudo_log_events_ocil:questionnaire:1">
       <ocil:title>Record Attempts to perform maintenance activities</ocil:title>
       <ocil:actions>
@@ -1175,6 +1169,12 @@
       <ocil:title>Disable storing core dump</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-coredump_disable_storage_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-crypto_policy_not_overridden_ocil:questionnaire:1">
+      <ocil:title>Ensure System Cryptographic Policy Is Not Overridden</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-crypto_policy_not_overridden_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-dconf_db_up_to_date_ocil:questionnaire:1">
@@ -1891,6 +1891,12 @@
         <ocil:test_action_ref>ocil:ssg-file_permissions_audit_configuration_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_permissions_audit_configuration_stig_ocil:questionnaire:1">
+      <ocil:title>Audit Configuration Files Permissions are 600 or More Restrictive</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_permissions_audit_configuration_stig_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_permissions_backup_etc_group_ocil:questionnaire:1">
       <ocil:title>Verify Permissions on Backup group File</ocil:title>
       <ocil:actions>
@@ -1951,6 +1957,12 @@
         <ocil:test_action_ref>ocil:ssg-file_permissions_cron_monthly_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
+    <ocil:questionnaire id="ocil:ssg-file_permissions_cron_not_modified_ocil:questionnaire:1">
+      <ocil:title>Verify Permissions on Cron Configuration Files Are Not Modified</ocil:title>
+      <ocil:actions>
+        <ocil:test_action_ref>ocil:ssg-file_permissions_cron_not_modified_action:testaction:1</ocil:test_action_ref>
+      </ocil:actions>
+    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_permissions_cron_weekly_ocil:questionnaire:1">
       <ocil:title>Verify Permissions on cron.weekly</ocil:title>
       <ocil:actions>
@@ -1961,12 +1973,6 @@
       <ocil:title>Verify Permissions on crontab</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-file_permissions_crontab_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-file_permissions_etc_audit_auditd_ocil:questionnaire:1">
-      <ocil:title>Verify Permissions on /etc/audit/auditd.conf</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-file_permissions_etc_audit_auditd_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-file_permissions_etc_group_ocil:questionnaire:1">
@@ -2623,12 +2629,6 @@
         <ocil:test_action_ref>ocil:ssg-package_chrony_installed_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-package_cron_installed_ocil:questionnaire:1">
-      <ocil:title>Install the cron service</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-package_cron_installed_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-package_crypto-policies_installed_ocil:questionnaire:1">
       <ocil:title>Install crypto-policies package</ocil:title>
       <ocil:actions>
@@ -3246,12 +3246,6 @@
       <ocil:title>Verify the SSH Private Key Files Have a Passcode</ocil:title>
       <ocil:actions>
         <ocil:test_action_ref>ocil:ssg-ssh_keys_passphrase_protected_action:testaction:1</ocil:test_action_ref>
-      </ocil:actions>
-    </ocil:questionnaire>
-    <ocil:questionnaire id="ocil:ssg-sshd_disable_compression_ocil:questionnaire:1">
-      <ocil:title>Disable Compression Or Set Compression to delayed</ocil:title>
-      <ocil:actions>
-        <ocil:test_action_ref>ocil:ssg-sshd_disable_compression_action:testaction:1</ocil:test_action_ref>
       </ocil:actions>
     </ocil:questionnaire>
     <ocil:questionnaire id="ocil:ssg-sshd_disable_empty_passwords_ocil:questionnaire:1">
@@ -4318,6 +4312,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-audit_rules_cron_execution_action:testaction:1" question_ref="ocil:ssg-audit_rules_cron_execution_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-audit_rules_dac_modification_chmod_action:testaction:1" question_ref="ocil:ssg-audit_rules_dac_modification_chmod_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -4431,14 +4433,6 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-audit_rules_dac_modification_umount2_action:testaction:1" question_ref="ocil:ssg-audit_rules_dac_modification_umount2_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-audit_rules_etc_cron_d_action:testaction:1" question_ref="ocil:ssg-audit_rules_etc_cron_d_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -4990,14 +4984,6 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-audit_rules_var_spool_cron_action:testaction:1" question_ref="ocil:ssg-audit_rules_var_spool_cron_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-audit_sudo_log_events_action:testaction:1" question_ref="ocil:ssg-audit_sudo_log_events_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -5295,6 +5281,14 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-coredump_disable_storage_action:testaction:1" question_ref="ocil:ssg-coredump_disable_storage_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-crypto_policy_not_overridden_action:testaction:1" question_ref="ocil:ssg-crypto_policy_not_overridden_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -6254,6 +6248,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_audit_configuration_stig_action:testaction:1" question_ref="ocil:ssg-file_permissions_audit_configuration_stig_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_backup_etc_group_action:testaction:1" question_ref="ocil:ssg-file_permissions_backup_etc_group_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -6334,6 +6336,14 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
+    <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_cron_not_modified_action:testaction:1" question_ref="ocil:ssg-file_permissions_cron_not_modified_question:question:1">
+      <ocil:when_true>
+        <ocil:result>PASS</ocil:result>
+      </ocil:when_true>
+      <ocil:when_false>
+        <ocil:result>FAIL</ocil:result>
+      </ocil:when_false>
+    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_cron_weekly_action:testaction:1" question_ref="ocil:ssg-file_permissions_cron_weekly_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -6343,14 +6353,6 @@
       </ocil:when_false>
     </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_crontab_action:testaction:1" question_ref="ocil:ssg-file_permissions_crontab_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-file_permissions_etc_audit_auditd_action:testaction:1" question_ref="ocil:ssg-file_permissions_etc_audit_auditd_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
       </ocil:when_true>
@@ -7230,14 +7232,6 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-package_cron_installed_action:testaction:1" question_ref="ocil:ssg-package_cron_installed_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-package_crypto-policies_installed_action:testaction:1" question_ref="ocil:ssg-package_crypto-policies_installed_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -8062,14 +8056,6 @@
         <ocil:result>FAIL</ocil:result>
       </ocil:when_false>
     </ocil:boolean_question_test_action>
-    <ocil:boolean_question_test_action id="ocil:ssg-sshd_disable_compression_action:testaction:1" question_ref="ocil:ssg-sshd_disable_compression_question:question:1">
-      <ocil:when_true>
-        <ocil:result>PASS</ocil:result>
-      </ocil:when_true>
-      <ocil:when_false>
-        <ocil:result>FAIL</ocil:result>
-      </ocil:when_false>
-    </ocil:boolean_question_test_action>
     <ocil:boolean_question_test_action id="ocil:ssg-sshd_disable_empty_passwords_action:testaction:1" question_ref="ocil:ssg-sshd_disable_empty_passwords_question:question:1">
       <ocil:when_true>
         <ocil:result>PASS</ocil:result>
@@ -8879,9 +8865,9 @@ stored in /etc/passwd.
       <ocil:question_text>Verify that the interactive user account passwords are using a strong
 password hash with the following command:
 
-$ sudo cut -d: -f2 /etc/shadow
+$ sudo cut -d: -f1,2 /etc/shadow
 
-$6$kcOnRq/5$NUEYPuyL.wghQwWssXRcLRFiiru7f5JPV6GaJhNC2aK5F3PZpE/BCCtwrxRc/AInKMNX3CdMw11m9STiql12f/
+nsauser:$6$kcOnRq/5$NUEYPuyL.wghQwWssXRcLRFiiru7f5JPV6GaJhNC2aK5F3PZpE/BCCtwrxRc/AInKMNX3CdMw11m9STiql12f/
 
 Password hashes ! or * indicate inactive accounts not
 available for logon and are not evaluated.
@@ -9351,8 +9337,8 @@ audit tools by running the following command:
 /usr/sbin/aureport p+i+n+u+g+s+b+acl+selinux+xattrs+sha512
 /usr/sbin/autrace p+i+n+u+g+s+b+acl+selinux+xattrs+sha512
 /usr/sbin/audispd p+i+n+u+g+s+b+acl+selinux+xattrs+sha512
-
 /usr/sbin/augenrules p+i+n+u+g+s+b+acl+selinux+xattrs+sha512
+
 
 
 If AIDE is configured properly to protect the integrity of the audit tools,
@@ -9440,6 +9426,19 @@ $ sudo auditctl -l | grep shutdown
 
 -a always,exit -F path={{{ path }}}/shutdown -F perm=x -F auid&gt;=1000 -F auid!=unset -k privileged-shutdown
       Is it the case that the command does not return a line, or the line is commented out?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-audit_rules_cron_execution_question:question:1">
+      <ocil:question_text>Verify Amazon Linux 2023 is configured to audit the execution of any system call made by cron as root or by any privileged user with the following command:
+
+$ sudo auditctl -l | grep crond_t
+-a always,exit -F arch=b64 -S execve -F subj_type=crond_t -F euid=0 -k cron_exec
+-a always,exit -F arch=b32 -S execve -F subj_type=crond_t -F euid=0 -k cron_exec
+-a always,exit -F arch=b64 -S execve -F subj_type=crond_t -F auid&gt;=1000 -F auid!=unset -k cron_exec
+-a always,exit -F arch=b32 -S execve -F subj_type=crond_t -F auid&gt;=1000 -F auid!=unset -k cron_exec
+
+If this command does not return the expected output, or the lines are commented out, this is a finding.
+      Is it the case that the command does not return the expected output, or the lines are commented out?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-audit_rules_dac_modification_chmod_question:question:1">
@@ -9576,16 +9575,6 @@ $ sudo grep "umount2" /etc/audit/audit.*
 If the system is configured to audit this activity, it will return a line.
 
       Is it the case that no line is returned?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-audit_rules_etc_cron_d_question:question:1">
-      <ocil:question_text>
-Verify Amazon Linux 2023 generates audit records for all events that affect "/etc/cron.d/" with the following command:
-
-$ sudo auditctl -l | grep /etc/cron.d/
-
--w /etc/cron.d/ -p wa -k cronjobs
-      Is it the case that the command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-audit_rules_execution_chacl_question:question:1">
@@ -10312,16 +10301,6 @@ $ sudo auditctl -l | grep /etc/shadow
       Is it the case that command does not return a line, or the line is commented out?
       </ocil:question_text>
     </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-audit_rules_var_spool_cron_question:question:1">
-      <ocil:question_text>
-Verify Amazon Linux 2023 generates audit records for all events that affect "/var/spool/cron" with the following command:
-
-$ sudo auditctl -l | grep /var/spool/cron
-
--w /var/spool/cron -p wa -k cronjobs
-      Is it the case that command does not return a line, or the line is commented out?
-      </ocil:question_text>
-    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-audit_sudo_log_events_question:question:1">
       <ocil:question_text>
 Verify Amazon Linux 2023 generates audit records for all events that affect "/var/log/sudo.log" with the following command:
@@ -10722,6 +10701,13 @@ Storage=none
       Is it the case that Storage is not set to none or is commented out and the need for core dumps is not documented with the Information System Security Officer (ISSO) as an operational requirement for all domains that have the "core" item assigned?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-crypto_policy_not_overridden_question:question:1">
+      <ocil:question_text>Verify that the cryptographic policy has not been overridden by running:
+$ sudo update-crypto-policies --check
+If compliant, the output confirms the configured policy matches the generated policy.
+      Is it the case that the configured policy does not match the generated policy?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-dconf_db_up_to_date_question:question:1">
       <ocil:question_text>In order to be sure that the databases are up-to-date, run the
 dconf update
@@ -11098,7 +11084,7 @@ $ grep localpkg_gpgcheck /etc/dnf/dnf.conf
 
 localpkg_gpgcheck=1
 
-If "localpkg_gpgcheck" is not set to "1", or if the option is missing or commented out, ask the System Administrator how the certificates for patches and other operating system components are verified.
+If "localpkg_gpgcheck" is not set to "1", "True", or "yes", or if the option is missing or commented out, ask the System Administrator how the certificates for patches and other operating system components are verified.
       Is it the case that there is no process to validate certificates for local packages that is approved by the organization?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -11178,12 +11164,16 @@ stat: cannot stat `/etc/at.deny': No such file or directory
 
 Check the group-owner of each audit tool by running the following command:
 
+
 $ sudo stat -c "%G %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/rsyslogd /sbin/augenrules
+
 
 root /sbin/auditctl
 root /sbin/aureport
 root /sbin/ausearch
+
 root /sbin/autrace
+
 root /sbin/auditd
 root /sbin/rsyslogd
 root /sbin/augenrules
@@ -11195,12 +11185,16 @@ root /sbin/augenrules
 
 Check the owner of each audit tool by running the following command:
 
+
 $ sudo stat -c "%U %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/rsyslogd /sbin/augenrules
+
 
 root /sbin/auditctl
 root /sbin/aureport
 root /sbin/ausearch
+
 root /sbin/autrace
+
 root /sbin/auditd
 root /sbin/rsyslogd
 root /sbin/augenrules
@@ -11211,6 +11205,7 @@ root /sbin/augenrules
       <ocil:question_text>Verify the audit tools are protected from unauthorized access, deletion, or modification by checking the permissive mode.
 
 Check the octal permission of each audit tool by running the following command:
+
 
 $ sudo stat -c "%U %n" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/rsyslogd /sbin/augenrules
       Is it the case that any of these files have more permissive permissions than 0755?
@@ -11645,8 +11640,12 @@ To properly set the group owner of /etc/audit/rules.d/, run the command:
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_groupownership_home_directories_question:question:1">
       <ocil:question_text>To verify the assigned home directory of all interactive users is group-
-owned by that users primary GID, run the following command:
-# ls -ld $(awk -F: '($3&gt;=1000)&amp;&amp;($7 !~ /nologin/){print $6}' /etc/passwd)
+owned by that user's primary GID, run the following command:
+# ls -ld $(getent passwd | awk -F: '($3&gt;=1000)&amp;&amp;($7 !~ /nologin/)&amp;&amp;($7 !~ /\/false$/){print $6}')
+
+This should return a list of home directories with group ownership matching each user's primary group.
+Using getent passwd instead of reading /etc/passwd directly ensures that remote users
+(LDAP, SSSD, NIS, etc.) are also checked.
       Is it the case that the group ownership is incorrect?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -12019,7 +12018,7 @@ There should be no output.
     <ocil:boolean_question id="ocil:ssg-file_permission_user_init_files_root_question:question:1">
       <ocil:question_text>To verify that all user initialization files have a mode of 0740 or
 less permissive, run the following command:
-$ sudo find /home -type f -name '\.*' \( -perm -0002 -o -perm -0020 \)
+$ sudo find /root /home -type f -name '\.*' \( -perm -0002 -o -perm -0020 \)
 There should be no output.
       Is it the case that they are not 0740 or more permissive?
       </ocil:question_text>
@@ -12069,6 +12068,14 @@ correct permissions.
 $ sudo chmod 0640 /etc/audit/
 To properly set the permissions of /etc/audit/rules.d/, run the command:
 $ sudo chmod 0640 /etc/audit/rules.d/
+      Is it the case that ?
+      </ocil:question_text>
+    </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_permissions_audit_configuration_stig_question:question:1">
+      <ocil:question_text>To properly set the permissions of /etc/audit/, run the command:
+$ sudo chmod 0600 /etc/audit/
+To properly set the permissions of /etc/audit/rules.d/, run the command:
+$ sudo chmod 0600 /etc/audit/rules.d/
       Is it the case that ?
       </ocil:question_text>
     </ocil:boolean_question>
@@ -12160,6 +12167,19 @@ If properly configured, the output should indicate the following permissions:
       Is it the case that /etc/cron.monthly does not have unix mode -rwx------?
       </ocil:question_text>
     </ocil:boolean_question>
+    <ocil:boolean_question id="ocil:ssg-file_permissions_cron_not_modified_question:question:1">
+      <ocil:question_text>Verify Amazon Linux 2023 is configured so that the permissions
+of cron configuration files and directories are not modified.
+
+Check the permissions of the cron configuration files and directories
+with the following command:
+
+$ rpm --verify cronie crontabs | awk '! ($2 == "c" &amp;&amp; $1 ~ /^.\..\.\.\.\..\./) {print $0}'
+
+If the command returns any output, this is a finding.
+      Is it the case that the command returns any output?
+      </ocil:question_text>
+    </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_permissions_cron_weekly_question:question:1">
       <ocil:question_text>To check the permissions of /etc/cron.weekly,
 run the command:
@@ -12176,15 +12196,6 @@ $ ls -l /etc/crontab
 If properly configured, the output should indicate the following permissions:
 -rw-------
       Is it the case that /etc/crontab does not have unix mode -rw-------?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-file_permissions_etc_audit_auditd_question:question:1">
-      <ocil:question_text>To check the permissions of /etc/audit/auditd.conf,
-run the command:
-$ ls -l /etc/audit/auditd.conf
-If properly configured, the output should indicate the following permissions:
--rw-r-----
-      Is it the case that /etc/audit/auditd.conf does not have unix mode -rw-r-----?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-file_permissions_etc_group_question:question:1">
@@ -12403,7 +12414,7 @@ $ sudo firewall-cmd --list-rich-rules --zone=trusted
 The following rich-rules should be listed:
 
 rule family="ipv4" source address="127.0.0.1" destination not address="127.0.0.1" drop
-rule family="ipv6" source address="::1" destination not address="127.0.0.1" drop
+rule family="ipv6" source address="::1" destination not address="::1" drop
 
       Is it the case that loopback traffic is not restricted?
       </ocil:question_text>
@@ -13206,11 +13217,6 @@ $ sudo find / -name '.shosts'
     <ocil:boolean_question id="ocil:ssg-package_chrony_installed_question:question:1">
       <ocil:question_text>Run the following command to determine if the chrony package is installed: $ rpm -q chrony
       Is it the case that the chrony package is not installed?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-package_cron_installed_question:question:1">
-      <ocil:question_text>Run the following command to determine if the cron package is installed: $ rpm -q cron
-      Is it the case that the cron package is not installed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-package_crypto-policies_installed_question:question:1">
@@ -14168,14 +14174,6 @@ UnitFileState=masked
 $ sudo ssh-keygen -y -f /path/to/file
 If the contents of the key are displayed, this is a finding.
       Is it the case that no ssh private key is accessible without a passcode?
-      </ocil:question_text>
-    </ocil:boolean_question>
-    <ocil:boolean_question id="ocil:ssg-sshd_disable_compression_question:question:1">
-      <ocil:question_text>To check if compression is enabled or set correctly, run the
-following command:
-$ sudo grep Compression /etc/ssh/sshd_config
-If configured properly, output should be no or delayed.
-      Is it the case that it is commented out, or is not set to no or delayed?
       </ocil:question_text>
     </ocil:boolean_question>
     <ocil:boolean_question id="ocil:ssg-sshd_disable_empty_passwords_question:question:1">

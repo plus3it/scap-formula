@@ -2,7 +2,7 @@
 <oval-def:oval_definitions xmlns:ind="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:linux="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:unix="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#independent independent-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd  http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
   <oval-def:generator>
     <oval:product_name>build_cpe.py from SCAP Security Guide</oval:product_name>
-    <oval:product_version>ssg: [0, 1, 81], python: 3.12.3</oval:product_version>
+    <oval:product_version>ssg: [0, 1, 82], python: 3.12.3</oval:product_version>
     <oval:schema_version>5.11</oval:schema_version>
     <oval:timestamp>2021-03-02T15:45:39</oval:timestamp>
   </oval-def:generator>
@@ -17,7 +17,6 @@
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="kernel is installed" test_ref="oval:ssg-bootc_platform_test_kernel_installed:tst:1"/>
-        <oval-def:criterion comment="rpm-ostree is installed" test_ref="oval:ssg-bootc_platform_test_rpm_ostree_installed:tst:1"/>
         <oval-def:criterion comment="bootc is installed" test_ref="oval:ssg-bootc_platform_test_bootc_installed:tst:1"/>
         <oval-def:criteria operator="OR">
           <oval-def:criterion comment="/run/ostree-booted exists, suggesting that we are in a running bootc environment" test_ref="oval:ssg-bootc_platform_test_run_ostree_booted_exists:tst:1"/>
@@ -222,13 +221,7 @@
       </oval-def:metadata>
       <oval-def:criteria operator="AND">
         <oval-def:criterion comment="Installed operating system is part of the unix family" test_ref="oval:ssg-test_rhel10_unix_family:tst:1"/>
-        <oval-def:criteria operator="OR">
-          <oval-def:criterion comment="RHEL 10 is installed" test_ref="oval:ssg-test_rhel10:tst:1"/>
-          <oval-def:criteria comment="Red Hat Enterprise Virtualization Host is installed" operator="AND">
-            <oval-def:criterion comment="Red Hat Virtualization Host (RHVH)" test_ref="oval:ssg-test_rhvh4_version:tst:1"/>
-            <oval-def:criterion comment="Red Hat Enterprise Virtualization Host is based on RHEL 10" test_ref="oval:ssg-test_rhevh_rhel10_version:tst:1"/>
-          </oval-def:criteria>
-        </oval-def:criteria>
+        <oval-def:criterion comment="RHEL 10 is installed" test_ref="oval:ssg-test_rhel10:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-installed_env_is_osbuild:def:1" version="2" class="inventory">
@@ -244,7 +237,7 @@
         <oval-def:criterion comment="Check the value of container variable" test_ref="oval:ssg-test_installed_env_is_osbuild:tst:1"/>
       </oval-def:criteria>
     </oval-def:definition>
-    <oval-def:definition id="oval:ssg-ipv6_enabled:def:1" version="1" class="inventory">
+    <oval-def:definition id="oval:ssg-ipv6_enabled:def:1" version="2" class="inventory">
       <oval-def:metadata>
         <oval-def:title>IPv6 is enabled on system</oval-def:title>
         <oval-def:affected family="unix">
@@ -253,8 +246,31 @@
         <oval-def:description/>
       </oval-def:metadata>
       <oval-def:criteria operator="OR">
-        <oval-def:criterion comment="check if ipv6.disable argument is correct in GRUB_CMDLINE_LINUX" test_ref="oval:ssg-test_grub2_ipv6_disable_is_correct:tst:1"/>
-        <oval-def:criterion comment="check if ipv6.disable parameter is defined in /etc/default/grub" test_ref="oval:ssg-test_grub2_ipv6_disable_is_absent:tst:1"/>
+        <oval-def:criteria operator="AND">
+          <oval-def:extend_definition comment="Verify system is in RHEL Image Mode (bootc)" definition_ref="oval:ssg-bootc:def:1"/>
+          <oval-def:criterion negate="true" comment="check if ipv6.disable=1 is not set in /usr/lib/bootc/kargs.d/*.toml" test_ref="oval:ssg-test_ipv6_enabled_bootc_kargs_ipv6_disable_is_set:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:extend_definition negate="true" comment="Verify system is NOT in RHEL Image Mode (bootc)" definition_ref="oval:ssg-bootc:def:1"/>
+          <oval-def:criterion negate="true" comment="check if ipv6.disable=1 is not set in GRUB_CMDLINE_LINUX" test_ref="oval:ssg-test_ipv6_enabled_grub2_ipv6_disable_is_set:tst:1"/>
+        </oval-def:criteria>
+      </oval-def:criteria>
+    </oval-def:definition>
+    <oval-def:definition id="oval:ssg-installed_env_mount_boot-efi:def:1" version="1" class="inventory">
+      <oval-def:metadata>
+        <oval-def:title>Mountpoint /boot/efi is active (mounted) or configured in /etc/fstab</oval-def:title>
+        <oval-def:affected family="unix">
+          <oval-def:platform>Red Hat Enterprise Linux 10</oval-def:platform>
+        </oval-def:affected>
+        <oval-def:description/>
+      </oval-def:metadata>
+      <oval-def:criteria operator="OR">
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /boot/efi is an active (mounted) mount point" test_ref="oval:ssg-test_mount_active_boot_efi_exists:tst:1"/>
+        </oval-def:criteria>
+        <oval-def:criteria operator="AND">
+          <oval-def:criterion comment="The path /boot/efi is a mount point configured in /etc/fstab" test_ref="oval:ssg-test_mount_configured_fstab_boot_efi_exists:tst:1"/>
+        </oval-def:criteria>
       </oval-def:criteria>
     </oval-def:definition>
     <oval-def:definition id="oval:ssg-installed_env_mount_home:def:1" version="1" class="inventory">
@@ -993,9 +1009,6 @@
     <linux:rpminfo_test id="oval:ssg-bootc_platform_test_kernel_installed:tst:1" version="1" check="all" comment="package kernel-core is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_bootc_platform_test_kernel_installed:obj:1"/>
     </linux:rpminfo_test>
-    <linux:rpminfo_test id="oval:ssg-bootc_platform_test_rpm_ostree_installed:tst:1" version="1" check="all" comment="package rpm-ostree is installed" check_existence="all_exist" state_operator="AND">
-      <linux:object object_ref="oval:ssg-obj_bootc_platform_test_rpm_ostree_installed:obj:1"/>
-    </linux:rpminfo_test>
     <linux:rpminfo_test id="oval:ssg-bootc_platform_test_bootc_installed:tst:1" version="1" check="all" comment="package bootc is installed" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-obj_bootc_platform_test_bootc_installed:obj:1"/>
     </linux:rpminfo_test>
@@ -1065,14 +1078,6 @@
       <linux:object object_ref="oval:ssg-obj_rhel10:obj:1"/>
       <linux:state state_ref="oval:ssg-state_rhel10:ste:1"/>
     </linux:rpminfo_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_rhevh_rhel10_version:tst:1" version="1" check="all" comment="RHEVH base RHEL is version 10" state_operator="AND">
-      <ind:object object_ref="oval:ssg-obj_rhevh_rhel10_version:obj:1"/>
-      <ind:state state_ref="oval:ssg-state_rhevh_rhel10_version:ste:1"/>
-    </ind:textfilecontent54_test>
-    <linux:rpminfo_test id="oval:ssg-test_rhvh4_version:tst:1" version="1" check="all" comment="redhat-release-virtualization-host RPM package is installed" check_existence="only_one_exists" state_operator="AND">
-      <linux:object object_ref="oval:ssg-obj_rhvh4_version:obj:1"/>
-      <linux:state state_ref="oval:ssg-state_rhvh4_version:ste:1"/>
-    </linux:rpminfo_test>
     <ind:environmentvariable58_test id="oval:ssg-test_installed_env_is_osbuild:tst:1" version="1" check="all" comment="environment variable container is set to bwrap-osbuild" check_existence="all_exist" state_operator="AND">
       <ind:object object_ref="oval:ssg-object_installed_env_is_osbuild:obj:1"/>
       <ind:state state_ref="oval:ssg-state_installed_env_is_osbuild:ste:1"/>
@@ -1081,12 +1086,19 @@
       <unix:object object_ref="oval:ssg-object_system_info_architecture_ppcle_64:obj:1"/>
       <unix:state state_ref="oval:ssg-state_system_info_architecture_ppcle_64:ste:1"/>
     </unix:uname_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_grub2_ipv6_disable_is_correct:tst:1" version="1" check="all" comment="check GRUB_CMDLINE_LINUX parameters in /etc/default/grub" check_existence="all_exist" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_grub2_ipv6_disable_parameter:obj:1"/>
-      <ind:state state_ref="oval:ssg-state_grub2_ipv6_disable_argument:ste:1"/>
+    <ind:textfilecontent54_test id="oval:ssg-test_ipv6_enabled_bootc_kargs_ipv6_disable_is_set:tst:1" version="1" check="at least one" comment="check if ipv6.disable=1 is set in /usr/lib/bootc/kargs.d/*.toml" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_ipv6_enabled_bootc_kargs_ipv6_disable_parameter:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_ipv6_enabled_ipv6_disable_argument:ste:1"/>
     </ind:textfilecontent54_test>
-    <ind:textfilecontent54_test id="oval:ssg-test_grub2_ipv6_disable_is_absent:tst:1" version="1" check="all" comment="ipv6.disable is not defined in /etc/default/grub" check_existence="none_exist" state_operator="AND">
-      <ind:object object_ref="oval:ssg-object_grub2_ipv6_disable_parameter:obj:1"/>
+    <ind:textfilecontent54_test id="oval:ssg-test_ipv6_enabled_grub2_ipv6_disable_is_set:tst:1" version="1" check="all" comment="check if ipv6.disable=1 is set in GRUB_CMDLINE_LINUX in /etc/default/grub" check_existence="all_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_ipv6_enabled_grub2_ipv6_disable_parameter:obj:1"/>
+      <ind:state state_ref="oval:ssg-state_ipv6_enabled_ipv6_disable_argument:ste:1"/>
+    </ind:textfilecontent54_test>
+    <linux:partition_test id="oval:ssg-test_mount_active_boot_efi_exists:tst:1" version="1" check="all" comment="Mountpoint /boot/efi exists" check_existence="all_exist" state_operator="AND">
+      <linux:object object_ref="oval:ssg-object_mount_active_boot_efi_exists:obj:1"/>
+    </linux:partition_test>
+    <ind:textfilecontent54_test id="oval:ssg-test_mount_configured_fstab_boot_efi_exists:tst:1" version="1" check="all" comment="Mountpoint /boot/efi is configured" check_existence="all_exist" state_operator="AND">
+      <ind:object object_ref="oval:ssg-object_mount_configured_fstab_boot_efi_exists:obj:1"/>
     </ind:textfilecontent54_test>
     <linux:partition_test id="oval:ssg-test_mount_active_home_exists:tst:1" version="1" check="all" comment="Mountpoint /home exists" check_existence="all_exist" state_operator="AND">
       <linux:object object_ref="oval:ssg-object_mount_active_home_exists:obj:1"/>
@@ -1336,9 +1348,6 @@
     <linux:rpminfo_object id="oval:ssg-obj_bootc_platform_test_kernel_installed:obj:1" version="1">
       <linux:name>kernel-core</linux:name>
     </linux:rpminfo_object>
-    <linux:rpminfo_object id="oval:ssg-obj_bootc_platform_test_rpm_ostree_installed:obj:1" version="1">
-      <linux:name>rpm-ostree</linux:name>
-    </linux:rpminfo_object>
     <linux:rpminfo_object id="oval:ssg-obj_bootc_platform_test_bootc_installed:obj:1" version="1">
       <linux:name>bootc</linux:name>
     </linux:rpminfo_object>
@@ -1413,23 +1422,29 @@
     <linux:rpminfo_object id="oval:ssg-obj_rhel10:obj:1" version="1">
       <linux:name>redhat-release</linux:name>
     </linux:rpminfo_object>
-    <ind:textfilecontent54_object id="oval:ssg-obj_rhevh_rhel10_version:obj:1" version="1">
-      <ind:filepath>/etc/redhat-release</ind:filepath>
-      <ind:pattern operation="pattern match">^Red Hat Enterprise Linux release (\d)\.\d+$</ind:pattern>
-      <ind:instance operation="greater than or equal" datatype="int">1</ind:instance>
-    </ind:textfilecontent54_object>
-    <linux:rpminfo_object id="oval:ssg-obj_rhvh4_version:obj:1" version="1">
-      <linux:name>redhat-release-virtualization-host</linux:name>
-    </linux:rpminfo_object>
     <ind:environmentvariable58_object id="oval:ssg-object_installed_env_is_osbuild:obj:1" version="1">
       <ind:pid xsi:nil="true" datatype="int"/>
       <ind:name>container</ind:name>
     </ind:environmentvariable58_object>
     <unix:uname_object id="oval:ssg-object_system_info_architecture_ppcle_64:obj:1" version="1" comment="64 bit architecture"/>
-    <ind:textfilecontent54_object id="oval:ssg-object_grub2_ipv6_disable_parameter:obj:1" version="1">
+    <ind:textfilecontent54_object id="oval:ssg-object_ipv6_enabled_bootc_kargs_ipv6_disable_parameter:obj:1" version="1">
+      <ind:path>/usr/lib/bootc/kargs.d/</ind:path>
+      <ind:filename operation="pattern match">^.*\.toml$</ind:filename>
+      <ind:pattern operation="pattern match">^kargs\s*=\s*\[.*"ipv6\.disable=(\d+)".*\]$</ind:pattern>
+      <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_ipv6_enabled_grub2_ipv6_disable_parameter:obj:1" version="1">
       <ind:filepath>/etc/default/grub</ind:filepath>
       <ind:pattern operation="pattern match">^\s*GRUB_CMDLINE_LINUX=".*ipv6\.disable=(\d).*$</ind:pattern>
       <ind:instance datatype="int" operation="greater than or equal">1</ind:instance>
+    </ind:textfilecontent54_object>
+    <linux:partition_object id="oval:ssg-object_mount_active_boot_efi_exists:obj:1" version="1">
+      <linux:mount_point>/boot/efi</linux:mount_point>
+    </linux:partition_object>
+    <ind:textfilecontent54_object id="oval:ssg-object_mount_configured_fstab_boot_efi_exists:obj:1" version="1">
+      <ind:filepath>/etc/fstab</ind:filepath>
+      <ind:pattern operation="pattern match">^[\s]*[\S]+[\s]+/boot/efi[\s]+[\S]+[\s]+([\S]+)</ind:pattern>
+      <ind:instance datatype="int">1</ind:instance>
     </ind:textfilecontent54_object>
     <linux:partition_object id="oval:ssg-object_mount_active_home_exists:obj:1" version="1">
       <linux:mount_point>/home</linux:mount_point>
@@ -1711,20 +1726,14 @@
     <linux:rpminfo_state id="oval:ssg-state_rhel10:ste:1" version="1" operator="AND">
       <linux:version operation="pattern match">^10.*$</linux:version>
     </linux:rpminfo_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_rhevh_rhel10_version:ste:1" version="1" operator="AND">
-      <ind:subexpression operation="pattern match">10</ind:subexpression>
-    </ind:textfilecontent54_state>
-    <linux:rpminfo_state id="oval:ssg-state_rhvh4_version:ste:1" version="1" operator="AND">
-      <linux:evr datatype="evr_string" operation="greater than or equal">0:4.4</linux:evr>
-    </linux:rpminfo_state>
     <ind:environmentvariable58_state id="oval:ssg-state_installed_env_is_osbuild:ste:1" version="1" operator="AND">
       <ind:value>bwrap-osbuild</ind:value>
     </ind:environmentvariable58_state>
     <unix:uname_state id="oval:ssg-state_system_info_architecture_ppcle_64:ste:1" version="1" operator="AND" comment="64 bit architecture">
       <unix:processor_type operation="equals">ppc64le</unix:processor_type>
     </unix:uname_state>
-    <ind:textfilecontent54_state id="oval:ssg-state_grub2_ipv6_disable_argument:ste:1" version="1" operator="AND">
-      <ind:subexpression datatype="int" operation="equals">0</ind:subexpression>
+    <ind:textfilecontent54_state id="oval:ssg-state_ipv6_enabled_ipv6_disable_argument:ste:1" version="1" operator="AND">
+      <ind:subexpression datatype="int" operation="equals">1</ind:subexpression>
     </ind:textfilecontent54_state>
     <ind:textfilecontent54_state id="oval:ssg-state_os_id_is_os_linux_ol_gt_or_eq_8_7:ste:1" version="1" operator="AND">
       <ind:subexpression operation="pattern match">ol</ind:subexpression>
